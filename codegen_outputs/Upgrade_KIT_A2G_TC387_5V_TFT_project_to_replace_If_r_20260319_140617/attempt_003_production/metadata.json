@@ -1,0 +1,16 @@
+{
+  "attempt": 3,
+  "phase_attempt": 3,
+  "phase": "production",
+  "timestamp": "2026-03-19T14:18:13.429856",
+  "success": false,
+  "files": [
+    "gtm_tom_3_phase_inverter_pwm.h",
+    "gtm_tom_3_phase_inverter_pwm.c"
+  ],
+  "errors": [
+    "Function 'unknown' from API contract not found in production header",
+    "Function 'unknown' from API contract not found in production header"
+  ],
+  "build_result": null
+}
