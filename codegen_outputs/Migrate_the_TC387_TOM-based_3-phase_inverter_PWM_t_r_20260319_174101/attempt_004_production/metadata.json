@@ -1,0 +1,302 @@
+{
+  "attempt": 4,
+  "phase_attempt": 4,
+  "phase": "production",
+  "timestamp": "2026-03-19T18:07:37.706104",
+  "success": false,
+  "files": [
+    "egtm_atom_3_phase_inverter_pwm.h",
+    "egtm_atom_3_phase_inverter_pwm.c"
+  ],
+  "errors": [
+    "redefinition of 's_selectClkInput_count'",
+    "redefinition of 's_selectClkInput_count'",
+    "redefinition of 's_selectClkInput_count'",
+    "redefinition of 'IfxEgtm_Cmu_Mock_GetCallCount_selectClkInput'",
+    "aggregate value used where an integer was expected",
+    "aggregate value used where an integer was expected",
+    "aggregate value used where an integer was expected",
+    "aggregate value used where an integer was expected",
+    "aggregate value used where an integer was expected",
+    "aggregate value used where an integer was expected"
+  ],
+  "build_result": {
+    "success": false,
+    "errors": [
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\mocks\\IfxEgtm_Cmu.c",
+        "line": 25,
+        "column": 15,
+        "message": "redefinition of 's_selectClkInput_count'",
+        "category": "unknown",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\mocks\\IfxEgtm_Cmu.c",
+        "line": 27,
+        "column": 15,
+        "message": "redefinition of 's_selectClkInput_count'",
+        "category": "unknown",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\mocks\\IfxEgtm_Cmu.c",
+        "line": 29,
+        "column": 15,
+        "message": "redefinition of 's_selectClkInput_count'",
+        "category": "unknown",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\mocks\\IfxEgtm_Cmu.c",
+        "line": 42,
+        "column": 8,
+        "message": "redefinition of 'IfxEgtm_Cmu_Mock_GetCallCount_selectClkInput'",
+        "category": "illd_api_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\mocks\\IfxEgtm_Dtm.c",
+        "line": 28,
+        "column": 5,
+        "message": "aggregate value used where an integer was expected",
+        "category": "syntax_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\mocks\\IfxEgtm_Dtm.c",
+        "line": 36,
+        "column": 5,
+        "message": "aggregate value used where an integer was expected",
+        "category": "syntax_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\mocks\\IfxEgtm_Dtm.c",
+        "line": 44,
+        "column": 5,
+        "message": "aggregate value used where an integer was expected",
+        "category": "syntax_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\mocks\\IfxEgtm_Dtm.c",
+        "line": 52,
+        "column": 5,
+        "message": "aggregate value used where an integer was expected",
+        "category": "syntax_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\mocks\\IfxEgtm_Dtm.c",
+        "line": 60,
+        "column": 5,
+        "message": "aggregate value used where an integer was expected",
+        "category": "syntax_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\mocks\\IfxEgtm_Dtm.c",
+        "line": 68,
+        "column": 5,
+        "message": "aggregate value used where an integer was expected",
+        "category": "syntax_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\mocks\\IfxEgtm_Dtm.c",
+        "line": 76,
+        "column": 5,
+        "message": "aggregate value used where an integer was expected",
+        "category": "syntax_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\mocks\\IfxPort.c",
+        "line": 20,
+        "column": 15,
+        "message": "redefinition of 's_setPinModeOutput_count'",
+        "category": "unknown",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\mocks\\IfxPort.c",
+        "line": 22,
+        "column": 15,
+        "message": "redefinition of 's_setPinModeOutput_count'",
+        "category": "unknown",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\mocks\\IfxPort.c",
+        "line": 36,
+        "column": 8,
+        "message": "redefinition of 'IfxPort_Mock_GetCallCount_setPinModeOutput'",
+        "category": "illd_api_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+        "line": 97,
+        "column": 12,
+        "message": "nested function 'typeof' declared 'extern'",
+        "category": "unknown",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+        "line": 97,
+        "column": 12,
+        "message": "return type defaults to 'int' [-Wimplicit-int]",
+        "category": "unknown",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+        "line": 97,
+        "column": 37,
+        "message": "expected declaration specifiers before 'g_egtmAtom3phInv'",
+        "category": "syntax_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+        "line": 98,
+        "column": 5,
+        "message": "parameter 'd0' is initialized",
+        "category": "unknown",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+        "line": 99,
+        "column": 5,
+        "message": "parameter 'd1' is initialized",
+        "category": "unknown",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+        "line": 100,
+        "column": 5,
+        "message": "parameter 'd2' is initialized",
+        "category": "unknown",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\unity/unity_internals.h",
+        "line": 1119,
+        "column": 98,
+        "message": "expected declaration specifiers before 'UnityAssertFloatsWithin'",
+        "category": "syntax_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\unity/unity_internals.h",
+        "line": 1119,
+        "column": 98,
+        "message": "expected declaration specifiers before 'UnityAssertFloatsWithin'",
+        "category": "syntax_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+        "line": 103,
+        "column": 1,
+        "message": "expected declaration specifiers before '}' token",
+        "category": "syntax_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+        "line": 107,
+        "column": 1,
+        "message": "expected '=', ',', ';', 'asm' or '__attribute__' before '{' token",
+        "category": "syntax_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+        "line": 138,
+        "column": 1,
+        "message": "expected '=', ',', ';', 'asm' or '__attribute__' before '{' token",
+        "category": "syntax_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+        "line": 162,
+        "column": 1,
+        "message": "expected '=', ',', ';', 'asm' or '__attribute__' before '{' token",
+        "category": "syntax_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+        "line": 184,
+        "column": 1,
+        "message": "expected '=', ',', ';', 'asm' or '__attribute__' before '{' token",
+        "category": "syntax_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+        "line": 97,
+        "column": 12,
+        "message": "type of 'g_egtmAtom3phInv' defaults to 'int' [-Wimplicit-int]",
+        "category": "unknown",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+        "line": 100,
+        "column": 11,
+        "message": "declaration for parameter 'd2' but no such parameter",
+        "category": "unknown",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+        "line": 99,
+        "column": 11,
+        "message": "declaration for parameter 'd1' but no such parameter",
+        "category": "unknown",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+        "line": 98,
+        "column": 11,
+        "message": "declaration for parameter 'd0' but no such parameter",
+        "category": "unknown",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+        "line": 208,
+        "column": 1,
+        "message": "expected declaration or statement at end of input",
+        "category": "syntax_error",
+        "severity": "error"
+      }
+    ],
+    "warnings": [
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+        "line": 97,
+        "column": 12,
+        "message": "'typeof' defined but not used [-Wunused-function]",
+        "severity": "warning"
+      },
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+        "line": 19,
+        "column": 14,
+        "message": "'f_absf' defined but not used [-Wunused-function]",
+        "severity": "warning"
+      }
+    ],
+    "stderr": "C:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\mocks\\IfxEgtm_Cmu.c:25:15: error: redefinition of 's_selectClkInput_count'\n   25 | static uint32 s_selectClkInput_count = 0;\n      |               ^~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\mocks\\IfxEgtm_Cmu.c:9:15: note: previous definition of 's_selectClkInput_count' with type 'uint32' {aka 'unsigned int'}\n    9 | static uint32 s_selectClkInput_count = 0u;\n      |               ^~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\mocks\\IfxEgtm_Cmu.c:27:15: error: redefinition of 's_selectClkInput_count'\n   27 | static uint32 s_selectClkInput_count = 0;\n      |               ^~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\mocks\\IfxEgtm_Cmu.c:25:15: note: previous definition of 's_selectClkInput_count' with type 'uint32' {aka 'unsigned int'}\n   25 | static uint32 s_selectClkInput_count = 0;\n      |               ^~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\mocks\\IfxEgtm_Cmu.c:29:15: error: redefinition of 's_selectClkInput_count'\n   29 | static uint32 s_selectClkInput_count = 0;\n      |               ^~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\mocks\\IfxEgtm_Cmu.c:27:15: note: previous definition of 's_selectClkInput_count' with type 'uint32' {aka 'unsigned int'}\n   27 | static uint32 s_selectClkInput_count = 0;\n      |               ^~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\mocks\\IfxEgtm_Cmu.c:42:8: error: redefinition of 'IfxEgtm_Cmu_Mock_GetCallCount_selectClkInput'\n   42 | uint32 IfxEgtm_Cmu_Mock_GetCallCount_selectClkInput(void) {\n      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\mocks\\IfxEgtm_Cmu.c:38:8: note: previous definition of 'IfxEgtm_Cmu_Mock_GetCallCount_selectClkInput' with type 'uint32(void)' {aka 'unsigned int(void)'}\n   38 | uint32 IfxEgtm_Cmu_Mock_GetCallCount_selectClkInput(void) {\n      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\mocks\\IfxEgtm_Dtm.c: In function 'IfxEgtm_Dtm_setRelrise':\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\mocks\\IfxEgtm_Dtm.c:28:5: error: aggregate value used where an integer was expected\n   28 |     s_setRelrise_lastChannel = (uint32)channel;\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\mocks\\IfxEgtm_Dtm.c: In function 'IfxEgtm_Dtm_setOutput0DeadTimePath':\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\mocks\\IfxEgtm_Dtm.c:36:5: error: aggregate value used where an integer was expected\n   36 |     s_setOutput0DeadTimePath_lastChannel = (uint32)channel;\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\mocks\\IfxEgtm_Dtm.c: In function 'IfxEgtm_Dtm_setRelfall':\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\mocks\\IfxEgtm_Dtm.c:44:5: error: aggregate value used where an integer was expected\n   44 |     s_setRelfall_lastChannel = (uint32)channel;\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\mocks\\IfxEgtm_Dtm.c: In function 'IfxEgtm_Dtm_setOutput1DeadTimePath':\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\mocks\\IfxEgtm_Dtm.c:52:5: error: aggregate value used where an integer was expected\n   52 |     s_setOutput1DeadTimePath_lastChannel = (uint32)channel;\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\mocks\\IfxEgtm_Dtm.c: In function 'IfxEgtm_Dtm_setOutput1Polarity':\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\mocks\\IfxEgtm_Dtm.c:60:5: error: aggregate value used where an integer was expected\n   60 |     s_setOutput1Polarity_lastChannel = (uint32)channel;\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\mocks\\IfxEgtm_Dtm.c: In function 'IfxEgtm_Dtm_setOutput1Select':\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\mocks\\IfxEgtm_Dtm.c:68:5: error: aggregate value used where an integer was expected\n   68 |     s_setOutput1Select_lastChannel = (uint32)channel;\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\mocks\\IfxEgtm_Dtm.c: In function 'IfxEgtm_Dtm_setOutput1Function':\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\mocks\\IfxEgtm_Dtm.c:76:5: error: aggregate value used where an integer was expected\n   76 |     s_setOutput1Function_lastChannel = (uint32)channel;\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\mocks\\IfxPort.c:20:15: error: redefinition of 's_setPinModeOutput_count'\n   20 | static uint32 s_setPinModeOutput_count = 0;\n      |               ^~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\mocks\\IfxPort.c:18:15: note: previous definition of 's_setPinModeOutput_count' with type 'uint32' {aka 'unsigned int'}\n   18 | static uint32 s_setPinModeOutput_count = 0;\n      |               ^~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\mocks\\IfxPort.c:22:15: error: redefinition of 's_setPinModeOutput_count'\n   22 | static uint32 s_setPinModeOutput_count = 0;\n      |               ^~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\mocks\\IfxPort.c:20:15: note: previous definition of 's_setPinModeOutput_count' with type 'uint32' {aka 'unsigned int'}\n   20 | static uint32 s_setPinModeOutput_count = 0;\n      |               ^~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\mocks\\IfxPort.c:36:8: error: redefinition of 'IfxPort_Mock_GetCallCount_setPinModeOutput'\n   36 | uint32 IfxPort_Mock_GetCallCount_setPinModeOutput(void) {\n      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\mocks\\IfxPort.c:32:8: note: previous definition of 'IfxPort_Mock_GetCallCount_setPinModeOutput' with type 'uint32(void)' {aka 'unsigned int(void)'}\n   32 | uint32 IfxPort_Mock_GetCallCount_setPinModeOutput(void) {\n      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\test\\test_egtm_atom_3_phase_inverter_pwm.c: In function 'test_initEgtmAtom3phInv_SetsExpectedConfigValues':\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\test\\test_egtm_atom_3_phase_inverter_pwm.c:97:12: error: nested function 'typeof' declared 'extern'\n   97 |     extern typeof(g_egtmAtom3phInv) g_egtmAtom3phInv; // already declared in header; 'typeof' avoids redeclaring the type\n      |            ^~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\test\\test_egtm_atom_3_phase_inverter_pwm.c:97:12: error: return type defaults to 'int' [-Wimplicit-int]\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\test\\test_egtm_atom_3_phase_inverter_pwm.c: In function 'typeof':\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\test\\test_egtm_atom_3_phase_inverter_pwm.c:97:37: error: expected declaration specifiers before 'g_egtmAtom3phInv'\n   97 |     extern typeof(g_egtmAtom3phInv) g_egtmAtom3phInv; // already declared in header; 'typeof' avoids redeclaring the type\n      |                                     ^~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\test\\test_egtm_atom_3_phase_inverter_pwm.c:98:5: error: parameter 'd0' is initialized\n   98 |     float d0 = g_egtmAtom3phInv.dutyCycles[0];\n      |     ^~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\test\\test_egtm_atom_3_phase_inverter_pwm.c:99:5: error: parameter 'd1' is initialized\n   99 |     float d1 = g_egtmAtom3phInv.dutyCycles[1];\n      |     ^~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\test\\test_egtm_atom_3_phase_inverter_pwm.c:100:5: error: parameter 'd2' is initialized\n  100 |     float d2 = g_egtmAtom3phInv.dutyCycles[2];\n      |     ^~~~~\nIn file included from C:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\unity/unity.h:22,\n                 from C:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\test\\test_egtm_atom_3_phase_inverter_pwm.c:1:\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\unity/unity_internals.h:1119:98: error: expected declaration specifiers before 'UnityAssertFloatsWithin'\n 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))\n      |                                                                                                  ^~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\unity/unity.h:350:100: note: in expansion of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'\n  350 | #define TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual)                                          UNITY_TEST_ASSERT_FLOAT_WITHIN((delta), (expected), (actual), __LINE__, NULL)\n      |                                                                                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\test\\test_egtm_atom_3_phase_inverter_pwm.c:101:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN'\n  101 |     TEST_ASSERT_FLOAT_WITHIN(0.001f, d0, d1);\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\unity/unity_internals.h:1119:98: error: expected declaration specifiers before 'UnityAssertFloatsWithin'\n 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))\n      |                                                                                                  ^~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\unity/unity.h:350:100: note: in expansion of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'\n  350 | #define TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual)                                          UNITY_TEST_ASSERT_FLOAT_WITHIN((delta), (expected), (actual), __LINE__, NULL)\n      |                                                                                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\test\\test_egtm_atom_3_phase_inverter_pwm.c:102:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN'\n  102 |     TEST_ASSERT_FLOAT_WITHIN(0.001f, d1, d2);\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\test\\test_egtm_atom_3_phase_inverter_pwm.c:103:1: error: expected declaration specifiers before '}' token\n  103 | }\n      | ^\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\test\\test_egtm_atom_3_phase_inverter_pwm.c:107:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token\n  107 | {\n      | ^\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\test\\test_egtm_atom_3_phase_inverter_pwm.c:138:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token\n  138 | {\n      | ^\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\test\\test_egtm_atom_3_phase_inverter_pwm.c:162:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token\n  162 | {\n      | ^\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\test\\test_egtm_atom_3_phase_inverter_pwm.c:184:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token\n  184 | {\n      | ^\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\test\\test_egtm_atom_3_phase_inverter_pwm.c:97:12: error: type of 'g_egtmAtom3phInv' defaults to 'int' [-Wimplicit-int]\n   97 |     extern typeof(g_egtmAtom3phInv) g_egtmAtom3phInv; // already declared in header; 'typeof' avoids redeclaring the type\n      |            ^~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\test\\test_egtm_atom_3_phase_inverter_pwm.c:100:11: error: declaration for parameter 'd2' but no such parameter\n  100 |     float d2 = g_egtmAtom3phInv.dutyCycles[2];\n      |           ^~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\test\\test_egtm_atom_3_phase_inverter_pwm.c:99:11: error: declaration for parameter 'd1' but no such parameter\n   99 |     float d1 = g_egtmAtom3phInv.dutyCycles[1];\n      |           ^~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\test\\test_egtm_atom_3_phase_inverter_pwm.c:98:11: error: declaration for parameter 'd0' but no such parameter\n   98 |     float d0 = g_egtmAtom3phInv.dutyCycles[0];\n      |           ^~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\test\\test_egtm_atom_3_phase_inverter_pwm.c:210: error: expected '{' at end of input\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\test\\test_egtm_atom_3_phase_inverter_pwm.c: In function 'test_initEgtmAtom3phInv_SetsExpectedConfigValues':\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\test\\test_egtm_atom_3_phase_inverter_pwm.c:208:1: error: expected declaration or statement at end of input\n  208 | }\n      | ^\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\test\\test_egtm_atom_3_phase_inverter_pwm.c: At top level:\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\test\\test_egtm_atom_3_phase_inverter_pwm.c:97:12: warning: 'typeof' defined but not used [-Wunused-function]\n   97 |     extern typeof(g_egtmAtom3phInv) g_egtmAtom3phInv; // already declared in header; 'typeof' avoids redeclaring the type\n      |            ^~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\CodeGen_Output\\c5bc9be6-7a3\\Migrate_the_TC387_TOM-based_3-phase_inverter_PWM_t_r_20260319_174101\\attempts\\attempt_004_build\\test\\test_egtm_atom_3_phase_inverter_pwm.c:19:14: warning: 'f_absf' defined but not used [-Wunused-function]\n   19 | static float f_absf(float x) { return (x < 0.0f) ? -x : x; }\n      |              ^~~~~~\n",
+    "stdout": ""
+  }
+}
