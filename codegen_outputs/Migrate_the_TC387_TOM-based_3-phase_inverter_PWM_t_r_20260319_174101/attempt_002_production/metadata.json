@@ -1,0 +1,12 @@
+{
+  "attempt": 2,
+  "phase_attempt": 2,
+  "phase": "production",
+  "timestamp": "2026-03-19T17:56:32.928350",
+  "success": false,
+  "files": [],
+  "errors": [
+    "JSON parse error: Could not parse JSON"
+  ],
+  "build_result": null
+}
