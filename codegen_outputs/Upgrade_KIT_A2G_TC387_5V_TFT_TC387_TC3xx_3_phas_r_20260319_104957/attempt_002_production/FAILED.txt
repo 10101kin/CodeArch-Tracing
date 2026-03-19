@@ -1,0 +1,199 @@
+Attempt 2 - PRODUCTION (Global: 2)
+Status: FAILED ❌
+Timestamp: 2026-03-19 11:09:05
+Files generated: 2
+
+============================================================
+
+ERRORS:
+
+1. conflicting types for 'IfxGtm_Tom_Timer_init'; have 'boolean(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)' {aka 'unsigned char(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)'}
+
+2. conflicting types for 'IfxGtm_Tom_Timer_run'; have 'void(IfxGtm_Tom_Timer *)'
+
+3. conflicting types for 'GtmTom3phInv_Driver'; have 'struct <anonymous>'
+
+4. conflicting types for 's_drv'; have 'GtmTom3phInv_Driver'
+
+5. redefinition of 's_getFxClkFrequency_count'
+
+6. redefinition of 'IfxGtm_Cmu_Mock_GetCallCount_getFxClkFrequency'
+
+7. 's_setClkFrequency_count' undeclared (first use in this function); did you mean 's_getFxClkFrequency_count'?
+
+8. redefinition of 's_setTomTout_count'
+
+9. redefinition of 's_setTomTout_count'
+
+10. redefinition of 'IfxGtm_PinMap_Mock_GetCallCount_setTomTout'
+
+============================================================
+BUILD RESULT:
+{
+  "success": false,
+  "errors": [
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\include/IfxGtm_Tom_Timer.h",
+      "line": 12,
+      "column": 14,
+      "message": "conflicting types for 'IfxGtm_Tom_Timer_init'; have 'boolean(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)' {aka 'unsigned char(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)'}",
+      "category": "type_mismatch",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\include/IfxGtm_Tom_Timer.h",
+      "line": 14,
+      "column": 14,
+      "message": "conflicting types for 'IfxGtm_Tom_Timer_run'; have 'void(IfxGtm_Tom_Timer *)'",
+      "category": "type_mismatch",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 15,
+      "column": 3,
+      "message": "conflicting types for 'GtmTom3phInv_Driver'; have 'struct <anonymous>'",
+      "category": "type_mismatch",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 18,
+      "column": 32,
+      "message": "conflicting types for 's_drv'; have 'GtmTom3phInv_Driver'",
+      "category": "type_mismatch",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\mocks\\IfxGtm_Cmu.c",
+      "line": 23,
+      "column": 15,
+      "message": "redefinition of 's_getFxClkFrequency_count'",
+      "category": "unknown",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\mocks\\IfxGtm_Cmu.c",
+      "line": 37,
+      "column": 8,
+      "message": "redefinition of 'IfxGtm_Cmu_Mock_GetCallCount_getFxClkFrequency'",
+      "category": "illd_api_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\mocks\\IfxGtm_Cmu.c",
+      "line": 50,
+      "column": 5,
+      "message": "'s_setClkFrequency_count' undeclared (first use in this function); did you mean 's_getFxClkFrequency_count'?",
+      "category": "unknown",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\mocks\\IfxGtm_PinMap.c",
+      "line": 11,
+      "column": 15,
+      "message": "redefinition of 's_setTomTout_count'",
+      "category": "unknown",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\mocks\\IfxGtm_PinMap.c",
+      "line": 13,
+      "column": 15,
+      "message": "redefinition of 's_setTomTout_count'",
+      "category": "unknown",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\mocks\\IfxGtm_PinMap.c",
+      "line": 26,
+      "column": 8,
+      "message": "redefinition of 'IfxGtm_PinMap_Mock_GetCallCount_setTomTout'",
+      "category": "illd_api_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\include/IfxGtm_Tom_Timer.h",
+      "line": 12,
+      "column": 14,
+      "message": "conflicting types for 'IfxGtm_Tom_Timer_init'; have 'boolean(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)' {aka 'unsigned char(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)'}",
+      "category": "type_mismatch",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\include/IfxGtm_Tom_Timer.h",
+      "line": 14,
+      "column": 14,
+      "message": "conflicting types for 'IfxGtm_Tom_Timer_run'; have 'void(IfxGtm_Tom_Timer *)'",
+      "category": "type_mismatch",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\mocks\\IfxGtm_Tom_Timer.c",
+      "line": 21,
+      "column": 9,
+      "message": "conflicting types for 'IfxGtm_Tom_Timer_init'; have 'boolean(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)' {aka 'unsigned char(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)'}",
+      "category": "type_mismatch",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\mocks\\IfxGtm_Tom_Timer.c",
+      "line": 36,
+      "column": 6,
+      "message": "conflicting types for 'IfxGtm_Tom_Timer_run'; have 'void(IfxGtm_Tom_Timer *)'",
+      "category": "type_mismatch",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\include/IfxGtm_Tom_Timer.h",
+      "line": 12,
+      "column": 14,
+      "message": "conflicting types for 'IfxGtm_Tom_Timer_init'; have 'boolean(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)' {aka 'unsigned char(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)'}",
+      "category": "type_mismatch",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\include/IfxGtm_Tom_Timer.h",
+      "line": 14,
+      "column": 14,
+      "message": "conflicting types for 'IfxGtm_Tom_Timer_run'; have 'void(IfxGtm_Tom_Timer *)'",
+      "category": "type_mismatch",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\test\\test_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 109,
+      "column": 27,
+      "message": "'g_gtmTom3PhaseInverterPwm' undeclared (first use in this function)",
+      "category": "unknown",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\test\\test_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 171,
+      "column": 27,
+      "message": "'g_gtmTom3PhaseInverterPwm' undeclared (first use in this function)",
+      "category": "unknown",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\test\\test_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 200,
+      "column": 27,
+      "message": "'g_gtmTom3PhaseInverterPwm' undeclared (first use in this function)",
+      "category": "unknown",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\test\\test_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 227,
+      "column": 27,
+      "message": "'g_gtmTom3PhaseInverterPwm' undeclared (first use in this function)",
+      "category": "unknown",
+      "severity": "error"
+    }
+  ],
+  "warnings": [],
+  "stderr": "In file included from C:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\include/gtm_tom_3_phase_inverter_pwm.h:15,\n                 from C:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\src\\gtm_tom_3_phase_inverter_pwm.c:1:\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\include/IfxGtm_Tom_Timer.h:12:14: error: conflicting types for 'IfxGtm_Tom_Timer_init'; have 'boolean(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)' {aka 'unsigned char(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)'}\n   12 | boolean      IfxGtm_Tom_Timer_init(IfxGtm_Tom_Timer *driver, const IfxGtm_Tom_Timer_Config *config);\n      |              ^~~~~~~~~~~~~~~~~~~~~\nIn file included from C:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\include/IfxGtm_Tom_Timer.h:4:\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\include/IfxGtm_Tom.h:20:6: note: previous declaration of 'IfxGtm_Tom_Timer_init' with type 'void(void *, void *)'\n   20 | void IfxGtm_Tom_Timer_init(void *driver, void *config);\n      |      ^~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\include/IfxGtm_Tom_Timer.h:14:14: error: conflicting types for 'IfxGtm_Tom_Timer_run'; have 'void(IfxGtm_Tom_Timer *)'\n   14 | void         IfxGtm_Tom_Timer_run(IfxGtm_Tom_Timer *driver);\n      |              ^~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\include/IfxGtm_Tom.h:21:6: note: previous declaration of 'IfxGtm_Tom_Timer_run' with type 'void(void *)'\n   21 | void IfxGtm_Tom_Timer_run(void *driver);\n      |      ^~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\src\\gtm_tom_3_phase_inverter_pwm.c:15:3: error: conflicting types for 'GtmTom3phInv_Driver'; have 'struct <anonymous>'\n   15 | } GtmTom3phInv_Driver;\n      |   ^~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\include/gtm_tom_3_phase_inverter_pwm.h:104:3: note: previous declaration of 'GtmTom3phInv_Driver' with type 'GtmTom3phInv_Driver'\n  104 | } GtmTom3phInv_Driver;\n      |   ^~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\src\\gtm_tom_3_phase_inverter_pwm.c:18:32: error: conflicting types for 's_drv'; have 'GtmTom3phInv_Driver'\n   18 | IFX_STATIC GtmTom3phInv_Driver s_drv;                       /* PWM driver state */\n      |                                ^~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\include/gtm_tom_3_phase_inverter_pwm.h:107:28: note: previous declaration of 's_drv' with type 'GtmTom3phInv_Driver'\n  107 | extern GtmTom3phInv_Driver s_drv;  /* exposed for TDD test verification */\n      |                            ^~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\mocks\\IfxGtm_Cmu.c:23:15: error: redefinition of 's_getFxClkFrequency_count'\n   23 | static uint32 s_getFxClkFrequency_count = 0;\n      |               ^~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\mocks\\IfxGtm_Cmu.c:21:15: note: previous definition of 's_getFxClkFrequency_count' with type 'uint32' {aka 'unsigned int'}\n   21 | static uint32 s_getFxClkFrequency_count = 0;\n      |               ^~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\mocks\\IfxGtm_Cmu.c:37:8: error: redefinition of 'IfxGtm_Cmu_Mock_GetCallCount_getFxClkFrequency'\n   37 | uint32 IfxGtm_Cmu_Mock_GetCallCount_getFxClkFrequency(void) {\n      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\mocks\\IfxGtm_Cmu.c:33:8: note: previous definition of 'IfxGtm_Cmu_Mock_GetCallCount_getFxClkFrequency' with type 'uint32(void)' {aka 'unsigned int(void)'}\n   33 | uint32 IfxGtm_Cmu_Mock_GetCallCount_getFxClkFrequency(void) {\n      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\mocks\\IfxGtm_Cmu.c: In function 'IfxGtm_Cmu_Mock_Reset':\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\mocks\\IfxGtm_Cmu.c:50:5: error: 's_setClkFrequency_count' undeclared (first use in this function); did you mean 's_getFxClkFrequency_count'?\n   50 |     s_setClkFrequency_count = 0;\n      |     ^~~~~~~~~~~~~~~~~~~~~~~\n      |     s_getFxClkFrequency_count\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\mocks\\IfxGtm_Cmu.c:50:5: note: each undeclared identifier is reported only once for each function it appears in\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\mocks\\IfxGtm_PinMap.c:11:15: error: redefinition of 's_setTomTout_count'\n   11 | static uint32 s_setTomTout_count = 0;\n      |               ^~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\mocks\\IfxGtm_PinMap.c:7:15: note: previous definition of 's_setTomTout_count' with type 'uint32' {aka 'unsigned int'}\n    7 | static uint32 s_setTomTout_count = 0u;\n      |               ^~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\mocks\\IfxGtm_PinMap.c:13:15: error: redefinition of 's_setTomTout_count'\n   13 | static uint32 s_setTomTout_count = 0;\n      |               ^~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\mocks\\IfxGtm_PinMap.c:11:15: note: previous definition of 's_setTomTout_count' with type 'uint32' {aka 'unsigned int'}\n   11 | static uint32 s_setTomTout_count = 0;\n      |               ^~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\mocks\\IfxGtm_PinMap.c:26:8: error: redefinition of 'IfxGtm_PinMap_Mock_GetCallCount_setTomTout'\n   26 | uint32 IfxGtm_PinMap_Mock_GetCallCount_setTomTout(void) {\n      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\mocks\\IfxGtm_PinMap.c:22:8: note: previous definition of 'IfxGtm_PinMap_Mock_GetCallCount_setTomTout' with type 'uint32(void)' {aka 'unsigned int(void)'}\n   22 | uint32 IfxGtm_PinMap_Mock_GetCallCount_setTomTout(void) {\n      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nIn file included from C:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\mocks\\IfxGtm_Tom_Timer.c:1:\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\include/IfxGtm_Tom_Timer.h:12:14: error: conflicting types for 'IfxGtm_Tom_Timer_init'; have 'boolean(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)' {aka 'unsigned char(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)'}\n   12 | boolean      IfxGtm_Tom_Timer_init(IfxGtm_Tom_Timer *driver, const IfxGtm_Tom_Timer_Config *config);\n      |              ^~~~~~~~~~~~~~~~~~~~~\nIn file included from C:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\include/IfxGtm_Tom_Timer.h:4:\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\include/IfxGtm_Tom.h:20:6: note: previous declaration of 'IfxGtm_Tom_Timer_init' with type 'void(void *, void *)'\n   20 | void IfxGtm_Tom_Timer_init(void *driver, void *config);\n      |      ^~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\include/IfxGtm_Tom_Timer.h:14:14: error: conflicting types for 'IfxGtm_Tom_Timer_run'; have 'void(IfxGtm_Tom_Timer *)'\n   14 | void         IfxGtm_Tom_Timer_run(IfxGtm_Tom_Timer *driver);\n      |              ^~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\include/IfxGtm_Tom.h:21:6: note: previous declaration of 'IfxGtm_Tom_Timer_run' with type 'void(void *)'\n   21 | void IfxGtm_Tom_Timer_run(void *driver);\n      |      ^~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\mocks\\IfxGtm_Tom_Timer.c:21:9: error: conflicting types for 'IfxGtm_Tom_Timer_init'; have 'boolean(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)' {aka 'unsigned char(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)'}\n   21 | boolean IfxGtm_Tom_Timer_init(IfxGtm_Tom_Timer *driver, const IfxGtm_Tom_Timer_Config *config) {\n      |         ^~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\include/IfxGtm_Tom.h:20:6: note: previous declaration of 'IfxGtm_Tom_Timer_init' with type 'void(void *, void *)'\n   20 | void IfxGtm_Tom_Timer_init(void *driver, void *config);\n      |      ^~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\mocks\\IfxGtm_Tom_Timer.c:36:6: error: conflicting types for 'IfxGtm_Tom_Timer_run'; have 'void(IfxGtm_Tom_Timer *)'\n   36 | void IfxGtm_Tom_Timer_run(IfxGtm_Tom_Timer *driver) {\n      |      ^~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\include/IfxGtm_Tom.h:21:6: note: previous declaration of 'IfxGtm_Tom_Timer_run' with type 'void(void *)'\n   21 | void IfxGtm_Tom_Timer_run(void *driver);\n      |      ^~~~~~~~~~~~~~~~~~~~\nIn file included from C:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\include/gtm_tom_3_phase_inverter_pwm.h:15,\n                 from C:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\test\\test_gtm_tom_3_phase_inverter_pwm.c:2:\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\include/IfxGtm_Tom_Timer.h:12:14: error: conflicting types for 'IfxGtm_Tom_Timer_init'; have 'boolean(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)' {aka 'unsigned char(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)'}\n   12 | boolean      IfxGtm_Tom_Timer_init(IfxGtm_Tom_Timer *driver, const IfxGtm_Tom_Timer_Config *config);\n      |              ^~~~~~~~~~~~~~~~~~~~~\nIn file included from C:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\include/IfxGtm_Tom_Timer.h:4:\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\include/IfxGtm_Tom.h:20:6: note: previous declaration of 'IfxGtm_Tom_Timer_init' with type 'void(void *, void *)'\n   20 | void IfxGtm_Tom_Timer_init(void *driver, void *config);\n      |      ^~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\include/IfxGtm_Tom_Timer.h:14:14: error: conflicting types for 'IfxGtm_Tom_Timer_run'; have 'void(IfxGtm_Tom_Timer *)'\n   14 | void         IfxGtm_Tom_Timer_run(IfxGtm_Tom_Timer *driver);\n      |              ^~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\include/IfxGtm_Tom.h:21:6: note: previous declaration of 'IfxGtm_Tom_Timer_run' with type 'void(void *)'\n   21 | void IfxGtm_Tom_Timer_run(void *driver);\n      |      ^~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\test\\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_initGtmTomPwm_SetsExpectedConfigValues':\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\test\\test_gtm_tom_3_phase_inverter_pwm.c:109:27: error: 'g_gtmTom3PhaseInverterPwm' undeclared (first use in this function)\n  109 |     const float *duties = g_gtmTom3PhaseInverterPwm.dutyCycles;  // six elements\n      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\test\\test_gtm_tom_3_phase_inverter_pwm.c:109:27: note: each undeclared identifier is reported only once for each function it appears in\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\test\\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_updateGtmTomPwmDutyCycles_SingleCall_UpdatesValues':\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\test\\test_gtm_tom_3_phase_inverter_pwm.c:171:27: error: 'g_gtmTom3PhaseInverterPwm' undeclared (first use in this function)\n  171 |     const float *duties = g_gtmTom3PhaseInverterPwm.dutyCycles;\n      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\test\\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_updateGtmTomPwmDutyCycles_MultipleCalls_ProgressesCorrectly':\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\test\\test_gtm_tom_3_phase_inverter_pwm.c:200:27: error: 'g_gtmTom3PhaseInverterPwm' undeclared (first use in this function)\n  200 |     const float *duties = g_gtmTom3PhaseInverterPwm.dutyCycles;\n      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\test\\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_updateGtmTomPwmDutyCycles_BoundaryWrapAround':\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3_phas_r_20260319_104957\\attempts\\attempt_002_build\\test\\test_gtm_tom_3_phase_inverter_pwm.c:227:27: error: 'g_gtmTom3PhaseInverterPwm' undeclared (first use in this function)\n  227 |     const float *duties = g_gtmTom3PhaseInverterPwm.dutyCycles;\n      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~\n",
+  "stdout": ""
+}
