@@ -1,0 +1,335 @@
+{
+  "attempt": 3,
+  "phase_attempt": 3,
+  "phase": "production",
+  "timestamp": "2026-03-23T03:09:52.671547",
+  "success": false,
+  "files": [
+    "egtm_atom_3_phase_inverter_pwm.h",
+    "egtm_atom_3_phase_inverter_pwm.c"
+  ],
+  "errors": [
+    "expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'",
+    "expected expression before '/' token",
+    "expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'",
+    "expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'",
+    "expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'",
+    "expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'",
+    "expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'",
+    "expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'",
+    "aggregate value used where an integer was expected",
+    "redefinition of 's_requestDuty_count'"
+  ],
+  "build_result": {
+    "success": false,
+    "errors": [
+      {
+        "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\include/illd_types/Ifx_Types.h",
+        "line": 811,
+        "column": 37,
+        "message": "expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'",
+        "category": "syntax_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\src\\egtm_atom_3_phase_inverter_pwm.c",
+        "line": 128,
+        "column": 63,
+        "message": "expected expression before '/' token",
+        "category": "syntax_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\include/illd_types/Ifx_Types.h",
+        "line": 811,
+        "column": 37,
+        "message": "expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'",
+        "category": "syntax_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\include/illd_types/Ifx_Types.h",
+        "line": 811,
+        "column": 37,
+        "message": "expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'",
+        "category": "syntax_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\include/illd_types/Ifx_Types.h",
+        "line": 811,
+        "column": 37,
+        "message": "expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'",
+        "category": "syntax_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\include/illd_types/Ifx_Types.h",
+        "line": 811,
+        "column": 37,
+        "message": "expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'",
+        "category": "syntax_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\include\\illd_types/Ifx_Types.h",
+        "line": 811,
+        "column": 37,
+        "message": "expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'",
+        "category": "syntax_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\include/illd_types/Ifx_Types.h",
+        "line": 811,
+        "column": 37,
+        "message": "expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'",
+        "category": "syntax_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\mocks\\IfxEgtm_Pwm.c",
+        "line": 59,
+        "column": 9,
+        "message": "aggregate value used where an integer was expected",
+        "category": "syntax_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\mocks\\IfxEgtm_Pwm.c",
+        "line": 207,
+        "column": 15,
+        "message": "redefinition of 's_requestDuty_count'",
+        "category": "unknown",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\mocks\\IfxEgtm_Pwm.c",
+        "line": 220,
+        "column": 8,
+        "message": "redefinition of 'IfxEgtm_Pwm_Mock_GetArgHistoryCount_updateChannelsDutyImmediate_Mock_GetCallCount_requestDuty'",
+        "category": "illd_api_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\mocks\\IfxEgtm_Pwm.c",
+        "line": 225,
+        "column": 15,
+        "message": "redefinition of 's_requestDuty_count'",
+        "category": "unknown",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\mocks\\IfxEgtm_Pwm.c",
+        "line": 227,
+        "column": 15,
+        "message": "redefinition of 's_requestDuty_count'",
+        "category": "unknown",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\mocks\\IfxEgtm_Pwm.c",
+        "line": 229,
+        "column": 15,
+        "message": "redefinition of 's_requestDuty_count'",
+        "category": "unknown",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\mocks\\IfxEgtm_Pwm.c",
+        "line": 242,
+        "column": 8,
+        "message": "redefinition of 'IfxEgtm_Pwm_Mock_GetArgHistory_updateChannelsDutyImmediate_Mock_GetCallCount_requestDuty'",
+        "category": "illd_api_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\mocks\\IfxEgtm_Pwm.c",
+        "line": 246,
+        "column": 8,
+        "message": "redefinition of 'IfxEgtm_Pwm_Mock_GetArgHistory_updateChannelsDutyImmediate_Mock_GetCallCount_requestDuty'",
+        "category": "illd_api_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\mocks\\IfxEgtm_Pwm.c",
+        "line": 251,
+        "column": 15,
+        "message": "redefinition of 's_requestDuty_count'",
+        "category": "unknown",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\mocks\\IfxEgtm_Pwm.c",
+        "line": 253,
+        "column": 15,
+        "message": "redefinition of 's_requestDuty_count'",
+        "category": "unknown",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\mocks\\IfxEgtm_Pwm.c",
+        "line": 255,
+        "column": 15,
+        "message": "redefinition of 's_requestDuty_count'",
+        "category": "unknown",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\mocks\\IfxEgtm_Pwm.c",
+        "line": 268,
+        "column": 8,
+        "message": "redefinition of 'IfxEgtm_Pwm_Mock_GetLastArrayArg_updateChannelsDutyImmediate_Mock_GetCallCount_requestDuty'",
+        "category": "illd_api_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\mocks\\IfxEgtm_Pwm.c",
+        "line": 272,
+        "column": 8,
+        "message": "redefinition of 'IfxEgtm_Pwm_Mock_GetLastArrayArg_updateChannelsDutyImmediate_Mock_GetCallCount_requestDuty'",
+        "category": "illd_api_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\include\\illd_types/Ifx_Types.h",
+        "line": 811,
+        "column": 37,
+        "message": "expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'",
+        "category": "syntax_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\include\\illd_types/Ifx_Types.h",
+        "line": 811,
+        "column": 37,
+        "message": "expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'",
+        "category": "syntax_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\include/illd_types/Ifx_Types.h",
+        "line": 811,
+        "column": 37,
+        "message": "expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'",
+        "category": "syntax_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\include\\illd_types/Ifx_Types.h",
+        "line": 811,
+        "column": 37,
+        "message": "expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'",
+        "category": "syntax_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\include/illd_types/Ifx_Types.h",
+        "line": 811,
+        "column": 37,
+        "message": "expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'",
+        "category": "syntax_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\test\\test_EGTM_ATOM_3_Phase_Inverter_PWM.c",
+        "line": 99,
+        "column": 21,
+        "message": "void value not ignored as it ought to be",
+        "category": "unknown",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\test\\test_EGTM_ATOM_3_Phase_Inverter_PWM.c",
+        "line": 100,
+        "column": 21,
+        "message": "void value not ignored as it ought to be",
+        "category": "unknown",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\test\\test_EGTM_ATOM_3_Phase_Inverter_PWM.c",
+        "line": 101,
+        "column": 21,
+        "message": "void value not ignored as it ought to be",
+        "category": "unknown",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity_internals.h",
+        "line": 904,
+        "column": 169,
+        "message": "invalid use of void expression",
+        "category": "unknown",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\test\\test_EGTM_ATOM_3_Phase_Inverter_PWM.c",
+        "line": 127,
+        "column": 23,
+        "message": "void value not ignored as it ought to be",
+        "category": "unknown",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\test\\test_EGTM_ATOM_3_Phase_Inverter_PWM.c",
+        "line": 128,
+        "column": 23,
+        "message": "void value not ignored as it ought to be",
+        "category": "unknown",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\test\\test_EGTM_ATOM_3_Phase_Inverter_PWM.c",
+        "line": 135,
+        "column": 23,
+        "message": "void value not ignored as it ought to be",
+        "category": "unknown",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\test\\test_EGTM_ATOM_3_Phase_Inverter_PWM.c",
+        "line": 136,
+        "column": 23,
+        "message": "void value not ignored as it ought to be",
+        "category": "unknown",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\test\\test_EGTM_ATOM_3_Phase_Inverter_PWM.c",
+        "line": 154,
+        "column": 20,
+        "message": "void value not ignored as it ought to be",
+        "category": "unknown",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\test\\test_EGTM_ATOM_3_Phase_Inverter_PWM.c",
+        "line": 163,
+        "column": 24,
+        "message": "void value not ignored as it ought to be",
+        "category": "unknown",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\test\\test_EGTM_ATOM_3_Phase_Inverter_PWM.c",
+        "line": 169,
+        "column": 29,
+        "message": "void value not ignored as it ought to be",
+        "category": "unknown",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\test\\test_EGTM_ATOM_3_Phase_Inverter_PWM.c",
+        "line": 170,
+        "column": 29,
+        "message": "void value not ignored as it ought to be",
+        "category": "unknown",
+        "severity": "error"
+      }
+    ],
+    "warnings": [],
+    "stderr": "In file included from C:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\include/Ifx_Types.h:5,\n                 from C:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\include/egtm_atom_3_phase_inverter_pwm.h:4,\n                 from C:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\src\\egtm_atom_3_phase_inverter_pwm.c:1:\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\include/illd_types/Ifx_Types.h:811:37: error: expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'\n  811 |     IfxEgtm_ClApConfig   clApConfig[IFXEGTM_NUM_CCM_OBJECTS];\n      |                                     ^~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\src\\egtm_atom_3_phase_inverter_pwm.c: In function 'initEgtmAtom3phInv':\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\src\\egtm_atom_3_phase_inverter_pwm.c:128:51: warning: '/*' within comment [-Wcomment]\n  128 | /* dtmConfig[0].deadTime = DEADTIME_DEADTIME_SEC; /* 1 us */ */  /* auto-fix: incompatible struct types */\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\src\\egtm_atom_3_phase_inverter_pwm.c:128:63: error: expected expression before '/' token\n  128 | /* dtmConfig[0].deadTime = DEADTIME_DEADTIME_SEC; /* 1 us */ */  /* auto-fix: incompatible struct types */\n      |                                                               ^\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\src\\egtm_atom_3_phase_inverter_pwm.c:129:51: warning: '/*' within comment [-Wcomment]\n  129 | /* dtmConfig[1].deadTime = DEADTIME_DEADTIME_SEC; /* 1 us */ */  /* auto-fix: incompatible struct types */\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\src\\egtm_atom_3_phase_inverter_pwm.c:130:51: warning: '/*' within comment [-Wcomment]\n  130 | /* dtmConfig[2].deadTime = DEADTIME_DEADTIME_SEC; /* 1 us */ */  /* auto-fix: incompatible struct types */\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\src\\egtm_atom_3_phase_inverter_pwm.c: At top level:\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\src\\egtm_atom_3_phase_inverter_pwm.c:68:13: warning: 'errorStatusHook' defined but not used [-Wunused-function]\n   68 | static void errorStatusHook(uint32 errorCode)\n      |             ^~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\include/IfxCpu_Irq.h:4,\n                 from C:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\mocks\\IfxCpu_Irq.c:1:\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\include/illd_types/Ifx_Types.h:811:37: error: expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'\n  811 |     IfxEgtm_ClApConfig   clApConfig[IFXEGTM_NUM_CCM_OBJECTS];\n      |                                     ^~~~~~~~~~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\include/IfxEgtm.h:4,\n                 from C:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\mocks\\IfxEgtm.c:1:\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\include/illd_types/Ifx_Types.h:811:37: error: expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'\n  811 |     IfxEgtm_ClApConfig   clApConfig[IFXEGTM_NUM_CCM_OBJECTS];\n      |                                     ^~~~~~~~~~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\include/IfxEgtm_Atom.h:4,\n                 from C:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\mocks\\IfxEgtm_Atom.c:1:\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\include/illd_types/Ifx_Types.h:811:37: error: expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'\n  811 |     IfxEgtm_ClApConfig   clApConfig[IFXEGTM_NUM_CCM_OBJECTS];\n      |                                     ^~~~~~~~~~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\include/IfxEgtm_Cmu.h:4,\n                 from C:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\mocks\\IfxEgtm_Cmu.c:1:\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\include/illd_types/Ifx_Types.h:811:37: error: expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'\n  811 |     IfxEgtm_ClApConfig   clApConfig[IFXEGTM_NUM_CCM_OBJECTS];\n      |                                     ^~~~~~~~~~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\mocks\\IfxEgtm_PinMap.c:1:\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\include\\illd_types/Ifx_Types.h:811:37: error: expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'\n  811 |     IfxEgtm_ClApConfig   clApConfig[IFXEGTM_NUM_CCM_OBJECTS];\n      |                                     ^~~~~~~~~~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\include/IfxEgtm_Pwm.h:4,\n                 from C:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\mocks\\IfxEgtm_Pwm.c:1:\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\include/illd_types/Ifx_Types.h:811:37: error: expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'\n  811 |     IfxEgtm_ClApConfig   clApConfig[IFXEGTM_NUM_CCM_OBJECTS];\n      |                                     ^~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\mocks\\IfxEgtm_Pwm.c: In function 'IfxEgtm_Pwm_initChannelConfig':\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\mocks\\IfxEgtm_Pwm.c:59:9: error: aggregate value used where an integer was expected\n   59 |         s_initChannelConfig_lastChannel = (uint32)channelConfig->channel;\n      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\mocks\\IfxEgtm_Pwm.c: At top level:\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\mocks\\IfxEgtm_Pwm.c:207:15: error: redefinition of 's_requestDuty_count'\n  207 | static uint32 s_requestDuty_count = 0;\n      |               ^~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\mocks\\IfxEgtm_Pwm.c:205:15: note: previous definition of 's_requestDuty_count' with type 'uint32' {aka 'unsigned int'}\n  205 | static uint32 s_requestDuty_count = 0;\n      |               ^~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\mocks\\IfxEgtm_Pwm.c:220:8: error: redefinition of 'IfxEgtm_Pwm_Mock_GetArgHistoryCount_updateChannelsDutyImmediate_Mock_GetCallCount_requestDuty'\n  220 | uint32 IfxEgtm_Pwm_Mock_GetArgHistoryCount_updateChannelsDutyImmediate_Mock_GetCallCount_requestDuty(void) {\n      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\mocks\\IfxEgtm_Pwm.c:216:8: note: previous definition of 'IfxEgtm_Pwm_Mock_GetArgHistoryCount_updateChannelsDutyImmediate_Mock_GetCallCount_requestDuty' with type 'uint32(void)' {aka 'unsigned int(void)'}\n  216 | uint32 IfxEgtm_Pwm_Mock_GetArgHistoryCount_updateChannelsDutyImmediate_Mock_GetCallCount_requestDuty(void) {\n      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\mocks\\IfxEgtm_Pwm.c:225:15: error: redefinition of 's_requestDuty_count'\n  225 | static uint32 s_requestDuty_count = 0;\n      |               ^~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\mocks\\IfxEgtm_Pwm.c:207:15: note: previous definition of 's_requestDuty_count' with type 'uint32' {aka 'unsigned int'}\n  207 | static uint32 s_requestDuty_count = 0;\n      |               ^~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\mocks\\IfxEgtm_Pwm.c:227:15: error: redefinition of 's_requestDuty_count'\n  227 | static uint32 s_requestDuty_count = 0;\n      |               ^~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\mocks\\IfxEgtm_Pwm.c:225:15: note: previous definition of 's_requestDuty_count' with type 'uint32' {aka 'unsigned int'}\n  225 | static uint32 s_requestDuty_count = 0;\n      |               ^~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\mocks\\IfxEgtm_Pwm.c:229:15: error: redefinition of 's_requestDuty_count'\n  229 | static uint32 s_requestDuty_count = 0;\n      |               ^~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\mocks\\IfxEgtm_Pwm.c:227:15: note: previous definition of 's_requestDuty_count' with type 'uint32' {aka 'unsigned int'}\n  227 | static uint32 s_requestDuty_count = 0;\n      |               ^~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\mocks\\IfxEgtm_Pwm.c:242:8: error: redefinition of 'IfxEgtm_Pwm_Mock_GetArgHistory_updateChannelsDutyImmediate_Mock_GetCallCount_requestDuty'\n  242 | uint32 IfxEgtm_Pwm_Mock_GetArgHistory_updateChannelsDutyImmediate_Mock_GetCallCount_requestDuty(void) {\n      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\mocks\\IfxEgtm_Pwm.c:238:8: note: previous definition of 'IfxEgtm_Pwm_Mock_GetArgHistory_updateChannelsDutyImmediate_Mock_GetCallCount_requestDuty' with type 'uint32(void)' {aka 'unsigned int(void)'}\n  238 | uint32 IfxEgtm_Pwm_Mock_GetArgHistory_updateChannelsDutyImmediate_Mock_GetCallCount_requestDuty(void) {\n      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\mocks\\IfxEgtm_Pwm.c:246:8: error: redefinition of 'IfxEgtm_Pwm_Mock_GetArgHistory_updateChannelsDutyImmediate_Mock_GetCallCount_requestDuty'\n  246 | uint32 IfxEgtm_Pwm_Mock_GetArgHistory_updateChannelsDutyImmediate_Mock_GetCallCount_requestDuty(void) {\n      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\mocks\\IfxEgtm_Pwm.c:238:8: note: previous definition of 'IfxEgtm_Pwm_Mock_GetArgHistory_updateChannelsDutyImmediate_Mock_GetCallCount_requestDuty' with type 'uint32(void)' {aka 'unsigned int(void)'}\n  238 | uint32 IfxEgtm_Pwm_Mock_GetArgHistory_updateChannelsDutyImmediate_Mock_GetCallCount_requestDuty(void) {\n      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\mocks\\IfxEgtm_Pwm.c:251:15: error: redefinition of 's_requestDuty_count'\n  251 | static uint32 s_requestDuty_count = 0;\n      |               ^~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\mocks\\IfxEgtm_Pwm.c:229:15: note: previous definition of 's_requestDuty_count' with type 'uint32' {aka 'unsigned int'}\n  229 | static uint32 s_requestDuty_count = 0;\n      |               ^~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\mocks\\IfxEgtm_Pwm.c:253:15: error: redefinition of 's_requestDuty_count'\n  253 | static uint32 s_requestDuty_count = 0;\n      |               ^~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\mocks\\IfxEgtm_Pwm.c:251:15: note: previous definition of 's_requestDuty_count' with type 'uint32' {aka 'unsigned int'}\n  251 | static uint32 s_requestDuty_count = 0;\n      |               ^~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\mocks\\IfxEgtm_Pwm.c:255:15: error: redefinition of 's_requestDuty_count'\n  255 | static uint32 s_requestDuty_count = 0;\n      |               ^~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\mocks\\IfxEgtm_Pwm.c:253:15: note: previous definition of 's_requestDuty_count' with type 'uint32' {aka 'unsigned int'}\n  253 | static uint32 s_requestDuty_count = 0;\n      |               ^~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\mocks\\IfxEgtm_Pwm.c:268:8: error: redefinition of 'IfxEgtm_Pwm_Mock_GetLastArrayArg_updateChannelsDutyImmediate_Mock_GetCallCount_requestDuty'\n  268 | uint32 IfxEgtm_Pwm_Mock_GetLastArrayArg_updateChannelsDutyImmediate_Mock_GetCallCount_requestDuty(void) {\n      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\mocks\\IfxEgtm_Pwm.c:264:8: note: previous definition of 'IfxEgtm_Pwm_Mock_GetLastArrayArg_updateChannelsDutyImmediate_Mock_GetCallCount_requestDuty' with type 'uint32(void)' {aka 'unsigned int(void)'}\n  264 | uint32 IfxEgtm_Pwm_Mock_GetLastArrayArg_updateChannelsDutyImmediate_Mock_GetCallCount_requestDuty(void) {\n      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\mocks\\IfxEgtm_Pwm.c:272:8: error: redefinition of 'IfxEgtm_Pwm_Mock_GetLastArrayArg_updateChannelsDutyImmediate_Mock_GetCallCount_requestDuty'\n  272 | uint32 IfxEgtm_Pwm_Mock_GetLastArrayArg_updateChannelsDutyImmediate_Mock_GetCallCount_requestDuty(void) {\n      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\mocks\\IfxEgtm_Pwm.c:264:8: note: previous definition of 'IfxEgtm_Pwm_Mock_GetLastArrayArg_updateChannelsDutyImmediate_Mock_GetCallCount_requestDuty' with type 'uint32(void)' {aka 'unsigned int(void)'}\n  264 | uint32 IfxEgtm_Pwm_Mock_GetLastArrayArg_updateChannelsDutyImmediate_Mock_GetCallCount_requestDuty(void) {\n      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\mocks\\IfxPort.c:1:\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\include\\illd_types/Ifx_Types.h:811:37: error: expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'\n  811 |     IfxEgtm_ClApConfig   clApConfig[IFXEGTM_NUM_CCM_OBJECTS];\n      |                                     ^~~~~~~~~~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\mocks\\IfxPort_PinMap.c:1:\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\include\\illd_types/Ifx_Types.h:811:37: error: expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'\n  811 |     IfxEgtm_ClApConfig   clApConfig[IFXEGTM_NUM_CCM_OBJECTS];\n      |                                     ^~~~~~~~~~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\include/IfxWtu.h:4,\n                 from C:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\mocks\\IfxWtu.c:1:\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\include/illd_types/Ifx_Types.h:811:37: error: expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'\n  811 |     IfxEgtm_ClApConfig   clApConfig[IFXEGTM_NUM_CCM_OBJECTS];\n      |                                     ^~~~~~~~~~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\mocks\\Ifx_Types.c:1:\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\include\\illd_types/Ifx_Types.h:811:37: error: expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'\n  811 |     IfxEgtm_ClApConfig   clApConfig[IFXEGTM_NUM_CCM_OBJECTS];\n      |                                     ^~~~~~~~~~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\include/Ifx_Types.h:5,\n                 from C:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\include/egtm_atom_3_phase_inverter_pwm.h:4,\n                 from C:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\test\\test_EGTM_ATOM_3_Phase_Inverter_PWM.c:2:\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\include/illd_types/Ifx_Types.h:811:37: error: expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'\n  811 |     IfxEgtm_ClApConfig   clApConfig[IFXEGTM_NUM_CCM_OBJECTS];\n      |                                     ^~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\test\\test_EGTM_ATOM_3_Phase_Inverter_PWM.c:21:9: warning: 'DEADTIME_DEADTIME_TICKS_AT_CLK0_100MHZ' redefined\n   21 | #define DEADTIME_DEADTIME_TICKS_AT_CLK0_100MHZ            (100)\n      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\include/egtm_atom_3_phase_inverter_pwm.h:31:9: note: this is the location of the previous definition\n   31 | #define DEADTIME_DEADTIME_TICKS_AT_CLK0_100MHZ    (100u)\n      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\test\\test_EGTM_ATOM_3_Phase_Inverter_PWM.c: In function 'test_updateEgtmAtom3phInvDuty_SingleCall_UpdatesValues':\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\test\\test_EGTM_ATOM_3_Phase_Inverter_PWM.c:99:21: error: void value not ignored as it ought to be\n   99 |     float32 dutyU = IfxEgtm_Pwm_Mock_GetLastArrayArg_updateChannelsDutyImmediate_requestDuty(NULL, NULL, 0);\n      |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\test\\test_EGTM_ATOM_3_Phase_Inverter_PWM.c:100:21: error: void value not ignored as it ought to be\n  100 |     float32 dutyV = IfxEgtm_Pwm_Mock_GetLastArrayArg_updateChannelsDutyImmediate_requestDuty(NULL, NULL, 0);\n      |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\test\\test_EGTM_ATOM_3_Phase_Inverter_PWM.c:101:21: error: void value not ignored as it ought to be\n  101 |     float32 dutyW = IfxEgtm_Pwm_Mock_GetLastArrayArg_updateChannelsDutyImmediate_requestDuty(NULL, NULL, 0);\n      |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nIn file included from C:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity.h:22,\n                 from C:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\test\\test_EGTM_ATOM_3_Phase_Inverter_PWM.c:1:\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\test\\test_EGTM_ATOM_3_Phase_Inverter_PWM.c: In function 'test_updateEgtmAtom3phInvDuty_MultipleCalls_ProgressesCorrectly':\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity_internals.h:904:169: error: invalid use of void expression\n  904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)\n      |                                                                                                                                                                         ^\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity.h:154:100: note: in expansion of macro 'UNITY_TEST_ASSERT_EQUAL_UINT32'\n  154 | #define TEST_ASSERT_EQUAL_UINT32(expected, actual)                                                 UNITY_TEST_ASSERT_EQUAL_UINT32( (expected), (actual), __LINE__, NULL)\n      |                                                                                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\test\\test_EGTM_ATOM_3_Phase_Inverter_PWM.c:124:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32'\n  124 |     TEST_ASSERT_EQUAL_UINT32(2, IfxEgtm_Pwm_Mock_GetArgHistoryCount_updateChannelsDutyImmediate_requestDuty(NULL, NULL, 0));\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\test\\test_EGTM_ATOM_3_Phase_Inverter_PWM.c:127:23: error: void value not ignored as it ought to be\n  127 |     float32 u_call1 = IfxEgtm_Pwm_Mock_GetArgHistory_updateChannelsDutyImmediate_requestDuty(NULL, NULL, 0);\n      |                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\test\\test_EGTM_ATOM_3_Phase_Inverter_PWM.c:128:23: error: void value not ignored as it ought to be\n  128 |     float32 u_call2 = IfxEgtm_Pwm_Mock_GetArgHistory_updateChannelsDutyImmediate_requestDuty(NULL, NULL, 0);\n      |                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\test\\test_EGTM_ATOM_3_Phase_Inverter_PWM.c:135:23: error: void value not ignored as it ought to be\n  135 |     float32 v_call2 = IfxEgtm_Pwm_Mock_GetArgHistory_updateChannelsDutyImmediate_requestDuty(NULL, NULL, 0);\n      |                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\test\\test_EGTM_ATOM_3_Phase_Inverter_PWM.c:136:23: error: void value not ignored as it ought to be\n  136 |     float32 w_call2 = IfxEgtm_Pwm_Mock_GetArgHistory_updateChannelsDutyImmediate_requestDuty(NULL, NULL, 0);\n      |                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\test\\test_EGTM_ATOM_3_Phase_Inverter_PWM.c: In function 'test_updateEgtmAtom3phInvDuty_BoundaryWrapAround':\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\test\\test_EGTM_ATOM_3_Phase_Inverter_PWM.c:154:20: error: void value not ignored as it ought to be\n  154 |     float32 prev = IfxEgtm_Pwm_Mock_GetLastArrayArg_updateChannelsDutyImmediate_requestDuty(NULL, NULL, 0);\n      |                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\test\\test_EGTM_ATOM_3_Phase_Inverter_PWM.c:163:24: error: void value not ignored as it ought to be\n  163 |         float32 curr = IfxEgtm_Pwm_Mock_GetLastArrayArg_updateChannelsDutyImmediate_requestDuty(NULL, NULL, 0);\n      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\test\\test_EGTM_ATOM_3_Phase_Inverter_PWM.c:169:29: error: void value not ignored as it ought to be\n  169 |             float32 currV = IfxEgtm_Pwm_Mock_GetLastArrayArg_updateChannelsDutyImmediate_requestDuty(NULL, NULL, 0);\n      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\b353b5c2c9dd\\Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260323_024639\\attempts\\attempt_003_build\\test\\test_EGTM_ATOM_3_Phase_Inverter_PWM.c:170:29: error: void value not ignored as it ought to be\n  170 |             float32 currW = IfxEgtm_Pwm_Mock_GetLastArrayArg_updateChannelsDutyImmediate_requestDuty(NULL, NULL, 0);\n      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n",
+    "stdout": ""
+  }
+}
