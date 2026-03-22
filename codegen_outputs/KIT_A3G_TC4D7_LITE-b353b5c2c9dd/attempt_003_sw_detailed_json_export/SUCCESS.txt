@@ -1,0 +1,7 @@
+Node JSON export
+Stage: sw_detailed
+Reason: stage_completed
+Reviewer: N/A
+Attempt: 3
+Phase attempt: 1
+Timestamp: 2026-03-22T17:54:54.964925

@@ -1,0 +1,74 @@
+{
+  "module_name": "EGTM_ATOM_3_Phase_Inverter_PWM",
+  "public_functions": [
+    {
+      "signature": "void initEgtmAtom3phInv(void)",
+      "behavior_description": "Initialize the eGTM for 3-phase complementary PWM using ATOM with DTM dead-time. Steps: 1) Enable the eGTM module and required clocks. Select the ATOM functional clock (FXCLK0) and set the DTM clock source (CMU CLK0). 2) Initialize the unified PWM configuration structure with defaults for the eGTM module pointer. Configure center-aligned mode, select the ATOM submodule in the required cluster/unit, and define a contiguous base-and-sync channel set (first channel as base, next two channels as synchronous). 3) For each of the three channels, set phase to 0, duty to the required initial percentage (25%, 50%, 75% mapped to the three logical phases), and attach a DTM dead-time configuration with identical rising and falling delay of 1 microsecond. 4) Assign output configuration for each channel with complementary outputs enabled: active-high for the high-side output and active-low for the low-side output. Set output mode to push-pull and the pad driver to cmosAutomotiveSpeed1. Configure the TOUT pin mapping for each assigned output using the generic PinMap API. 5) Initialize the PWM driver with the populated main config and per-channel configurations. 6) Program the target PWM frequency (20 kHz) and apply the requested dead-time to all configured channels. 7) Load the initial duty values for all channels using the non-immediate update path so updates occur synchronously at the period boundary. 8) Start all configured channels synchronously so that all three phases begin at the same time. After this, subsequent duty updates can be performed with synchronous (non-immediate) APIs to honor syncUpdate.",
+      "driver_calls": [
+        "IfxEgtm_enable",
+        "IfxEgtm_Cmu_enableClocks",
+        "IfxEgtm_Dtm_setClockSource",
+        "IfxEgtm_Pwm_initConfig",
+        "IfxEgtm_Pwm_initChannelConfig",
+        "IfxEgtm_Pwm_init",
+        "IfxEgtm_PinMap_setAtomTout",
+        "IfxEgtm_Pwm_updateFrequency",
+        "IfxEgtm_Pwm_updateChannelsDeadTime",
+        "IfxEgtm_Pwm_updateChannelsDuty",
+        "IfxEgtm_Pwm_startSyncedChannels"
+      ],
+      "from_reference": true,
+      "call_context": "init"
+    },
+    {
+      "signature": "void updateEgtmAtom3phInvDuty(void)",
+      "behavior_description": "Perform a synchronous duty-cycle ramp update for all three configured PWM channels. Algorithm: For each phase duty variable, check if (current_duty + DUTY_STEP) would reach or exceed 100%. If so, reset that duty to 0% before applying the increment. Then add DUTY_STEP to each phase duty. After updating the three duty values in software, call the non-immediate multi-channel duty update API so the new duty values are latched and take effect synchronously at the next period boundary, maintaining syncUpdate behavior across all channels.",
+      "driver_calls": [
+        "IfxEgtm_Pwm_updateChannelsDuty"
+      ],
+      "from_reference": true,
+      "call_context": "loop"
+    }
+  ],
+  "private_functions": [
+    {
+      "signature": "static void configureEgtmAtomPins(void)",
+      "needed": false,
+      "from_reference": false
+    }
+  ],
+  "dependencies": {
+    "includes": [
+      "IfxEgtm_Pwm.h",
+      "IfxEgtm_Cmu.h",
+      "IfxEgtm_Dtm.h",
+      "IfxEgtm_PinMap.h",
+      "IfxEgtm.h",
+      "IfxPort.h"
+    ],
+    "driver_calls": [
+      "IfxEgtm_enable",
+      "IfxEgtm_Cmu_enableClocks",
+      "IfxEgtm_Dtm_setClockSource",
+      "IfxEgtm_Pwm_initConfig",
+      "IfxEgtm_Pwm_init"
+    ]
+  },
+  "cpu_main_requirements": {
+    "needs_cpu_sync": true,
+    "uses_timer_delay": true,
+    "delay_ms": 500,
+    "additional_includes": [
+      "Bsp.h"
+    ]
+  },
+  "header_selection": {
+    "applied": true,
+    "peripheral_type": "PWM",
+    "recommended_header": "IfxEgtm_Pwm",
+    "template_functions_count": 1461,
+    "required_includes": [
+      "IfxEgtm_Pwm.h"
+    ]
+  }
+}
