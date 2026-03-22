@@ -1,0 +1,29 @@
+{
+  "attempt": 2,
+  "phase_attempt": 2,
+  "phase": "mock",
+  "timestamp": "2026-03-23T03:05:37.611527",
+  "success": true,
+  "files": [
+    "Ifx_Types.h",
+    "Ifx_Types.c",
+    "IfxEgtm_Pwm.h",
+    "IfxEgtm_Pwm.c",
+    "IfxEgtm_Cmu.h",
+    "IfxEgtm_Cmu.c",
+    "IfxPort.h",
+    "IfxPort.c",
+    "IfxEgtm_PinMap.h",
+    "IfxEgtm_PinMap.c",
+    "IfxCpu_Irq.h",
+    "IfxCpu_Irq.c",
+    "IfxEgtm.h",
+    "IfxEgtm.c",
+    "IfxWtu.h",
+    "IfxWtu.c",
+    "ifxegtm_atom.h",
+    "ifxegtm_atom.c"
+  ],
+  "errors": [],
+  "build_result": null
+}
