@@ -1,0 +1,202 @@
+{
+  "user_intent_preservation": {
+    "original_goal": "Migrate PWM functionality to new AURIX target",
+    "functional_behavior": "Generate 3-phase, 20 kHz, center-aligned complementary PWM on EGTM0.ATOM0 with 1 us dead-time, U/V/W independent duty updates; use channel pairs U=CH0/1, V=CH2/3, W=CH4/5; enable CMU CLK0 at 100 MHz and use it as DTM clock; route period ISR from ATOM0 CH0 SR0 to CPU0 priority 20; keep TOUT/OSEL pin macros TBD until LFBGA-292 tables confirm six valid mappings; basic status/error reporting.",
+    "technical_approach": "Use unified high-level IfxEgtm_Pwm on TC4xx. Configure EGTM0 CMU CLK0 to 100 MHz with IfxEgtm_Cmu_enableClocks/IfxEgtm_Cmu_setClkCount, set DTM clock source from CLK0 via IfxEgtm_Dtm_setClockSource, program dead-time to 100 ticks with IfxEgtm_Dtm_setRelrise/IfxEgtm_Dtm_setRelfall. Initialize EGTM0.ATOM0 base+sync channels (CH0..5 contiguous) with IfxEgtm_Pwm_initConfig/IfxEgtm_Pwm_initChannelConfig/IfxEgtm_Pwm_init for center-aligned mode. Map TOUT pins using IfxEgtm_PinMap_setAtomTout (actual macros left TBD). Install period ISR using IfxCpu_Irq_installInterruptHandler and configure the SRC node for ATOM0 CH0 SR0. Perform U/V/W duty updates using IfxEgtm_Pwm_updateChannelDutyImmediate on CH0, CH2, CH4 (DTM generates complementary)."
+  },
+  "driver_selection": {
+    "recommended_driver": "IfxEgtm_Pwm",
+    "selection_rationale": "Unified EGTM PWM driver exists in the template and directly supports multi-channel, center-aligned, complementary PWM with dead-time and synchronous updates on TC4xx. It matches the migration target and keeps the code simple while satisfying advanced requirements.",
+    "available_in_template": true,
+    "complexity_level": "advanced",
+    "alternatives_considered": [
+      "IfxEgtm_Atom_PwmHl",
+      "IfxEgtm_Atom_Pwm"
+    ]
+  },
+  "driver_usage": {
+    "primary_driver": "IfxEgtm_Pwm",
+    "available_in_template": true,
+    "initialization_apis": [
+      "IfxEgtm_Pwm_initConfig",
+      "IfxEgtm_Pwm_initChannelConfig",
+      "IfxEgtm_Pwm_init"
+    ],
+    "runtime_apis": [
+      "IfxEgtm_Pwm_startSyncedChannels",
+      "IfxEgtm_Pwm_updateChannelDutyImmediate",
+      "IfxEgtm_Pwm_updateChannelsDutyImmediate",
+      "IfxEgtm_Pwm_updateChannelsDeadTime"
+    ]
+  },
+  "file_structure": {
+    "module_files": [
+      "EGTM_ATOM_3_Phase_Inverter_PWM.c",
+      "EGTM_ATOM_3_Phase_Inverter_PWM.h"
+    ],
+    "cpu_files": [
+      "Cpu0_Main.c"
+    ],
+    "from_reference": true
+  },
+  "function_mapping": {
+    "init_function": {
+      "name": "initEgtmAtom3phInv",
+      "driver_calls": [
+        "IfxEgtm_enable",
+        "IfxEgtm_Cmu_enableClocks",
+        "IfxEgtm_Cmu_setClkCount",
+        "IfxEgtm_Dtm_setClockSource",
+        "IfxEgtm_Dtm_setRelrise",
+        "IfxEgtm_Dtm_setRelfall",
+        "IfxEgtm_Atom_PwmHl_initConfig",
+        "IfxEgtm_Atom_PwmHl_initChannelConfig",
+        "IfxEgtm_Atom_PwmHl_init",
+        "IfxEgtm_PinMap_setAtomTout",
+        "IfxCpu_Irq_installInterruptHandler"
+      ]
+    },
+    "runtime_function": {
+      "name": "updateEgtmAtom3phInvDuty",
+      "driver_calls": [
+        "IfxEgtm_Atom_PwmHl_updateChannelDutyImmediate",
+        "IfxEgtm_Atom_PwmHl_updateChannelsDutyImmediate"
+      ],
+      "purpose": "Apply independent duty updates to U/V/W (channels 0,2,4), with complementary outputs and 1 us dead-time enforced by DTM; updates applied immediately or latched for next period as configured."
+    }
+  },
+  "migration_notes": {
+    "is_migration": true,
+    "driver_changes": [
+      "GTM→eGTM: IfxGtm_Pwm → IfxEgtm_Pwm",
+      "Submodule: TOM (TC387) → ATOM (TC4D7) while keeping unified driver",
+      "Pin map header: IfxGtm_PinMap.h → IfxEgtm_PinMap.h",
+      "Watchdog: IfxScuWdt.* → IfxWtu.* (manual adaptation required)"
+    ],
+    "api_changes": [
+      {
+        "from": "initGtmTom3phInv",
+        "to": "initEgtmAtom3phInv",
+        "reason": "TC3xx→TC4xx naming and module migration"
+      },
+      {
+        "from": "updateGtmTom3phInvDuty",
+        "to": "updateEgtmAtom3phInvDuty",
+        "reason": "TC3xx→TC4xx naming and module migration"
+      },
+      {
+        "from": "IfxGtm_Pwm_initConfig / IfxGtm_Pwm_init",
+        "to": "IfxEgtm_Pwm_initConfig / IfxEgtm_Pwm_init",
+        "reason": "Unified PWM driver on EGTM"
+      },
+      {
+        "from": "IfxGtm_Pwm_updateChannelsDutyImmediate",
+        "to": "IfxEgtm_Pwm_updateChannelsDutyImmediate",
+        "reason": "Unified runtime API"
+      }
+    ],
+    "context_preserved": "The unified IfxEgtm_Pwm is used on EGTM0.ATOM0 with contiguous channels 0..5 to realize three complementary pairs, center-aligned at 20 kHz with 100 MHz CMU CLK0 and DTM referenced to CLK0 for 1 us dead-time. Duty updates are applied independently per U/V/W using per-channel immediate update APIs. The period ISR is installed for ATOM0 CH0 SR0 to CPU0 with the specified priority using the available interrupt install API and SRC configuration at low level as needed. Pin macros are intentionally left TBD and set via IfxEgtm_PinMap_setAtomTout once X1/X2 OSEL/TOUT selections are confirmed; IfxPort headers remain unchanged."
+  },
+  "header_selection": {
+    "applied": true,
+    "peripheral_type": "PWM",
+    "recommended_header": "IfxEgtm_Pwm",
+    "score": 651,
+    "required_includes": [
+      "IfxEgtm_Pwm.h"
+    ],
+    "function_mapping": {
+      "IfxGtm_Pwm_init": "IfxEgtm_Pwm_initConfig",
+      "IfxGtm_enable": "IfxEgtm_Pwm_stopSyncedChannels",
+      "IFX_INTERRUPT": "IfxEgtm_Pwm_initChannelConfig",
+      "PWM_FREQUENCY": "IfxEgtm_Pwm_updateChannelPhase",
+      "IfxGtm_Pwm_initConfig": "IfxEgtm_Pwm_initConfig",
+      "IfxGtm_Pwm_updateChannelsDutyImmediate": "IfxEgtm_Pwm_updateChannelsDutyImmediate"
+    },
+    "available_functions_count": 100
+  },
+  "driver_selection_engine": {
+    "applied": true,
+    "mcu_family": "TC4xx",
+    "requirement_analysis": {
+      "peripherals": [
+        "PWM",
+        "GPIO",
+        "ETHERNET",
+        "INTERRUPT"
+      ],
+      "complexity_hints": {
+        "PWM": "advanced",
+        "GPIO": "simple",
+        "ETHERNET": "simple",
+        "INTERRUPT": "simple"
+      },
+      "specific_features": [
+        "complementary"
+      ]
+    },
+    "recommendations": {
+      "PWM": {
+        "driver": "IfxEgtm_Pwm",
+        "score": 95.0,
+        "complexity": "advanced",
+        "rationale": "âœ… Available in template | âœ… Matches target family (TC4xx) | Complexity: advanced | Best for: 3-phase inverter, motor control, multi-channel synchronized PWM | Features: multi_channel_sync, complementary_pairs, dead_time, center_aligned, edge_aligned",
+        "alternatives": [
+          "IfxEgtm_Tom_Pwm",
+          "IfxEgtm_Atom_Pwm"
+        ]
+      }
+    },
+    "migration_mappings": {
+      "IfxScuWdt": {
+        "target_driver": "IfxWtu",
+        "api_mapping": {
+          "IfxScuWdt_disableCpuWatchdog": "IfxWtu_disableCpuWatchdog",
+          "IfxScuWdt_disableSafetyWatchdog": "IfxWtu_enableCpuWatchdog",
+          "IfxScuWdt_enableCpuWatchdog": "// No equivalent - manual mapping needed",
+          "IfxScuWdt_enableSafetyWatchdog": "// No equivalent - manual mapping needed",
+          "IfxScuWdt_serviceCpuWatchdog": "IfxWtu_serviceCpuWatchdog",
+          "IfxScuWdt_serviceSafetyWatchdog": "// No equivalent - manual mapping needed",
+          "IfxScuWdt_clearCpuEndinit": "// No equivalent - manual mapping needed",
+          "IfxScuWdt_setCpuEndinit": "// No equivalent - manual mapping needed"
+        }
+      },
+      "IfxGtm_Pwm": {
+        "target_driver": "IfxEgtm_Pwm",
+        "api_mapping": {
+          "IfxGtm_Pwm_init": "IfxEgtm_Pwm_init",
+          "IfxGtm_Pwm_initConfig": "IfxEgtm_Pwm_initConfig",
+          "IfxGtm_Pwm_start": "IfxEgtm_Pwm_start",
+          "IfxGtm_Pwm_stop": "IfxEgtm_Pwm_stop",
+          "IfxGtm_Pwm_setDuty": "IfxEgtm_Pwm_setDuty"
+        }
+      },
+      "IfxPort": {
+        "target_driver": "IfxPort_Io",
+        "api_mapping": {
+          "IfxPort_setPinMode": "IfxPort_Io_initModule",
+          "IfxPort_setPinModeOutput": "// No equivalent - manual mapping needed",
+          "IfxPort_setPinModeInput": "// No equivalent - manual mapping needed",
+          "IfxPort_setPinPadDriver": "// No equivalent - manual mapping needed",
+          "IfxPort_setPinState": "IfxPort_Io_setPinState",
+          "IfxPort_getPinState": "IfxPort_Io_getPinState",
+          "IfxPort_togglePin": "// No equivalent - manual mapping needed",
+          "IfxPort_setPinHigh": "// No equivalent - manual mapping needed",
+          "IfxPort_setPinLow": "// No equivalent - manual mapping needed"
+        }
+      }
+    }
+  },
+  "driver_knowledge_base": {
+    "applied": true,
+    "recommended_driver": "IfxEgtm_Atom_PwmHl",
+    "api_layer": "specialized",
+    "rationale": "User explicitly requested IfxEgtm_Atom_PwmHl",
+    "avoid_drivers": [
+      "IfxGtm_Pwm"
+    ],
+    "companion_drivers": [],
+    "handles_internally": [],
+    "user_must_handle": []
+  }
+}
