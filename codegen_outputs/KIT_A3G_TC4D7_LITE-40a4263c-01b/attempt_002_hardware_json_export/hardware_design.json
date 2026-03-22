@@ -1,0 +1,194 @@
+{
+  "microcontroller": {
+    "model": "TC4D7",
+    "family": "TC4xx",
+    "verified": true,
+    "device_macro": "DEVICE_TC4DX",
+    "pin_package": "IFX_PIN_PACKAGE_BGA436_COM"
+  },
+  "peripheral_instance": {
+    "type": "GTM_ATOM",
+    "module": "EGTM0.ATOM0",
+    "channels": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "driver": "IfxEgtm_Atom_PwmHl"
+  },
+  "pin_assignments": [
+    {
+      "signal": "U_HS",
+      "port_pin": "P02.0",
+      "function": "TOUT0",
+      "pin_macro": "IfxEgtm_ATOM0_0_TOUT0_P02_0_OUT",
+      "is_complementary": false,
+      "verified": true,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "U_LS",
+      "port_pin": "P02.1",
+      "function": "TOUT1",
+      "pin_macro": "IfxEgtm_ATOM0_0N_TOUT1_P02_1_OUT",
+      "is_complementary": true,
+      "verified": true,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "V_HS",
+      "port_pin": "TBD",
+      "function": "TBD",
+      "pin_macro": "TBD",
+      "is_complementary": false,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "V_LS",
+      "port_pin": "TBD",
+      "function": "TBD",
+      "pin_macro": "TBD",
+      "is_complementary": true,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "W_HS",
+      "port_pin": "TBD",
+      "function": "TBD",
+      "pin_macro": "TBD",
+      "is_complementary": false,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "W_LS",
+      "port_pin": "TBD",
+      "function": "TBD",
+      "pin_macro": "TBD",
+      "is_complementary": true,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "U_OSEL",
+      "port_pin": "TBD",
+      "function": "TBD",
+      "pin_macro": "TBD",
+      "is_complementary": false,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "V_OSEL",
+      "port_pin": "TBD",
+      "function": "TBD",
+      "pin_macro": "TBD",
+      "is_complementary": false,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "W_OSEL",
+      "port_pin": "TBD",
+      "function": "TBD",
+      "pin_macro": "TBD",
+      "is_complementary": false,
+      "verified": false,
+      "source": "hardware_verified"
+    }
+  ],
+  "clock_configuration": {
+    "xtal_frequency_mhz": 25,
+    "system_frequency_mhz": 500
+  },
+  "validation": {
+    "all_verified": false,
+    "conflicts": [
+      "Pin package mismatch: requirement IFX_PIN_PACKAGE_LFBGA292 vs template IFX_PIN_PACKAGE_BGA436_COM",
+      "Pending confirmation of EGTM0.ATOM0 TOUT2/3/4/5 mappings for TC4D7 BGA-292",
+      "OSEL pin selections TBD and require Port Function table validation"
+    ],
+    "reference_pins_valid": true
+  },
+  "template_validation": {
+    "supported_peripherals": [
+      "PWM",
+      "GTM",
+      "EGTM",
+      "GPIO",
+      "INTERRUPT",
+      "CPU"
+    ],
+    "suggested_drivers": {
+      "PWM": [
+        "IfxEgtm_Atom_PwmHl",
+        "IfxEgtm_Atom_Pwm",
+        "IfxEgtm_Tom_Pwm"
+      ],
+      "GTM": [
+        "IfxGtm_Dtm",
+        "IfxGtm_Input",
+        "IfxGtm_Psm",
+        "IfxGtm",
+        "IfxGtm_PinMap",
+        "IfxGtm_Pwm",
+        "IfxGtm_Trigger",
+        "IfxGtm_Spe",
+        "IfxGtm_Tbu"
+      ],
+      "EGTM": [
+        "IfxEgtm_Atom_PwmHl",
+        "IfxEgtm_PinMap",
+        "IfxEgtm_Input",
+        "IfxEgtm",
+        "IfxEgtm_Atom",
+        "IfxEgtm_Cmu",
+        "IfxEgtm_Dtm",
+        "IfxEgtm_Spe",
+        "IfxEgtm_Tbu",
+        "IfxEgtm_Tim",
+        "IfxEgtm_Tom",
+        "IfxEgtm_Trigger",
+        "IfxEgtm_Tom_Pwm",
+        "IfxEgtm_Tom_Timer",
+        "IfxEgtm_Tim_In",
+        "IfxEgtm_Tim_Timer",
+        "IfxEgtm_Atom_Pwm",
+        "IfxEgtm_Atom_Timer"
+      ],
+      "GPIO": [
+        "IfxPort_Io",
+        "IfxScrPort",
+        "IfxPort"
+      ],
+      "INTERRUPT": [
+        "IfxCpu_Irq",
+        "IfxScrCpuIrq"
+      ],
+      "CPU": [
+        "IfxCpu"
+      ],
+      "_driver_selection": {
+        "explicit_target": "IfxEgtm_Atom_PwmHl",
+        "replaced_source": "IfxEgtm_Pwm",
+        "primary_drivers": [
+          "IfxEgtm_Atom_PwmHl"
+        ],
+        "avoid_drivers": [
+          "IfxEgtm_Pwm"
+        ]
+      }
+    },
+    "warnings": []
+  },
+  "pin_analysis": {
+    "verified_count": 9,
+    "doc_reference_count": 4,
+    "merged_total": 13
+  }
+}
