@@ -1,0 +1,70 @@
+{
+  "module_name": "GTM_TOM_3_Phase_Inverter_PWM",
+  "public_functions": [
+    {
+      "signature": "void GTM_TOM_3_Phase_Inverter_PWM_init(void)",
+      "behavior_description": "Enable the GTM and its functional clocks, then configure a unified multi-channel PWM instance to generate three complementary PWM pairs with synchronized timing. Initialize the PWM configuration with defaults, select a 20 kHz center-aligned mode, and assign a dead-time of 0.5 microseconds between complementary outputs. Explicitly allow 0% and 100% duty operation by setting the minimum pulse policy to zero in the configuration. Map all six output pins to the PWM channels using the provided TOM output pin macros and configure them for push-pull output with the required pad driver. Initialize per-channel configuration entries for a 3-channel synchronized group and bind them to the main configuration. Initialize the PWM driver with the channel array and configuration, set the initial duty values for the three channels to 25%, 50%, and 75%, apply the initial duties immediately in a synchronized way, and then start the synchronized channels so that all outputs begin switching in phase. The function stores any necessary driver handles and state so runtime updates can be applied later in a single synchronized call.",
+      "driver_calls": [
+        "IfxGtm_enable",
+        "IfxGtm_Cmu_enableClocks",
+        "IfxGtm_PinMap_setTomTout",
+        "IfxGtm_Pwm_initConfig",
+        "IfxGtm_Pwm_initChannelConfig",
+        "IfxGtm_Pwm_init",
+        "IfxGtm_Pwm_updateChannelsDeadTimeImmediate",
+        "IfxGtm_Pwm_updateChannelsDutyImmediate",
+        "IfxGtm_Pwm_startSyncedChannels"
+      ],
+      "from_reference": true,
+      "call_context": "init"
+    },
+    {
+      "signature": "void GTM_TOM_3_Phase_Inverter_PWM_stepDuty(void)",
+      "behavior_description": "Maintain three duty variables corresponding to the synchronized PWM channels. On each call: add a fixed increment of +10 percentage points to each duty. If a duty exceeds 100.0, wrap it to 0.0 to implement an inclusive 0..100% wrap-around. After updating and wrapping all three values, compose an array of three duty percentages and request a synchronized immediate update so that all channel outputs change together without phase skew. This preserves complementary pairing, center alignment, and dead-time while stepping the visible duty ratios.",
+      "driver_calls": [
+        "IfxGtm_Pwm_updateChannelsDutyImmediate"
+      ],
+      "from_reference": true,
+      "call_context": "loop"
+    }
+  ],
+  "private_functions": [
+    {
+      "signature": "static float32 GTM_TOM_3_Phase_Inverter_PWM_wrapDuty(float32 duty)",
+      "needed": true,
+      "from_reference": false
+    }
+  ],
+  "dependencies": {
+    "includes": [
+      "Ifx_Types.h",
+      "IfxGtm_Pwm.h",
+      "IfxGtm_Cmu.h",
+      "IfxGtm_PinMap.h",
+      "IfxPort.h"
+    ],
+    "driver_calls": [
+      "IfxGtm_enable",
+      "IfxGtm_Cmu_enableClocks",
+      "IfxGtm_Pwm_init",
+      "IfxGtm_Pwm_updateChannelsDutyImmediate"
+    ]
+  },
+  "cpu_main_requirements": {
+    "needs_cpu_sync": true,
+    "uses_timer_delay": true,
+    "delay_ms": 500,
+    "additional_includes": [
+      "Bsp.h"
+    ]
+  },
+  "header_selection": {
+    "applied": true,
+    "peripheral_type": "PWM",
+    "recommended_header": "IfxGtm_Pwm",
+    "template_functions_count": 1026,
+    "required_includes": [
+      "IfxGtm_Pwm.h"
+    ]
+  }
+}
