@@ -1,0 +1,190 @@
+{
+  "generation_mode": "MIGRATION",
+  "migration_info": {
+    "has_reference": true,
+    "reference_family": "TC3xx",
+    "target_family": "TC3xx",
+    "migration_required": false,
+    "driver_mappings": {
+      "IfxGtm_Tom_PwmHl": "IfxGtm_Pwm"
+    },
+    "header_mappings": {
+      "IfxGtm_Tom_PwmHl.h": "IfxGtm_Pwm.h",
+      "IfxGtm_PinMap.h": "IfxGtm_PinMap.h",
+      "IfxPort.h": "IfxPort.h",
+      "Bsp.h": "Bsp.h"
+    },
+    "api_changes": [
+      {
+        "from": "IfxGtm_Tom_PwmHl_init",
+        "to": "IfxGtm_Pwm_init",
+        "reason": "Upgrade to unified high-level GTM PWM API"
+      },
+      {
+        "from": "IfxGtm_Tom_PwmHl_setOnTime",
+        "to": "IfxGtm_Pwm_updateChannelsDutyImmediate",
+        "reason": "Unified API uses channel duty update for synchronous write"
+      },
+      {
+        "from": "IfxGtm_Tom_PwmHl_setMode",
+        "to": "Configured via IfxGtm_Pwm_initConfig (pushPull/output polarity)",
+        "reason": "Mode handled in unified driver configuration"
+      }
+    ],
+    "function_names_to_preserve": [
+      "initGtmTom3phInv",
+      "updateGtmTom3phInvDuty"
+    ],
+    "explicit_driver_upgrade": true,
+    "target_driver": "IfxGtm_Pwm"
+  },
+  "peripheral_requirement": {
+    "type": "PWM",
+    "driver_available": true,
+    "driver_name": "IfxGtm_Pwm",
+    "purpose": "3-phase complementary (push-pull) inverter PWM on GTM TOM with synchronous updates"
+  },
+  "signal_requirements": {
+    "phase_pairs": [
+      {
+        "phase": "U",
+        "high_pin": "P02.0",
+        "low_pin": "P02.7",
+        "polarity": "activeHigh",
+        "output_mode": "pushPull",
+        "pad_driver": "IfxPort_PadDriver_cmosAutomotiveSpeed1"
+      },
+      {
+        "phase": "V",
+        "high_pin": "P02.1",
+        "low_pin": "P02.4",
+        "polarity": "activeHigh",
+        "output_mode": "pushPull",
+        "pad_driver": "IfxPort_PadDriver_cmosAutomotiveSpeed1"
+      },
+      {
+        "phase": "W",
+        "high_pin": "P02.2",
+        "low_pin": "P02.5",
+        "polarity": "activeHigh",
+        "output_mode": "pushPull",
+        "pad_driver": "IfxPort_PadDriver_cmosAutomotiveSpeed1"
+      }
+    ],
+    "tom_mapping_policy": {
+      "strategy": "auto-by-pinmap",
+      "preference_order": [
+        "TOM1",
+        "TOM0",
+        "TOM2",
+        "TOM3",
+        "others"
+      ],
+      "rule": "For each requested P02.x pin, select the first valid TOMx/CHy mapping from IfxGtm_PinMap that supports that pin; pair HS/LS channels within the same TOM for synchronous updates.",
+      "timebase_channel": "Use CH0 of the selected TOM instance as the time base (aligned with the instance chosen for U_HS)."
+    }
+  },
+  "timing_requirements": {
+    "pwm_frequency_hz": 20000,
+    "alignment": "centerAligned",
+    "deadtime_us": 0.5,
+    "min_pulse_us": 1.0,
+    "initial_duty": {
+      "U": 0.25,
+      "V": 0.5,
+      "W": 0.75
+    },
+    "duty_step_increment": 0.1,
+    "duty_update_period_ms": 500,
+    "synchronous_updates": true
+  },
+  "device_configuration": {
+    "target_device_macro": "DEVICE_TC38X",
+    "pin_package": "IFX_PIN_PACKAGE_516",
+    "device_family": "TC3xx",
+    "clock_requirements": {
+      "requires_xtal": true,
+      "expected_system_freq_mhz": 300,
+      "gtm_cmu_changes_allowed": false,
+      "note": "Keep GTM/CMU clocks as-is per instruction; only derive PWM period from existing GTM time base."
+    }
+  },
+  "code_structure": {
+    "file_pattern": "reference",
+    "expected_files": [
+      "GTM_TOM_3_Phase_Inverter_PWM.c",
+      "GTM_TOM_3_Phase_Inverter_PWM.h"
+    ],
+    "has_cpu_files": true
+  },
+  "reference_context": {
+    "includes_used": [
+      "Ifx_Types.h",
+      "IfxCpu.h",
+      "IfxScuWdt.h",
+      "Bsp.h",
+      "GTM_TOM_3_Phase_Inverter_PWM.h",
+      "IfxGtm_Tom_PwmHl.h",
+      "IfxGtm_PinMap.h",
+      "IfxPort.h"
+    ],
+    "function_patterns": [
+      "initGtmTom3phInv",
+      "updateGtmTom3phInvDuty"
+    ],
+    "peripheral_usage": {
+      "GTM_TOM": "3-phase PWM generation using TOM channels",
+      "Port": "Pin configuration for P02.x outputs"
+    }
+  },
+  "template_compatibility": {
+    "validated": true,
+    "supported_peripherals": [
+      "PWM",
+      "GTM",
+      "TIMER"
+    ],
+    "suggested_drivers": {
+      "PWM": [
+        "IfxGtm_Pwm",
+        "IfxGtm_Tom_Pwm",
+        "IfxGtm_Tom_Dtm_PwmHl",
+        "IfxGtm_Atom_Dtm_PwmHl",
+        "IfxGtm_Atom_Pwm",
+        "IfxGtm_Atom_PwmHl"
+      ],
+      "GTM": [
+        "IfxGtm_Pwm",
+        "IfxGtm_Dtm",
+        "IfxGtm_Tbu",
+        "IfxGtm",
+        "IfxGtm_Spe",
+        "IfxGtm_Psm",
+        "IfxGtm_PinMap_TC38x_LFBGA516",
+        "IfxGtm_PinMap_TC38x_LFBGA292",
+        "IfxGtm_Trig",
+        "IfxGtm_Dpll",
+        "IfxGtm_PinMap_TC38x_516"
+      ],
+      "TIMER": [
+        "IfxGtm_Pwm",
+        "IfxGtm_Tom_Timer",
+        "IfxGtm_Tim_Timer",
+        "IfxGtm_Atom_Timer"
+      ],
+      "_driver_selection": {
+        "explicit_target": "IfxGtm_Pwm",
+        "replaced_source": "IfxGtm_Tom_PwmHl",
+        "primary_drivers": [
+          "IfxGtm_Pwm"
+        ],
+        "avoid_drivers": [
+          "IfxGtm_Tom_PwmHl"
+        ]
+      }
+    },
+    "warnings": []
+  },
+  "header_documentation_available": true,
+  "config_values_extracted": 16
+}
