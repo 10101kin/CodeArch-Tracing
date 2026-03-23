@@ -3,21 +3,21 @@
   "public_functions": [
     {
       "signature": "void initEgtmAtom3phInv(void)",
-      "behavior_description": "Initialize the eGTM PWM for a 3-phase inverter using one base channel and two synchronous channels on an ATOM submodule. Steps: 1) Enable the eGTM module and configure its CMU clocks: set the global clock divider to achieve the required module frequency, enable the FX clock and a CMU clock needed by the dead-time module, and select the appropriate clock inputs for ATOM timing and DTM/CDTM timing. 2) Initialize the unified PWM configuration structure with defaults, then fill per-channel configurations for three channels (base + two sync) with center-aligned mode at the target frequency. Assign complementary outputs and set pin output mode and pad driver using the eGTM PinMap API. Configure high-side active-high and low-side active-low polarities. 3) Configure dead time for each complementary pair with symmetric rising and falling dead time equal to 1 microsecond. 4) Set up a single period interrupt on the base channel with CPU0 as the service provider and the required priority; only the first (base) channel has a valid interrupt configuration, while other channels have no interrupt assigned. 5) Initialize the PWM driver with the main config and channel array, apply the requested frequency (20 kHz), apply the requested dead time values across channels, and enable synchronous updates so that future duty updates are latched and applied at the next PWM period boundary. 6) Start all configured channels synchronously so that all phases begin switching in phase alignment. This function takes no parameters and returns void.",
+      "behavior_description": "Initialize the eGTM PWM for a 3-phase inverter using one base channel and two synchronous channels on an ATOM submodule. Steps: 1) Enable the eGTM module and configure its CMU clocks: set the global clock divider to achieve the required module frequency, enable the FX clock and a CMU clock needed by the dead-time module, and select the appropriate clock inputs for ATOM timing and DTM/CDTM timing. 2) Initialize the unified PWM configuration structure with defaults, then fill per-channel configurations for three channels (base + two sync) with center-aligned mode at the target frequency. Assign complementary outputs and set pin output mode and pad driver using the eGTM PinMap API. Configure high-side active-high and low-side active-low polarities. 3) Configure dead time for each complementary pair with symmetric rising and falling dead time equal to 1 microsecond. 4) Set up a single period interrupt on the base channel with CPU0 as the service provider and the required priority; only the first (base) channel has a valid interrupt configuration, while other channels have no interrupt assigned. 5) Initialize the PWM driver with the main config and channel array, apply the requested frequency (20 kHz), apply the requested dead time values across channels, and enable synchronous updates so that future duty updates are latched and applied at the next PWM period boundary. 6) Start all configured channels synchronously so that all phases begin switching in phase alignment.",
       "driver_calls": [
         "IfxEgtm_enable",
         "IfxEgtm_Cmu_setGclkDivider",
         "IfxEgtm_Cmu_enableClocks",
         "IfxEgtm_Cmu_selectClkInput",
-        "IfxEgtm_Pwm_initConfig",
-        "IfxEgtm_Pwm_initChannelConfig",
+        "IfxEgtm_Atom_Pwm_initConfig",
+        "IfxEgtm_Atom_Pwm_initChannelConfig",
         "IfxEgtm_PinMap_setAtomTout",
-        "IfxEgtm_Pwm_setChannelPolarity",
-        "IfxEgtm_Pwm_init",
-        "IfxEgtm_Pwm_updateFrequency",
-        "IfxEgtm_Pwm_updateChannelsDeadTime",
-        "IfxEgtm_Pwm_updateChannelsPulse",
-        "IfxEgtm_Pwm_startSyncedChannels",
+        "IfxEgtm_Atom_Pwm_setChannelPolarity",
+        "IfxEgtm_Atom_Pwm_init",
+        "IfxEgtm_Atom_Pwm_updateFrequency",
+        "IfxEgtm_Atom_Pwm_updateChannelsDeadTime",
+        "IfxEgtm_Atom_Pwm_updateChannelsPulse",
+        "IfxEgtm_Atom_Pwm_startSyncedChannels",
         "IfxCpu_Irq_installInterruptHandler"
       ],
       "from_reference": true,
@@ -25,18 +25,18 @@
     },
     {
       "signature": "void updateEgtmAtom3phInvDuty(void)",
-      "behavior_description": "Implements a duty-cycle ramp for all three configured PWM channels. For each channel: check if (currentDuty + step) reaches or exceeds 100%; if so, wrap that channel's duty to 0%. Then add the step to each channel's duty. After updating the three duty values, trigger a synchronous multi-channel duty update so that the new duties are latched into shadow registers and applied simultaneously at the next PWM period boundary. This function takes no parameters and returns void.",
+      "behavior_description": "Implements a duty-cycle ramp for all three configured PWM channels. For each channel: check if (currentDuty + step) reaches or exceeds 100%; if so, wrap that channel's duty to 0%. Then add the step to each channel's duty. After updating the three duty values, trigger a synchronous multi-channel duty update so that the new duties are latched into shadow registers and applied simultaneously at the next PWM period boundary.",
       "driver_calls": [
-        "IfxEgtm_Pwm_updateChannelsDuty"
+        "IfxEgtm_Atom_Pwm_updateChannelsDuty"
       ],
       "from_reference": true,
       "call_context": "loop"
     },
     {
       "signature": "void interruptEgtmAtomPeriod(void)",
-      "behavior_description": "Service the single PWM period interrupt associated with the base channel. Call the unified PWM driver's interrupt handler with the base channel context to clear and acknowledge the PWM period event and perform any internal housekeeping. Finally, clear the corresponding service request flag to re-arm the interrupt. Minimal work is performed in the ISR; any control-loop work should be deferred if needed. This function takes no parameters and returns void.",
+      "behavior_description": "Service the single PWM period interrupt associated with the base channel. Call the unified PWM driver's interrupt handler with the base channel context to clear and acknowledge the PWM period event and perform any internal housekeeping. Finally, clear the corresponding service request flag to re-arm the interrupt. Minimal work is performed in the ISR; any control-loop work should be deferred if needed.",
       "driver_calls": [
-        "IfxEgtm_Pwm_interruptHandler",
+        "IfxEgtm_Atom_Pwm_interruptHandler",
         "IfxSrc_clearRequest"
       ],
       "from_reference": true,
@@ -47,13 +47,12 @@
     {
       "signature": "static float32 clampDuty(float32 duty)",
       "needed": true,
-      "from_reference": false,
-      "documentation": "Used within updateEgtmAtom3phInvDuty() to constrain the computed duty-cycle to a valid range before issuing a synchronous multi-channel duty update. It saturates values below 0% to 0% and above 100% to 100%, ensuring no out-of-range values are written to the PWM driver."
+      "from_reference": false
     }
   ],
   "dependencies": {
     "includes": [
-      "IfxEgtm_Pwm.h",
+      "IfxEgtm_Atom_Pwm.h",
       "IfxEgtm_Cmu.h",
       "IfxEgtm_PinMap.h",
       "IfxPort.h",
@@ -85,8 +84,7 @@
     "delay_ms": 500,
     "additional_includes": [
       "Bsp.h"
-    ],
-    "usage_documentation": "A 500 ms delay is applied in the main loop between successive calls to updateEgtmAtom3phInvDuty() to slow the observable duty ramp for demonstration and verification. The delay uses the timing utilities provided by Bsp.h. This delay is not functionally required for the PWM operation and may be reduced or removed in production control loops."
+    ]
   },
   "header_selection": {
     "applied": true,
