@@ -1,10 +1,10 @@
 Node JSON export
 Stage: hardware
-Reason: stage_completed
+Reason: reviewer_patch_applied
 Modified By: system
 Modifier: N/A
 Reviewer: N/A
-Attempt: 2
-Phase attempt: 1
-Has Reasoning: Yes
-Timestamp: 2026-03-23T14:48:57.540851
+Attempt: 3
+Phase attempt: 2
+Has Reasoning: No
+Timestamp: 2026-03-23T14:52:37.782144
