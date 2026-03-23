@@ -1,0 +1,69 @@
+Attempt 1 - PRODUCTION (Global: 1)
+Status: FAILED ❌
+Timestamp: 2026-03-23 14:59:54
+Files generated: 2
+
+============================================================
+
+ERRORS:
+
+1. expected expression before 'PWM_DEADTIME_SEC'
+
+2. expected expression before 'PWM_DEADTIME_SEC'
+
+3. expected expression before 'PWM_DEADTIME_SEC'
+
+4. redefinition of 's_setTomTout_count'
+
+5. redefinition of 'IfxGtm_PinMap_Mock_GetCallCount_setTomTout'
+
+============================================================
+BUILD RESULT:
+{
+  "success": false,
+  "errors": [
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-041043-4252cf55\\6ee0b236-20b\\Migrate_the_TC387_3_phase_PWM_from_IfxGtm_Tom_PwmH_r_20260323_145135\\attempts\\phase_001_build\\src\\gtm_tom_3_phase_inverter_pwmgg.c",
+      "line": 82,
+      "column": 26,
+      "message": "expected expression before 'PWM_DEADTIME_SEC'",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-041043-4252cf55\\6ee0b236-20b\\Migrate_the_TC387_3_phase_PWM_from_IfxGtm_Tom_PwmH_r_20260323_145135\\attempts\\phase_001_build\\src\\gtm_tom_3_phase_inverter_pwmgg.c",
+      "line": 83,
+      "column": 26,
+      "message": "expected expression before 'PWM_DEADTIME_SEC'",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-041043-4252cf55\\6ee0b236-20b\\Migrate_the_TC387_3_phase_PWM_from_IfxGtm_Tom_PwmH_r_20260323_145135\\attempts\\phase_001_build\\src\\gtm_tom_3_phase_inverter_pwmgg.c",
+      "line": 84,
+      "column": 26,
+      "message": "expected expression before 'PWM_DEADTIME_SEC'",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-041043-4252cf55\\6ee0b236-20b\\Migrate_the_TC387_3_phase_PWM_from_IfxGtm_Tom_PwmH_r_20260323_145135\\attempts\\phase_001_build\\mocks\\IfxGtm_PinMap.c",
+      "line": 9,
+      "column": 15,
+      "message": "redefinition of 's_setTomTout_count'",
+      "category": "unknown",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-041043-4252cf55\\6ee0b236-20b\\Migrate_the_TC387_3_phase_PWM_from_IfxGtm_Tom_PwmH_r_20260323_145135\\attempts\\phase_001_build\\mocks\\IfxGtm_PinMap.c",
+      "line": 22,
+      "column": 8,
+      "message": "redefinition of 'IfxGtm_PinMap_Mock_GetCallCount_setTomTout'",
+      "category": "illd_api_error",
+      "severity": "error"
+    }
+  ],
+  "warnings": [],
+  "stderr": "C:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-041043-4252cf55\\6ee0b236-20b\\Migrate_the_TC387_3_phase_PWM_from_IfxGtm_Tom_PwmH_r_20260323_145135\\attempts\\phase_001_build\\src\\gtm_tom_3_phase_inverter_pwmgg.c: In function 'prv_initIfNeeded':\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-041043-4252cf55\\6ee0b236-20b\\Migrate_the_TC387_3_phase_PWM_from_IfxGtm_Tom_PwmH_r_20260323_145135\\attempts\\phase_001_build\\src\\gtm_tom_3_phase_inverter_pwmgg.c:82:26: error: expected expression before 'PWM_DEADTIME_SEC'\n   82 |     dtmCfg[0].deadTime = PWM_DEADTIME_SEC;\n      |                          ^~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-041043-4252cf55\\6ee0b236-20b\\Migrate_the_TC387_3_phase_PWM_from_IfxGtm_Tom_PwmH_r_20260323_145135\\attempts\\phase_001_build\\src\\gtm_tom_3_phase_inverter_pwmgg.c:83:26: error: expected expression before 'PWM_DEADTIME_SEC'\n   83 |     dtmCfg[1].deadTime = PWM_DEADTIME_SEC;\n      |                          ^~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-041043-4252cf55\\6ee0b236-20b\\Migrate_the_TC387_3_phase_PWM_from_IfxGtm_Tom_PwmH_r_20260323_145135\\attempts\\phase_001_build\\src\\gtm_tom_3_phase_inverter_pwmgg.c:84:26: error: expected expression before 'PWM_DEADTIME_SEC'\n   84 |     dtmCfg[2].deadTime = PWM_DEADTIME_SEC;\n      |                          ^~~~~~~~~~~~~~~~\n\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-041043-4252cf55\\6ee0b236-20b\\Migrate_the_TC387_3_phase_PWM_from_IfxGtm_Tom_PwmH_r_20260323_145135\\attempts\\phase_001_build\\mocks\\IfxGtm_PinMap.c:9:15: error: redefinition of 's_setTomTout_count'\n    9 | static uint32 s_setTomTout_count = 0;\n      |               ^~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-041043-4252cf55\\6ee0b236-20b\\Migrate_the_TC387_3_phase_PWM_from_IfxGtm_Tom_PwmH_r_20260323_145135\\attempts\\phase_001_build\\mocks\\IfxGtm_PinMap.c:5:15: note: previous definition of 's_setTomTout_count' with type 'uint32' {aka 'unsigned int'}\n    5 | static uint32 s_setTomTout_count = 0u;\n      |               ^~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-041043-4252cf55\\6ee0b236-20b\\Migrate_the_TC387_3_phase_PWM_from_IfxGtm_Tom_PwmH_r_20260323_145135\\attempts\\phase_001_build\\mocks\\IfxGtm_PinMap.c:22:8: error: redefinition of 'IfxGtm_PinMap_Mock_GetCallCount_setTomTout'\n   22 | uint32 IfxGtm_PinMap_Mock_GetCallCount_setTomTout(void)\n      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-041043-4252cf55\\6ee0b236-20b\\Migrate_the_TC387_3_phase_PWM_from_IfxGtm_Tom_PwmH_r_20260323_145135\\attempts\\phase_001_build\\mocks\\IfxGtm_PinMap.c:18:8: note: previous definition of 'IfxGtm_PinMap_Mock_GetCallCount_setTomTout' with type 'uint32(void)' {aka 'unsigned int(void)'}\n   18 | uint32 IfxGtm_PinMap_Mock_GetCallCount_setTomTout(void) {\n      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n",
+  "stdout": ""
+}
