@@ -75,6 +75,63 @@
         "IfxSrc_clearRequest"
       ],
       "purpose": "Single PWM period ISR on CPU0 (priority 20) that services the PWM end-of-period event and can trigger control-loop tasks."
+    },
+    "abstraction_layer": {
+      "introduced_for": [
+        "testability",
+        "maintainability"
+      ],
+      "enabled": true,
+      "interface_name": "PwmIf",
+      "description": "Thin interface abstracting IfxEgtm_Pwm operations to allow mocking/testing and easy driver replacement.",
+      "interface_functions": {
+        "init": "PwmIf_init",
+        "initChannel": "PwmIf_initChannel",
+        "startSynced": "PwmIf_startSynced",
+        "updateChannelsDuty": "PwmIf_updateChannelsDuty",
+        "updateChannelsDutyImmediate": "PwmIf_updateChannelsDutyImmediate",
+        "updateChannelDeadTime": "PwmIf_updateChannelDeadTime",
+        "updateFrequency": "PwmIf_updateFrequency",
+        "setChannelPolarity": "PwmIf_setChannelPolarity",
+        "interruptHandler": "PwmIf_interruptHandler"
+      },
+      "driver_call_mapping": {
+        "PwmIf_init": [
+          "IfxEgtm_Pwm_initConfig",
+          "IfxEgtm_Pwm_init"
+        ],
+        "PwmIf_initChannel": [
+          "IfxEgtm_Pwm_initChannelConfig"
+        ],
+        "PwmIf_startSynced": [
+          "IfxEgtm_Pwm_startSyncedChannels"
+        ],
+        "PwmIf_updateChannelsDuty": [
+          "IfxEgtm_Pwm_updateChannelsDuty"
+        ],
+        "PwmIf_updateChannelsDutyImmediate": [
+          "IfxEgtm_Pwm_updateChannelsDutyImmediate"
+        ],
+        "PwmIf_updateChannelDeadTime": [
+          "IfxEgtm_Pwm_updateChannelDeadTime"
+        ],
+        "PwmIf_updateFrequency": [
+          "IfxEgtm_Pwm_updateFrequency"
+        ],
+        "PwmIf_setChannelPolarity": [
+          "IfxEgtm_Pwm_setChannelPolarity"
+        ],
+        "PwmIf_interruptHandler": [
+          "IfxEgtm_Pwm_interruptHandler"
+        ]
+      },
+      "test_hooks": {
+        "mock_interface": "PwmIf_Mock",
+        "simulation_callbacks": [
+          "onPeriod",
+          "onDutyUpdate"
+        ]
+      }
     }
   },
   "migration_notes": {
@@ -116,7 +173,7 @@
         "reason": "Unified PWM API migration"
       }
     ],
-    "context_preserved": "The solution keeps the original control objectives: 3-phase center-aligned 20 kHz complementary PWM on EGTM Cluster 1 ATOM1 ch0/1/2, 1 µs deadtime via DTM/CDTM, HS active-high and LS active-low, synchronized start and synchronized duty updates, and one period ISR on CPU0 with priority 20. Clocks are prepared to use GCLK=200 MHz with FXCLK_0 for ATOM and CMU CLK0 for DTM. Output pins are assigned via IfxEgtm_PinMap_setAtomTout, with a specific note to verify the exact IfxEgtm pin map macros for P20.8/9/10/11/12/13 on KIT_A3G_TC4D7_LITE as the provided macros are assumed and need confirmation in IfxEgtm_PinMap.h."
+    "context_preserved": "The solution keeps the original control objectives: 3-phase center-aligned 20 kHz complementary PWM on EGTM Cluster 1 ATOM1 ch0/1/2, 1 µs deadtime via DTM/CDTM, HS active-high and LS active-low, synchronized start and synchronized duty updates, and one period ISR on CPU0 with priority 20. Clocks are prepared to use GCLK=200 MHz with FXCLK_0 for ATOM and CMU CLK0 for DTM. Output pins are assigned via IfxEgtm_PinMap_setAtomTout, with a specific note to verify the exact IfxEgtm pin map macros for P20.8/9/10/11/12/13 on KIT_A3G_TC4D7_LITE as the provided macros are assumed and need confirmation in IfxEgtm_PinMap.h; if the required macros are missing or differ, explicitly define or adapt the necessary pin map macros for the target board to ensure correct routing."
   },
   "header_selection": {
     "applied": true,
