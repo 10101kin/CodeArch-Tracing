@@ -103,6 +103,11 @@
       "hs_active_high": true,
       "ls_active_low": true,
       "center_aligned": true
+    },
+    "safety": {
+      "output_enable_required": true,
+      "safety_interlock_required": true,
+      "default_safe_state": "all_outputs_off"
     }
   },
   "timing_requirements": {
@@ -120,7 +125,8 @@
     "clocking": {
       "atom_clock": "FXCLK0",
       "dtm_clock": "CLK0"
-    }
+    },
+    "timer_tick_ns": 10
   },
   "device_configuration": {
     "target_device_macro": "DEVICE_TC4DX",
