@@ -28,8 +28,8 @@
       "call_context": "init"
     },
     {
-      "signature": "void updateEgtmAtom3phInvDuty(float32 *requestDuty)",
-      "behavior_description": "Update the three phase duties immediately and toggle the heartbeat. Algorithm: 1) Read three requested duty values from the provided array (phase order consistent with initialization). 2) Optionally clamp each duty to the valid range [0.0, 1.0] and store them into an internal duty buffer. 3) Apply the new duty values to all configured PWM channels in the 3‑phase group using an immediate multi-channel duty update so the change takes effect without waiting for a global sync. 4) Toggle the heartbeat GPIO pin to indicate the periodic service of this update routine. The function does not change frequency, alignment, phase, or deadtime.",
+      "signature": "void updateEgtmAtom3phInvDuty(float32 *requestDuty /* length=3, phase order: U, V, W */)",
+      "behavior_description": "Update the three phase duties immediately and toggle the heartbeat. Algorithm: 1) Read three requested duty values from the provided array (phase order consistent with initialization). 2) Optionally clamp each duty to the valid range [0.0, 1.0] and store them into an internal duty buffer. 3) Apply the new duty values to all configured PWM channels in the 3‑phase group using an immediate multi-channel duty update so the change takes effect without waiting for a global sync. 4) Toggle the heartbeat GPIO pin to indicate the periodic service of this update routine. The function does not change frequency, alignment, phase, or deadtime. Note: The heartbeat toggle period is determined by how often this function is called; to achieve a fixed 500 ms period, ensure the call rate matches or implement an internal timer/counter to enforce a 500 ms toggle interval regardless of call rate.",
       "driver_calls": [
         "IfxEgtm_Pwm_updateChannelsDutyImmediate",
         "IfxPort_togglePin"
