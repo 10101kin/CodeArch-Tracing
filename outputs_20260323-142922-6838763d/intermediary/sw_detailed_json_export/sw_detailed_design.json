@@ -3,13 +3,13 @@
   "public_functions": [
     {
       "signature": "void initGtmTomPwm(void)",
-      "behavior_description": "Note: This is an application-level wrapper function, not an iLLD API. Initialization uses iLLD functions such as IfxGtm_Tom_PwmHl_init() and IfxGtm_Tom_Timer_init(), as per Infineon documentation. Enable the GTM module and enable the GTM CMU clocks required by the TOM time base. Initialize a TOM time-base driver for the specified TOM instance and the designated time-base channel to achieve a 20 kHz PWM period using the default GTM clock source. Prepare a complementary high/low PWM driver configuration with three high/low channel pairs, assign the output pins via the generic GTM PinMap using push-pull output mode and an automotive-grade pad driver, and set both high-side and low-side active states to active-high. Configure PWM parameters: center-aligned mode, deadtime of 0.5 microseconds, and minimum pulse of 1.0 microseconds. Initialize the PWMHL driver with the timer as its time base. Compute initial on-time ticks for each phase from the timer period using the requested initial duty fractions (25%, 50%, 75%). Apply the initial on-times coherently using a synchronous update sequence: disableUpdate on the timer, set the on-times for the three channels in the PWMHL driver, then applyUpdate on the timer so all updates are latched simultaneously.",
+      "behavior_description": "Enable the GTM module and enable the GTM CMU clocks required by the TOM time base. Initialize a TOM time-base driver for the specified TOM instance and the designated time-base channel to achieve a 20 kHz PWM period using the default GTM clock source. Prepare a complementary high/low PWM driver configuration with three high/low channel pairs, assign the output pins via the generic GTM PinMap using push-pull output mode and an automotive-grade pad driver, and set both high-side and low-side active states to active-high. Configure PWM parameters: center-aligned mode, deadtime of 0.5 microseconds, and minimum pulse of 1.0 microseconds. Initialize the PWMHL driver with the timer as its time base. Compute initial on-time ticks for each phase from the timer period using the requested initial duty fractions (25%, 50%, 75%). Apply the initial on-times coherently using a synchronous update sequence: disableUpdate on the timer, set the on-times for the three channels in the PWMHL driver, then applyUpdate on the timer so all updates are latched simultaneously.",
       "driver_calls": [
         "IfxGtm_enable",
         "IfxGtm_Cmu_enableClocks",
         "IfxGtm_Tom_Timer_initConfig",
         "IfxGtm_Tom_Timer_init",
-        "IfxPort_setPinPadDriver",
+        "IfxGtm_PinMap_setTomTout",
         "IfxGtm_Tom_PwmHl_initConfig",
         "IfxGtm_Tom_PwmHl_init",
         "IfxGtm_Tom_PwmHl_setMode",
@@ -24,7 +24,7 @@
     },
     {
       "signature": "void updateGtmTomPwmDutyCycles(void)",
-      "behavior_description": "Note: This is an application-level wrapper function, not an iLLD API. Fetch the current timer period from the PWMHL driver's linked timer. Compute a duty step equal to 10% of the period, along with minimum and maximum on-time thresholds corresponding to 0% and 100% of the period. For each of the three phases, add the duty step to the stored on-time value. If any on-time meets or exceeds the maximum threshold, wrap it to the minimum threshold to maintain a 0–100% range. Apply all three updated on-times coherently by surrounding the PWMHL on-time update with a synchronous sequence: first disableUpdate on the timer, then set all three on-times in the PWMHL driver, and finally applyUpdate on the timer to latch the new values simultaneously.",
+      "behavior_description": "Fetch the current timer period from the PWMHL driver's linked timer. Compute a duty step equal to 10% of the period, along with minimum and maximum on-time thresholds corresponding to 0% and 100% of the period. For each of the three phases, add the duty step to the stored on-time value. If any on-time meets or exceeds the maximum threshold, wrap it to the minimum threshold to maintain a 0–100% range. Apply all three updated on-times coherently by surrounding the PWMHL on-time update with a synchronous sequence: first disableUpdate on the timer, then set all three on-times in the PWMHL driver, and finally applyUpdate on the timer to latch the new values simultaneously.",
       "driver_calls": [
         "IfxGtm_Tom_Timer_disableUpdate",
         "IfxGtm_Tom_PwmHl_setOnTime",
@@ -49,7 +49,7 @@
       "IfxGtm_Cmu_enableClocks",
       "IfxGtm_Tom_Timer_initConfig",
       "IfxGtm_Tom_Timer_init",
-      "IfxPort_setPinPadDriver",
+      "IfxGtm_PinMap_setTomTout",
       "IfxGtm_Tom_PwmHl_initConfig",
       "IfxGtm_Tom_PwmHl_init",
       "IfxGtm_Tom_PwmHl_setMode",
