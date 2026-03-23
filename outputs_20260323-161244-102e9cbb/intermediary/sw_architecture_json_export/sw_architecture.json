@@ -99,9 +99,9 @@
         "GPIO"
       ],
       "complexity_hints": {
-        "PWM": "advanced",
-        "TIMER": "simple",
-        "GPIO": "simple"
+        "PWM": "DriverComplexity.ADVANCED",
+        "TIMER": "DriverComplexity.SIMPLE",
+        "GPIO": "DriverComplexity.SIMPLE"
       },
       "specific_features": [
         "complementary"
