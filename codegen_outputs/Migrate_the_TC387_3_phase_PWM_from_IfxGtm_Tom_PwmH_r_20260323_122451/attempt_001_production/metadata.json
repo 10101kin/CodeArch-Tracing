@@ -1,0 +1,39 @@
+{
+  "attempt": 1,
+  "phase_attempt": 1,
+  "phase": "production",
+  "timestamp": "2026-03-23T12:35:12.429805",
+  "success": false,
+  "files": [
+    "gtm_tom_3_phase_inverter_pwm.h",
+    "gtm_tom_3_phase_inverter_pwm.c"
+  ],
+  "errors": [
+    "redefinition of 's_setTomTout_count'",
+    "redefinition of 'IfxGtm_PinMap_Mock_GetCallCount_setTomTout'"
+  ],
+  "build_result": {
+    "success": false,
+    "errors": [
+      {
+        "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Migrate_the_TC387_3_phase_PWM_from_IfxGtm_Tom_PwmH_r_20260323_122451\\attempts\\attempt_001_build\\mocks\\IfxGtm_PinMap.c",
+        "line": 13,
+        "column": 15,
+        "message": "redefinition of 's_setTomTout_count'",
+        "category": "unknown",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Migrate_the_TC387_3_phase_PWM_from_IfxGtm_Tom_PwmH_r_20260323_122451\\attempts\\attempt_001_build\\mocks\\IfxGtm_PinMap.c",
+        "line": 27,
+        "column": 8,
+        "message": "redefinition of 'IfxGtm_PinMap_Mock_GetCallCount_setTomTout'",
+        "category": "illd_api_error",
+        "severity": "error"
+      }
+    ],
+    "warnings": [],
+    "stderr": "C:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Migrate_the_TC387_3_phase_PWM_from_IfxGtm_Tom_PwmH_r_20260323_122451\\attempts\\attempt_001_build\\mocks\\IfxGtm_PinMap.c:13:15: error: redefinition of 's_setTomTout_count'\n   13 | static uint32 s_setTomTout_count = 0;\n      |               ^~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Migrate_the_TC387_3_phase_PWM_from_IfxGtm_Tom_PwmH_r_20260323_122451\\attempts\\attempt_001_build\\mocks\\IfxGtm_PinMap.c:6:15: note: previous definition of 's_setTomTout_count' with type 'uint32' {aka 'unsigned int'}\n    6 | static uint32 s_setTomTout_count = 0u;\n      |               ^~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Migrate_the_TC387_3_phase_PWM_from_IfxGtm_Tom_PwmH_r_20260323_122451\\attempts\\attempt_001_build\\mocks\\IfxGtm_PinMap.c:27:8: error: redefinition of 'IfxGtm_PinMap_Mock_GetCallCount_setTomTout'\n   27 | uint32 IfxGtm_PinMap_Mock_GetCallCount_setTomTout(void)\n      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\CodeGen_Output\\6ee0b236-20b\\Migrate_the_TC387_3_phase_PWM_from_IfxGtm_Tom_PwmH_r_20260323_122451\\attempts\\attempt_001_build\\mocks\\IfxGtm_PinMap.c:22:8: note: previous definition of 'IfxGtm_PinMap_Mock_GetCallCount_setTomTout' with type 'uint32(void)' {aka 'unsigned int(void)'}\n   22 | uint32 IfxGtm_PinMap_Mock_GetCallCount_setTomTout(void) {\n      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n",
+    "stdout": ""
+  }
+}
