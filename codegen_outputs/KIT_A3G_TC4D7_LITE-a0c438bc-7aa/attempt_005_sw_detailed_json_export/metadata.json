@@ -1,0 +1,11 @@
+{
+  "export_type": "node_json",
+  "export_reason": "reviewer_patch_applied",
+  "node_stage": "sw_detailed",
+  "reviewer_name": null,
+  "reviewer_applied": false,
+  "workflow_stage": "sw_detailed_validation",
+  "target_board": "KIT_A3G_TC4D7_LITE",
+  "generation_mode": "MIGRATION",
+  "timestamp": "2026-03-23T06:29:38.324832"
+}
