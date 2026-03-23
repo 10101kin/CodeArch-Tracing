@@ -1,0 +1,127 @@
+{
+  "attempt": 2,
+  "phase_attempt": 2,
+  "phase": "production",
+  "timestamp": "2026-03-23T10:24:50.066035",
+  "success": false,
+  "files": [
+    "qspi.h",
+    "qspi.c"
+  ],
+  "errors": [
+    "'millis' undeclared (first use in this function)",
+    "'micros' undeclared (first use in this function)",
+    "redefinition of 's_baudrate_count'",
+    "redefinition of 'IfxXspi_Spi_Mock_GetLastArg_initModule_Mock_GetCallCount_baudrate'",
+    "redefinition of 's_mode_count'",
+    "redefinition of 'IfxXspi_Spi_Mock_GetLastArg_initModule_Mock_GetCallCount_mode'",
+    "redefinition of 's_baudrate_count'",
+    "redefinition of 's_baudrate_count'",
+    "redefinition of 'IfxXspi_Spi_Mock_GetLastArg_transferInit_Mock_GetCallCount_baudrate'",
+    "invalid use of void expression"
+  ],
+  "build_result": {
+    "success": false,
+    "errors": [
+      {
+        "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_002_build\\mocks\\IfxStm.c",
+        "line": 20,
+        "column": 21,
+        "message": "'millis' undeclared (first use in this function)",
+        "category": "unknown",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_002_build\\mocks\\IfxStm.c",
+        "line": 25,
+        "column": 20,
+        "message": "'micros' undeclared (first use in this function)",
+        "category": "unknown",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_002_build\\mocks\\IfxXspi_Spi.c",
+        "line": 121,
+        "column": 15,
+        "message": "redefinition of 's_baudrate_count'",
+        "category": "unknown",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_002_build\\mocks\\IfxXspi_Spi.c",
+        "line": 132,
+        "column": 8,
+        "message": "redefinition of 'IfxXspi_Spi_Mock_GetLastArg_initModule_Mock_GetCallCount_baudrate'",
+        "category": "illd_api_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_002_build\\mocks\\IfxXspi_Spi.c",
+        "line": 139,
+        "column": 15,
+        "message": "redefinition of 's_mode_count'",
+        "category": "unknown",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_002_build\\mocks\\IfxXspi_Spi.c",
+        "line": 150,
+        "column": 8,
+        "message": "redefinition of 'IfxXspi_Spi_Mock_GetLastArg_initModule_Mock_GetCallCount_mode'",
+        "category": "illd_api_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_002_build\\mocks\\IfxXspi_Spi.c",
+        "line": 155,
+        "column": 15,
+        "message": "redefinition of 's_baudrate_count'",
+        "category": "unknown",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_002_build\\mocks\\IfxXspi_Spi.c",
+        "line": 157,
+        "column": 15,
+        "message": "redefinition of 's_baudrate_count'",
+        "category": "unknown",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_002_build\\mocks\\IfxXspi_Spi.c",
+        "line": 168,
+        "column": 8,
+        "message": "redefinition of 'IfxXspi_Spi_Mock_GetLastArg_transferInit_Mock_GetCallCount_baudrate'",
+        "category": "illd_api_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity_internals.h",
+        "line": 904,
+        "column": 169,
+        "message": "invalid use of void expression",
+        "category": "unknown",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity_internals.h",
+        "line": 904,
+        "column": 169,
+        "message": "invalid use of void expression",
+        "category": "unknown",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity_internals.h",
+        "line": 904,
+        "column": 169,
+        "message": "invalid use of void expression",
+        "category": "unknown",
+        "severity": "error"
+      }
+    ],
+    "warnings": [],
+    "stderr": "C:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_002_build\\mocks\\IfxStm.c: In function 'IfxStm_getTicksFromMilliseconds':\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_002_build\\mocks\\IfxStm.c:20:21: error: 'millis' undeclared (first use in this function)\n   20 |     return (sint32)(millis * 1000);  /* Simple conversion for testing */\n      |                     ^~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_002_build\\mocks\\IfxStm.c:20:21: note: each undeclared identifier is reported only once for each function it appears in\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_002_build\\mocks\\IfxStm.c: In function 'IfxStm_getTicksFromMicroseconds':\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_002_build\\mocks\\IfxStm.c:25:20: error: 'micros' undeclared (first use in this function)\n   25 |     return (sint32)micros;\n      |                    ^~~~~~\n\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_002_build\\mocks\\IfxXspi_Spi.c:121:15: error: redefinition of 's_baudrate_count'\n  121 | static uint32 s_baudrate_count = 0;\n      |               ^~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_002_build\\mocks\\IfxXspi_Spi.c:119:15: note: previous definition of 's_baudrate_count' with type 'uint32' {aka 'unsigned int'}\n  119 | static uint32 s_baudrate_count = 0;\n      |               ^~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_002_build\\mocks\\IfxXspi_Spi.c:132:8: error: redefinition of 'IfxXspi_Spi_Mock_GetLastArg_initModule_Mock_GetCallCount_baudrate'\n  132 | uint32 IfxXspi_Spi_Mock_GetLastArg_initModule_Mock_GetCallCount_baudrate(void) {\n      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_002_build\\mocks\\IfxXspi_Spi.c:128:8: note: previous definition of 'IfxXspi_Spi_Mock_GetLastArg_initModule_Mock_GetCallCount_baudrate' with type 'uint32(void)' {aka 'unsigned int(void)'}\n  128 | uint32 IfxXspi_Spi_Mock_GetLastArg_initModule_Mock_GetCallCount_baudrate(void) {\n      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_002_build\\mocks\\IfxXspi_Spi.c:139:15: error: redefinition of 's_mode_count'\n  139 | static uint32 s_mode_count = 0;\n      |               ^~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_002_build\\mocks\\IfxXspi_Spi.c:137:15: note: previous definition of 's_mode_count' with type 'uint32' {aka 'unsigned int'}\n  137 | static uint32 s_mode_count = 0;\n      |               ^~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_002_build\\mocks\\IfxXspi_Spi.c:150:8: error: redefinition of 'IfxXspi_Spi_Mock_GetLastArg_initModule_Mock_GetCallCount_mode'\n  150 | uint32 IfxXspi_Spi_Mock_GetLastArg_initModule_Mock_GetCallCount_mode(void) {\n      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_002_build\\mocks\\IfxXspi_Spi.c:146:8: note: previous definition of 'IfxXspi_Spi_Mock_GetLastArg_initModule_Mock_GetCallCount_mode' with type 'uint32(void)' {aka 'unsigned int(void)'}\n  146 | uint32 IfxXspi_Spi_Mock_GetLastArg_initModule_Mock_GetCallCount_mode(void) {\n      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_002_build\\mocks\\IfxXspi_Spi.c:155:15: error: redefinition of 's_baudrate_count'\n  155 | static uint32 s_baudrate_count = 0;\n      |               ^~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_002_build\\mocks\\IfxXspi_Spi.c:121:15: note: previous definition of 's_baudrate_count' with type 'uint32' {aka 'unsigned int'}\n  121 | static uint32 s_baudrate_count = 0;\n      |               ^~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_002_build\\mocks\\IfxXspi_Spi.c:157:15: error: redefinition of 's_baudrate_count'\n  157 | static uint32 s_baudrate_count = 0;\n      |               ^~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_002_build\\mocks\\IfxXspi_Spi.c:155:15: note: previous definition of 's_baudrate_count' with type 'uint32' {aka 'unsigned int'}\n  155 | static uint32 s_baudrate_count = 0;\n      |               ^~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_002_build\\mocks\\IfxXspi_Spi.c:168:8: error: redefinition of 'IfxXspi_Spi_Mock_GetLastArg_transferInit_Mock_GetCallCount_baudrate'\n  168 | uint32 IfxXspi_Spi_Mock_GetLastArg_transferInit_Mock_GetCallCount_baudrate(void) {\n      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_002_build\\mocks\\IfxXspi_Spi.c:164:8: note: previous definition of 'IfxXspi_Spi_Mock_GetLastArg_transferInit_Mock_GetCallCount_baudrate' with type 'uint32(void)' {aka 'unsigned int(void)'}\n  164 | uint32 IfxXspi_Spi_Mock_GetLastArg_transferInit_Mock_GetCallCount_baudrate(void) {\n      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_002_build\\test\\test_qspi.c:8:9: warning: 'TIMING_MAXIMUM_BAUDRATE_HZ' redefined\n    8 | #define TIMING_MAXIMUM_BAUDRATE_HZ   (50000000U)\n      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~\nIn file included from C:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_002_build\\test\\test_qspi.c:2:\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_002_build\\include/qspi.h:31:9: note: this is the location of the previous definition\n   31 | #define TIMING_MAXIMUM_BAUDRATE_HZ          (50000000.0f)        /* 50 MHz From requirements */\n      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_002_build\\test\\test_qspi.c:9:9: warning: 'TIMING_SPI_MODE' redefined\n    9 | #define TIMING_SPI_MODE              (0U)\n      |         ^~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_002_build\\include/qspi.h:32:9: note: this is the location of the previous definition\n   32 | #define TIMING_SPI_MODE                     (0u)                 /* Mode 0 From requirements */\n      |         ^~~~~~~~~~~~~~~\nIn file included from C:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity.h:22,\n                 from C:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_002_build\\test\\test_qspi.c:1:\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_002_build\\test\\test_qspi.c: In function 'test_Qspi_initQspi_SetsExpectedConfigValues':\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity_internals.h:904:169: error: invalid use of void expression\n  904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)\n      |                                                                                                                                                                         ^\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity.h:154:100: note: in expansion of macro 'UNITY_TEST_ASSERT_EQUAL_UINT32'\n  154 | #define TEST_ASSERT_EQUAL_UINT32(expected, actual)                                                 UNITY_TEST_ASSERT_EQUAL_UINT32( (expected), (actual), __LINE__, NULL)\n      |                                                                                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_002_build\\test\\test_qspi.c:62:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32'\n   62 |     TEST_ASSERT_EQUAL_UINT32(TIMING_MAXIMUM_BAUDRATE_HZ,\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity_internals.h:904:169: error: invalid use of void expression\n  904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)\n      |                                                                                                                                                                         ^\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity.h:154:100: note: in expansion of macro 'UNITY_TEST_ASSERT_EQUAL_UINT32'\n  154 | #define TEST_ASSERT_EQUAL_UINT32(expected, actual)                                                 UNITY_TEST_ASSERT_EQUAL_UINT32( (expected), (actual), __LINE__, NULL)\n      |                                                                                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_002_build\\test\\test_qspi.c:64:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32'\n   64 |     TEST_ASSERT_EQUAL_UINT32(TIMING_MAXIMUM_BAUDRATE_HZ,\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity_internals.h:904:169: error: invalid use of void expression\n  904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)\n      |                                                                                                                                                                         ^\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity.h:154:100: note: in expansion of macro 'UNITY_TEST_ASSERT_EQUAL_UINT32'\n  154 | #define TEST_ASSERT_EQUAL_UINT32(expected, actual)                                                 UNITY_TEST_ASSERT_EQUAL_UINT32( (expected), (actual), __LINE__, NULL)\n      |                                                                                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_002_build\\test\\test_qspi.c:68:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32'\n   68 |     TEST_ASSERT_EQUAL_UINT32(TIMING_SPI_MODE,\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~\n",
+    "stdout": ""
+  }
+}
