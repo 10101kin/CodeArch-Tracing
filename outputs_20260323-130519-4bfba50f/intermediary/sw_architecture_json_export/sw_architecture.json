@@ -110,7 +110,7 @@
         "driver": "IfxGtm_Pwm",
         "score": 95.0,
         "complexity": "advanced",
-        "rationale": "âœ… Available in template | âœ… Matches target family (TC3xx) | Complexity: advanced | Best for: 3-phase inverter, motor control, multi-channel synchronized PWM | Features: multi_channel_sync, complementary_pairs, dead_time, center_aligned, edge_aligned",
+        "rationale": "â“¦ Available in template | â“¦ Matches target family (TC3xx) | Complexity: advanced | Best for: 3-phase inverter, motor control, multi-channel synchronized PWM | Features: multi_channel_sync, complementary_pairs, dead_time, center_aligned, edge_aligned",
         "alternatives": [
           "IfxGtm_Tom_PwmHl",
           "IfxGtm_Tom_Pwm",
