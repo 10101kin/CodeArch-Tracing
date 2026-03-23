@@ -48,12 +48,12 @@
         "high": {
           "channel": 0,
           "port_pin": "P02.0",
-          "pinmap_macro": "IfxGtm_TOM1_0_TOUT?_P02_0_OUT"
+          "pinmap_macro": "IfxGtm_TOM1_0_TOUT0_P02_0_OUT"
         },
         "low": {
           "channel": 1,
           "port_pin": "P02.7",
-          "pinmap_macro": "IfxGtm_TOM1_1_TOUT?_P02_7_OUT"
+          "pinmap_macro": "IfxGtm_TOM1_1_TOUT7_P02_7_OUT"
         }
       },
       {
@@ -61,12 +61,12 @@
         "high": {
           "channel": 2,
           "port_pin": "P02.1",
-          "pinmap_macro": "IfxGtm_TOM1_2_TOUT?_P02_1_OUT"
+          "pinmap_macro": "IfxGtm_TOM1_2_TOUT1_P02_1_OUT"
         },
         "low": {
           "channel": 3,
           "port_pin": "P02.4",
-          "pinmap_macro": "IfxGtm_TOM1_3_TOUT?_P02_4_OUT"
+          "pinmap_macro": "IfxGtm_TOM1_3_TOUT4_P02_4_OUT"
         }
       },
       {
@@ -74,12 +74,12 @@
         "high": {
           "channel": 4,
           "port_pin": "P02.2",
-          "pinmap_macro": "IfxGtm_TOM1_4_TOUT?_P02_2_OUT"
+          "pinmap_macro": "IfxGtm_TOM1_4_TOUT2_P02_2_OUT"
         },
         "low": {
           "channel": 5,
           "port_pin": "P02.5",
-          "pinmap_macro": "IfxGtm_TOM1_5_TOUT?_P02_5_OUT"
+          "pinmap_macro": "IfxGtm_TOM1_5_TOUT5_P02_5_OUT"
         }
       }
     ],
@@ -114,7 +114,8 @@
     "duty_update_sync": "DisableUpdate/ApplyUpdate around batch duty writes",
     "dt_and_minpulse": {
       "deadtime_us": 0.5,
-      "min_pulse_us": 1.0
+      "min_pulse_us": 1.0,
+      "support_note": "Confirmed supported on TC38x GTM (TOM1 + DTM) with CMU_CLK0=100 MHz: deadtime 0.5 us = 50 GTM ticks and min pulse 1.0 us = 100 GTM ticks; both within IfxGtm_Tom_PwmHl driver and hardware limits for 20 kHz center-aligned PWM."
     }
   },
   "device_configuration": {
