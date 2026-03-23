@@ -62,7 +62,6 @@
       "driver_calls": [
         "IfxGtm_Tom_Timer_disableUpdate",
         "IfxGtm_Tom_PwmHl_setOnTime",
-        "IfxGtm_Tom_Dtm_PwmHl_setOnTimeAndShift",
         "IfxGtm_Tom_PwmHl_setOnTime",
         "IfxGtm_Tom_Timer_applyUpdate"
       ],
@@ -70,7 +69,7 @@
     }
   },
   "migration_notes": {
-    "is_migration": false,
+    "is_migration": true,
     "driver_changes": [
       "Stay on IfxGtm_Tom_PwmHl for TOM1 complementary PWM.",
       "Add explicit synchronous buffer control using IfxGtm_Tom_Timer_disableUpdate / IfxGtm_Tom_Timer_applyUpdate around duty writes."
@@ -80,6 +79,26 @@
       "Introduce IfxGtm_Tom_Timer_disableUpdate / IfxGtm_Tom_Timer_applyUpdate for synchronous updates"
     ],
     "context_preserved": "The solution keeps TOM1 as the PWM generator with CH0 as time base, enforces 20 kHz center-aligned operation, uses complementary pairs with 0.5 us deadtime and 1.0 us min pulse, maps the exact P02 pins using IfxGtm_PinMap macros for TC38x LFBGA292, initializes U/V/W to 25/50/75%, and updates duties synchronously every 500 ms with +10% step and wrap per the original requirement."
+  },
+  "testability": {
+    "strategy": "Introduce a thin abstraction layer around PWM and timer update calls to enable mocking and dependency injection for unit tests; provide guidance for integration and HIL validation.",
+    "api_hooks": [
+      "pwm_set_on_time(U,V,W) wrapper around IfxGtm_Tom_PwmHl_setOnTime",
+      "timer_update_guard(disable/apply) wrapper around IfxGtm_Tom_Timer_disableUpdate/IfxGtm_Tom_Timer_applyUpdate",
+      "duty_pattern_provider() that computes U/V/W duties independent of hardware"
+    ],
+    "unit_tests": [
+      "Verify +10% step and wrap-around behavior every 500 ms using mocked hooks",
+      "Validate configuration enforces center-aligned mode, minPulse, and deadtime invariants"
+    ],
+    "integration_tests": [
+      "On-target measurement with logic analyzer/oscilloscope: confirm 20 kHz, center-aligned, complementary outputs with 0.5 us deadtime and >=1.0 us min pulse",
+      "Check synchronous update: no mid-period glitches when applying buffered updates"
+    ],
+    "hil_tests": [
+      "Drive a safe dummy 3-phase load/inverter and monitor phase timing/current ripple",
+      "Inject missed-update scenarios to confirm outputs remain safe/glitch-free"
+    ]
   },
   "header_selection": {
     "applied": true,
@@ -120,7 +139,7 @@
         "driver": "IfxGtm_Pwm",
         "score": 95.0,
         "complexity": "advanced",
-        "rationale": "✓ Available in template | ✓ Matches target family (TC3xx) | Complexity: advanced | Best for: 3-phase inverter, motor control, multi-channel synchronized PWM | Features: multi_channel_sync, complementary_pairs, dead_time, center_aligned, edge_aligned",
+        "rationale": "… Available in template | … Matches target family (TC3xx) | Complexity: advanced | Best for: 3-phase inverter, motor control, multi-channel synchronized PWM | Features: multi_channel_sync, complementary_pairs, dead_time, center_aligned, edge_aligned",
         "alternatives": [
           "IfxGtm_Tom_PwmHl",
           "IfxGtm_Tom_Pwm",
