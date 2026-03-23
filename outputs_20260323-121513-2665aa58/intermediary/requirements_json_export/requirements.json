@@ -1,0 +1,224 @@
+{
+  "generation_mode": "MIGRATION",
+  "migration_info": {
+    "has_reference": true,
+    "reference_family": "TC3xx",
+    "target_family": "TC3xx",
+    "migration_required": false,
+    "driver_mappings": {
+      "IfxGtm_Tom_PwmHl": "IfxGtm_Pwm",
+      "IfxGtm_Tom_Timer": "IfxGtm_Tom_Timer",
+      "IfxScuWdt": "IfxScuWdt",
+      "IfxPort": "IfxPort",
+      "IfxGtm_PinMap": "IfxGtm_PinMap",
+      "IfxGtm_Pwm": "IfxGtm_Tom_Timer"
+    },
+    "header_mappings": {
+      "IfxGtm_Tom_PwmHl.h": "IfxGtm_Pwm.h",
+      "IfxGtm_Pwm.h": "IfxGtm_Tom_Timer.h"
+    },
+    "api_changes": [
+      {
+        "from": "IfxGtm_Tom_PwmHl_init",
+        "to": "IfxGtm_Pwm_init (center-aligned configuration with TOM1 timebase)",
+        "reason": "Upgrade to unified high-level PWM driver on TC3xx"
+      },
+      {
+        "from": "IfxGtm_Tom_PwmHl_setOnTime",
+        "to": "IfxGtm_Pwm_updateChannelsDutyImmediate",
+        "reason": "Replace per-channel on-time API with unified duty update"
+      },
+      {
+        "from": "IfxGtm_Tom_PwmHl_setMode",
+        "to": "Configured via IfxGtm_Pwm_init (mode=center-aligned)",
+        "reason": "Mode handled by init config in unified driver"
+      },
+      {
+        "from": "No hardware dead-time (CDTM) configuration",
+        "to": "Enable TOM1 CDTM via IfxGtm_Dtm with 0.5 us dead-time for pairs (1/2), (3/4), (5/6)",
+        "reason": "Implement hardware dead-time at TOM1 cluster level while using IfxGtm_Pwm"
+      },
+      {
+        "from": "Application WAIT_TIME (previous value)",
+        "to": "WAIT_TIME = 500 ms",
+        "reason": "Periodic duty sweep requirement"
+      }
+    ],
+    "function_names_to_preserve": [],
+    "explicit_driver_upgrade": true,
+    "target_driver": "IfxGtm_Tom_Timer"
+  },
+  "peripheral_requirement": {
+    "type": "PWM",
+    "driver_available": true,
+    "driver_name": "IfxGtm_Pwm",
+    "purpose": "3-phase center-aligned PWM on GTM TOM1 using IfxGtm_Pwm; use TOM1 CDTM for dead-time and IfxGtm_Tom_Timer for period/timebase and synchronous updates"
+  },
+  "signal_requirements": {
+    "pwm_unit": "GTM.TOM1",
+    "phases": {
+      "U": {
+        "high": {
+          "tom_channel": "TOM1_CH2",
+          "pin": "P00.3"
+        },
+        "low": {
+          "tom_channel": "TOM1_CH1",
+          "pin": "P00.2"
+        }
+      },
+      "V": {
+        "high": {
+          "tom_channel": "TOM1_CH4",
+          "pin": "P00.5"
+        },
+        "low": {
+          "tom_channel": "TOM1_CH3",
+          "pin": "P00.4"
+        }
+      },
+      "W": {
+        "high": {
+          "tom_channel": "TOM1_CH6",
+          "pin": "P00.7"
+        },
+        "low": {
+          "tom_channel": "TOM1_CH5",
+          "pin": "P00.6"
+        }
+      }
+    },
+    "dead_time_pairs": [
+      {
+        "pair": [
+          1,
+          2
+        ]
+      },
+      {
+        "pair": [
+          3,
+          4
+        ]
+      },
+      {
+        "pair": [
+          5,
+          6
+        ]
+      }
+    ],
+    "pinmap_headers": [
+      "IfxGtm_PinMap.h"
+    ],
+    "notes": "Verify TOM1 TOUT pin availability for P00.2..P00.7 on the selected TC38x 516-pin package; confirm CDTM pairing indices for TOM1 match (1/2, 3/4, 5/6) on target device"
+  },
+  "timing_requirements": {
+    "pwm_frequency_hz": 20000,
+    "alignment": "center-aligned",
+    "dead_time_us": 0.5,
+    "min_pulse_us": 1.0,
+    "initial_duty_percent": {
+      "U": 25,
+      "V": 50,
+      "W": 75
+    },
+    "duty_update_interval_ms": 500,
+    "duty_increment_percent": 10,
+    "wrap_behavior": "100% wraps to 0%",
+    "synchronous_update": {
+      "timebase_driver": "IfxGtm_Tom_Timer",
+      "update_method": "Use TOM1 timebase/trigger for coherent shadow-to-active transfers across all channels"
+    }
+  },
+  "device_configuration": {
+    "target_device_macro": "DEVICE_TC38X",
+    "pin_package": "IFX_PIN_PACKAGE_516",
+    "device_family": "TC3xx",
+    "clock_requirements": {
+      "requires_xtal": true,
+      "expected_system_freq_mhz": 300,
+      "gtm_cmu_clock_mhz": 100,
+      "rationale": "At 100 MHz GTM CMU, 0.5 us dead-time = 50 ticks; 1.0 us min pulse = 100 ticks; center-aligned 20 kHz => 50 us period (up+down) supported with sufficient resolution"
+    }
+  },
+  "code_structure": {
+    "file_pattern": "reference",
+    "expected_files": [
+      "GTM_TOM_3_Phase_Inverter_PWM.c",
+      "GTM_TOM_3_Phase_Inverter_PWM.h",
+      "Cpu0_Main.c",
+      "Cpu1_Main.c",
+      "Cpu2_Main.c",
+      "Cpu3_Main.c"
+    ],
+    "has_cpu_files": true
+  },
+  "reference_context": {
+    "includes_used": [
+      "Ifx_Types.h",
+      "IfxCpu.h",
+      "IfxScuWdt.h",
+      "IfxGtm_Tom_PwmHl.h",
+      "IfxGtm_PinMap.h",
+      "Bsp.h",
+      "GTM_TOM_3_Phase_Inverter_PWM.h"
+    ],
+    "function_patterns": [],
+    "peripheral_usage": {
+      "GTM": "3-phase PWM generation using TOM1 PwmHl (to be upgraded to IfxGtm_Pwm)",
+      "Port": "Pin configuration for TOUT pins",
+      "WATCHDOG": "Disable during initialization as in reference"
+    }
+  },
+  "template_compatibility": {
+    "validated": true,
+    "supported_peripherals": [
+      "PWM",
+      "GTM",
+      "TIMER"
+    ],
+    "suggested_drivers": {
+      "PWM": [
+        "IfxGtm_Tom_Timer",
+        "IfxGtm_Tom_Pwm",
+        "IfxGtm_Tom_Dtm_PwmHl",
+        "IfxGtm_Atom_Dtm_PwmHl",
+        "IfxGtm_Atom_Pwm",
+        "IfxGtm_Tom_PwmHl",
+        "IfxGtm_Atom_PwmHl"
+      ],
+      "GTM": [
+        "IfxGtm_Tom_Timer",
+        "IfxGtm_Dtm",
+        "IfxGtm_Tbu",
+        "IfxGtm",
+        "IfxGtm_Spe",
+        "IfxGtm_Psm",
+        "IfxGtm_PinMap_TC38x_LFBGA516",
+        "IfxGtm_PinMap_TC38x_LFBGA292",
+        "IfxGtm_Trig",
+        "IfxGtm_Dpll",
+        "IfxGtm_PinMap_TC38x_516"
+      ],
+      "TIMER": [
+        "IfxGtm_Tom_Timer",
+        "IfxGtm_Tim_Timer",
+        "IfxGtm_Atom_Timer"
+      ],
+      "_driver_selection": {
+        "explicit_target": "IfxGtm_Tom_Timer",
+        "replaced_source": "IfxGtm_Pwm",
+        "primary_drivers": [
+          "IfxGtm_Tom_Timer"
+        ],
+        "avoid_drivers": [
+          "IfxGtm_Pwm"
+        ]
+      }
+    },
+    "warnings": []
+  },
+  "header_documentation_available": true,
+  "config_values_extracted": 16
+}
