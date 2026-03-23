@@ -27,7 +27,23 @@
       "pin_macro": "IfxGtm_TOM1_0_TOUT104_P02_0_OUT",
       "is_complementary": true,
       "verified": true,
-      "source": "hardware_verified"
+      "source": "hardware_verified",
+      "doc_references": [
+        {
+          "type": "header",
+          "file": "IfxGtm_PinMap.h",
+          "device_family": "TC38x",
+          "package": "LFBGA-516",
+          "macro": "IfxGtm_TOM1_0_TOUT104_P02_0_OUT",
+          "note": "Maps GTM TOM1 CH0 to TOUT104 on P02.0"
+        },
+        {
+          "type": "datasheet",
+          "document": "Infineon TC387 Datasheet / Pin Assignment",
+          "section": "Port P02.0 alternate output functions",
+          "mapping": "TOUT104 (GTM TOM1 CH0) -> P02.0"
+        }
+      ]
     },
     {
       "signal": "U_LS",
@@ -36,7 +52,23 @@
       "pin_macro": "IfxGtm_TOM1_1_TOUT111_P02_7_OUT",
       "is_complementary": true,
       "verified": true,
-      "source": "hardware_verified"
+      "source": "hardware_verified",
+      "doc_references": [
+        {
+          "type": "header",
+          "file": "IfxGtm_PinMap.h",
+          "device_family": "TC38x",
+          "package": "LFBGA-516",
+          "macro": "IfxGtm_TOM1_1_TOUT111_P02_7_OUT",
+          "note": "Maps GTM TOM1 CH1 to TOUT111 on P02.7"
+        },
+        {
+          "type": "datasheet",
+          "document": "Infineon TC387 Datasheet / Pin Assignment",
+          "section": "Port P02.7 alternate output functions",
+          "mapping": "TOUT111 (GTM TOM1 CH1) -> P02.7"
+        }
+      ]
     },
     {
       "signal": "V_HS",
@@ -45,7 +77,23 @@
       "pin_macro": "IfxGtm_TOM1_2_TOUT105_P02_1_OUT",
       "is_complementary": true,
       "verified": true,
-      "source": "hardware_verified"
+      "source": "hardware_verified",
+      "doc_references": [
+        {
+          "type": "header",
+          "file": "IfxGtm_PinMap.h",
+          "device_family": "TC38x",
+          "package": "LFBGA-516",
+          "macro": "IfxGtm_TOM1_2_TOUT105_P02_1_OUT",
+          "note": "Maps GTM TOM1 CH2 to TOUT105 on P02.1"
+        },
+        {
+          "type": "datasheet",
+          "document": "Infineon TC387 Datasheet / Pin Assignment",
+          "section": "Port P02.1 alternate output functions",
+          "mapping": "TOUT105 (GTM TOM1 CH2) -> P02.1"
+        }
+      ]
     },
     {
       "signal": "V_LS",
@@ -54,7 +102,23 @@
       "pin_macro": "IfxGtm_TOM1_3_TOUT108_P02_4_OUT",
       "is_complementary": true,
       "verified": true,
-      "source": "hardware_verified"
+      "source": "hardware_verified",
+      "doc_references": [
+        {
+          "type": "header",
+          "file": "IfxGtm_PinMap.h",
+          "device_family": "TC38x",
+          "package": "LFBGA-516",
+          "macro": "IfxGtm_TOM1_3_TOUT108_P02_4_OUT",
+          "note": "Maps GTM TOM1 CH3 to TOUT108 on P02.4"
+        },
+        {
+          "type": "datasheet",
+          "document": "Infineon TC387 Datasheet / Pin Assignment",
+          "section": "Port P02.4 alternate output functions",
+          "mapping": "TOUT108 (GTM TOM1 CH3) -> P02.4"
+        }
+      ]
     },
     {
       "signal": "W_HS",
@@ -63,7 +127,23 @@
       "pin_macro": "IfxGtm_TOM1_4_TOUT106_P02_2_OUT",
       "is_complementary": true,
       "verified": true,
-      "source": "hardware_verified"
+      "source": "hardware_verified",
+      "doc_references": [
+        {
+          "type": "header",
+          "file": "IfxGtm_PinMap.h",
+          "device_family": "TC38x",
+          "package": "LFBGA-516",
+          "macro": "IfxGtm_TOM1_4_TOUT106_P02_2_OUT",
+          "note": "Maps GTM TOM1 CH4 to TOUT106 on P02.2"
+        },
+        {
+          "type": "datasheet",
+          "document": "Infineon TC387 Datasheet / Pin Assignment",
+          "section": "Port P02.2 alternate output functions",
+          "mapping": "TOUT106 (GTM TOM1 CH4) -> P02.2"
+        }
+      ]
     },
     {
       "signal": "W_LS",
@@ -72,7 +152,23 @@
       "pin_macro": "IfxGtm_TOM1_5_TOUT109_P02_5_OUT",
       "is_complementary": true,
       "verified": true,
-      "source": "hardware_verified"
+      "source": "hardware_verified",
+      "doc_references": [
+        {
+          "type": "header",
+          "file": "IfxGtm_PinMap.h",
+          "device_family": "TC38x",
+          "package": "LFBGA-516",
+          "macro": "IfxGtm_TOM1_5_TOUT109_P02_5_OUT",
+          "note": "Maps GTM TOM1 CH5 to TOUT109 on P02.5"
+        },
+        {
+          "type": "datasheet",
+          "document": "Infineon TC387 Datasheet / Pin Assignment",
+          "section": "Port P02.5 alternate output functions",
+          "mapping": "TOUT109 (GTM TOM1 CH5) -> P02.5"
+        }
+      ]
     }
   ],
   "clock_configuration": {
@@ -135,6 +231,8 @@
   "pin_analysis": {
     "verified_count": 6,
     "doc_reference_count": 1,
-    "merged_total": 7
+    "merged_total": 7,
+    "merged_total_definition": "Total unique pin records considered after merging multiple sources (hardware_verified assignments, template suggestions, and/or documentation-only references).",
+    "merged_total_calculation": "merged_total = count(unique(hardware_verified ∪ template_suggestions ∪ doc_only_entries)); this may exceed verified_count when non-verified suggestions or documentation-only entries are included."
   }
 }
