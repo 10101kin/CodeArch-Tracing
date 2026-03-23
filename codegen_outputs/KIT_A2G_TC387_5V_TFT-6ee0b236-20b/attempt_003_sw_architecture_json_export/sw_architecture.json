@@ -1,0 +1,168 @@
+{
+  "user_intent_preservation": {
+    "original_goal": "Migrate the TC387 3-phase PWM from complementary IfxGtm_Tom_PwmHl to three single-ended PWM channels using IfxGtm_Pwm on TOM1, sharing TOM1 CH0 timebase, at 20 kHz center-aligned.",
+    "functional_behavior": "Generate three single-ended PWM outputs U/V/W on TOM1 CH2/CH4/CH6, initially at 25%/50%/75% duty. Every 500 ms, step each duty by +10 percentage points with wrap in 0–100%. No deadtime or min-pulse constraints. Synchronous (shadow) update at period match with shared timebase (TOM1 CH0).",
+    "technical_approach": "Use unified IfxGtm_Pwm to configure a multi-channel synchronized PWM group on GTM TOM1 with center-aligned mode and 20 kHz frequency. Map pins via IfxGtm_PinMap_setTomTout to P00.3 (TOM1 CH2), P00.5 (TOM1 CH4), P00.7 (TOM1 CH6). Enable GTM and required clocks. Start outputs at requested duties using IfxGtm_Pwm_startSyncedChannels. Use IfxStm_Timer to generate a 500 ms tick that calls IfxGtm_Pwm_updateChannelsDuty to queue shadow updates applied on the next period match."
+  },
+  "driver_selection": {
+    "recommended_driver": "IfxGtm_Pwm",
+    "selection_rationale": "Unified PWM driver supports multi-channel synchronization, center-aligned operation, and manages TOM submodule selection internally. It is available for TC3xx in the template and is ideal for migrating from complementary PwmHl to single-ended channels sharing a timebase.",
+    "available_in_template": true,
+    "complexity_level": "advanced",
+    "alternatives_considered": [
+      "IfxGtm_Tom_PwmHl",
+      "IfxGtm_Tom_Pwm"
+    ]
+  },
+  "driver_usage": {
+    "primary_driver": "IfxGtm_Pwm",
+    "available_in_template": true,
+    "initialization_apis": [
+      "IfxGtm_Pwm_initConfig",
+      "IfxGtm_Pwm_initChannelConfig",
+      "IfxGtm_Pwm_init"
+    ],
+    "runtime_apis": [
+      "IfxGtm_Pwm_startSyncedChannels",
+      "IfxGtm_Pwm_updateChannelsDuty",
+      "IfxGtm_Pwm_stopSyncedChannels"
+    ]
+  },
+  "file_structure": {
+    "module_files": [
+      "GTM_TOM_3_Phase_Inverter_PWM.c",
+      "GTM_TOM_3_Phase_Inverter_PWM.h"
+    ],
+    "cpu_files": [
+      "Cpu0_Main.c"
+    ],
+    "from_reference": true
+  },
+  "function_mapping": {
+    "init_function": {
+      "name": "GTM_TOM_3_Phase_Inverter_PWM_init",
+      "driver_calls": [
+        "IfxGtm_enable",
+        "IfxGtm_Pwm_initConfig",
+        "IfxGtm_Pwm_initChannelConfig",
+        "IfxGtm_PinMap_setTomTout",
+        "IfxGtm_Pwm_init",
+        "IfxGtm_Pwm_startSyncedChannels"
+      ]
+    },
+    "runtime_function": {
+      "name": "GTM_TOM_3_Phase_Inverter_PWM_stepDuty",
+      "driver_calls": [
+        "IfxGtm_Pwm_updateChannelsDuty"
+      ],
+      "purpose": "Every 500 ms, step U/V/W duty by +10% with wrap in 0–100%, applying changes synchronously on period match."
+    }
+  },
+  "migration_notes": {
+    "is_migration": true,
+    "driver_changes": [
+      "IfxGtm_Tom_PwmHl -> IfxGtm_Pwm"
+    ],
+    "api_changes": [
+      "IfxGtm_Tom_PwmHl_initConfig -> IfxGtm_Pwm_initConfig",
+      "IfxGtm_Tom_PwmHl_init -> IfxGtm_Pwm_init",
+      "IfxGtm_Tom_PwmHl_setOnTime -> IfxGtm_Pwm_updateChannelsDuty"
+    ],
+    "context_preserved": "The new configuration keeps TOM1 as the PWM engine with CH0 as the shared timebase and outputs on TOM1 CH2/CH4/CH6. Frequency is 20 kHz, center-aligned, and duties begin at 25/50/75%. Updates occur every 500 ms and are applied synchronously at the next period match using IfxGtm_Pwm_updateChannelsDuty. Deadtime and min-pulse constraints are not used, and former low-side pins remain unused. Pin mapping uses IfxGtm_PinMap_setTomTout on the TC38x LFBGA516 package as required."
+  },
+  "header_selection": {
+    "applied": true,
+    "peripheral_type": "PWM",
+    "recommended_header": "IfxGtm_Pwm",
+    "score": 489,
+    "required_includes": [
+      "IfxGtm_Pwm.h"
+    ],
+    "function_mapping": {
+      "IfxGtm_enable": "IfxGtm_Pwm_enableChannelOutput"
+    },
+    "available_functions_count": 99
+  },
+  "driver_selection_engine": {
+    "applied": true,
+    "mcu_family": "TC3xx",
+    "requirement_analysis": {
+      "peripherals": [
+        "PWM",
+        "TIMER",
+        "GPIO"
+      ],
+      "complexity_hints": {
+        "PWM": "advanced",
+        "TIMER": "simple",
+        "GPIO": "simple"
+      },
+      "specific_features": [
+        "complementary"
+      ]
+    },
+    "recommendations": {
+      "PWM": {
+        "driver": "IfxGtm_Pwm",
+        "score": 95.0,
+        "complexity": "advanced",
+        "rationale": "âœ… Available in template | âœ… Matches target family (TC3xx) | Complexity: advanced | Best for: 3-phase inverter, motor control, multi-channel synchronized PWM | Features: multi_channel_sync, complementary_pairs, dead_time, center_aligned, edge_aligned",
+        "alternatives": []
+      }
+    },
+    "migration_mappings": {
+      "IfxScuWdt": {
+        "target_driver": "IfxScuWdt",
+        "api_mapping": {
+          "IfxScuWdt_init": "IfxScuWdt_init",
+          "IfxScuWdt_initConfig": "IfxScuWdt_initConfig"
+        }
+      },
+      "IfxGtm_Tom_PwmHl": {
+        "target_driver": "IfxGtm_Pwm",
+        "api_mapping": {
+          "IfxGtm_Tom_PwmHl_init": "IfxGtm_Pwm_init",
+          "IfxGtm_Tom_PwmHl_initConfig": "IfxGtm_Pwm_initConfig",
+          "IfxGtm_Tom_PwmHl_setOnTime": "IfxGtm_Pwm_setDuty",
+          "IfxGtm_Tom_PwmHl_setPeriod": "IfxGtm_Pwm_updatePeriod",
+          "IfxGtm_Tom_PwmHl_start": "IfxGtm_Pwm_start",
+          "IfxGtm_Tom_PwmHl_stop": "IfxGtm_Pwm_stop"
+        },
+        "upgrade_reason": "Known upgrade path: IfxGtm_Tom_PwmHl → IfxGtm_Pwm"
+      },
+      "IfxCpu_Irq": {
+        "target_driver": "IfxSrc",
+        "api_mapping": {
+          "IfxCpu_Irq_installInterruptHandler": "IfxSrc_init",
+          "IfxCpu_enableInterrupts": "IfxSrc_setRequest",
+          "IfxCpu_disableInterrupts": "IfxSrc_clearRequest"
+        }
+      }
+    }
+  },
+  "driver_knowledge_base": {
+    "applied": true,
+    "recommended_driver": "IfxGtm_Pwm",
+    "api_layer": "unified",
+    "rationale": "User requirement mentions IfxGtm_Pwm",
+    "avoid_drivers": [
+      "IfxGtm_Tom_PwmHl",
+      "IfxGtm_Tom_Pwm",
+      "IfxGtm_Atom_Pwm"
+    ],
+    "companion_drivers": [
+      "IfxGtm_Cmu"
+    ],
+    "handles_internally": [
+      "complementary_output_pairing",
+      "dead_time_via_DTM",
+      "center_aligned_mode",
+      "multi_channel_synchronization",
+      "TOM_ATOM_submodule_selection"
+    ],
+    "user_must_handle": [
+      "clock_setup_via_CMU",
+      "pin_mapping"
+    ]
+  }
+}
