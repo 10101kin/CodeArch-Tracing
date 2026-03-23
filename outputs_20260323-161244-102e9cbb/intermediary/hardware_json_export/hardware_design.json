@@ -4,7 +4,7 @@
     "family": "TC3xx",
     "verified": true,
     "device_macro": "DEVICE_TC38X",
-    "pin_package": "IFX_PIN_PACKAGE_516"
+    "pin_package": "IFX_PIN_PACKAGE_292"
   },
   "peripheral_instance": {
     "type": "GTM_TOM",
@@ -17,10 +17,7 @@
       5,
       7
     ],
-    "driver": "IfxGtm_Tom_Pwm",
-    "documentation": {
-      "mapping_status": "Provisional mapping for KIT_A2G_TC387_5V_TFT; see documentation.hardware_constraints.gtm_tom_mapping for details and references."
-    }
+    "driver": "IfxGtm_Tom_Pwm"
   },
   "pin_assignments": [
     {
@@ -30,8 +27,7 @@
       "pin_macro": "IfxGtm_TOM0_0_TOUT0_P02_0_OUT",
       "is_complementary": false,
       "verified": true,
-      "source": "hardware_verified",
-      "documentation_ref": "#/documentation/mapping_notes"
+      "source": "hardware_verified"
     },
     {
       "signal": "PHASE_U_LS",
@@ -40,8 +36,7 @@
       "pin_macro": "IfxGtm_TOM0_7_TOUT7_P02_7_OUT",
       "is_complementary": true,
       "verified": true,
-      "source": "hardware_verified",
-      "documentation_ref": "#/documentation/mapping_notes"
+      "source": "hardware_verified"
     },
     {
       "signal": "PHASE_V_HS",
@@ -50,8 +45,7 @@
       "pin_macro": "IfxGtm_TOM0_1_TOUT1_P02_1_OUT",
       "is_complementary": false,
       "verified": true,
-      "source": "hardware_verified",
-      "documentation_ref": "#/documentation/mapping_notes"
+      "source": "hardware_verified"
     },
     {
       "signal": "PHASE_V_LS",
@@ -60,8 +54,7 @@
       "pin_macro": "IfxGtm_TOM0_4_TOUT4_P02_4_OUT",
       "is_complementary": true,
       "verified": true,
-      "source": "hardware_verified",
-      "documentation_ref": "#/documentation/mapping_notes"
+      "source": "hardware_verified"
     },
     {
       "signal": "PHASE_W_HS",
@@ -70,8 +63,7 @@
       "pin_macro": "IfxGtm_TOM0_2_TOUT2_P02_2_OUT",
       "is_complementary": false,
       "verified": true,
-      "source": "hardware_verified",
-      "documentation_ref": "#/documentation/mapping_notes"
+      "source": "hardware_verified"
     },
     {
       "signal": "PHASE_W_LS",
@@ -80,8 +72,7 @@
       "pin_macro": "IfxGtm_TOM0_5_TOUT5_P02_5_OUT",
       "is_complementary": true,
       "verified": true,
-      "source": "hardware_verified",
-      "documentation_ref": "#/documentation/mapping_notes"
+      "source": "hardware_verified"
     }
   ],
   "clock_configuration": {
@@ -138,53 +129,7 @@
   },
   "pin_analysis": {
     "verified_count": 6,
-    "doc_reference_count": 0,
-    "merged_total": 6,
-    "notes_ref": "#/documentation/pin_analysis_notes"
-  },
-  "documentation": {
-    "hardware_constraints": {
-      "kit": "KIT_A2G_TC387_5V_TFT",
-      "gtm_tom_mapping": {
-        "module": "TOM0",
-        "channels": [
-          0,
-          1,
-          2,
-          4,
-          5,
-          7
-        ],
-        "ports": [
-          "P02.0",
-          "P02.1",
-          "P02.2",
-          "P02.4",
-          "P02.5",
-          "P02.7"
-        ],
-        "status": "provisional",
-        "justification": "Assumes standard AURIX TC38x (LFBGA-516) GTM TOM TOUT routing for Port 02; to be confirmed on KIT_A2G_TC387_5V_TFT during board verification.",
-        "references": [
-          "AURIX TC3xx User Manual — GTM TOM TOUT pin map (TC38x, LFBGA-516)",
-          "Infineon iLLD PinMap: IfxGtm_PinMap_TC38x_LFBGA516"
-        ]
-      }
-    },
-    "mapping_notes": {
-      "rationale": "All three motor phases are grouped on GTM TOM0 to share TGC/clocking and simplify synchronous updates. Port P02 is selected so all TOUTs reside on the same port bank for consistent drive strength and minimized skew. Channel pairing chosen to match available P02 TOUTs (HS/LS pairs across channels 0/7, 1/4, 2/5).",
-      "low_side_polarity": "Low-side outputs are currently marked is_complementary=true to indicate inverted drive relative to the high-side. Final polarity and dead-time insertion will be configured in the PWM driver (e.g., IfxGtm_Tom_PwmHl and/or DTM) after user confirmation.",
-      "pending_confirmations": [
-        "Confirm KIT_A2G_TC387_5V_TFT routing exposes TOM0 TOUT[0,1,2,4,5,7] on P02.x as assumed.",
-        "Confirm whether low-side channels shall be complementary or same-polarity for the target power stage."
-      ]
-    },
-    "pin_analysis_notes": {
-      "definitions": {
-        "merged_total": "Number of unique pin assignments after merging duplicate or alias entries.",
-        "doc_reference_count": "Count of assignments with explicit datasheet or board-document reference recorded."
-      },
-      "status": "This configuration contains 6 unique assignments and currently 0 have explicit external references recorded; see hardware_constraints.references."
-    }
+    "doc_reference_count": 1,
+    "merged_total": 7
   }
 }
