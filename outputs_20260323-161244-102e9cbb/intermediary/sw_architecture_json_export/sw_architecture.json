@@ -41,8 +41,12 @@
     "init_function": {
       "name": "GTM_TOM_3_Phase_Inverter_PWM_init",
       "driver_calls": [
-        "IfxGtm_Tom_Pwm_init",
-        "IfxGtm_Tom_Pwm_start"
+        "IfxGtm_Tom_Timer_initConfig",
+        "IfxGtm_Tom_Timer_init",
+        "IfxGtm_Pwm_initConfig",
+        "IfxGtm_Pwm_initChannelConfig",
+        "IfxGtm_Pwm_init",
+        "IfxGtm_Pwm_startSyncedChannels"
       ]
     },
     "runtime_function": {
