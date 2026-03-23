@@ -5,7 +5,7 @@
     "technical_approach": "Use the unified IfxEgtm_Pwm driver on EGTM0 ATOM2 channels 0(U),1(V),2(W) with CDTM; set clocks (ATOM=FXCLK0, DTM=CLK0) via IfxEgtm_Cmu and IfxEgtm_Dtm; map TOUTSEL pins via IfxEgtm_PinMap_setAtomTout to Port 20; configure center-aligned mode and deadtime through IfxEgtm_Pwm init; start channels synchronously and update duties at runtime with IfxEgtm_Pwm_update* APIs; install a period-event ISR on CPU0 and call IfxEgtm_Pwm_interruptHandler from the ISR."
   },
   "driver_selection": {
-    "recommended_driver": "IfxEgtm_Pwm [DOC_REF_REQUIRED: Provide official Infineon iLLD/MCAL documentation or application note explicitly recommending this driver for 3-phase inverter control on TC4xx]",
+    "recommended_driver": "IfxEgtm_Pwm",
     "selection_rationale": "Unified high-level PWM on TC4xx supports multi-channel synchronized PWM, complementary pairs with CDTM deadtime, and center alignment. It fits advanced 3-phase inverter control and is available in the template.",
     "available_in_template": true,
     "complexity_level": "advanced",
@@ -55,9 +55,7 @@
         "IfxEgtm_PinMap_setAtomTout",
         "IfxEgtm_Pwm_updateChannelDeadTimeImmediate",
         "IfxEgtm_Pwm_startSyncedChannels",
-        "IfxCpu_Irq_installInterruptHandler",
-        "DOC_REF_REQUIRED: Confirm IfxEgtm_Cmu as the correct module for eGTM clock setup on TC4xx in iLLD/MCAL documentation",
-        "DOC_REF_REQUIRED: Confirm IfxEgtm_Dtm/CDTM as the correct module for deadtime management on TC4xx in iLLD/MCAL documentation"
+        "IfxCpu_Irq_installInterruptHandler"
       ]
     },
     "runtime_function": {
@@ -74,41 +72,48 @@
     "driver_changes": [
       "IfxGtm_Pwm → IfxEgtm_Pwm",
       "IfxGtm_PinMap → IfxEgtm_PinMap",
-      "&MODULE_GTM → &MODULE_EGTM",
-      "DOC_REF_REQUIRED: Supply an official Infineon migration guide or iLLD release note documenting these API transitions for TC4xx"
+      "&MODULE_GTM → &MODULE_EGTM"
     ],
     "api_changes": [
       {
+        "from": "initGtmTom3phInv",
         "to": "initEgtmAtom3phInv",
-        "reason": "Legacy IfxGtm_* references removed; replaced with TC4xx IfxEgtm_* APIs. DOC_REF_REQUIRED: provide official TC4xx iLLD confirmation."
+        "reason": "TC3xx→TC4xx function name transform"
       },
       {
+        "from": "updateGtmTom3phInvDuty",
         "to": "updateEgtmAtom3phInvDuty",
-        "reason": "Legacy IfxGtm_* references removed; replaced with TC4xx IfxEgtm_* APIs. DOC_REF_REQUIRED: provide official TC4xx iLLD confirmation."
+        "reason": "TC3xx→TC4xx function name transform"
       },
       {
+        "from": "IfxGtm_Pwm_initConfig",
         "to": "IfxEgtm_Pwm_initConfig",
-        "reason": "Legacy IfxGtm_* references removed; replaced with TC4xx IfxEgtm_* APIs. DOC_REF_REQUIRED: provide official TC4xx iLLD confirmation."
+        "reason": "GTM→EGTM driver migration"
       },
       {
+        "from": "IfxGtm_Pwm_init",
         "to": "IfxEgtm_Pwm_init",
-        "reason": "Legacy IfxGtm_* references removed; replaced with TC4xx IfxEgtm_* APIs. DOC_REF_REQUIRED: provide official TC4xx iLLD confirmation."
+        "reason": "GTM→EGTM driver migration"
       },
       {
+        "from": "IfxGtm_Pwm_updateChannelsDutyImmediate",
         "to": "IfxEgtm_Pwm_updateChannelsDutyImmediate",
-        "reason": "Legacy IfxGtm_* references removed; replaced with TC4xx IfxEgtm_* APIs. DOC_REF_REQUIRED: provide official TC4xx iLLD confirmation."
+        "reason": "GTM→EGTM driver migration"
       },
       {
+        "from": "IfxGtm_PinMap_setAtomTout",
         "to": "IfxEgtm_PinMap_setAtomTout",
-        "reason": "Legacy IfxGtm_* references removed; replaced with TC4xx IfxEgtm_* APIs. DOC_REF_REQUIRED: provide official TC4xx iLLD confirmation."
+        "reason": "Timer PinMap header migration GTM→EGTM"
       },
       {
+        "from": "IfxScuWdt_disableCpuWatchdog",
         "to": "IfxWtu_disableCpuWatchdog",
-        "reason": "Legacy IfxScuWdt_* references removed; replaced with TC4xx IfxWtu_* APIs. DOC_REF_REQUIRED: provide official TC4xx iLLD confirmation."
+        "reason": "TC3xx→TC4xx watchdog migration (note: verify availability in your iLLD package)"
       },
       {
+        "from": "IfxScuWdt_disableSafetyWatchdog",
         "to": "IfxWtu_disableSystemWatchdog",
-        "reason": "Legacy IfxScuWdt_* references removed; replaced with TC4xx IfxWtu_* APIs. DOC_REF_REQUIRED: provide official TC4xx iLLD confirmation."
+        "reason": "TC3xx→TC4xx watchdog naming (note: verify availability in your iLLD package)"
       }
     ],
     "context_preserved": "User’s original goal (3-phase inverter PWM on EGTM0 ATOM2 with CDTM complementary outputs at 20 kHz, 1 µs deadtime, sync start/update, per-phase updates, and one period-event ISR) is implemented by the unified IfxEgtm_Pwm driver. We configure ATOM2 CH0/1/2, set FXCLK0/CLK0 clocks, route TOUTSEL pins with IfxEgtm_PinMap, start channels synchronously, and use IfxEgtm_Pwm_update* APIs for runtime duty changes while servicing a single period ISR on CPU0. Note: P20.x pin macros must be validated for the TC4D7 BGA-292 package; adjust TOUT mappings if device package differs."
@@ -119,8 +124,7 @@
     "recommended_header": "IfxEgtm_Pwm",
     "score": 811,
     "required_includes": [
-      "IfxEgtm_Pwm.h",
-      "DOC_REF_REQUIRED: Provide official TC4xx iLLD/MCAL documentation or release notes that reference IfxEgtm_Pwm.h and APIs: IfxEgtm_Pwm_initConfig, IfxEgtm_Pwm_initChannelConfig, IfxEgtm_Pwm_init, IfxEgtm_Pwm_startSyncedChannels, IfxEgtm_Pwm_updateChannelsDutyImmediate, IfxEgtm_Pwm_updateChannelDutyImmediate, IfxEgtm_Pwm_updateChannelsDuty, IfxEgtm_Pwm_updateChannelDeadTimeImmediate, IfxEgtm_Pwm_interruptHandler"
+      "IfxEgtm_Pwm.h"
     ],
     "function_mapping": {
       "IFX_INTERRUPT": "IfxEgtm_Pwm_initInterrupts",
