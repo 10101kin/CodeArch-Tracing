@@ -1,0 +1,87 @@
+{
+  "module_name": "EGTM_ATOM_3_Phase_Inverter_PWM",
+  "public_functions": [
+    {
+      "signature": "void initEgtmAtom3phInv(void)",
+      "behavior_description": "Initialize the eGTM-based complementary, center-aligned 3-phase PWM for an inverter using a single ATOM instance. Algorithm: 1) Enable the eGTM module. 2) Configure the eGTM CMU to use the global clock as source and enable the FXCLK domain needed by ATOM; set dividers so the working FXCLK (e.g., FXCLK0) provides the target tick frequency required to meet the requested PWM period, deadtime, and minimum pulse. 3) Prepare the unified eGTM PWM configuration structure with defaults, then set: center-aligned mode, requested base frequency (20 kHz), and the number of synchronized channels to match the three complementary pairs. 4) For each configured PWM pair, assign the primary output pin and its complementary output pin using the generic eGTM PinMap API, and set both polarities active-high. 5) Attach hardware deadtime for each complementary pair (0.5 µs) via the driver's deadtime update API. 6) Enforce a software minimum pulse policy (1.0 µs) by planning to clamp duty requests later in the runtime API. 7) Initialize the driver with the prepared configuration and channels, enable synchronized shadow-to-active updates across all pairs, start the synchronized time base, and enable channel outputs so that all phases switch in lockstep. Initial duty command values can be set to safe defaults (e.g., zero or predefined fractions) and applied using the driver's immediate multi-channel duty update to ensure a known starting state.",
+      "driver_calls": [
+        "IfxEgtm_enable",
+        "IfxEgtm_Cmu_selectClkInput",
+        "IfxEgtm_Cmu_setGclkDivider",
+        "IfxEgtm_Cmu_enableClocks",
+        "IfxEgtm_Pwm_initConfig",
+        "IfxEgtm_Pwm_initChannelConfig",
+        "IfxEgtm_PinMap_setAtomTout",
+        "IfxEgtm_Pwm_init",
+        "IfxEgtm_Pwm_setChannelPolarity",
+        "IfxEgtm_Pwm_updateChannelsDeadTime",
+        "IfxEgtm_Pwm_updateChannelsDuty",
+        "IfxEgtm_Pwm_startSyncedChannels",
+        "IfxEgtm_Pwm_startChannelOutputs"
+      ],
+      "from_reference": true,
+      "call_context": "init"
+    },
+    {
+      "signature": "void updateEgtmAtom3phInvDuty(void)",
+      "behavior_description": "Update the inverter PWM duty commands synchronously across all configured complementary pairs with clamping to maintain a minimum pulse. Algorithm: 1) Maintain an array of normalized duty fractions (one per complementary pair). 2) On each call, add a fixed duty increment to every pair’s duty value to create a ramp. 3) Compute min and max allowed duty fractions from the configured minimum pulse time: minDuty = min_pulse_ticks / period_ticks and maxDuty = 1.0f - minDuty. 4) For each duty value: if it exceeds maxDuty, wrap it to minDuty; otherwise clamp it within [minDuty, maxDuty]. 5) Write the updated duty fractions for all pairs using the driver’s immediate multi-channel update so the changes take effect in sync at the next hardware update point. The deadtime configured in init remains active and center alignment is preserved by the driver.",
+      "driver_calls": [
+        "IfxEgtm_Pwm_updateChannelsDutyImmediate",
+        "IfxEgtm_Pwm_getChannelState"
+      ],
+      "from_reference": true,
+      "call_context": "loop"
+    }
+  ],
+  "private_functions": [
+    {
+      "signature": "static float32 clampDutyToMinPulse(float32 duty)",
+      "needed": true,
+      "from_reference": false
+    }
+  ],
+  "dependencies": {
+    "includes": [
+      "Ifx_Types.h",
+      "IfxEgtm.h",
+      "IfxEgtm_Pwm.h",
+      "IfxEgtm_Cmu.h",
+      "IfxEgtm_PinMap.h",
+      "IfxPort.h"
+    ],
+    "driver_calls": [
+      "IfxEgtm_enable",
+      "IfxEgtm_Cmu_selectClkInput",
+      "IfxEgtm_Cmu_setGclkDivider",
+      "IfxEgtm_Cmu_enableClocks",
+      "IfxEgtm_Pwm_initConfig",
+      "IfxEgtm_Pwm_initChannelConfig",
+      "IfxEgtm_PinMap_setAtomTout",
+      "IfxEgtm_Pwm_init",
+      "IfxEgtm_Pwm_setChannelPolarity",
+      "IfxEgtm_Pwm_updateChannelsDeadTime",
+      "IfxEgtm_Pwm_updateChannelsDuty",
+      "IfxEgtm_Pwm_startSyncedChannels",
+      "IfxEgtm_Pwm_startChannelOutputs",
+      "IfxEgtm_Pwm_updateChannelsDutyImmediate",
+      "IfxEgtm_Pwm_getChannelState"
+    ]
+  },
+  "cpu_main_requirements": {
+    "needs_cpu_sync": true,
+    "uses_timer_delay": true,
+    "delay_ms": 10,
+    "additional_includes": [
+      "Bsp.h"
+    ]
+  },
+  "header_selection": {
+    "applied": true,
+    "peripheral_type": "PWM",
+    "recommended_header": "IfxEgtm_Pwm",
+    "template_functions_count": 1460,
+    "required_includes": [
+      "IfxEgtm_Pwm.h"
+    ]
+  }
+}
