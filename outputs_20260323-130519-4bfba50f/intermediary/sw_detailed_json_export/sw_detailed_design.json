@@ -1,0 +1,92 @@
+{
+  "module_name": "GTM_TOM_3_Phase_Inverter_PWM",
+  "public_functions": [
+    {
+      "signature": "void initGtmTomPwm(void)",
+      "behavior_description": "Enable the GTM module and its functional clocks, then create and initialize a TOM-based master timer to run at the required PWM frequency (20 kHz). Prepare a complementary PWM high/low driver for three channel pairs using a configuration structure that: assigns three high-side and three low-side outputs to TOM channels belonging to the same TOM and TGC as the timer; sets push-pull output mode and the specified pad driver; preserves existing deadtime and minimum pulse constraints if known (otherwise use a reasonable fallback); and sets active states for high/low outputs identically. Assign the selected output pins via the TOM TOUT pin map using push-pull and the requested pad driver. Initialize the PWM HL driver with the timer reference and set the PWM mode to center-aligned. Start the timer before writing any on-times to ensure synchronized channel resets. Compute initial ON-times for the three complementary pairs as 25%, 50%, and 75% of the current period. Perform a coherent multi-channel update by disabling updates, writing all three ON-times at once, and then applying the update so all outputs take effect synchronously.",
+      "driver_calls": [
+        "IfxGtm_enable",
+        "IfxGtm_Cmu_enableClocks",
+        "IfxGtm_Tom_Timer_initConfig",
+        "IfxGtm_Tom_Timer_init",
+        "IfxGtm_PinMap_setTomTout",
+        "IfxGtm_Tom_PwmHl_initConfig",
+        "IfxGtm_Tom_PwmHl_init",
+        "IfxGtm_Tom_PwmHl_setMode",
+        "IfxGtm_Tom_Timer_run",
+        "IfxGtm_Tom_Timer_disableUpdate",
+        "IfxGtm_Tom_PwmHl_setOnTime",
+        "IfxGtm_Tom_Timer_applyUpdate"
+      ],
+      "from_reference": true,
+      "call_context": "init"
+    },
+    {
+      "signature": "void updateGtmTomPwmDutyCycles(void)",
+      "behavior_description": "Update the three-phase PWM duties in a cyclic stepping pattern. Read the current timer period, compute a duty step as a fixed fraction of the period, and compute absolute minimum and maximum ON-time thresholds corresponding to the inclusive duty range (e.g., 0% to 100%). For each of the three channels, increment its stored ON-time by the duty step. If any ON-time exceeds or equals the maximum threshold, wrap it to the minimum threshold so the sequence cycles. Apply the new ON-times coherently by disabling updates, setting all three ON-times together, and applying the update to take effect simultaneously. This function assumes it is called periodically (e.g., every 500 ms) to advance all three phases by the same duty increment, preserving center-aligned complementary behavior and deadtime enforced by the driver.",
+      "driver_calls": [
+        "IfxGtm_Tom_Timer_disableUpdate",
+        "IfxGtm_Tom_PwmHl_setOnTime",
+        "IfxGtm_Tom_Timer_applyUpdate"
+      ],
+      "from_reference": true,
+      "call_context": "loop"
+    }
+  ],
+  "private_functions": [
+    {
+      "signature": "static void configureGtmTomPins(void)",
+      "needed": true,
+      "from_reference": false
+    }
+  ],
+  "dependencies": {
+    "includes": [
+      "Ifx_Types.h",
+      "IfxGtm.h",
+      "IfxGtm_Cmu.h",
+      "IfxGtm_Tom_Timer.h",
+      "IfxGtm_Tom_PwmHl.h",
+      "IfxGtm_PinMap.h",
+      "IfxPort.h",
+      "GTM_TOM_3_Phase_Inverter_PWM.h"
+    ],
+    "driver_calls": [
+      "IfxGtm_enable",
+      "IfxGtm_Cmu_enableClocks",
+      "IfxGtm_Tom_Timer_initConfig",
+      "IfxGtm_Tom_Timer_init",
+      "IfxGtm_Tom_Timer_run",
+      "IfxGtm_Tom_Timer_disableUpdate",
+      "IfxGtm_Tom_Timer_applyUpdate",
+      "IfxGtm_Tom_PwmHl_initConfig",
+      "IfxGtm_Tom_PwmHl_init",
+      "IfxGtm_Tom_PwmHl_setMode",
+      "IfxGtm_Tom_PwmHl_setOnTime",
+      "IfxGtm_PinMap_setTomTout"
+    ]
+  },
+  "cpu_main_requirements": {
+    "needs_cpu_sync": true,
+    "uses_timer_delay": true,
+    "delay_ms": 10,
+    "additional_includes": [
+      "Bsp.h"
+    ]
+  },
+  "header_selection": {
+    "applied": true,
+    "peripheral_type": "PWM",
+    "recommended_header": "IfxGtm_Tom",
+    "template_functions_count": 1029,
+    "required_includes": [
+      "IfxGtm_Tom.h"
+    ],
+    "original_recommendation": "IfxGtm_Tom_PwmHl",
+    "reconciled": true,
+    "reconciliation_reason": "LLM driver_calls use IfxGtm_Tom_* API, not IfxGtm_Tom_PwmHl (the reference API). Updated to match actual usage.",
+    "original_required_includes": [
+      "IfxGtm_Tom_PwmHl.h"
+    ]
+  }
+}
