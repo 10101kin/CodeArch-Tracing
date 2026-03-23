@@ -1,0 +1,105 @@
+{
+  "microcontroller": {
+    "model": "TC387",
+    "family": "TC3xx",
+    "verified": true,
+    "device_macro": "DEVICE_TC38X",
+    "pin_package": "IFX_PIN_PACKAGE_516"
+  },
+  "peripheral_instance": {
+    "type": "PWM",
+    "module": "GTM.TOM1",
+    "channels": [
+      2,
+      4,
+      6
+    ],
+    "driver": "IfxGtm_Pwm"
+  },
+  "pin_assignments": [
+    {
+      "signal": "U (TOM1.CH2)",
+      "port_pin": "P00.3",
+      "function": "TOUT",
+      "pin_macro": "",
+      "is_complementary": false,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "V (TOM1.CH4)",
+      "port_pin": "P00.5",
+      "function": "TOUT",
+      "pin_macro": "",
+      "is_complementary": false,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "W (TOM1.CH6)",
+      "port_pin": "P00.7",
+      "function": "TOUT",
+      "pin_macro": "",
+      "is_complementary": false,
+      "verified": false,
+      "source": "hardware_verified"
+    }
+  ],
+  "clock_configuration": {
+    "xtal_frequency_mhz": 20,
+    "system_frequency_mhz": 300
+  },
+  "validation": {
+    "all_verified": false,
+    "conflicts": [],
+    "reference_pins_valid": true
+  },
+  "template_validation": {
+    "supported_peripherals": [
+      "PWM",
+      "GTM",
+      "TIMER"
+    ],
+    "suggested_drivers": {
+      "PWM": [
+        "IfxCcu6_PwmBc",
+        "IfxGtm_Tom_Pwm",
+        "IfxGtm_Tom_Dtm_PwmHl",
+        "IfxGtm_Atom_Dtm_PwmHl",
+        "IfxGtm_Atom_Pwm",
+        "IfxGtm_Pwm",
+        "IfxCcu6_TPwm",
+        "IfxGtm_Tom_PwmHl",
+        "IfxCcu6_PwmHl",
+        "IfxGtm_Atom_PwmHl"
+      ],
+      "GTM": [
+        "IfxGtm_Dtm",
+        "IfxGtm_Tbu",
+        "IfxGtm",
+        "IfxGtm_Spe",
+        "IfxGtm_Pwm",
+        "IfxGtm_Psm",
+        "IfxGtm_PinMap_TC38x_LFBGA516",
+        "IfxGtm_PinMap_TC38x_LFBGA292",
+        "IfxGtm_Trig",
+        "IfxGtm_Dpll",
+        "IfxGtm_PinMap_TC38x_516"
+      ],
+      "TIMER": [
+        "IfxStm_Timer",
+        "IfxGtm_Tom_Timer",
+        "IfxGtm_Tim_Timer",
+        "IfxGtm_Atom_Timer",
+        "IfxCcu6_Timer",
+        "IfxCcu6_TimerWithTrigger"
+      ]
+    },
+    "warnings": []
+  },
+  "pin_analysis": {
+    "verified_count": 3,
+    "doc_reference_count": 1,
+    "merged_total": 4
+  }
+}
