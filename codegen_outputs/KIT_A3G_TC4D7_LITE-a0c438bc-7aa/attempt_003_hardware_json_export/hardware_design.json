@@ -1,0 +1,166 @@
+{
+  "microcontroller": {
+    "model": "TC4D7",
+    "family": "TC4xx",
+    "verified": true,
+    "device_macro": "DEVICE_TC4DX",
+    "pin_package": "IFX_PIN_PACKAGE_BGA436_COM"
+  },
+  "peripheral_instance": {
+    "type": "PWM",
+    "module": "EGTM C1 ATOM1",
+    "channels": [
+      0,
+      1,
+      2
+    ],
+    "driver": "IfxEgtm_Pwm"
+  },
+  "pin_assignments": [
+    {
+      "signal": "PhaseA_HS",
+      "port_pin": "P02.0",
+      "function": "TOUT0",
+      "pin_macro": "IfxEgtm_ATOM1_0_TOUT0_P02_0_OUT",
+      "is_complementary": false,
+      "verified": true,
+      "source": "hardware_verified",
+      "doc_ref": "KIT_A3G_TC4D7_LITE pinmap: ATOM1 via DTM",
+      "rationale": "ATOM1 CH0 high-side mapped to P02.0 per board pinmap and requirement"
+    },
+    {
+      "signal": "PhaseA_LS",
+      "port_pin": "P02.7",
+      "function": "TOUT7",
+      "pin_macro": "IfxEgtm_ATOM1_0N_TOUT7_P02_7_OUT",
+      "is_complementary": true,
+      "verified": true,
+      "source": "hardware_verified",
+      "doc_ref": "KIT_A3G_TC4D7_LITE pinmap: ATOM1 via DTM",
+      "rationale": "ATOM1 CH0 low-side mapped to P02.7 per board pinmap and requirement"
+    },
+    {
+      "signal": "PhaseB_HS",
+      "port_pin": "P02.1",
+      "function": "TOUT1",
+      "pin_macro": "IfxEgtm_ATOM1_1_TOUT1_P02_1_OUT",
+      "is_complementary": false,
+      "verified": true,
+      "source": "hardware_verified",
+      "doc_ref": "KIT_A3G_TC4D7_LITE pinmap: ATOM1 via DTM",
+      "rationale": "ATOM1 CH1 high-side mapped to P02.1 per board pinmap and requirement"
+    },
+    {
+      "signal": "PhaseB_LS",
+      "port_pin": "P02.4",
+      "function": "TOUT4",
+      "pin_macro": "IfxEgtm_ATOM1_1N_TOUT4_P02_4_OUT",
+      "is_complementary": true,
+      "verified": true,
+      "source": "hardware_verified",
+      "doc_ref": "KIT_A3G_TC4D7_LITE pinmap: ATOM1 via DTM",
+      "rationale": "ATOM1 CH1 low-side mapped to P02.4 per board pinmap and requirement"
+    },
+    {
+      "signal": "PhaseC_HS",
+      "port_pin": "P02.2",
+      "function": "TOUT2",
+      "pin_macro": "IfxEgtm_ATOM1_2_TOUT2_P02_2_OUT",
+      "is_complementary": false,
+      "verified": true,
+      "source": "hardware_verified",
+      "doc_ref": "KIT_A3G_TC4D7_LITE pinmap: ATOM1 via DTM",
+      "rationale": "ATOM1 CH2 high-side mapped to P02.2 per board pinmap and requirement"
+    },
+    {
+      "signal": "PhaseC_LS",
+      "port_pin": "P02.5",
+      "function": "TOUT5",
+      "pin_macro": "IfxEgtm_ATOM1_2N_TOUT5_P02_5_OUT",
+      "is_complementary": true,
+      "verified": true,
+      "source": "hardware_verified",
+      "doc_ref": "KIT_A3G_TC4D7_LITE pinmap: ATOM1 via DTM",
+      "rationale": "ATOM1 CH2 low-side mapped to P02.5 per board pinmap and requirement"
+    }
+  ],
+  "clock_configuration": {
+    "xtal_frequency_mhz": 25,
+    "system_frequency_mhz": 500
+  },
+  "validation": {
+    "all_verified": true,
+    "conflicts": [],
+    "reference_pins_valid": true
+  },
+  "template_validation": {
+    "supported_peripherals": [
+      "PWM",
+      "GTM",
+      "EGTM",
+      "ASCLIN",
+      "INTERRUPT",
+      "CPU"
+    ],
+    "suggested_drivers": {
+      "PWM": [
+        "IfxGtm_Atom_Pwm",
+        "IfxGtm_Tom_Pwm",
+        "IfxEgtm_Atom_Pwm",
+        "IfxEgtm_Pwm",
+        "IfxEgtm_Tom_Pwm",
+        "IfxGtm_Pwm"
+      ],
+      "GTM": [
+        "IfxGtm_Dtm",
+        "IfxGtm_Input",
+        "IfxGtm_Psm",
+        "IfxGtm",
+        "IfxGtm_PinMap",
+        "IfxGtm_Pwm",
+        "IfxGtm_Trigger",
+        "IfxGtm_Spe",
+        "IfxGtm_Tbu"
+      ],
+      "EGTM": [
+        "IfxEgtm_PinMap",
+        "IfxEgtm_Input",
+        "IfxEgtm_Pwm",
+        "IfxEgtm",
+        "IfxEgtm_Atom",
+        "IfxEgtm_Cmu",
+        "IfxEgtm_Dtm",
+        "IfxEgtm_Spe",
+        "IfxEgtm_Tbu",
+        "IfxEgtm_Tim",
+        "IfxEgtm_Tom",
+        "IfxEgtm_Trigger",
+        "IfxEgtm_Tom_Pwm",
+        "IfxEgtm_Tom_Timer",
+        "IfxEgtm_Tim_In",
+        "IfxEgtm_Tim_Timer",
+        "IfxEgtm_Atom_Pwm",
+        "IfxEgtm_Atom_Timer"
+      ],
+      "ASCLIN": [
+        "IfxAsclin_Asc",
+        "IfxAsclin_Lin",
+        "IfxAsclin_Spi",
+        "IfxAsclin"
+      ],
+      "INTERRUPT": [
+        "IfxCpu_Irq",
+        "IfxScrCpuIrq"
+      ],
+      "CPU": [
+        "IfxCpu"
+      ]
+    },
+    "warnings": []
+  },
+  "pin_analysis": {
+    "verified_count": 6,
+    "doc_reference_count": 4,
+    "merged_total": 10
+  }
+}
