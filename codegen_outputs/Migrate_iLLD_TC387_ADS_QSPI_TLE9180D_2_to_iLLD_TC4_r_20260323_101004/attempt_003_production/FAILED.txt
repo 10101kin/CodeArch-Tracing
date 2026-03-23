@@ -1,0 +1,255 @@
+Attempt 3 - PRODUCTION (Global: 3)
+Status: FAILED ❌
+Timestamp: 2026-03-23 10:31:11
+Files generated: 2
+
+============================================================
+
+ERRORS:
+
+1. 'Ifx_Status_notOk' redeclared as different kind of symbol
+
+2. 'Ifx_Status_ok' redeclared as different kind of symbol
+
+3. expected expression before 'Ifx_Status_notOk'
+
+4. expected expression before 'Ifx_Status_notOk'
+
+5. expected expression before 'Ifx_Status_ok'
+
+6. 'Ifx_Status_notOk' redeclared as different kind of symbol
+
+7. 'Ifx_Status_ok' redeclared as different kind of symbol
+
+8. 'millis' undeclared (first use in this function)
+
+9. 'micros' undeclared (first use in this function)
+
+10. 'Ifx_Status_notOk' redeclared as different kind of symbol
+
+============================================================
+BUILD RESULT:
+{
+  "success": false,
+  "errors": [
+    {
+      "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\include/illd_types/Ifx_Types.h",
+      "line": 2032,
+      "column": 43,
+      "message": "'Ifx_Status_notOk' redeclared as different kind of symbol",
+      "category": "illd_api_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\include/illd_types/Ifx_Types.h",
+      "line": 2036,
+      "column": 43,
+      "message": "'Ifx_Status_ok' redeclared as different kind of symbol",
+      "category": "illd_api_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\src\\qspi.c",
+      "line": 37,
+      "column": 16,
+      "message": "expected expression before 'Ifx_Status_notOk'",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\src\\qspi.c",
+      "line": 89,
+      "column": 20,
+      "message": "expected expression before 'Ifx_Status_notOk'",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\src\\qspi.c",
+      "line": 112,
+      "column": 12,
+      "message": "expected expression before 'Ifx_Status_ok'",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\include/illd_types/Ifx_Types.h",
+      "line": 2032,
+      "column": 43,
+      "message": "'Ifx_Status_notOk' redeclared as different kind of symbol",
+      "category": "illd_api_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\include/illd_types/Ifx_Types.h",
+      "line": 2036,
+      "column": 43,
+      "message": "'Ifx_Status_ok' redeclared as different kind of symbol",
+      "category": "illd_api_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\mocks\\IfxStm.c",
+      "line": 20,
+      "column": 21,
+      "message": "'millis' undeclared (first use in this function)",
+      "category": "unknown",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\mocks\\IfxStm.c",
+      "line": 25,
+      "column": 20,
+      "message": "'micros' undeclared (first use in this function)",
+      "category": "unknown",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\include/illd_types/Ifx_Types.h",
+      "line": 2032,
+      "column": 43,
+      "message": "'Ifx_Status_notOk' redeclared as different kind of symbol",
+      "category": "illd_api_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\include/illd_types/Ifx_Types.h",
+      "line": 2036,
+      "column": 43,
+      "message": "'Ifx_Status_ok' redeclared as different kind of symbol",
+      "category": "illd_api_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\mocks\\IfxXspi_Spi.c",
+      "line": 114,
+      "column": 15,
+      "message": "redefinition of 's_baudrate_count'",
+      "category": "unknown",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\mocks\\IfxXspi_Spi.c",
+      "line": 125,
+      "column": 8,
+      "message": "redefinition of 'IfxXspi_Spi_Mock_GetLastArg_initModule_Mock_GetCallCount_baudrate'",
+      "category": "illd_api_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\mocks\\IfxXspi_Spi.c",
+      "line": 132,
+      "column": 15,
+      "message": "redefinition of 's_mode_count'",
+      "category": "unknown",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\mocks\\IfxXspi_Spi.c",
+      "line": 143,
+      "column": 8,
+      "message": "redefinition of 'IfxXspi_Spi_Mock_GetLastArg_initModule_Mock_GetCallCount_mode'",
+      "category": "illd_api_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\mocks\\IfxXspi_Spi.c",
+      "line": 148,
+      "column": 15,
+      "message": "redefinition of 's_baudrate_count'",
+      "category": "unknown",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\mocks\\IfxXspi_Spi.c",
+      "line": 150,
+      "column": 15,
+      "message": "redefinition of 's_baudrate_count'",
+      "category": "unknown",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\mocks\\IfxXspi_Spi.c",
+      "line": 161,
+      "column": 8,
+      "message": "redefinition of 'IfxXspi_Spi_Mock_GetLastArg_transferInit_Mock_GetCallCount_baudrate'",
+      "category": "illd_api_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\include/illd_types/Ifx_Types.h",
+      "line": 2032,
+      "column": 43,
+      "message": "'Ifx_Status_notOk' redeclared as different kind of symbol",
+      "category": "illd_api_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\include/illd_types/Ifx_Types.h",
+      "line": 2036,
+      "column": 43,
+      "message": "'Ifx_Status_ok' redeclared as different kind of symbol",
+      "category": "illd_api_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\mocks\\ifx_memset.c",
+      "line": 7,
+      "column": 15,
+      "message": "redefinition of 's_memset_count'",
+      "category": "unknown",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\mocks\\ifx_memset.c",
+      "line": 20,
+      "column": 8,
+      "message": "redefinition of 'Ifx_Mock_GetCallCount_memset'",
+      "category": "illd_api_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\include/illd_types/Ifx_Types.h",
+      "line": 2032,
+      "column": 43,
+      "message": "'Ifx_Status_notOk' redeclared as different kind of symbol",
+      "category": "illd_api_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\include/illd_types/Ifx_Types.h",
+      "line": 2036,
+      "column": 43,
+      "message": "'Ifx_Status_ok' redeclared as different kind of symbol",
+      "category": "illd_api_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity_internals.h",
+      "line": 904,
+      "column": 169,
+      "message": "invalid use of void expression",
+      "category": "unknown",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity_internals.h",
+      "line": 904,
+      "column": 169,
+      "message": "invalid use of void expression",
+      "category": "unknown",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity_internals.h",
+      "line": 904,
+      "column": 169,
+      "message": "invalid use of void expression",
+      "category": "unknown",
+      "severity": "error"
+    }
+  ],
+  "warnings": [],
+  "stderr": "In file included from C:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\include/Ifx_Types.h:5,\n                 from C:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\include/qspi.h:16,\n                 from C:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\src\\qspi.c:12:\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\include/illd_types/Ifx_Types.h:2032:43: error: 'Ifx_Status_notOk' redeclared as different kind of symbol\n 2032 | typedef struct { volatile uint32 dummy; } Ifx_Status_notOk;\n      |                                           ^~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\include/illd_types/Ifx_Types.h:2026:5: note: previous definition of 'Ifx_Status_notOk' with type 'enum <anonymous>'\n 2026 |     Ifx_Status_notOk = 0,\n      |     ^~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\include/illd_types/Ifx_Types.h:2036:43: error: 'Ifx_Status_ok' redeclared as different kind of symbol\n 2036 | typedef struct { volatile uint32 dummy; } Ifx_Status_ok;\n      |                                           ^~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\include/illd_types/Ifx_Types.h:2027:5: note: previous definition of 'Ifx_Status_ok' with type 'enum <anonymous>'\n 2027 |     Ifx_Status_ok = 1\n      |     ^~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\src\\qspi.c: In function 'Qspi_initQspi':\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\src\\qspi.c:37:16: error: expected expression before 'Ifx_Status_notOk'\n   37 |         return Ifx_Status_notOk;\n      |                ^~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\src\\qspi.c:89:20: error: expected expression before 'Ifx_Status_notOk'\n   89 |             return Ifx_Status_notOk; /* Early exit on failure (per error-handling requirements) */\n      |                    ^~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\src\\qspi.c:112:12: error: expected expression before 'Ifx_Status_ok'\n  112 |     return Ifx_Status_ok;\n      |            ^~~~~~~~~~~~~\n\nIn file included from C:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\include/IfxStm.h:4,\n                 from C:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\mocks\\IfxStm.c:1:\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\include/illd_types/Ifx_Types.h:2032:43: error: 'Ifx_Status_notOk' redeclared as different kind of symbol\n 2032 | typedef struct { volatile uint32 dummy; } Ifx_Status_notOk;\n      |                                           ^~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\include/illd_types/Ifx_Types.h:2026:5: note: previous definition of 'Ifx_Status_notOk' with type 'enum <anonymous>'\n 2026 |     Ifx_Status_notOk = 0,\n      |     ^~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\include/illd_types/Ifx_Types.h:2036:43: error: 'Ifx_Status_ok' redeclared as different kind of symbol\n 2036 | typedef struct { volatile uint32 dummy; } Ifx_Status_ok;\n      |                                           ^~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\include/illd_types/Ifx_Types.h:2027:5: note: previous definition of 'Ifx_Status_ok' with type 'enum <anonymous>'\n 2027 |     Ifx_Status_ok = 1\n      |     ^~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\mocks\\IfxStm.c: In function 'IfxStm_getTicksFromMilliseconds':\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\mocks\\IfxStm.c:20:21: error: 'millis' undeclared (first use in this function)\n   20 |     return (sint32)(millis * 1000);  /* Simple conversion for testing */\n      |                     ^~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\mocks\\IfxStm.c:20:21: note: each undeclared identifier is reported only once for each function it appears in\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\mocks\\IfxStm.c: In function 'IfxStm_getTicksFromMicroseconds':\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\mocks\\IfxStm.c:25:20: error: 'micros' undeclared (first use in this function)\n   25 |     return (sint32)micros;\n      |                    ^~~~~~\n\nIn file included from C:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\include/IfxXspi_Spi.h:4,\n                 from C:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\mocks\\IfxXspi_Spi.c:1:\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\include/illd_types/Ifx_Types.h:2032:43: error: 'Ifx_Status_notOk' redeclared as different kind of symbol\n 2032 | typedef struct { volatile uint32 dummy; } Ifx_Status_notOk;\n      |                                           ^~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\include/illd_types/Ifx_Types.h:2026:5: note: previous definition of 'Ifx_Status_notOk' with type 'enum <anonymous>'\n 2026 |     Ifx_Status_notOk = 0,\n      |     ^~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\include/illd_types/Ifx_Types.h:2036:43: error: 'Ifx_Status_ok' redeclared as different kind of symbol\n 2036 | typedef struct { volatile uint32 dummy; } Ifx_Status_ok;\n      |                                           ^~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\include/illd_types/Ifx_Types.h:2027:5: note: previous definition of 'Ifx_Status_ok' with type 'enum <anonymous>'\n 2027 |     Ifx_Status_ok = 1\n      |     ^~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\mocks\\IfxXspi_Spi.c:114:15: error: redefinition of 's_baudrate_count'\n  114 | static uint32 s_baudrate_count = 0;\n      |               ^~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\mocks\\IfxXspi_Spi.c:112:15: note: previous definition of 's_baudrate_count' with type 'uint32' {aka 'unsigned int'}\n  112 | static uint32 s_baudrate_count = 0;\n      |               ^~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\mocks\\IfxXspi_Spi.c:125:8: error: redefinition of 'IfxXspi_Spi_Mock_GetLastArg_initModule_Mock_GetCallCount_baudrate'\n  125 | uint32 IfxXspi_Spi_Mock_GetLastArg_initModule_Mock_GetCallCount_baudrate(void) {\n      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\mocks\\IfxXspi_Spi.c:121:8: note: previous definition of 'IfxXspi_Spi_Mock_GetLastArg_initModule_Mock_GetCallCount_baudrate' with type 'uint32(void)' {aka 'unsigned int(void)'}\n  121 | uint32 IfxXspi_Spi_Mock_GetLastArg_initModule_Mock_GetCallCount_baudrate(void) {\n      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\mocks\\IfxXspi_Spi.c:132:15: error: redefinition of 's_mode_count'\n  132 | static uint32 s_mode_count = 0;\n      |               ^~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\mocks\\IfxXspi_Spi.c:130:15: note: previous definition of 's_mode_count' with type 'uint32' {aka 'unsigned int'}\n  130 | static uint32 s_mode_count = 0;\n      |               ^~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\mocks\\IfxXspi_Spi.c:143:8: error: redefinition of 'IfxXspi_Spi_Mock_GetLastArg_initModule_Mock_GetCallCount_mode'\n  143 | uint32 IfxXspi_Spi_Mock_GetLastArg_initModule_Mock_GetCallCount_mode(void) {\n      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\mocks\\IfxXspi_Spi.c:139:8: note: previous definition of 'IfxXspi_Spi_Mock_GetLastArg_initModule_Mock_GetCallCount_mode' with type 'uint32(void)' {aka 'unsigned int(void)'}\n  139 | uint32 IfxXspi_Spi_Mock_GetLastArg_initModule_Mock_GetCallCount_mode(void) {\n      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\mocks\\IfxXspi_Spi.c:148:15: error: redefinition of 's_baudrate_count'\n  148 | static uint32 s_baudrate_count = 0;\n      |               ^~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\mocks\\IfxXspi_Spi.c:114:15: note: previous definition of 's_baudrate_count' with type 'uint32' {aka 'unsigned int'}\n  114 | static uint32 s_baudrate_count = 0;\n      |               ^~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\mocks\\IfxXspi_Spi.c:150:15: error: redefinition of 's_baudrate_count'\n  150 | static uint32 s_baudrate_count = 0;\n      |               ^~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\mocks\\IfxXspi_Spi.c:148:15: note: previous definition of 's_baudrate_count' with type 'uint32' {aka 'unsigned int'}\n  148 | static uint32 s_baudrate_count = 0;\n      |               ^~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\mocks\\IfxXspi_Spi.c:161:8: error: redefinition of 'IfxXspi_Spi_Mock_GetLastArg_transferInit_Mock_GetCallCount_baudrate'\n  161 | uint32 IfxXspi_Spi_Mock_GetLastArg_transferInit_Mock_GetCallCount_baudrate(void) {\n      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\mocks\\IfxXspi_Spi.c:157:8: note: previous definition of 'IfxXspi_Spi_Mock_GetLastArg_transferInit_Mock_GetCallCount_baudrate' with type 'uint32(void)' {aka 'unsigned int(void)'}\n  157 | uint32 IfxXspi_Spi_Mock_GetLastArg_transferInit_Mock_GetCallCount_baudrate(void) {\n      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\include/ifx_memset.h:4,\n                 from C:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\mocks\\ifx_memset.c:1:\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\include/illd_types/Ifx_Types.h:2032:43: error: 'Ifx_Status_notOk' redeclared as different kind of symbol\n 2032 | typedef struct { volatile uint32 dummy; } Ifx_Status_notOk;\n      |                                           ^~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\include/illd_types/Ifx_Types.h:2026:5: note: previous definition of 'Ifx_Status_notOk' with type 'enum <anonymous>'\n 2026 |     Ifx_Status_notOk = 0,\n      |     ^~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\include/illd_types/Ifx_Types.h:2036:43: error: 'Ifx_Status_ok' redeclared as different kind of symbol\n 2036 | typedef struct { volatile uint32 dummy; } Ifx_Status_ok;\n      |                                           ^~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\include/illd_types/Ifx_Types.h:2027:5: note: previous definition of 'Ifx_Status_ok' with type 'enum <anonymous>'\n 2027 |     Ifx_Status_ok = 1\n      |     ^~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\mocks\\ifx_memset.c:7:15: error: redefinition of 's_memset_count'\n    7 | static uint32 s_memset_count = 0;\n      |               ^~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\mocks\\ifx_memset.c:5:15: note: previous definition of 's_memset_count' with type 'uint32' {aka 'unsigned int'}\n    5 | static uint32 s_memset_count = 0;\n      |               ^~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\mocks\\ifx_memset.c:20:8: error: redefinition of 'Ifx_Mock_GetCallCount_memset'\n   20 | uint32 Ifx_Mock_GetCallCount_memset(void) {\n      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\mocks\\ifx_memset.c:16:8: note: previous definition of 'Ifx_Mock_GetCallCount_memset' with type 'uint32(void)' {aka 'unsigned int(void)'}\n   16 | uint32 Ifx_Mock_GetCallCount_memset(void) {\n      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\include/Ifx_Types.h:5,\n                 from C:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\include/qspi.h:16,\n                 from C:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\test\\test_qspi.c:2:\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\include/illd_types/Ifx_Types.h:2032:43: error: 'Ifx_Status_notOk' redeclared as different kind of symbol\n 2032 | typedef struct { volatile uint32 dummy; } Ifx_Status_notOk;\n      |                                           ^~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\include/illd_types/Ifx_Types.h:2026:5: note: previous definition of 'Ifx_Status_notOk' with type 'enum <anonymous>'\n 2026 |     Ifx_Status_notOk = 0,\n      |     ^~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\include/illd_types/Ifx_Types.h:2036:43: error: 'Ifx_Status_ok' redeclared as different kind of symbol\n 2036 | typedef struct { volatile uint32 dummy; } Ifx_Status_ok;\n      |                                           ^~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\include/illd_types/Ifx_Types.h:2027:5: note: previous definition of 'Ifx_Status_ok' with type 'enum <anonymous>'\n 2027 |     Ifx_Status_ok = 1\n      |     ^~~~~~~~~~~~~\nIn file included from C:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity.h:22,\n                 from C:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\test\\test_qspi.c:1:\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\test\\test_qspi.c: In function 'test_Qspi_initQspi_SetsExpectedConfigValues':\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity_internals.h:904:169: error: invalid use of void expression\n  904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)\n      |                                                                                                                                                                         ^\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity.h:154:100: note: in expansion of macro 'UNITY_TEST_ASSERT_EQUAL_UINT32'\n  154 | #define TEST_ASSERT_EQUAL_UINT32(expected, actual)                                                 UNITY_TEST_ASSERT_EQUAL_UINT32( (expected), (actual), __LINE__, NULL)\n      |                                                                                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\test\\test_qspi.c:62:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32'\n   62 |     TEST_ASSERT_EQUAL_UINT32(TIMING_MAXIMUM_BAUDRATE_HZ,\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity_internals.h:904:169: error: invalid use of void expression\n  904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)\n      |                                                                                                                                                                         ^\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity.h:154:100: note: in expansion of macro 'UNITY_TEST_ASSERT_EQUAL_UINT32'\n  154 | #define TEST_ASSERT_EQUAL_UINT32(expected, actual)                                                 UNITY_TEST_ASSERT_EQUAL_UINT32( (expected), (actual), __LINE__, NULL)\n      |                                                                                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\test\\test_qspi.c:64:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32'\n   64 |     TEST_ASSERT_EQUAL_UINT32(TIMING_MAXIMUM_BAUDRATE_HZ,\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity_internals.h:904:169: error: invalid use of void expression\n  904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)\n      |                                                                                                                                                                         ^\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity.h:154:100: note: in expansion of macro 'UNITY_TEST_ASSERT_EQUAL_UINT32'\n  154 | #define TEST_ASSERT_EQUAL_UINT32(expected, actual)                                                 UNITY_TEST_ASSERT_EQUAL_UINT32( (expected), (actual), __LINE__, NULL)\n      |                                                                                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\CodeGen_Output\\20635149-c85\\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_101004\\attempts\\attempt_003_build\\test\\test_qspi.c:68:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32'\n   68 |     TEST_ASSERT_EQUAL_UINT32(TIMING_SPI_MODE,\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~\n",
+  "stdout": ""
+}
