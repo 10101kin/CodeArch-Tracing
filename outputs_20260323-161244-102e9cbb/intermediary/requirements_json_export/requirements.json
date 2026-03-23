@@ -1,0 +1,214 @@
+{
+  "generation_mode": "MIGRATION",
+  "migration_info": {
+    "has_reference": true,
+    "reference_family": "TC3xx",
+    "target_family": "TC3xx",
+    "migration_required": false,
+    "driver_mappings": {
+      "IfxGtm_Tom_PwmHl": "IfxGtm_Tom_Pwm"
+    },
+    "header_mappings": {
+      "IfxGtm_Tom_PwmHl.h": "IfxGtm_Tom_Pwm.h",
+      "IfxGtm_PinMap_TC38x_516.h": "IfxGtm_PinMap_TC38x_516.h",
+      "IfxPort.h": "IfxPort.h",
+      "Bsp.h": "Bsp.h",
+      "ADD": "IfxGtm_Tom_Timer.h"
+    },
+    "api_changes": [
+      {
+        "from": "IfxGtm_Tom_PwmHl_initConfig",
+        "to": "IfxGtm_Tom_Pwm_initConfig (per channel) + IfxGtm_Tom_Timer_initConfig (shared time base)",
+        "reason": "Switch from paired high/low driver to single-output channels with shared TOM timer"
+      },
+      {
+        "from": "IfxGtm_Tom_PwmHl_init",
+        "to": "IfxGtm_Tom_Pwm_init (6x channels) + IfxGtm_Tom_Timer_init",
+        "reason": "Initialize individual single-output channels and one shared timer"
+      },
+      {
+        "from": "IfxGtm_Tom_PwmHl_setOnTime",
+        "to": "IfxGtm_Tom_Pwm_setDutyCycle (HS); LS computed in software as (1.0 - HS) with no dead-time",
+        "reason": "Complementary low-side behavior implemented in software for single-output driver"
+      },
+      {
+        "from": "N/A",
+        "to": "IfxGtm_Tom_Timer_run",
+        "reason": "Start shared TOM timer for all channels"
+      }
+    ],
+    "function_names_to_preserve": []
+  },
+  "peripheral_requirement": {
+    "type": "GTM_TOM",
+    "driver_available": true,
+    "driver_name": "IfxGtm_Tom_Pwm",
+    "purpose": "Six single-output PWM channels on shared TOM timer at 20 kHz, center-aligned, for 3-phase HS/LS outputs on P02.x"
+  },
+  "signal_requirements": {
+    "pwm_alignment": "center-aligned",
+    "pwm_frequency_hz": 20000,
+    "update_interval_ms": 500,
+    "initial_high_side_duty_percent": {
+      "phase_u": 25,
+      "phase_v": 50,
+      "phase_w": 75
+    },
+    "low_side_behavior": "complementary_inverted",
+    "dead_time_ns": 0,
+    "channels": [
+      {
+        "name": "PHASE_U_HS",
+        "port_pin": "P02.0",
+        "assumed_route": "IfxGtm_TOM0_0_TOUT0_P02_0_OUT",
+        "tom_module": "TOM0",
+        "tom_channel": 0,
+        "polarity": "active_high",
+        "initial_duty_percent": 25
+      },
+      {
+        "name": "PHASE_U_LS",
+        "port_pin": "P02.7",
+        "assumed_route": "IfxGtm_TOM0_7_TOUT7_P02_7_OUT",
+        "tom_module": "TOM0",
+        "tom_channel": 7,
+        "polarity": "active_high",
+        "initial_duty_percent": "complement(25%)"
+      },
+      {
+        "name": "PHASE_V_HS",
+        "port_pin": "P02.1",
+        "assumed_route": "IfxGtm_TOM0_1_TOUT1_P02_1_OUT",
+        "tom_module": "TOM0",
+        "tom_channel": 1,
+        "polarity": "active_high",
+        "initial_duty_percent": 50
+      },
+      {
+        "name": "PHASE_V_LS",
+        "port_pin": "P02.4",
+        "assumed_route": "IfxGtm_TOM0_4_TOUT4_P02_4_OUT",
+        "tom_module": "TOM0",
+        "tom_channel": 4,
+        "polarity": "active_high",
+        "initial_duty_percent": "complement(50%)"
+      },
+      {
+        "name": "PHASE_W_HS",
+        "port_pin": "P02.2",
+        "assumed_route": "IfxGtm_TOM0_2_TOUT2_P02_2_OUT",
+        "tom_module": "TOM0",
+        "tom_channel": 2,
+        "polarity": "active_high",
+        "initial_duty_percent": 75
+      },
+      {
+        "name": "PHASE_W_LS",
+        "port_pin": "P02.5",
+        "assumed_route": "IfxGtm_TOM0_5_TOUT5_P02_5_OUT",
+        "tom_module": "TOM0",
+        "tom_channel": 5,
+        "polarity": "active_high",
+        "initial_duty_percent": "complement(75%)"
+      }
+    ],
+    "notes": "Assumed TOM routing via IfxGtm_PinMap_TC38x_516. Validate TOUT mapping on KIT_A2G_TC387_5V_TFT. Low-side behavior set to complementary inverted with no hardware dead-time as per current specification."
+  },
+  "timing_requirements": {
+    "shared_timer": {
+      "driver": "IfxGtm_Tom_Timer",
+      "tom_module": "TOM0",
+      "tom_channel": 3,
+      "route_assigned": false,
+      "purpose": "Time base for center-aligned PWM for all 6 channels"
+    },
+    "frequency_hz": 20000,
+    "alignment": "center-aligned",
+    "fxclk_source": "GTM CMU FXCLK",
+    "fxclk_frequency_mhz": 100,
+    "prescaler": 1,
+    "timer_base_period_ticks": 2500,
+    "duty_update_policy": "Every 500 ms add +10% with wrap at >100% to 0%"
+  },
+  "device_configuration": {
+    "target_device_macro": "DEVICE_TC38X",
+    "pin_package": "IFX_PIN_PACKAGE_516",
+    "device_family": "TC3xx",
+    "clock_requirements": {
+      "requires_xtal": true,
+      "expected_system_freq_mhz": 300,
+      "gtm_fxclk_mhz": 100
+    }
+  },
+  "code_structure": {
+    "file_pattern": "reference",
+    "expected_files": [
+      "GTM_TOM_3_Phase_Inverter_PWM.c",
+      "GTM_TOM_3_Phase_Inverter_PWM.h"
+    ],
+    "has_cpu_files": true
+  },
+  "reference_context": {
+    "includes_used": [
+      "Ifx_Types.h",
+      "IfxCpu.h",
+      "IfxScuWdt.h",
+      "Ifx_Cfg_Ssw.h",
+      "IfxGtm_Tom_PwmHl.h",
+      "IfxGtm_cfg_TC38x.h",
+      "GTM_TOM_3_Phase_Inverter_PWM.h"
+    ],
+    "function_patterns": [],
+    "peripheral_usage": {
+      "GTM_TOM_PwmHl": "3-phase paired PWM generation (legacy)",
+      "Port": "Pin configuration",
+      "Watchdog": "Disable CPU and safety WDTs during init"
+    }
+  },
+  "template_compatibility": {
+    "validated": true,
+    "supported_peripherals": [
+      "PWM",
+      "GTM",
+      "TIMER"
+    ],
+    "suggested_drivers": {
+      "PWM": [
+        "IfxCcu6_PwmBc",
+        "IfxGtm_Tom_Pwm",
+        "IfxGtm_Tom_Dtm_PwmHl",
+        "IfxGtm_Atom_Dtm_PwmHl",
+        "IfxGtm_Atom_Pwm",
+        "IfxGtm_Pwm",
+        "IfxCcu6_TPwm",
+        "IfxGtm_Tom_PwmHl",
+        "IfxCcu6_PwmHl",
+        "IfxGtm_Atom_PwmHl"
+      ],
+      "GTM": [
+        "IfxGtm_Dtm",
+        "IfxGtm_Tbu",
+        "IfxGtm",
+        "IfxGtm_Spe",
+        "IfxGtm_Pwm",
+        "IfxGtm_Psm",
+        "IfxGtm_PinMap_TC38x_LFBGA516",
+        "IfxGtm_PinMap_TC38x_LFBGA292",
+        "IfxGtm_Trig",
+        "IfxGtm_Dpll",
+        "IfxGtm_PinMap_TC38x_516"
+      ],
+      "TIMER": [
+        "IfxStm_Timer",
+        "IfxGtm_Tom_Timer",
+        "IfxGtm_Tim_Timer",
+        "IfxGtm_Atom_Timer",
+        "IfxCcu6_Timer",
+        "IfxCcu6_TimerWithTrigger"
+      ]
+    },
+    "warnings": []
+  },
+  "header_documentation_available": true,
+  "config_values_extracted": 16
+}

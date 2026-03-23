@@ -1,0 +1,12 @@
+{
+  "attempt": 2,
+  "phase_attempt": 2,
+  "phase": "production",
+  "timestamp": "2026-03-23T17:14:32.044149",
+  "success": false,
+  "files": [],
+  "errors": [
+    "[Errno 36] File name too long: '\\n  140 |         outCfg[0].pin        = (IfxGtm_Pwm_ToutMap*)PHASE_U_HS; outCfg[0].polarity = Ifx_ActiveState_high; outCfg[0].outputMode = IfxPort_OutputMode_pushPull; outCfg[0].padDriver = IfxPort_PadDriver_cmosAutomotiveSpeed1;\\n      |                                                                                                                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~\\n/tmp/outputs_20260323-161244-102e9cbb/69ac6a8f-373/Update_the_TC387_project_to_use_six_single-output_r_20260323_165621/attempts/phase_002_build/src/gtm_tom_3_phase_inverter_pwm.c'"
+  ],
+  "build_result": null
+}
