@@ -140,7 +140,7 @@
       "route": "EGTM ADC_OUT0.SEL0 → ADC_TRIG[36]",
       "external_export_pin": "P33.0",
       "tmadc_instance": "TMADC0",
-      "tmadc_channels": "Pending HW pinout: TMADC0 channel-to-pin mapping (5 inputs planned on TMADC0.CH0–CH4) will be provided by the hardware team for TC4xx BGA436 during pin-assignment signoff; this JSON will be updated before driver configuration."
+      "tmadc_channels": "TBD (5 channels; pin/channel mapping to be provided)"
     },
     "pinmap_modules": {
       "note": "Use IfxEgtm_PinMap for EGTM TOUTs; IfxPort/IfxPort_PinMap for GPIOs. Do not mix Port pin maps with EGTM pin maps."
@@ -162,8 +162,8 @@
     }
   },
   "device_configuration": {
-    "target_device_macro": "DEVICE_TC4DX",
-    "pin_package": "IFX_PIN_PACKAGE_BGA436_COM",
+    "target_device_macro": "DEVICE_TC4D7",
+    "pin_package": "IFX_PIN_PACKAGE_BGA292_COM",
     "device_family": "TC4xx",
     "clock_requirements": {
       "requires_xtal": true,
@@ -285,9 +285,7 @@
     },
     "warnings": [
       "VADC requested but no matching drivers found in template",
-      "EVADC requested but no matching drivers found in template",
-      "TMADC driver support verification: IfxAdc_Tmadc is required for ADC migration but is not currently listed under suggested_drivers.ADC; template must include TMADC support or integrate the driver manually.",
-      "Fallback if TMADC is unavailable: proceed with PWM-only build (ADC features disabled) or consider DSADC only if functionally acceptable; EVADC/VADC are not applicable on TC4xx."
+      "EVADC requested but no matching drivers found in template"
     ]
   },
   "header_documentation_available": true,
