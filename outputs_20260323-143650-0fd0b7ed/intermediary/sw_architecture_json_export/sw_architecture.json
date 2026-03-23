@@ -12,7 +12,11 @@
     "alternatives_considered": [
       "IfxEgtm_Atom_Pwm",
       "IfxEgtm_Tom_Pwm"
-    ]
+    ],
+    "verification": {
+      "status": "unverified",
+      "note": "Consult the TC4D7 datasheet (BGA-292 pinout) and the KIT_A3G_TC4D7_LITE schematic to confirm that ATOM1 ch0/1/2 and their TOUTs are available and not in conflict with other board functions."
+    }
   },
   "driver_usage": {
     "primary_driver": "IfxEgtm_Pwm",
@@ -30,7 +34,11 @@
       "IfxEgtm_Pwm_updateFrequency",
       "IfxEgtm_Pwm_setChannelPolarity",
       "IfxEgtm_Pwm_interruptHandler"
-    ]
+    ],
+    "verification": {
+      "status": "unverified",
+      "note": "Obtain and cross-check the TC4xx iLLD package documentation or Doxygen for IfxEgtm_Pwm and its APIs to confirm their presence and signatures."
+    }
   },
   "file_structure": {
     "module_files": [
@@ -75,63 +83,6 @@
         "IfxSrc_clearRequest"
       ],
       "purpose": "Single PWM period ISR on CPU0 (priority 20) that services the PWM end-of-period event and can trigger control-loop tasks."
-    },
-    "abstraction_layer": {
-      "introduced_for": [
-        "testability",
-        "maintainability"
-      ],
-      "enabled": true,
-      "interface_name": "PwmIf",
-      "description": "Thin interface abstracting IfxEgtm_Pwm operations to allow mocking/testing and easy driver replacement.",
-      "interface_functions": {
-        "init": "PwmIf_init",
-        "initChannel": "PwmIf_initChannel",
-        "startSynced": "PwmIf_startSynced",
-        "updateChannelsDuty": "PwmIf_updateChannelsDuty",
-        "updateChannelsDutyImmediate": "PwmIf_updateChannelsDutyImmediate",
-        "updateChannelDeadTime": "PwmIf_updateChannelDeadTime",
-        "updateFrequency": "PwmIf_updateFrequency",
-        "setChannelPolarity": "PwmIf_setChannelPolarity",
-        "interruptHandler": "PwmIf_interruptHandler"
-      },
-      "driver_call_mapping": {
-        "PwmIf_init": [
-          "IfxEgtm_Pwm_initConfig",
-          "IfxEgtm_Pwm_init"
-        ],
-        "PwmIf_initChannel": [
-          "IfxEgtm_Pwm_initChannelConfig"
-        ],
-        "PwmIf_startSynced": [
-          "IfxEgtm_Pwm_startSyncedChannels"
-        ],
-        "PwmIf_updateChannelsDuty": [
-          "IfxEgtm_Pwm_updateChannelsDuty"
-        ],
-        "PwmIf_updateChannelsDutyImmediate": [
-          "IfxEgtm_Pwm_updateChannelsDutyImmediate"
-        ],
-        "PwmIf_updateChannelDeadTime": [
-          "IfxEgtm_Pwm_updateChannelDeadTime"
-        ],
-        "PwmIf_updateFrequency": [
-          "IfxEgtm_Pwm_updateFrequency"
-        ],
-        "PwmIf_setChannelPolarity": [
-          "IfxEgtm_Pwm_setChannelPolarity"
-        ],
-        "PwmIf_interruptHandler": [
-          "IfxEgtm_Pwm_interruptHandler"
-        ]
-      },
-      "test_hooks": {
-        "mock_interface": "PwmIf_Mock",
-        "simulation_callbacks": [
-          "onPeriod",
-          "onDutyUpdate"
-        ]
-      }
     }
   },
   "migration_notes": {
@@ -173,7 +124,11 @@
         "reason": "Unified PWM API migration"
       }
     ],
-    "context_preserved": "The solution keeps the original control objectives: 3-phase center-aligned 20 kHz complementary PWM on EGTM Cluster 1 ATOM1 ch0/1/2, 1 µs deadtime via DTM/CDTM, HS active-high and LS active-low, synchronized start and synchronized duty updates, and one period ISR on CPU0 with priority 20. Clocks are prepared to use GCLK=200 MHz with FXCLK_0 for ATOM and CMU CLK0 for DTM. Output pins are assigned via IfxEgtm_PinMap_setAtomTout, with a specific note to verify the exact IfxEgtm pin map macros for P20.8/9/10/11/12/13 on KIT_A3G_TC4D7_LITE as the provided macros are assumed and need confirmation in IfxEgtm_PinMap.h; if the required macros are missing or differ, explicitly define or adapt the necessary pin map macros for the target board to ensure correct routing."
+    "context_preserved": "The solution keeps the original control objectives: 3-phase center-aligned 20 kHz complementary PWM on EGTM Cluster 1 ATOM1 ch0/1/2, 1 µs deadtime via DTM/CDTM, HS active-high and LS active-low, synchronized start and synchronized duty updates, and one period ISR on CPU0 with priority 20. Clocks are prepared to use GCLK=200 MHz with FXCLK_0 for ATOM and CMU CLK0 for DTM. Output pins are assigned via IfxEgtm_PinMap_setAtomTout, with a specific note to verify the exact IfxEgtm pin map macros for P20.8/9/10/11/12/13 on KIT_A3G_TC4D7_LITE as the provided macros are assumed and need confirmation in IfxEgtm_PinMap.h.",
+    "verification": {
+      "status": "unverified",
+      "note": "Reference the TC4xx iLLD migration guide or release notes for authoritative API mapping from GTM to eGTM."
+    }
   },
   "header_selection": {
     "applied": true,
@@ -191,7 +146,11 @@
       "PWM_FREQUENCY": "IfxEgtm_Pwm_updateBaseChannelFrequencyImmediate",
       "IfxGtm_enable": "IfxEgtm_Pwm_enableChannelSyncUpdate"
     },
-    "available_functions_count": 100
+    "available_functions_count": 100,
+    "verification": {
+      "status": "unverified",
+      "note": "Check the iLLD/TC4xx/Tricore/Egtm/ directory or Doxygen for IfxEgtm_Pwm.h to confirm its existence and correct usage."
+    }
   },
   "driver_selection_engine": {
     "applied": true,
