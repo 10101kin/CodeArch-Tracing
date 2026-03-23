@@ -1,0 +1,251 @@
+{
+  "microcontroller": {
+    "model": "TC4D7",
+    "family": "TC4xx",
+    "verified": true,
+    "device_macro": "DEVICE_TC4DX",
+    "pin_package": "IFX_PIN_PACKAGE_BGA436_COM"
+  },
+  "peripheral_instance": {
+    "type": "EGTM_ATOM",
+    "module": "EGTM.ATOM0 (Cluster 0)",
+    "channels": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      6
+    ],
+    "driver": "IfxEgtm_Pwm"
+  },
+  "pin_assignments": [
+    {
+      "signal": "PWM_U_H (ATOM0.CH0)",
+      "port_pin": "P20.8",
+      "function": "TOUTx",
+      "pin_macro": "",
+      "is_complementary": false,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "PWM_U_L (ATOM0.CH1)",
+      "port_pin": "P20.9",
+      "function": "TOUTx",
+      "pin_macro": "",
+      "is_complementary": true,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "PWM_V_H (ATOM0.CH2)",
+      "port_pin": "P20.10",
+      "function": "TOUTx",
+      "pin_macro": "",
+      "is_complementary": false,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "PWM_V_L (ATOM0.CH4)",
+      "port_pin": "P20.11",
+      "function": "TOUTx",
+      "pin_macro": "",
+      "is_complementary": true,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "PWM_W_H (ATOM0.CH6)",
+      "port_pin": "P20.12",
+      "function": "TOUTx",
+      "pin_macro": "",
+      "is_complementary": false,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "PWM_W_L (ATOM0.CH8)",
+      "port_pin": "P20.13",
+      "function": "TOUTx",
+      "pin_macro": "",
+      "is_complementary": true,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "ADC_TRIGGER (ATOM0.CH3 → EGTM.ADC_OUT0)",
+      "port_pin": "P33.0",
+      "function": "TOUTx / EGTM.ADC_OUT0 route",
+      "pin_macro": "",
+      "is_complementary": false,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "LED",
+      "port_pin": "P03.9",
+      "function": "GPIO",
+      "pin_macro": "",
+      "is_complementary": false,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "ADC0.CH0",
+      "port_pin": "P40.0",
+      "function": "AN00",
+      "pin_macro": "",
+      "is_complementary": false,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "ADC0.CH1",
+      "port_pin": "P40.1",
+      "function": "AN01",
+      "pin_macro": "",
+      "is_complementary": false,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "ADC0.CH2",
+      "port_pin": "P40.2",
+      "function": "AN02",
+      "pin_macro": "",
+      "is_complementary": false,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "ADC0.CH3",
+      "port_pin": "P40.3",
+      "function": "AN03",
+      "pin_macro": "",
+      "is_complementary": false,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "ADC0.CH4",
+      "port_pin": "P40.4",
+      "function": "AN04",
+      "pin_macro": "",
+      "is_complementary": false,
+      "verified": false,
+      "source": "hardware_verified"
+    }
+  ],
+  "clock_configuration": {
+    "xtal_frequency_mhz": 25,
+    "system_frequency_mhz": 500
+  },
+  "validation": {
+    "all_verified": false,
+    "conflicts": [
+      "Missing IfxEgtm_PinMap macros for requested PWM pins P20.8–P20.13 on EGTM.ATOM0 (Cluster 0)",
+      "Missing IfxEgtm_PinMap macro for ADC trigger pin P33.0 (EGTM.ADC_OUT0 route)",
+      "Missing TMADC pin/channel macros for ADC0.CH0–CH4 on P40.0–P40.4",
+      "Pin macro verification pending against IFX_PIN_PACKAGE_BGA436_COM"
+    ],
+    "reference_pins_valid": false
+  },
+  "template_validation": {
+    "supported_peripherals": [
+      "PWM",
+      "GTM",
+      "EGTM",
+      "TIMER",
+      "STM",
+      "GPIO",
+      "ASCLIN",
+      "ADC",
+      "WATCHDOG"
+    ],
+    "suggested_drivers": {
+      "PWM": [
+        "IfxGtm_Atom_Pwm",
+        "IfxGtm_Tom_Pwm",
+        "IfxEgtm_Atom_Pwm",
+        "IfxEgtm_Pwm",
+        "IfxEgtm_Tom_Pwm",
+        "IfxGtm_Pwm"
+      ],
+      "GTM": [
+        "IfxGtm_Dtm",
+        "IfxGtm_Input",
+        "IfxGtm_Psm",
+        "IfxGtm",
+        "IfxGtm_PinMap",
+        "IfxGtm_Pwm",
+        "IfxGtm_Trigger",
+        "IfxGtm_Spe",
+        "IfxGtm_Tbu"
+      ],
+      "EGTM": [
+        "IfxEgtm_PinMap",
+        "IfxEgtm_Input",
+        "IfxEgtm_Pwm",
+        "IfxEgtm",
+        "IfxEgtm_Atom",
+        "IfxEgtm_Cmu",
+        "IfxEgtm_Dtm",
+        "IfxEgtm_Spe",
+        "IfxEgtm_Tbu",
+        "IfxEgtm_Tim",
+        "IfxEgtm_Tom",
+        "IfxEgtm_Trigger",
+        "IfxEgtm_Tom_Pwm",
+        "IfxEgtm_Tom_Timer",
+        "IfxEgtm_Tim_In",
+        "IfxEgtm_Tim_Timer",
+        "IfxEgtm_Atom_Pwm",
+        "IfxEgtm_Atom_Timer"
+      ],
+      "TIMER": [
+        "IfxStm_Timer",
+        "IfxScrTimer01",
+        "IfxGtm_Tom_Timer",
+        "IfxGtm_Tim_Timer",
+        "IfxGtm_Atom_Timer",
+        "IfxEgtm_Tom_Timer",
+        "IfxEgtm_Tim_Timer",
+        "IfxEgtm_Atom_Timer",
+        "IfxPpu_Timer"
+      ],
+      "STM": [
+        "IfxStm",
+        "IfxStm_Timer"
+      ],
+      "GPIO": [
+        "IfxPort_Io",
+        "IfxScrPort",
+        "IfxPort"
+      ],
+      "ASCLIN": [
+        "IfxAsclin_Asc",
+        "IfxAsclin_Lin",
+        "IfxAsclin_Spi",
+        "IfxAsclin"
+      ],
+      "ADC": [
+        "IfxAdc_Dsadc"
+      ],
+      "WATCHDOG": [
+        "IfxWtu",
+        "IfxWtu.asm"
+      ]
+    },
+    "warnings": [
+      "VADC requested but no matching drivers found in template",
+      "EVADC requested but no matching drivers found in template"
+    ]
+  },
+  "pin_analysis": {
+    "verified_count": 13,
+    "doc_reference_count": 4,
+    "merged_total": 17
+  }
+}
