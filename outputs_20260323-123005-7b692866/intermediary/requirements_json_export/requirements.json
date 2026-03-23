@@ -123,8 +123,8 @@
     }
   },
   "device_configuration": {
-    "target_device_macro": "TC4D7",
-    "pin_package": "BGA-292",
+    "target_device_macro": "DEVICE_TC4DX",
+    "pin_package": "IFX_PIN_PACKAGE_BGA436_COM",
     "device_family": "TC4xx",
     "clock_requirements": {
       "requires_xtal": true,
