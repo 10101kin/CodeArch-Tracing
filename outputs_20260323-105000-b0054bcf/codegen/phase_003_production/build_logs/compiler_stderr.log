@@ -1,0 +1,32 @@
+C:\Users\Kenneth Anioay\Downloads\infineon_POC_MVP\infineon_POC_MVP\outputs_20260323-105000-b0054bcf\20635149-c85\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_184959\attempts\phase_003_build\src\qspi.c: In function 'Qspi_initQspi':
+C:\Users\Kenneth Anioay\Downloads\infineon_POC_MVP\infineon_POC_MVP\outputs_20260323-105000-b0054bcf\20635149-c85\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_184959\attempts\phase_003_build\src\qspi.c:37:36: error: assignment to 'boolean (*)(IfxXspi_Spi *, struct IfxXspi_Spi_CpuJobConfig *)' {aka 'unsigned char (*)(IfxXspi_Spi *, struct IfxXspi_Spi_CpuJobConfig *)'} from incompatible pointer type 'boolean (*)(IfxXspi_Spi *, IfxXspi_Spi_CpuJobConfig *)' {aka 'unsigned char (*)(IfxXspi_Spi *, IfxXspi_Spi_CpuJobConfig *)'} [-Wincompatible-pointer-types]
+   37 |     qspiCommunication->spiExchange = &IfxXspi_Spi_exchange;             /* Link exchange callback */
+      |                                    ^
+In file included from C:\Users\Kenneth Anioay\Downloads\infineon_POC_MVP\infineon_POC_MVP\outputs_20260323-105000-b0054bcf\20635149-c85\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_184959\attempts\phase_003_build\include/qspi.h:5,
+                 from C:\Users\Kenneth Anioay\Downloads\infineon_POC_MVP\infineon_POC_MVP\outputs_20260323-105000-b0054bcf\20635149-c85\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_184959\attempts\phase_003_build\src\qspi.c:1:
+C:\Users\Kenneth Anioay\Downloads\infineon_POC_MVP\infineon_POC_MVP\outputs_20260323-105000-b0054bcf\20635149-c85\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_184959\attempts\phase_003_build\include/IfxXspi_Spi.h:31:9: note: 'IfxXspi_Spi_exchange' declared here
+   31 | boolean IfxXspi_Spi_exchange(IfxXspi_Spi *xspi, IfxXspi_Spi_CpuJobConfig *jobConfig);
+      |         ^~~~~~~~~~~~~~~~~~~~
+
+C:\Users\Kenneth Anioay\Downloads\infineon_POC_MVP\infineon_POC_MVP\outputs_20260323-105000-b0054bcf\20635149-c85\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_184959\attempts\phase_003_build\mocks\IfxPort.c:103:15: error: redefinition of 's_pinIndex_count'
+  103 | static uint32 s_pinIndex_count = 0;
+      |               ^~~~~~~~~~~~~~~~
+C:\Users\Kenneth Anioay\Downloads\infineon_POC_MVP\infineon_POC_MVP\outputs_20260323-105000-b0054bcf\20635149-c85\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_184959\attempts\phase_003_build\mocks\IfxPort.c:79:15: note: previous definition of 's_pinIndex_count' with type 'uint32' {aka 'unsigned int'}
+   79 | static uint32 s_pinIndex_count = 0;
+      |               ^~~~~~~~~~~~~~~~
+C:\Users\Kenneth Anioay\Downloads\infineon_POC_MVP\infineon_POC_MVP\outputs_20260323-105000-b0054bcf\20635149-c85\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_184959\attempts\phase_003_build\mocks\IfxPort.c:127:15: error: redefinition of 's_pinIndex_count'
+  127 | static uint32 s_pinIndex_count = 0;
+      |               ^~~~~~~~~~~~~~~~
+C:\Users\Kenneth Anioay\Downloads\infineon_POC_MVP\infineon_POC_MVP\outputs_20260323-105000-b0054bcf\20635149-c85\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_184959\attempts\phase_003_build\mocks\IfxPort.c:103:15: note: previous definition of 's_pinIndex_count' with type 'uint32' {aka 'unsigned int'}
+  103 | static uint32 s_pinIndex_count = 0;
+      |               ^~~~~~~~~~~~~~~~
+
+C:\Users\Kenneth Anioay\Downloads\infineon_POC_MVP\infineon_POC_MVP\outputs_20260323-105000-b0054bcf\20635149-c85\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_184959\attempts\phase_003_build\mocks\IfxStm.c: In function 'IfxStm_getTicksFromMilliseconds':
+C:\Users\Kenneth Anioay\Downloads\infineon_POC_MVP\infineon_POC_MVP\outputs_20260323-105000-b0054bcf\20635149-c85\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_184959\attempts\phase_003_build\mocks\IfxStm.c:20:21: error: 'millis' undeclared (first use in this function)
+   20 |     return (sint32)(millis * 1000);  /* Simple conversion for testing */
+      |                     ^~~~~~
+C:\Users\Kenneth Anioay\Downloads\infineon_POC_MVP\infineon_POC_MVP\outputs_20260323-105000-b0054bcf\20635149-c85\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_184959\attempts\phase_003_build\mocks\IfxStm.c:20:21: note: each undeclared identifier is reported only once for each function it appears in
+C:\Users\Kenneth Anioay\Downloads\infineon_POC_MVP\infineon_POC_MVP\outputs_20260323-105000-b0054bcf\20635149-c85\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_184959\attempts\phase_003_build\mocks\IfxStm.c: In function 'IfxStm_getTicksFromMicroseconds':
+C:\Users\Kenneth Anioay\Downloads\infineon_POC_MVP\infineon_POC_MVP\outputs_20260323-105000-b0054bcf\20635149-c85\Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260323_184959\attempts\phase_003_build\mocks\IfxStm.c:25:20: error: 'micros' undeclared (first use in this function)
+   25 |     return (sint32)micros;
+      |                    ^~~~~~
