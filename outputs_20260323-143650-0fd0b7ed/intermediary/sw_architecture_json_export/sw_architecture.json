@@ -147,10 +147,10 @@
         "INTERRUPT"
       ],
       "complexity_hints": {
-        "PWM": "advanced",
-        "GPIO": "simple",
-        "ETHERNET": "simple",
-        "INTERRUPT": "simple"
+        "PWM": "DriverComplexity.ADVANCED",
+        "GPIO": "DriverComplexity.SIMPLE",
+        "ETHERNET": "DriverComplexity.SIMPLE",
+        "INTERRUPT": "DriverComplexity.SIMPLE"
       },
       "specific_features": [
         "inverter"
