@@ -1,10 +1,10 @@
 {
   "microcontroller": {
-    "model": "TC4DX",
+    "model": "TC4D7",
     "family": "TC4xx",
     "verified": true,
-    "device_macro": "DEVICE_TC4DX",
-    "pin_package": "IFX_PIN_PACKAGE_BGA436_COM"
+    "device_macro": "DEVICE_TC4D7",
+    "pin_package": "IFX_PIN_PACKAGE_BGA292_COM"
   },
   "peripheral_instance": {
     "type": "PWM",
@@ -39,8 +39,8 @@
     {
       "signal": "ATOM0.CH1_HS",
       "port_pin": "P20.10",
-      "function": "TOUT?",
-      "pin_macro": "",
+      "function": "TBD",
+      "pin_macro": "TBD",
       "is_complementary": true,
       "verified": false,
       "source": "hardware_verified"
@@ -48,8 +48,8 @@
     {
       "signal": "ATOM0.CH1_LS",
       "port_pin": "P20.11",
-      "function": "TOUT?",
-      "pin_macro": "",
+      "function": "TBD",
+      "pin_macro": "TBD",
       "is_complementary": true,
       "verified": false,
       "source": "hardware_verified"
@@ -57,8 +57,8 @@
     {
       "signal": "ATOM0.CH2_HS",
       "port_pin": "P20.12",
-      "function": "TOUT?",
-      "pin_macro": "",
+      "function": "TBD",
+      "pin_macro": "TBD",
       "is_complementary": true,
       "verified": false,
       "source": "hardware_verified"
@@ -66,8 +66,8 @@
     {
       "signal": "ATOM0.CH2_LS",
       "port_pin": "P20.13",
-      "function": "TOUT?",
-      "pin_macro": "",
+      "function": "TBD",
+      "pin_macro": "TBD",
       "is_complementary": true,
       "verified": false,
       "source": "hardware_verified"
@@ -75,8 +75,8 @@
     {
       "signal": "ATOM0.CH3_TRIG_OUT",
       "port_pin": "P33.0",
-      "function": "TOUT?",
-      "pin_macro": "",
+      "function": "TBD",
+      "pin_macro": "TBD",
       "is_complementary": false,
       "verified": false,
       "source": "hardware_verified"
@@ -85,7 +85,7 @@
       "signal": "HEARTBEAT_LED",
       "port_pin": "P03.9",
       "function": "GPIO",
-      "pin_macro": "",
+      "pin_macro": "TBD",
       "is_complementary": false,
       "verified": false,
       "source": "hardware_verified"
@@ -98,10 +98,9 @@
   "validation": {
     "all_verified": false,
     "conflicts": [
-      "User-specified EGTM pins (P20.8/P20.9, P20.10/P20.11, P20.12/P20.13, P33.0) not found in provided IfxEgtm_PinMap template context; only ATOM0.CH0 (P02.0/P02.1) verified from template.",
-      "Target device configuration indicates DEVICE_TC4DX with IFX_PIN_PACKAGE_BGA436_COM, which differs from requested DEVICE_TC4D7 and IFX_PIN_PACKAGE_BGA292_COM.",
-      "ATOM0.CH3 external export to P33.0 lacks a corresponding IfxEgtm_PinMap macro in the provided template context.",
-      "GPIO heartbeat pin P03.9 not validated against IfxPort_PinMap in the provided template context."
+      "For TC4D7 (BGA292_COM), EGTM ATOM0 channel mappings for P20.10/P20.11 and P20.12/P20.13 are not resolved in the available IfxEgtm_PinMap context; only ATOM0.CH0 (P02.0/P02.1) is verified.",
+      "ATOM0.CH3 export to P33.0 lacks a corresponding IfxEgtm_PinMap macro for TC4D7 in the provided template context.",
+      "GPIO heartbeat pin P03.9 not validated against IfxPort_PinMap for TC4D7/BGA292_COM."
     ],
     "reference_pins_valid": false
   },
@@ -185,5 +184,47 @@
     "verified_count": 8,
     "doc_reference_count": 4,
     "merged_total": 12
+  },
+  "documentation": {
+    "summary": "Updated device to TC4D7 with BGA292_COM package per user target (KIT_A3G_TC4D7_LITE). EGTM ATOM0 channel mappings for CH1/CH2 and CH3 trigger remain unresolved for TC4D7 context; placeholders set to 'TBD'. Heartbeat GPIO P03.9 requires validation against IfxPort_PinMap for TC4D7/BGA292_COM.",
+    "unverified_pins": [
+      {
+        "signal": "ATOM0.CH1_HS",
+        "port_pin": "P20.10",
+        "status": "TBD",
+        "rationale": "No matching IfxEgtm_PinMap macro identified for TC4D7 in current template context."
+      },
+      {
+        "signal": "ATOM0.CH1_LS",
+        "port_pin": "P20.11",
+        "status": "TBD",
+        "rationale": "No matching IfxEgtm_PinMap macro identified for TC4D7 in current template context."
+      },
+      {
+        "signal": "ATOM0.CH2_HS",
+        "port_pin": "P20.12",
+        "status": "TBD",
+        "rationale": "No matching IfxEgtm_PinMap macro identified for TC4D7 in current template context."
+      },
+      {
+        "signal": "ATOM0.CH2_LS",
+        "port_pin": "P20.13",
+        "status": "TBD",
+        "rationale": "No matching IfxEgtm_PinMap macro identified for TC4D7 in current template context."
+      },
+      {
+        "signal": "ATOM0.CH3_TRIG_OUT",
+        "port_pin": "P33.0",
+        "status": "TBD",
+        "rationale": "External trigger/export mapping not resolved for TC4D7; awaiting IfxEgtm_PinMap confirmation."
+      },
+      {
+        "signal": "HEARTBEAT_LED",
+        "port_pin": "P03.9",
+        "status": "TBD",
+        "rationale": "Pin not yet validated against IfxPort_PinMap for TC4D7/BGA292_COM; alternative GPIO may be required if unavailable."
+      }
+    ],
+    "impact": "Until the EGTM ATOM0 CH1/CH2 and CH3 mappings are resolved for TC4D7, the 3-phase inverter outputs and trigger cannot be guaranteed. GPIO heartbeat functionality remains pending pin validation."
   }
 }
