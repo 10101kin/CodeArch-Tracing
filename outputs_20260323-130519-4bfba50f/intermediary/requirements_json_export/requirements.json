@@ -1,0 +1,243 @@
+{
+  "generation_mode": "MIGRATION",
+  "migration_info": {
+    "has_reference": true,
+    "reference_family": "TC3xx",
+    "target_family": "TC3xx",
+    "migration_required": false,
+    "driver_mappings": {
+      "IfxGtm_Tom_PwmHl": "IfxGtm_Tom_PwmHl",
+      "IfxScuWdt": "IfxScuWdt",
+      "IfxPort": "IfxPort"
+    },
+    "header_mappings": {
+      "IfxPort.h": "IfxPort.h",
+      "IfxGtm_Tom_PwmHl.h": "IfxGtm_Tom_PwmHl.h",
+      "IfxGtm_PinMap.h": "IfxGtm_PinMap.h",
+      "Bsp.h": "Bsp.h"
+    },
+    "api_changes": [
+      {
+        "from": "Pin mappings (old TOUT macros)",
+        "to": "Pin mappings for P02.0, P02.7, P02.1, P02.4, P02.2, P02.5 using TOM1 TOUT macros",
+        "reason": "Refactor to new pins on TOM1"
+      },
+      {
+        "from": "None",
+        "to": "IfxStm_Timer_*",
+        "reason": "Add 500 ms periodic update for duty cycling"
+      }
+    ],
+    "function_names_to_preserve": []
+  },
+  "peripheral_requirement": {
+    "type": "GTM_TOM",
+    "driver_available": true,
+    "driver_name": "IfxGtm_Tom_PwmHl",
+    "purpose": "3-phase inverter PWM on TOM1 at 20 kHz, center-aligned, complementary outputs with deadtime; periodic duty updates"
+  },
+  "signal_requirements": {
+    "phases": [
+      {
+        "name": "U",
+        "high_side": {
+          "pin": "P02.0",
+          "pad_driver": "IfxPort_PadDriver_cmosAutomotiveSpeed1",
+          "push_pull": true,
+          "pin_macro": {
+            "module": "TOM1",
+            "macro": "IfxGtm_TOM1_x_TOUTxx_P02_0_OUT",
+            "to_be_verified": true,
+            "resolution_header": "IfxGtm_PinMap.h (TC38x LFBGA516)"
+          }
+        },
+        "low_side": {
+          "pin": "P02.7",
+          "pad_driver": "IfxPort_PadDriver_cmosAutomotiveSpeed1",
+          "push_pull": true,
+          "pin_macro": {
+            "module": "TOM1",
+            "macro": "IfxGtm_TOM1_y_TOUTyy_P02_7_OUT",
+            "to_be_verified": true,
+            "resolution_header": "IfxGtm_PinMap.h (TC38x LFBGA516)"
+          }
+        }
+      },
+      {
+        "name": "V",
+        "high_side": {
+          "pin": "P02.1",
+          "pad_driver": "IfxPort_PadDriver_cmosAutomotiveSpeed1",
+          "push_pull": true,
+          "pin_macro": {
+            "module": "TOM1",
+            "macro": "IfxGtm_TOM1_x_TOUTxx_P02_1_OUT",
+            "to_be_verified": true,
+            "resolution_header": "IfxGtm_PinMap.h (TC38x LFBGA516)"
+          }
+        },
+        "low_side": {
+          "pin": "P02.4",
+          "pad_driver": "IfxPort_PadDriver_cmosAutomotiveSpeed1",
+          "push_pull": true,
+          "pin_macro": {
+            "module": "TOM1",
+            "macro": "IfxGtm_TOM1_y_TOUTyy_P02_4_OUT",
+            "to_be_verified": true,
+            "resolution_header": "IfxGtm_PinMap.h (TC38x LFBGA516)"
+          }
+        }
+      },
+      {
+        "name": "W",
+        "high_side": {
+          "pin": "P02.2",
+          "pad_driver": "IfxPort_PadDriver_cmosAutomotiveSpeed1",
+          "push_pull": true,
+          "pin_macro": {
+            "module": "TOM1",
+            "macro": "IfxGtm_TOM1_x_TOUTxx_P02_2_OUT",
+            "to_be_verified": true,
+            "resolution_header": "IfxGtm_PinMap.h (TC38x LFBGA516)"
+          }
+        },
+        "low_side": {
+          "pin": "P02.5",
+          "pad_driver": "IfxPort_PadDriver_cmosAutomotiveSpeed1",
+          "push_pull": true,
+          "pin_macro": {
+            "module": "TOM1",
+            "macro": "IfxGtm_TOM1_y_TOUTyy_P02_5_OUT",
+            "to_be_verified": true,
+            "resolution_header": "IfxGtm_PinMap.h (TC38x LFBGA516)"
+          }
+        }
+      }
+    ],
+    "gtm_tom": {
+      "tom_index": 1,
+      "channel_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "center_aligned": true,
+      "complementary": true
+    },
+    "deadtime": {
+      "source": "inherit_from_reference",
+      "preserve_existing": true,
+      "fallback_ns_if_unknown": 1000
+    },
+    "min_pulse": {
+      "source": "inherit_from_reference",
+      "preserve_existing": true
+    }
+  },
+  "timing_requirements": {
+    "pwm_frequency_hz": 20000,
+    "alignment": "center",
+    "duty_update_period_ms": 500,
+    "duty_cycle_plan": {
+      "start_per_phase_percent": [
+        25,
+        50,
+        75
+      ],
+      "step_percent": 10,
+      "range_percent_inclusive": [
+        0,
+        100
+      ],
+      "wrap_around": true,
+      "apply_to_all_phases_each_period": true
+    }
+  },
+  "device_configuration": {
+    "target_device_macro": "DEVICE_TC38X",
+    "pin_package": "IFX_PIN_PACKAGE_516",
+    "device_family": "TC3xx",
+    "clock_requirements": {
+      "requires_xtal": true,
+      "expected_system_freq_mhz": 200
+    }
+  },
+  "code_structure": {
+    "file_pattern": "reference",
+    "expected_files": [
+      "GTM_TOM_3_Phase_Inverter_PWM.c",
+      "GTM_TOM_3_Phase_Inverter_PWM.h"
+    ],
+    "has_cpu_files": true
+  },
+  "reference_context": {
+    "includes_used": [
+      "Ifx_Types.h",
+      "IfxCpu.h",
+      "IfxScuWdt.h",
+      "Bsp.h",
+      "GTM_TOM_3_Phase_Inverter_PWM.h",
+      "IfxGtm_Tom_PwmHl.h",
+      "IfxPort.h",
+      "IfxGtm_PinMap.h"
+    ],
+    "function_patterns": [],
+    "peripheral_usage": {
+      "GTM_TOM": "3-phase PWM generation with complementary outputs and deadtime using TOM1",
+      "Port": "Pad driver and push-pull configuration for P02.* pins",
+      "STM": "500 ms periodic duty update scheduler (IfxStm_Timer)",
+      "Watchdog": "Disabled/enabled via IfxScuWdt as in reference"
+    }
+  },
+  "template_compatibility": {
+    "validated": true,
+    "supported_peripherals": [
+      "PWM",
+      "GTM",
+      "GPIO"
+    ],
+    "suggested_drivers": {
+      "PWM": [
+        "IfxCcu6_PwmBc",
+        "IfxGtm_Tom_Pwm",
+        "IfxGtm_Tom_Dtm_PwmHl",
+        "IfxGtm_Atom_Dtm_PwmHl",
+        "IfxGtm_Atom_Pwm",
+        "IfxGtm_Pwm",
+        "IfxCcu6_TPwm",
+        "IfxGtm_Tom_PwmHl",
+        "IfxCcu6_PwmHl",
+        "IfxGtm_Atom_PwmHl"
+      ],
+      "GTM": [
+        "IfxGtm_Dtm",
+        "IfxGtm_Tbu",
+        "IfxGtm",
+        "IfxGtm_Spe",
+        "IfxGtm_Pwm",
+        "IfxGtm_Psm",
+        "IfxGtm_PinMap_TC38x_LFBGA516",
+        "IfxGtm_PinMap_TC38x_LFBGA292",
+        "IfxGtm_Trig",
+        "IfxGtm_Dpll",
+        "IfxGtm_PinMap_TC38x_516"
+      ],
+      "GPIO": [
+        "IfxPort_Io",
+        "IfxPort"
+      ]
+    },
+    "warnings": []
+  },
+  "header_documentation_available": true,
+  "config_values_extracted": 16
+}
