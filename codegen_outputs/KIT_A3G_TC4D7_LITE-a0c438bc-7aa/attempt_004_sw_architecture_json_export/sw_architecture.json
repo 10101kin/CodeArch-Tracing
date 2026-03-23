@@ -1,0 +1,284 @@
+{
+  "user_intent_preservation": {
+    "original_goal": "Migrate 3-phase PWM motor control from TC387 (GTM TOM + EVADC) to TC4D7 (eGTM ATOM + TMADC) on KIT_A3G_TC4D7_LITE.",
+    "functional_behavior": "Generate 3-phase, center-aligned, complementary PWM at 20 kHz with 1 µs dead-time on eGTM ATOM0 using channel pairs (U: CH0/1, V: CH2/4, W: CH6/8), use ATOM0.CH3 as phase-synchronous TMADC trigger via EGTM.ADC_OUT0; initialize duties to 25/50/75%; configure TMADC0 CH0–CH4 via IfxAdc_Tmadc, mapped to P40.0 (AN0) → CH0, P40.1 (AN1) → CH1, P40.2 (AN2) → CH2, P40.3 (AN3) → CH3, P40.4 (AN4) → CH4; configure pins via IfxEgtm_PinMap_setAtomTout and IfxPort; use IfxStm_get/IfxStm_getFrequency for 500 ms duty update cadence; initialize LED on P03.9 via IfxPort; map PWM to P20.8–P20.13; route trigger to P33.0; start PWM and ADC trigger synchronously; move duty updates to a 500 ms STM0 main-loop while polling latest TMADC results.",
+    "technical_approach": "Use unified IfxEgtm_Pwm to configure eGTM ATOM0 base + sync channels with DTM-managed 1 µs dead-time and center alignment; use IfxEgtm_Trigger_trigToAdc to route ATOM0.CH3 to EGTM.ADC_OUT0 for TMADC0 external triggering; configure TMADC0 CH0–CH4 via IfxAdc_Tmadc; configure pins via IfxEgtm_PinMap_setAtomTout and IfxPort; use IfxStm_get/IfxStm_getFrequency for 500 ms duty update cadence; initialize LED on P03.9 via IfxPort."
+  },
+  "driver_selection": {
+    "recommended_driver": "IfxEgtm_Pwm",
+    "selection_rationale": "Unified eGTM PWM driver supports synchronized multi-channel, center-aligned, complementary PWM with DTM dead-time and is ideal for a 3-phase inverter on ATOM with synchronous start.",
+    "available_in_template": true,
+    "complexity_level": "advanced",
+    "alternatives_considered": [
+      "IfxEgtm_Atom_Pwm",
+      "IfxEgtm_Tom_Pwm",
+      "IfxAdc_Tmadc (for ADC)"
+    ]
+  },
+  "driver_usage": {
+    "primary_driver": "IfxEgtm_Pwm",
+    "available_in_template": true,
+    "initialization_apis": [
+      "IfxEgtm_Pwm_initConfig",
+      "IfxEgtm_Pwm_initChannelConfig",
+      "IfxEgtm_Pwm_init",
+      "IfxEgtm_PinMap_setAtomTout",
+      "IfxEgtm_Trigger_trigToAdc",
+      "IfxAdc_Tmadc_initModuleConfig",
+      "IfxAdc_Tmadc_initModule",
+      "IfxAdc_Tmadc_initChannelConfig",
+      "IfxAdc_Tmadc_initChannel",
+      "IfxAdc_Tmadc_runModule",
+      "IfxPort_setPinModeOutput",
+      "IfxPort_setPinLow",
+      "IfxPort_setPinFunctionMode",
+      "IfxWtu_initConfig",
+      "IfxWtu_initCpuWatchdog"
+    ],
+    "runtime_apis": [
+      "IfxEgtm_Pwm_updateChannelDuty",
+      "IfxEgtm_Pwm_updateChannelDutyImmediate",
+      "IfxStm_getFrequency",
+      "IfxStm_get"
+    ]
+  },
+  "file_structure": {
+    "module_files": [
+      "EGTM_ATOM_TMADC_3PH.c",
+      "EGTM_ATOM_TMADC_3PH.h"
+    ],
+    "cpu_files": [
+      "Cpu0_Main.c"
+    ],
+    "from_reference": true
+  },
+  "function_mapping": {
+    "init_function": {
+      "name": "initEgtmAtom3phInv",
+      "driver_calls": [
+        "IfxWtu_initConfig",
+        "IfxWtu_initCpuWatchdog",
+        "IfxPort_setPinModeOutput",
+        "IfxPort_setPinLow",
+        "IfxEgtm_Pwm_initConfig",
+        "IfxEgtm_Pwm_initChannelConfig",
+        "IfxEgtm_PinMap_setAtomTout",
+        "IfxEgtm_Pwm_init",
+        "IfxPort_setPinFunctionMode",
+        "IfxEgtm_Trigger_trigToAdc",
+        "IfxAdc_Tmadc_initModuleConfig",
+        "IfxAdc_Tmadc_initModule",
+        "IfxAdc_Tmadc_initChannelConfig",
+        "IfxAdc_Tmadc_initChannel",
+        "IfxAdc_Tmadc_runModule"
+      ],
+      "signature": "bool initEgtmAtom3phInv(EgtmAtom3phInvContext* ctx, const EgtmAtom3phInvConfig* cfg, volatile uint16* tmadcResultBuf, uint32 tmadcResultCount)",
+      "parameters": [
+        "ctx: Module context; holds PWM/ADC handles and state (must not be NULL).",
+        "cfg: Static configuration (frequency=20 kHz, dead-time=1 µs, pin map, ATOM channel pairs, TMADC channel list).",
+        "tmadcResultBuf: External buffer for latest TMADC results (one entry per configured channel; written by polling).",
+        "tmadcResultCount: Number of TMADC channels configured (e.g., 5 for CH0–CH4); must match buffer length."
+      ],
+      "returns": "true on successful peripheral configuration; false on parameter or driver init error"
+    },
+    "runtime_function": {
+      "name": "updateEgtmAtom3phInvDuty",
+      "driver_calls": [
+        "IfxEgtm_Pwm_updateChannelDutyImmediate"
+      ],
+      "purpose": "Runtime duty update for three complementary phase pairs at 500 ms cadence in main loop while polling TMADC results.",
+      "signature": "void updateEgtmAtom3phInvDuty(EgtmAtom3phInvContext* ctx, float dutyU_percent, float dutyV_percent, float dutyW_percent)",
+      "parameters": [
+        "ctx: Module context initialized by initEgtmAtom3phInv.",
+        "dutyU_percent: Phase U duty in percent [0.0 .. 100.0].",
+        "dutyV_percent: Phase V duty in percent [0.0 .. 100.0].",
+        "dutyW_percent: Phase W duty in percent [0.0 .. 100.0]."
+      ],
+      "returns": "void"
+    },
+    "start_function": {
+      "name": "startEgtmAtom3phInv",
+      "driver_calls": [
+        "IfxEgtm_Pwm_updateChannelDuty",
+        "IfxEgtm_Pwm_updateChannelDutyImmediate"
+      ],
+      "purpose": "Atomically stage initial U/V/W duties (25%/50%/75%) and enable PWM outputs with trigger aligned to the PWM period so TMADC external trigger from ATOM0.CH3 is phase-synchronous.",
+      "signature": "void startEgtmAtom3phInv(EgtmAtom3phInvContext* ctx)",
+      "parameters": [
+        "ctx: Module context initialized by initEgtmAtom3phInv."
+      ],
+      "returns": "void"
+    },
+    "adc_results_interface": {
+      "access_method": "polling",
+      "api": "IfxAdc_Tmadc_getResult (or equivalent channel read API) invoked in the main loop",
+      "buffering": "Latest-conversion values written into caller-provided tmadcResultBuf (passed to initEgtmAtom3phInv), indexed by TMADC channel ID",
+      "result_format": "Right-aligned unsigned 16-bit per channel sample; application interprets scaling"
+    }
+  },
+  "migration_notes": {
+    "is_migration": true,
+    "driver_changes": [
+      "IfxGtm_Pwm_* → IfxEgtm_Pwm_*",
+      "IfxGtm_* → IfxEgtm_* (module base: MODULE_GTM → MODULE_EGTM)",
+      "IfxGtm_Trig_toEVadc → IfxEgtm_Trigger_trigToAdc",
+      "IfxEVadc_Adc_* → IfxAdc_Tmadc_* (MODULE_EVADC → MODULE_ADC)",
+      "IfxScuWdt_* → IfxWtu_*"
+    ],
+    "api_changes": [
+      {
+        "from": "initGtmTom3phInv",
+        "to": "initEgtmAtom3phInv"
+      },
+      {
+        "from": "startGtmTom3phInv",
+        "to": "startEgtmAtom3phInv"
+      },
+      {
+        "from": "updateGtmTom3phInvDuty",
+        "to": "updateEgtmAtom3phInvDuty"
+      },
+      {
+        "from": "IfxGtm_Pwm_initConfig/IfxGtm_Pwm_init",
+        "to": "IfxEgtm_Pwm_initConfig/IfxEgtm_Pwm_init"
+      },
+      {
+        "from": "IfxGtm_Trig_toEVadc",
+        "to": "IfxEgtm_Trigger_trigToAdc"
+      },
+      {
+        "from": "IfxEVadc_Adc_*",
+        "to": "IfxAdc_Tmadc_*"
+      }
+    ],
+    "context_preserved": "The migration keeps the original control concept: 3-phase center-aligned complementary PWM using ATOM with 1 µs dead-time, synchronous ADC triggering from a dedicated ATOM channel, same PWM frequency and initial duties, specific pin routing (P20.8–P20.13 for PWM, P33.0 for trigger), LED GPIO, synchronous start, and 500 ms STM-based duty updates while polling TMADC results. All driver calls are mapped to TC4xx iLLD APIs available in the template."
+  },
+  "header_selection": {
+    "applied": true,
+    "peripheral_type": "PWM",
+    "recommended_header": "IfxEgtm_Pwm",
+    "score": 554,
+    "required_includes": [
+      "IfxEgtm_Pwm.h"
+    ],
+    "function_mapping": {
+      "PWM_FREQUENCY": "IfxEgtm_Pwm_getSubModuleClockFrequency",
+      "IfxGtm_Pwm_init": "IfxEgtm_Pwm_init",
+      "IFX_INTERRUPT": "IfxEgtm_Pwm_initInterrupts",
+      "IfxGtm_Pwm_startSyncedGroups": "IfxEgtm_Pwm_startSyncedGroups",
+      "IfxGtm_enable": "IfxEgtm_Pwm_enableChannelSyncUpdate",
+      "IfxGtm_Pwm_initConfig": "IfxEgtm_Pwm_initConfig",
+      "IfxGtm_Pwm_updateChannelsDutyImmediate": "IfxEgtm_Pwm_updateChannelsDutyImmediate"
+    },
+    "available_functions_count": 100
+  },
+  "driver_selection_engine": {
+    "applied": true,
+    "mcu_family": "TC4xx",
+    "requirement_analysis": {
+      "peripherals": [
+        "PWM",
+        "TIMER",
+        "ADC",
+        "GPIO",
+        "WATCHDOG"
+      ],
+      "complexity_hints": {
+        "PWM": "DriverComplexity.ADVANCED",
+        "TIMER": "DriverComplexity.SIMPLE",
+        "ADC": "DriverComplexity.SIMPLE",
+        "GPIO": "DriverComplexity.SIMPLE",
+        "WATCHDOG": "DriverComplexity.SIMPLE"
+      },
+      "specific_features": [
+        "3[- ]?phase"
+      ]
+    },
+    "recommendations": {
+      "ADC": {
+        "driver": "IfxEvadc_Adc",
+        "score": -10.0,
+        "complexity": "moderate",
+        "rationale": "âš ï¸ NOT found in template - may need to add | âœ… Matches target family (TC4xx) | Complexity: moderate | Best for: analog measurement, motor current sensing, high-speed sampling | Features: enhanced_vadc, parallel_sampling, fast_compare, result_fifo, limit_checking",
+        "alternatives": [
+          "IfxEdsadc_Edsadc"
+        ]
+      }
+    },
+    "migration_mappings": {
+      "IfxScuWdt": {
+        "target_driver": "IfxWtu",
+        "api_mapping": {
+          "IfxScuWdt_disableCpuWatchdog": "IfxWtu_disableCpuWatchdog",
+          "IfxScuWdt_disableSafetyWatchdog": "IfxWtu_enableCpuWatchdog",
+          "IfxScuWdt_enableCpuWatchdog": "// No equivalent - manual mapping needed",
+          "IfxScuWdt_enableSafetyWatchdog": "// No equivalent - manual mapping needed",
+          "IfxScuWdt_serviceCpuWatchdog": "IfxWtu_serviceCpuWatchdog",
+          "IfxScuWdt_serviceSafetyWatchdog": "// No equivalent - manual mapping needed",
+          "IfxScuWdt_clearCpuEndinit": "// No equivalent - manual mapping needed",
+          "IfxScuWdt_setCpuEndinit": "// No equivalent - manual mapping needed"
+        }
+      },
+      "IfxGtm_Pwm": {
+        "target_driver": "IfxEgtm_Pwm",
+        "api_mapping": {
+          "IfxGtm_Pwm_init": "IfxEgtm_Pwm_init",
+          "IfxGtm_Pwm_initConfig": "IfxEgtm_Pwm_initConfig",
+          "IfxGtm_Pwm_start": "IfxEgtm_Pwm_start",
+          "IfxGtm_Pwm_stop": "IfxEgtm_Pwm_stop",
+          "IfxGtm_Pwm_setDuty": "IfxEgtm_Pwm_setDuty"
+        }
+      },
+      "IfxPort": {
+        "target_driver": "IfxPort_Io",
+        "api_mapping": {
+          "IfxPort_setPinMode": "IfxPort_Io_initModule",
+          "IfxPort_setPinModeOutput": "// No equivalent - manual mapping needed",
+          "IfxPort_setPinModeInput": "// No equivalent - manual mapping needed",
+          "IfxPort_setPinPadDriver": "// No equivalent - manual mapping needed",
+          "IfxPort_setPinState": "IfxPort_Io_setPinState",
+          "IfxPort_getPinState": "IfxPort_Io_getPinState",
+          "IfxPort_togglePin": "// No equivalent - manual mapping needed",
+          "IfxPort_setPinHigh": "// No equivalent - manual mapping needed",
+          "IfxPort_setPinLow": "// No equivalent - manual mapping needed"
+        }
+      }
+    }
+  },
+  "driver_knowledge_base": {
+    "applied": true,
+    "recommended_driver": "IfxEgtm_Pwm",
+    "api_layer": "unified",
+    "rationale": "User requirement mentions IfxEgtm_Pwm",
+    "avoid_drivers": [
+      "IfxEgtm_Tom_Pwm",
+      "IfxEgtm_Atom_Pwm",
+      "IfxGtm_Pwm"
+    ],
+    "companion_drivers": [
+      "IfxEgtm_Cmu"
+    ],
+    "handles_internally": [
+      "complementary_output_pairing",
+      "dead_time_via_DTM",
+      "center_aligned_mode",
+      "multi_channel_synchronization",
+      "TOM_ATOM_submodule_selection",
+      "phase_shift"
+    ],
+    "user_must_handle": [
+      "clock_setup_via_CMU",
+      "pin_mapping"
+    ],
+    "testability": {
+      "abstraction": "Introduce lightweight driver interfaces (e.g., IEgtmPwm, IAdcTmadc) and pass them via EgtmAtom3phInvContext to enable dependency injection.",
+      "injection_points": [
+        "initEgtmAtom3phInv",
+        "startEgtmAtom3phInv",
+        "updateEgtmAtom3phInvDuty"
+      ],
+      "mocking_strategy": "Provide mock IEgtmPwm and IAdcTmadc implementations for CI that simulate timer progression and supply deterministic ADC samples from a software buffer.",
+      "build_switch": "Compile-time flag (e.g., UNIT_TEST) selects mock vs. iLLD-backed implementations."
+    }
+  }
+}
