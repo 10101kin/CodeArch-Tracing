@@ -4,86 +4,72 @@
     "family": "TC4xx",
     "verified": true,
     "device_macro": "DEVICE_TC4D7",
-    "pin_package": "IFX_PIN_PACKAGE_BGA292_COM",
-    "documentation": "Updated device_macro and pin_package to match KIT_A3G_TC4D7_LITE requirement (DEVICE_TC4D7, IFX_PIN_PACKAGE_BGA292_COM)."
+    "pin_package": "IFX_PIN_PACKAGE_BGA292_COM"
   },
   "peripheral_instance": {
     "type": "PWM",
-    "module": "EGTM1.ATOM1",
+    "module": "EGTM.ATOM1",
     "channels": [
       0,
       1,
       2
     ],
-    "driver": "IfxEgtm_Atom_Pwm",
-    "driver_rationale": "Kept IfxEgtm_Atom_Pwm because module uses EGTM ATOM channels and this driver provides ATOM-specific PWM control. If a generic EGTM abstraction is preferred for migration consistency, switch to IfxEgtm_Pwm."
+    "driver": "IfxEgtm_Atom_Pwm"
   },
   "pin_assignments": [
     {
       "signal": "ATOM1_CH0_HS",
       "port_pin": "P20.8",
       "function": "ATOM1_CH0",
-      "pin_macro": "UNRESOLVED_FOR_TC4D7_BGA292",
+      "pin_macro": "",
       "is_complementary": false,
       "verified": false,
-      "source": "hardware_verified",
-      "pin_macro_note": "Exact IfxEgtm_PinMap macro for EGTM1 ATOM1 CH0 on P20.8 not found/resolved for TC4D7 with BGA292 package.",
-      "validation_note": "Requested P20.8 mapping for EGTM1 ATOM1 could not be validated against IfxEgtm_PinMap.h for TC4D7/BGA292."
+      "source": "hardware_verified"
     },
     {
       "signal": "ATOM1_CH0_LS",
       "port_pin": "P20.9",
       "function": "ATOM1_CH0N",
-      "pin_macro": "UNRESOLVED_FOR_TC4D7_BGA292",
+      "pin_macro": "",
       "is_complementary": true,
       "verified": false,
-      "source": "hardware_verified",
-      "pin_macro_note": "Exact IfxEgtm_PinMap macro for EGTM1 ATOM1 CH0N on P20.9 not found/resolved for TC4D7 with BGA292 package.",
-      "validation_note": "Requested P20.9 mapping for EGTM1 ATOM1 could not be validated against IfxEgtm_PinMap.h for TC4D7/BGA292."
+      "source": "hardware_verified"
     },
     {
       "signal": "ATOM1_CH1_HS",
       "port_pin": "P20.10",
       "function": "ATOM1_CH1",
-      "pin_macro": "UNRESOLVED_FOR_TC4D7_BGA292",
+      "pin_macro": "",
       "is_complementary": false,
       "verified": false,
-      "source": "hardware_verified",
-      "pin_macro_note": "Exact IfxEgtm_PinMap macro for EGTM1 ATOM1 CH1 on P20.10 not found/resolved for TC4D7 with BGA292 package.",
-      "validation_note": "Requested P20.10 mapping for EGTM1 ATOM1 could not be validated against IfxEgtm_PinMap.h for TC4D7/BGA292."
+      "source": "hardware_verified"
     },
     {
       "signal": "ATOM1_CH1_LS",
       "port_pin": "P20.11",
       "function": "ATOM1_CH1N",
-      "pin_macro": "UNRESOLVED_FOR_TC4D7_BGA292",
+      "pin_macro": "",
       "is_complementary": true,
       "verified": false,
-      "source": "hardware_verified",
-      "pin_macro_note": "Exact IfxEgtm_PinMap macro for EGTM1 ATOM1 CH1N on P20.11 not found/resolved for TC4D7 with BGA292 package.",
-      "validation_note": "Requested P20.11 mapping for EGTM1 ATOM1 could not be validated against IfxEgtm_PinMap.h for TC4D7/BGA292."
+      "source": "hardware_verified"
     },
     {
       "signal": "ATOM1_CH2_HS",
       "port_pin": "P20.12",
       "function": "ATOM1_CH2",
-      "pin_macro": "UNRESOLVED_FOR_TC4D7_BGA292",
+      "pin_macro": "",
       "is_complementary": false,
       "verified": false,
-      "source": "hardware_verified",
-      "pin_macro_note": "Exact IfxEgtm_PinMap macro for EGTM1 ATOM1 CH2 on P20.12 not found/resolved for TC4D7 with BGA292 package.",
-      "validation_note": "Requested P20.12 mapping for EGTM1 ATOM1 could not be validated against IfxEgtm_PinMap.h for TC4D7/BGA292."
+      "source": "hardware_verified"
     },
     {
       "signal": "ATOM1_CH2_LS",
       "port_pin": "P20.13",
       "function": "ATOM1_CH2N",
-      "pin_macro": "UNRESOLVED_FOR_TC4D7_BGA292",
+      "pin_macro": "",
       "is_complementary": true,
       "verified": false,
-      "source": "hardware_verified",
-      "pin_macro_note": "Exact IfxEgtm_PinMap macro for EGTM1 ATOM1 CH2N on P20.13 not found/resolved for TC4D7 with BGA292 package.",
-      "validation_note": "Requested P20.13 mapping for EGTM1 ATOM1 could not be validated against IfxEgtm_PinMap.h for TC4D7/BGA292."
+      "source": "hardware_verified"
     }
   ],
   "clock_configuration": {
