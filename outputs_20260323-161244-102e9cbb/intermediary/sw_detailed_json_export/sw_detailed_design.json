@@ -3,22 +3,21 @@
   "public_functions": [
     {
       "signature": "void initGtmTomPwm(void)",
-      "behavior_description": "Enable the GTM and its functional clocks, then configure a shared TOM time base at 20 kHz with center-aligned operation. Initialize the timer configuration with the selected FXCLK source, TOM instance, and timer channel. Route six PWM output channels to their assigned pins and set their port output modes and pad drivers via the GTM pin map API. Build a unified multi-channel PWM configuration: assign six single-output channels under the same time base, bind each logical channel to the selected TOM submodule and physical channel, and enable synchronized updates. Program polarity so that the three high-side channels use the active HIGH polarity while the three low-side channels use inverted polarity to implement complementary behavior with zero dead time. Prepare initial duty values: high-side channels at 25%, 50%, and 75%; low-side channels match the same numeric duty values because their inversion is realized by polarity (yielding complementary waveforms). Start the shared timer, then perform a shadowed update sequence: disable timer updates, write the initial six-channel duty array in one call, and apply the update atomically so all channels start synchronized. Note: The exact TOM instance and channel-to-pin mapping (e.g., TOMx CHy to P02.x) is pending hardware routing confirmation and must be finalized before implementation; placeholder route assignments must be updated once the hardware routing is confirmed.",
+      "behavior_description": "Enable the GTM and its functional clocks, then configure a shared TOM time base at 20 kHz with center-aligned operation. Initialize the timer configuration with the selected FXCLK source, TOM instance, and timer channel. Route six PWM output channels by assigning each channel's cfg.pin.outputPin in the IfxGtm_Tom_Pwm_Config (no separate pin map API call). Build a unified multi-channel PWM configuration: assign six single-output channels under the same time base, bind each logical channel to the selected TOM submodule and physical channel, and enable synchronized updates. Set polarity in the IfxGtm_Tom_Pwm_Config so that the three high-side channels use the active HIGH polarity while the three low-side channels use inverted polarity to implement complementary behavior with zero dead time. Set initial duty values in the IfxGtm_Tom_Pwm_Config: high-side channels at 25%, 50%, and 75%; low-side channels match the same numeric duty values because their inversion is realized by polarity (yielding complementary waveforms). After initialization, call IfxGtm_Tom_Pwm_start, then perform a shadowed update sequence: disable timer updates, write the initial six-channel duty array in one call, and apply the update atomically so all channels start synchronized.",
       "driver_calls": [
         "IfxGtm_enable",
         "IfxGtm_Cmu_enableClocks",
         "IfxGtm_Tom_Timer_initConfig",
         "IfxGtm_Tom_Timer_init",
         "IfxGtm_Tom_Timer_addToChannelMask",
-        "IfxGtm_PinMap_setTomTout",
-        "IfxGtm_Pwm_initConfig",
-        "IfxGtm_Pwm_initChannelConfig",
-        "IfxGtm_Pwm_init",
-        "IfxGtm_Pwm_setChannelPolarity",
+        "IfxGtm_Tom_Pwm_initConfig",
+        "IfxGtm_Tom_Pwm_initChannelConfig",
+        "IfxGtm_Tom_Pwm_init",
+        "IfxGtm_Tom_Pwm_setChannelPolarity",
         "IfxGtm_Tom_Timer_updateInputFrequency",
         "IfxGtm_Tom_Timer_run",
         "IfxGtm_Tom_Timer_disableUpdate",
-        "IfxGtm_Pwm_updateChannelsDutyImmediate",
+        "IfxGtm_Tom_Pwm_update",
         "IfxGtm_Tom_Timer_applyUpdate"
       ],
       "from_reference": true,
@@ -40,17 +39,15 @@
     {
       "signature": "static void computeNextDuties(float32 *hsDutyInOut, float32 *sixChannelDutyOut)",
       "needed": true,
-      "from_reference": false,
-      "behavior_description": "Compute the next set of six PWM duty values from three phase high-side references. Algorithm: for each element i in hsDutyInOut[0..2], add +0.10f; if the result > 1.0f, wrap to 0.0f. Any negative inputs are clamped to 0.0f, and non-finite values (NaN/Inf) are treated as 0.0f before processing. Populate sixChannelDutyOut[0..5] with the numeric duties in the same logical channel order configured during initialization; for each phase, set the low-side duty equal to its corresponding high-side duty, as complementary behavior is achieved via inverted channel polarity (no dead time insertion here). Input/Output expectations: hsDutyInOut must point to an array of length 3 containing normalized values in [0.0, 1.0]; on return, it is updated in place with the next high-side duties. sixChannelDutyOut must point to a writable array of length 6 that receives the six normalized duties. Error handling: if either pointer is NULL, the function performs no operation; if any input value is outside [0.0, 1.0] or not finite, it is sanitized to 0.0f before computing. Returns: void; no status is returned."
+      "from_reference": false
     }
   ],
   "dependencies": {
     "includes": [
       "IfxGtm.h",
       "IfxGtm_Tom_Timer.h",
-      "IfxGtm_Pwm.h",
-      "IfxGtm_PinMap.h",
-      "IfxPort.h"
+      "IfxPort.h",
+      "IfxGtm_Tom_Pwm.h"
     ],
     "driver_calls": [
       "IfxGtm_enable",
@@ -71,10 +68,10 @@
   "header_selection": {
     "applied": true,
     "peripheral_type": "PWM",
-    "recommended_header": "IfxGtm_Tom",
+    "recommended_header": "IfxGtm_Tom_Pwm.h",
     "template_functions_count": 1037,
     "required_includes": [
-      "IfxGtm_Tom.h"
+      "IfxGtm_Tom_Pwm.h"
     ],
     "original_recommendation": "IfxGtm_Tom_Timer",
     "reconciled": true,
