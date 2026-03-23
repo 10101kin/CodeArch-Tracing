@@ -64,8 +64,7 @@
         "tom_module": "TOM0",
         "tom_channel": 0,
         "polarity": "active_high",
-        "initial_duty_percent": 25,
-        "route_confirmed": false
+        "initial_duty_percent": 25
       },
       {
         "name": "PHASE_U_LS",
@@ -74,8 +73,7 @@
         "tom_module": "TOM0",
         "tom_channel": 7,
         "polarity": "active_high",
-        "initial_duty_percent": "complement(25%)",
-        "route_confirmed": false
+        "initial_duty_percent": "complement(25%)"
       },
       {
         "name": "PHASE_V_HS",
@@ -84,8 +82,7 @@
         "tom_module": "TOM0",
         "tom_channel": 1,
         "polarity": "active_high",
-        "initial_duty_percent": 50,
-        "route_confirmed": false
+        "initial_duty_percent": 50
       },
       {
         "name": "PHASE_V_LS",
@@ -94,8 +91,7 @@
         "tom_module": "TOM0",
         "tom_channel": 4,
         "polarity": "active_high",
-        "initial_duty_percent": "complement(50%)",
-        "route_confirmed": false
+        "initial_duty_percent": "complement(50%)"
       },
       {
         "name": "PHASE_W_HS",
@@ -104,8 +100,7 @@
         "tom_module": "TOM0",
         "tom_channel": 2,
         "polarity": "active_high",
-        "initial_duty_percent": 75,
-        "route_confirmed": false
+        "initial_duty_percent": 75
       },
       {
         "name": "PHASE_W_LS",
@@ -114,11 +109,10 @@
         "tom_module": "TOM0",
         "tom_channel": 5,
         "polarity": "active_high",
-        "initial_duty_percent": "complement(75%)",
-        "route_confirmed": false
+        "initial_duty_percent": "complement(75%)"
       }
     ],
-    "notes": "Routing validation required: Explicitly validate and confirm TOM0 channel-to-TOUTx routing for P02.x on KIT_A2G_TC387_5V_TFT (currently using IfxGtm_PinMap_TC38x_516). Resolve and document the final low-side behavior (currently set to complementary_inverted with no hardware dead-time) and confirm TOM instance/channel selection (TOM0 channels U:0/7, V:1/4, W:2/5 with shared timer TOM0 channel 3) before proceeding."
+    "notes": "Assumed TOM routing via IfxGtm_PinMap_TC38x_516. Validate TOUT mapping on KIT_A2G_TC387_5V_TFT. Low-side behavior set to complementary inverted with no hardware dead-time as per current specification."
   },
   "timing_requirements": {
     "shared_timer": {
@@ -138,7 +132,7 @@
   },
   "device_configuration": {
     "target_device_macro": "DEVICE_TC38X",
-    "pin_package": "IFX_PIN_PACKAGE_516",
+    "pin_package": "IFX_PIN_PACKAGE_292",
     "device_family": "TC3xx",
     "clock_requirements": {
       "requires_xtal": true,
