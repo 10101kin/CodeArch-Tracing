@@ -13,11 +13,7 @@
       "IfxGtm_Pwm",
       "IfxGtm_Tom_Dtm_PwmHl",
       "IfxGtm_Tom_Pwm"
-    ],
-    "review_verification": {
-      "required": true,
-      "note": "Check the iLLD documentation for TC3xx to confirm IfxGtm_Tom_PwmHl is the recommended driver for this use case."
-    }
+    ]
   },
   "driver_usage": {
     "primary_driver": "IfxGtm_Tom_PwmHl.h",
@@ -31,11 +27,7 @@
       "IfxGtm_Tom_PwmHl_setDeadtime",
       "IfxGtm_Tom_PwmHl_setMinPulse",
       "IfxGtm_Tom_PwmHl_setOnTime"
-    ],
-    "review_verification": {
-      "required": true,
-      "note": "Consult the iLLD package for TC3xx or the official Infineon AURIX TC387 iLLD documentation to confirm the existence of IfxGtm_Tom_PwmHl.h and the listed APIs (IfxGtm_Tom_PwmHl_initConfig, IfxGtm_Tom_PwmHl_init, IfxGtm_Tom_PwmHl_setMode, IfxGtm_Tom_PwmHl_setDeadtime, IfxGtm_Tom_PwmHl_setMinPulse, IfxGtm_Tom_PwmHl_setOnTime)."
-    }
+    ]
   },
   "file_structure": {
     "module_files": [
@@ -57,11 +49,7 @@
         "IfxGtm_Tom_PwmHl_initConfig",
         "IfxGtm_Tom_PwmHl_init",
         "IfxGtm_PinMap_setTomTout"
-      ],
-      "review_verification_for_driver_calls": {
-        "required": true,
-        "note": "Consult IfxGtm_PinMap.h and the iLLD documentation for TC3xx to confirm the correct API for TOM1 TOUT pin assignment."
-      }
+      ]
     },
     "runtime_function": {
       "name": "GTM_TOM_3_Phase_Inverter_PWM_updateDuty",
@@ -69,10 +57,6 @@
         "IfxGtm_Tom_PwmHl_setOnTime"
       ],
       "purpose": "Apply new duty cycles to U/V/W complementary pairs every 500 ms with +10% steps, wrapping within 0–100% inclusive, while maintaining center-aligned complementary outputs with deadtime."
-    },
-    "review_verification": {
-      "required": true,
-      "note": "Review the TC387 reference manual and iLLD documentation for resource allocation and possible conflicts with TOM1 channels."
     }
   },
   "migration_notes": {
@@ -85,11 +69,7 @@
       "Pin mappings: use IfxGtm_PinMap_setTomTout to assign TOM1 TOUT to P02.0, P02.7, P02.1, P02.4, P02.2, P02.5 with push-pull and IfxPort_PadDriver_cmosAutomotiveSpeed1. Exact TOUT map entries must be verified in IfxGtm_PinMap.h for TC38x LFBGA292 (or 516 if that package is selected).",
       "Periodic duty updates: schedule with IfxStm_Timer using IfxStm_Timer_setPeriod and IfxStm_Timer_run."
     ],
-    "context_preserved": "The plan keeps TOM1 at 20 kHz center-aligned with complementary outputs and deadtime via IfxGtm_Tom_PwmHl, configures the exact requested pins on P02.*, preserves push-pull and pad driver, reuses existing deadtime/minPulse, and implements the 500 ms cyclic duty stepping as specified.",
-    "review_verification_for_api_changes": {
-      "required": true,
-      "note": "Check the iLLD documentation for TC3xx to confirm IfxStm_Timer is the appropriate driver for periodic scheduling."
-    }
+    "context_preserved": "The plan keeps TOM1 at 20 kHz center-aligned with complementary outputs and deadtime via IfxGtm_Tom_PwmHl, configures the exact requested pins on P02.*, preserves push-pull and pad driver, reuses existing deadtime/minPulse, and implements the 500 ms cyclic duty stepping as specified."
   },
   "header_selection": {
     "applied": true,
@@ -130,7 +110,7 @@
         "driver": "IfxGtm_Pwm",
         "score": 95.0,
         "complexity": "advanced",
-        "rationale": "… Available in template | … Matches target family (TC3xx) | Complexity: advanced | Best for: 3-phase inverter, motor control, multi-channel synchronized PWM | Features: multi_channel_sync, complementary_pairs, dead_time, center_aligned, edge_aligned",
+        "rationale": "âœ… Available in template | âœ… Matches target family (TC3xx) | Complexity: advanced | Best for: 3-phase inverter, motor control, multi-channel synchronized PWM | Features: multi_channel_sync, complementary_pairs, dead_time, center_aligned, edge_aligned",
         "alternatives": [
           "IfxGtm_Tom_PwmHl",
           "IfxGtm_Tom_Pwm",
