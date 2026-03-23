@@ -88,7 +88,7 @@
     "pwm_frequency_hz": 20000,
     "alignment": "centerAligned",
     "deadtime_us": 0.5,
-    "min_pulse_us": 1.0,
+    "min_pulse_us": null,
     "initial_duty": {
       "U": 0.25,
       "V": 0.5,
