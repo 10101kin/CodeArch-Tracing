@@ -1,0 +1,87 @@
+#include "IfxWtu.h"
+
+/* Call counters */
+static uint32 s_disableCpuWatchdog_count = 0;
+static uint32 s_disableSystemWatchdog_count = 0;
+static uint32 s_getCpuWatchdogPassword_count = 0;
+static uint32 s_getSystemWatchdogPassword_count = 0;
+static uint32 s_initCpuWatchdog_count = 0;
+static uint32 s_initConfig_count = 0;
+
+/* Return values */
+static uint16 s_getCpuWatchdogPassword_ret = 0u;
+static uint16 s_getSystemWatchdogPassword_ret = 0u;
+
+/* Last-arg capture */
+static uint16 s_disableCpuWatchdog_lastPassword = 0u;
+static uint16 s_disableSystemWatchdog_lastPassword = 0u;
+
+/* Implementations */
+void IfxWtu_disableCpuWatchdog(uint16 password)
+{
+    s_disableCpuWatchdog_count++;
+    s_disableCpuWatchdog_lastPassword = password;
+}
+
+void IfxWtu_disableSystemWatchdog(uint16 password)
+{
+    s_disableSystemWatchdog_count++;
+    s_disableSystemWatchdog_lastPassword = password;
+}
+
+uint16 IfxWtu_getCpuWatchdogPassword(void)
+{
+    s_getCpuWatchdogPassword_count++;
+    return s_getCpuWatchdogPassword_ret;
+}
+
+uint16 IfxWtu_getSystemWatchdogPassword(void)
+{
+    s_getSystemWatchdogPassword_count++;
+    return s_getSystemWatchdogPassword_ret;
+}
+
+void IfxWtu_initCpuWatchdog(Ifx_WTU_WDTCPU *wtu, IfxWtu_Config *config)
+{
+    (void)wtu;
+    (void)config;
+    s_initCpuWatchdog_count++;
+}
+
+void IfxWtu_initConfig(IfxWtu_Config *config)
+{
+    (void)config;
+    s_initConfig_count++;
+}
+
+/* Mock control: call counts */
+uint32 IfxWtu_Mock_GetCallCount_disableCpuWatchdog(void)       { return s_disableCpuWatchdog_count; }
+uint32 IfxWtu_Mock_GetCallCount_disableSystemWatchdog(void)    { return s_disableSystemWatchdog_count; }
+uint32 IfxWtu_Mock_GetCallCount_getCpuWatchdogPassword(void)   { return s_getCpuWatchdogPassword_count; }
+uint32 IfxWtu_Mock_GetCallCount_getSystemWatchdogPassword(void){ return s_getSystemWatchdogPassword_count; }
+uint32 IfxWtu_Mock_GetCallCount_initCpuWatchdog(void)          { return s_initCpuWatchdog_count; }
+uint32 IfxWtu_Mock_GetCallCount_initConfig(void)               { return s_initConfig_count; }
+
+/* Mock control: returns */
+void IfxWtu_Mock_SetReturn_getCpuWatchdogPassword(uint16 value)    { s_getCpuWatchdogPassword_ret = value; }
+void IfxWtu_Mock_SetReturn_getSystemWatchdogPassword(uint16 value) { s_getSystemWatchdogPassword_ret = value; }
+
+/* Mock control: last-arg capture */
+uint16 IfxWtu_Mock_GetLastArg_disableCpuWatchdog_password(void)    { return s_disableCpuWatchdog_lastPassword; }
+uint16 IfxWtu_Mock_GetLastArg_disableSystemWatchdog_password(void) { return s_disableSystemWatchdog_lastPassword; }
+
+void IfxWtu_Mock_Reset(void)
+{
+    s_disableCpuWatchdog_count = 0;
+    s_disableSystemWatchdog_count = 0;
+    s_getCpuWatchdogPassword_count = 0;
+    s_getSystemWatchdogPassword_count = 0;
+    s_initCpuWatchdog_count = 0;
+    s_initConfig_count = 0;
+
+    s_getCpuWatchdogPassword_ret = 0u;
+    s_getSystemWatchdogPassword_ret = 0u;
+
+    s_disableCpuWatchdog_lastPassword = 0u;
+    s_disableSystemWatchdog_lastPassword = 0u;
+}
