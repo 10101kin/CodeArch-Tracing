@@ -116,7 +116,7 @@
         "reason": "Unified PWM API migration"
       }
     ],
-    "context_preserved": "The solution keeps the original control objectives: 3-phase center-aligned 20 kHz complementary PWM on EGTM Cluster 1 ATOM1 ch0/1/2, 1 µs deadtime via DTM/CDTM, HS active-high and LS active-low, synchronized start and synchronized duty updates, and one period ISR on CPU0 with priority 20. Clocks are prepared to use GCLK=200 MHz with FXCLK_0 for ATOM and CMU CLK0 for DTM. Output pins are assigned via IfxEgtm_PinMap_setAtomTout, with a specific note to verify the exact IfxEgtm pin map macros for P20.8/9/10/11/12/13 on KIT_A3G_TC4D7_LITE as the provided macros are assumed and need confirmation in IfxEgtm_PinMap.h."
+    "context_preserved": "The solution keeps the original control objectives: 3-phase center-aligned 20 kHz complementary PWM on EGTM Cluster 1 ATOM1 ch0/1/2, 1 µs deadtime via DTM/CDTM, HS active-high and LS active-low, synchronized start and synchronized duty updates, and one period ISR on CPU0 with priority 20. Clocks are prepared to use GCLK=200 MHz with FXCLK_0 for ATOM and CMU CLK0 for DTM. Output pins are assigned via IfxEgtm_PinMap_setAtomTout, with a specific note to verify the exact IfxEgtm pin map macros for P20.8/9/10/11/12/13 on KIT_A3G_TC4D7_LITE as the provided macros are assumed and need confirmation in IfxEgtm_PInMap.h."
   },
   "header_selection": {
     "applied": true,
