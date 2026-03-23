@@ -1,0 +1,12 @@
+{
+  "attempt": 3,
+  "phase_attempt": 3,
+  "phase": "mock",
+  "timestamp": "2026-03-23T13:27:34.439499",
+  "success": false,
+  "files": [],
+  "errors": [
+    "Connection error."
+  ],
+  "build_result": null
+}
