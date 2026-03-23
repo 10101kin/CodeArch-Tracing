@@ -6,10 +6,10 @@
     "target_family": "TC3xx",
     "migration_required": false,
     "driver_mappings": {
-      "IfxGtm_Tom_PwmHl": "IfxGtm_Pwm"
+      "IfxGtm_Tom_PwmHl": "IfxGtm_Tom_Pwm"
     },
     "header_mappings": {
-      "IfxGtm_Tom_PwmHl.h": "IfxGtm_Pwm.h",
+      "IfxGtm_Tom_PwmHl.h": "IfxGtm_Tom_Pwm.h",
       "IfxGtm_PinMap.h": "IfxGtm_PinMap.h",
       "IfxPort.h": "IfxPort.h",
       "Bsp.h": "Bsp.h"
@@ -41,7 +41,7 @@
   "peripheral_requirement": {
     "type": "PWM",
     "driver_available": true,
-    "driver_name": "IfxGtm_Pwm",
+    "driver_name": "IfxGtm_Tom_Pwm",
     "purpose": "3-phase complementary (push-pull) inverter PWM on GTM TOM with synchronous updates"
   },
   "signal_requirements": {
@@ -88,7 +88,7 @@
     "pwm_frequency_hz": 20000,
     "alignment": "centerAligned",
     "deadtime_us": 0.5,
-    "min_pulse_us": null,
+    "min_pulse_us": 1.0,
     "initial_duty": {
       "U": 0.25,
       "V": 0.5,
@@ -100,11 +100,11 @@
   },
   "device_configuration": {
     "target_device_macro": "DEVICE_TC38X",
-    "pin_package": "IFX_PIN_PACKAGE_516",
+    "pin_package": "IFX_PIN_PACKAGE_292",
     "device_family": "TC3xx",
     "clock_requirements": {
       "requires_xtal": true,
-      "expected_system_freq_mhz": 300,
+      "expected_system_freq_mhz": 20,
       "gtm_cmu_changes_allowed": false,
       "note": "Keep GTM/CMU clocks as-is per instruction; only derive PWM period from existing GTM time base."
     }
