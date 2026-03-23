@@ -1,0 +1,19 @@
+{
+  "attempt": 3,
+  "phase_attempt": 3,
+  "phase": "mock",
+  "timestamp": "2026-03-23T19:22:04.298556",
+  "success": true,
+  "files": [
+    "Ifx_Types.h",
+    "Ifx_Types.c",
+    "IfxPort.h",
+    "IfxPort.c",
+    "IfxXspi_Spi.h",
+    "IfxXspi_Spi.c",
+    "IfxCpu_Irq.h",
+    "IfxCpu_Irq.c"
+  ],
+  "errors": [],
+  "build_result": null
+}
