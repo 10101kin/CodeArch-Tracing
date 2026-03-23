@@ -1,0 +1,99 @@
+{
+  "module_name": "EGTM_ATOM_3_Phase_Inverter_PWM",
+  "public_functions": [
+    {
+      "signature": "void initEgtmAtom3phInv(void)",
+      "behavior_description": "Initialize the eGTM-based 3-phase inverter PWM. Steps: 1) Enable the eGTM module and configure eGTM clocks: select and enable the submodule clock for ATOM and the DTM clock source to meet the requested timing (e.g., 100 MHz FXCLK0 and 100 MHz DTM CLK0). 2) Initialize the unified PWM configuration with defaults. Set center-aligned (symmetric) PWM, a global PWM frequency of 20 kHz, and define one base channel followed by two synchronous channels (contiguous channel indices). 3) For each of the three phases, configure an output pair with complementary signals: assign the primary and complementary output pins using the eGTM PinMap, set high-side polarity active high and low-side polarity active low, and use push-pull output mode with an appropriate pad driver. 4) Configure the deadtime provider (DTM/CDTM) for each complementary pair with symmetric rising and falling deadtime of 1 microsecond. 5) Configure the interrupt on the base channel for the period event with the specified priority and CPU service. Install the ISR in the interrupt controller. 6) Initialize the base and synchronous channels using the unified PWM driver, ensuring all synchronous channels are chained to the base period trigger. 7) Start all configured channels synchronously so that waveform generation for all three phases begins in sync. The function leaves the PWM ready for duty updates, which will be applied synchronously at the period boundary.",
+      "driver_calls": [
+        "IfxEgtm_enable",
+        "IfxEgtm_Cmu_enableClocks",
+        "IfxEgtm_Cmu_selectClkInput",
+        "IfxEgtm_Dtm_setClockSource",
+        "IfxEgtm_Dtm_setRelrise",
+        "IfxEgtm_Dtm_setRelfall",
+        "IfxEgtm_PinMap_setAtomTout",
+        "IfxPort_setPinModeOutput",
+        "IfxPort_setPinState",
+        "IfxEgtm_Pwm_initConfig",
+        "IfxEgtm_Pwm_initChannelConfig",
+        "IfxEgtm_Pwm_init",
+        "IfxEgtm_Pwm_setChannelPolarity",
+        "IfxCpu_Irq_installInterruptHandler",
+        "IfxEgtm_Pwm_startSyncedChannels"
+      ],
+      "from_reference": true,
+      "call_context": "init"
+    },
+    {
+      "signature": "void updateEgtmAtom3phInvDuty(void)",
+      "behavior_description": "Compute and queue new duty cycles for the three PWM phases and schedule them for synchronous update at the next period event. Algorithm: for each of the three phase duty values, if (current_duty + STEP) >= 100%, wrap that phase duty to 0%; otherwise increment by STEP. Store the updated duties in the duty array, then call the unified PWM API to update all configured channels' duty values in shadow registers. The hardware applies the shadowed values atomically at the next PWM period boundary, ensuring all three phases update simultaneously.",
+      "driver_calls": [
+        "IfxEgtm_Pwm_updateChannelsDuty"
+      ],
+      "from_reference": true,
+      "call_context": "loop"
+    },
+    {
+      "signature": "void interruptEgtmAtomPeriod(void)",
+      "behavior_description": "ISR for the PWM period event on the base channel. Runs at each PWM period boundary. Minimal work: delegate to the unified PWM interrupt handler to service the base/sync channel housekeeping and to complete any pending shadow-to-active transfers as per the driver's mechanism. Optionally set or clear application flags if needed by higher-level scheduling (not required by this module's API).",
+      "driver_calls": [
+        "IfxEgtm_Pwm_interruptHandler"
+      ],
+      "from_reference": true,
+      "call_context": "none"
+    }
+  ],
+  "private_functions": [
+    {
+      "signature": "static void configureEgtmClocking(void)",
+      "needed": true,
+      "from_reference": false
+    }
+  ],
+  "dependencies": {
+    "includes": [
+      "IfxEgtm_Pwm.h",
+      "IfxEgtm_Cmu.h",
+      "IfxEgtm_Dtm.h",
+      "IfxEgtm_PinMap.h",
+      "IfxPort.h",
+      "IfxCpu_Irq.h"
+    ],
+    "driver_calls": [
+      "IfxEgtm_enable",
+      "IfxEgtm_Cmu_enableClocks",
+      "IfxEgtm_Cmu_selectClkInput",
+      "IfxEgtm_Dtm_setClockSource",
+      "IfxEgtm_Dtm_setRelrise",
+      "IfxEgtm_Dtm_setRelfall",
+      "IfxEgtm_PinMap_setAtomTout",
+      "IfxPort_setPinModeOutput",
+      "IfxPort_setPinState",
+      "IfxEgtm_Pwm_initConfig",
+      "IfxEgtm_Pwm_initChannelConfig",
+      "IfxEgtm_Pwm_init",
+      "IfxEgtm_Pwm_setChannelPolarity",
+      "IfxCpu_Irq_installInterruptHandler",
+      "IfxEgtm_Pwm_startSyncedChannels",
+      "IfxEgtm_Pwm_updateChannelsDuty",
+      "IfxEgtm_Pwm_interruptHandler"
+    ]
+  },
+  "cpu_main_requirements": {
+    "needs_cpu_sync": true,
+    "uses_timer_delay": true,
+    "delay_ms": 500,
+    "additional_includes": [
+      "Bsp.h"
+    ]
+  },
+  "header_selection": {
+    "applied": true,
+    "peripheral_type": "PWM",
+    "recommended_header": "IfxEgtm_Pwm",
+    "template_functions_count": 1461,
+    "required_includes": [
+      "IfxEgtm_Pwm.h"
+    ]
+  }
+}
