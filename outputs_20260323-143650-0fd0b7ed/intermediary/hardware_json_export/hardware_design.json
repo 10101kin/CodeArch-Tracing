@@ -1,0 +1,158 @@
+{
+  "microcontroller": {
+    "model": "TC4Dx",
+    "family": "TC4xx",
+    "verified": true,
+    "device_macro": "DEVICE_TC4DX",
+    "pin_package": "IFX_PIN_PACKAGE_BGA436_COM"
+  },
+  "peripheral_instance": {
+    "type": "PWM",
+    "module": "EGTM1.ATOM1",
+    "channels": [
+      0,
+      1,
+      2
+    ],
+    "driver": "IfxEgtm_Atom_Pwm"
+  },
+  "pin_assignments": [
+    {
+      "signal": "ATOM1_CH0_HS",
+      "port_pin": "P20.8",
+      "function": "ATOM1_CH0",
+      "pin_macro": "",
+      "is_complementary": false,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "ATOM1_CH0_LS",
+      "port_pin": "P20.9",
+      "function": "ATOM1_CH0N",
+      "pin_macro": "",
+      "is_complementary": true,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "ATOM1_CH1_HS",
+      "port_pin": "P20.10",
+      "function": "ATOM1_CH1",
+      "pin_macro": "",
+      "is_complementary": false,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "ATOM1_CH1_LS",
+      "port_pin": "P20.11",
+      "function": "ATOM1_CH1N",
+      "pin_macro": "",
+      "is_complementary": true,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "ATOM1_CH2_HS",
+      "port_pin": "P20.12",
+      "function": "ATOM1_CH2",
+      "pin_macro": "",
+      "is_complementary": false,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "ATOM1_CH2_LS",
+      "port_pin": "P20.13",
+      "function": "ATOM1_CH2N",
+      "pin_macro": "",
+      "is_complementary": true,
+      "verified": false,
+      "source": "hardware_verified"
+    }
+  ],
+  "clock_configuration": {
+    "xtal_frequency_mhz": 25,
+    "system_frequency_mhz": 500
+  },
+  "validation": {
+    "all_verified": false,
+    "conflicts": [
+      "Device/package mismatch: requirement requested DEVICE_TC4D7 with IFX_PIN_PACKAGE_BGA292_COM, but template configuration provides DEVICE_TC4DX with IFX_PIN_PACKAGE_BGA436_COM.",
+      "User-specified pins P20.8, P20.9, P20.10, P20.11, P20.12, P20.13 could not be validated against IfxEgtm_PinMap.h for the template device/package.",
+      "Exact IfxEgtm PinMap macros for EGTM1 ATOM1 on the requested pins were not found/resolved in the provided template context.",
+      "Availability of EGTM Cluster 1 ATOM1 channel outputs on the specified pins is not confirmed for the configured device/package."
+    ],
+    "reference_pins_valid": true
+  },
+  "template_validation": {
+    "supported_peripherals": [
+      "PWM",
+      "GTM",
+      "EGTM",
+      "GPIO",
+      "INTERRUPT",
+      "CPU"
+    ],
+    "suggested_drivers": {
+      "PWM": [
+        "IfxGtm_Atom_Pwm",
+        "IfxGtm_Tom_Pwm",
+        "IfxEgtm_Atom_Pwm",
+        "IfxEgtm_Pwm",
+        "IfxEgtm_Tom_Pwm",
+        "IfxGtm_Pwm"
+      ],
+      "GTM": [
+        "IfxGtm_Dtm",
+        "IfxGtm_Input",
+        "IfxGtm_Psm",
+        "IfxGtm",
+        "IfxGtm_PinMap",
+        "IfxGtm_Pwm",
+        "IfxGtm_Trigger",
+        "IfxGtm_Spe",
+        "IfxGtm_Tbu"
+      ],
+      "EGTM": [
+        "IfxEgtm_PinMap",
+        "IfxEgtm_Input",
+        "IfxEgtm_Pwm",
+        "IfxEgtm",
+        "IfxEgtm_Atom",
+        "IfxEgtm_Cmu",
+        "IfxEgtm_Dtm",
+        "IfxEgtm_Spe",
+        "IfxEgtm_Tbu",
+        "IfxEgtm_Tim",
+        "IfxEgtm_Tom",
+        "IfxEgtm_Trigger",
+        "IfxEgtm_Tom_Pwm",
+        "IfxEgtm_Tom_Timer",
+        "IfxEgtm_Tim_In",
+        "IfxEgtm_Tim_Timer",
+        "IfxEgtm_Atom_Pwm",
+        "IfxEgtm_Atom_Timer"
+      ],
+      "GPIO": [
+        "IfxPort_Io",
+        "IfxScrPort",
+        "IfxPort"
+      ],
+      "INTERRUPT": [
+        "IfxCpu_Irq",
+        "IfxScrCpuIrq"
+      ],
+      "CPU": [
+        "IfxCpu"
+      ]
+    },
+    "warnings": []
+  },
+  "pin_analysis": {
+    "verified_count": 6,
+    "doc_reference_count": 4,
+    "merged_total": 10
+  }
+}
