@@ -25,9 +25,7 @@
         "IfxEgtm_Pwm_startSyncedGroups"
       ],
       "from_reference": true,
-      "call_context": "init",
-      "driver_calls_verification": "Provide the TC4x iLLD include directory or API reference to enable verification of all driver API calls.",
-      "signature_verification": "Check the TC4x iLLD header files (IfxEgtm_Pwm.h) for the exact function signatures of IfxEgtm_Pwm_updateChannelsDutyImmediate and IfxEgtm_Pwm_startSyncedGroups."
+      "call_context": "init"
     },
     {
       "signature": "void updateEgtmAtom3phInvDuty(float32 *requestDuty)",
@@ -37,9 +35,7 @@
         "IfxPort_togglePin"
       ],
       "from_reference": true,
-      "call_context": "loop",
-      "driver_calls_verification": "Provide the TC4x iLLD include directory or API reference to enable verification of all driver API calls.",
-      "signature_verification": "Check the TC4x iLLD header files (IfxEgtm_Pwm.h) for the exact function signatures of IfxEgtm_Pwm_updateChannelsDutyImmediate and IfxEgtm_Pwm_startSyncedGroups."
+      "call_context": "loop"
     }
   ],
   "private_functions": [
@@ -80,10 +76,7 @@
       "IfxPort_togglePin",
       "IfxWtu_initConfig",
       "IfxWtu_initCpuWatchdog"
-    ],
-    "illd_include_directory": "<provide path to TC4x iLLD include directory>",
-    "api_reference": "<provide URL or location of TC4x iLLD API reference>",
-    "includes_verification": "Cross-check with the TC4x iLLD include directory to confirm all required headers."
+    ]
   },
   "cpu_main_requirements": {
     "needs_cpu_sync": true,
