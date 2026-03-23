@@ -1,0 +1,12 @@
+{
+  "attempt": 1,
+  "phase_attempt": 1,
+  "phase": "test",
+  "timestamp": "2026-03-24T00:45:00.837661",
+  "success": true,
+  "files": [
+    "test_egtm_atom_3_phase_inverter_pwm.c"
+  ],
+  "errors": [],
+  "build_result": null
+}
