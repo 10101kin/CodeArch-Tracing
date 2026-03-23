@@ -75,7 +75,7 @@
   "peripheral_requirement": {
     "type": "PWM",
     "driver_available": true,
-    "driver_name": "IfxEgtm_Atom_Pwm",
+    "driver_name": "IfxEgtm_Pwm",
     "purpose": "3-phase eGTM ATOM complementary PWM (center-aligned 20 kHz, 1 µs deadtime) with independent U/V/W duty updates and a period ISR on CPU0"
   },
   "signal_requirements": {
@@ -146,8 +146,8 @@
     }
   },
   "device_configuration": {
-    "target_device_macro": "DEVICE_TC4D7",
-    "pin_package": "IFX_PIN_PACKAGE_BGA292_COM",
+    "target_device_macro": "DEVICE_TC4DX",
+    "pin_package": "IFX_PIN_PACKAGE_BGA436_COM",
     "device_family": "TC4xx",
     "clock_requirements": {
       "requires_xtal": true,
