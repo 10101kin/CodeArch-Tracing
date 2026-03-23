@@ -1,0 +1,12 @@
+{
+  "attempt": 1,
+  "phase_attempt": 1,
+  "phase": "test",
+  "timestamp": "2026-03-23T14:56:59.787761",
+  "success": true,
+  "files": [
+    "test_gtm_tom_3_phase_inverter_pwmgg.c"
+  ],
+  "errors": [],
+  "build_result": null
+}
