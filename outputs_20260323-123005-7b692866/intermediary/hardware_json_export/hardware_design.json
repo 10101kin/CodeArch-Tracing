@@ -4,7 +4,10 @@
     "family": "TC4xx",
     "verified": true,
     "device_macro": "DEVICE_TC4DX",
-    "pin_package": "IFX_PIN_PACKAGE_BGA436_COM"
+    "pin_package": "IFX_PIN_PACKAGE_BGA436_COM",
+    "board": "KIT_A3G_TC4D7_LITE",
+    "board_pin_package": "IFX_PIN_PACKAGE_BGA292",
+    "migration_note": "Configuration currently targets DEVICE_TC4DX with IFX_PIN_PACKAGE_BGA436_COM. User board is KIT_A3G_TC4D7_LITE (TC4D7, BGA-292). Pin routing and availability must be remapped/validated for TC4D7 BGA-292; current Port 20 assignments are placeholders pending TOUTSEL verification or alternate routing."
   },
   "peripheral_instance": {
     "type": "PWM",
@@ -14,62 +17,69 @@
       1,
       2
     ],
-    "driver": "IfxEgtm_Pwm"
+    "driver": "IfxEgtm_Pwm",
+    "driver_rationale": "Chosen for eGTM-based PWM to provide a unified API across ATOM/TOM on TC4xx and allow flexibility to switch channels/modules without refactoring application logic. IfxEgtm_Atom_Pwm remains an alternative for strictly ATOM-focused configurations; current selection preserves migration headroom."
   },
   "pin_assignments": [
     {
       "signal": "U_HS",
       "port_pin": "P20.8",
-      "function": null,
+      "function": "EGTM0.ATOM2 PWM output (pending validation on DEVICE_TC4DX/BGA436)",
       "pin_macro": null,
       "is_complementary": false,
       "verified": false,
-      "source": "hardware_verified"
+      "source": "hardware_verified",
+      "doc_note": "IfxEgtm_PinMap does not list an EGTM0 ATOM2 mapping for Port 20 on BGA436 in available docs; TOUTSEL routing requires confirmation. Macro omitted pending verification; remap likely required for KIT_A3G_TC4D7_LITE (BGA-292)."
     },
     {
       "signal": "U_LS",
       "port_pin": "P20.9",
-      "function": null,
+      "function": "EGTM0.ATOM2 PWM output (pending validation on DEVICE_TC4DX/BGA436)",
       "pin_macro": null,
       "is_complementary": true,
       "verified": false,
-      "source": "hardware_verified"
+      "source": "hardware_verified",
+      "doc_note": "IfxEgtm_PinMap does not list an EGTM0 ATOM2 mapping for Port 20 on BGA436 in available docs; TOUTSEL routing requires confirmation. Macro omitted pending verification; remap likely required for KIT_A3G_TC4D7_LITE (BGA-292)."
     },
     {
       "signal": "V_HS",
       "port_pin": "P20.10",
-      "function": null,
+      "function": "EGTM0.ATOM2 PWM output (pending validation on DEVICE_TC4DX/BGA436)",
       "pin_macro": null,
       "is_complementary": false,
       "verified": false,
-      "source": "hardware_verified"
+      "source": "hardware_verified",
+      "doc_note": "IfxEgtm_PinMap does not list an EGTM0 ATOM2 mapping for Port 20 on BGA436 in available docs; TOUTSEL routing requires confirmation. Macro omitted pending verification; remap likely required for KIT_A3G_TC4D7_LITE (BGA-292)."
     },
     {
       "signal": "V_LS",
       "port_pin": "P20.11",
-      "function": null,
+      "function": "EGTM0.ATOM2 PWM output (pending validation on DEVICE_TC4DX/BGA436)",
       "pin_macro": null,
       "is_complementary": true,
       "verified": false,
-      "source": "hardware_verified"
+      "source": "hardware_verified",
+      "doc_note": "IfxEgtm_PinMap does not list an EGTM0 ATOM2 mapping for Port 20 on BGA436 in available docs; TOUTSEL routing requires confirmation. Macro omitted pending verification; remap likely required for KIT_A3G_TC4D7_LITE (BGA-292)."
     },
     {
       "signal": "W_HS",
       "port_pin": "P20.12",
-      "function": null,
+      "function": "EGTM0.ATOM2 PWM output (pending validation on DEVICE_TC4DX/BGA436)",
       "pin_macro": null,
       "is_complementary": false,
       "verified": false,
-      "source": "hardware_verified"
+      "source": "hardware_verified",
+      "doc_note": "IfxEgtm_PinMap does not list an EGTM0 ATOM2 mapping for Port 20 on BGA436 in available docs; TOUTSEL routing requires confirmation. Macro omitted pending verification; remap likely required for KIT_A3G_TC4D7_LITE (BGA-292)."
     },
     {
       "signal": "W_LS",
       "port_pin": "P20.13",
-      "function": null,
+      "function": "EGTM0.ATOM2 PWM output (pending validation on DEVICE_TC4DX/BGA436)",
       "pin_macro": null,
       "is_complementary": true,
       "verified": false,
-      "source": "hardware_verified"
+      "source": "hardware_verified",
+      "doc_note": "IfxEgtm_PinMap does not list an EGTM0 ATOM2 mapping for Port 20 on BGA436 in available docs; TOUTSEL routing requires confirmation. Macro omitted pending verification; remap likely required for KIT_A3G_TC4D7_LITE (BGA-292)."
     }
   ],
   "clock_configuration": {
