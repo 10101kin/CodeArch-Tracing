@@ -2,7 +2,7 @@
   "user_intent_preservation": {
     "original_goal": "Implement 3-phase PWM motor control on TC387 using six single-output GTM TOM PWM channels at 20 kHz, center-aligned, with HS on P02.0/P02.1/P02.2 and LS on P02.7/P02.4/P02.5, HS initialized to 25/50/75% and updated every 500 ms by +10% with wrap; LS default is complementary (inverted) of HS with no dead-time.",
     "functional_behavior": "All six TOM0 channels share one time base for center-aligned PWM at 20 kHz. High-side duties start at 25/50/75% for phases U/V/W and increase by +10% every 500 ms with wrap to 0% after exceeding 100%. Low-side outputs mirror complementary behavior (inverted duty) with zero dead-time. Outputs are routed to P02.x TOUT pins per verified pin macros.",
-    "technical_approach": "Use a shared TOM0 time base via IfxGtm_Tom_Timer and manage six synchronized PWM outputs using the high-level IfxGtm_Pwm multi-channel API. Configure TOM0 channels 0/1/2/4/5/7 routed to P02.0/1/2/4/5/7 using IfxGtm_PinMap_setTomTout from the TC38x LFBGA292 pin map. Initialize frequency (20 kHz center-aligned) with the TOM timer and initialize six PWM channels in one IfxGtm_Pwm instance. Set initial HS duties (25/50/75%) and program LS as complementary by polarity configuration. Update duties every 500 ms using IfxGtm_Pwm_updateChannelsDutyImmediate with wrap, then apply the timer update where required."
+    "technical_approach": "Use a shared TOM0 time base via IfxGtm_Tom_Timer and manage six synchronized PWM outputs using the high-level IfxGtm_Pwm multi-channel API. Configure TOM0 channels 0/1/2/4/5/7 routed to P02.0/1/2/4/5/7 using IfxGtm_PinMap_setTomTout from the TC38x LFBGA292 pin map. Initialize frequency (20 kHz center-aligned) with the TOM timer and initialize six PWM channels in one IfxGtm_Pwm instance. Set initial HS duties (25/50/75%) and program LS as complementary by polarity configuration. Update duties every 500 ms using IfxGtm_Pwm_updateChannelsDutyImmediate with wrap, then apply the timer update where required. Add a pre-implementation validation step to confirm TOM instance/channel-to-TOUT pin mapping against the actual board pinout and IfxGtm_PinMap; defer final channel selection until this check passes."
   },
   "driver_selection": {
     "recommended_driver": "IfxGtm_Pwm",
@@ -35,7 +35,18 @@
     "cpu_files": [
       "Cpu0_Main.c"
     ],
-    "from_reference": true
+    "from_reference": true,
+    "test_support": {
+      "abstraction_layer": "Introduce a thin hardware-abstraction interface (GtmPwmIf) that wraps IfxGtm_Tom_Timer and IfxGtm_Pwm calls and is injected into GTM_TOM_3_Phase_Inverter_PWM.c via function pointers.",
+      "interfaces": [
+        "GtmPwmIf_initTimer(config)",
+        "GtmPwmIf_initChannels(config)",
+        "GtmPwmIf_setDutiesImmediate(duties[])",
+        "GtmPwmIf_applyUpdate()"
+      ],
+      "mocking_strategy": "Provide a mock GtmPwmIf for unit tests to simulate timer ticks and capture duty writes without GTM hardware.",
+      "unit_test_strategy": "Drive GTM_TOM_3_Phase_Inverter_PWM_update() with a simulated 500 ms tick; assert computed duties, polarity, and that applyUpdate is called after duty writes."
+    }
   },
   "function_mapping": {
     "init_function": {
@@ -56,6 +67,16 @@
         "IfxGtm_Tom_Timer_applyUpdate"
       ],
       "purpose": "Every 500 ms, increase HS duty by +10% with wrap and apply complementary LS behavior via configured polarity; push updates atomically to hardware."
+    },
+    "api_boundary_clarification": {
+      "timer_owner": "GTM_TOM_3_Phase_Inverter_PWM_init encapsulates all IfxGtm_Tom_Timer configuration and lifetime (time base, center-aligned 20 kHz, channel mask). No other module configures the timer.",
+      "channel_owner": "GTM_TOM_3_Phase_Inverter_PWM_update manages all per-channel duty updates via IfxGtm_Pwm APIs and does not modify timer configuration.",
+      "update_flow": [
+        "Compute next HS duties (+10% with wrap).",
+        "Write duties with IfxGtm_Pwm_updateChannelsDutyImmediate().",
+        "Commit shadow registers atomically with IfxGtm_Tom_Timer_applyUpdate() within the same module."
+      ],
+      "separation_note": "Timer setup and commit are owned by this PWM module; external code uses only GTM_TOM_3_Phase_Inverter_PWM_init() and GTM_TOM_3_Phase_Inverter_PWM_update() to avoid tight coupling."
     }
   },
   "migration_notes": {
@@ -69,7 +90,12 @@
       "IfxGtm_Tom_PwmHl_setOnTime → IfxGtm_Pwm_updateChannelsDutyImmediate (HS); LS via inverted polarity (no dead-time)",
       "Start time base → IfxGtm_Tom_Timer_addToChannelMask + IfxGtm_Tom_Timer_applyUpdate"
     ],
-    "context_preserved": "The solution retains the exact pin routing to P02.x TOM0 TOUTs, enforces a shared center-aligned 20 kHz time base, initializes HS duties to 25/50/75%, applies complementary LS behavior with zero dead-time, and performs synchronized +10% duty updates every 500 ms with wrap—matching the original motor-control intent."
+    "context_preserved": "The solution retains the exact pin routing to P02.x TOM0 TOUTs, enforces a shared center-aligned 20 kHz time base, initializes HS duties to 25/50/75%, applies complementary LS behavior with zero dead-time, and performs synchronized +10% duty updates every 500 ms with wrap—matching the original motor-control intent.",
+    "high_level_sequence": [
+      "Startup: Cpu0_Main calls GTM_TOM_3_Phase_Inverter_PWM_init(), which configures and owns the IfxGtm_Tom_Timer (20 kHz, center-aligned) and initializes all six channels via IfxGtm_Pwm. Channels are started in sync.",
+      "Trigger: A 500 ms scheduler tick (e.g., STM/OS alarm or main loop polling) invokes GTM_TOM_3_Phase_Inverter_PWM_update(). No GTM interrupt is required.",
+      "Data flow: Update() computes next HS duties (+10% with wrap) -> writes via IfxGtm_Pwm_updateChannelsDutyImmediate() -> commits with IfxGtm_Tom_Timer_applyUpdate() for atomic shadow transfer -> TOM outputs take effect on the next time-base update."
+    ]
   },
   "header_selection": {
     "applied": true,
