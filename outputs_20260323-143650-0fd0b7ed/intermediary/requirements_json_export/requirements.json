@@ -1,0 +1,262 @@
+{
+  "generation_mode": "MIGRATION",
+  "migration_info": {
+    "has_reference": true,
+    "reference_family": "TC3xx",
+    "target_family": "TC4xx",
+    "migration_required": true,
+    "driver_mappings": {
+      "IfxGtm_Pwm": "IfxEgtm_Pwm",
+      "IfxScuWdt": "IfxWtu"
+    },
+    "header_mappings": {
+      "IfxGtm_Pwm.h": "IfxEgtm_Pwm.h",
+      "IfxGtm_PinMap.h": "IfxEgtm_PinMap.h",
+      "IfxScuWdt.h": "IfxWtu.h"
+    },
+    "api_changes": [
+      {
+        "from": "initGtmTom3phInv",
+        "to": "initEgtmAtom3phInv",
+        "reason": "TC3xx→TC4xx function name"
+      },
+      {
+        "from": "updateGtmTom3phInvDuty",
+        "to": "updateEgtmAtom3phInvDuty",
+        "reason": "TC3xx→TC4xx function name"
+      },
+      {
+        "from": "interruptGtmTomPeriod",
+        "to": "interruptEgtmAtomPeriod",
+        "reason": "TC3xx→TC4xx ISR naming"
+      },
+      {
+        "from": "IfxGtm_Pwm_initConfig",
+        "to": "IfxEgtm_Pwm_initConfig",
+        "reason": "GTM→EGTM driver migration"
+      },
+      {
+        "from": "IfxGtm_Pwm_init",
+        "to": "IfxEgtm_Pwm_init",
+        "reason": "GTM→EGTM driver migration"
+      },
+      {
+        "from": "IfxGtm_Pwm_updateChannelsDutyImmediate",
+        "to": "IfxEgtm_Pwm_updateChannelsDutyImmediate",
+        "reason": "GTM→EGTM driver migration"
+      },
+      {
+        "from": "&MODULE_GTM",
+        "to": "&MODULE_EGTM",
+        "reason": "GTM→EGTM module reference"
+      },
+      {
+        "from": "IfxScuWdt_disableCpuWatchdog",
+        "to": "IfxWtu_disableCpuWatchdog",
+        "reason": "TC3xx→TC4xx watchdog migration"
+      },
+      {
+        "from": "IfxScuWdt_disableSafetyWatchdog",
+        "to": "IfxWtu_disableSystemWatchdog",
+        "reason": "TC3xx→TC4xx watchdog naming"
+      },
+      {
+        "from": "IfxGtm_Cmu_*",
+        "to": "IfxEgtm_Cmu_*",
+        "reason": "Clock unit migration for eGTM"
+      }
+    ],
+    "function_names_to_preserve": [
+      "initEgtmAtom3phInv",
+      "updateEgtmAtom3phInvDuty",
+      "interruptEgtmAtomPeriod"
+    ]
+  },
+  "peripheral_requirement": {
+    "type": "PWM",
+    "driver_available": true,
+    "driver_name": "IfxEgtm_Pwm",
+    "purpose": "3-phase eGTM ATOM complementary PWM (center-aligned 20 kHz, 1 µs deadtime) with independent U/V/W duty updates and a period ISR on CPU0"
+  },
+  "signal_requirements": {
+    "pwm_topology": "3-phase complementary (HS/LS pairs)",
+    "cluster": 1,
+    "submodule": "ATOM1",
+    "channels": {
+      "U": {
+        "channel": 0,
+        "hs_polarity": "activeHigh",
+        "ls_polarity": "activeLow",
+        "hs_pin": {
+          "port": "P20.8",
+          "pinmap_macro_assumed": "IfxEgtm1_ATOM1_0_P20_8_OUT"
+        },
+        "ls_pin": {
+          "port": "P20.9",
+          "pinmap_macro_assumed": "IfxEgtm1_ATOM1_0N_P20_9_OUT"
+        }
+      },
+      "V": {
+        "channel": 1,
+        "hs_polarity": "activeHigh",
+        "ls_polarity": "activeLow",
+        "hs_pin": {
+          "port": "P20.10",
+          "pinmap_macro_assumed": "IfxEgtm1_ATOM1_1_P20_10_OUT"
+        },
+        "ls_pin": {
+          "port": "P20.11",
+          "pinmap_macro_assumed": "IfxEgtm1_ATOM1_1N_P20_11_OUT"
+        }
+      },
+      "W": {
+        "channel": 2,
+        "hs_polarity": "activeHigh",
+        "ls_polarity": "activeLow",
+        "hs_pin": {
+          "port": "P20.12",
+          "pinmap_macro_assumed": "IfxEgtm1_ATOM1_2_P20_12_OUT"
+        },
+        "ls_pin": {
+          "port": "P20.13",
+          "pinmap_macro_assumed": "IfxEgtm1_ATOM1_2N_P20_13_OUT"
+        }
+      }
+    },
+    "syncStart": true,
+    "syncUpdate": true,
+    "pinmap_resolution_status": "assumed_macros_provided; verify exact names in IfxEgtm_PinMap.h for KIT_A3G_TC4D7_LITE"
+  },
+  "timing_requirements": {
+    "pwm_frequency_hz": 20000,
+    "center_aligned": true,
+    "deadtime_ns": 1000,
+    "isr": {
+      "type": "period",
+      "cpu": "CPU0",
+      "tos": "IfxSrc_Tos_cpu0",
+      "priority": 20
+    },
+    "clocking": {
+      "egtm_gclk_mhz": 200,
+      "enable_fxclk": true,
+      "enable_cmu_clk0": true,
+      "atom_clock_source": "FXCLK_0",
+      "dtm_clock_source": "CMU_CLK0"
+    }
+  },
+  "device_configuration": {
+    "target_device_macro": "DEVICE_TC4DX",
+    "pin_package": "IFX_PIN_PACKAGE_BGA436_COM",
+    "device_family": "TC4xx",
+    "clock_requirements": {
+      "requires_xtal": true,
+      "expected_system_freq_mhz": 300
+    },
+    "board": "KIT_A3G_TC4D7_LITE"
+  },
+  "code_structure": {
+    "file_pattern": "reference",
+    "expected_files": [
+      "EGTM_ATOM_3_Phase_Inverter_PWM.c",
+      "EGTM_ATOM_3_Phase_Inverter_PWM.h"
+    ],
+    "has_cpu_files": true
+  },
+  "reference_context": {
+    "includes_used": [
+      "IfxGtm_Pwm.h",
+      "IfxPort.h",
+      "IfxPort_Pinmap.h",
+      "IfxScuWdt.h",
+      "IfxCpu.h",
+      "Bsp.h"
+    ],
+    "function_patterns": [
+      "initGtmTom3phInv",
+      "updateGtmTom3phInvDuty",
+      "interruptGtmTomPeriod"
+    ],
+    "peripheral_usage": {
+      "GTM": "3-phase PWM generation",
+      "Port": "GPIO configuration",
+      "Cpu": "Interrupt control",
+      "ScuWdt": "Watchdog handling"
+    }
+  },
+  "signal_defaults_and_assumptions": {
+    "led_pin": {
+      "port": "P33.7",
+      "mode": "outputPushPullGpio",
+      "default_state": "off",
+      "assumption_note": "LED pin not specified on KIT_A3G_TC4D7_LITE; P33.7 assumed as common LED pin. Verify against board schematic."
+    }
+  },
+  "template_compatibility": {
+    "validated": true,
+    "supported_peripherals": [
+      "PWM",
+      "GTM",
+      "EGTM",
+      "GPIO",
+      "INTERRUPT",
+      "CPU"
+    ],
+    "suggested_drivers": {
+      "PWM": [
+        "IfxGtm_Atom_Pwm",
+        "IfxGtm_Tom_Pwm",
+        "IfxEgtm_Atom_Pwm",
+        "IfxEgtm_Pwm",
+        "IfxEgtm_Tom_Pwm",
+        "IfxGtm_Pwm"
+      ],
+      "GTM": [
+        "IfxGtm_Dtm",
+        "IfxGtm_Input",
+        "IfxGtm_Psm",
+        "IfxGtm",
+        "IfxGtm_PinMap",
+        "IfxGtm_Pwm",
+        "IfxGtm_Trigger",
+        "IfxGtm_Spe",
+        "IfxGtm_Tbu"
+      ],
+      "EGTM": [
+        "IfxEgtm_PinMap",
+        "IfxEgtm_Input",
+        "IfxEgtm_Pwm",
+        "IfxEgtm",
+        "IfxEgtm_Atom",
+        "IfxEgtm_Cmu",
+        "IfxEgtm_Dtm",
+        "IfxEgtm_Spe",
+        "IfxEgtm_Tbu",
+        "IfxEgtm_Tim",
+        "IfxEgtm_Tom",
+        "IfxEgtm_Trigger",
+        "IfxEgtm_Tom_Pwm",
+        "IfxEgtm_Tom_Timer",
+        "IfxEgtm_Tim_In",
+        "IfxEgtm_Tim_Timer",
+        "IfxEgtm_Atom_Pwm",
+        "IfxEgtm_Atom_Timer"
+      ],
+      "GPIO": [
+        "IfxPort_Io",
+        "IfxScrPort",
+        "IfxPort"
+      ],
+      "INTERRUPT": [
+        "IfxCpu_Irq",
+        "IfxScrCpuIrq"
+      ],
+      "CPU": [
+        "IfxCpu"
+      ]
+    },
+    "warnings": []
+  },
+  "header_documentation_available": true,
+  "config_values_extracted": 54
+}
