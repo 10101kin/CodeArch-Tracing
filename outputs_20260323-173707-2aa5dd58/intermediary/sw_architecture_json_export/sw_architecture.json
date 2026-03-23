@@ -27,9 +27,7 @@
       "IfxEgtm_Pwm_startSyncedChannels",
       "IfxEgtm_Pwm_updateChannelsDutyImmediate",
       "IfxEgtm_Pwm_updateChannelsDeadTime"
-    ],
-    "initialization_apis_verification": "Check the TC4xx iLLD Doxygen or header files for the existence and signatures of IfxEgtm_Pwm_initConfig, IfxEgtm_Pwm_initChannelConfig, and IfxEgtm_Pwm_init.",
-    "runtime_apis_verification": "Check the TC4xx iLLD Doxygen or header files for the existence and signatures of IfxEgtm_Pwm_startSyncedChannels, IfxEgtm_Pwm_updateChannelsDutyImmediate, and IfxEgtm_Pwm_updateChannelsDeadTime."
+    ]
   },
   "file_structure": {
     "module_files": [
@@ -107,9 +105,7 @@
         "reason": "Watchdog naming alignment"
       }
     ],
-    "context_preserved": "The migration keeps the 3-phase center-aligned complementary PWM with 1 µs dead-time, uses eGTM ATOM+CDTM, starts synchronously via AGC, selects FXCLK0 (ATOM) and CLK0 (DTM), maps outputs to P20.8..P20.13, and installs a CPU0 period ISR at priority 20, all achieved through the unified IfxEgtm_Pwm APIs and eGTM support drivers.",
-    "api_changes_verification": "Obtain the official TC4xx migration guide or iLLD release notes to confirm the API mapping.",
-    "legacy_api_exclusion_verification": "Review the actual project source or iLLD documentation to confirm exclusive use of IfxEgtm_* APIs."
+    "context_preserved": "The migration keeps the 3-phase center-aligned complementary PWM with 1 µs dead-time, uses eGTM ATOM+CDTM, starts synchronously via AGC, selects FXCLK0 (ATOM) and CLK0 (DTM), maps outputs to P20.8..P20.13, and installs a CPU0 period ISR at priority 20, all achieved through the unified IfxEgtm_Pwm APIs and eGTM support drivers."
   },
   "header_selection": {
     "applied": true,
@@ -127,8 +123,7 @@
       "IfxGtm_Pwm_initConfig": "IfxEgtm_Pwm_initConfig",
       "IfxGtm_enable": "IfxEgtm_Pwm_enableChannelsSyncUpdate"
     },
-    "available_functions_count": 100,
-    "required_includes_verification": "Verify with the actual TC4xx iLLD package or Doxygen that IfxEgtm_Pwm.h and IfxEgtm_Pwm APIs exist and are intended for eGTM ATOM PWM."
+    "available_functions_count": 100
   },
   "driver_selection_engine": {
     "applied": true,
