@@ -1,0 +1,9 @@
+Node JSON export
+Stage: sw_detailed
+Reason: manual_json_edit
+Modified By: user
+Modifier: guest
+Reviewer: N/A
+Attempt: 5
+Phase attempt: 2
+Timestamp: 2026-03-23T14:48:41.425112

@@ -1,0 +1,72 @@
+{
+  "module_name": "GTM_TOM_3_Phase_Inverter_PWMGG",
+  "public_functions": [
+    {
+      "signature": "void updateGtmTomPwmDutyCycles(void)",
+      "behavior_description": "Enable the GTM module and its functional clocks. Initialize a unified multi-channel PWM configuration to generate three single-ended PWM outputs using a shared time base. Configure the PWM for center-aligned operation at 20 kHz with a base channel (master time base) on the selected TOM submodule and assign three synchronized output channels. Map each configured PWM channel to its associated output pin and set output mode and pad driver. Initialize the PWM driver with the populated config and channel array. Prepare initial duty cycle values of 25%, 50%, and 75% for the three channels, apply these via a multi-channel duty update (queued in shadow registers), and start the synchronized PWM channels so that updates are applied on period-match. Store any required handles/state so that subsequent runtime updates can change duty synchronously.",
+      "driver_calls": [
+        "IfxGtm_enable",
+        "IfxGtm_Cmu_enableClocks",
+        "IfxGtm_Pwm_initConfig",
+        "IfxGtm_Pwm_initChannelConfig",
+        "IfxGtm_PinMap_setTomTout",
+        "IfxGtm_Pwm_init",
+        "IfxGtm_Pwm_updateChannelsDuty",
+        "IfxGtm_Pwm_startSyncedChannels"
+      ],
+      "from_reference": true,
+      "call_context": "loop"
+    },
+    {
+      "signature": "void updateGtmTomPwmDutyCycles(void)",
+      "behavior_description": "Maintain three persistent duty-cycle values (one per PWM channel). On each call, add a fixed step of +10 percentage points to each duty. If any duty is greater than or equal to the maximum threshold (100%), wrap it to the minimum threshold (0%). After computing the new duty values for all channels, call the multi-channel duty update API to write the updated duty array into shadow registers. Because synchronous update is enabled, the new duty values take effect for all channels simultaneously on the next PWM period-match event, preserving phase alignment with the shared time base.",
+      "driver_calls": [
+        "IfxGtm_Pwm_updateChannelsDuty"
+      ],
+      "from_reference": true,
+      "call_context": "loop"
+    }
+  ],
+  "private_functions": [
+    {
+      "signature": "void updateGtmTomPwmDutyCycles(void)",
+      "needed": false,
+      "from_reference": true
+    }
+  ],
+  "dependencies": {
+    "includes": [
+      "IfxGtm_Pwm.h",
+      "IfxGtm_Cmu.h",
+      "IfxGtm_PinMap.h",
+      "IfxPort.h"
+    ],
+    "driver_calls": [
+      "IfxGtm_enable",
+      "IfxGtm_Cmu_enableClocks",
+      "IfxGtm_Pwm_initConfig",
+      "IfxGtm_Pwm_initChannelConfig",
+      "IfxGtm_PinMap_setTomTout",
+      "IfxGtm_Pwm_init",
+      "IfxGtm_Pwm_updateChannelsDuty",
+      "IfxGtm_Pwm_startSyncedChannels"
+    ]
+  },
+  "cpu_main_requirements": {
+    "needs_cpu_sync": true,
+    "uses_timer_delay": true,
+    "delay_ms": 10,
+    "additional_includes": [
+      "Bsp.h"
+    ]
+  },
+  "header_selection": {
+    "applied": true,
+    "peripheral_type": "PWM",
+    "recommended_header": "IfxGtm_Pwm",
+    "template_functions_count": 1026,
+    "required_includes": [
+      "IfxGtm_Pwm.h"
+    ]
+  }
+}
