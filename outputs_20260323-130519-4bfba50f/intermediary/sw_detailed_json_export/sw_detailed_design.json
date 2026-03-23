@@ -9,6 +9,7 @@
         "IfxGtm_Cmu_enableClocks",
         "IfxGtm_Tom_Timer_initConfig",
         "IfxGtm_Tom_Timer_init",
+        "IfxGtm_PinMap_setTomTout",
         "IfxGtm_Tom_PwmHl_initConfig",
         "IfxGtm_Tom_PwmHl_init",
         "IfxGtm_Tom_PwmHl_setMode",
