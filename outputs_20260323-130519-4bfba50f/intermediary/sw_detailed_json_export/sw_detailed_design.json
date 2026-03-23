@@ -3,13 +3,12 @@
   "public_functions": [
     {
       "signature": "void initGtmTomPwm(void)",
-      "behavior_description": "Enable the GTM module and its functional clocks, then create and initialize a TOM-based master timer to run at the required PWM frequency (20 kHz). Prepare a complementary PWM high/low driver for three channel pairs using a configuration structure that: assigns three high-side and three low-side outputs to TOM channels belonging to the same TOM and TGC as the timer; sets push-pull output mode and the specified pad driver; preserves existing deadtime and minimum pulse constraints if known (otherwise use a reasonable fallback); and sets active states for high/low outputs identically. Assign the selected output pins via the TOM TOUT pin map using push-pull and the requested pad driver. Explicit TOM1/TOUT pin mapping to use: P02.0 -> IfxGtm_TOM1_TOUT9_P02_0_OUT; P02.1 -> IfxGtm_TOM1_TOUT10_P02_1_OUT; P02.2 -> IfxGtm_TOM1_TOUT11_P02_2_OUT; P02.4 -> IfxGtm_TOM1_TOUT13_P02_4_OUT; P02.5 -> IfxGtm_TOM1_TOUT14_P02_5_OUT; P02.7 -> IfxGtm_TOM1_TOUT16_P02_7_OUT. Initialize the PWM HL driver with the timer reference and set the PWM mode to center-aligned. Start the timer before writing any on-times to ensure synchronized channel resets. Compute initial ON-times for the three complementary pairs as 25%, 50%, and 75% of the current period. Perform a coherent multi-channel update by disabling updates, writing all three ON-times at once, and then applying the update so all outputs take effect synchronously.",
+      "behavior_description": "Enable the GTM module and its functional clocks, then create and initialize a TOM-based master timer to run at the required PWM frequency (20 kHz). Prepare a complementary PWM high/low driver for three channel pairs using a configuration structure that: assigns three high-side and three low-side outputs to TOM channels belonging to the same TOM and TGC as the timer; sets push-pull output mode and the specified pad driver; preserves existing deadtime and minimum pulse constraints if known (otherwise use a reasonable fallback); and sets active states for high/low outputs identically. Assign the selected output pins via the TOM TOUT pin map using push-pull and the requested pad driver. Initialize the PWM HL driver with the timer reference and set the PWM mode to center-aligned. Start the timer before writing any on-times to ensure synchronized channel resets. Compute initial ON-times for the three complementary pairs as 25%, 50%, and 75% of the current period. Perform a coherent multi-channel update by disabling updates, writing all three ON-times at once, and then applying the update so all outputs take effect synchronously.",
       "driver_calls": [
         "IfxGtm_enable",
         "IfxGtm_Cmu_enableClocks",
         "IfxGtm_Tom_Timer_initConfig",
         "IfxGtm_Tom_Timer_init",
-        "IfxGtm_PinMap_setTomTout",
         "IfxGtm_Tom_PwmHl_initConfig",
         "IfxGtm_Tom_PwmHl_init",
         "IfxGtm_Tom_PwmHl_setMode",
@@ -37,8 +36,7 @@
     {
       "signature": "static void configureGtmTomPins(void)",
       "needed": true,
-      "from_reference": false,
-      "behavior_description": "Configures the TOM/TOUT pin routing for the three complementary PWM pairs on Port 02 using IfxGtm_PinMap_setTomTout with the explicit TOM1/TOUT mappings: P02.0 -> IfxGtm_TOM1_TOUT9_P02_0_OUT, P02.1 -> IfxGtm_TOM1_TOUT10_P02_1_OUT, P02.2 -> IfxGtm_TOM1_TOUT11_P02_2_OUT, P02.4 -> IfxGtm_TOM1_TOUT13_P02_4_OUT, P02.5 -> IfxGtm_TOM1_TOUT14_P02_5_OUT, P02.7 -> IfxGtm_TOM1_TOUT16_P02_7_OUT. Sets the pins to push-pull with the requested pad driver. This function is invoked by init to establish the TOM1-to-TOUT-to-port mapping before initializing IfxGtm_Tom_PwmHl."
+      "from_reference": false
     }
   ],
   "dependencies": {
