@@ -9,15 +9,15 @@
         "IfxEgtm_Cmu_setGclkDivider",
         "IfxEgtm_Cmu_enableClocks",
         "IfxEgtm_Cmu_selectClkInput",
-        "IfxEgtm_Atom_Pwm_initConfig",
-        "IfxEgtm_Atom_Pwm_initChannelConfig",
+        "IfxEgtm_Pwm_initConfig",
+        "IfxEgtm_Pwm_initChannelConfig",
         "IfxEgtm_PinMap_setAtomTout",
-        "IfxEgtm_Atom_Pwm_setChannelPolarity",
-        "IfxEgtm_Atom_Pwm_init",
-        "IfxEgtm_Atom_Pwm_updateFrequency",
-        "IfxEgtm_Atom_Pwm_updateChannelsDeadTime",
-        "IfxEgtm_Atom_Pwm_updateChannelsPulse",
-        "IfxEgtm_Atom_Pwm_startSyncedChannels",
+        "IfxEgtm_Pwm_setChannelPolarity",
+        "IfxEgtm_Pwm_init",
+        "IfxEgtm_Pwm_updateFrequency",
+        "IfxEgtm_Pwm_updateChannelsDeadTime",
+        "IfxEgtm_Pwm_updateChannelsPulse",
+        "IfxEgtm_Pwm_startSyncedChannels",
         "IfxCpu_Irq_installInterruptHandler"
       ],
       "from_reference": true,
@@ -27,7 +27,7 @@
       "signature": "void updateEgtmAtom3phInvDuty(void)",
       "behavior_description": "Implements a duty-cycle ramp for all three configured PWM channels. For each channel: check if (currentDuty + step) reaches or exceeds 100%; if so, wrap that channel's duty to 0%. Then add the step to each channel's duty. After updating the three duty values, trigger a synchronous multi-channel duty update so that the new duties are latched into shadow registers and applied simultaneously at the next PWM period boundary.",
       "driver_calls": [
-        "IfxEgtm_Atom_Pwm_updateChannelsDuty"
+        "IfxEgtm_Pwm_updateChannelsDuty"
       ],
       "from_reference": true,
       "call_context": "loop"
@@ -36,7 +36,7 @@
       "signature": "void interruptEgtmAtomPeriod(void)",
       "behavior_description": "Service the single PWM period interrupt associated with the base channel. Call the unified PWM driver's interrupt handler with the base channel context to clear and acknowledge the PWM period event and perform any internal housekeeping. Finally, clear the corresponding service request flag to re-arm the interrupt. Minimal work is performed in the ISR; any control-loop work should be deferred if needed.",
       "driver_calls": [
-        "IfxEgtm_Atom_Pwm_interruptHandler",
+        "IfxEgtm_Pwm_interruptHandler",
         "IfxSrc_clearRequest"
       ],
       "from_reference": true,
@@ -52,7 +52,7 @@
   ],
   "dependencies": {
     "includes": [
-      "IfxEgtm_Atom_Pwm.h",
+      "IfxEgtm_Pwm.h",
       "IfxEgtm_Cmu.h",
       "IfxEgtm_PinMap.h",
       "IfxPort.h",
