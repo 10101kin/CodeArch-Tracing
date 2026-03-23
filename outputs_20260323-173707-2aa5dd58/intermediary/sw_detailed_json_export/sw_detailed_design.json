@@ -2,27 +2,27 @@
   "module_name": "EGTM_ATOM_3_Phase_Inverter_PWM",
   "public_functions": [
     {
-      "signature": "void initEgtmAtom3phInv(void)",
-      "behavior_description": "Initialize a 3-phase complementary PWM using the eGTM ATOM submodule with hardware dead-time and AGC-synchronized start. The function performs: 1) Enable the eGTM module and enable/route the submodule clocks so that the ATOM time base uses the designated fast clock and the DTM uses the designated clock for dead-time generation. 2) Initialize the unified PWM configuration with defaults, then set center-aligned mode and a base channel frequency corresponding to 20 kHz for the first configured channel; the remaining configured channels are added as synchronous channels so all channels share the same time base. 3) Configure three complementary output pairs, one per motor phase, assigning an output pin and its complementary output per pair. For each pair, set the high-side polarity to active-high and the low-side polarity to active-low, and set the port output mode to push-pull with an appropriate pad driver. Resolved mapping (TC4D7, P20.8–P20.13) using the eGTM PinMap: ATOM instance eGTM.ATOM2, Cluster index 1 (AGC/TGC group for this cluster). Channel-to-TOUT/pin mapping and phase pairing is: Phase U -> ATOM2 Cluster1 CH0 (high-side) routed to P20.8 TOUT, and ATOM2 Cluster1 CH1 (low-side) routed to P20.9 TOUT; Phase V -> ATOM2 Cluster1 CH2 (high-side) routed to P20.10 TOUT, and ATOM2 Cluster1 CH3 (low-side) routed to P20.11 TOUT; Phase W -> ATOM2 Cluster1 CH4 (high-side) routed to P20.12 TOUT, and ATOM2 Cluster1 CH5 (low-side) routed to P20.13 TOUT. Pin routing is applied explicitly via the IfxEgtm_PinMap entries for ATOM2 Cluster1 to the above P20.x TOUT functions. 4) Attach DTM (dead-time) configuration to each complementary pair and set identical rising and falling dead-time to 1 microsecond using the DTM clock. CDTM[d]/channel indices are assigned as follows for TC4D7: use CDTM1.CH0 for pair (CH0/CH1), CDTM1.CH1 for pair (CH2/CH3), and CDTM1.CH2 for pair (CH4/CH5). 5) If a period interrupt is required, prepare an interrupt configuration for the base channel with CPU0 as provider and priority 20; install the ISR and connect the driver's interrupt handler to the period event. Assign the interrupt to the first (base) channel and set NULL for the remaining channels. 6) Initialize the PWM driver with the prepared main config, per-channel configs, DTM, and output settings. 7) Optionally enable synchronized channel updates through the AGC/TGC control and start all configured channels synchronously so that all outputs begin switching at the same time.",
+      "signature": "void IfxEgtm_Atom_Pwm_init3phInv(void)",
+      "behavior_description": "Initialize a 3-phase complementary PWM using the eGTM ATOM submodule with hardware dead-time and AGC-synchronized start. The function performs: 1) Enable the eGTM module and enable/route the submodule clocks so that the ATOM time base uses the designated fast clock and the DTM uses the designated clock for dead-time generation. 2) Initialize the unified PWM configuration with defaults, then set center-aligned mode and a base channel frequency corresponding to 20 kHz for the first configured channel; the remaining configured channels are added as synchronous channels so all channels share the same time base. 3) Configure three complementary output pairs, one per motor phase, assigning an output pin and its complementary output per pair. For each pair, set the high-side polarity to active-high and the low-side polarity to active-low, and set the port output mode to push-pull with an appropriate pad driver. Pin routing is applied using the eGTM PinMap to select the correct ATOM TOUTs for the target board pins. 4) Attach DTM (dead-time) configuration to each complementary pair and set identical rising and falling dead-time to 1 microsecond using the DTM clock. 5) If a period interrupt is required, prepare an interrupt configuration for the base channel with CPU0 as provider and priority 20; install the ISR and connect the driver's interrupt handler to the period event. Assign the interrupt to the first (base) channel and set NULL for the remaining channels. 6) Initialize the PWM driver with the prepared main config, per-channel configs, DTM, and output settings. 7) Optionally enable synchronized channel updates through the AGC/TGC control and start all configured channels synchronously so that all outputs begin switching at the same time.",
       "driver_calls": [
         "IfxEgtm_enable",
         "IfxEgtm_Cmu_enableClocks",
         "IfxEgtm_Dtm_setClockSource",
         "IfxEgtm_PinMap_setAtomTout",
-        "IfxEgtm_Pwm_initConfig",
-        "IfxEgtm_Pwm_initChannelConfig",
-        "IfxEgtm_Pwm_init",
+        "IfxEgtm_Atom_Pwm_initConfig",
+        "IfxEgtm_Atom_Pwm_initChannelConfig",
+        "IfxEgtm_Atom_Pwm_init",
         "IfxCpu_Irq_installInterruptHandler",
-        "IfxEgtm_Pwm_startSyncedChannels"
+        "IfxEgtm_Atom_Pwm_startSyncedChannels"
       ],
       "from_reference": true,
       "call_context": "init"
     },
     {
-      "signature": "void updateEgtmAtom3phInvDuty(void)",
+      "signature": "void IfxEgtm_Atom_Pwm_update3phInvDuty(void)",
       "behavior_description": "Update the duty cycles of the three phase PWM channels in a wrap-around ramp. For each phase index 0..2: if the current duty plus a fixed step exceeds or equals 100 percent, reset that duty to 0; otherwise add the fixed step to the duty. After updating the three duty values, apply the new duties immediately to all configured channels using the driver's immediate multi-channel duty update API so that the center-aligned waveform and previously configured dead-time remain preserved.",
       "driver_calls": [
-        "IfxEgtm_Pwm_updateChannelsDutyImmediate"
+        "IfxEgtm_Atom_Pwm_updateChannelsDutyImmediate"
       ],
       "from_reference": true,
       "call_context": "loop"
@@ -30,15 +30,14 @@
   ],
   "private_functions": [
     {
-      "signature": "void interruptEgtmPwmPeriod(void)",
+      "signature": "void IfxEgtm_Atom_Pwm_isrPeriod(void)",
       "needed": true,
-      "from_reference": false,
-      "behavior_description": "ISR for the PWM base-channel period event. Purpose: acknowledge/dispatch the period interrupt from the eGTM PWM driver and provide a hook for application tasks (e.g., scheduling duty updates or diagnostics). Parameters: none. Return: void. Typical behavior is to call the driver's period-event handler (IfxEgtm_Pwm_interruptHandler) and then perform any user-periodic work that must run at the PWM period rate."
+      "from_reference": false
     }
   ],
   "dependencies": {
     "includes": [
-      "IfxEgtm_Pwm.h",
+      "IfxEgtm_Atom_Pwm.h",
       "IfxEgtm_Cmu.h",
       "IfxEgtm_Dtm.h",
       "IfxEgtm_PinMap.h",
@@ -50,12 +49,12 @@
       "IfxEgtm_Cmu_enableClocks",
       "IfxEgtm_Dtm_setClockSource",
       "IfxEgtm_PinMap_setAtomTout",
-      "IfxEgtm_Pwm_initConfig",
-      "IfxEgtm_Pwm_initChannelConfig",
-      "IfxEgtm_Pwm_init",
-      "IfxEgtm_Pwm_startSyncedChannels",
-      "IfxEgtm_Pwm_updateChannelsDutyImmediate",
-      "IfxEgtm_Pwm_interruptHandler",
+      "IfxEgtm_Atom_Pwm_initConfig",
+      "IfxEgtm_Atom_Pwm_initChannelConfig",
+      "IfxEgtm_Atom_Pwm_init",
+      "IfxEgtm_Atom_Pwm_startSyncedChannels",
+      "IfxEgtm_Atom_Pwm_updateChannelsDutyImmediate",
+      "IfxEgtm_Atom_Pwm_interruptHandler",
       "IfxCpu_Irq_installInterruptHandler"
     ]
   },
@@ -70,10 +69,10 @@
   "header_selection": {
     "applied": true,
     "peripheral_type": "PWM",
-    "recommended_header": "IfxEgtm_Pwm",
+    "recommended_header": "IfxEgtm_Atom_Pwm",
     "template_functions_count": 1461,
     "required_includes": [
-      "IfxEgtm_Pwm.h"
+      "IfxEgtm_Atom_Pwm.h"
     ]
   }
 }
