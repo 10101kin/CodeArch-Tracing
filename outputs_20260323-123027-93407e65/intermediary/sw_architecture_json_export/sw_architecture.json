@@ -140,10 +140,10 @@
         "WATCHDOG"
       ],
       "complexity_hints": {
-        "PWM": "advanced",
-        "ADC": "simple",
-        "GPIO": "simple",
-        "WATCHDOG": "simple"
+        "PWM": "DriverComplexity.ADVANCED",
+        "ADC": "DriverComplexity.SIMPLE",
+        "GPIO": "DriverComplexity.SIMPLE",
+        "WATCHDOG": "DriverComplexity.SIMPLE"
       },
       "specific_features": [
         "3[- ]?phase"
