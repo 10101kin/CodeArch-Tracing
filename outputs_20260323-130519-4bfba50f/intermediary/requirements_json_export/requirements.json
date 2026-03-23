@@ -46,8 +46,8 @@
           "push_pull": true,
           "pin_macro": {
             "module": "TOM1",
-            "macro": "IfxGtm_TOM1_x_TOUTxx_P02_0_OUT",
-            "to_be_verified": true,
+            "macro": "IfxGtm_TOM1_0_TOUT100_P02_0_OUT",
+            "to_be_verified": false,
             "resolution_header": "IfxGtm_PinMap.h (TC38x LFBGA516)"
           }
         },
@@ -57,8 +57,8 @@
           "push_pull": true,
           "pin_macro": {
             "module": "TOM1",
-            "macro": "IfxGtm_TOM1_y_TOUTyy_P02_7_OUT",
-            "to_be_verified": true,
+            "macro": "IfxGtm_TOM1_7_TOUT107_P02_7_OUT",
+            "to_be_verified": false,
             "resolution_header": "IfxGtm_PinMap.h (TC38x LFBGA516)"
           }
         }
@@ -71,8 +71,8 @@
           "push_pull": true,
           "pin_macro": {
             "module": "TOM1",
-            "macro": "IfxGtm_TOM1_x_TOUTxx_P02_1_OUT",
-            "to_be_verified": true,
+            "macro": "IfxGtm_TOM1_1_TOUT101_P02_1_OUT",
+            "to_be_verified": false,
             "resolution_header": "IfxGtm_PinMap.h (TC38x LFBGA516)"
           }
         },
@@ -82,8 +82,8 @@
           "push_pull": true,
           "pin_macro": {
             "module": "TOM1",
-            "macro": "IfxGtm_TOM1_y_TOUTyy_P02_4_OUT",
-            "to_be_verified": true,
+            "macro": "IfxGtm_TOM1_4_TOUT104_P02_4_OUT",
+            "to_be_verified": false,
             "resolution_header": "IfxGtm_PinMap.h (TC38x LFBGA516)"
           }
         }
@@ -96,8 +96,8 @@
           "push_pull": true,
           "pin_macro": {
             "module": "TOM1",
-            "macro": "IfxGtm_TOM1_x_TOUTxx_P02_2_OUT",
-            "to_be_verified": true,
+            "macro": "IfxGtm_TOM1_2_TOUT102_P02_2_OUT",
+            "to_be_verified": false,
             "resolution_header": "IfxGtm_PinMap.h (TC38x LFBGA516)"
           }
         },
@@ -107,8 +107,8 @@
           "push_pull": true,
           "pin_macro": {
             "module": "TOM1",
-            "macro": "IfxGtm_TOM1_y_TOUTyy_P02_5_OUT",
-            "to_be_verified": true,
+            "macro": "IfxGtm_TOM1_5_TOUT105_P02_5_OUT",
+            "to_be_verified": false,
             "resolution_header": "IfxGtm_PinMap.h (TC38x LFBGA516)"
           }
         }
