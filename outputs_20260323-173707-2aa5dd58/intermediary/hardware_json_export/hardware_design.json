@@ -3,8 +3,8 @@
     "model": "TC4DX",
     "family": "TC4xx",
     "verified": true,
-    "device_macro": "DEVICE_TC4D7",
-    "pin_package": "IFX_PIN_PACKAGE_BGA292_COM"
+    "device_macro": "DEVICE_TC4DX",
+    "pin_package": "IFX_PIN_PACKAGE_BGA436_COM"
   },
   "peripheral_instance": {
     "type": "PWM",
