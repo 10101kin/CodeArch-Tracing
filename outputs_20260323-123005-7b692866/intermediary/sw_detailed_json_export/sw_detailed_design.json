@@ -3,7 +3,7 @@
   "public_functions": [
     {
       "signature": "void initEgtmAtom3phInv(void)",
-      "behavior_description": "Enable and clock the CCU6 module. Configure the CCU6 T12 timer as the base for PWM generation with symmetric (center-aligned) mode at 20 kHz. Initialize the CCU6 high/low-side PWM (PwmHl) configuration for three channels (T12 ch0..2) to drive complementary outputs with dead-time insertion; set active-high polarity for the high-side and active-low for the low-side, and configure the output pads for push-pull with appropriate drive strength. Set dead time for both rising and falling edges to 1 microsecond. Configure a single period-match (T12 PM) interrupt on CPU0 with the requested priority, attach it to the timer associated with the first channel, and leave other channels without interrupts. Initialize the timer and PwmHl drivers with the prepared configurations, install the ISR handler and initialize interrupt routing, then start all channels synchronously so they run in lockstep.",
+      "behavior_description": "Enable and clock the eGTM module. Configure the eGTM CMU to provide the ATOM submodule clock from the selected FXCLK source and set the DTM/CDTM clock source as required. Initialize the unified PWM configuration with defaults, select the ATOM submodule and assign three contiguous channels (base + 2 sync) for a 3-phase inverter. Set center-aligned mode with a 20 kHz frequency on the base channel and enable synchronized start/update across all configured channels. For each of the three channels, assign an output configuration that drives complementary outputs via the dead-time module (CDTM) with active-high polarity for the main output and active-low for the complementary output; configure the pads in push-pull mode with appropriate pad drive strength. Configure deadtime for both rising and falling edges to 1 microsecond using the DTM/CDTM configuration (and/or apply an immediate deadtime update after init). Set up a single period-event interrupt on CPU0 with the requested priority, attach it to the first (base) channel, and leave other channels without interrupts. Initialize the PWM driver with the prepared config and per-channel configurations, update global control/unit data if required by the driver, install the ISR handler and initialize interrupt routing, then start all channels synchronously so they run in lockstep.",
       "driver_calls": [
         "IfxEgtm_enable",
         "IfxEgtm_Cmu_enableClocks",
@@ -46,23 +46,28 @@
   ],
   "dependencies": {
     "includes": [
-      "IfxCcu6.h",
-      "IfxCcu6_Timer.h",
-      "IfxCcu6_PwmHl.h",
-      "IfxCcu6_PinMap.h",
+      "IfxEgtm_Pwm.h",
+      "IfxEgtm_Cmu.h",
+      "IfxEgtm_Dtm.h",
+      "IfxEgtm_PinMap.h",
       "IfxPort.h",
       "IfxCpu_Irq.h"
     ],
     "driver_calls": [
-      "IfxCcu6_enableModule",
-      "IfxCcu6_Timer_initConfig",
-      "IfxCcu6_Timer_init",
-      "IfxCcu6_PwmHl_initConfig",
-      "IfxCcu6_PwmHl_init",
-      "IfxCcu6_PwmHl_setDeadtime",
-      "IfxCcu6_PwmHl_start",
+      "IfxEgtm_enable",
+      "IfxEgtm_Cmu_enableClocks",
+      "IfxEgtm_Cmu_selectClkInput",
+      "IfxEgtm_Cmu_setClkCount",
+      "IfxEgtm_Dtm_setClockSource",
+      "IfxEgtm_PinMap_setAtomTout",
+      "IfxEgtm_Pwm_initConfig",
+      "IfxEgtm_Pwm_initChannelConfig",
+      "IfxEgtm_Pwm_init",
+      "IfxEgtm_Pwm_init",
       "IfxCpu_Irq_installInterruptHandler",
-      "IfxCcu6_PwmHl_setDuty"
+      "IfxEgtm_Pwm_updateChannelDeadTimeImmediate",
+      "IfxEgtm_Pwm_startSyncedChannels",
+      "IfxEgtm_Pwm_updateChannelsDutyImmediate"
     ]
   },
   "cpu_main_requirements": {
