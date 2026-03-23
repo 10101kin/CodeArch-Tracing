@@ -97,9 +97,9 @@
         "ETHERNET"
       ],
       "complexity_hints": {
-        "PWM": "advanced",
-        "GPIO": "simple",
-        "ETHERNET": "simple"
+        "PWM": "DriverComplexity.ADVANCED",
+        "GPIO": "DriverComplexity.SIMPLE",
+        "ETHERNET": "DriverComplexity.SIMPLE"
       },
       "specific_features": [
         "3[- ]?phase"
