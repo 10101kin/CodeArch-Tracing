@@ -2,8 +2,7 @@
   "user_intent_preservation": {
     "original_goal": "Migrate the TC387 TOM-based 3-phase inverter PWM to TC4D7 eGTM ATOM on KIT_A3G_TC4D7_LITE using the unified PWM driver, keeping 20 kHz center-aligned complementary PWM with 1 µs dead-time, HS active-high and LS active-low, push-pull outputs, AGC synchronized start, CMU FXCLK0 for ATOM and CMU CLK0 for DTM, and a period ISR on CPU0 priority 20.",
     "functional_behavior": "Generate 3-phase center-aligned complementary PWM at 20 kHz with 1 µs hardware dead-time using ATOM+CDTM, start all channels synchronously via AGC, route outputs to P20.8..P20.13 in push-pull with HS active-high and LS active-low, run a period interrupt on CPU0 with priority 20.",
-    "technical_approach": "Use unified high-level IfxEgtm_Pwm to configure ATOM0 channels (0..5) as base+sync channels with center-aligned mode and complementary outputs via CDTM with 1 µs dead-time. Enable FXCLK0 for ATOM and CLK0 for DTM via IfxEgtm_Cmu and IfxEgtm_Dtm. Map the six outputs to P20.8..P20.13 using IfxEgtm_PinMap_setAtomTout. Start channels synchronously using IfxEgtm_Pwm_startSyncedChannels. Install a period ISR on CPU0 (prio 20) and call IfxEgtm_Pwm_interruptHandler from the ISR.",
-    "pin_channel_mapping_next_step": "Resolution of the exact ATOM instance, channel-to-TOUT mapping for P20.8..P20.13, and CDTM indices is a required next step and must be finalized and documented before implementation."
+    "technical_approach": "Use unified high-level IfxEgtm_Pwm to configure ATOM0 channels (0..5) as base+sync channels with center-aligned mode and complementary outputs via CDTM with 1 µs dead-time. Enable FXCLK0 for ATOM and CLK0 for DTM via IfxEgtm_Cmu and IfxEgtm_Dtm. Map the six outputs to P20.8..P20.13 using IfxEgtm_PinMap_setAtomTout. Start channels synchronously using IfxEgtm_Pwm_startSyncedChannels. Install a period ISR on CPU0 (prio 20) and call IfxEgtm_Pwm_interruptHandler from the ISR."
   },
   "driver_selection": {
     "recommended_driver": "IfxEgtm_Pwm",
@@ -28,7 +27,9 @@
       "IfxEgtm_Pwm_startSyncedChannels",
       "IfxEgtm_Pwm_updateChannelsDutyImmediate",
       "IfxEgtm_Pwm_updateChannelsDeadTime"
-    ]
+    ],
+    "initialization_apis_verification": "Check the TC4xx iLLD Doxygen or header files for the existence and signatures of IfxEgtm_Pwm_initConfig, IfxEgtm_Pwm_initChannelConfig, and IfxEgtm_Pwm_init.",
+    "runtime_apis_verification": "Check the TC4xx iLLD Doxygen or header files for the existence and signatures of IfxEgtm_Pwm_startSyncedChannels, IfxEgtm_Pwm_updateChannelsDutyImmediate, and IfxEgtm_Pwm_updateChannelsDeadTime."
   },
   "file_structure": {
     "module_files": [
@@ -106,7 +107,9 @@
         "reason": "Watchdog naming alignment"
       }
     ],
-    "context_preserved": "The migration keeps the 3-phase center-aligned complementary PWM with 1 µs dead-time, uses eGTM ATOM+CDTM, starts synchronously via AGC, selects FXCLK0 (ATOM) and CLK0 (DTM), maps outputs to P20.8..P20.13, and installs a CPU0 period ISR at priority 20, all achieved through the unified IfxEgtm_Pwm APIs and eGTM support drivers."
+    "context_preserved": "The migration keeps the 3-phase center-aligned complementary PWM with 1 µs dead-time, uses eGTM ATOM+CDTM, starts synchronously via AGC, selects FXCLK0 (ATOM) and CLK0 (DTM), maps outputs to P20.8..P20.13, and installs a CPU0 period ISR at priority 20, all achieved through the unified IfxEgtm_Pwm APIs and eGTM support drivers.",
+    "api_changes_verification": "Obtain the official TC4xx migration guide or iLLD release notes to confirm the API mapping.",
+    "legacy_api_exclusion_verification": "Review the actual project source or iLLD documentation to confirm exclusive use of IfxEgtm_* APIs."
   },
   "header_selection": {
     "applied": true,
@@ -124,7 +127,8 @@
       "IfxGtm_Pwm_initConfig": "IfxEgtm_Pwm_initConfig",
       "IfxGtm_enable": "IfxEgtm_Pwm_enableChannelsSyncUpdate"
     },
-    "available_functions_count": 100
+    "available_functions_count": 100,
+    "required_includes_verification": "Verify with the actual TC4xx iLLD package or Doxygen that IfxEgtm_Pwm.h and IfxEgtm_Pwm APIs exist and are intended for eGTM ATOM PWM."
   },
   "driver_selection_engine": {
     "applied": true,
@@ -198,46 +202,5 @@
   },
   "driver_knowledge_base": {
     "applied": false
-  },
-  "test_strategy": {
-    "objectives": [
-      "Verify 20 kHz center-aligned complementary PWM with 1 µs dead-time matches requirements after migration",
-      "Validate synchronized start across all six outputs and correct HS/LS polarities",
-      "Confirm ISR behavior on CPU0 priority 20 and absence of timing regressions"
-    ],
-    "approach": {
-      "unit_tests": "Provide stubs/mocks for IfxEgtm_Pwm APIs to validate configuration structs, duty/dead-time updates, and error handling without hardware.",
-      "hardware_in_the_loop": "Run on KIT_A3G_TC4D7_LITE with AGC sync start; capture PWM on P20.8..P20.13 using scope/LA; exercise duty and frequency changes at runtime.",
-      "signal_monitoring": "Measure period (20 kHz), duty symmetry, center alignment, complementary polarity, and 1 µs hardware dead-time; log ISR timestamps to assess jitter/latency."
-    },
-    "acceptance_criteria": [
-      "Measured PWM frequency at 20 kHz and center-aligned waveforms on all phases",
-      "Complementary outputs exhibit 1 µs dead-time and correct HS/LS polarity",
-      "All six channels start synchronously under AGC",
-      "ISR on CPU0 (prio 20) triggers on each period event with bounded latency/jitter"
-    ]
-  },
-  "architecture_overview": {
-    "summary": "High-level view of eGTM-based PWM: application configures IfxEgtm_Pwm (ATOM+CDTM), CMU clocks ATOM via FXCLK0 and DTM via CLK0, AGC synchronizes channel start, and a period ISR on CPU0 handles updates.",
-    "modules": [
-      "IfxEgtm_Pwm (ATOM channels 0..5 with CDTM for complementary/ dead-time)",
-      "IfxEgtm_Cmu (FXCLK0 for ATOM)",
-      "IfxEgtm_Dtm (CLK0 for DTM/CDTM)",
-      "AGC (synchronized gating/start)",
-      "IfxEgtm_PinMap (routing to P20.8..P20.13)",
-      "CPU0 ISR (priority 20) invoking IfxEgtm_Pwm_interruptHandler"
-    ],
-    "data_flow": [
-      "Initialization: IfxEgtm_Pwm_initConfig -> IfxEgtm_Pwm_init (+ CMU/DTM clock setup, pin routing)",
-      "Synchronized Start: IfxEgtm_Pwm_startSyncedChannels via AGC",
-      "Runtime Updates: Application -> IfxEgtm_Pwm_updateChannelsDutyImmediate (and dead-time updates as needed)"
-    ],
-    "interrupt_sequence": [
-      "ATOM period match event occurs",
-      "eGTM routes interrupt to CPU0 (priority 20)",
-      "CPU0 ISR executes and calls IfxEgtm_Pwm_interruptHandler",
-      "Application may adjust duties or scheduling for next period"
-    ],
-    "synchronization": "AGC ensures all six ATOM outputs start and update coherently."
   }
 }
