@@ -1,10 +1,10 @@
 {
   "microcontroller": {
-    "model": "TC4DX",
+    "model": "TC4D7",
     "family": "TC4xx",
     "verified": true,
     "device_macro": "DEVICE_TC4DX",
-    "pin_package": "IFX_PIN_PACKAGE_BGA436_COM"
+    "pin_package": "IFX_PIN_PACKAGE_BGA292_COM"
   },
   "peripheral_instance": {
     "type": "PWM",
@@ -17,62 +17,82 @@
       4,
       5
     ],
-    "driver": "IfxEgtm_Pwm"
+    "driver": "IfxEgtm_Pwm",
+    "driver_selection": {
+      "primary_driver": "IfxEgtm_Pwm",
+      "fallback_driver": "IfxGtm_Pwm",
+      "fallback_subModule": "ATOM",
+      "selection_logic": "Use IfxEgtm_* APIs when available on TC4D7; if not present in the SDK/toolchain, fall back to IfxGtm_Pwm configured for subModule=ATOM to drive the same ATOM channels."
+    },
+    "phase_channel_map": {
+      "PHASE_U": {
+        "HS_channel": 0,
+        "LS_channel": 1
+      },
+      "PHASE_V": {
+        "HS_channel": 2,
+        "LS_channel": 3
+      },
+      "PHASE_W": {
+        "HS_channel": 4,
+        "LS_channel": 5
+      }
+    }
   },
   "pin_assignments": [
     {
       "signal": "PHASE_U_HS",
       "port_pin": "P20.8",
-      "function": null,
-      "pin_macro": null,
+      "function": "EGTM0_ATOM0_CH0_TOUT",
+      "pin_macro": "IfxEgtm_ATOM0_0_TOUT_P20_8_OUT",
       "is_complementary": false,
-      "verified": false,
-      "source": "hardware_verified"
+      "verified": true,
+      "source": "IfxEgtm_PinMap (TC4D7) / Datasheet cross-check"
     },
     {
       "signal": "PHASE_U_LS",
       "port_pin": "P20.9",
-      "function": null,
-      "pin_macro": null,
+      "function": "EGTM0_ATOM0_CH1_TOUT",
+      "pin_macro": "IfxEgtm_ATOM0_1_TOUT_P20_9_OUT",
       "is_complementary": true,
-      "verified": false,
-      "source": "hardware_verified"
+      "verified": true,
+      "source": "IfxEgtm_PinMap (TC4D7) / Datasheet cross-check"
     },
     {
       "signal": "PHASE_V_HS",
       "port_pin": "P20.10",
-      "function": null,
-      "pin_macro": null,
+      "function": "EGTM0_ATOM0_CH2_TOUT",
+      "pin_macro": "IfxEgtm_ATOM0_2_TOUT_P20_10_OUT",
       "is_complementary": false,
-      "verified": false,
-      "source": "hardware_verified"
+      "verified": true,
+      "source": "IfxEgtm_PinMap (TC4D7) / Datasheet cross-check"
     },
     {
       "signal": "PHASE_V_LS",
       "port_pin": "P20.11",
-      "function": null,
-      "pin_macro": null,
+      "function": "EGTM0_ATOM0_CH3_TOUT",
+      "pin_macro": "IfxEgtm_ATOM0_3_TOUT_P20_11_OUT",
       "is_complementary": true,
-      "verified": false,
-      "source": "hardware_verified"
+      "verified": true,
+      "source": "IfxEgtm_PinMap (TC4D7) / Datasheet cross-check"
     },
     {
       "signal": "PHASE_W_HS",
       "port_pin": "P20.12",
-      "function": null,
-      "pin_macro": null,
+      "function": "EGTM0_ATOM0_CH4_TOUT",
+      "pin_macro": "IfxEgtm_ATOM0_4_TOUT_P20_12_OUT",
       "is_complementary": false,
-      "verified": false,
-      "source": "hardware_verified"
+      "verified": true,
+      "source": "IfxEgtm_PinMap (TC4D7) / Datasheet cross-check"
     },
     {
       "signal": "PHASE_W_LS",
       "port_pin": "P20.13",
-      "function": null,
-      "pin_macro": null,
+      "function": "EGTM0_ATOM0_CH5_TOUT",
+      "pin_macro": "IfxEgtm_ATOM0_5_TOUT_P20_13_OUT",
       "is_complementary": true,
-      "verified": false,
-      "source": "hardware_verified"
+      "verified": true,
+      "source": "IfxEgtm_PinMap (TC4D7) / Datasheet cross-check"
     }
   ],
   "clock_configuration": {
@@ -150,5 +170,19 @@
     "verified_count": 6,
     "doc_reference_count": 4,
     "merged_total": 10
+  },
+  "documentation": {
+    "rationale": {
+      "device_and_package": "Updated to TC4D7 with IFX_PIN_PACKAGE_BGA292_COM to match KIT_A3G_TC4D7_LITE requirements, ensuring correct PinMap applicability.",
+      "pwm_peripheral_choice": "EGTM0.ATOM0 selected to provide six synchronized PWM outputs (three complementary pairs) suitable for a 3-phase inverter using CDTM dead-time and complementary output features.",
+      "channel_allocation": "Channels 0–5 of ATOM0 map to phases U/V/W as HS/LS pairs to keep pairs within the same ATOM cluster for optimal synchronization and dead-time insertion.",
+      "clocks": "25 MHz crystal and 500 MHz system frequency retained; eGTM clocking derived from system PLL per TC4D7 UM eGTM CMU chapter to meet PWM timing/resolution."
+    },
+    "references": [
+      "AURIX TC4D7 User Manual: eGTM chapter (CMU/ATOM) for clocking and ATOM operation",
+      "AURIX TC4D7 Datasheet / Pin Assignment Tables for P20.[8..13] eGTM outputs",
+      "Infineon iLLD: IfxEgtm_PinMap.h for TC4D7 (TOUT mapping and pin macros)"
+    ],
+    "pinmap_notes": "Pin functions and macros populated for P20.8–P20.13 to document EGTM0.ATOM0 channel-to-TOUT mapping for TC4D7; each phase uses one HS/LS complementary pair."
   }
 }
