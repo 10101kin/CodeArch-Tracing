@@ -1,0 +1,351 @@
+Attempt 1 - PRODUCTION (Global: 1)
+Status: FAILED ❌
+Timestamp: 2026-03-24 00:50:53
+Files generated: 2
+
+============================================================
+
+ERRORS:
+
+1. expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'
+
+2. expected expression before 'IFXGTM_NUM_CCM_OBJECTS'
+
+3. expected expression before '/' token
+
+4. expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'
+
+5. expected expression before 'IFXGTM_NUM_CCM_OBJECTS'
+
+6. expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'
+
+7. expected expression before 'IFXGTM_NUM_CCM_OBJECTS'
+
+8. expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'
+
+9. expected expression before 'IFXGTM_NUM_CCM_OBJECTS'
+
+10. expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'
+
+============================================================
+BUILD RESULT:
+{
+  "success": false,
+  "errors": [
+    {
+      "file": "\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h",
+      "line": 877,
+      "column": 37,
+      "message": "expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h",
+      "line": 1119,
+      "column": 37,
+      "message": "expected expression before 'IFXGTM_NUM_CCM_OBJECTS'",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\src\\egtm_atom_3_phase_inverter_pwm.c",
+      "line": 143,
+      "column": 78,
+      "message": "expected expression before '/' token",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h",
+      "line": 877,
+      "column": 37,
+      "message": "expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h",
+      "line": 1119,
+      "column": 37,
+      "message": "expected expression before 'IFXGTM_NUM_CCM_OBJECTS'",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h",
+      "line": 877,
+      "column": 37,
+      "message": "expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h",
+      "line": 1119,
+      "column": 37,
+      "message": "expected expression before 'IFXGTM_NUM_CCM_OBJECTS'",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h",
+      "line": 877,
+      "column": 37,
+      "message": "expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h",
+      "line": 1119,
+      "column": 37,
+      "message": "expected expression before 'IFXGTM_NUM_CCM_OBJECTS'",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h",
+      "line": 877,
+      "column": 37,
+      "message": "expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h",
+      "line": 1119,
+      "column": 37,
+      "message": "expected expression before 'IFXGTM_NUM_CCM_OBJECTS'",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h",
+      "line": 877,
+      "column": 37,
+      "message": "expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h",
+      "line": 1119,
+      "column": 37,
+      "message": "expected expression before 'IFXGTM_NUM_CCM_OBJECTS'",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\mocks\\IfxEgtm_Cmu.c",
+      "line": 23,
+      "column": 15,
+      "message": "redefinition of 's_selectClkInput_count'",
+      "category": "unknown",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\mocks\\IfxEgtm_Cmu.c",
+      "line": 44,
+      "column": 8,
+      "message": "redefinition of 'IfxEgtm_Cmu_Mock_GetCallCount_selectClkInput'",
+      "category": "illd_api_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include\\illd_types/Ifx_Types.h",
+      "line": 877,
+      "column": 37,
+      "message": "expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include\\illd_types/Ifx_Types.h",
+      "line": 1119,
+      "column": 37,
+      "message": "expected expression before 'IFXGTM_NUM_CCM_OBJECTS'",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h",
+      "line": 877,
+      "column": 37,
+      "message": "expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h",
+      "line": 1119,
+      "column": 37,
+      "message": "expected expression before 'IFXGTM_NUM_CCM_OBJECTS'",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include\\illd_types/Ifx_Types.h",
+      "line": 877,
+      "column": 37,
+      "message": "expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include\\illd_types/Ifx_Types.h",
+      "line": 1119,
+      "column": 37,
+      "message": "expected expression before 'IFXGTM_NUM_CCM_OBJECTS'",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h",
+      "line": 877,
+      "column": 37,
+      "message": "expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h",
+      "line": 1119,
+      "column": 37,
+      "message": "expected expression before 'IFXGTM_NUM_CCM_OBJECTS'",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include\\illd_types/Ifx_Types.h",
+      "line": 877,
+      "column": 37,
+      "message": "expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include\\illd_types/Ifx_Types.h",
+      "line": 1119,
+      "column": 37,
+      "message": "expected expression before 'IFXGTM_NUM_CCM_OBJECTS'",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include\\illd_types/Ifx_Types.h",
+      "line": 877,
+      "column": 37,
+      "message": "expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include\\illd_types/Ifx_Types.h",
+      "line": 1119,
+      "column": 37,
+      "message": "expected expression before 'IFXGTM_NUM_CCM_OBJECTS'",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include\\illd_types/Ifx_Types.h",
+      "line": 877,
+      "column": 37,
+      "message": "expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include\\illd_types/Ifx_Types.h",
+      "line": 1119,
+      "column": 37,
+      "message": "expected expression before 'IFXGTM_NUM_CCM_OBJECTS'",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h",
+      "line": 877,
+      "column": 37,
+      "message": "expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h",
+      "line": 1119,
+      "column": 37,
+      "message": "expected expression before 'IFXGTM_NUM_CCM_OBJECTS'",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h",
+      "line": 877,
+      "column": 37,
+      "message": "expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h",
+      "line": 1119,
+      "column": 37,
+      "message": "expected expression before 'IFXGTM_NUM_CCM_OBJECTS'",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\mocks\\IfxStm.c",
+      "line": 20,
+      "column": 21,
+      "message": "'millis' undeclared (first use in this function)",
+      "category": "unknown",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\mocks\\IfxStm.c",
+      "line": 25,
+      "column": 20,
+      "message": "'micros' undeclared (first use in this function)",
+      "category": "unknown",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include\\illd_types/Ifx_Types.h",
+      "line": 877,
+      "column": 37,
+      "message": "expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include\\illd_types/Ifx_Types.h",
+      "line": 1119,
+      "column": 37,
+      "message": "expected expression before 'IFXGTM_NUM_CCM_OBJECTS'",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h",
+      "line": 877,
+      "column": 37,
+      "message": "expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h",
+      "line": 1119,
+      "column": 37,
+      "message": "expected expression before 'IFXGTM_NUM_CCM_OBJECTS'",
+      "category": "syntax_error",
+      "severity": "error"
+    }
+  ],
+  "warnings": [],
+  "stderr": "In file included from C:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/Ifx_Types.h:5,\n                 from C:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/egtm_atom_3_phase_inverter_pwm.h:12,\n                 from C:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\src\\egtm_atom_3_phase_inverter_pwm.c:9:\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h:877:37: error: expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'\n  877 |     IfxEgtm_ClApConfig   clApConfig[IFXEGTM_NUM_CCM_OBJECTS];\n      |                                     ^~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h:1119:37: error: expected expression before 'IFXGTM_NUM_CCM_OBJECTS'\n 1119 |     IfxGtm_ClApConfig    clApConfig[IFXGTM_NUM_CCM_OBJECTS];\n      |                                     ^~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\src\\egtm_atom_3_phase_inverter_pwm.c: In function 'initEgtmAtom3phInv':\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\src\\egtm_atom_3_phase_inverter_pwm.c:143:41: warning: '/*' within comment [-Wcomment]\n  143 | /* dtmConfig[i].deadTime = deadTimeSec; /* unified driver deadtime field */ */  /* auto-fix: incompatible struct types */\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\src\\egtm_atom_3_phase_inverter_pwm.c:143:78: error: expected expression before '/' token\n  143 | /* dtmConfig[i].deadTime = deadTimeSec; /* unified driver deadtime field */ */  /* auto-fix: incompatible struct types */\n      |                                                                              ^\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\src\\egtm_atom_3_phase_inverter_pwm.c:140:23: warning: unused variable 'deadTimeSec' [-Wunused-variable]\n  140 |         const float32 deadTimeSec = TIMING_DEADTIME_US * 1.0e-6f;\n      |                       ^~~~~~~~~~~\nIn file included from C:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/egtm_atom_3_phase_inverter_pwm.h:14:\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/IfxEgtm_Cmu.h: At top level:\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/IfxEgtm_Cmu.h:27:17: warning: 'IfxEgtm_Cmu_selectClkInput' used but never defined\n   27 | IFX_INLINE void IfxEgtm_Cmu_selectClkInput(Ifx_EGTM *egtm, IfxEgtm_Cmu_Clk clkIndex, boolean useGlobal);\n      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~\nIn file included from C:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/egtm_atom_3_phase_inverter_pwm.h:17:\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/IfxPort.h:10:17: warning: 'IfxPort_setPinModeOutput' used but never defined\n   10 | IFX_INLINE void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);\n      |                 ^~~~~~~~~~~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/IfxCpu.h:4,\n                 from C:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\mocks\\IfxCpu.c:1:\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h:877:37: error: expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'\n  877 |     IfxEgtm_ClApConfig   clApConfig[IFXEGTM_NUM_CCM_OBJECTS];\n      |                                     ^~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h:1119:37: error: expected expression before 'IFXGTM_NUM_CCM_OBJECTS'\n 1119 |     IfxGtm_ClApConfig    clApConfig[IFXGTM_NUM_CCM_OBJECTS];\n      |                                     ^~~~~~~~~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/IfxCpu_Irq.h:4,\n                 from C:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\mocks\\IfxCpu_Irq.c:1:\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h:877:37: error: expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'\n  877 |     IfxEgtm_ClApConfig   clApConfig[IFXEGTM_NUM_CCM_OBJECTS];\n      |                                     ^~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h:1119:37: error: expected expression before 'IFXGTM_NUM_CCM_OBJECTS'\n 1119 |     IfxGtm_ClApConfig    clApConfig[IFXGTM_NUM_CCM_OBJECTS];\n      |                                     ^~~~~~~~~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/IfxEgtm.h:4,\n                 from C:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\mocks\\IfxEgtm.c:1:\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h:877:37: error: expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'\n  877 |     IfxEgtm_ClApConfig   clApConfig[IFXEGTM_NUM_CCM_OBJECTS];\n      |                                     ^~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h:1119:37: error: expected expression before 'IFXGTM_NUM_CCM_OBJECTS'\n 1119 |     IfxGtm_ClApConfig    clApConfig[IFXGTM_NUM_CCM_OBJECTS];\n      |                                     ^~~~~~~~~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/IfxEgtm_Atom.h:4,\n                 from C:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\mocks\\IfxEgtm_Atom.c:1:\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h:877:37: error: expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'\n  877 |     IfxEgtm_ClApConfig   clApConfig[IFXEGTM_NUM_CCM_OBJECTS];\n      |                                     ^~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h:1119:37: error: expected expression before 'IFXGTM_NUM_CCM_OBJECTS'\n 1119 |     IfxGtm_ClApConfig    clApConfig[IFXGTM_NUM_CCM_OBJECTS];\n      |                                     ^~~~~~~~~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/IfxEgtm_Cmu.h:4,\n                 from C:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\mocks\\IfxEgtm_Cmu.c:1:\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h:877:37: error: expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'\n  877 |     IfxEgtm_ClApConfig   clApConfig[IFXEGTM_NUM_CCM_OBJECTS];\n      |                                     ^~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h:1119:37: error: expected expression before 'IFXGTM_NUM_CCM_OBJECTS'\n 1119 |     IfxGtm_ClApConfig    clApConfig[IFXGTM_NUM_CCM_OBJECTS];\n      |                                     ^~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\mocks\\IfxEgtm_Cmu.c:23:15: error: redefinition of 's_selectClkInput_count'\n   23 | static uint32 s_selectClkInput_count = 0;\n      |               ^~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\mocks\\IfxEgtm_Cmu.c:7:15: note: previous definition of 's_selectClkInput_count' with type 'uint32' {aka 'unsigned int'}\n    7 | static uint32 s_selectClkInput_count = 0u;\n      |               ^~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\mocks\\IfxEgtm_Cmu.c:44:8: error: redefinition of 'IfxEgtm_Cmu_Mock_GetCallCount_selectClkInput'\n   44 | uint32 IfxEgtm_Cmu_Mock_GetCallCount_selectClkInput(void) { return s_selectClkInput_count; }\n      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\mocks\\IfxEgtm_Cmu.c:32:8: note: previous definition of 'IfxEgtm_Cmu_Mock_GetCallCount_selectClkInput' with type 'uint32(void)' {aka 'unsigned int(void)'}\n   32 | uint32 IfxEgtm_Cmu_Mock_GetCallCount_selectClkInput(void) {\n      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\mocks\\IfxEgtm_PinMap.c:1:\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include\\illd_types/Ifx_Types.h:877:37: error: expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'\n  877 |     IfxEgtm_ClApConfig   clApConfig[IFXEGTM_NUM_CCM_OBJECTS];\n      |                                     ^~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include\\illd_types/Ifx_Types.h:1119:37: error: expected expression before 'IFXGTM_NUM_CCM_OBJECTS'\n 1119 |     IfxGtm_ClApConfig    clApConfig[IFXGTM_NUM_CCM_OBJECTS];\n      |                                     ^~~~~~~~~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/IfxEgtm_Pwm.h:4,\n                 from C:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\mocks\\IfxEgtm_Pwm.c:1:\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h:877:37: error: expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'\n  877 |     IfxEgtm_ClApConfig   clApConfig[IFXEGTM_NUM_CCM_OBJECTS];\n      |                                     ^~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h:1119:37: error: expected expression before 'IFXGTM_NUM_CCM_OBJECTS'\n 1119 |     IfxGtm_ClApConfig    clApConfig[IFXGTM_NUM_CCM_OBJECTS];\n      |                                     ^~~~~~~~~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\mocks\\IfxGtm.c:1:\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include\\illd_types/Ifx_Types.h:877:37: error: expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'\n  877 |     IfxEgtm_ClApConfig   clApConfig[IFXEGTM_NUM_CCM_OBJECTS];\n      |                                     ^~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include\\illd_types/Ifx_Types.h:1119:37: error: expected expression before 'IFXGTM_NUM_CCM_OBJECTS'\n 1119 |     IfxGtm_ClApConfig    clApConfig[IFXGTM_NUM_CCM_OBJECTS];\n      |                                     ^~~~~~~~~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/IfxGtm_Atom.h:4,\n                 from C:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\mocks\\IfxGtm_Atom.c:1:\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h:877:37: error: expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'\n  877 |     IfxEgtm_ClApConfig   clApConfig[IFXEGTM_NUM_CCM_OBJECTS];\n      |                                     ^~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h:1119:37: error: expected expression before 'IFXGTM_NUM_CCM_OBJECTS'\n 1119 |     IfxGtm_ClApConfig    clApConfig[IFXGTM_NUM_CCM_OBJECTS];\n      |                                     ^~~~~~~~~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\mocks\\IfxGtm_Cmu.c:1:\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include\\illd_types/Ifx_Types.h:877:37: error: expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'\n  877 |     IfxEgtm_ClApConfig   clApConfig[IFXEGTM_NUM_CCM_OBJECTS];\n      |                                     ^~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include\\illd_types/Ifx_Types.h:1119:37: error: expected expression before 'IFXGTM_NUM_CCM_OBJECTS'\n 1119 |     IfxGtm_ClApConfig    clApConfig[IFXGTM_NUM_CCM_OBJECTS];\n      |                                     ^~~~~~~~~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\mocks\\IfxPort.c:1:\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include\\illd_types/Ifx_Types.h:877:37: error: expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'\n  877 |     IfxEgtm_ClApConfig   clApConfig[IFXEGTM_NUM_CCM_OBJECTS];\n      |                                     ^~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include\\illd_types/Ifx_Types.h:1119:37: error: expected expression before 'IFXGTM_NUM_CCM_OBJECTS'\n 1119 |     IfxGtm_ClApConfig    clApConfig[IFXGTM_NUM_CCM_OBJECTS];\n      |                                     ^~~~~~~~~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\mocks\\IfxPort_PinMap.c:1:\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include\\illd_types/Ifx_Types.h:877:37: error: expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'\n  877 |     IfxEgtm_ClApConfig   clApConfig[IFXEGTM_NUM_CCM_OBJECTS];\n      |                                     ^~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include\\illd_types/Ifx_Types.h:1119:37: error: expected expression before 'IFXGTM_NUM_CCM_OBJECTS'\n 1119 |     IfxGtm_ClApConfig    clApConfig[IFXGTM_NUM_CCM_OBJECTS];\n      |                                     ^~~~~~~~~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/IfxSrc.h:4,\n                 from C:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\mocks\\IfxSrc.c:1:\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h:877:37: error: expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'\n  877 |     IfxEgtm_ClApConfig   clApConfig[IFXEGTM_NUM_CCM_OBJECTS];\n      |                                     ^~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h:1119:37: error: expected expression before 'IFXGTM_NUM_CCM_OBJECTS'\n 1119 |     IfxGtm_ClApConfig    clApConfig[IFXGTM_NUM_CCM_OBJECTS];\n      |                                     ^~~~~~~~~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/IfxStm.h:4,\n                 from C:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\mocks\\IfxStm.c:1:\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h:877:37: error: expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'\n  877 |     IfxEgtm_ClApConfig   clApConfig[IFXEGTM_NUM_CCM_OBJECTS];\n      |                                     ^~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h:1119:37: error: expected expression before 'IFXGTM_NUM_CCM_OBJECTS'\n 1119 |     IfxGtm_ClApConfig    clApConfig[IFXGTM_NUM_CCM_OBJECTS];\n      |                                     ^~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\mocks\\IfxStm.c: In function 'IfxStm_getTicksFromMilliseconds':\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\mocks\\IfxStm.c:20:21: error: 'millis' undeclared (first use in this function)\n   20 |     return (sint32)(millis * 1000);  /* Simple conversion for testing */\n      |                     ^~~~~~\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\mocks\\IfxStm.c:20:21: note: each undeclared identifier is reported only once for each function it appears in\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\mocks\\IfxStm.c: In function 'IfxStm_getTicksFromMicroseconds':\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\mocks\\IfxStm.c:25:20: error: 'micros' undeclared (first use in this function)\n   25 |     return (sint32)micros;\n      |                    ^~~~~~\n\nIn file included from C:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\mocks\\Ifx_Types.c:1:\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include\\illd_types/Ifx_Types.h:877:37: error: expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'\n  877 |     IfxEgtm_ClApConfig   clApConfig[IFXEGTM_NUM_CCM_OBJECTS];\n      |                                     ^~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include\\illd_types/Ifx_Types.h:1119:37: error: expected expression before 'IFXGTM_NUM_CCM_OBJECTS'\n 1119 |     IfxGtm_ClApConfig    clApConfig[IFXGTM_NUM_CCM_OBJECTS];\n      |                                     ^~~~~~~~~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/Ifx_Types.h:5,\n                 from C:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/egtm_atom_3_phase_inverter_pwm.h:12,\n                 from C:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\test\\test_egtm_atom_3_phase_inverter_pwm.c:2:\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h:877:37: error: expected expression before 'IFXEGTM_NUM_CCM_OBJECTS'\n  877 |     IfxEgtm_ClApConfig   clApConfig[IFXEGTM_NUM_CCM_OBJECTS];\n      |                                     ^~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h:1119:37: error: expected expression before 'IFXGTM_NUM_CCM_OBJECTS'\n 1119 |     IfxGtm_ClApConfig    clApConfig[IFXGTM_NUM_CCM_OBJECTS];\n      |                                     ^~~~~~~~~~~~~~~~~~~~~~\nIn file included from C:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/egtm_atom_3_phase_inverter_pwm.h:14:\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/IfxEgtm_Cmu.h:27:17: warning: 'IfxEgtm_Cmu_selectClkInput' declared 'static' but never defined [-Wunused-function]\n   27 | IFX_INLINE void IfxEgtm_Cmu_selectClkInput(Ifx_EGTM *egtm, IfxEgtm_Cmu_Clk clkIndex, boolean useGlobal);\n      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~\nIn file included from C:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/egtm_atom_3_phase_inverter_pwm.h:17:\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\include/IfxPort.h:10:17: warning: 'IfxPort_setPinModeOutput' declared 'static' but never defined [-Wunused-function]\n   10 | IFX_INLINE void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);\n      |                 ^~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\outputs_20260323-161941-8a7aec26\\b353b5c2c9dd\\Migrate_the_TC387_TOM-based_3_phase_inverter_PWM_t_r_20260324_003341\\attempts\\phase_001_build\\test\\test_egtm_atom_3_phase_inverter_pwm.c:12:22: warning: 'kDeadtimeUs' defined but not used [-Wunused-const-variable=]\n   12 | static const float32 kDeadtimeUs      = 0.5f;       // TIMING_DEADTIME_US (call-count verified only)\n      |                      ^~~~~~~~~~~\n",
+  "stdout": ""
+}
