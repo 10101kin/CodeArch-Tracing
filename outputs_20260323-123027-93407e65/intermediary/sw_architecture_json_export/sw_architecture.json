@@ -1,0 +1,215 @@
+{
+  "user_intent_preservation": {
+    "original_goal": "Migrate 3-phase PWM motor control to new AURIX target",
+    "functional_behavior": "Generate 3-phase complementary, center-aligned PWM at 20 kHz with 1 µs deadtime (HS active-high, LS active-low) on ATOM0 CH0–CH2 routed to P20.8/P20.9, P20.10/P20.11, P20.12/P20.13; configure ATOM0 CH3 as a 50% edge-aligned 20 kHz trigger routed to TMADC via EGTM ADC_OUT0.SEL0 to ADC_TRIG[36] and also exported to P33.0; heartbeat LED on P03.9 toggles every 500 ms; duty updates in a 500 ms main-loop poll; replace IfxScuWdt with IfxWtu; consolidate into a single .c/.h pair together with TMADC init (5-channel mapping TBD).",
+    "technical_approach": "Use unified PWM driver IfxEgtm_Pwm on TC4xx with EGTM Cluster 0 ATOM0 channels (CH0–CH2 center-aligned complementary with DTM for 1 µs deadtime, CH3 edge-aligned at 50%). Enable EGTM clocks via IfxEgtm_Cmu, configure deadtime via IfxEgtm_Dtm, route trigger to TMADC via IfxEgtm_Trigger_trigToAdc, set ATOM TOUT pins via IfxEgtm_PinMap_setAtomTout, manage heartbeat and GPIO using IfxPort, initialize TMADC with IfxAdc_Tmadc, and replace watchdog calls with IfxWtu."
+  },
+  "driver_selection": {
+    "recommended_driver": "IfxEgtm_Pwm",
+    "selection_rationale": "Unified EGTM PWM supports multi-channel, center/edge-aligned PWM with synchronous updates and integrates cleanly with ATOM and DTM. It simplifies 3-phase complementary PWM configuration while allowing deadtime setup via IfxEgtm_Dtm and trigger routing via IfxEgtm_Trigger.",
+    "available_in_template": true,
+    "complexity_level": "advanced",
+    "alternatives_considered": [
+      "IfxEgtm_Atom_Pwm",
+      "IfxGtm_Atom_Pwm"
+    ]
+  },
+  "driver_usage": {
+    "primary_driver": "IfxEgtm_Pwm",
+    "available_in_template": true,
+    "initialization_apis": [
+      "IfxEgtm_Pwm_initConfig",
+      "IfxEgtm_Pwm_init"
+    ],
+    "runtime_apis": [
+      "IfxEgtm_Pwm_updateChannelDutyImmediate"
+    ]
+  },
+  "file_structure": {
+    "module_files": [
+      "EGTM_ATOM_3_Phase_Inverter_PWM.c",
+      "EGTM_ATOM_3_Phase_Inverter_PWM.h"
+    ],
+    "cpu_files": [
+      "Cpu0_Main.c"
+    ],
+    "from_reference": true
+  },
+  "function_mapping": {
+    "init_function": {
+      "name": "initEgtmAtom3phInv",
+      "driver_calls": [
+        "IfxEgtm_Cmu_enableClocks",
+        "IfxEgtm_Pwm_initConfig",
+        "IfxEgtm_Pwm_init",
+        "IfxEgtm_Dtm_setClockSource",
+        "IfxEgtm_Dtm_setRelrise",
+        "IfxEgtm_Dtm_setRelfall",
+        "IfxEgtm_Trigger_trigToAdc",
+        "IfxEgtm_PinMap_setAtomTout",
+        "IfxPort_setPinModeOutput",
+        "IfxAdc_Tmadc_initModuleConfig",
+        "IfxAdc_Tmadc_initModule",
+        "IfxAdc_Tmadc_initChannelConfig",
+        "IfxAdc_Tmadc_initChannel",
+        "IfxAdc_Tmadc_runModule",
+        "IfxWtu_initConfig",
+        "IfxWtu_initCpuWatchdog"
+      ]
+    },
+    "runtime_function": {
+      "name": "updateEgtmAtom3phInvDuty",
+      "driver_calls": [
+        "IfxEgtm_Pwm_updateChannelDutyImmediate",
+        "IfxPort_togglePin"
+      ],
+      "purpose": "Periodic (500 ms) duty cycle updates for all three PWM phases with synchronous application; heartbeat LED toggle on P03.9."
+    }
+  },
+  "migration_notes": {
+    "is_migration": true,
+    "driver_changes": [
+      "IfxGtm_Pwm → IfxEgtm_Pwm (unified PWM)",
+      "IfxGtm_Tom/IfxGtm_Atom low-level usage → EGTM ATOM0 via IfxEgtm_Pwm with IfxEgtm_Dtm for deadtime",
+      "IfxGtm_Trig_toEVadc → IfxEgtm_Trigger_trigToAdc (route ATOM0.CH3 to TMADC trigger bus)",
+      "IfxEVadc_Adc → IfxAdc_Tmadc (TMADC on TC4xx)",
+      "IfxScuWdt → IfxWtu (watchdog on TC4xx)",
+      "IfxGtm_PinMap → IfxEgtm_PinMap for TOUT routing (GPIO remains IfxPort/IfxPort_PinMap)"
+    ],
+    "api_changes": [
+      {
+        "from": "initGtmTom3phInv",
+        "to": "initEgtmAtom3phInv",
+        "reason": "TC3xx→TC4xx function name transform (GtmTom→EgtmAtom)"
+      },
+      {
+        "from": "updateGtmTom3phInvDuty",
+        "to": "updateEgtmAtom3phInvDuty",
+        "reason": "TC3xx→TC4xx function name transform (GtmTom→EgtmAtom)"
+      },
+      {
+        "from": "IfxScuWdt_disableCpuWatchdog",
+        "to": "IfxWtu_initCpuWatchdog (configure as needed)",
+        "reason": "Watchdog API family migration; disable API not listed in template, use available IfxWtu initialization/control functions"
+      },
+      {
+        "from": "IfxGtm_Pwm_initConfig/IfxGtm_Pwm_init",
+        "to": "IfxEgtm_Pwm_initConfig/IfxEgtm_Pwm_init",
+        "reason": "GTM→EGTM unified PWM migration"
+      },
+      {
+        "from": "IfxGtm_Pwm_updateChannelsDutyImmediate",
+        "to": "IfxEgtm_Pwm_updateChannelDutyImmediate",
+        "reason": "Unified PWM duty update on TC4xx"
+      },
+      {
+        "from": "IfxGtm_Trig_toEVadc",
+        "to": "IfxEgtm_Trigger_trigToAdc",
+        "reason": "EVADC→TMADC trigger routing on TC4xx"
+      }
+    ],
+    "context_preserved": "The configuration keeps ATOM0 CH0–CH2 as center-aligned complementary PWM at 20 kHz with 1 µs deadtime and correct polarities, configures ATOM0 CH3 as a 50% edge-aligned 20 kHz trigger routed to TMADC (ADC_TRIG[36]) and exported to a TOUT pin, uses IfxPort to toggle P03.9 every 500 ms, updates duty in the 500 ms main loop, and replaces IfxScuWdt with IfxWtu. Pin routing uses IfxEgtm_PinMap (timer) and IfxPort (GPIO) as required. Any device/package-specific TOUT selections (P20.x, P33.0) and TMADC channel/pin mapping remain to be validated against IfxEgtm_PinMap and IfxAdc_Tmadc configuration for the exact TC4D7 package."
+  },
+  "header_selection": {
+    "applied": true,
+    "peripheral_type": "PWM",
+    "recommended_header": "IfxEgtm_Pwm",
+    "score": 314,
+    "required_includes": [
+      "IfxEgtm_Pwm.h"
+    ],
+    "function_mapping": {
+      "IFX_INTERRUPT": "IfxEgtm_Pwm_init",
+      "IfxGtm_Pwm_init": "IfxEgtm_Pwm_init",
+      "IfxGtm_Pwm_initConfig": "IfxEgtm_Pwm_initConfig",
+      "IfxGtm_Pwm_startSyncedGroups": "IfxEgtm_Pwm_startSyncedGroups",
+      "IfxGtm_Pwm_updateChannelsDutyImmediate": "IfxEgtm_Pwm_updateChannelsDutyImmediate",
+      "PWM_FREQUENCY": "IfxEgtm_Pwm_updateChannelDeadTimeImmediate",
+      "IfxGtm_enable": "IfxEgtm_Pwm_updateChannelPhase"
+    },
+    "available_functions_count": 100
+  },
+  "driver_selection_engine": {
+    "applied": true,
+    "mcu_family": "TC4xx",
+    "requirement_analysis": {
+      "peripherals": [
+        "PWM",
+        "ADC",
+        "GPIO",
+        "WATCHDOG"
+      ],
+      "complexity_hints": {
+        "PWM": "advanced",
+        "ADC": "simple",
+        "GPIO": "simple",
+        "WATCHDOG": "simple"
+      },
+      "specific_features": [
+        "3[- ]?phase"
+      ]
+    },
+    "recommendations": {
+      "ADC": {
+        "driver": "IfxEvadc_Adc",
+        "score": -10.0,
+        "complexity": "moderate",
+        "rationale": "âš ï¸ NOT found in template - may need to add | âœ… Matches target family (TC4xx) | Complexity: moderate | Best for: analog measurement, motor current sensing, high-speed sampling | Features: enhanced_vadc, parallel_sampling, fast_compare, result_fifo, limit_checking",
+        "alternatives": [
+          "IfxEdsadc_Edsadc"
+        ]
+      }
+    },
+    "migration_mappings": {
+      "IfxScuWdt": {
+        "target_driver": "IfxWtu",
+        "api_mapping": {
+          "IfxScuWdt_disableCpuWatchdog": "IfxWtu_disableCpuWatchdog",
+          "IfxScuWdt_disableSafetyWatchdog": "IfxWtu_enableCpuWatchdog",
+          "IfxScuWdt_enableCpuWatchdog": "// No equivalent - manual mapping needed",
+          "IfxScuWdt_enableSafetyWatchdog": "// No equivalent - manual mapping needed",
+          "IfxScuWdt_serviceCpuWatchdog": "IfxWtu_serviceCpuWatchdog",
+          "IfxScuWdt_serviceSafetyWatchdog": "// No equivalent - manual mapping needed",
+          "IfxScuWdt_clearCpuEndinit": "// No equivalent - manual mapping needed",
+          "IfxScuWdt_setCpuEndinit": "// No equivalent - manual mapping needed"
+        }
+      },
+      "IfxGtm_Pwm": {
+        "target_driver": "IfxEgtm_Pwm",
+        "api_mapping": {
+          "IfxGtm_Pwm_init": "IfxEgtm_Pwm_init",
+          "IfxGtm_Pwm_initConfig": "IfxEgtm_Pwm_initConfig",
+          "IfxGtm_Pwm_start": "IfxEgtm_Pwm_start",
+          "IfxGtm_Pwm_stop": "IfxEgtm_Pwm_stop",
+          "IfxGtm_Pwm_setDuty": "IfxEgtm_Pwm_setDuty"
+        }
+      },
+      "IfxPort": {
+        "target_driver": "IfxPort_Io",
+        "api_mapping": {
+          "IfxPort_setPinMode": "IfxPort_Io_initModule",
+          "IfxPort_setPinModeOutput": "// No equivalent - manual mapping needed",
+          "IfxPort_setPinModeInput": "// No equivalent - manual mapping needed",
+          "IfxPort_setPinPadDriver": "// No equivalent - manual mapping needed",
+          "IfxPort_setPinState": "IfxPort_Io_setPinState",
+          "IfxPort_getPinState": "IfxPort_Io_getPinState",
+          "IfxPort_togglePin": "// No equivalent - manual mapping needed",
+          "IfxPort_setPinHigh": "// No equivalent - manual mapping needed",
+          "IfxPort_setPinLow": "// No equivalent - manual mapping needed"
+        }
+      }
+    }
+  },
+  "driver_knowledge_base": {
+    "applied": true,
+    "recommended_driver": "IfxWtu",
+    "api_layer": "unified",
+    "rationale": "User explicitly requested IfxWtu",
+    "avoid_drivers": [
+      "IfxScuWdt"
+    ],
+    "companion_drivers": [],
+    "handles_internally": [],
+    "user_must_handle": []
+  }
+}
