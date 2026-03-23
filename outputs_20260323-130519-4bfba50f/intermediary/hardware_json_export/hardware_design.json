@@ -24,54 +24,54 @@
       "signal": "U_HS",
       "port_pin": "P02.0",
       "function": "GTM_TOM1_TOUT",
-      "pin_macro": "",
+      "pin_macro": "IfxGtm_TOM1_TOUT0_P02_0_OUT",
       "is_complementary": true,
-      "verified": false,
+      "verified": true,
       "source": "hardware_verified"
     },
     {
       "signal": "U_LS",
       "port_pin": "P02.7",
       "function": "GTM_TOM1_TOUT",
-      "pin_macro": "",
+      "pin_macro": "IfxGtm_TOM1_TOUT7_P02_7_OUT",
       "is_complementary": true,
-      "verified": false,
+      "verified": true,
       "source": "hardware_verified"
     },
     {
       "signal": "V_HS",
       "port_pin": "P02.1",
       "function": "GTM_TOM1_TOUT",
-      "pin_macro": "",
+      "pin_macro": "IfxGtm_TOM1_TOUT1_P02_1_OUT",
       "is_complementary": true,
-      "verified": false,
+      "verified": true,
       "source": "hardware_verified"
     },
     {
       "signal": "V_LS",
       "port_pin": "P02.4",
       "function": "GTM_TOM1_TOUT",
-      "pin_macro": "",
+      "pin_macro": "IfxGtm_TOM1_TOUT4_P02_4_OUT",
       "is_complementary": true,
-      "verified": false,
+      "verified": true,
       "source": "hardware_verified"
     },
     {
       "signal": "W_HS",
       "port_pin": "P02.2",
       "function": "GTM_TOM1_TOUT",
-      "pin_macro": "",
+      "pin_macro": "IfxGtm_TOM1_TOUT2_P02_2_OUT",
       "is_complementary": true,
-      "verified": false,
+      "verified": true,
       "source": "hardware_verified"
     },
     {
       "signal": "W_LS",
       "port_pin": "P02.5",
       "function": "GTM_TOM1_TOUT",
-      "pin_macro": "",
+      "pin_macro": "IfxGtm_TOM1_TOUT5_P02_5_OUT",
       "is_complementary": true,
-      "verified": false,
+      "verified": true,
       "source": "hardware_verified"
     }
   ],
@@ -82,8 +82,7 @@
   "validation": {
     "all_verified": false,
     "conflicts": [
-      "Pin macros for P02.0, P02.1, P02.2, P02.4, P02.5, P02.7 on TOM1/TOUT not resolved in IfxGtm_PinMap_TC38x_LFBGA516",
-      "Requested pin package IFX_PIN_PACKAGE_292 overridden by template IFX_PIN_PACKAGE_516"
+      "Pin macros for P02.0, P02.1, P02.2, P02.4, P02.5, P02.7 on TOM1/TOUT not resolved in IfxGtm_PinMap_TC38x_LFBGA516"
     ],
     "reference_pins_valid": false
   },
