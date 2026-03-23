@@ -3,12 +3,12 @@
     "model": "TC4Dx",
     "family": "TC4xx",
     "verified": true,
-    "device_macro": "DEVICE_TC4D7",
-    "pin_package": "IFX_PIN_PACKAGE_BGA292_COM"
+    "device_macro": "DEVICE_TC4DX",
+    "pin_package": "IFX_PIN_PACKAGE_BGA436_COM"
   },
   "peripheral_instance": {
     "type": "PWM",
-    "module": "EGTM.ATOM1",
+    "module": "EGTM1.ATOM1",
     "channels": [
       0,
       1,
