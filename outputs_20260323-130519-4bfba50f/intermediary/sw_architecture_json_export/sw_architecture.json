@@ -60,7 +60,7 @@
     }
   },
   "migration_notes": {
-    "is_migration": false,
+    "is_migration": true,
     "driver_changes": [
       "PWM generation remains on IfxGtm_Tom_PwmHl for complementary PWM with deadtime as requested.",
       "Add periodic scheduler using IfxStm_Timer for 500 ms duty updates."
@@ -107,12 +107,12 @@
     },
     "recommendations": {
       "PWM": {
-        "driver": "IfxGtm_Pwm",
+        "driver": "IfxGtm_Tom_PwmHl",
         "score": 95.0,
         "complexity": "advanced",
         "rationale": "âœ… Available in template | âœ… Matches target family (TC3xx) | Complexity: advanced | Best for: 3-phase inverter, motor control, multi-channel synchronized PWM | Features: multi_channel_sync, complementary_pairs, dead_time, center_aligned, edge_aligned",
         "alternatives": [
-          "IfxGtm_Tom_PwmHl",
+          "IfxGtm_Pwm",
           "IfxGtm_Tom_Pwm",
           "IfxGtm_Atom_Pwm"
         ]
@@ -127,16 +127,16 @@
         }
       },
       "IfxGtm_Tom_PwmHl": {
-        "target_driver": "IfxGtm_Pwm",
+        "target_driver": "IfxGtm_Tom_PwmHl",
         "api_mapping": {
-          "IfxGtm_Tom_PwmHl_init": "IfxGtm_Pwm_init",
-          "IfxGtm_Tom_PwmHl_initConfig": "IfxGtm_Pwm_initConfig",
-          "IfxGtm_Tom_PwmHl_setOnTime": "IfxGtm_Pwm_setDuty",
-          "IfxGtm_Tom_PwmHl_setPeriod": "IfxGtm_Pwm_updatePeriod",
-          "IfxGtm_Tom_PwmHl_start": "IfxGtm_Pwm_start",
-          "IfxGtm_Tom_PwmHl_stop": "IfxGtm_Pwm_stop"
+          "IfxGtm_Tom_PwmHl_init": "IfxGtm_Tom_PwmHl_init",
+          "IfxGtm_Tom_PwmHl_initConfig": "IfxGtm_Tom_PwmHl_initConfig",
+          "IfxGtm_Tom_PwmHl_setOnTime": "IfxGtm_Tom_PwmHl_setOnTime",
+          "IfxGtm_Tom_PwmHl_setPeriod": "IfxGtm_Tom_PwmHl_setPeriod",
+          "IfxGtm_Tom_PwmHl_start": "IfxGtm_Tom_PwmHl_start",
+          "IfxGtm_Tom_PwmHl_stop": "IfxGtm_Tom_PwmHl_stop"
         },
-        "upgrade_reason": "Known upgrade path: IfxGtm_Tom_PwmHl → IfxGtm_Pwm"
+        "upgrade_reason": "Retention decision: Stay on IfxGtm_Tom_PwmHl for complementary PWM with deadtime"
       },
       "IfxCpu_Irq": {
         "target_driver": "IfxSrc",
