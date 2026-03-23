@@ -125,7 +125,7 @@
     },
     "syncStart": true,
     "syncUpdate": true,
-    "pinmap_resolution_status": "assumed_macros_provided; verify exact names in IfxEgtm_PinMap.h for KIT_A3G_TC4D7_LITE"
+    "pinmap_resolution_status": "assumed_macros_provided; REQUIRED: Explicitly verify pinmap macro names in IfxEgtm_PinMap.h for KIT_A3G_TC4D7_LITE before code generation"
   },
   "timing_requirements": {
     "pwm_frequency_hz": 20000,
@@ -189,7 +189,8 @@
       "port": "P33.7",
       "mode": "outputPushPullGpio",
       "default_state": "off",
-      "assumption_note": "LED pin not specified on KIT_A3G_TC4D7_LITE; P33.7 assumed as common LED pin. Verify against board schematic."
+      "assumption_note": "LED pin not specified on KIT_A3G_TC4D7_LITE; P33.7 assumed as common LED pin. Verify against board schematic.",
+      "mandatory_action": "Verify LED pin assignment against the KIT_A3G_TC4D7_LITE board schematic before implementation."
     }
   },
   "template_compatibility": {
