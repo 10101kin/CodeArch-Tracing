@@ -55,10 +55,6 @@
         "IfxAdc_Tmadc_runModule",
         "IfxWtu_initConfig",
         "IfxWtu_initCpuWatchdog"
-      ],
-      "driver_calls_review_notes": [
-        "Check your TC4xx iLLD for IfxAdc_Tmadc.h and the APIs IfxAdc_Tmadc_initModuleConfig, IfxAdc_Tmadc_initModule, IfxAdc_Tmadc_initChannelConfig, IfxAdc_Tmadc_initChannel, and IfxAdc_Tmadc_runModule. If not present, consult Infineon release notes for TMADC driver details.",
-        "Check your TC4xx iLLD for IfxWtu.h and the APIs IfxWtu_initConfig and IfxWtu_initCpuWatchdog. If not present, consult Infineon release notes for watchdog driver details."
       ]
     },
     "runtime_function": {
@@ -78,8 +74,7 @@
       "IfxGtm_Trig_toEVadc → IfxEgtm_Trigger_trigToAdc (route ATOM0.CH3 to TMADC trigger bus)",
       "IfxEVadc_Adc → IfxAdc_Tmadc (TMADC on TC4xx)",
       "IfxScuWdt → IfxWtu (watchdog on TC4xx)",
-      "IfxGtm_PinMap → IfxEgtm_PinMap for TOUT routing (GPIO remains IfxPort/IfxPort_PinMap)",
-      "Use eGTM (IfxEgtm_Pwm) and WTU (IfxWtu) APIs for TC4xx as per Infineon migration guidance; avoid GTM and SCU WDT APIs unless your device variant specifically supports them."
+      "IfxGtm_PinMap → IfxEgtm_PinMap for TOUT routing (GPIO remains IfxPort/IfxPort_PinMap)"
     ],
     "api_changes": [
       {
@@ -123,7 +118,6 @@
     "required_includes": [
       "IfxEgtm_Pwm.h"
     ],
-    "required_includes_review_note": "Check your TC4xx iLLD package for IfxEgtm_Pwm.h and the APIs IfxEgtm_Pwm_initConfig, IfxEgtm_Pwm_init, and IfxEgtm_Pwm_updateChannelDutyImmediate. If not present, consult Infineon release notes or use the available eGTM driver headers.",
     "function_mapping": {
       "IFX_INTERRUPT": "IfxEgtm_Pwm_init",
       "IfxGtm_Pwm_init": "IfxEgtm_Pwm_init",
