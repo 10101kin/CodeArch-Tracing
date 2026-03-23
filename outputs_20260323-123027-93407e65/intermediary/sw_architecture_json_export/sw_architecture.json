@@ -108,7 +108,20 @@
         "reason": "EVADC→TMADC trigger routing on TC4xx"
       }
     ],
-    "context_preserved": "The configuration keeps ATOM0 CH0–CH2 as center-aligned complementary PWM at 20 kHz with 1 µs deadtime and correct polarities, configures ATOM0 CH3 as a 50% edge-aligned 20 kHz trigger routed to TMADC (ADC_TRIG[36]) and exported to a TOUT pin, uses IfxPort to toggle P03.9 every 500 ms, updates duty in the 500 ms main loop, and replaces IfxScuWdt with IfxWtu. Pin routing uses IfxEgtm_PinMap (timer) and IfxPort (GPIO) as required. Any device/package-specific TOUT selections (P20.x, P33.0) and TMADC channel/pin mapping remain to be validated against IfxEgtm_PinMap and IfxAdc_Tmadc configuration for the exact TC4D7 package."
+    "context_preserved": "The configuration keeps ATOM0 CH0–CH2 as center-aligned complementary PWM at 20 kHz with 1 µs deadtime and correct polarities, configures ATOM0 CH3 as a 50% edge-aligned 20 kHz trigger routed to TMADC (ADC_TRIG[36]) and exported to a TOUT pin, uses IfxPort to toggle P03.9 every 500 ms, updates duty in the 500 ms main loop, and replaces IfxScuWdt with IfxWtu. Pin routing uses IfxEgtm_PinMap (timer) and IfxPort (GPIO) as required. Any device/package-specific TOUT selections (P20.x, P33.0) and TMADC channel/pin mapping remain to be validated against IfxEgtm_PinMap and IfxAdc_Tmadc configuration for the exact TC4D7 package.",
+    "error_handling": [
+      "Validate all TOUT routes and TMADC trigger selections against the TC4D7 IfxEgtm_PinMap and IfxAdc_Tmadc capabilities at compile time; if unsupported, fail the build with a clear message and provide alternative pin options in comments.",
+      "Check return/status of all init routines (EGTM, DTM, PWM, TMADC, WTU); on failure, force PWM outputs to a safe inactive state, stop ADC triggering, and leave watchdog in a safe default configuration.",
+      "Clamp/sanitize duty-cycle inputs to valid ranges before applying updates; reject NaN/invalid values and retain last known-good configuration.",
+      "Detect pin conflicts (pins used by other peripherals); if detected, do not initialize the conflicting output and emit a diagnostic.",
+      "Handle trigger routing errors: if EGTM->TMADC routing is unavailable, disable TMADC run/start and log a diagnostic to avoid spurious conversions."
+    ],
+    "tbd_resolution_plan": [
+      "Finalize TMADC 5-channel mapping: define channel-to-pin table aligned with board schematics and TC4D7 package; document it in the module header and code comments.",
+      "Confirm that ATOM0.CH3 maps to ADC_TRIG[36] for the selected device/cluster and record the EGTM ADC_OUTx.SELy setting used.",
+      "Review and lock GPIO/TOUT selections (P20.8–P20.13, P33.0) against the device pinout and PinMap; update documentation if alternatives are required.",
+      "Record all decisions and errata-driven workarounds in the module header; revisit after initial bring-up tests."
+    ]
   },
   "header_selection": {
     "applied": true,
@@ -197,6 +210,14 @@
           "IfxPort_setPinHigh": "// No equivalent - manual mapping needed",
           "IfxPort_setPinLow": "// No equivalent - manual mapping needed"
         }
+      },
+      "api_boundary_notes": {
+        "documentation": "Explicitly document all manual mappings and 'no equivalent' items for GPIO (IfxPort) and watchdog (IfxWtu) in the module header (.h) and implementation (.c).",
+        "wrapper_functions_recommended": true,
+        "wrapper_functions_scope": [
+          "GPIO wrappers: pin mode (input/output), pad driver, set/toggle/high/low, read",
+          "Watchdog wrappers: enable/disable/service CPU watchdog and any required endinit handling, with clear usage contracts"
+        ]
       }
     }
   },
