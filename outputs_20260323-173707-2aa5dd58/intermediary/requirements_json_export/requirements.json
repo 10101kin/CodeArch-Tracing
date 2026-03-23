@@ -114,37 +114,37 @@
           "pin": "P20.8",
           "phase": "U_HS",
           "atom_channel": 0,
-          "tout_symbol": "IfxEgtm_TOUT20_8_P20_8_OUT"
+          "tout_symbol": "Resolve from IfxEgtm_PinMap (TOUT for P20.8)"
         },
         {
           "pin": "P20.9",
           "phase": "U_LS",
           "atom_channel": 1,
-          "tout_symbol": "IfxEgtm_TOUT20_9_P20_9_OUT"
+          "tout_symbol": "Resolve from IfxEgtm_PinMap (TOUT for P20.9)"
         },
         {
           "pin": "P20.10",
           "phase": "V_HS",
           "atom_channel": 2,
-          "tout_symbol": "IfxEgtm_TOUT20_10_P20_10_OUT"
+          "tout_symbol": "Resolve from IfxEgtm_PinMap (TOUT for P20.10)"
         },
         {
           "pin": "P20.11",
           "phase": "V_LS",
           "atom_channel": 3,
-          "tout_symbol": "IfxEgtm_TOUT20_11_P20_11_OUT"
+          "tout_symbol": "Resolve from IfxEgtm_PinMap (TOUT for P20.11)"
         },
         {
           "pin": "P20.12",
           "phase": "W_HS",
           "atom_channel": 4,
-          "tout_symbol": "IfxEgtm_TOUT20_12_P20_12_OUT"
+          "tout_symbol": "Resolve from IfxEgtm_PinMap (TOUT for P20.12)"
         },
         {
           "pin": "P20.13",
           "phase": "W_LS",
           "atom_channel": 5,
-          "tout_symbol": "IfxEgtm_TOUT20_13_P20_13_OUT"
+          "tout_symbol": "Resolve from IfxEgtm_PinMap (TOUT for P20.13)"
         }
       ],
       "gpio_mode": "pushPull"
@@ -177,8 +177,8 @@
     }
   },
   "device_configuration": {
-    "target_device_macro": "DEVICE_TC4DX",
-    "pin_package": "IFX_PIN_PACKAGE_BGA436_COM",
+    "target_device_macro": "DEVICE_TC4D7",
+    "pin_package": "IFX_PIN_PACKAGE_BGA292_COM",
     "device_family": "TC4xx",
     "clock_requirements": {
       "requires_xtal": true,
