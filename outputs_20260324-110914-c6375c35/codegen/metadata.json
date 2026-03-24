@@ -1,27 +1,12 @@
 {
   "attempt": 1,
   "phase_attempt": 1,
-  "phase": "mock",
-  "timestamp": "2026-03-24T19:23:59.160953",
-  "success": true,
-  "files": [
-    "Ifx_Types.h",
-    "Ifx_Types.c",
-    "IfxGtm_Tom_Timer.h",
-    "IfxGtm_Tom_Timer.c",
-    "IfxGtm_Pwm.h",
-    "IfxGtm_Pwm.c",
-    "IfxGtm_PinMap.h",
-    "IfxGtm_PinMap.c",
-    "IfxGtm_Cmu.h",
-    "IfxGtm_Cmu.c",
-    "IfxGtm.h",
-    "IfxGtm.c",
-    "IfxPort.h",
-    "IfxPort.c",
-    "ifxgtm_tom.h",
-    "ifxgtm_tom.c"
+  "phase": "test",
+  "timestamp": "2026-03-24T19:26:31.241516",
+  "success": false,
+  "files": [],
+  "errors": [
+    "JSON parse error: Could not parse JSON"
   ],
-  "errors": [],
   "build_result": null
 }
