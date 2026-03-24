@@ -96,22 +96,14 @@
         "PHASE_W_LS": "P20.13"
       },
       "pinmap_header": "IfxEgtm_PinMap.h",
-      "gpio_header": "IfxPort.h",
-      "polarity": "active-high",
-      "initial_duty_cycle_percent": {
-        "PHASE_U": 0.0,
-        "PHASE_V": 0.0,
-        "PHASE_W": 0.0
-      }
+      "gpio_header": "IfxPort.h"
     },
     "isr": {
       "event": "period",
       "cpu": "CPU0",
       "priority": 20,
       "action": "toggle LED P13.0 each period",
-      "led_pin": "P13.0",
-      "interrupt_vector": "SRC_EGTM1_ATOM0_CH0",
-      "handler_signature": "IFX_INTERRUPT(isrEgtmAtomPeriod, 0, 20)"
+      "led_pin": "P13.0"
     }
   },
   "timing_requirements": {
@@ -127,13 +119,11 @@
     "clock_enables": {
       "enable_fxclk_0": true,
       "enable_clk0": true
-    },
-    "fxclk_0_divider": 1,
-    "clk0_divider": 1
+    }
   },
   "device_configuration": {
     "target_device_macro": "DEVICE_TC4DX",
-    "pin_package": "IFX_PIN_PACKAGE_BGA436_COM",
+    "pin_package": "IFX_PIN_PACKAGE_BGA292_COM",
     "device_family": "TC4xx",
     "clock_requirements": {
       "requires_xtal": true,
