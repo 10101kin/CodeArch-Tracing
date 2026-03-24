@@ -1,0 +1,85 @@
+{
+  "module_name": "GTM_TOM_3_Phase_Inverter_PWM",
+  "public_functions": [
+    {
+      "signature": "void initGtmTom3phInv(void)",
+      "behavior_description": "Enable the GTM module and its functional clocks. Initialize a TOM time base to generate center-aligned PWM at the required frequency. Configure a complementary PWM driver with three channel pairs for a three-phase inverter. Assign the configured output pins and set the output mode and pad driver. Apply the required deadtime and minimum pulse constraints for complementary switching. Start the timer base. Compute initial on-time tick values for the three phases from the current period using the requested initial duty percentages. Program these on-times using a shadow-update sequence (disable update, write new on-times, apply update) so they latch synchronously at the next PWM period boundary.",
+      "driver_calls": [
+        "IfxGtm_enable",
+        "IfxGtm_Cmu_enableClocks",
+        "IfxGtm_Tom_Timer_initConfig",
+        "IfxGtm_Tom_Timer_init",
+        "IfxGtm_Tom_PwmHl_initConfig",
+        "IfxGtm_Tom_PwmHl_init",
+        "IfxGtm_Tom_PwmHl_setMode",
+        "IfxGtm_Tom_PwmHl_setDeadtime",
+        "IfxGtm_Tom_PwmHl_setMinPulse",
+        "IfxGtm_PinMap_setTomTout",
+        "IfxGtm_Tom_Timer_run",
+        "IfxGtm_Tom_Timer_disableUpdate",
+        "IfxGtm_Tom_PwmHl_setOnTime",
+        "IfxGtm_Tom_Timer_applyUpdate"
+      ],
+      "from_reference": true,
+      "call_context": "init"
+    },
+    {
+      "signature": "void updateGtmTom3phInvDuty(void)",
+      "behavior_description": "Obtain the current PWM period from the timer state. Calculate a duty increment equal to a fixed percentage of the period (the step size). For each of the three phase channels, add this increment to the stored on-time. If any on-time reaches or exceeds the maximum threshold corresponding to 100% duty, wrap it to the minimum threshold corresponding to 0% duty. After updating all three on-times, perform a shadow-update sequence (disable update, write new on-times for all three phases together, apply update) so the changes latch synchronously at the next PWM period boundary. This function is intended to be called periodically (e.g., every 500 ms) to advance the duties by the configured step size with wrap-around.",
+      "driver_calls": [
+        "IfxGtm_Tom_Timer_disableUpdate",
+        "IfxGtm_Tom_PwmHl_setOnTime",
+        "IfxGtm_Tom_Timer_applyUpdate"
+      ],
+      "from_reference": true,
+      "call_context": "loop"
+    }
+  ],
+  "private_functions": [
+    {
+      "signature": "static void configureTom1Pins(void)",
+      "needed": true,
+      "from_reference": false
+    }
+  ],
+  "dependencies": {
+    "includes": [
+      "IfxGtm.h",
+      "IfxGtm_Cmu.h",
+      "IfxGtm_Tom_Timer.h",
+      "IfxGtm_Tom_PwmHl.h",
+      "IfxGtm_PinMap.h",
+      "IfxPort.h"
+    ],
+    "driver_calls": [
+      "IfxGtm_enable",
+      "IfxGtm_Cmu_enableClocks",
+      "IfxGtm_Tom_Timer_init",
+      "IfxGtm_Tom_PwmHl_init",
+      "IfxGtm_PinMap_setTomTout"
+    ]
+  },
+  "cpu_main_requirements": {
+    "needs_cpu_sync": true,
+    "uses_timer_delay": true,
+    "delay_ms": 10,
+    "additional_includes": [
+      "Bsp.h"
+    ]
+  },
+  "header_selection": {
+    "applied": true,
+    "peripheral_type": "PWM",
+    "recommended_header": "IfxGtm_Tom",
+    "template_functions_count": 1029,
+    "required_includes": [
+      "IfxGtm_Tom.h"
+    ],
+    "original_recommendation": "IfxGtm_Tom_Pwm",
+    "reconciled": true,
+    "reconciliation_reason": "LLM driver_calls use IfxGtm_Tom_* API, not IfxGtm_Tom_Pwm (the reference API). Updated to match actual usage.",
+    "original_required_includes": [
+      "IfxGtm_Tom_Pwm.h"
+    ]
+  }
+}
