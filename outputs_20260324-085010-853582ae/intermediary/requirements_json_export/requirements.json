@@ -8,11 +8,7 @@
     "driver_mappings": {
       "IfxGtm_Tom_PwmHl": "IfxGtm_Pinmap",
       "IfxScuWdt": "IfxScuWdt",
-      "IfxCpu": "IfxCpu",
-      "_verification": {
-        "status": "pending",
-        "note": "Provide iLLD migration guide or release notes for TC3xx family to confirm mapping changes."
-      }
+      "IfxCpu": "IfxCpu"
     },
     "header_mappings": {
       "IfxGtm_PinMap.h": "IfxGtm_PinMap.h",
@@ -60,11 +56,7 @@
     "type": "GTM_TOM",
     "driver_available": true,
     "driver_name": "IfxGtm_Tom_PwmHl",
-    "purpose": "3-phase complementary center-aligned PWM on TOM1 with CH0 as time base",
-    "driver_name_verification": {
-      "status": "pending",
-      "note": "Provide iLLD documentation or project source confirming IfxGtm_Tom_PwmHl for TC387."
-    }
+    "purpose": "3-phase complementary center-aligned PWM on TOM1 with CH0 as time base"
   },
   "signal_requirements": {
     "pins": {
@@ -131,22 +123,16 @@
         "period_ticks": 5000,
         "deadtime_ticks": 50,
         "min_pulse_ticks": 100
-      },
-      "example_values": true,
-      "note": "Frequencies are example values, not guaranteed defaults. Consult board/project configuration for actual clock settings."
+      }
     }
   },
   "device_configuration": {
     "target_device_macro": "DEVICE_TC38X",
-    "pin_package": "IFX_PIN_PACKAGE_292",
+    "pin_package": "IFX_PIN_PACKAGE_516",
     "device_family": "TC3xx",
     "clock_requirements": {
       "requires_xtal": true,
       "expected_system_freq_mhz": 300
-    },
-    "target_device_macro_verification": {
-      "status": "pending",
-      "note": "Confirm the actual macro used for TC387 device selection in your project headers."
     }
   },
   "code_structure": {
