@@ -1,0 +1,101 @@
+{
+  "microcontroller": {
+    "model": "TC387",
+    "family": "TC3xx",
+    "verified": true,
+    "device_macro": "DEVICE_TC38X",
+    "pin_package": "IFX_PIN_PACKAGE_516"
+  },
+  "peripheral_instance": {
+    "type": "PWM",
+    "module": "TOM1",
+    "channels": [
+      0,
+      2,
+      4,
+      6
+    ],
+    "driver": "IfxGtm_Pwm"
+  },
+  "pin_assignments": [
+    {
+      "signal": "U",
+      "port_pin": "P02.0",
+      "function": "TOUT12",
+      "pin_macro": "IfxGtm_TOM1_2_TOUT12_P02_0_OUT",
+      "is_complementary": false,
+      "verified": true,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "V",
+      "port_pin": "P02.1",
+      "function": "TOUT14",
+      "pin_macro": "IfxGtm_TOM1_4_TOUT14_P02_1_OUT",
+      "is_complementary": false,
+      "verified": true,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "W",
+      "port_pin": "P02.2",
+      "function": "TOUT16",
+      "pin_macro": "IfxGtm_TOM1_6_TOUT16_P02_2_OUT",
+      "is_complementary": false,
+      "verified": true,
+      "source": "hardware_verified"
+    }
+  ],
+  "clock_configuration": {
+    "xtal_frequency_mhz": 20,
+    "system_frequency_mhz": 300
+  },
+  "validation": {
+    "all_verified": true,
+    "conflicts": [],
+    "reference_pins_valid": true
+  },
+  "template_validation": {
+    "supported_peripherals": [
+      "PWM",
+      "GTM",
+      "CPU"
+    ],
+    "suggested_drivers": {
+      "PWM": [
+        "IfxCcu6_PwmBc",
+        "IfxGtm_Tom_Pwm",
+        "IfxGtm_Tom_Dtm_PwmHl",
+        "IfxGtm_Atom_Dtm_PwmHl",
+        "IfxGtm_Atom_Pwm",
+        "IfxGtm_Pwm",
+        "IfxCcu6_TPwm",
+        "IfxGtm_Tom_PwmHl",
+        "IfxCcu6_PwmHl",
+        "IfxGtm_Atom_PwmHl"
+      ],
+      "GTM": [
+        "IfxGtm_Dtm",
+        "IfxGtm_Tbu",
+        "IfxGtm",
+        "IfxGtm_Spe",
+        "IfxGtm_Pwm",
+        "IfxGtm_Psm",
+        "IfxGtm_PinMap_TC38x_LFBGA516",
+        "IfxGtm_PinMap_TC38x_LFBGA292",
+        "IfxGtm_Trig",
+        "IfxGtm_Dpll",
+        "IfxGtm_PinMap_TC38x_516"
+      ],
+      "CPU": [
+        "IfxCpu"
+      ]
+    },
+    "warnings": []
+  },
+  "pin_analysis": {
+    "verified_count": 3,
+    "doc_reference_count": 1,
+    "merged_total": 4
+  }
+}
