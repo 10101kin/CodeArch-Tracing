@@ -4,7 +4,7 @@
     "family": "TC4xx",
     "verified": true,
     "device_macro": "DEVICE_TC4DX",
-    "pin_package": "IFX_PIN_PACKAGE_BGA292_COM"
+    "pin_package": "IFX_PIN_PACKAGE_BGA436_COM"
   },
   "peripheral_instance": {
     "type": "PWM",
@@ -34,6 +34,15 @@
       "pin_macro": "IfxEgtm_ATOM0_0N_TOUT1_P02_1_OUT",
       "is_complementary": true,
       "verified": true,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "EGTM0.ATOM0.CH1.TOUT",
+      "port_pin": "P02.2",
+      "function": "TOUT2",
+      "pin_macro": "IfxEgtm_ATOM0_1_TOUT2_P02_2_OUT",
+      "is_complementary": false,
+      "verified": false,
       "source": "hardware_verified"
     },
     {
