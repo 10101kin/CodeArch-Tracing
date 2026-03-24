@@ -4,7 +4,7 @@
     "family": "TC3xx",
     "verified": true,
     "device_macro": "DEVICE_TC38X",
-    "pin_package": "IFX_PIN_PACKAGE_292"
+    "pin_package": "IFX_PIN_PACKAGE_516"
   },
   "peripheral_instance": {
     "type": "PWM",
@@ -20,9 +20,9 @@
   "pin_assignments": [
     {
       "signal": "U",
-      "port_pin": "P11.2",
+      "port_pin": "P02.0",
       "function": "TOUT12",
-      "pin_macro": "IfxGtm_TOM1_2_TOUT12_P11_2_OUT",
+      "pin_macro": "IfxGtm_TOM1_2_TOUT12_P02_0_OUT",
       "is_complementary": false,
       "verified": true,
       "source": "hardware_verified"
