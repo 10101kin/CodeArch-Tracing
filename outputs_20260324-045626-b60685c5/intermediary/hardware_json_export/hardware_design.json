@@ -4,7 +4,7 @@
     "family": "TC4xx",
     "verified": true,
     "device_macro": "DEVICE_TC4DX",
-    "pin_package": "IFX_PIN_PACKAGE_BGA436_COM"
+    "pin_package": "IFX_PIN_PACKAGE_BGA292_COM"
   },
   "peripheral_instance": {
     "type": "PWM",
@@ -21,7 +21,7 @@
       "signal": "PHASE_U_HS",
       "port_pin": "P20.8",
       "function": "EGTM_ATOM0_TOUT (HS)",
-      "pin_macro": "TODO: P20.8 macro unresolved; confirm EGTM ATOM0 TOUT HS mapping for DEVICE_TC4DX BGA436_COM via IfxEgtm_PinMap or vendor; update after hardware validation",
+      "pin_macro": "",
       "is_complementary": false,
       "verified": false,
       "source": "hardware_verified"
@@ -30,7 +30,7 @@
       "signal": "PHASE_U_LS",
       "port_pin": "P20.9",
       "function": "EGTM_ATOM0_TOUT (LS via DTM)",
-      "pin_macro": "TODO: P20.9 macro unresolved; confirm EGTM ATOM0 TOUT LS via DTM mapping for DEVICE_TC4DX BGA436_COM via IfxEgtm_PinMap or vendor; update after hardware validation",
+      "pin_macro": "",
       "is_complementary": true,
       "verified": false,
       "source": "hardware_verified"
@@ -39,7 +39,7 @@
       "signal": "PHASE_V_HS",
       "port_pin": "P20.10",
       "function": "EGTM_ATOM0_TOUT (HS)",
-      "pin_macro": "TODO: P20.10 macro unresolved; confirm EGTM ATOM0 TOUT HS mapping for DEVICE_TC4DX BGA436_COM via IfxEgtm_PinMap or vendor; update after hardware validation",
+      "pin_macro": "",
       "is_complementary": false,
       "verified": false,
       "source": "hardware_verified"
@@ -48,7 +48,7 @@
       "signal": "PHASE_V_LS",
       "port_pin": "P20.11",
       "function": "EGTM_ATOM0_TOUT (LS via DTM)",
-      "pin_macro": "TODO: P20.11 macro unresolved; confirm EGTM ATOM0 TOUT LS via DTM mapping for DEVICE_TC4DX BGA436_COM via IfxEgtm_PinMap or vendor; update after hardware validation",
+      "pin_macro": "",
       "is_complementary": true,
       "verified": false,
       "source": "hardware_verified"
@@ -57,7 +57,7 @@
       "signal": "PHASE_W_HS",
       "port_pin": "P20.12",
       "function": "EGTM_ATOM0_TOUT (HS)",
-      "pin_macro": "TODO: P20.12 macro unresolved; confirm EGTM ATOM0 TOUT HS mapping for DEVICE_TC4DX BGA436_COM via IfxEgtm_PinMap or vendor; update after hardware validation",
+      "pin_macro": "",
       "is_complementary": false,
       "verified": false,
       "source": "hardware_verified"
@@ -66,7 +66,7 @@
       "signal": "PHASE_W_LS",
       "port_pin": "P20.13",
       "function": "EGTM_ATOM0_TOUT (LS via DTM)",
-      "pin_macro": "TODO: P20.13 macro unresolved; confirm EGTM ATOM0 TOUT LS via DTM mapping for DEVICE_TC4DX BGA436_COM via IfxEgtm_PinMap or vendor; update after hardware validation",
+      "pin_macro": "",
       "is_complementary": true,
       "verified": false,
       "source": "hardware_verified"
@@ -75,7 +75,7 @@
       "signal": "LED_TOGGLE_ISR",
       "port_pin": "P13.0",
       "function": "GPIO (LED)",
-      "pin_macro": "TODO: Confirm IfxPort_P13_0 macro for GPIO LED on KIT_A3G_TC4D7_LITE; awaiting schematic cross-check",
+      "pin_macro": "IfxPort_P13_0",
       "is_complementary": false,
       "verified": false,
       "source": "hardware_verified"
@@ -88,8 +88,8 @@
   "validation": {
     "all_verified": false,
     "conflicts": [
-      "Unverified mapping: P20.8–P20.13 (EGTM ATOM0 TOUT HS/LS) for DEVICE_TC4DX, IFX_PIN_PACKAGE_BGA436_COM. IfxEgtm_PinMap.h/IfxPort does not list P20.x TOUT macros in current doc set; only P02.x examples found. Action plan: 1) request official P20.x TOUT-to-pin map from Infineon or MCAL/vendor; 2) validate on hardware (scope TOUT toggles on P20.x) before design freeze; 3) update pin_macro with confirmed symbols. Risk: build-time macro resolution failure or incorrect routing.",
-      "LED reference: P13.0 as GPIO (LED) on KIT_A3G_TC4D7_LITE requires schematic cross-check. Until confirmed, keep pin_assignments[LED_TOGGLE_ISR].verified=false and treat as TBD; owner: HW; ETA: next schematic review."
+      "Pins P20.8, P20.9, P20.10, P20.11, P20.12, P20.13, and P13.0 could not be verified against IfxEgtm_PinMap.h/IfxPort for DEVICE_TC4DX with IFX_PIN_PACKAGE_BGA436_COM in the provided template context. Only example macros for P02.x were available in documentation; TOUT indices and exact macros for P20.x were not found.",
+      "Reference LED pin P13.0 not confirmed against target template; requires verification."
     ],
     "reference_pins_valid": false
   },
