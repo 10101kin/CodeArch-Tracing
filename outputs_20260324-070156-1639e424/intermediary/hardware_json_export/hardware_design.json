@@ -1,9 +1,9 @@
 {
   "microcontroller": {
-    "model": "TC4D7",
+    "model": "TC4DX",
     "family": "TC4xx",
     "verified": true,
-    "device_macro": "DEVICE_TC4D7",
+    "device_macro": "DEVICE_TC4DX",
     "pin_package": "IFX_PIN_PACKAGE_BGA292_COM"
   },
   "peripheral_instance": {
@@ -34,15 +34,6 @@
       "pin_macro": "IfxEgtm_ATOM0_0N_TOUT1_P02_1_OUT",
       "is_complementary": true,
       "verified": true,
-      "source": "hardware_verified"
-    },
-    {
-      "signal": "EGTM0.ATOM0.CH1.TOUT",
-      "port_pin": "P02.2",
-      "function": "TOUT2",
-      "pin_macro": "IfxEgtm_ATOM0_1_TOUT2_P02_2_OUT",
-      "is_complementary": false,
-      "verified": false,
       "source": "hardware_verified"
     },
     {
@@ -89,10 +80,10 @@
   "validation": {
     "all_verified": false,
     "conflicts": [
-      "Updated device configuration to DEVICE_TC4D7 with IFX_PIN_PACKAGE_BGA292_COM for KIT_A3G_TC4D7_LITE; previous mismatch with DEVICE_TC4DX/IFX_PIN_PACKAGE_BGA436_COM corrected. All pin assignments require re-validation on the new device/package.",
-      "Verification required: PWM substitution to P02.[0/1,2/3,4/5] for U/V/W on KIT_A3G_TC4D7_LITE must be explicitly validated or escalated for hardware review; document rationale for any substitution.",
-      "Action required: Confirm that P02.6 (TOUT6) can be routed to TMADC0 trigger on KIT_A3G_TC4D7_LITE or provide an alternative; document any limitations.",
-      "CH1/CH2/CH3 pin mappings are provisional; seek explicit documentation or schematic confirmation for EGTM0.ATOM0 CH1/CH2/CH3 on KIT_A3G_TC4D7_LITE."
+      "Requested device DEVICE_TC4D7 with IFX_PIN_PACKAGE_BGA292_COM; template configuration provides DEVICE_TC4DX with IFX_PIN_PACKAGE_BGA436_COM.",
+      "User-specified PWM pins U(V,W) on P00.[3/2,5/4,7/6] not found in provided template PinMap; substituted with P02.[0/1,2/3,4/5] based on template documentation.",
+      "Requested ADC trigger output on P33.0 not available in provided template PinMap; substituted with P02.6 (TOUT6) based on template documentation.",
+      "Only CH0 pair (P02.0/P02.1) explicitly present in template documentation; CH1/CH2/CH3 mappings follow documented macro pattern but are not explicitly verified in the provided template context."
     ],
     "reference_pins_valid": false
   },
