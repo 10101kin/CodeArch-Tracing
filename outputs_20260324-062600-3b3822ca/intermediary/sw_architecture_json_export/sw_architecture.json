@@ -56,66 +56,6 @@
         "IfxGtm_Pwm_updateChannelsDutyImmediate"
       ],
       "purpose": "Every 500 ms adjust U/V/W PWM duties by +10% with wrap-around (100% → 0%) while running at 20 kHz center-aligned; Cpu0 WAIT_TIME set to 500 ms to pace updates."
-    },
-    "abstraction_layers": {
-      "hardware_interface": "GtmPwmHwIf",
-      "implementation": "GtmPwmHwIf_IfxGtm",
-      "mock_implementation": "GtmPwmHwIf_Mock",
-      "injection_method": "dependency_injection_via_function_pointers",
-      "error_handling": "status_codes_and_error_callback"
-    },
-    "testability": {
-      "hooks": [
-        "onInitPre",
-        "onInitPost",
-        "onDutyUpdatePre",
-        "onDutyUpdatePost",
-        "onError"
-      ],
-      "mockable_interfaces": [
-        "GtmPwmHwIf",
-        "timebase_wait"
-      ]
-    },
-    "parameterization": {
-      "config_struct": "GtmPwmAppConfig",
-      "compile_time_defaults": {
-        "frequency_hz": 20000,
-        "alignment": "center",
-        "timebase": {
-          "module": "TOM1",
-          "channel": 0,
-          "clock": "Fxclk0"
-        }
-      },
-      "channels": [
-        {
-          "logical": "U",
-          "tom": "TOM1",
-          "channel": 2,
-          "tout": "TOUT12",
-          "pin": "P02.0"
-        },
-        {
-          "logical": "V",
-          "tom": "TOM1",
-          "channel": 4,
-          "tout": "TOUT14",
-          "pin": "P02.1"
-        },
-        {
-          "logical": "W",
-          "tom": "TOM1",
-          "channel": 6,
-          "tout": "TOUT16",
-          "pin": "P02.2"
-        }
-      ],
-      "pin_mapping_strategy": "table_driven",
-      "runtime_changeable": [
-        "duty_cycle",
-        "frequency_hz"
-      ]
     }
   },
   "migration_notes": {
@@ -193,7 +133,7 @@
         "api_mapping": {
           "IfxGtm_Tom_PwmHl_init": "IfxGtm_Pwm_init",
           "IfxGtm_Tom_PwmHl_initConfig": "IfxGtm_Pwm_initConfig",
-          "IfxGtm_Tom_PwmHl_setOnTime": "IfxGtm_Pwm_updateChannelsDutyImmediate",
+          "IfxGtm_Tom_PwmHl_setOnTime": "IfxGtm_Pwm_setDuty",
           "IfxGtm_Tom_PwmHl_setPeriod": "IfxGtm_Pwm_updatePeriod",
           "IfxGtm_Tom_PwmHl_start": "IfxGtm_Pwm_start",
           "IfxGtm_Tom_PwmHl_stop": "IfxGtm_Pwm_stop"
