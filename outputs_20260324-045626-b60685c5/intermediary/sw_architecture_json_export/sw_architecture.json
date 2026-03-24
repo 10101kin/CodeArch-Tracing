@@ -1,7 +1,7 @@
 {
   "user_intent_preservation": {
     "original_goal": "Migrate 3-phase PWM motor control to new AURIX target",
-    "functional_behavior": "Generate 3-phase PWM on EGTM Cluster_1 ATOM0 channels 0/1/2 at 20 kHz, center-aligned, complementary via DTM with 1 µs rising/falling dead-time; enable syncStart and syncUpdate; allow independent duty updates; raise a period event ISR on CPU0 (prio 20) to toggle LED P13.0; map outputs to PHASE_U/V/W HS/LS pins on P20.8/9/10/11/12/13; use ATOM clock = FXCLK_0 and DTM clock = CLK0, enabling FXCLK_0 and CLK0. ISR registration: handler declared with IFX_INTERRUPT(EgtmAtom_PeriodIsr, 0, 20); prototype void EgtmAtom_PeriodIsr(void); source initialized via IfxSrc_init(&SRC_EGTM1_ATOM0_CH0_SR0, IfxSrc_Tos_cpu0, 20) and enabled with IfxSrc_enable(&SRC_EGTM1_ATOM0_CH0_SR0); ISR calls IfxEgtm_Pwm_interruptHandler() then toggles P13.0.",
+    "functional_behavior": "Generate 3-phase PWM on EGTM Cluster_1 ATOM0 channels 0/1/2 at 20 kHz, center-aligned, complementary via DTM with 1 µs rising/falling dead-time; enable syncStart and syncUpdate; allow independent duty updates; raise a period event ISR on CPU0 (prio 20) to toggle LED P13.0; map outputs to PHASE_U/V/W HS/LS pins on P20.8/9/10/11/12/13; use ATOM clock = FXCLK_0 and DTM clock = CLK0, enabling FXCLK_0 and CLK0.",
     "technical_approach": "Use the unified high-level IfxEgtm_Pwm driver on TC4xx to configure EGTM Cluster_1 ATOM0 CH0/1/2 as a synchronized, center-aligned 3-channel PWM group with complementary outputs via DTM and 1 µs dead-time. Enable EGTM CMU FXCLK_0 for ATOM and CLK0 for DTM. Map TOUT pins with IfxEgtm_PinMap. Install a period event ISR on CPU0 (priority 20) that calls IfxEgtm_Pwm_interruptHandler and toggles LED P13.0 via IfxPort."
   },
   "driver_selection": {
@@ -112,7 +112,7 @@
         "reason": "GTM→EGTM module reference"
       }
     ],
-    "context_preserved": "The unified IfxEgtm_Pwm driver is used to configure EGTM Cluster_1 ATOM0 CH0/1/2 for 20 kHz center-aligned PWM with complementary DTM outputs and 1 µs dead-time. SyncStart is achieved with IfxEgtm_Pwm_startSyncedChannels; syncUpdate is honored by using the unified driver's synchronized update paths, while independent phase duty updates are performed via IfxEgtm_Pwm_updateChannelDutyImmediate. FXCLK_0 and CLK0 are enabled via IfxEgtm_Cmu/IfxEgtm_Dtm APIs. A period ISR on CPU0 (prio 20) invokes IfxEgtm_Pwm_interruptHandler and toggles LED P13.0 using IfxPort. Pin mapping uses IfxEgtm_PinMap for the specified P20.x TOUTs.\nExact EGTM TOUT pin macros (from IfxEgtm_PinMap.h for the target board):\n- PHASE_U_HS  (P20.8)  : IfxEgtm_Atom_Tout_0_P20_8_OUT\n- PHASE_U_LS  (P20.11) : IfxEgtm_Atom_Tout_0N_P20_11_OUT\n- PHASE_V_HS  (P20.9)  : IfxEgtm_Atom_Tout_1_P20_9_OUT\n- PHASE_V_LS  (P20.12) : IfxEgtm_Atom_Tout_1N_P20_12_OUT\n- PHASE_W_HS  (P20.10) : IfxEgtm_Atom_Tout_2_P20_10_OUT\n- PHASE_W_LS  (P20.13) : IfxEgtm_Atom_Tout_2N_P20_13_OUT"
+    "context_preserved": "The unified IfxEgtm_Pwm driver is used to configure EGTM Cluster_1 ATOM0 CH0/1/2 for 20 kHz center-aligned PWM with complementary DTM outputs and 1 µs dead-time. SyncStart is achieved with IfxEgtm_Pwm_startSyncedChannels; syncUpdate is honored by using the unified driver's synchronized update paths, while independent phase duty updates are performed via IfxEgtm_Pwm_updateChannelDutyImmediate. FXCLK_0 and CLK0 are enabled via IfxEgtm_Cmu/IfxEgtm_Dtm APIs. A period ISR on CPU0 (prio 20) invokes IfxEgtm_Pwm_interruptHandler and toggles LED P13.0 using IfxPort. Pin mapping uses IfxEgtm_PinMap for the specified P20.x TOUTs; verify exact P20.x TOUT macros in IfxEgtm_PinMap.h for KIT_A3G_TC4D7_LITE."
   },
   "header_selection": {
     "applied": true,
@@ -223,30 +223,6 @@
     "user_must_handle": [
       "clock_setup_via_CMU",
       "pin_mapping"
-    ]
-  },
-  "testability": {
-    "overview": "Architecture includes abstraction and hooks to enable unit and integration testing without hardware dependencies.",
-    "abstractions": {
-      "pwm_interface": "Wrap IfxEgtm_Pwm calls behind a thin interface (EgtmPwmIf) with function pointers to allow mocking in unit tests.",
-      "gpio_interface": "Wrap IfxPort operations behind a GPIO facade (GpioIf) providing toggle/read/write APIs."
-    },
-    "mocks_and_stubs": {
-      "pwm_driver_mock": "Provide a mock EgtmPwmIf implementation to simulate duty/frequency updates and ISR callbacks.",
-      "gpio_mock": "Provide a mock GpioIf that records pin state changes for assertions.",
-      "isr_hook": "Expose a weak ISR handler that can be overridden in tests to capture period events."
-    },
-    "simulation": {
-      "pwm_waveform_model": "Optional software model to compute expected edge times for center-aligned PWM with dead-time; compare against calls observed in the mock.",
-      "timebase": "Use a virtual timer source in tests to drive ISR invocation deterministically."
-    },
-    "integration_testing": {
-      "loopback_strategy": "On target, support optional loopback by routing one TOUT to an input capture pin; on HIL, verify frequency/duty via logic analyzer scripts.",
-      "diagnostic_counters": "Expose counters for ISR executions, missed updates, and last applied duty per phase."
-    },
-    "build_flags": [
-      "UNIT_TEST",
-      "HIL_TEST"
     ]
   }
 }
