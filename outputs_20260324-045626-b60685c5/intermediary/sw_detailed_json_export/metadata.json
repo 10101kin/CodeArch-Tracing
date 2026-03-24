@@ -1,6 +1,6 @@
 {
   "export_type": "node_json",
-  "export_reason": "stage_completed",
+  "export_reason": "reviewer_patch_applied",
   "node_stage": "sw_detailed",
   "reviewer_name": null,
   "reviewer_applied": false,
@@ -9,6 +9,6 @@
   "workflow_stage": "sw_detailed_validation",
   "target_board": "KIT_A3G_TC4D7_LITE",
   "generation_mode": "MIGRATION",
-  "timestamp": "2026-03-24T05:21:15.485927",
-  "has_reasoning": true
+  "timestamp": "2026-03-24T05:25:38.069648",
+  "has_reasoning": false
 }

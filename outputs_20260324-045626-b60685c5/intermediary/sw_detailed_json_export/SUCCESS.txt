@@ -1,10 +1,10 @@
 Node JSON export
 Stage: sw_detailed
-Reason: stage_completed
+Reason: reviewer_patch_applied
 Modified By: system
 Modifier: N/A
 Reviewer: N/A
-Attempt: 4
-Phase attempt: 1
-Has Reasoning: Yes
-Timestamp: 2026-03-24T05:21:15.485934
+Attempt: 5
+Phase attempt: 2
+Has Reasoning: No
+Timestamp: 2026-03-24T05:25:38.069661
