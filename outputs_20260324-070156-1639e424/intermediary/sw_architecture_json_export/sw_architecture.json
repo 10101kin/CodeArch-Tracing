@@ -143,11 +143,11 @@
         "INTERRUPT"
       ],
       "complexity_hints": {
-        "PWM": "advanced",
-        "ADC": "moderate",
-        "GPIO": "simple",
-        "WATCHDOG": "simple",
-        "INTERRUPT": "simple"
+        "PWM": "DriverComplexity.ADVANCED",
+        "ADC": "DriverComplexity.MODERATE",
+        "GPIO": "DriverComplexity.SIMPLE",
+        "WATCHDOG": "DriverComplexity.SIMPLE",
+        "INTERRUPT": "DriverComplexity.SIMPLE"
       },
       "specific_features": [
         "complementary",
