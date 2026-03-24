@@ -1,0 +1,109 @@
+{
+  "module_name": "EGTM_ATOM_3_Phase_Inverter",
+  "public_functions": [
+    {
+      "signature": "void initEgtmAtom3phInv(void)",
+      "behavior_description": "Initialize the eGTM and TMADC subsystems and configure PWM and GPIO according to the 3-phase inverter requirements. Algorithm: 1) Initialize watchdog configuration structures and set up watchdog modules (CPU/system) via WTU as required by the platform policy. 2) Enable the eGTM module and its clocks. 3) Build the unified PWM configuration for one base channel and three synchronous channels located in the same ATOM cluster: - Set center-aligned operation and the requested base frequency for the group. - Attach complementary output usage via DTM/CDTM for each inverter phase so each channel drives a high-side output and its complementary low-side output with hardware deadtime applied. - Compute deadtime ticks from the DTM clock for 1.0 microseconds (rise/fall) and program both relative rise and fall delays for all phase channels. 4) Assign the available PWM output pins for the configured channels using the provided generic eGTM PinMap APIs; ensure output pins are configured for push-pull mode and acceptable pad drive via the port driver. 5) Initialize the four channels: three for phase outputs (base + two sync) with complementary pairs and one additional channel used as an ADC trigger (edge-aligned, 50% duty, falling-edge event). 6) Route the trigger channel to the ADC trigger fabric using the eGTM trigger API, and optionally map the trigger channel out to a board pin if available. 7) Initialize the TMADC module and create channel configurations for the required channels, all configured to be triggered by the eGTM trigger source generated from the trigger channel; start the TMADC module. 8) Configure the LED GPIO as a low-active push-pull output and drive it to the inactive level by default. 9) Start the synchronized PWM channels together so all phase outputs start in sync with the requested frequency, center alignment, complementary outputs, and programmed deadtime.",
+      "driver_calls": [
+        "IfxWtu_initConfig",
+        "IfxWtu_initCpuWatchdog",
+        "IfxWtu_initSystemWatchdog",
+        "IfxEgtm_enable",
+        "IfxEgtm_Cmu_enableClocks",
+        "IfxEgtm_Pwm_initConfig",
+        "IfxEgtm_Pwm_initChannelConfig",
+        "IfxEgtm_PinMap_setAtomTout",
+        "IfxEgtm_Pwm_init",
+        "IfxEgtm_Dtm_setClockSource",
+        "IfxEgtm_Dtm_setRelrise",
+        "IfxEgtm_Dtm_setRelfall",
+        "IfxEgtm_Dtm_setOutput1Function",
+        "IfxEgtm_Dtm_setOutput1Select",
+        "IfxEgtm_Dtm_setOutput1Polarity",
+        "IfxEgtm_Pwm_startSyncedChannels",
+        "IfxEgtm_Trigger_trigToAdc",
+        "IfxAdc_Tmadc_initModuleConfig",
+        "IfxAdc_Tmadc_initModule",
+        "IfxAdc_Tmadc_initChannelConfig",
+        "IfxAdc_Tmadc_initChannel",
+        "IfxAdc_Tmadc_runModule",
+        "IfxPort_setPinModeOutput",
+        "IfxPort_setPinState"
+      ],
+      "from_reference": true,
+      "call_context": "init"
+    },
+    {
+      "signature": "void updateEgtmAtom3phInvDuty(float32 *requestDuty)",
+      "behavior_description": "Update the 3-phase inverter duties at runtime. Algorithm: 1) Read three duty requests from the provided array corresponding to the inverter phases and update the internal duty buffer for the three configured PWM phase channels. 2) Apply these new duty values immediately to the underlying PWM driver so the center-aligned complementary outputs change on the next permissible update point. 3) Do not modify frequency, phase relationships, deadtime, or the separate trigger channel; only the three phase duty cycles are updated. This function is intended to be called periodically (e.g., every 500 ms in the main loop).",
+      "driver_calls": [
+        "IfxEgtm_Pwm_updateChannelsDutyImmediate"
+      ],
+      "from_reference": true,
+      "call_context": "loop"
+    }
+  ],
+  "private_functions": [
+    {
+      "signature": "static uint16 calcDeadtimeTicks(float32 deadtimeUs)",
+      "needed": true,
+      "from_reference": false
+    }
+  ],
+  "dependencies": {
+    "includes": [
+      "IfxEgtm_Pwm.h",
+      "IfxEgtm_Cmu.h",
+      "IfxEgtm_Dtm.h",
+      "IfxEgtm_PinMap.h",
+      "IfxEgtm_Trigger.h",
+      "IfxAdc_Tmadc.h",
+      "IfxWtu.h",
+      "IfxPort.h"
+    ],
+    "driver_calls": [
+      "IfxEgtm_enable",
+      "IfxEgtm_Cmu_enableClocks",
+      "IfxEgtm_Pwm_initConfig",
+      "IfxEgtm_Pwm_initChannelConfig",
+      "IfxEgtm_Pwm_init",
+      "IfxEgtm_Pwm_startSyncedChannels",
+      "IfxEgtm_Pwm_updateChannelsDutyImmediate",
+      "IfxEgtm_PinMap_setAtomTout",
+      "IfxEgtm_Dtm_setClockSource",
+      "IfxEgtm_Dtm_setRelrise",
+      "IfxEgtm_Dtm_setRelfall",
+      "IfxEgtm_Dtm_setOutput1Function",
+      "IfxEgtm_Dtm_setOutput1Select",
+      "IfxEgtm_Dtm_setOutput1Polarity",
+      "IfxEgtm_Trigger_trigToAdc",
+      "IfxAdc_Tmadc_initModuleConfig",
+      "IfxAdc_Tmadc_initModule",
+      "IfxAdc_Tmadc_initChannelConfig",
+      "IfxAdc_Tmadc_initChannel",
+      "IfxAdc_Tmadc_runModule",
+      "IfxWtu_initConfig",
+      "IfxWtu_initCpuWatchdog",
+      "IfxWtu_initSystemWatchdog",
+      "IfxPort_setPinModeOutput",
+      "IfxPort_setPinState"
+    ]
+  },
+  "cpu_main_requirements": {
+    "needs_cpu_sync": true,
+    "uses_timer_delay": true,
+    "delay_ms": 500,
+    "additional_includes": [
+      "Bsp.h"
+    ]
+  },
+  "header_selection": {
+    "applied": true,
+    "peripheral_type": "PWM",
+    "recommended_header": "IfxEgtm_Pwm",
+    "template_functions_count": 1461,
+    "required_includes": [
+      "IfxEgtm_Pwm.h"
+    ]
+  }
+}
