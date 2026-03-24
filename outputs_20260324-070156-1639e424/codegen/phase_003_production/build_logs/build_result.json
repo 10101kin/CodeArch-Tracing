@@ -1,34 +1,3 @@
-Attempt 3 - PRODUCTION (Global: 3)
-Status: FAILED ❌
-Timestamp: 2026-03-24 08:28:45
-Files generated: 2
-
-============================================================
-
-ERRORS:
-
-1. unknown type name ‘IfxAdc_Tmadc_HwTriggerConfig’; did you mean ‘IfxAdc_Tmadc_ChannelServReqConfig’?
-
-2. unknown type name ‘IfxAdc_Tmadc_HwTriggerConfig’; did you mean ‘IfxAdc_Tmadc_ChannelServReqConfig’?
-
-3. unknown type name ‘IfxDma_Dma_Channel’; did you mean ‘IfxAdc_TmadcChannel’?
-
-4. unknown type name ‘IfxDma_Index’
-
-5. unknown type name ‘IfxAdc_Tmadc_DmaSrvReq’; did you mean ‘IfxAdc_TmadcServReq’?
-
-6. unknown type name ‘IfxDma_ChannelId’
-
-7. unknown type name ‘IfxDma_Index’
-
-8. unknown type name ‘IfxAdc_TmadcGlobalServReq’; did you mean ‘IfxAdc_TmadcServReq’?
-
-9. unknown type name ‘IfxSrc_Tos’
-
-10. unknown type name ‘IfxSrc_VmId’
-
-============================================================
-BUILD RESULT:
 {
   "success": false,
   "errors": [

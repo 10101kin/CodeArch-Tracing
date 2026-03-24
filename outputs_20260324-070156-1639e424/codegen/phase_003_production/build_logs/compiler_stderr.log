@@ -1,0 +1,1462 @@
+In file included from /tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/Ifx_Types.h:5,
+                 from /tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/egtm_atom_3ph_pwm.h:4,
+                 from /tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/src/egtm_atom_3ph_pwm.c:1:
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:628:5: error: unknown type name ‘IfxAdc_Tmadc_HwTriggerConfig’; did you mean ‘IfxAdc_Tmadc_ChannelServReqConfig’?
+  628 |     IfxAdc_Tmadc_HwTriggerConfig hwTrigger1;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_Tmadc_ChannelServReqConfig
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:629:5: error: unknown type name ‘IfxAdc_Tmadc_HwTriggerConfig’; did you mean ‘IfxAdc_Tmadc_ChannelServReqConfig’?
+  629 |     IfxAdc_Tmadc_HwTriggerConfig hwTrigger2;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_Tmadc_ChannelServReqConfig
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:638:5: error: unknown type name ‘IfxDma_Dma_Channel’; did you mean ‘IfxAdc_TmadcChannel’?
+  638 |     IfxDma_Dma_Channel channel;
+      |     ^~~~~~~~~~~~~~~~~~
+      |     IfxAdc_TmadcChannel
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:639:5: error: unknown type name ‘IfxDma_Index’
+  639 |     IfxDma_Index       dmaId;
+      |     ^~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:648:5: error: unknown type name ‘IfxAdc_Tmadc_DmaSrvReq’; did you mean ‘IfxAdc_TmadcServReq’?
+  648 |     IfxAdc_Tmadc_DmaSrvReq *dmaSrvReqCfg;
+      |     ^~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_TmadcServReq
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:649:5: error: unknown type name ‘IfxDma_ChannelId’
+  649 |     IfxDma_ChannelId        channelId;
+      |     ^~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:650:5: error: unknown type name ‘IfxDma_Index’
+  650 |     IfxDma_Index            dmaId;
+      |     ^~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:658:5: error: unknown type name ‘IfxAdc_TmadcGlobalServReq’; did you mean ‘IfxAdc_TmadcServReq’?
+  658 |     IfxAdc_TmadcGlobalServReq servReq;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_TmadcServReq
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:661:5: error: unknown type name ‘IfxSrc_Tos’
+  661 |     IfxSrc_Tos                typeOfService;
+      |     ^~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:662:5: error: unknown type name ‘IfxSrc_VmId’
+  662 |     IfxSrc_VmId               vmId;
+      |     ^~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:673:5: error: unknown type name ‘IfxAdc_TmadcBoundaryCmpMode’; did you mean ‘IfxAdc_TmadcBoundaryReg’?
+  673 |     IfxAdc_TmadcBoundaryCmpMode boundCmpMode;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_TmadcBoundaryReg
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:685:5: error: unknown type name ‘IfxAdc_Tmadc_BufferType’
+  685 |     IfxAdc_Tmadc_BufferType bufferType;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:703:5: error: unknown type name ‘IfxAdc_Tmadc_BufferType’; did you mean ‘IfxAdc_Tmadc_Queue’?
+  703 |     IfxAdc_Tmadc_BufferType bufferType;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_Tmadc_Queue
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:720:5: error: unknown type name ‘IfxAdc_Tmadc_InterruptConfig’; did you mean ‘IfxAdc_Tmadc_QueueConfig’?
+  720 |     IfxAdc_Tmadc_InterruptConfig *intConfig[IFXADC_TMADC_MAX_SERV_REQ_NODE];
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_Tmadc_QueueConfig
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:720:45: error: ‘IFXADC_TMADC_MAX_SERV_REQ_NODE’ undeclared here (not in a function)
+  720 |     IfxAdc_Tmadc_InterruptConfig *intConfig[IFXADC_TMADC_MAX_SERV_REQ_NODE];
+      |                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:729:5: error: unknown type name ‘IfxAdc_Tmadc_HwTriggerConfig’; did you mean ‘IfxAdc_Tmadc_ChannelTriggerConfig’?
+  729 |     IfxAdc_Tmadc_HwTriggerConfig hwTrigger;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_Tmadc_ChannelTriggerConfig
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:768:5: error: unknown type name ‘IfxApProt_TagId’
+  768 |     IfxApProt_TagId tagId;
+      |     ^~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:769:5: error: unknown type name ‘IfxApProt_VmId’
+  769 |     IfxApProt_VmId  vmId;
+      |     ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:770:5: error: unknown type name ‘IfxApProt_PrsId’
+  770 |     IfxApProt_PrsId protectionSet;
+      |     ^~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:817:5: error: unknown type name ‘IfxEgtm_Cfg_MscSet’
+  817 |     IfxEgtm_Cfg_MscSet       mscSet;
+      |     ^~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:818:5: error: unknown type name ‘IfxEgtm_Cfg_MscSetSignal’
+  818 |     IfxEgtm_Cfg_MscSetSignal mscSetSignal;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:819:5: error: unknown type name ‘IfxEgtm_Cfg_MscModule’
+  819 |     IfxEgtm_Cfg_MscModule    mscModule;
+      |     ^~~~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:820:5: error: unknown type name ‘IfxEgtm_Cfg_MscSelect’
+  820 |     IfxEgtm_Cfg_MscSelect    mscSelect;
+      |     ^~~~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:821:5: error: unknown type name ‘IfxEgtm_MscAltInput’
+  821 |     IfxEgtm_MscAltInput      mscAltIn;
+      |     ^~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:834:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  834 |     volatile Ifx_UReg_32Bit *SR0;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:835:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  835 |     volatile Ifx_UReg_32Bit *SR1;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:836:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  836 |     volatile Ifx_UReg_32Bit *CM0;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:837:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  837 |     volatile Ifx_UReg_32Bit *CM1;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:838:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  838 |     volatile Ifx_UReg_32Bit *CN0;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:839:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  839 |     volatile Ifx_UReg_32Bit *CTRL;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:840:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  840 |     volatile Ifx_UReg_32Bit *GLB_CTRL;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:841:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  841 |     volatile Ifx_UReg_32Bit *IRQ_NOTIFY;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:842:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  842 |     volatile Ifx_UReg_32Bit *DTV;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:843:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  843 |     volatile Ifx_UReg_32Bit *DTV_SR;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:875:5: error: unknown type name ‘IfxEgtm_Pwm_FastShutoffConfig’
+  875 |     IfxEgtm_Pwm_FastShutoffConfig *fastShutOff;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:883:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  883 |     volatile Ifx_UReg_32Bit *reg0;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:884:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  884 |     volatile Ifx_UReg_32Bit *reg1;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:887:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  887 |     volatile Ifx_UReg_32Bit *endisCtrlReg0;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:888:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  888 |     volatile Ifx_UReg_32Bit *endisCtrlReg1;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:975:5: error: unknown type name ‘IfxEgtm_IrqMode’
+  975 |     IfxEgtm_IrqMode      mode;
+      |     ^~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:976:5: error: unknown type name ‘IfxSrc_Tos’
+  976 |     IfxSrc_Tos           isrProvider;
+      |     ^~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:978:5: error: unknown type name ‘IfxSrc_VmId’
+  978 |     IfxSrc_VmId          vmId;
+      |     ^~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1158:5: error: unknown type name ‘IFX_CONST’
+ 1158 |     IFX_CONST IfxAdc_TmadcCh_In *tmadcInPin;
+      |     ^~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1158:33: error: expected ‘:’, ‘,’, ‘;’, ‘}’ or ‘__attribute__’ before ‘*’ token
+ 1158 |     IFX_CONST IfxAdc_TmadcCh_In *tmadcInPin;
+      |                                 ^
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1168:5: error: unknown type name ‘IFX_CONST’
+ 1168 |     IFX_CONST IfxAdc_Emuxctrl_Out *emuxCtrl0Pin;
+      |     ^~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1168:35: error: expected ‘:’, ‘,’, ‘;’, ‘}’ or ‘__attribute__’ before ‘*’ token
+ 1168 |     IFX_CONST IfxAdc_Emuxctrl_Out *emuxCtrl0Pin;
+      |                                   ^
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1196:5: error: unknown type name ‘IfxEgtm_Pwm_ToutMap’; did you mean ‘IfxEgtm_Pwm_State’?
+ 1196 |     IfxEgtm_Pwm_ToutMap *pin;
+      |     ^~~~~~~~~~~~~~~~~~~
+      |     IfxEgtm_Pwm_State
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1197:5: error: unknown type name ‘IfxEgtm_Pwm_ToutMap’; did you mean ‘IfxEgtm_Pwm_State’?
+ 1197 |     IfxEgtm_Pwm_ToutMap *complementaryPin;
+      |     ^~~~~~~~~~~~~~~~~~~
+      |     IfxEgtm_Pwm_State
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1246:37: error: expected expression before ‘IFXPORT_NUM_APU’
+ 1246 |     IfxApApu_ApuConfig    apuConfig[IFXPORT_NUM_APU];
+      |                                     ^~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1247:37: error: expected expression before ‘IFXPORT_NUM_PINS’
+ 1247 |     IfxPort_Pin_ApuConfig pinConfig[IFXPORT_NUM_PINS];
+      |                                     ^~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1248:1: warning: no semicolon at end of struct or union
+ 1248 | } IfxPort_ApuGroupConfig;
+      | ^
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1841:5: error: unknown type name ‘IfxAdc_TmadcBoundaryCmpMode’; did you mean ‘IfxAdc_Tmadc_BoundaryConfig’?
+ 1841 |     IfxAdc_TmadcBoundaryCmpMode boundCmpMode;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_Tmadc_BoundaryConfig
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/src/egtm_atom_3ph_pwm.c:11:42: warning: missing braces around initializer [-Wmissing-braces]
+   11 | IFX_STATIC EgtmAtom3phPwm_Driver s_drv = {
+      |                                          ^
+   12 |     .tmadc = {0},
+      |               {}
+   13 |     .tmadcChannels = {0},
+      |                       {}
+
+In file included from /tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/mocks/IfxPort_PinMap.c:1:
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:628:5: error: unknown type name ‘IfxAdc_Tmadc_HwTriggerConfig’; did you mean ‘IfxAdc_Tmadc_ChannelServReqConfig’?
+  628 |     IfxAdc_Tmadc_HwTriggerConfig hwTrigger1;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_Tmadc_ChannelServReqConfig
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:629:5: error: unknown type name ‘IfxAdc_Tmadc_HwTriggerConfig’; did you mean ‘IfxAdc_Tmadc_ChannelServReqConfig’?
+  629 |     IfxAdc_Tmadc_HwTriggerConfig hwTrigger2;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_Tmadc_ChannelServReqConfig
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:638:5: error: unknown type name ‘IfxDma_Dma_Channel’; did you mean ‘IfxAdc_TmadcChannel’?
+  638 |     IfxDma_Dma_Channel channel;
+      |     ^~~~~~~~~~~~~~~~~~
+      |     IfxAdc_TmadcChannel
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:639:5: error: unknown type name ‘IfxDma_Index’
+  639 |     IfxDma_Index       dmaId;
+      |     ^~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:648:5: error: unknown type name ‘IfxAdc_Tmadc_DmaSrvReq’; did you mean ‘IfxAdc_TmadcServReq’?
+  648 |     IfxAdc_Tmadc_DmaSrvReq *dmaSrvReqCfg;
+      |     ^~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_TmadcServReq
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:649:5: error: unknown type name ‘IfxDma_ChannelId’
+  649 |     IfxDma_ChannelId        channelId;
+      |     ^~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:650:5: error: unknown type name ‘IfxDma_Index’
+  650 |     IfxDma_Index            dmaId;
+      |     ^~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:658:5: error: unknown type name ‘IfxAdc_TmadcGlobalServReq’; did you mean ‘IfxAdc_TmadcServReq’?
+  658 |     IfxAdc_TmadcGlobalServReq servReq;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_TmadcServReq
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:661:5: error: unknown type name ‘IfxSrc_Tos’
+  661 |     IfxSrc_Tos                typeOfService;
+      |     ^~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:662:5: error: unknown type name ‘IfxSrc_VmId’
+  662 |     IfxSrc_VmId               vmId;
+      |     ^~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:673:5: error: unknown type name ‘IfxAdc_TmadcBoundaryCmpMode’; did you mean ‘IfxAdc_TmadcBoundaryReg’?
+  673 |     IfxAdc_TmadcBoundaryCmpMode boundCmpMode;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_TmadcBoundaryReg
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:685:5: error: unknown type name ‘IfxAdc_Tmadc_BufferType’
+  685 |     IfxAdc_Tmadc_BufferType bufferType;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:703:5: error: unknown type name ‘IfxAdc_Tmadc_BufferType’; did you mean ‘IfxAdc_Tmadc_Queue’?
+  703 |     IfxAdc_Tmadc_BufferType bufferType;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_Tmadc_Queue
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:720:5: error: unknown type name ‘IfxAdc_Tmadc_InterruptConfig’; did you mean ‘IfxAdc_Tmadc_QueueConfig’?
+  720 |     IfxAdc_Tmadc_InterruptConfig *intConfig[IFXADC_TMADC_MAX_SERV_REQ_NODE];
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_Tmadc_QueueConfig
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:720:45: error: ‘IFXADC_TMADC_MAX_SERV_REQ_NODE’ undeclared here (not in a function)
+  720 |     IfxAdc_Tmadc_InterruptConfig *intConfig[IFXADC_TMADC_MAX_SERV_REQ_NODE];
+      |                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:729:5: error: unknown type name ‘IfxAdc_Tmadc_HwTriggerConfig’; did you mean ‘IfxAdc_Tmadc_ChannelTriggerConfig’?
+  729 |     IfxAdc_Tmadc_HwTriggerConfig hwTrigger;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_Tmadc_ChannelTriggerConfig
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:768:5: error: unknown type name ‘IfxApProt_TagId’
+  768 |     IfxApProt_TagId tagId;
+      |     ^~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:769:5: error: unknown type name ‘IfxApProt_VmId’
+  769 |     IfxApProt_VmId  vmId;
+      |     ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:770:5: error: unknown type name ‘IfxApProt_PrsId’
+  770 |     IfxApProt_PrsId protectionSet;
+      |     ^~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:817:5: error: unknown type name ‘IfxEgtm_Cfg_MscSet’
+  817 |     IfxEgtm_Cfg_MscSet       mscSet;
+      |     ^~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:818:5: error: unknown type name ‘IfxEgtm_Cfg_MscSetSignal’
+  818 |     IfxEgtm_Cfg_MscSetSignal mscSetSignal;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:819:5: error: unknown type name ‘IfxEgtm_Cfg_MscModule’
+  819 |     IfxEgtm_Cfg_MscModule    mscModule;
+      |     ^~~~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:820:5: error: unknown type name ‘IfxEgtm_Cfg_MscSelect’
+  820 |     IfxEgtm_Cfg_MscSelect    mscSelect;
+      |     ^~~~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:821:5: error: unknown type name ‘IfxEgtm_MscAltInput’
+  821 |     IfxEgtm_MscAltInput      mscAltIn;
+      |     ^~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:834:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  834 |     volatile Ifx_UReg_32Bit *SR0;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:835:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  835 |     volatile Ifx_UReg_32Bit *SR1;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:836:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  836 |     volatile Ifx_UReg_32Bit *CM0;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:837:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  837 |     volatile Ifx_UReg_32Bit *CM1;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:838:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  838 |     volatile Ifx_UReg_32Bit *CN0;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:839:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  839 |     volatile Ifx_UReg_32Bit *CTRL;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:840:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  840 |     volatile Ifx_UReg_32Bit *GLB_CTRL;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:841:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  841 |     volatile Ifx_UReg_32Bit *IRQ_NOTIFY;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:842:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  842 |     volatile Ifx_UReg_32Bit *DTV;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:843:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  843 |     volatile Ifx_UReg_32Bit *DTV_SR;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:875:5: error: unknown type name ‘IfxEgtm_Pwm_FastShutoffConfig’
+  875 |     IfxEgtm_Pwm_FastShutoffConfig *fastShutOff;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:883:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  883 |     volatile Ifx_UReg_32Bit *reg0;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:884:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  884 |     volatile Ifx_UReg_32Bit *reg1;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:887:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  887 |     volatile Ifx_UReg_32Bit *endisCtrlReg0;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:888:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  888 |     volatile Ifx_UReg_32Bit *endisCtrlReg1;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:975:5: error: unknown type name ‘IfxEgtm_IrqMode’
+  975 |     IfxEgtm_IrqMode      mode;
+      |     ^~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:976:5: error: unknown type name ‘IfxSrc_Tos’
+  976 |     IfxSrc_Tos           isrProvider;
+      |     ^~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:978:5: error: unknown type name ‘IfxSrc_VmId’
+  978 |     IfxSrc_VmId          vmId;
+      |     ^~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1158:5: error: unknown type name ‘IFX_CONST’
+ 1158 |     IFX_CONST IfxAdc_TmadcCh_In *tmadcInPin;
+      |     ^~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1158:33: error: expected ‘:’, ‘,’, ‘;’, ‘}’ or ‘__attribute__’ before ‘*’ token
+ 1158 |     IFX_CONST IfxAdc_TmadcCh_In *tmadcInPin;
+      |                                 ^
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1168:5: error: unknown type name ‘IFX_CONST’
+ 1168 |     IFX_CONST IfxAdc_Emuxctrl_Out *emuxCtrl0Pin;
+      |     ^~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1168:35: error: expected ‘:’, ‘,’, ‘;’, ‘}’ or ‘__attribute__’ before ‘*’ token
+ 1168 |     IFX_CONST IfxAdc_Emuxctrl_Out *emuxCtrl0Pin;
+      |                                   ^
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1196:5: error: unknown type name ‘IfxEgtm_Pwm_ToutMap’; did you mean ‘IfxEgtm_Pwm_State’?
+ 1196 |     IfxEgtm_Pwm_ToutMap *pin;
+      |     ^~~~~~~~~~~~~~~~~~~
+      |     IfxEgtm_Pwm_State
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1197:5: error: unknown type name ‘IfxEgtm_Pwm_ToutMap’; did you mean ‘IfxEgtm_Pwm_State’?
+ 1197 |     IfxEgtm_Pwm_ToutMap *complementaryPin;
+      |     ^~~~~~~~~~~~~~~~~~~
+      |     IfxEgtm_Pwm_State
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1246:37: error: expected expression before ‘IFXPORT_NUM_APU’
+ 1246 |     IfxApApu_ApuConfig    apuConfig[IFXPORT_NUM_APU];
+      |                                     ^~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1247:37: error: expected expression before ‘IFXPORT_NUM_PINS’
+ 1247 |     IfxPort_Pin_ApuConfig pinConfig[IFXPORT_NUM_PINS];
+      |                                     ^~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1248:1: warning: no semicolon at end of struct or union
+ 1248 | } IfxPort_ApuGroupConfig;
+      | ^
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1841:5: error: unknown type name ‘IfxAdc_TmadcBoundaryCmpMode’; did you mean ‘IfxAdc_Tmadc_BoundaryConfig’?
+ 1841 |     IfxAdc_TmadcBoundaryCmpMode boundCmpMode;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_Tmadc_BoundaryConfig
+
+In file included from /tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/IfxAdc_Tmadc.h:4,
+                 from /tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/mocks/IfxAdc_Tmadc.c:1:
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:628:5: error: unknown type name ‘IfxAdc_Tmadc_HwTriggerConfig’; did you mean ‘IfxAdc_Tmadc_ChannelServReqConfig’?
+  628 |     IfxAdc_Tmadc_HwTriggerConfig hwTrigger1;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_Tmadc_ChannelServReqConfig
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:629:5: error: unknown type name ‘IfxAdc_Tmadc_HwTriggerConfig’; did you mean ‘IfxAdc_Tmadc_ChannelServReqConfig’?
+  629 |     IfxAdc_Tmadc_HwTriggerConfig hwTrigger2;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_Tmadc_ChannelServReqConfig
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:638:5: error: unknown type name ‘IfxDma_Dma_Channel’; did you mean ‘IfxAdc_TmadcChannel’?
+  638 |     IfxDma_Dma_Channel channel;
+      |     ^~~~~~~~~~~~~~~~~~
+      |     IfxAdc_TmadcChannel
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:639:5: error: unknown type name ‘IfxDma_Index’
+  639 |     IfxDma_Index       dmaId;
+      |     ^~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:648:5: error: unknown type name ‘IfxAdc_Tmadc_DmaSrvReq’; did you mean ‘IfxAdc_TmadcServReq’?
+  648 |     IfxAdc_Tmadc_DmaSrvReq *dmaSrvReqCfg;
+      |     ^~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_TmadcServReq
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:649:5: error: unknown type name ‘IfxDma_ChannelId’
+  649 |     IfxDma_ChannelId        channelId;
+      |     ^~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:650:5: error: unknown type name ‘IfxDma_Index’
+  650 |     IfxDma_Index            dmaId;
+      |     ^~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:658:5: error: unknown type name ‘IfxAdc_TmadcGlobalServReq’; did you mean ‘IfxAdc_TmadcServReq’?
+  658 |     IfxAdc_TmadcGlobalServReq servReq;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_TmadcServReq
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:661:5: error: unknown type name ‘IfxSrc_Tos’
+  661 |     IfxSrc_Tos                typeOfService;
+      |     ^~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:662:5: error: unknown type name ‘IfxSrc_VmId’
+  662 |     IfxSrc_VmId               vmId;
+      |     ^~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:673:5: error: unknown type name ‘IfxAdc_TmadcBoundaryCmpMode’; did you mean ‘IfxAdc_TmadcBoundaryReg’?
+  673 |     IfxAdc_TmadcBoundaryCmpMode boundCmpMode;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_TmadcBoundaryReg
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:685:5: error: unknown type name ‘IfxAdc_Tmadc_BufferType’
+  685 |     IfxAdc_Tmadc_BufferType bufferType;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:703:5: error: unknown type name ‘IfxAdc_Tmadc_BufferType’; did you mean ‘IfxAdc_Tmadc_Queue’?
+  703 |     IfxAdc_Tmadc_BufferType bufferType;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_Tmadc_Queue
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:720:5: error: unknown type name ‘IfxAdc_Tmadc_InterruptConfig’; did you mean ‘IfxAdc_Tmadc_QueueConfig’?
+  720 |     IfxAdc_Tmadc_InterruptConfig *intConfig[IFXADC_TMADC_MAX_SERV_REQ_NODE];
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_Tmadc_QueueConfig
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:720:45: error: ‘IFXADC_TMADC_MAX_SERV_REQ_NODE’ undeclared here (not in a function)
+  720 |     IfxAdc_Tmadc_InterruptConfig *intConfig[IFXADC_TMADC_MAX_SERV_REQ_NODE];
+      |                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:729:5: error: unknown type name ‘IfxAdc_Tmadc_HwTriggerConfig’; did you mean ‘IfxAdc_Tmadc_ChannelTriggerConfig’?
+  729 |     IfxAdc_Tmadc_HwTriggerConfig hwTrigger;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_Tmadc_ChannelTriggerConfig
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:768:5: error: unknown type name ‘IfxApProt_TagId’
+  768 |     IfxApProt_TagId tagId;
+      |     ^~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:769:5: error: unknown type name ‘IfxApProt_VmId’
+  769 |     IfxApProt_VmId  vmId;
+      |     ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:770:5: error: unknown type name ‘IfxApProt_PrsId’
+  770 |     IfxApProt_PrsId protectionSet;
+      |     ^~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:817:5: error: unknown type name ‘IfxEgtm_Cfg_MscSet’
+  817 |     IfxEgtm_Cfg_MscSet       mscSet;
+      |     ^~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:818:5: error: unknown type name ‘IfxEgtm_Cfg_MscSetSignal’
+  818 |     IfxEgtm_Cfg_MscSetSignal mscSetSignal;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:819:5: error: unknown type name ‘IfxEgtm_Cfg_MscModule’
+  819 |     IfxEgtm_Cfg_MscModule    mscModule;
+      |     ^~~~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:820:5: error: unknown type name ‘IfxEgtm_Cfg_MscSelect’
+  820 |     IfxEgtm_Cfg_MscSelect    mscSelect;
+      |     ^~~~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:821:5: error: unknown type name ‘IfxEgtm_MscAltInput’
+  821 |     IfxEgtm_MscAltInput      mscAltIn;
+      |     ^~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:834:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  834 |     volatile Ifx_UReg_32Bit *SR0;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:835:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  835 |     volatile Ifx_UReg_32Bit *SR1;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:836:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  836 |     volatile Ifx_UReg_32Bit *CM0;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:837:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  837 |     volatile Ifx_UReg_32Bit *CM1;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:838:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  838 |     volatile Ifx_UReg_32Bit *CN0;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:839:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  839 |     volatile Ifx_UReg_32Bit *CTRL;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:840:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  840 |     volatile Ifx_UReg_32Bit *GLB_CTRL;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:841:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  841 |     volatile Ifx_UReg_32Bit *IRQ_NOTIFY;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:842:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  842 |     volatile Ifx_UReg_32Bit *DTV;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:843:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  843 |     volatile Ifx_UReg_32Bit *DTV_SR;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:875:5: error: unknown type name ‘IfxEgtm_Pwm_FastShutoffConfig’
+  875 |     IfxEgtm_Pwm_FastShutoffConfig *fastShutOff;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:883:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  883 |     volatile Ifx_UReg_32Bit *reg0;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:884:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  884 |     volatile Ifx_UReg_32Bit *reg1;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:887:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  887 |     volatile Ifx_UReg_32Bit *endisCtrlReg0;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:888:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  888 |     volatile Ifx_UReg_32Bit *endisCtrlReg1;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:975:5: error: unknown type name ‘IfxEgtm_IrqMode’
+  975 |     IfxEgtm_IrqMode      mode;
+      |     ^~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:976:5: error: unknown type name ‘IfxSrc_Tos’
+  976 |     IfxSrc_Tos           isrProvider;
+      |     ^~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:978:5: error: unknown type name ‘IfxSrc_VmId’
+  978 |     IfxSrc_VmId          vmId;
+      |     ^~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1158:5: error: unknown type name ‘IFX_CONST’
+ 1158 |     IFX_CONST IfxAdc_TmadcCh_In *tmadcInPin;
+      |     ^~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1158:33: error: expected ‘:’, ‘,’, ‘;’, ‘}’ or ‘__attribute__’ before ‘*’ token
+ 1158 |     IFX_CONST IfxAdc_TmadcCh_In *tmadcInPin;
+      |                                 ^
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1168:5: error: unknown type name ‘IFX_CONST’
+ 1168 |     IFX_CONST IfxAdc_Emuxctrl_Out *emuxCtrl0Pin;
+      |     ^~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1168:35: error: expected ‘:’, ‘,’, ‘;’, ‘}’ or ‘__attribute__’ before ‘*’ token
+ 1168 |     IFX_CONST IfxAdc_Emuxctrl_Out *emuxCtrl0Pin;
+      |                                   ^
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1196:5: error: unknown type name ‘IfxEgtm_Pwm_ToutMap’; did you mean ‘IfxEgtm_Pwm_State’?
+ 1196 |     IfxEgtm_Pwm_ToutMap *pin;
+      |     ^~~~~~~~~~~~~~~~~~~
+      |     IfxEgtm_Pwm_State
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1197:5: error: unknown type name ‘IfxEgtm_Pwm_ToutMap’; did you mean ‘IfxEgtm_Pwm_State’?
+ 1197 |     IfxEgtm_Pwm_ToutMap *complementaryPin;
+      |     ^~~~~~~~~~~~~~~~~~~
+      |     IfxEgtm_Pwm_State
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1246:37: error: expected expression before ‘IFXPORT_NUM_APU’
+ 1246 |     IfxApApu_ApuConfig    apuConfig[IFXPORT_NUM_APU];
+      |                                     ^~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1247:37: error: expected expression before ‘IFXPORT_NUM_PINS’
+ 1247 |     IfxPort_Pin_ApuConfig pinConfig[IFXPORT_NUM_PINS];
+      |                                     ^~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1248:1: warning: no semicolon at end of struct or union
+ 1248 | } IfxPort_ApuGroupConfig;
+      | ^
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1841:5: error: unknown type name ‘IfxAdc_TmadcBoundaryCmpMode’; did you mean ‘IfxAdc_Tmadc_BoundaryConfig’?
+ 1841 |     IfxAdc_TmadcBoundaryCmpMode boundCmpMode;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_Tmadc_BoundaryConfig
+
+In file included from /tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/IfxPort.h:4,
+                 from /tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/mocks/IfxPort.c:1:
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:628:5: error: unknown type name ‘IfxAdc_Tmadc_HwTriggerConfig’; did you mean ‘IfxAdc_Tmadc_ChannelServReqConfig’?
+  628 |     IfxAdc_Tmadc_HwTriggerConfig hwTrigger1;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_Tmadc_ChannelServReqConfig
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:629:5: error: unknown type name ‘IfxAdc_Tmadc_HwTriggerConfig’; did you mean ‘IfxAdc_Tmadc_ChannelServReqConfig’?
+  629 |     IfxAdc_Tmadc_HwTriggerConfig hwTrigger2;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_Tmadc_ChannelServReqConfig
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:638:5: error: unknown type name ‘IfxDma_Dma_Channel’; did you mean ‘IfxAdc_TmadcChannel’?
+  638 |     IfxDma_Dma_Channel channel;
+      |     ^~~~~~~~~~~~~~~~~~
+      |     IfxAdc_TmadcChannel
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:639:5: error: unknown type name ‘IfxDma_Index’
+  639 |     IfxDma_Index       dmaId;
+      |     ^~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:648:5: error: unknown type name ‘IfxAdc_Tmadc_DmaSrvReq’; did you mean ‘IfxAdc_TmadcServReq’?
+  648 |     IfxAdc_Tmadc_DmaSrvReq *dmaSrvReqCfg;
+      |     ^~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_TmadcServReq
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:649:5: error: unknown type name ‘IfxDma_ChannelId’
+  649 |     IfxDma_ChannelId        channelId;
+      |     ^~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:650:5: error: unknown type name ‘IfxDma_Index’
+  650 |     IfxDma_Index            dmaId;
+      |     ^~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:658:5: error: unknown type name ‘IfxAdc_TmadcGlobalServReq’; did you mean ‘IfxAdc_TmadcServReq’?
+  658 |     IfxAdc_TmadcGlobalServReq servReq;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_TmadcServReq
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:661:5: error: unknown type name ‘IfxSrc_Tos’
+  661 |     IfxSrc_Tos                typeOfService;
+      |     ^~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:662:5: error: unknown type name ‘IfxSrc_VmId’
+  662 |     IfxSrc_VmId               vmId;
+      |     ^~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:673:5: error: unknown type name ‘IfxAdc_TmadcBoundaryCmpMode’; did you mean ‘IfxAdc_TmadcBoundaryReg’?
+  673 |     IfxAdc_TmadcBoundaryCmpMode boundCmpMode;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_TmadcBoundaryReg
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:685:5: error: unknown type name ‘IfxAdc_Tmadc_BufferType’
+  685 |     IfxAdc_Tmadc_BufferType bufferType;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:703:5: error: unknown type name ‘IfxAdc_Tmadc_BufferType’; did you mean ‘IfxAdc_Tmadc_Queue’?
+  703 |     IfxAdc_Tmadc_BufferType bufferType;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_Tmadc_Queue
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:720:5: error: unknown type name ‘IfxAdc_Tmadc_InterruptConfig’; did you mean ‘IfxAdc_Tmadc_QueueConfig’?
+  720 |     IfxAdc_Tmadc_InterruptConfig *intConfig[IFXADC_TMADC_MAX_SERV_REQ_NODE];
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_Tmadc_QueueConfig
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:720:45: error: ‘IFXADC_TMADC_MAX_SERV_REQ_NODE’ undeclared here (not in a function)
+  720 |     IfxAdc_Tmadc_InterruptConfig *intConfig[IFXADC_TMADC_MAX_SERV_REQ_NODE];
+      |                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:729:5: error: unknown type name ‘IfxAdc_Tmadc_HwTriggerConfig’; did you mean ‘IfxAdc_Tmadc_ChannelTriggerConfig’?
+  729 |     IfxAdc_Tmadc_HwTriggerConfig hwTrigger;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_Tmadc_ChannelTriggerConfig
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:768:5: error: unknown type name ‘IfxApProt_TagId’
+  768 |     IfxApProt_TagId tagId;
+      |     ^~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:769:5: error: unknown type name ‘IfxApProt_VmId’
+  769 |     IfxApProt_VmId  vmId;
+      |     ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:770:5: error: unknown type name ‘IfxApProt_PrsId’
+  770 |     IfxApProt_PrsId protectionSet;
+      |     ^~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:817:5: error: unknown type name ‘IfxEgtm_Cfg_MscSet’
+  817 |     IfxEgtm_Cfg_MscSet       mscSet;
+      |     ^~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:818:5: error: unknown type name ‘IfxEgtm_Cfg_MscSetSignal’
+  818 |     IfxEgtm_Cfg_MscSetSignal mscSetSignal;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:819:5: error: unknown type name ‘IfxEgtm_Cfg_MscModule’
+  819 |     IfxEgtm_Cfg_MscModule    mscModule;
+      |     ^~~~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:820:5: error: unknown type name ‘IfxEgtm_Cfg_MscSelect’
+  820 |     IfxEgtm_Cfg_MscSelect    mscSelect;
+      |     ^~~~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:821:5: error: unknown type name ‘IfxEgtm_MscAltInput’
+  821 |     IfxEgtm_MscAltInput      mscAltIn;
+      |     ^~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:834:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  834 |     volatile Ifx_UReg_32Bit *SR0;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:835:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  835 |     volatile Ifx_UReg_32Bit *SR1;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:836:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  836 |     volatile Ifx_UReg_32Bit *CM0;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:837:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  837 |     volatile Ifx_UReg_32Bit *CM1;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:838:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  838 |     volatile Ifx_UReg_32Bit *CN0;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:839:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  839 |     volatile Ifx_UReg_32Bit *CTRL;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:840:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  840 |     volatile Ifx_UReg_32Bit *GLB_CTRL;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:841:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  841 |     volatile Ifx_UReg_32Bit *IRQ_NOTIFY;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:842:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  842 |     volatile Ifx_UReg_32Bit *DTV;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:843:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  843 |     volatile Ifx_UReg_32Bit *DTV_SR;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:875:5: error: unknown type name ‘IfxEgtm_Pwm_FastShutoffConfig’
+  875 |     IfxEgtm_Pwm_FastShutoffConfig *fastShutOff;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:883:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  883 |     volatile Ifx_UReg_32Bit *reg0;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:884:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  884 |     volatile Ifx_UReg_32Bit *reg1;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:887:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  887 |     volatile Ifx_UReg_32Bit *endisCtrlReg0;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:888:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  888 |     volatile Ifx_UReg_32Bit *endisCtrlReg1;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:975:5: error: unknown type name ‘IfxEgtm_IrqMode’
+  975 |     IfxEgtm_IrqMode      mode;
+      |     ^~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:976:5: error: unknown type name ‘IfxSrc_Tos’
+  976 |     IfxSrc_Tos           isrProvider;
+      |     ^~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:978:5: error: unknown type name ‘IfxSrc_VmId’
+  978 |     IfxSrc_VmId          vmId;
+      |     ^~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1158:5: error: unknown type name ‘IFX_CONST’
+ 1158 |     IFX_CONST IfxAdc_TmadcCh_In *tmadcInPin;
+      |     ^~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1158:33: error: expected ‘:’, ‘,’, ‘;’, ‘}’ or ‘__attribute__’ before ‘*’ token
+ 1158 |     IFX_CONST IfxAdc_TmadcCh_In *tmadcInPin;
+      |                                 ^
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1168:5: error: unknown type name ‘IFX_CONST’
+ 1168 |     IFX_CONST IfxAdc_Emuxctrl_Out *emuxCtrl0Pin;
+      |     ^~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1168:35: error: expected ‘:’, ‘,’, ‘;’, ‘}’ or ‘__attribute__’ before ‘*’ token
+ 1168 |     IFX_CONST IfxAdc_Emuxctrl_Out *emuxCtrl0Pin;
+      |                                   ^
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1196:5: error: unknown type name ‘IfxEgtm_Pwm_ToutMap’; did you mean ‘IfxEgtm_Pwm_State’?
+ 1196 |     IfxEgtm_Pwm_ToutMap *pin;
+      |     ^~~~~~~~~~~~~~~~~~~
+      |     IfxEgtm_Pwm_State
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1197:5: error: unknown type name ‘IfxEgtm_Pwm_ToutMap’; did you mean ‘IfxEgtm_Pwm_State’?
+ 1197 |     IfxEgtm_Pwm_ToutMap *complementaryPin;
+      |     ^~~~~~~~~~~~~~~~~~~
+      |     IfxEgtm_Pwm_State
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1246:37: error: expected expression before ‘IFXPORT_NUM_APU’
+ 1246 |     IfxApApu_ApuConfig    apuConfig[IFXPORT_NUM_APU];
+      |                                     ^~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1247:37: error: expected expression before ‘IFXPORT_NUM_PINS’
+ 1247 |     IfxPort_Pin_ApuConfig pinConfig[IFXPORT_NUM_PINS];
+      |                                     ^~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1248:1: warning: no semicolon at end of struct or union
+ 1248 | } IfxPort_ApuGroupConfig;
+      | ^
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1841:5: error: unknown type name ‘IfxAdc_TmadcBoundaryCmpMode’; did you mean ‘IfxAdc_Tmadc_BoundaryConfig’?
+ 1841 |     IfxAdc_TmadcBoundaryCmpMode boundCmpMode;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_Tmadc_BoundaryConfig
+
+In file included from /tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/mocks/ifx_types.c:1:
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:628:5: error: unknown type name ‘IfxAdc_Tmadc_HwTriggerConfig’; did you mean ‘IfxAdc_Tmadc_ChannelServReqConfig’?
+  628 |     IfxAdc_Tmadc_HwTriggerConfig hwTrigger1;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_Tmadc_ChannelServReqConfig
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:629:5: error: unknown type name ‘IfxAdc_Tmadc_HwTriggerConfig’; did you mean ‘IfxAdc_Tmadc_ChannelServReqConfig’?
+  629 |     IfxAdc_Tmadc_HwTriggerConfig hwTrigger2;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_Tmadc_ChannelServReqConfig
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:638:5: error: unknown type name ‘IfxDma_Dma_Channel’; did you mean ‘IfxAdc_TmadcChannel’?
+  638 |     IfxDma_Dma_Channel channel;
+      |     ^~~~~~~~~~~~~~~~~~
+      |     IfxAdc_TmadcChannel
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:639:5: error: unknown type name ‘IfxDma_Index’
+  639 |     IfxDma_Index       dmaId;
+      |     ^~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:648:5: error: unknown type name ‘IfxAdc_Tmadc_DmaSrvReq’; did you mean ‘IfxAdc_TmadcServReq’?
+  648 |     IfxAdc_Tmadc_DmaSrvReq *dmaSrvReqCfg;
+      |     ^~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_TmadcServReq
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:649:5: error: unknown type name ‘IfxDma_ChannelId’
+  649 |     IfxDma_ChannelId        channelId;
+      |     ^~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:650:5: error: unknown type name ‘IfxDma_Index’
+  650 |     IfxDma_Index            dmaId;
+      |     ^~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:658:5: error: unknown type name ‘IfxAdc_TmadcGlobalServReq’; did you mean ‘IfxAdc_TmadcServReq’?
+  658 |     IfxAdc_TmadcGlobalServReq servReq;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_TmadcServReq
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:661:5: error: unknown type name ‘IfxSrc_Tos’
+  661 |     IfxSrc_Tos                typeOfService;
+      |     ^~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:662:5: error: unknown type name ‘IfxSrc_VmId’
+  662 |     IfxSrc_VmId               vmId;
+      |     ^~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:673:5: error: unknown type name ‘IfxAdc_TmadcBoundaryCmpMode’; did you mean ‘IfxAdc_TmadcBoundaryReg’?
+  673 |     IfxAdc_TmadcBoundaryCmpMode boundCmpMode;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_TmadcBoundaryReg
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:685:5: error: unknown type name ‘IfxAdc_Tmadc_BufferType’
+  685 |     IfxAdc_Tmadc_BufferType bufferType;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:703:5: error: unknown type name ‘IfxAdc_Tmadc_BufferType’; did you mean ‘IfxAdc_Tmadc_Queue’?
+  703 |     IfxAdc_Tmadc_BufferType bufferType;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_Tmadc_Queue
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:720:5: error: unknown type name ‘IfxAdc_Tmadc_InterruptConfig’; did you mean ‘IfxAdc_Tmadc_QueueConfig’?
+  720 |     IfxAdc_Tmadc_InterruptConfig *intConfig[IFXADC_TMADC_MAX_SERV_REQ_NODE];
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_Tmadc_QueueConfig
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:720:45: error: ‘IFXADC_TMADC_MAX_SERV_REQ_NODE’ undeclared here (not in a function)
+  720 |     IfxAdc_Tmadc_InterruptConfig *intConfig[IFXADC_TMADC_MAX_SERV_REQ_NODE];
+      |                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:729:5: error: unknown type name ‘IfxAdc_Tmadc_HwTriggerConfig’; did you mean ‘IfxAdc_Tmadc_ChannelTriggerConfig’?
+  729 |     IfxAdc_Tmadc_HwTriggerConfig hwTrigger;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_Tmadc_ChannelTriggerConfig
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:768:5: error: unknown type name ‘IfxApProt_TagId’
+  768 |     IfxApProt_TagId tagId;
+      |     ^~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:769:5: error: unknown type name ‘IfxApProt_VmId’
+  769 |     IfxApProt_VmId  vmId;
+      |     ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:770:5: error: unknown type name ‘IfxApProt_PrsId’
+  770 |     IfxApProt_PrsId protectionSet;
+      |     ^~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:817:5: error: unknown type name ‘IfxEgtm_Cfg_MscSet’
+  817 |     IfxEgtm_Cfg_MscSet       mscSet;
+      |     ^~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:818:5: error: unknown type name ‘IfxEgtm_Cfg_MscSetSignal’
+  818 |     IfxEgtm_Cfg_MscSetSignal mscSetSignal;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:819:5: error: unknown type name ‘IfxEgtm_Cfg_MscModule’
+  819 |     IfxEgtm_Cfg_MscModule    mscModule;
+      |     ^~~~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:820:5: error: unknown type name ‘IfxEgtm_Cfg_MscSelect’
+  820 |     IfxEgtm_Cfg_MscSelect    mscSelect;
+      |     ^~~~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:821:5: error: unknown type name ‘IfxEgtm_MscAltInput’
+  821 |     IfxEgtm_MscAltInput      mscAltIn;
+      |     ^~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:834:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  834 |     volatile Ifx_UReg_32Bit *SR0;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:835:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  835 |     volatile Ifx_UReg_32Bit *SR1;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:836:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  836 |     volatile Ifx_UReg_32Bit *CM0;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:837:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  837 |     volatile Ifx_UReg_32Bit *CM1;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:838:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  838 |     volatile Ifx_UReg_32Bit *CN0;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:839:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  839 |     volatile Ifx_UReg_32Bit *CTRL;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:840:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  840 |     volatile Ifx_UReg_32Bit *GLB_CTRL;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:841:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  841 |     volatile Ifx_UReg_32Bit *IRQ_NOTIFY;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:842:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  842 |     volatile Ifx_UReg_32Bit *DTV;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:843:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  843 |     volatile Ifx_UReg_32Bit *DTV_SR;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:875:5: error: unknown type name ‘IfxEgtm_Pwm_FastShutoffConfig’
+  875 |     IfxEgtm_Pwm_FastShutoffConfig *fastShutOff;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:883:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  883 |     volatile Ifx_UReg_32Bit *reg0;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:884:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  884 |     volatile Ifx_UReg_32Bit *reg1;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:887:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  887 |     volatile Ifx_UReg_32Bit *endisCtrlReg0;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:888:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  888 |     volatile Ifx_UReg_32Bit *endisCtrlReg1;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:975:5: error: unknown type name ‘IfxEgtm_IrqMode’
+  975 |     IfxEgtm_IrqMode      mode;
+      |     ^~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:976:5: error: unknown type name ‘IfxSrc_Tos’
+  976 |     IfxSrc_Tos           isrProvider;
+      |     ^~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:978:5: error: unknown type name ‘IfxSrc_VmId’
+  978 |     IfxSrc_VmId          vmId;
+      |     ^~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:1158:5: error: unknown type name ‘IFX_CONST’
+ 1158 |     IFX_CONST IfxAdc_TmadcCh_In *tmadcInPin;
+      |     ^~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:1158:33: error: expected ‘:’, ‘,’, ‘;’, ‘}’ or ‘__attribute__’ before ‘*’ token
+ 1158 |     IFX_CONST IfxAdc_TmadcCh_In *tmadcInPin;
+      |                                 ^
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:1168:5: error: unknown type name ‘IFX_CONST’
+ 1168 |     IFX_CONST IfxAdc_Emuxctrl_Out *emuxCtrl0Pin;
+      |     ^~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:1168:35: error: expected ‘:’, ‘,’, ‘;’, ‘}’ or ‘__attribute__’ before ‘*’ token
+ 1168 |     IFX_CONST IfxAdc_Emuxctrl_Out *emuxCtrl0Pin;
+      |                                   ^
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:1196:5: error: unknown type name ‘IfxEgtm_Pwm_ToutMap’; did you mean ‘IfxEgtm_Pwm_State’?
+ 1196 |     IfxEgtm_Pwm_ToutMap *pin;
+      |     ^~~~~~~~~~~~~~~~~~~
+      |     IfxEgtm_Pwm_State
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:1197:5: error: unknown type name ‘IfxEgtm_Pwm_ToutMap’; did you mean ‘IfxEgtm_Pwm_State’?
+ 1197 |     IfxEgtm_Pwm_ToutMap *complementaryPin;
+      |     ^~~~~~~~~~~~~~~~~~~
+      |     IfxEgtm_Pwm_State
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:1246:37: error: expected expression before ‘IFXPORT_NUM_APU’
+ 1246 |     IfxApApu_ApuConfig    apuConfig[IFXPORT_NUM_APU];
+      |                                     ^~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:1247:37: error: expected expression before ‘IFXPORT_NUM_PINS’
+ 1247 |     IfxPort_Pin_ApuConfig pinConfig[IFXPORT_NUM_PINS];
+      |                                     ^~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:1248:1: warning: no semicolon at end of struct or union
+ 1248 | } IfxPort_ApuGroupConfig;
+      | ^
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/ifx_types.h:1841:5: error: unknown type name ‘IfxAdc_TmadcBoundaryCmpMode’; did you mean ‘IfxAdc_Tmadc_BoundaryConfig’?
+ 1841 |     IfxAdc_TmadcBoundaryCmpMode boundCmpMode;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_Tmadc_BoundaryConfig
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/mocks/ifx_types.c:7:10: fatal error: Ifx.h: No such file or directory
+    7 | #include "Ifx.h"
+      |          ^~~~~~~
+compilation terminated.
+
+In file included from /tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/IfxAdc.h:4,
+                 from /tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/mocks/IfxAdc.c:1:
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:628:5: error: unknown type name ‘IfxAdc_Tmadc_HwTriggerConfig’; did you mean ‘IfxAdc_Tmadc_ChannelServReqConfig’?
+  628 |     IfxAdc_Tmadc_HwTriggerConfig hwTrigger1;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_Tmadc_ChannelServReqConfig
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:629:5: error: unknown type name ‘IfxAdc_Tmadc_HwTriggerConfig’; did you mean ‘IfxAdc_Tmadc_ChannelServReqConfig’?
+  629 |     IfxAdc_Tmadc_HwTriggerConfig hwTrigger2;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_Tmadc_ChannelServReqConfig
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:638:5: error: unknown type name ‘IfxDma_Dma_Channel’; did you mean ‘IfxAdc_TmadcChannel’?
+  638 |     IfxDma_Dma_Channel channel;
+      |     ^~~~~~~~~~~~~~~~~~
+      |     IfxAdc_TmadcChannel
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:639:5: error: unknown type name ‘IfxDma_Index’
+  639 |     IfxDma_Index       dmaId;
+      |     ^~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:648:5: error: unknown type name ‘IfxAdc_Tmadc_DmaSrvReq’; did you mean ‘IfxAdc_TmadcServReq’?
+  648 |     IfxAdc_Tmadc_DmaSrvReq *dmaSrvReqCfg;
+      |     ^~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_TmadcServReq
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:649:5: error: unknown type name ‘IfxDma_ChannelId’
+  649 |     IfxDma_ChannelId        channelId;
+      |     ^~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:650:5: error: unknown type name ‘IfxDma_Index’
+  650 |     IfxDma_Index            dmaId;
+      |     ^~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:658:5: error: unknown type name ‘IfxAdc_TmadcGlobalServReq’; did you mean ‘IfxAdc_TmadcServReq’?
+  658 |     IfxAdc_TmadcGlobalServReq servReq;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_TmadcServReq
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:661:5: error: unknown type name ‘IfxSrc_Tos’
+  661 |     IfxSrc_Tos                typeOfService;
+      |     ^~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:662:5: error: unknown type name ‘IfxSrc_VmId’
+  662 |     IfxSrc_VmId               vmId;
+      |     ^~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:673:5: error: unknown type name ‘IfxAdc_TmadcBoundaryCmpMode’; did you mean ‘IfxAdc_TmadcBoundaryReg’?
+  673 |     IfxAdc_TmadcBoundaryCmpMode boundCmpMode;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_TmadcBoundaryReg
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:685:5: error: unknown type name ‘IfxAdc_Tmadc_BufferType’
+  685 |     IfxAdc_Tmadc_BufferType bufferType;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:703:5: error: unknown type name ‘IfxAdc_Tmadc_BufferType’; did you mean ‘IfxAdc_Tmadc_Queue’?
+  703 |     IfxAdc_Tmadc_BufferType bufferType;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_Tmadc_Queue
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:720:5: error: unknown type name ‘IfxAdc_Tmadc_InterruptConfig’; did you mean ‘IfxAdc_Tmadc_QueueConfig’?
+  720 |     IfxAdc_Tmadc_InterruptConfig *intConfig[IFXADC_TMADC_MAX_SERV_REQ_NODE];
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_Tmadc_QueueConfig
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:720:45: error: ‘IFXADC_TMADC_MAX_SERV_REQ_NODE’ undeclared here (not in a function)
+  720 |     IfxAdc_Tmadc_InterruptConfig *intConfig[IFXADC_TMADC_MAX_SERV_REQ_NODE];
+      |                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:729:5: error: unknown type name ‘IfxAdc_Tmadc_HwTriggerConfig’; did you mean ‘IfxAdc_Tmadc_ChannelTriggerConfig’?
+  729 |     IfxAdc_Tmadc_HwTriggerConfig hwTrigger;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_Tmadc_ChannelTriggerConfig
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:768:5: error: unknown type name ‘IfxApProt_TagId’
+  768 |     IfxApProt_TagId tagId;
+      |     ^~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:769:5: error: unknown type name ‘IfxApProt_VmId’
+  769 |     IfxApProt_VmId  vmId;
+      |     ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:770:5: error: unknown type name ‘IfxApProt_PrsId’
+  770 |     IfxApProt_PrsId protectionSet;
+      |     ^~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:817:5: error: unknown type name ‘IfxEgtm_Cfg_MscSet’
+  817 |     IfxEgtm_Cfg_MscSet       mscSet;
+      |     ^~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:818:5: error: unknown type name ‘IfxEgtm_Cfg_MscSetSignal’
+  818 |     IfxEgtm_Cfg_MscSetSignal mscSetSignal;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:819:5: error: unknown type name ‘IfxEgtm_Cfg_MscModule’
+  819 |     IfxEgtm_Cfg_MscModule    mscModule;
+      |     ^~~~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:820:5: error: unknown type name ‘IfxEgtm_Cfg_MscSelect’
+  820 |     IfxEgtm_Cfg_MscSelect    mscSelect;
+      |     ^~~~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:821:5: error: unknown type name ‘IfxEgtm_MscAltInput’
+  821 |     IfxEgtm_MscAltInput      mscAltIn;
+      |     ^~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:834:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  834 |     volatile Ifx_UReg_32Bit *SR0;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:835:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  835 |     volatile Ifx_UReg_32Bit *SR1;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:836:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  836 |     volatile Ifx_UReg_32Bit *CM0;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:837:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  837 |     volatile Ifx_UReg_32Bit *CM1;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:838:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  838 |     volatile Ifx_UReg_32Bit *CN0;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:839:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  839 |     volatile Ifx_UReg_32Bit *CTRL;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:840:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  840 |     volatile Ifx_UReg_32Bit *GLB_CTRL;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:841:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  841 |     volatile Ifx_UReg_32Bit *IRQ_NOTIFY;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:842:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  842 |     volatile Ifx_UReg_32Bit *DTV;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:843:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  843 |     volatile Ifx_UReg_32Bit *DTV_SR;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:875:5: error: unknown type name ‘IfxEgtm_Pwm_FastShutoffConfig’
+  875 |     IfxEgtm_Pwm_FastShutoffConfig *fastShutOff;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:883:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  883 |     volatile Ifx_UReg_32Bit *reg0;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:884:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  884 |     volatile Ifx_UReg_32Bit *reg1;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:887:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  887 |     volatile Ifx_UReg_32Bit *endisCtrlReg0;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:888:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  888 |     volatile Ifx_UReg_32Bit *endisCtrlReg1;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:975:5: error: unknown type name ‘IfxEgtm_IrqMode’
+  975 |     IfxEgtm_IrqMode      mode;
+      |     ^~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:976:5: error: unknown type name ‘IfxSrc_Tos’
+  976 |     IfxSrc_Tos           isrProvider;
+      |     ^~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:978:5: error: unknown type name ‘IfxSrc_VmId’
+  978 |     IfxSrc_VmId          vmId;
+      |     ^~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1158:5: error: unknown type name ‘IFX_CONST’
+ 1158 |     IFX_CONST IfxAdc_TmadcCh_In *tmadcInPin;
+      |     ^~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1158:33: error: expected ‘:’, ‘,’, ‘;’, ‘}’ or ‘__attribute__’ before ‘*’ token
+ 1158 |     IFX_CONST IfxAdc_TmadcCh_In *tmadcInPin;
+      |                                 ^
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1168:5: error: unknown type name ‘IFX_CONST’
+ 1168 |     IFX_CONST IfxAdc_Emuxctrl_Out *emuxCtrl0Pin;
+      |     ^~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1168:35: error: expected ‘:’, ‘,’, ‘;’, ‘}’ or ‘__attribute__’ before ‘*’ token
+ 1168 |     IFX_CONST IfxAdc_Emuxctrl_Out *emuxCtrl0Pin;
+      |                                   ^
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1196:5: error: unknown type name ‘IfxEgtm_Pwm_ToutMap’; did you mean ‘IfxEgtm_Pwm_State’?
+ 1196 |     IfxEgtm_Pwm_ToutMap *pin;
+      |     ^~~~~~~~~~~~~~~~~~~
+      |     IfxEgtm_Pwm_State
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1197:5: error: unknown type name ‘IfxEgtm_Pwm_ToutMap’; did you mean ‘IfxEgtm_Pwm_State’?
+ 1197 |     IfxEgtm_Pwm_ToutMap *complementaryPin;
+      |     ^~~~~~~~~~~~~~~~~~~
+      |     IfxEgtm_Pwm_State
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1246:37: error: expected expression before ‘IFXPORT_NUM_APU’
+ 1246 |     IfxApApu_ApuConfig    apuConfig[IFXPORT_NUM_APU];
+      |                                     ^~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1247:37: error: expected expression before ‘IFXPORT_NUM_PINS’
+ 1247 |     IfxPort_Pin_ApuConfig pinConfig[IFXPORT_NUM_PINS];
+      |                                     ^~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1248:1: warning: no semicolon at end of struct or union
+ 1248 | } IfxPort_ApuGroupConfig;
+      | ^
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1841:5: error: unknown type name ‘IfxAdc_TmadcBoundaryCmpMode’; did you mean ‘IfxAdc_Tmadc_BoundaryConfig’?
+ 1841 |     IfxAdc_TmadcBoundaryCmpMode boundCmpMode;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_Tmadc_BoundaryConfig
+
+In file included from /tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/mocks/IfxEgtm_Pwm.c:1:
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:628:5: error: unknown type name ‘IfxAdc_Tmadc_HwTriggerConfig’; did you mean ‘IfxAdc_Tmadc_ChannelServReqConfig’?
+  628 |     IfxAdc_Tmadc_HwTriggerConfig hwTrigger1;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_Tmadc_ChannelServReqConfig
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:629:5: error: unknown type name ‘IfxAdc_Tmadc_HwTriggerConfig’; did you mean ‘IfxAdc_Tmadc_ChannelServReqConfig’?
+  629 |     IfxAdc_Tmadc_HwTriggerConfig hwTrigger2;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_Tmadc_ChannelServReqConfig
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:638:5: error: unknown type name ‘IfxDma_Dma_Channel’; did you mean ‘IfxAdc_TmadcChannel’?
+  638 |     IfxDma_Dma_Channel channel;
+      |     ^~~~~~~~~~~~~~~~~~
+      |     IfxAdc_TmadcChannel
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:639:5: error: unknown type name ‘IfxDma_Index’
+  639 |     IfxDma_Index       dmaId;
+      |     ^~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:648:5: error: unknown type name ‘IfxAdc_Tmadc_DmaSrvReq’; did you mean ‘IfxAdc_TmadcServReq’?
+  648 |     IfxAdc_Tmadc_DmaSrvReq *dmaSrvReqCfg;
+      |     ^~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_TmadcServReq
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:649:5: error: unknown type name ‘IfxDma_ChannelId’
+  649 |     IfxDma_ChannelId        channelId;
+      |     ^~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:650:5: error: unknown type name ‘IfxDma_Index’
+  650 |     IfxDma_Index            dmaId;
+      |     ^~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:658:5: error: unknown type name ‘IfxAdc_TmadcGlobalServReq’; did you mean ‘IfxAdc_TmadcServReq’?
+  658 |     IfxAdc_TmadcGlobalServReq servReq;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_TmadcServReq
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:661:5: error: unknown type name ‘IfxSrc_Tos’
+  661 |     IfxSrc_Tos                typeOfService;
+      |     ^~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:662:5: error: unknown type name ‘IfxSrc_VmId’
+  662 |     IfxSrc_VmId               vmId;
+      |     ^~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:673:5: error: unknown type name ‘IfxAdc_TmadcBoundaryCmpMode’; did you mean ‘IfxAdc_TmadcBoundaryReg’?
+  673 |     IfxAdc_TmadcBoundaryCmpMode boundCmpMode;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_TmadcBoundaryReg
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:685:5: error: unknown type name ‘IfxAdc_Tmadc_BufferType’
+  685 |     IfxAdc_Tmadc_BufferType bufferType;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:703:5: error: unknown type name ‘IfxAdc_Tmadc_BufferType’; did you mean ‘IfxAdc_Tmadc_Queue’?
+  703 |     IfxAdc_Tmadc_BufferType bufferType;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_Tmadc_Queue
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:720:5: error: unknown type name ‘IfxAdc_Tmadc_InterruptConfig’; did you mean ‘IfxAdc_Tmadc_QueueConfig’?
+  720 |     IfxAdc_Tmadc_InterruptConfig *intConfig[IFXADC_TMADC_MAX_SERV_REQ_NODE];
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_Tmadc_QueueConfig
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:720:45: error: ‘IFXADC_TMADC_MAX_SERV_REQ_NODE’ undeclared here (not in a function)
+  720 |     IfxAdc_Tmadc_InterruptConfig *intConfig[IFXADC_TMADC_MAX_SERV_REQ_NODE];
+      |                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:729:5: error: unknown type name ‘IfxAdc_Tmadc_HwTriggerConfig’; did you mean ‘IfxAdc_Tmadc_ChannelTriggerConfig’?
+  729 |     IfxAdc_Tmadc_HwTriggerConfig hwTrigger;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_Tmadc_ChannelTriggerConfig
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:768:5: error: unknown type name ‘IfxApProt_TagId’
+  768 |     IfxApProt_TagId tagId;
+      |     ^~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:769:5: error: unknown type name ‘IfxApProt_VmId’
+  769 |     IfxApProt_VmId  vmId;
+      |     ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:770:5: error: unknown type name ‘IfxApProt_PrsId’
+  770 |     IfxApProt_PrsId protectionSet;
+      |     ^~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:817:5: error: unknown type name ‘IfxEgtm_Cfg_MscSet’
+  817 |     IfxEgtm_Cfg_MscSet       mscSet;
+      |     ^~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:818:5: error: unknown type name ‘IfxEgtm_Cfg_MscSetSignal’
+  818 |     IfxEgtm_Cfg_MscSetSignal mscSetSignal;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:819:5: error: unknown type name ‘IfxEgtm_Cfg_MscModule’
+  819 |     IfxEgtm_Cfg_MscModule    mscModule;
+      |     ^~~~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:820:5: error: unknown type name ‘IfxEgtm_Cfg_MscSelect’
+  820 |     IfxEgtm_Cfg_MscSelect    mscSelect;
+      |     ^~~~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:821:5: error: unknown type name ‘IfxEgtm_MscAltInput’
+  821 |     IfxEgtm_MscAltInput      mscAltIn;
+      |     ^~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:834:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  834 |     volatile Ifx_UReg_32Bit *SR0;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:835:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  835 |     volatile Ifx_UReg_32Bit *SR1;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:836:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  836 |     volatile Ifx_UReg_32Bit *CM0;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:837:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  837 |     volatile Ifx_UReg_32Bit *CM1;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:838:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  838 |     volatile Ifx_UReg_32Bit *CN0;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:839:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  839 |     volatile Ifx_UReg_32Bit *CTRL;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:840:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  840 |     volatile Ifx_UReg_32Bit *GLB_CTRL;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:841:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  841 |     volatile Ifx_UReg_32Bit *IRQ_NOTIFY;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:842:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  842 |     volatile Ifx_UReg_32Bit *DTV;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:843:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  843 |     volatile Ifx_UReg_32Bit *DTV_SR;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:875:5: error: unknown type name ‘IfxEgtm_Pwm_FastShutoffConfig’
+  875 |     IfxEgtm_Pwm_FastShutoffConfig *fastShutOff;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:883:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  883 |     volatile Ifx_UReg_32Bit *reg0;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:884:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  884 |     volatile Ifx_UReg_32Bit *reg1;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:887:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  887 |     volatile Ifx_UReg_32Bit *endisCtrlReg0;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:888:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  888 |     volatile Ifx_UReg_32Bit *endisCtrlReg1;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:975:5: error: unknown type name ‘IfxEgtm_IrqMode’
+  975 |     IfxEgtm_IrqMode      mode;
+      |     ^~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:976:5: error: unknown type name ‘IfxSrc_Tos’
+  976 |     IfxSrc_Tos           isrProvider;
+      |     ^~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:978:5: error: unknown type name ‘IfxSrc_VmId’
+  978 |     IfxSrc_VmId          vmId;
+      |     ^~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1158:5: error: unknown type name ‘IFX_CONST’
+ 1158 |     IFX_CONST IfxAdc_TmadcCh_In *tmadcInPin;
+      |     ^~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1158:33: error: expected ‘:’, ‘,’, ‘;’, ‘}’ or ‘__attribute__’ before ‘*’ token
+ 1158 |     IFX_CONST IfxAdc_TmadcCh_In *tmadcInPin;
+      |                                 ^
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1168:5: error: unknown type name ‘IFX_CONST’
+ 1168 |     IFX_CONST IfxAdc_Emuxctrl_Out *emuxCtrl0Pin;
+      |     ^~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1168:35: error: expected ‘:’, ‘,’, ‘;’, ‘}’ or ‘__attribute__’ before ‘*’ token
+ 1168 |     IFX_CONST IfxAdc_Emuxctrl_Out *emuxCtrl0Pin;
+      |                                   ^
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1196:5: error: unknown type name ‘IfxEgtm_Pwm_ToutMap’; did you mean ‘IfxEgtm_Pwm_State’?
+ 1196 |     IfxEgtm_Pwm_ToutMap *pin;
+      |     ^~~~~~~~~~~~~~~~~~~
+      |     IfxEgtm_Pwm_State
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1197:5: error: unknown type name ‘IfxEgtm_Pwm_ToutMap’; did you mean ‘IfxEgtm_Pwm_State’?
+ 1197 |     IfxEgtm_Pwm_ToutMap *complementaryPin;
+      |     ^~~~~~~~~~~~~~~~~~~
+      |     IfxEgtm_Pwm_State
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1246:37: error: expected expression before ‘IFXPORT_NUM_APU’
+ 1246 |     IfxApApu_ApuConfig    apuConfig[IFXPORT_NUM_APU];
+      |                                     ^~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1247:37: error: expected expression before ‘IFXPORT_NUM_PINS’
+ 1247 |     IfxPort_Pin_ApuConfig pinConfig[IFXPORT_NUM_PINS];
+      |                                     ^~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1248:1: warning: no semicolon at end of struct or union
+ 1248 | } IfxPort_ApuGroupConfig;
+      | ^
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1841:5: error: unknown type name ‘IfxAdc_TmadcBoundaryCmpMode’; did you mean ‘IfxAdc_Tmadc_BoundaryConfig’?
+ 1841 |     IfxAdc_TmadcBoundaryCmpMode boundCmpMode;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_Tmadc_BoundaryConfig
+
+In file included from /tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/Ifx_Types.h:5,
+                 from /tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/egtm_atom_3ph_pwm.h:4,
+                 from /tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/test/test_egtm_atom_3ph_pwm.c:2:
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:628:5: error: unknown type name ‘IfxAdc_Tmadc_HwTriggerConfig’; did you mean ‘IfxAdc_Tmadc_ChannelServReqConfig’?
+  628 |     IfxAdc_Tmadc_HwTriggerConfig hwTrigger1;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_Tmadc_ChannelServReqConfig
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:629:5: error: unknown type name ‘IfxAdc_Tmadc_HwTriggerConfig’; did you mean ‘IfxAdc_Tmadc_ChannelServReqConfig’?
+  629 |     IfxAdc_Tmadc_HwTriggerConfig hwTrigger2;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_Tmadc_ChannelServReqConfig
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:638:5: error: unknown type name ‘IfxDma_Dma_Channel’; did you mean ‘IfxAdc_TmadcChannel’?
+  638 |     IfxDma_Dma_Channel channel;
+      |     ^~~~~~~~~~~~~~~~~~
+      |     IfxAdc_TmadcChannel
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:639:5: error: unknown type name ‘IfxDma_Index’
+  639 |     IfxDma_Index       dmaId;
+      |     ^~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:648:5: error: unknown type name ‘IfxAdc_Tmadc_DmaSrvReq’; did you mean ‘IfxAdc_TmadcServReq’?
+  648 |     IfxAdc_Tmadc_DmaSrvReq *dmaSrvReqCfg;
+      |     ^~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_TmadcServReq
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:649:5: error: unknown type name ‘IfxDma_ChannelId’
+  649 |     IfxDma_ChannelId        channelId;
+      |     ^~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:650:5: error: unknown type name ‘IfxDma_Index’
+  650 |     IfxDma_Index            dmaId;
+      |     ^~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:658:5: error: unknown type name ‘IfxAdc_TmadcGlobalServReq’; did you mean ‘IfxAdc_TmadcServReq’?
+  658 |     IfxAdc_TmadcGlobalServReq servReq;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_TmadcServReq
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:661:5: error: unknown type name ‘IfxSrc_Tos’
+  661 |     IfxSrc_Tos                typeOfService;
+      |     ^~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:662:5: error: unknown type name ‘IfxSrc_VmId’
+  662 |     IfxSrc_VmId               vmId;
+      |     ^~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:673:5: error: unknown type name ‘IfxAdc_TmadcBoundaryCmpMode’; did you mean ‘IfxAdc_TmadcBoundaryReg’?
+  673 |     IfxAdc_TmadcBoundaryCmpMode boundCmpMode;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_TmadcBoundaryReg
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:685:5: error: unknown type name ‘IfxAdc_Tmadc_BufferType’
+  685 |     IfxAdc_Tmadc_BufferType bufferType;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:703:5: error: unknown type name ‘IfxAdc_Tmadc_BufferType’; did you mean ‘IfxAdc_Tmadc_Queue’?
+  703 |     IfxAdc_Tmadc_BufferType bufferType;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_Tmadc_Queue
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:720:5: error: unknown type name ‘IfxAdc_Tmadc_InterruptConfig’; did you mean ‘IfxAdc_Tmadc_QueueConfig’?
+  720 |     IfxAdc_Tmadc_InterruptConfig *intConfig[IFXADC_TMADC_MAX_SERV_REQ_NODE];
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_Tmadc_QueueConfig
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:720:45: error: ‘IFXADC_TMADC_MAX_SERV_REQ_NODE’ undeclared here (not in a function)
+  720 |     IfxAdc_Tmadc_InterruptConfig *intConfig[IFXADC_TMADC_MAX_SERV_REQ_NODE];
+      |                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:729:5: error: unknown type name ‘IfxAdc_Tmadc_HwTriggerConfig’; did you mean ‘IfxAdc_Tmadc_ChannelTriggerConfig’?
+  729 |     IfxAdc_Tmadc_HwTriggerConfig hwTrigger;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_Tmadc_ChannelTriggerConfig
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:768:5: error: unknown type name ‘IfxApProt_TagId’
+  768 |     IfxApProt_TagId tagId;
+      |     ^~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:769:5: error: unknown type name ‘IfxApProt_VmId’
+  769 |     IfxApProt_VmId  vmId;
+      |     ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:770:5: error: unknown type name ‘IfxApProt_PrsId’
+  770 |     IfxApProt_PrsId protectionSet;
+      |     ^~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:817:5: error: unknown type name ‘IfxEgtm_Cfg_MscSet’
+  817 |     IfxEgtm_Cfg_MscSet       mscSet;
+      |     ^~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:818:5: error: unknown type name ‘IfxEgtm_Cfg_MscSetSignal’
+  818 |     IfxEgtm_Cfg_MscSetSignal mscSetSignal;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:819:5: error: unknown type name ‘IfxEgtm_Cfg_MscModule’
+  819 |     IfxEgtm_Cfg_MscModule    mscModule;
+      |     ^~~~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:820:5: error: unknown type name ‘IfxEgtm_Cfg_MscSelect’
+  820 |     IfxEgtm_Cfg_MscSelect    mscSelect;
+      |     ^~~~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:821:5: error: unknown type name ‘IfxEgtm_MscAltInput’
+  821 |     IfxEgtm_MscAltInput      mscAltIn;
+      |     ^~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:834:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  834 |     volatile Ifx_UReg_32Bit *SR0;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:835:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  835 |     volatile Ifx_UReg_32Bit *SR1;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:836:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  836 |     volatile Ifx_UReg_32Bit *CM0;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:837:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  837 |     volatile Ifx_UReg_32Bit *CM1;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:838:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  838 |     volatile Ifx_UReg_32Bit *CN0;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:839:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  839 |     volatile Ifx_UReg_32Bit *CTRL;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:840:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  840 |     volatile Ifx_UReg_32Bit *GLB_CTRL;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:841:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  841 |     volatile Ifx_UReg_32Bit *IRQ_NOTIFY;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:842:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  842 |     volatile Ifx_UReg_32Bit *DTV;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:843:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  843 |     volatile Ifx_UReg_32Bit *DTV_SR;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:875:5: error: unknown type name ‘IfxEgtm_Pwm_FastShutoffConfig’
+  875 |     IfxEgtm_Pwm_FastShutoffConfig *fastShutOff;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:883:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  883 |     volatile Ifx_UReg_32Bit *reg0;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:884:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  884 |     volatile Ifx_UReg_32Bit *reg1;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:887:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  887 |     volatile Ifx_UReg_32Bit *endisCtrlReg0;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:888:14: error: unknown type name ‘Ifx_UReg_32Bit’
+  888 |     volatile Ifx_UReg_32Bit *endisCtrlReg1;
+      |              ^~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:975:5: error: unknown type name ‘IfxEgtm_IrqMode’
+  975 |     IfxEgtm_IrqMode      mode;
+      |     ^~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:976:5: error: unknown type name ‘IfxSrc_Tos’
+  976 |     IfxSrc_Tos           isrProvider;
+      |     ^~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:978:5: error: unknown type name ‘IfxSrc_VmId’
+  978 |     IfxSrc_VmId          vmId;
+      |     ^~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1158:5: error: unknown type name ‘IFX_CONST’
+ 1158 |     IFX_CONST IfxAdc_TmadcCh_In *tmadcInPin;
+      |     ^~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1158:33: error: expected ‘:’, ‘,’, ‘;’, ‘}’ or ‘__attribute__’ before ‘*’ token
+ 1158 |     IFX_CONST IfxAdc_TmadcCh_In *tmadcInPin;
+      |                                 ^
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1168:5: error: unknown type name ‘IFX_CONST’
+ 1168 |     IFX_CONST IfxAdc_Emuxctrl_Out *emuxCtrl0Pin;
+      |     ^~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1168:35: error: expected ‘:’, ‘,’, ‘;’, ‘}’ or ‘__attribute__’ before ‘*’ token
+ 1168 |     IFX_CONST IfxAdc_Emuxctrl_Out *emuxCtrl0Pin;
+      |                                   ^
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1196:5: error: unknown type name ‘IfxEgtm_Pwm_ToutMap’; did you mean ‘IfxEgtm_Pwm_State’?
+ 1196 |     IfxEgtm_Pwm_ToutMap *pin;
+      |     ^~~~~~~~~~~~~~~~~~~
+      |     IfxEgtm_Pwm_State
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1197:5: error: unknown type name ‘IfxEgtm_Pwm_ToutMap’; did you mean ‘IfxEgtm_Pwm_State’?
+ 1197 |     IfxEgtm_Pwm_ToutMap *complementaryPin;
+      |     ^~~~~~~~~~~~~~~~~~~
+      |     IfxEgtm_Pwm_State
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1246:37: error: expected expression before ‘IFXPORT_NUM_APU’
+ 1246 |     IfxApApu_ApuConfig    apuConfig[IFXPORT_NUM_APU];
+      |                                     ^~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1247:37: error: expected expression before ‘IFXPORT_NUM_PINS’
+ 1247 |     IfxPort_Pin_ApuConfig pinConfig[IFXPORT_NUM_PINS];
+      |                                     ^~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1248:1: warning: no semicolon at end of struct or union
+ 1248 | } IfxPort_ApuGroupConfig;
+      | ^
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/include/illd_types/Ifx_Types.h:1841:5: error: unknown type name ‘IfxAdc_TmadcBoundaryCmpMode’; did you mean ‘IfxAdc_Tmadc_BoundaryConfig’?
+ 1841 |     IfxAdc_TmadcBoundaryCmpMode boundCmpMode;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxAdc_Tmadc_BoundaryConfig
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/test/test_egtm_atom_3ph_pwm.c: In function ‘setUp’:
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/test/test_egtm_atom_3ph_pwm.c:9:5: error: implicit declaration of function ‘IfxAdc_Mock_Reset’ [-Wimplicit-function-declaration]
+    9 |     IfxAdc_Mock_Reset();
+      |     ^~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/test/test_egtm_atom_3ph_pwm.c:10:5: error: implicit declaration of function ‘IfxAdc_Tmadc_Mock_Reset’ [-Wimplicit-function-declaration]
+   10 |     IfxAdc_Tmadc_Mock_Reset();
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/test/test_egtm_atom_3ph_pwm.c:11:5: error: implicit declaration of function ‘IfxPort_Mock_Reset’ [-Wimplicit-function-declaration]
+   11 |     IfxPort_Mock_Reset();
+      |     ^~~~~~~~~~~~~~~~~~
+In file included from /infineon_POC_MVP/unity/unity.h:22,
+                 from /tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/test/test_egtm_atom_3ph_pwm.c:1:
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/test/test_egtm_atom_3ph_pwm.c: In function ‘test_initEgtmAtom3phInv_CallsExpectedDriverAPIs’:
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/test/test_egtm_atom_3ph_pwm.c:23:22: error: implicit declaration of function ‘IfxAdc_Mock_GetCallCount_enableModule’ [-Wimplicit-function-declaration]
+   23 |     TEST_ASSERT_TRUE(IfxAdc_Mock_GetCallCount_enableModule() > 0);
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/infineon_POC_MVP/unity/unity_internals.h:891:107: note: in definition of macro ‘UNITY_TEST_ASSERT’
+  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)
+      |                                                                                                           ^~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/test/test_egtm_atom_3ph_pwm.c:23:5: note: in expansion of macro ‘TEST_ASSERT_TRUE’
+   23 |     TEST_ASSERT_TRUE(IfxAdc_Mock_GetCallCount_enableModule() > 0);
+      |     ^~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/test/test_egtm_atom_3ph_pwm.c:24:22: error: implicit declaration of function ‘IfxAdc_Tmadc_Mock_GetCallCount_initModuleConfig’ [-Wimplicit-function-declaration]
+   24 |     TEST_ASSERT_TRUE(IfxAdc_Tmadc_Mock_GetCallCount_initModuleConfig() > 0);
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/infineon_POC_MVP/unity/unity_internals.h:891:107: note: in definition of macro ‘UNITY_TEST_ASSERT’
+  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)
+      |                                                                                                           ^~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/test/test_egtm_atom_3ph_pwm.c:24:5: note: in expansion of macro ‘TEST_ASSERT_TRUE’
+   24 |     TEST_ASSERT_TRUE(IfxAdc_Tmadc_Mock_GetCallCount_initModuleConfig() > 0);
+      |     ^~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/test/test_egtm_atom_3ph_pwm.c:25:22: error: implicit declaration of function ‘IfxAdc_Tmadc_Mock_GetCallCount_initModule’ [-Wimplicit-function-declaration]
+   25 |     TEST_ASSERT_TRUE(IfxAdc_Tmadc_Mock_GetCallCount_initModule() > 0);
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/infineon_POC_MVP/unity/unity_internals.h:891:107: note: in definition of macro ‘UNITY_TEST_ASSERT’
+  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)
+      |                                                                                                           ^~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/test/test_egtm_atom_3ph_pwm.c:25:5: note: in expansion of macro ‘TEST_ASSERT_TRUE’
+   25 |     TEST_ASSERT_TRUE(IfxAdc_Tmadc_Mock_GetCallCount_initModule() > 0);
+      |     ^~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/test/test_egtm_atom_3ph_pwm.c:26:22: error: implicit declaration of function ‘IfxAdc_Tmadc_Mock_GetCallCount_initChannelConfig’ [-Wimplicit-function-declaration]
+   26 |     TEST_ASSERT_TRUE(IfxAdc_Tmadc_Mock_GetCallCount_initChannelConfig() > 0);
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/infineon_POC_MVP/unity/unity_internals.h:891:107: note: in definition of macro ‘UNITY_TEST_ASSERT’
+  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)
+      |                                                                                                           ^~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/test/test_egtm_atom_3ph_pwm.c:26:5: note: in expansion of macro ‘TEST_ASSERT_TRUE’
+   26 |     TEST_ASSERT_TRUE(IfxAdc_Tmadc_Mock_GetCallCount_initChannelConfig() > 0);
+      |     ^~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/test/test_egtm_atom_3ph_pwm.c:27:22: error: implicit declaration of function ‘IfxAdc_Tmadc_Mock_GetCallCount_initChannel’ [-Wimplicit-function-declaration]
+   27 |     TEST_ASSERT_TRUE(IfxAdc_Tmadc_Mock_GetCallCount_initChannel() > 0);
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/infineon_POC_MVP/unity/unity_internals.h:891:107: note: in definition of macro ‘UNITY_TEST_ASSERT’
+  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)
+      |                                                                                                           ^~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/test/test_egtm_atom_3ph_pwm.c:27:5: note: in expansion of macro ‘TEST_ASSERT_TRUE’
+   27 |     TEST_ASSERT_TRUE(IfxAdc_Tmadc_Mock_GetCallCount_initChannel() > 0);
+      |     ^~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/test/test_egtm_atom_3ph_pwm.c:28:22: error: implicit declaration of function ‘IfxAdc_Tmadc_Mock_GetCallCount_runModule’ [-Wimplicit-function-declaration]
+   28 |     TEST_ASSERT_TRUE(IfxAdc_Tmadc_Mock_GetCallCount_runModule() > 0);
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/infineon_POC_MVP/unity/unity_internals.h:891:107: note: in definition of macro ‘UNITY_TEST_ASSERT’
+  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)
+      |                                                                                                           ^~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/test/test_egtm_atom_3ph_pwm.c:28:5: note: in expansion of macro ‘TEST_ASSERT_TRUE’
+   28 |     TEST_ASSERT_TRUE(IfxAdc_Tmadc_Mock_GetCallCount_runModule() > 0);
+      |     ^~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/test/test_egtm_atom_3ph_pwm.c:31:22: error: implicit declaration of function ‘IfxPort_Mock_GetCallCount_setPinModeOutput’ [-Wimplicit-function-declaration]
+   31 |     TEST_ASSERT_TRUE(IfxPort_Mock_GetCallCount_setPinModeOutput() > 0);
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/infineon_POC_MVP/unity/unity_internals.h:891:107: note: in definition of macro ‘UNITY_TEST_ASSERT’
+  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)
+      |                                                                                                           ^~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/test/test_egtm_atom_3ph_pwm.c:31:5: note: in expansion of macro ‘TEST_ASSERT_TRUE’
+   31 |     TEST_ASSERT_TRUE(IfxPort_Mock_GetCallCount_setPinModeOutput() > 0);
+      |     ^~~~~~~~~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/test/test_egtm_atom_3ph_pwm.c:32:22: error: implicit declaration of function ‘IfxPort_Mock_GetCallCount_setPinState’ [-Wimplicit-function-declaration]
+   32 |     TEST_ASSERT_TRUE(IfxPort_Mock_GetCallCount_setPinState() > 0);
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/infineon_POC_MVP/unity/unity_internals.h:891:107: note: in definition of macro ‘UNITY_TEST_ASSERT’
+  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)
+      |                                                                                                           ^~~~~~~~~
+/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_082319/attempts/phase_003_build/test/test_egtm_atom_3ph_pwm.c:32:5: note: in expansion of macro ‘TEST_ASSERT_TRUE’
+   32 |     TEST_ASSERT_TRUE(IfxPort_Mock_GetCallCount_setPinState() > 0);
+      |     ^~~~~~~~~~~~~~~~
