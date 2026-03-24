@@ -4,7 +4,7 @@
     "family": "TC4xx",
     "verified": true,
     "device_macro": "DEVICE_TC4DX",
-    "pin_package": "IFX_PIN_PACKAGE_BGA292_COM"
+    "pin_package": "IFX_PIN_PACKAGE_BGA436_COM"
   },
   "peripheral_instance": {
     "type": "PWM",
@@ -75,7 +75,7 @@
       "signal": "LED_TOGGLE_ISR",
       "port_pin": "P13.0",
       "function": "GPIO (LED)",
-      "pin_macro": "IfxPort_P13_0",
+      "pin_macro": "",
       "is_complementary": false,
       "verified": false,
       "source": "hardware_verified"
