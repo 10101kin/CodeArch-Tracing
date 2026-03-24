@@ -8,12 +8,12 @@
         "IfxEgtm_enable",
         "IfxEgtm_Cmu_enableClocks",
         "IfxEgtm_Dtm_setClockSource",
-        "IfxEgtm_Atom_Pwm_initConfig",
-        "IfxEgtm_Atom_Pwm_initChannelConfig",
+        "IfxEgtm_Pwm_initConfig",
+        "IfxEgtm_Pwm_initChannelConfig",
         "IfxEgtm_PinMap_setAtomTout",
-        "IfxEgtm_Atom_Pwm_init",
+        "IfxEgtm_Pwm_init",
         "IfxCpu_Irq_installInterruptHandler",
-        "IfxEgtm_Atom_Pwm_start",
+        "IfxEgtm_Pwm_startSyncedChannels",
         "IfxPort_setPinModeOutput",
         "IfxPort_setPinState"
       ],
@@ -24,7 +24,7 @@
       "signature": "void updateEgtmAtom3phInvDuty(void)",
       "behavior_description": "Perform a ramp update of the three PWM channel duties with wrap-around. For each of the three channels: if current duty + STEP reaches or exceeds 100%, reset that channel's duty to 0% before applying the increment. Then add STEP to each channel’s duty. After updating the three duty values in the local duty array, apply all new duties immediately using the unified driver’s multi-channel immediate update API so all channels update coherently in the same PWM cycle (syncUpdate honored).",
       "driver_calls": [
-        "IfxEgtm_Atom_Pwm_updateChannelsDutyImmediate"
+        "IfxEgtm_Pwm_updateChannelsDutyImmediate"
       ],
       "from_reference": true,
       "call_context": "loop"
@@ -39,7 +39,7 @@
   ],
   "dependencies": {
     "includes": [
-      "IfxEgtm_Atom_Pwm.h",
+      "IfxEgtm_Pwm.h",
       "IfxEgtm_Cmu.h",
       "IfxEgtm_Dtm.h",
       "IfxEgtm_PinMap.h",
@@ -68,10 +68,10 @@
   "header_selection": {
     "applied": true,
     "peripheral_type": "PWM",
-    "recommended_header": "IfxEgtm_Atom_Pwm.h",
+    "recommended_header": "IfxEgtm_Pwm",
     "template_functions_count": 1461,
     "required_includes": [
-      "IfxEgtm_Atom_Pwm.h"
+      "IfxEgtm_Pwm.h"
     ]
   }
 }
