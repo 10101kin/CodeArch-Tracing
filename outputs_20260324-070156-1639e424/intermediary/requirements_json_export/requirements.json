@@ -128,7 +128,7 @@
         "ADC0.CH3",
         "ADC0.CH4"
       ],
-      "pins_note": "Physical analog pins depend on board wiring; map ADC0.CH0–CH4 to available analog-capable pins in pinmux if required.",
+      "pins_note": "Pin selection and mapping process:\n1) Consult the board schematic and the TC4xx datasheet/pin tables to identify five analog-capable pins routed to TMADC0 (ADC0) inputs for channels CH0-CH4.\n2) Ensure the chosen pins are not used by EGTM PWM or LED signals, belong to ADC0, and support analog mode.\n3) In pinmux, configure each selected pin as analog input (no pull, no digital output, ALT=AN/analog function as applicable).\n4) Record the explicit mapping and keep queue_order consistent:\n   ADC0.CH0 -> <PIN>\n   ADC0.CH1 -> <PIN>\n   ADC0.CH2 -> <PIN>\n   ADC0.CH3 -> <PIN>\n   ADC0.CH4 -> <PIN>\n5) If using an Infineon evaluation board, use the board manual's ADC/channel-to-header table to choose the correct pins and update the mapping above.",
       "servicing": "polled",
       "isr": false
     }
