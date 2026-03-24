@@ -25,9 +25,7 @@
     "runtime_apis": [
       "IfxGtm_Pwm_updateChannelsDutyImmediate",
       "IfxGtm_Pwm_startSyncedChannels"
-    ],
-    "primary_driver_verification": "Please check your iLLD installation for IfxGtm_Pwm.h and confirm its presence and suitability for TC3xx.",
-    "initialization_apis_verification": "Please open IfxGtm_Pwm.h in your iLLD and confirm the existence and signatures of: IfxGtm_Pwm_initConfig, IfxGtm_Pwm_initChannelConfig, IfxGtm_Pwm_init, IfxGtm_Pwm_updateChannelsDutyImmediate, IfxGtm_Pwm_startSyncedChannels."
+    ]
   },
   "file_structure": {
     "module_files": [
@@ -82,8 +80,7 @@
         "reason": "Unified API for immediate multi-channel duty update"
       }
     ],
-    "context_preserved": "Keeps TOM1 CH0 as 20 kHz center-aligned timebase on CMU Fxclk0; instantiates single-ended PWM on TOM1 CH2/4/6 routed to P02.0/P02.1/P02.2; initializes duties to 25/50/75% and updates every 500 ms with wrap-around; low-side pins ignored; Cpu0 WAIT_TIME updated to 500 ms.",
-    "api_changes_verification": "Migration mapping unverified; consult your iLLD migration notes or IfxGtm_Pwm.h for official migration guidance."
+    "context_preserved": "Keeps TOM1 CH0 as 20 kHz center-aligned timebase on CMU Fxclk0; instantiates single-ended PWM on TOM1 CH2/4/6 routed to P02.0/P02.1/P02.2; initializes duties to 25/50/75% and updates every 500 ms with wrap-around; low-side pins ignored; Cpu0 WAIT_TIME updated to 500 ms."
   },
   "header_selection": {
     "applied": true,
@@ -163,7 +160,9 @@
       "IfxGtm_Tom_Pwm",
       "IfxGtm_Atom_Pwm"
     ],
-    "companion_drivers": [],
+    "companion_drivers": [
+      "IfxGtm_Cmu"
+    ],
     "handles_internally": [
       "complementary_output_pairing",
       "dead_time_via_DTM",
@@ -174,7 +173,6 @@
     "user_must_handle": [
       "clock_setup_via_CMU",
       "pin_mapping"
-    ],
-    "companion_drivers_verification": "Explicit module dependencies unverified; follow standard GTM initialization: enable GTM and CMU clocks before PWM setup."
+    ]
   }
 }
