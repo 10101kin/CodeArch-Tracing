@@ -4,7 +4,7 @@
     "family": "TC4xx",
     "verified": true,
     "device_macro": "DEVICE_TC4DX",
-    "pin_package": "IFX_PIN_PACKAGE_BGA292"
+    "pin_package": "IFX_PIN_PACKAGE_BGA436_COM"
   },
   "peripheral_instance": {
     "type": "EGTM_ATOM",
