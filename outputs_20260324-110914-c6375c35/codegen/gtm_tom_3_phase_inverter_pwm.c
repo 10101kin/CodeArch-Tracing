@@ -1,117 +1,136 @@
+/**********************************************************************************************************************
+ * 
+ *  File: gtm_tom_3_phase_inverter_pwm.c
+ *  Brief: GTM TOM 3-Phase Inverter PWM driver implementation (TC3xx, IfxGtm_Pwm high-level driver)
+ *
+ **********************************************************************************************************************/
 #include "gtm_tom_3_phase_inverter_pwm.h"
-#include "IfxGtm_Cmu.h"
+
 #include "IfxGtm.h"
-#include "IfxGtm_Pwm.h"
+#include "IfxGtm_Cmu.h"
 #include "IfxGtm_Tom_Timer.h"
+#include "IfxGtm_Pwm.h"
+#include "IfxGtm_PinMap.h"
+#include "IfxPort.h"
 
-/* ========================================================================== */
-/* Internal state                                                              */
-/* ========================================================================== */
-static IfxGtm_Pwm          s_pwm;
-static IfxGtm_Pwm_Channel  s_channels[NUM_PWM_CHANNELS];
-static IfxGtm_Tom_Timer    s_timer;
+/* ============================== Internal Driver State ============================== */
+typedef struct
+{
+    IfxGtm_Tom_Timer      timer;                     /* TOM time base */
+    IfxGtm_Pwm            pwm;                       /* Unified PWM driver */
+    IfxGtm_Pwm_Channel    channels[NUM_OF_CHANNELS]; /* Channel state returned by init */
+    float32               dutyU;                    /* Stored U phase duty (percent) */
+    float32               dutyV;                    /* Stored V phase duty (percent) */
+    float32               dutyW;                    /* Stored W phase duty (percent) */
+    float32               duty6[NUM_OF_CHANNELS];   /* Six-channel duty buffer */
+} GTM_TOM_3PhInv_Driver;
 
-static boolean             s_initialized = FALSE;
+static GTM_TOM_3PhInv_Driver s_drv;
+static boolean               s_initialized = FALSE;
 
-/* Stored phase duties (percent) */
-static float32             s_phaseDutyU = INITIAL_DUTY_PERCENT_U;
-static float32             s_phaseDutyV = INITIAL_DUTY_PERCENT_V;
-static float32             s_phaseDutyW = INITIAL_DUTY_PERCENT_W;
-
-/* Scratch array for 6-output duty updates */
-static float32             s_dutyArray6[NUM_PWM_CHANNELS];
-
-/* ========================================================================== */
-/* Private helpers                                                             */
-/* ========================================================================== */
-/**
- * Build a 6-element duty array mapping each phase's duty to its complementary
- * pair outputs: [U_HS, U_LS, V_HS, V_LS, W_HS, W_LS].
- */
+/* ============================== Private helpers ============================== */
 static void GTM_TOM_3_Phase_Inverter_PWM_buildDutyArray(float32 *outDutyPercent6)
 {
-    outDutyPercent6[0] = s_phaseDutyU; /* U_HS */
-    outDutyPercent6[1] = s_phaseDutyU; /* U_LS */
-    outDutyPercent6[2] = s_phaseDutyV; /* V_HS */
-    outDutyPercent6[3] = s_phaseDutyV; /* V_LS */
-    outDutyPercent6[4] = s_phaseDutyW; /* W_HS */
-    outDutyPercent6[5] = s_phaseDutyW; /* W_LS */
+    /* Mapping: [U_LS, U_HS, V_LS, V_HS, W_LS, W_HS] with same duty per pair */
+    outDutyPercent6[0] = s_drv.dutyU; /* U_LS (TOM1 Ch1) */
+    outDutyPercent6[1] = s_drv.dutyU; /* U_HS (TOM1 Ch2) */
+    outDutyPercent6[2] = s_drv.dutyV; /* V_LS (TOM1 Ch3) */
+    outDutyPercent6[3] = s_drv.dutyV; /* V_HS (TOM1 Ch4) */
+    outDutyPercent6[4] = s_drv.dutyW; /* W_LS (TOM1 Ch5) */
+    outDutyPercent6[5] = s_drv.dutyW; /* W_HS (TOM1 Ch6) */
 }
 
-/* ========================================================================== */
-/* Public functions                                                            */
-/* ========================================================================== */
+/* ============================== Public API implementation ============================== */
 void GTM_TOM_3_Phase_Inverter_PWM_init(void)
 {
-    /* Enable GTM and FXCLK for TOM operation */
+    IfxGtm_Pwm_Config           pwmCfg;
+    IfxGtm_Pwm_ChannelConfig    chCfg[NUM_OF_CHANNELS];
+    IfxGtm_Pwm_OutputConfig     outCfg[NUM_OF_CHANNELS];
+    IfxGtm_Tom_Timer_Config     timerCfg;
+
+    /* 1) Enable GTM and CMU clocks required for TOM operation */
     IfxGtm_enable(&MODULE_GTM);
-    IfxGtm_Cmu_enableClocks(&MODULE_GTM, IFXGTM_CMU_CLKEN_FXCLK);
+    IfxGtm_Cmu_enableClocks(&MODULE_GTM, (uint32)IFXGTM_CMU_CLKEN_FXCLK);
 
-    /* Configure TOM-based time base for 20 kHz center-aligned PWM */
-    IfxGtm_Tom_Timer_Config timerCfg;
+    /* 2) Configure TOM-based time base at 20 kHz, center-aligned period source for cluster */
     IfxGtm_Tom_Timer_initConfig(&timerCfg, &MODULE_GTM);
-    timerCfg.base.frequency = TIMING_PWM_FREQUENCY_HZ;           /* 20 kHz */
-    timerCfg.clock          = IfxGtm_Tom_Ch_ClkSrc_cmuFxclk0;    /* Use FXCLK0 */
-    timerCfg.tom            = GTM_TOM_MASTER;                    /* TOM1 */
-    timerCfg.timerChannel   = GTM_TOM_MASTER_TIMER_CH;           /* CH0 as time base */
+    timerCfg.base.frequency = (float32)TIMING_PWM_FREQUENCY_HZ;
+    timerCfg.clock          = IfxGtm_Tom_Ch_ClkSrc_cmuFxclk0;
+    timerCfg.tom            = IfxGtm_Tom_1;              /* TOM1 is used for channels 1..6 */
+    timerCfg.timerChannel   = IfxGtm_Tom_Ch_0;           /* Use Ch0 as time base (free from outputs) */
 
-    if (IfxGtm_Tom_Timer_init(&s_timer, &timerCfg) == FALSE)
+    if (IfxGtm_Tom_Timer_init(&s_drv.timer, &timerCfg) == FALSE)
     {
-        /* Hardware init failed -> do not proceed */
+        /* Early exit on failure; do not mark initialized */
         return;
     }
 
-    /* Add the six PWM channels (TOM1 CH1..CH6) to the timer's channel mask */
-    IfxGtm_Tom_Timer_addToChannelMask(&s_timer, IfxGtm_Tom_Ch_1);
-    IfxGtm_Tom_Timer_addToChannelMask(&s_timer, IfxGtm_Tom_Ch_2);
-    IfxGtm_Tom_Timer_addToChannelMask(&s_timer, IfxGtm_Tom_Ch_3);
-    IfxGtm_Tom_Timer_addToChannelMask(&s_timer, IfxGtm_Tom_Ch_4);
-    IfxGtm_Tom_Timer_addToChannelMask(&s_timer, IfxGtm_Tom_Ch_5);
-    IfxGtm_Tom_Timer_addToChannelMask(&s_timer, IfxGtm_Tom_Ch_6);
+    /* Make TOM1 channels 1..6 part of the timer's update mask (synchronous shadow transfer) */
+    IfxGtm_Tom_Timer_addToChannelMask(&s_drv.timer, IfxGtm_Tom_Ch_1);
+    IfxGtm_Tom_Timer_addToChannelMask(&s_drv.timer, IfxGtm_Tom_Ch_2);
+    IfxGtm_Tom_Timer_addToChannelMask(&s_drv.timer, IfxGtm_Tom_Ch_3);
+    IfxGtm_Tom_Timer_addToChannelMask(&s_drv.timer, IfxGtm_Tom_Ch_4);
+    IfxGtm_Tom_Timer_addToChannelMask(&s_drv.timer, IfxGtm_Tom_Ch_5);
+    IfxGtm_Tom_Timer_addToChannelMask(&s_drv.timer, IfxGtm_Tom_Ch_6);
+    IfxGtm_Tom_Timer_applyUpdate(&s_drv.timer);
 
-    /* Apply initial timer configuration */
-    IfxGtm_Tom_Timer_applyUpdate(&s_timer);
+    /* 3) Mux six PWM output pins to TOM function (generic PinMap API) */
+    IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_U_LS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
+    IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_U_HS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
+    IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_V_LS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
+    IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_V_HS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
+    IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_W_LS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
+    IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_W_HS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
 
-    /* Mux all six TOM outputs to pins using generic PinMap API */
-    IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_U_HS_PIN, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
-    IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_U_LS_PIN, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
-    IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_V_HS_PIN, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
-    IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_V_LS_PIN, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
-    IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_W_HS_PIN, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
-    IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_W_LS_PIN, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
-
-    /* Configure unified multi-channel PWM driver */
-    IfxGtm_Pwm_Config          pwmCfg;
-    IfxGtm_Pwm_ChannelConfig   chCfg[NUM_PWM_CHANNELS];
-
+    /* 4) Initialize unified multi-channel PWM driver (6 channels, TOM submodule, center-aligned, sync updates) */
     IfxGtm_Pwm_initConfig(&pwmCfg, &MODULE_GTM);
 
-    /* Initialize per-channel config defaults (6 outputs) */
-    for (uint8 i = 0U; i < NUM_PWM_CHANNELS; i++)
+    /* Output configuration per channel (no complementary pair object; 6 independent outputs mapped to TOM1 ch1..6) */
+    outCfg[0].pin        = (IfxGtm_Pwm_ToutMap *)PHASE_U_LS;  outCfg[0].outputMode = IfxPort_OutputMode_pushPull; outCfg[0].padDriver = IfxPort_PadDriver_cmosAutomotiveSpeed1;
+    outCfg[1].pin        = (IfxGtm_Pwm_ToutMap *)PHASE_U_HS;  outCfg[1].outputMode = IfxPort_OutputMode_pushPull; outCfg[1].padDriver = IfxPort_PadDriver_cmosAutomotiveSpeed1;
+    outCfg[2].pin        = (IfxGtm_Pwm_ToutMap *)PHASE_V_LS;  outCfg[2].outputMode = IfxPort_OutputMode_pushPull; outCfg[2].padDriver = IfxPort_PadDriver_cmosAutomotiveSpeed1;
+    outCfg[3].pin        = (IfxGtm_Pwm_ToutMap *)PHASE_V_HS;  outCfg[3].outputMode = IfxPort_OutputMode_pushPull; outCfg[3].padDriver = IfxPort_PadDriver_cmosAutomotiveSpeed1;
+    outCfg[4].pin        = (IfxGtm_Pwm_ToutMap *)PHASE_W_LS;  outCfg[4].outputMode = IfxPort_OutputMode_pushPull; outCfg[4].padDriver = IfxPort_PadDriver_cmosAutomotiveSpeed1;
+    outCfg[5].pin        = (IfxGtm_Pwm_ToutMap *)PHASE_W_HS;  outCfg[5].outputMode = IfxPort_OutputMode_pushPull; outCfg[5].padDriver = IfxPort_PadDriver_cmosAutomotiveSpeed1;
+
+    /* Channel configurations (explicit per-channel) */
+    for (uint8 i = 0U; i < (uint8)NUM_OF_CHANNELS; i++)
     {
         IfxGtm_Pwm_initChannelConfig(&chCfg[i]);
+        chCfg[i].output    = &outCfg[i];
+        chCfg[i].phase     = 0.0f;
+        chCfg[i].mscOut    = NULL_PTR;
+        chCfg[i].interrupt = NULL_PTR; /* No ISR in this module */
     }
 
-    /* High-level PWM setup: TOM submodule, center-aligned, synced updates */
-    pwmCfg.cluster               = IfxGtm_Cluster_0;
-    pwmCfg.subModule             = IfxGtm_Pwm_SubModule_tom;
-    pwmCfg.alignment             = IfxGtm_Pwm_Alignment_center;
-    pwmCfg.syncStart             = TRUE;            /* Synchronous start */
-    pwmCfg.syncUpdateEnabled     = TRUE;            /* Shadow-to-compare sync updates */
-    pwmCfg.numChannels           = NUM_PWM_CHANNELS;/* Six TOM outputs */
-    pwmCfg.channels              = chCfg;           /* Link channel configs */
-    pwmCfg.frequency             = TIMING_PWM_FREQUENCY_HZ;
-    pwmCfg.clockSource.tom       = IfxGtm_Cmu_Fxclk_0; /* TOM uses Fxclk enum */
+    /* Map timer channel indices 1..6 for TOM1; assign initial duties per pair (U,U,V,V,W,W) */
+    chCfg[0].timerCh = IfxGtm_Pwm_SubModule_Ch_1; chCfg[0].duty = INITIAL_DUTY_PERCENT_U;
+    chCfg[1].timerCh = IfxGtm_Pwm_SubModule_Ch_2; chCfg[1].duty = INITIAL_DUTY_PERCENT_U;
+    chCfg[2].timerCh = IfxGtm_Pwm_SubModule_Ch_3; chCfg[2].duty = INITIAL_DUTY_PERCENT_V;
+    chCfg[3].timerCh = IfxGtm_Pwm_SubModule_Ch_4; chCfg[3].duty = INITIAL_DUTY_PERCENT_V;
+    chCfg[4].timerCh = IfxGtm_Pwm_SubModule_Ch_5; chCfg[4].duty = INITIAL_DUTY_PERCENT_W;
+    chCfg[5].timerCh = IfxGtm_Pwm_SubModule_Ch_6; chCfg[5].duty = INITIAL_DUTY_PERCENT_W;
 
-    /* Initialize PWM driver (channels array provided separately) */
-    IfxGtm_Pwm_init(&s_pwm, &s_channels[0], &pwmCfg);
+    pwmCfg.cluster            = IfxGtm_Cluster_0;
+    pwmCfg.subModule          = IfxGtm_Pwm_SubModule_tom;
+    pwmCfg.alignment          = IfxGtm_Pwm_Alignment_center;  /* Center-aligned */
+    pwmCfg.syncStart          = TRUE;                          /* Synchronized start */
+    pwmCfg.syncUpdateEnabled  = TRUE;                          /* Atomic shadow updates */
+    pwmCfg.numChannels        = NUM_OF_CHANNELS;
+    pwmCfg.channels           = &chCfg[0];
+    pwmCfg.frequency          = (float32)TIMING_PWM_FREQUENCY_HZ;
+    pwmCfg.clockSource.tom    = IfxGtm_Cmu_Fxclk_0;            /* TOM uses Fxclk */
 
-    /* Build and apply initial 6-output duties atomically */
-    GTM_TOM_3_Phase_Inverter_PWM_buildDutyArray(s_dutyArray6);
-    IfxGtm_Pwm_updateChannelsDutyImmediate(&s_pwm, s_dutyArray6);
+    IfxGtm_Pwm_init(&s_drv.pwm, &s_drv.channels[0], &pwmCfg);
 
-    /* Start synchronized PWM outputs (explicit per SW design) */
-    IfxGtm_Pwm_startSyncedChannels(&s_pwm);
+    /* 5) Initialize stored duties and apply initial six-channel array atomically, then start synced outputs */
+    s_drv.dutyU = INITIAL_DUTY_PERCENT_U;
+    s_drv.dutyV = INITIAL_DUTY_PERCENT_V;
+    s_drv.dutyW = INITIAL_DUTY_PERCENT_W;
+
+    GTM_TOM_3_Phase_Inverter_PWM_buildDutyArray(s_drv.duty6);
+    IfxGtm_Pwm_updateChannelsDutyImmediate(&s_drv.pwm, s_drv.duty6);
+    IfxGtm_Pwm_startSyncedChannels(&s_drv.pwm);
 
     s_initialized = TRUE;
 }
@@ -120,20 +139,14 @@ void GTM_TOM_3_Phase_Inverter_PWM_stepDuty(void)
 {
     if (s_initialized == FALSE)
     {
-        /* Early exit on uninitialized state (safety + unit-test expectation) */
-        return;
+        return; /* Early-exit if init failed or not executed yet */
     }
 
-    /* Increment and wrap duties per behavior description */
-    s_phaseDutyU += DUTY_STEP_PERCENT;
-    s_phaseDutyV += DUTY_STEP_PERCENT;
-    s_phaseDutyW += DUTY_STEP_PERCENT;
+    /* Step phase duties by +10%; wrap to 0% if any exceeds 100% */
+    s_drv.dutyU += DUTY_STEP_PERCENT; if (s_drv.dutyU > 100.0f) { s_drv.dutyU = 0.0f; }
+    s_drv.dutyV += DUTY_STEP_PERCENT; if (s_drv.dutyV > 100.0f) { s_drv.dutyV = 0.0f; }
+    s_drv.dutyW += DUTY_STEP_PERCENT; if (s_drv.dutyW > 100.0f) { s_drv.dutyW = 0.0f; }
 
-    if (s_phaseDutyU > 100.0f) { s_phaseDutyU = 0.0f; }
-    if (s_phaseDutyV > 100.0f) { s_phaseDutyV = 0.0f; }
-    if (s_phaseDutyW > 100.0f) { s_phaseDutyW = 0.0f; }
-
-    /* Map to six outputs (complementary pairs use same duty) and apply */
-    GTM_TOM_3_Phase_Inverter_PWM_buildDutyArray(s_dutyArray6);
-    IfxGtm_Pwm_updateChannelsDutyImmediate(&s_pwm, s_dutyArray6);
+    GTM_TOM_3_Phase_Inverter_PWM_buildDutyArray(s_drv.duty6);
+    IfxGtm_Pwm_updateChannelsDutyImmediate(&s_drv.pwm, s_drv.duty6);
 }

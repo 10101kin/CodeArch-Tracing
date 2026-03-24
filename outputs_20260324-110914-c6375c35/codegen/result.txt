@@ -1,8 +1,137 @@
-Status: SUCCESS
+Status: FAILED
 
-Attempt 1 - TEST (Global: 1)
-Status: SUCCESS ✅
-Timestamp: 2026-03-24 19:38:59
-Files generated: 1
+Attempt 1 - PRODUCTION (Global: 1)
+Status: FAILED ❌
+Timestamp: 2026-03-24 19:50:09
+Files generated: 2
 
 ============================================================
+
+ERRORS:
+
+1. conflicting types for 'IfxGtm_Tom_Timer_init'; have 'boolean(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)' {aka 'unsigned char(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)'}
+
+2. redefinition of 's_setTomTout_count'
+
+3. redefinition of 'IfxGtm_PinMap_Mock_GetCallCount_setTomTout'
+
+4. conflicting types for 'IfxGtm_Tom_Timer_init'; have 'boolean(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)' {aka 'unsigned char(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)'}
+
+5. conflicting types for 'IfxGtm_Tom_Timer_init'; have 'boolean(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)' {aka 'unsigned char(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)'}
+
+6. conflicting types for 'IfxGtm_Tom_Timer_init'; have 'boolean(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)' {aka 'unsigned char(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)'}
+
+7. expected identifier or '(' before numeric constant
+
+8. expected identifier or '(' before numeric constant
+
+9. expected identifier or '(' before numeric constant
+
+10. expected identifier or '(' before numeric constant
+
+============================================================
+BUILD RESULT:
+{
+  "success": false,
+  "errors": [
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260324-110914-c6375c35\\6ee0b236-20b\\Upgrade_the_KIT_A2G_TC387_5V_TFT_project_to_use_If_r_20260324_193420\\attempts\\phase_001_build\\include/IfxGtm_Tom_Timer.h",
+      "line": 12,
+      "column": 9,
+      "message": "conflicting types for 'IfxGtm_Tom_Timer_init'; have 'boolean(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)' {aka 'unsigned char(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)'}",
+      "category": "type_mismatch",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260324-110914-c6375c35\\6ee0b236-20b\\Upgrade_the_KIT_A2G_TC387_5V_TFT_project_to_use_If_r_20260324_193420\\attempts\\phase_001_build\\mocks\\IfxGtm_PinMap.c",
+      "line": 9,
+      "column": 15,
+      "message": "redefinition of 's_setTomTout_count'",
+      "category": "unknown",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260324-110914-c6375c35\\6ee0b236-20b\\Upgrade_the_KIT_A2G_TC387_5V_TFT_project_to_use_If_r_20260324_193420\\attempts\\phase_001_build\\mocks\\IfxGtm_PinMap.c",
+      "line": 22,
+      "column": 8,
+      "message": "redefinition of 'IfxGtm_PinMap_Mock_GetCallCount_setTomTout'",
+      "category": "illd_api_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260324-110914-c6375c35\\6ee0b236-20b\\Upgrade_the_KIT_A2G_TC387_5V_TFT_project_to_use_If_r_20260324_193420\\attempts\\phase_001_build\\include/IfxGtm_Tom_Timer.h",
+      "line": 12,
+      "column": 9,
+      "message": "conflicting types for 'IfxGtm_Tom_Timer_init'; have 'boolean(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)' {aka 'unsigned char(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)'}",
+      "category": "type_mismatch",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260324-110914-c6375c35\\6ee0b236-20b\\Upgrade_the_KIT_A2G_TC387_5V_TFT_project_to_use_If_r_20260324_193420\\attempts\\phase_001_build\\mocks\\IfxGtm_Tom_Timer.c",
+      "line": 24,
+      "column": 9,
+      "message": "conflicting types for 'IfxGtm_Tom_Timer_init'; have 'boolean(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)' {aka 'unsigned char(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)'}",
+      "category": "type_mismatch",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260324-110914-c6375c35\\6ee0b236-20b\\Upgrade_the_KIT_A2G_TC387_5V_TFT_project_to_use_If_r_20260324_193420\\attempts\\phase_001_build\\include/IfxGtm_Tom_Timer.h",
+      "line": 12,
+      "column": 9,
+      "message": "conflicting types for 'IfxGtm_Tom_Timer_init'; have 'boolean(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)' {aka 'unsigned char(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)'}",
+      "category": "type_mismatch",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260324-110914-c6375c35\\6ee0b236-20b\\Upgrade_the_KIT_A2G_TC387_5V_TFT_project_to_use_If_r_20260324_193420\\attempts\\phase_001_build\\include/gtm_tom_3_phase_inverter_pwm.h",
+      "line": 31,
+      "column": 42,
+      "message": "expected identifier or '(' before numeric constant",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260324-110914-c6375c35\\6ee0b236-20b\\Upgrade_the_KIT_A2G_TC387_5V_TFT_project_to_use_If_r_20260324_193420\\attempts\\phase_001_build\\include/gtm_tom_3_phase_inverter_pwm.h",
+      "line": 32,
+      "column": 42,
+      "message": "expected identifier or '(' before numeric constant",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260324-110914-c6375c35\\6ee0b236-20b\\Upgrade_the_KIT_A2G_TC387_5V_TFT_project_to_use_If_r_20260324_193420\\attempts\\phase_001_build\\include/gtm_tom_3_phase_inverter_pwm.h",
+      "line": 33,
+      "column": 42,
+      "message": "expected identifier or '(' before numeric constant",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260324-110914-c6375c35\\6ee0b236-20b\\Upgrade_the_KIT_A2G_TC387_5V_TFT_project_to_use_If_r_20260324_193420\\attempts\\phase_001_build\\include/gtm_tom_3_phase_inverter_pwm.h",
+      "line": 28,
+      "column": 42,
+      "message": "expected identifier or '(' before numeric constant",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260324-110914-c6375c35\\6ee0b236-20b\\Upgrade_the_KIT_A2G_TC387_5V_TFT_project_to_use_If_r_20260324_193420\\attempts\\phase_001_build\\include/gtm_tom_3_phase_inverter_pwm.h",
+      "line": 29,
+      "column": 42,
+      "message": "expected identifier or '(' before numeric constant",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260324-110914-c6375c35\\6ee0b236-20b\\Upgrade_the_KIT_A2G_TC387_5V_TFT_project_to_use_If_r_20260324_193420\\attempts\\phase_001_build\\include/gtm_tom_3_phase_inverter_pwm.h",
+      "line": 34,
+      "column": 42,
+      "message": "expected identifier or '(' before numeric constant",
+      "category": "syntax_error",
+      "severity": "error"
+    }
+  ],
+  "warnings": [],
+  "stderr": "In file included from C:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260324-110914-c6375c35\\6ee0b236-20b\\Upgrade_the_KIT_A2G_TC387_5V_TFT_project_to_use_If_r_20260324_193420\\attempts\\phase_001_build\\src\\gtm_tom_3_phase_inverter_pwm.c:11:\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260324-110914-c6375c35\\6ee0b236-20b\\Upgrade_the_KIT_A2G_TC387_5V_TFT_project_to_use_If_r_20260324_193420\\attempts\\phase_001_build\\include/IfxGtm_Tom_Timer.h:12:9: error: conflicting types for 'IfxGtm_Tom_Timer_init'; have 'boolean(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)' {aka 'unsigned char(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)'}\n   12 | boolean IfxGtm_Tom_Timer_init(IfxGtm_Tom_Timer *driver, const IfxGtm_Tom_Timer_Config *config);\n      |         ^~~~~~~~~~~~~~~~~~~~~\nIn file included from C:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260324-110914-c6375c35\\6ee0b236-20b\\Upgrade_the_KIT_A2G_TC387_5V_TFT_project_to_use_If_r_20260324_193420\\attempts\\phase_001_build\\include/IfxGtm_PinMap.h:4,\n                 from C:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260324-110914-c6375c35\\6ee0b236-20b\\Upgrade_the_KIT_A2G_TC387_5V_TFT_project_to_use_If_r_20260324_193420\\attempts\\phase_001_build\\include/gtm_tom_3_phase_inverter_pwm.h:18,\n                 from C:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260324-110914-c6375c35\\6ee0b236-20b\\Upgrade_the_KIT_A2G_TC387_5V_TFT_project_to_use_If_r_20260324_193420\\attempts\\phase_001_build\\src\\gtm_tom_3_phase_inverter_pwm.c:7:\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260324-110914-c6375c35\\6ee0b236-20b\\Upgrade_the_KIT_A2G_TC387_5V_TFT_project_to_use_If_r_20260324_193420\\attempts\\phase_001_build\\include/IfxGtm_Tom.h:23:6: note: previous declaration of 'IfxGtm_Tom_Timer_init' with type 'void(void *, void *)'\n   23 | void IfxGtm_Tom_Timer_init(void *driver, void *config);\n      |      ^~~~~~~~~~~~~~~~~~~~~\n\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260324-110914-c6375c35\\6ee0b236-20b\\Upgrade_the_KIT_A2G_TC387_5V_TFT_project_to_use_If_r_20260324_193420\\attempts\\phase_001_build\\mocks\\IfxGtm_PinMap.c:9:15: error: redefinition of 's_setTomTout_count'\n    9 | static uint32 s_setTomTout_count = 0;\n      |               ^~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260324-110914-c6375c35\\6ee0b236-20b\\Upgrade_the_KIT_A2G_TC387_5V_TFT_project_to_use_If_r_20260324_193420\\attempts\\phase_001_build\\mocks\\IfxGtm_PinMap.c:5:15: note: previous definition of 's_setTomTout_count' with type 'uint32' {aka 'unsigned int'}\n    5 | static uint32 s_setTomTout_count = 0;\n      |               ^~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260324-110914-c6375c35\\6ee0b236-20b\\Upgrade_the_KIT_A2G_TC387_5V_TFT_project_to_use_If_r_20260324_193420\\attempts\\phase_001_build\\mocks\\IfxGtm_PinMap.c:22:8: error: redefinition of 'IfxGtm_PinMap_Mock_GetCallCount_setTomTout'\n   22 | uint32 IfxGtm_PinMap_Mock_GetCallCount_setTomTout(void) { return s_setTomTout_count; }\n      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260324-110914-c6375c35\\6ee0b236-20b\\Upgrade_the_KIT_A2G_TC387_5V_TFT_project_to_use_If_r_20260324_193420\\attempts\\phase_001_build\\mocks\\IfxGtm_PinMap.c:18:8: note: previous definition of 'IfxGtm_PinMap_Mock_GetCallCount_setTomTout' with type 'uint32(void)' {aka 'unsigned int(void)'}\n   18 | uint32 IfxGtm_PinMap_Mock_GetCallCount_setTomTout(void) {\n      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260324-110914-c6375c35\\6ee0b236-20b\\Upgrade_the_KIT_A2G_TC387_5V_TFT_project_to_use_If_r_20260324_193420\\attempts\\phase_001_build\\mocks\\IfxGtm_Tom_Timer.c:1:\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260324-110914-c6375c35\\6ee0b236-20b\\Upgrade_the_KIT_A2G_TC387_5V_TFT_project_to_use_If_r_20260324_193420\\attempts\\phase_001_build\\include/IfxGtm_Tom_Timer.h:12:9: error: conflicting types for 'IfxGtm_Tom_Timer_init'; have 'boolean(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)' {aka 'unsigned char(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)'}\n   12 | boolean IfxGtm_Tom_Timer_init(IfxGtm_Tom_Timer *driver, const IfxGtm_Tom_Timer_Config *config);\n      |         ^~~~~~~~~~~~~~~~~~~~~\nIn file included from C:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260324-110914-c6375c35\\6ee0b236-20b\\Upgrade_the_KIT_A2G_TC387_5V_TFT_project_to_use_If_r_20260324_193420\\attempts\\phase_001_build\\include/IfxGtm_Tom_Timer.h:4:\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260324-110914-c6375c35\\6ee0b236-20b\\Upgrade_the_KIT_A2G_TC387_5V_TFT_project_to_use_If_r_20260324_193420\\attempts\\phase_001_build\\include/IfxGtm_Tom.h:23:6: note: previous declaration of 'IfxGtm_Tom_Timer_init' with type 'void(void *, void *)'\n   23 | void IfxGtm_Tom_Timer_init(void *driver, void *config);\n      |      ^~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260324-110914-c6375c35\\6ee0b236-20b\\Upgrade_the_KIT_A2G_TC387_5V_TFT_project_to_use_If_r_20260324_193420\\attempts\\phase_001_build\\mocks\\IfxGtm_Tom_Timer.c:24:9: error: conflicting types for 'IfxGtm_Tom_Timer_init'; have 'boolean(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)' {aka 'unsigned char(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)'}\n   24 | boolean IfxGtm_Tom_Timer_init(IfxGtm_Tom_Timer *driver, const IfxGtm_Tom_Timer_Config *config) {\n      |         ^~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260324-110914-c6375c35\\6ee0b236-20b\\Upgrade_the_KIT_A2G_TC387_5V_TFT_project_to_use_If_r_20260324_193420\\attempts\\phase_001_build\\include/IfxGtm_Tom.h:23:6: note: previous declaration of 'IfxGtm_Tom_Timer_init' with type 'void(void *, void *)'\n   23 | void IfxGtm_Tom_Timer_init(void *driver, void *config);\n      |      ^~~~~~~~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260324-110914-c6375c35\\6ee0b236-20b\\Upgrade_the_KIT_A2G_TC387_5V_TFT_project_to_use_If_r_20260324_193420\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c:7:\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260324-110914-c6375c35\\6ee0b236-20b\\Upgrade_the_KIT_A2G_TC387_5V_TFT_project_to_use_If_r_20260324_193420\\attempts\\phase_001_build\\include/IfxGtm_Tom_Timer.h:12:9: error: conflicting types for 'IfxGtm_Tom_Timer_init'; have 'boolean(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)' {aka 'unsigned char(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)'}\n   12 | boolean IfxGtm_Tom_Timer_init(IfxGtm_Tom_Timer *driver, const IfxGtm_Tom_Timer_Config *config);\n      |         ^~~~~~~~~~~~~~~~~~~~~\nIn file included from C:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260324-110914-c6375c35\\6ee0b236-20b\\Upgrade_the_KIT_A2G_TC387_5V_TFT_project_to_use_If_r_20260324_193420\\attempts\\phase_001_build\\include/IfxGtm_PinMap.h:4,\n                 from C:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260324-110914-c6375c35\\6ee0b236-20b\\Upgrade_the_KIT_A2G_TC387_5V_TFT_project_to_use_If_r_20260324_193420\\attempts\\phase_001_build\\include/gtm_tom_3_phase_inverter_pwm.h:18,\n                 from C:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260324-110914-c6375c35\\6ee0b236-20b\\Upgrade_the_KIT_A2G_TC387_5V_TFT_project_to_use_If_r_20260324_193420\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c:2:\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260324-110914-c6375c35\\6ee0b236-20b\\Upgrade_the_KIT_A2G_TC387_5V_TFT_project_to_use_If_r_20260324_193420\\attempts\\phase_001_build\\include/IfxGtm_Tom.h:23:6: note: previous declaration of 'IfxGtm_Tom_Timer_init' with type 'void(void *, void *)'\n   23 | void IfxGtm_Tom_Timer_init(void *driver, void *config);\n      |      ^~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260324-110914-c6375c35\\6ee0b236-20b\\Upgrade_the_KIT_A2G_TC387_5V_TFT_project_to_use_If_r_20260324_193420\\attempts\\phase_001_build\\include/gtm_tom_3_phase_inverter_pwm.h:31:42: error: expected identifier or '(' before numeric constant\n   31 | #define INITIAL_DUTY_PERCENT_U          (25.0f)\n      |                                          ^~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260324-110914-c6375c35\\6ee0b236-20b\\Upgrade_the_KIT_A2G_TC387_5V_TFT_project_to_use_If_r_20260324_193420\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c:12:22: note: in expansion of macro 'INITIAL_DUTY_PERCENT_U'\n   12 | static const float32 INITIAL_DUTY_PERCENT_U = 25.0f;\n      |                      ^~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260324-110914-c6375c35\\6ee0b236-20b\\Upgrade_the_KIT_A2G_TC387_5V_TFT_project_to_use_If_r_20260324_193420\\attempts\\phase_001_build\\include/gtm_tom_3_phase_inverter_pwm.h:32:42: error: expected identifier or '(' before numeric constant\n   32 | #define INITIAL_DUTY_PERCENT_V          (50.0f)\n      |                                          ^~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260324-110914-c6375c35\\6ee0b236-20b\\Upgrade_the_KIT_A2G_TC387_5V_TFT_project_to_use_If_r_20260324_193420\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c:13:22: note: in expansion of macro 'INITIAL_DUTY_PERCENT_V'\n   13 | static const float32 INITIAL_DUTY_PERCENT_V = 50.0f;\n      |                      ^~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260324-110914-c6375c35\\6ee0b236-20b\\Upgrade_the_KIT_A2G_TC387_5V_TFT_project_to_use_If_r_20260324_193420\\attempts\\phase_001_build\\include/gtm_tom_3_phase_inverter_pwm.h:33:42: error: expected identifier or '(' before numeric constant\n   33 | #define INITIAL_DUTY_PERCENT_W          (75.0f)\n      |                                          ^~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260324-110914-c6375c35\\6ee0b236-20b\\Upgrade_the_KIT_A2G_TC387_5V_TFT_project_to_use_If_r_20260324_193420\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c:14:22: note: in expansion of macro 'INITIAL_DUTY_PERCENT_W'\n   14 | static const float32 INITIAL_DUTY_PERCENT_W = 75.0f;\n      |                      ^~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260324-110914-c6375c35\\6ee0b236-20b\\Upgrade_the_KIT_A2G_TC387_5V_TFT_project_to_use_If_r_20260324_193420\\attempts\\phase_001_build\\include/gtm_tom_3_phase_inverter_pwm.h:28:42: error: expected identifier or '(' before numeric constant\n   28 | #define TIMING_PWM_FREQUENCY_HZ         (20000.0f)   /* 20 kHz */\n      |                                          ^~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260324-110914-c6375c35\\6ee0b236-20b\\Upgrade_the_KIT_A2G_TC387_5V_TFT_project_to_use_If_r_20260324_193420\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c:15:22: note: in expansion of macro 'TIMING_PWM_FREQUENCY_HZ'\n   15 | static const float32 TIMING_PWM_FREQUENCY_HZ = 20000.0f;\n      |                      ^~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260324-110914-c6375c35\\6ee0b236-20b\\Upgrade_the_KIT_A2G_TC387_5V_TFT_project_to_use_If_r_20260324_193420\\attempts\\phase_001_build\\include/gtm_tom_3_phase_inverter_pwm.h:29:42: error: expected identifier or '(' before numeric constant\n   29 | #define TIMING_UPDATE_INTERVAL_MS       (500U)       /* Used by caller loop timing */\n      |                                          ^~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260324-110914-c6375c35\\6ee0b236-20b\\Upgrade_the_KIT_A2G_TC387_5V_TFT_project_to_use_If_r_20260324_193420\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c:16:22: note: in expansion of macro 'TIMING_UPDATE_INTERVAL_MS'\n   16 | static const uint32  TIMING_UPDATE_INTERVAL_MS = 500u; // Caller-controlled timing\n      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260324-110914-c6375c35\\6ee0b236-20b\\Upgrade_the_KIT_A2G_TC387_5V_TFT_project_to_use_If_r_20260324_193420\\attempts\\phase_001_build\\include/gtm_tom_3_phase_inverter_pwm.h:34:42: error: expected identifier or '(' before numeric constant\n   34 | #define DUTY_STEP_PERCENT               (10.0f)\n      |                                          ^~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260324-110914-c6375c35\\6ee0b236-20b\\Upgrade_the_KIT_A2G_TC387_5V_TFT_project_to_use_If_r_20260324_193420\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c:18:22: note: in expansion of macro 'DUTY_STEP_PERCENT'\n   18 | static const float32 DUTY_STEP_PERCENT = 10.0f;\n      |                      ^~~~~~~~~~~~~~~~~\n",
+  "stdout": ""
+}
