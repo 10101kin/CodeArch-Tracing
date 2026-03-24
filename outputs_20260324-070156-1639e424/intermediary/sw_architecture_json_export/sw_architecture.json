@@ -26,9 +26,7 @@
       "IfxEgtm_Pwm_updateChannelsDeadTime",
       "IfxEgtm_Pwm_setChannelPolarity",
       "IfxEgtm_Pwm_updateFrequency"
-    ],
-    "apis_verified": false,
-    "verification_note": "Check the TC4xx iLLD documentation or SDK for the presence of IfxEgtm_Pwm and the listed APIs."
+    ]
   },
   "file_structure": {
     "module_files": [
@@ -70,7 +68,6 @@
       "driver_calls": [
         "IfxEgtm_Pwm_updateChannelsDutyImmediate",
         "IfxPort_togglePin",
-        "VERIFY_TC4XX_GPIO_API: Check IfxPort.h for IfxPort_togglePin or use IfxPort_setPinState as an alternative",
         "IfxAdc_isTmadcResultAvailable",
         "IfxAdc_clearTmadcResultFlag"
       ],
@@ -80,8 +77,7 @@
   "migration_notes": {
     "is_migration": true,
     "driver_changes": [
-      "Consult TC3xx→TC4xx migration guide or iLLD release notes to confirm driver and API mappings",
-      "Consult the TC4xx iLLD or migration guide for the correct watchdog driver and API usage."
+      "Consult TC3xx→TC4xx migration guide or iLLD release notes to confirm driver and API mappings"
     ],
     "api_changes": [
       {
@@ -123,9 +119,6 @@
         "from": "&MODULE_GTM",
         "to": "&MODULE_EGTM",
         "reason": "Module base migration GTM→EGTM"
-      },
-      {
-        "note": "Obtain and reference the official TC3xx to TC4xx migration guide or iLLD migration notes for authoritative mapping."
       }
     ],
     "context_preserved": "The solution configures eGTM Cluster 0 ATOM0 for three center-aligned, complementary PWM pairs with 1 µs deadtime at 20 kHz using IfxEgtm_Pwm. ATOM0 CH3 generates a 50% waveform whose falling edge is used as a 20 kHz TMADC0 trigger through IfxEgtm_Trigger_trigToAdc; TMADC0 runs 5 queued channels in polled mode. Duties are updated in the main loop every 500 ms and the LED on P03.9 is toggled. IfxScuWdt usage is migrated to IfxWtu. Pins P00.x/P33.0 from the original request are adapted to template-verified EGTM ATOM0 TOUT pins on P02.x (U/V/W: P02.0/1, P02.2/3, P02.4/5; trigger: P02.6) to keep functionality on the provided target template."
