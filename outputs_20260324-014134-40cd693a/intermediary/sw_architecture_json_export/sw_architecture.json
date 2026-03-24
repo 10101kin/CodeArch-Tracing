@@ -1,8 +1,7 @@
 {
   "user_intent_preservation": {
     "original_goal": "Migrate the TC387 GTM TOM 3‑phase inverter PWM to TC4D7 (KIT_A3G_TC4D7_LITE) using eGTM Cluster 1, ATOM0 CH0/CH1/CH2, with 20 kHz center‑aligned complementary PWM and 1 µs deadtime via DTM/CDTM, synchronized start and synchronized duty updates, and a single period IRQ on CPU0 priority 20 toggling LED P13.0; enable eGTM GCLK and FXCLK0; provide independent U/V/W duty updates via float32[3] and basic error/status flags using IfxEgtm_Pwm.",
-    "functional_behavior": "Generate three complementary, center‑aligned PWM pairs (U/V/W) on eGTM C1 ATOM0 CH0/1/2 with 1 µs hardware deadtime using CDTM, start all channels synchronously, apply duty updates synchronously at period boundary, and trigger a single period interrupt on CPU0 (priority 20) that toggles LED P13.0. Provide a function to update duty array float32 duty[3] and maintain status/error flags.",
-    "technical_approach": "Use the unified high‑level PWM driver IfxEgtm_Pwm on TC4xx to configure eGTM Cluster 1 ATOM0 channels 0/1/2 with complementary outputs and deadtime. Enable eGTM GCLK and FXCLK0 via IfxEgtm and IfxEgtm_Cmu. Map ATOM TOUT pins with IfxEgtm_PinMap. Configure center‑aligned PWM and deadtime through IfxEgtm_Pwm_init and IfxEgtm_Pwm_updateChannelsDeadTime. Start channels in sync with IfxEgtm_Pwm_startSyncedChannels. Install a period ISR on CPU0 using IfxCpu_Irq_installInterruptHandler, calling IfxEgtm_Pwm_interruptHandler and toggling LED with IfxPort_togglePin. Provide updateEgtmAtom3phInvDuty() using IfxEgtm_Pwm_updateChannelsDuty for synchronized duty updates."
+    "functional_behavior": "Generate three complementary, center‑aligned PWM pairs (U/V/W) on eGTM C1 ATOM0 CH0/1/2 with 1 µs hardware deadtime using CDTM, start all channels synchronously, apply duty updates synchronously at period boundary, and trigger a single period interrupt on CPU0 (priority 20) that toggles LED P13.0. Provide a function to update duty array float32 duty[3] and a clear error/status reporting mechanism: public APIs return Ifx_Status (Ok/NotOk), and the module exposes an EgtmAtom3phInv_Status struct (via getEgtmAtom3phInvStatus()) with flags {initDone, pinmapOk, irqEnabled} and a lastError enum {EGTMPWM_OK, EGTMPWM_ERR_PINMAP, EGTMPWM_ERR_PARAM, EGTMPWM_ERR_HW}."
   },
   "driver_selection": {
     "recommended_driver": "IfxEgtm_Pwm",
@@ -62,6 +61,24 @@
         "IfxEgtm_Pwm_updateChannelsDuty"
       ],
       "purpose": "Apply synchronized duty cycle updates for U/V/W (float32 duty[3]) at the PWM period boundary across all three ATOM0 channels."
+    },
+    "test_interfaces": {
+      "abstraction_layer": "EGTM_ATOM_3PH_INV_HAL",
+      "mock_strategy": "Weak-linked wrapper functions replace direct hardware calls for unit tests; wrappers can be overridden by mocks.",
+      "mockable_apis": [
+        "IfxEgtm_enable",
+        "IfxEgtm_Cmu_enableClocks",
+        "IfxEgtm_Pwm_init",
+        "IfxEgtm_Pwm_updateChannelsDuty",
+        "IfxEgtm_Pwm_updateChannelsDeadTime",
+        "IfxEgtm_Pwm_startSyncedChannels",
+        "IfxCpu_Irq_installInterruptHandler",
+        "IfxPort_togglePin"
+      ],
+      "test_hooks": [
+        "EgtmAtom3phInv_onInitResult(Ifx_Status status)",
+        "EgtmAtom3phInv_onPinmapError(void)"
+      ]
     }
   },
   "migration_notes": {
@@ -118,7 +135,7 @@
         "reason": "ISR naming aligned to eGTM/ATOM on TC4xx"
       }
     ],
-    "context_preserved": "The solution keeps eGTM Cluster 1 ATOM0 CH0/1/2 for the 3-phase inverter, configures center-aligned complementary PWM with 1 µs deadtime via unified IfxEgtm_Pwm, enables eGTM GCLK/FXCLK0 using IfxEgtm_Cmu, performs synchronized start and duty updates, and installs a single period ISR on CPU0 priority 20 toggling LED P13.0. Pin mapping uses IfxEgtm_PinMap (timer pinmap migration), and the software interface provides float32 duty[3] updates and status/error flags. If original P20.x pins are not available on the target package, error_pinmap can be set and the provided verified P02.x TOUT mapping is used."
+    "context_preserved": "The solution keeps eGTM Cluster 1 ATOM0 CH0/1/2 for the 3-phase inverter, configures center-aligned complementary PWM with 1 µs deadtime via unified IfxEgtm_Pwm, enables eGTM GCLK/FXCLK0 using IfxEgtm_Cmu, performs synchronized start and duty updates, and installs a single period ISR on CPU0 priority 20 toggling LED P13.0. Pin mapping uses IfxEgtm_PinMap (timer pinmap migration), and the software interface provides float32 duty[3] updates and status/error flags. If original P20.x pins are not available on the target package, error_pinmap can be set and the provided verified P02.x TOUT mapping is used. Pin mapping runtime handling is defined: initEgtmAtom3phInv returns NotOk and sets status.lastError=EGTMPWM_ERR_PINMAP if requested TOUT pins are unavailable; if error_pinmap=true, a verified fallback P02.x TOUT mapping is attempted and status.pinmapOk is updated; on repeated failure an assert or user-provided error hook is invoked based on build configuration."
   },
   "header_selection": {
     "applied": true,
