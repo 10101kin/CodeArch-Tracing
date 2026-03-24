@@ -1,0 +1,85 @@
+{
+  "module_name": "egtm_atom_3ph_pwm",
+  "public_functions": [
+    {
+      "signature": "void initEgtmAtom3phInv(void)",
+      "behavior_description": "Initialize the eGTM and PWM subsystem, configure clocking, map output pins, set up three complementary center-aligned PWM pairs with hardware dead-time, add a synchronous trigger output, route the trigger to the ADC, configure TMADC in polled/queued mode, and prepare a GPIO LED output. Algorithm: 1) Optionally initialize watchdog configuration via WTU per system policy. 2) Enable the eGTM module and configure its CMU to provide the desired clock source and divider for the PWM timebase; enable the selected CMU clock(s). 3) Initialize a unified PWM configuration struct to defaults and then set operating parameters for a 3-phase inverter: center-aligned mode, complementary outputs for three channels, and group synchronization. 4) Initialize per-channel PWM configuration for three synchronized channels as complementary pairs with a requested hardware dead-time corresponding to 1 microsecond, and one additional channel configured to produce a 50% duty waveform usable as an external trigger marker. 5) Assign each configured PWM channel to the physical output pins using the generic eGTM PinMap API, selecting appropriate output mode and pad settings. 6) Call the high-level PWM init with the channel array, then apply the requested PWM frequency (20 kHz). 7) Apply the requested dead-time to the complementary channel pairs and polarities as needed to ensure correct high-/low-side phasing. 8) Start the synchronized PWM channels together to guarantee phase alignment. 9) Configure the eGTM-to-ADC trigger routing so that the trigger channel’s defined edge aligns with the desired position in the PWM period and is delivered to the ADC trigger input. 10) Enable the ADC module, configure TMADC with a queued set of five channels and initialize their configurations; start the TMADC module in polled mode (no interrupts). 11) Configure the LED GPIO pin as a push-pull output and set its initial inactive level.",
+      "driver_calls": [
+        "IfxWtu_initConfig",
+        "IfxWtu_initCpuWatchdog",
+        "IfxWtu_initSystemWatchdog",
+        "IfxEgtm_enable",
+        "IfxEgtm_Cmu_setGclkDivider",
+        "IfxEgtm_Cmu_selectClkInput",
+        "IfxEgtm_Cmu_enableClocks",
+        "IfxEgtm_PinMap_setAtomTout",
+        "IfxEgtm_Pwm_initConfig",
+        "IfxEgtm_Pwm_initChannelConfig",
+        "IfxEgtm_Pwm_init",
+        "IfxEgtm_Pwm_updateFrequency",
+        "IfxEgtm_Pwm_updateChannelsDeadTime",
+        "IfxEgtm_Pwm_setChannelPolarity",
+        "IfxEgtm_Pwm_startSyncedChannels",
+        "IfxEgtm_Trigger_trigToAdc",
+        "IfxAdc_enableModule",
+        "IfxAdc_Tmadc_initModuleConfig",
+        "IfxAdc_Tmadc_initModule",
+        "IfxAdc_Tmadc_initChannelConfig",
+        "IfxAdc_Tmadc_initChannel",
+        "IfxAdc_Tmadc_runModule",
+        "IfxPort_setPinModeOutput",
+        "IfxPort_setPinState"
+      ],
+      "from_reference": true,
+      "call_context": "init"
+    },
+    {
+      "signature": "void updateEgtmAtom3phInvDuty(float32 *requestDuty)",
+      "behavior_description": "At each call: 1) Read three requested duty percentages for the three PWM phases from the provided array and store them into the module’s internal state without modification. 2) Apply the new duty values immediately to all synchronized PWM channels so the change takes effect in the next permissible update point. 3) Toggle the configured LED output to provide a visual heartbeat each update call. 4) Poll the TMADC result registers associated with the configured queue: for each expected result register, check the availability flag; if set, read or acknowledge as per system policy and clear the corresponding flag; if not set, continue without blocking. This routine is intended to be called periodically (e.g., every 500 ms) from the main loop.",
+      "driver_calls": [
+        "IfxEgtm_Pwm_updateChannelsDutyImmediate",
+        "IfxPort_togglePin",
+        "IfxAdc_isTmadcResultAvailable",
+        "IfxAdc_clearTmadcResultFlag"
+      ],
+      "from_reference": true,
+      "call_context": "loop"
+    }
+  ],
+  "private_functions": [
+    {
+      "signature": "static void configureEgtmAtomPins(void)",
+      "needed": true,
+      "from_reference": false
+    }
+  ],
+  "dependencies": {
+    "includes": [
+      "Ifx_Types.h",
+      "IfxEgtm.h",
+      "IfxEgtm_Cmu.h",
+      "IfxEgtm_Pwm.h",
+      "IfxEgtm_PinMap.h",
+      "IfxEgtm_Trigger.h",
+      "IfxAdc.h",
+      "IfxAdc_Tmadc.h",
+      "IfxPort.h",
+      "IfxWtu.h"
+    ],
+    "driver_calls": [
+      "IfxEgtm_enable",
+      "IfxEgtm_Pwm_init"
+    ]
+  },
+  "cpu_main_requirements": {
+    "needs_cpu_sync": true,
+    "uses_timer_delay": true,
+    "delay_ms": 500,
+    "additional_includes": [
+      "Bsp.h"
+    ]
+  },
+  "header_selection": {
+    "applied": false
+  }
+}
