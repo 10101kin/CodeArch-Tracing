@@ -162,8 +162,8 @@
     "deadtime_tolerance_us": 0.1
   },
   "device_configuration": {
-    "target_device_macro": "DEVICE_TC4DX",
-    "pin_package": "IFX_PIN_PACKAGE_BGA436_COM",
+    "target_device_macro": "DEVICE_TC4D7",
+    "pin_package": "IFX_PIN_PACKAGE_BGA292_COM",
     "device_family": "TC4xx",
     "clock_requirements": {
       "requires_xtal": true,
@@ -225,7 +225,7 @@
         "analog_input": "AN4"
       }
     ],
-    "defaults_note": "Channel IDs and analog input pins are set to AN0–AN4 on TMADC0 as sensible defaults for KIT_A3G_TC4D7_LITE; adjust to actual board wiring when known. REQUIRED ACTION: Downstream implementers must verify the channel_id-to-analog_input mapping against the actual hardware/schematic and update these assignments before integration and testing.",
+    "defaults_note": "Channel IDs and analog input pins are set to AN0–AN4 on TMADC0 as sensible defaults for KIT_A3G_TC4D7_LITE; adjust to actual board wiring when known.",
     "conversion": {
       "resolution_bits": 12,
       "right_aligned": true,
@@ -313,8 +313,7 @@
     },
     "warnings": [
       "VADC requested but no matching drivers found in template",
-      "EVADC requested but no matching drivers found in template",
-      "TMADC (IfxAdc_Tmadc) driver support is not present in the referenced template; downstream projects must manually integrate TMADC drivers/headers or select a template that includes TMADC support."
+      "EVADC requested but no matching drivers found in template"
     ]
   },
   "header_documentation_available": true,
