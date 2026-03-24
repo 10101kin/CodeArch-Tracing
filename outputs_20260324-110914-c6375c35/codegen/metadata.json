@@ -1,12 +1,12 @@
 {
-  "attempt": 1,
-  "phase_attempt": 1,
+  "attempt": 2,
+  "phase_attempt": 2,
   "phase": "test",
-  "timestamp": "2026-03-24T19:26:31.241516",
-  "success": false,
-  "files": [],
-  "errors": [
-    "JSON parse error: Could not parse JSON"
+  "timestamp": "2026-03-24T19:28:23.965760",
+  "success": true,
+  "files": [
+    "test_gtm_tom_3_phase_inverter_pwm.c"
   ],
+  "errors": [],
   "build_result": null
 }
