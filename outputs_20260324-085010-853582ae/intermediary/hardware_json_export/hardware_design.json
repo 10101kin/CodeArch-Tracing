@@ -3,20 +3,19 @@
     "model": "TC387",
     "family": "TC3xx",
     "verified": true,
-    "device_macro": "DEVICE_TC387",
-    "pin_package": "IFX_PIN_PACKAGE_292"
+    "device_macro": "DEVICE_TC38X",
+    "pin_package": "IFX_PIN_PACKAGE_516"
   },
   "peripheral_instance": {
     "type": "GTM_TOM",
-    "module": "TOM1",
+    "module": "TOM0",
     "channels": [
       0,
       1,
       2,
-      3,
       4,
       5,
-      6
+      7
     ],
     "driver": "IfxGtm_Tom_PwmHl"
   },
@@ -25,7 +24,7 @@
       "signal": "U_HS",
       "port_pin": "P02.0",
       "function": "TOUT (GTM TOM)",
-      "pin_macro": "",
+      "pin_macro": "IfxGtm_TOM0_0_TOUT0_P02_0_OUT",
       "is_complementary": false,
       "verified": false,
       "source": "hardware_verified"
@@ -34,7 +33,7 @@
       "signal": "U_LS",
       "port_pin": "P02.7",
       "function": "TOUT (GTM TOM)",
-      "pin_macro": "",
+      "pin_macro": "IfxGtm_TOM0_7_TOUT7_P02_7_OUT",
       "is_complementary": true,
       "verified": false,
       "source": "hardware_verified"
@@ -43,7 +42,7 @@
       "signal": "V_HS",
       "port_pin": "P02.1",
       "function": "TOUT (GTM TOM)",
-      "pin_macro": "",
+      "pin_macro": "IfxGtm_TOM0_1_TOUT1_P02_1_OUT",
       "is_complementary": false,
       "verified": false,
       "source": "hardware_verified"
@@ -52,7 +51,7 @@
       "signal": "V_LS",
       "port_pin": "P02.4",
       "function": "TOUT (GTM TOM)",
-      "pin_macro": "",
+      "pin_macro": "IfxGtm_TOM0_4_TOUT4_P02_4_OUT",
       "is_complementary": true,
       "verified": false,
       "source": "hardware_verified"
@@ -61,7 +60,7 @@
       "signal": "W_HS",
       "port_pin": "P02.2",
       "function": "TOUT (GTM TOM)",
-      "pin_macro": "",
+      "pin_macro": "IfxGtm_TOM0_2_TOUT2_P02_2_OUT",
       "is_complementary": false,
       "verified": false,
       "source": "hardware_verified"
@@ -70,7 +69,7 @@
       "signal": "W_LS",
       "port_pin": "P02.5",
       "function": "TOUT (GTM TOM)",
-      "pin_macro": "",
+      "pin_macro": "IfxGtm_TOM0_5_TOUT5_P02_5_OUT",
       "is_complementary": true,
       "verified": false,
       "source": "hardware_verified"
@@ -83,7 +82,8 @@
   "validation": {
     "all_verified": false,
     "conflicts": [
-      "Cross-check required: Verify P02.0/1/2/4/5/7 mapping to GTM TOM1 TOUT on TC387 LFBGA-292 using IfxGtm_PinMap.h. If mapping to TOM1 is not supported on LFBGA-292, update the TOM instance/channel configuration accordingly or obtain user confirmation for an alternative mapping."
+      "Requested verification for TC387 LFBGA-292 while template device configuration is IFX_PIN_PACKAGE_516; P02.* TOM/TOUT mapping must match the configured package.",
+      "Exact IfxGtm_PinMap.h macros for P02.0/1/2/4/5/7 to TOM1 channels/TOUT are not validated in the current template context; TOM instance selection may need adjustment if P02.* are not on TOM1."
     ],
     "reference_pins_valid": true
   },
@@ -124,8 +124,7 @@
         ],
         "avoid_drivers": [
           "IfxGtm_Tom_PwmHl"
-        ],
-        "rationale": "Template recommends IfxGtm_Pinmap for reliable pin mapping/validation. User requested IfxGtm_Tom_PwmHl; retaining template recommendation and documenting trade-off to avoid misconfiguration risk on LFBGA-292. If PwmHl must be used, revisit selection after confirmed pin mapping."
+        ]
       }
     },
     "warnings": []
