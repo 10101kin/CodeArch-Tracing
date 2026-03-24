@@ -9,7 +9,7 @@
         "IfxGtm_Cmu_enableClocks",
         "IfxGtm_Tom_Timer_initConfig",
         "IfxGtm_Tom_Timer_init",
-        "IfxPort_setPinModeOutput",
+        "IfxGtm_PinMap_setTomTout",
         "IfxGtm_Tom_PwmHl_initConfig",
         "IfxGtm_Tom_PwmHl_init",
         "IfxGtm_Tom_PwmHl_setMode",
@@ -23,7 +23,7 @@
       "call_context": "init"
     },
     {
-      "signature": "void IfxGtm_Tom_PwmHl_setOnTime(void)",
+      "signature": "void updateGtmTomPwmDutyCycles(void)",
       "behavior_description": "Perform a periodic duty-cycle ramp on all three PWM channel pairs with wrap-around and apply the new ON-times coherently. Algorithm: 1) Read the current timer period. 2) Compute a duty increment step as a fraction of the period and compute lower/upper ON-time boundaries (minimum and maximum allowed duty) from the same period. 3) For each of the three channels: add the step to the current ON-time. If any updated ON-time reaches or exceeds the maximum boundary, wrap it back to the minimum boundary. 4) Disable timer updates, write the updated ON-time array to the PWMHL driver, and apply the update so that all channels switch to the new ON-times atomically at the next update point. This maintains complementary, center-aligned operation with the configured dead-time and minimum pulse constraints.",
       "driver_calls": [
         "IfxGtm_Tom_Timer_disableUpdate",
