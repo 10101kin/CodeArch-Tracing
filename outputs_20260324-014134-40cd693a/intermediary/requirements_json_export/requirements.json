@@ -91,7 +91,7 @@
         1,
         2
       ],
-      "complementary_generation": "CDTM (hardware dead-time, complementary low-side from each HS channel). Configure deadtime using the IfxEgtm_Dtm API on TC4xx (e.g., initialize DTM/CDTM with IfxEgtm_Dtm_init and program deadtime in FXCLK0 ticks via an IfxEgtm_Dtm deadtime setter), or program the DTM/CDTM registers directly (e.g., DTMx/CTMx DTV and DTS). Target deadtime = 1 µs.",
+      "complementary_generation": "CDTM (hardware dead-time, complementary low-side from each HS channel)",
       "tout_pin_mapping_required_header": "IfxEgtm_PinMap.h",
       "pairs": [
         {
@@ -123,42 +123,12 @@
       "duty_input_array": "float32 duty[3] in [0.0..1.0] for U,V,W",
       "duty_update_function": "updateEgtmAtom3phInvDuty",
       "status_flags": [
-        {
-          "name": "pwm_initialized",
-          "set_when": "Initialization completes successfully (e.g., after initEgtmAtom3phInv configures EGTM clocks, ATOM channels, AGC, pin mapping, and CDTM/DTM).",
-          "cleared_when": "Deinitialization, reconfiguration failure, or any fatal error during init.",
-          "handling": "Duty updates and PWM start are permitted only when true."
-        },
-        {
-          "name": "update_in_progress",
-          "set_when": "updateEgtmAtom3phInvDuty writes new compare values to shadow registers and issues the AGC global update trigger; remains true until the next period boundary when shadow-to-active transfer completes.",
-          "cleared_when": "After the period boundary shadow transfer completes (confirmed in the PWM period ISR).",
-          "handling": "Reject or queue additional duty updates while true to preserve atomic 3-phase updates."
-        },
-        {
-          "name": "dtm_configured",
-          "set_when": "CDTM/DTM is enabled and deadtime for all pairs is programmed for 1 µs at FXCLK0 using the IfxEgtm_Dtm API (e.g., init and deadtime setter) or by writing DTM/CDTM registers (DTV/DTS) and verifying enable bits.",
-          "cleared_when": "CDTM/DTM is disabled, reconfigured to an invalid value, or an error_clock occurs.",
-          "handling": "Do not enable PWM outputs unless this flag is true."
-        },
-        {
-          "name": "error_pinmap",
-          "set_when": "Requested TOUT mapping for P20.8/9/10/11/12/13 is not available for EGTM Cluster 1 ATOM0 CH0/1/2, conflicts with another peripheral, or pin configuration fails.",
-          "cleared_when": "A valid, conflict-free pin mapping is applied and verified.",
-          "handling": "Abort initialization/start; keep outputs disabled and report the fault."
-        },
-        {
-          "name": "error_clock",
-          "set_when": "EGTM GCLK or FXCLK0 is disabled/not running, or FXCLK0 differs from device_configuration.clock_requirements.target_fxclk0_hz by more than the tolerated margin.",
-          "cleared_when": "Required clocks are enabled and within the expected frequency range.",
-          "handling": "Abort initialization and prevent PWM start; reconfigure clocks before retry."
-        },
-        {
-          "name": "error_channel",
-          "set_when": "Requested channels are not available/reserved, group assignment is invalid for AGC, or API receives an invalid duty array (NULL or values outside [0.0..1.0]).",
-          "cleared_when": "Valid channels are allocated and the next update call provides valid inputs.",
-          "handling": "Do not apply the update; clamp outputs to a safe state and signal error."
-        }
+        "pwm_initialized",
+        "update_in_progress",
+        "dtm_configured",
+        "error_pinmap",
+        "error_clock",
+        "error_channel"
       ]
     }
   },
@@ -167,7 +137,7 @@
     "alignment": "center",
     "deadtime_us": 1.0,
     "synchronous_start": true,
-    "synchronized_duty_update": "period (shadow transfer via AGC global update trigger for ATOM; TGC is for TOM and not used here)",
+    "synchronized_duty_update": "period (shadow transfer, AGC/TGC global update trigger)",
     "interrupt": {
       "type": "period",
       "target_cpu": "CPU0",
@@ -181,7 +151,7 @@
   },
   "device_configuration": {
     "target_device_macro": "DEVICE_TC4DX",
-    "pin_package": "IFX_PIN_PACKAGE_BGA436_COM",
+    "pin_package": "IFX_PIN_PACKAGE_BGA292_COM",
     "device_family": "TC4xx",
     "clock_requirements": {
       "requires_xtal": true,
