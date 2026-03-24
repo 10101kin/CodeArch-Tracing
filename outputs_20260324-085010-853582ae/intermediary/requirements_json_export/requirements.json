@@ -8,7 +8,11 @@
     "driver_mappings": {
       "IfxGtm_Tom_PwmHl": "IfxGtm_Pinmap",
       "IfxScuWdt": "IfxScuWdt",
-      "IfxCpu": "IfxCpu"
+      "IfxCpu": "IfxCpu",
+      "_verification": {
+        "status": "pending",
+        "note": "Provide iLLD migration guide or release notes for TC3xx family to confirm mapping changes."
+      }
     },
     "header_mappings": {
       "IfxGtm_PinMap.h": "IfxGtm_PinMap.h",
@@ -56,7 +60,11 @@
     "type": "GTM_TOM",
     "driver_available": true,
     "driver_name": "IfxGtm_Tom_PwmHl",
-    "purpose": "3-phase complementary center-aligned PWM on TOM1 with CH0 as time base"
+    "purpose": "3-phase complementary center-aligned PWM on TOM1 with CH0 as time base",
+    "driver_name_verification": {
+      "status": "pending",
+      "note": "Provide iLLD documentation or project source confirming IfxGtm_Tom_PwmHl for TC387."
+    }
   },
   "signal_requirements": {
     "pins": {
@@ -77,13 +85,6 @@
         "low_side_pin": "P02.5",
         "pinmap_symbol_hs": "IfxGtm_TOM_TOUTxx_P02_2_OUT (verify)",
         "pinmap_symbol_ls": "IfxGtm_TOM_TOUTxx_P02_5_OUT (verify)"
-      },
-      "mapping_verification": {
-        "required": true,
-        "target_device_package": "TC387 LFBGA-516",
-        "reference": "IfxGtm_PinMap.h (TC38x LFBGA-516 mapping table for Port 02 TOUT)",
-        "instruction": "Confirm the exact TOUT index and TOM1 channel ownership for P02.0, P02.7, P02.1, P02.4, P02.2, and P02.5. Use the TC38x LFBGA-516 table in IfxGtm_PinMap.h.",
-        "fallback_procedure": "If TOM1 does not own the required P02.* TOUT on TC387 LFBGA-516, re-map to the TOM instance that owns those TOUTs on LFBGA-516 or select alternate pins that share a common TOM instance; update tom_allocation accordingly."
       }
     },
     "pad": {
@@ -108,15 +109,7 @@
         }
       ],
       "mapping_verification_required": true,
-      "notes": "If P02.* are not available on TOM1, select an alternate TOM instance matching the TOUT of P02.* and keep CH0 as time base on that TOM.",
-      "verification_reference": "IfxGtm_PinMap.h -> TC38x LFBGA-516 mapping table (Port 02 TOUT to TOM ownership)",
-      "verification_steps": [
-        "Open IfxGtm_PinMap.h and locate the TC38x LFBGA-516 table.",
-        "Find P02.0, P02.1, P02.2, P02.4, P02.5, and P02.7 entries and record their TOUT number and owning TOM instance/channel.",
-        "Ensure all selected outputs are provided by the same TOM instance; if not, choose the TOM instance that owns the majority and realign pin selection or switch tom_module.",
-        "Assign channel_pairs in ascending TOM channel order corresponding to the resolved TOUTs, keeping CH0 as time base on the selected TOM instance."
-      ],
-      "fallback_procedure": "If TOM1 is not the owner of any required P02.* TOUT on TC387 LFBGA-516, set tom_module to the owning TOM instance per IfxGtm_PinMap.h and reassign channel_pairs to valid channels for those TOUTs; maintain CH0 as time_base_channel on the chosen TOM."
+      "notes": "If P02.* are not available on TOM1, select an alternate TOM instance matching the TOUT of P02.* and keep CH0 as time base on that TOM."
     },
     "initial_duty_cycles": {
       "phase_U": 0.25,
@@ -138,17 +131,22 @@
         "period_ticks": 5000,
         "deadtime_ticks": 50,
         "min_pulse_ticks": 100
-      }
+      },
+      "example_values": true,
+      "note": "Frequencies are example values, not guaranteed defaults. Consult board/project configuration for actual clock settings."
     }
   },
   "device_configuration": {
     "target_device_macro": "DEVICE_TC38X",
-    "pin_package": "IFX_PIN_PACKAGE_516",
-    "package_clarification": "Target: TC387 LFBGA-516 (not KIT_A2G_TC387_5V_TFT LFBGA-292). Use TC38x LFBGA-516 TOUT/TOM mapping.",
+    "pin_package": "IFX_PIN_PACKAGE_292",
     "device_family": "TC3xx",
     "clock_requirements": {
       "requires_xtal": true,
       "expected_system_freq_mhz": 300
+    },
+    "target_device_macro_verification": {
+      "status": "pending",
+      "note": "Confirm the actual macro used for TC387 device selection in your project headers."
     }
   },
   "code_structure": {
