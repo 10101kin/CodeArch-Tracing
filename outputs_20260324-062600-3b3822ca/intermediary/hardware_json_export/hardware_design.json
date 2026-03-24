@@ -15,7 +15,8 @@
       4,
       6
     ],
-    "driver": "IfxGtm_Pwm"
+    "driver": "IfxGtm_Pwm",
+    "timebase_channel": 0
   },
   "pin_assignments": [
     {
@@ -97,5 +98,9 @@
     "verified_count": 3,
     "doc_reference_count": 1,
     "merged_total": 4
+  },
+  "rationale": {
+    "timebase_selection": "TOM1 channel 0 is reserved as the PWM timebase and is not routed to any output pin.",
+    "pin_usage": "Only high-side PWM outputs (U, V, W) are used via TOM1 channels 2, 4, and 6; low-side/complementary outputs are intentionally not used in this design."
   }
 }
