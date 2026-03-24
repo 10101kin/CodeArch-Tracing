@@ -68,7 +68,7 @@
   "peripheral_requirement": {
     "type": "PWM",
     "driver_available": true,
-    "driver_name": "IfxEgtm_Atom_Pwm",
+    "driver_name": "IfxEgtm_Pwm",
     "purpose": "eGTM CLC0 ATOM0: CH0–CH2 drive three complementary, center-aligned PWM pairs at 20 kHz with 1 µs deadtime; CH3 outputs a 20 kHz falling-edge 50% trigger on P33.0 for TMADC0; duties updated every 500 ms; LED P03.9 toggled."
   },
   "signal_requirements": {
@@ -155,8 +155,8 @@
     }
   },
   "device_configuration": {
-    "target_device_macro": "DEVICE_TC4D7",
-    "pin_package": "IFX_PIN_PACKAGE_BGA292_COM",
+    "target_device_macro": "DEVICE_TC4DX",
+    "pin_package": "IFX_PIN_PACKAGE_BGA436_COM",
     "device_family": "TC4xx",
     "clock_requirements": {
       "requires_xtal": true,
