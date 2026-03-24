@@ -8,14 +8,15 @@
   },
   "peripheral_instance": {
     "type": "GTM_TOM",
-    "module": "TOM0",
+    "module": "TOM1",
     "channels": [
       0,
       1,
       2,
+      3,
       4,
       5,
-      7
+      6
     ],
     "driver": "IfxGtm_Tom_PwmHl"
   },
@@ -24,7 +25,7 @@
       "signal": "U_HS",
       "port_pin": "P02.0",
       "function": "TOUT (GTM TOM)",
-      "pin_macro": "IfxGtm_TOM0_0_TOUT0_P02_0_OUT",
+      "pin_macro": "",
       "is_complementary": false,
       "verified": false,
       "source": "hardware_verified"
@@ -33,7 +34,7 @@
       "signal": "U_LS",
       "port_pin": "P02.7",
       "function": "TOUT (GTM TOM)",
-      "pin_macro": "IfxGtm_TOM0_7_TOUT7_P02_7_OUT",
+      "pin_macro": "",
       "is_complementary": true,
       "verified": false,
       "source": "hardware_verified"
@@ -42,7 +43,7 @@
       "signal": "V_HS",
       "port_pin": "P02.1",
       "function": "TOUT (GTM TOM)",
-      "pin_macro": "IfxGtm_TOM0_1_TOUT1_P02_1_OUT",
+      "pin_macro": "",
       "is_complementary": false,
       "verified": false,
       "source": "hardware_verified"
@@ -51,7 +52,7 @@
       "signal": "V_LS",
       "port_pin": "P02.4",
       "function": "TOUT (GTM TOM)",
-      "pin_macro": "IfxGtm_TOM0_4_TOUT4_P02_4_OUT",
+      "pin_macro": "",
       "is_complementary": true,
       "verified": false,
       "source": "hardware_verified"
@@ -60,7 +61,7 @@
       "signal": "W_HS",
       "port_pin": "P02.2",
       "function": "TOUT (GTM TOM)",
-      "pin_macro": "IfxGtm_TOM0_2_TOUT2_P02_2_OUT",
+      "pin_macro": "",
       "is_complementary": false,
       "verified": false,
       "source": "hardware_verified"
@@ -69,7 +70,7 @@
       "signal": "W_LS",
       "port_pin": "P02.5",
       "function": "TOUT (GTM TOM)",
-      "pin_macro": "IfxGtm_TOM0_5_TOUT5_P02_5_OUT",
+      "pin_macro": "",
       "is_complementary": true,
       "verified": false,
       "source": "hardware_verified"
