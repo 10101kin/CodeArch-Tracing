@@ -1,24 +1,3 @@
-Status: FAILED
-
-Attempt 1 - PRODUCTION (Global: 1)
-Status: FAILED ❌
-Timestamp: 2026-03-24 19:32:05
-Files generated: 2
-
-============================================================
-
-ERRORS:
-
-1. conflicting types for 'IfxGtm_Tom_Timer_init'; have 'boolean(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)' {aka 'unsigned char(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)'}
-
-2. conflicting types for 'IfxGtm_Tom_Timer_init'; have 'boolean(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)' {aka 'unsigned char(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)'}
-
-3. conflicting types for 'IfxGtm_Tom_Timer_init'; have 'boolean(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)' {aka 'unsigned char(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)'}
-
-4. conflicting types for 'IfxGtm_Tom_Timer_init'; have 'boolean(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)' {aka 'unsigned char(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)'}
-
-============================================================
-BUILD RESULT:
 {
   "success": false,
   "errors": [
