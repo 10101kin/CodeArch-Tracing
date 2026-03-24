@@ -1,0 +1,16 @@
+{
+  "attempt": 2,
+  "phase_attempt": 2,
+  "phase": "production",
+  "timestamp": "2026-03-24T02:33:27.403769",
+  "success": false,
+  "files": [
+    "egtm_atom_3_phase_inverter_pwm.h",
+    "egtm_atom_3_phase_inverter_pwm.c"
+  ],
+  "errors": [
+    "Function 'unknown' from API contract not found in production header",
+    "Function 'unknown' from API contract not found in production header"
+  ],
+  "build_result": null
+}
