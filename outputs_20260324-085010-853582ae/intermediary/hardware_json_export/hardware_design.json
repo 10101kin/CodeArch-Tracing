@@ -3,8 +3,8 @@
     "model": "TC387",
     "family": "TC3xx",
     "verified": true,
-    "device_macro": "DEVICE_TC38X",
-    "pin_package": "IFX_PIN_PACKAGE_516"
+    "device_macro": "DEVICE_TC387",
+    "pin_package": "IFX_PIN_PACKAGE_292"
   },
   "peripheral_instance": {
     "type": "GTM_TOM",
@@ -83,8 +83,7 @@
   "validation": {
     "all_verified": false,
     "conflicts": [
-      "Requested verification for TC387 LFBGA-292 while template device configuration is IFX_PIN_PACKAGE_516; P02.* TOM/TOUT mapping must match the configured package.",
-      "Exact IfxGtm_PinMap.h macros for P02.0/1/2/4/5/7 to TOM1 channels/TOUT are not validated in the current template context; TOM instance selection may need adjustment if P02.* are not on TOM1."
+      "Cross-check required: Verify P02.0/1/2/4/5/7 mapping to GTM TOM1 TOUT on TC387 LFBGA-292 using IfxGtm_PinMap.h. If mapping to TOM1 is not supported on LFBGA-292, update the TOM instance/channel configuration accordingly or obtain user confirmation for an alternative mapping."
     ],
     "reference_pins_valid": true
   },
@@ -125,7 +124,8 @@
         ],
         "avoid_drivers": [
           "IfxGtm_Tom_PwmHl"
-        ]
+        ],
+        "rationale": "Template recommends IfxGtm_Pinmap for reliable pin mapping/validation. User requested IfxGtm_Tom_PwmHl; retaining template recommendation and documenting trade-off to avoid misconfiguration risk on LFBGA-292. If PwmHl must be used, revisit selection after confirmed pin mapping."
       }
     },
     "warnings": []
