@@ -1,0 +1,802 @@
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:6:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/gtm_tom_3_phase_inverter_pwm.h:52:5: error: unknown type name 'IfxGtm_Tom_Timer'; did you mean 'IfxGtm_Tom_Timer_Base'?
+   52 |     IfxGtm_Tom_Timer  timer;                  /* TOM time-base driver */
+      |     ^~~~~~~~~~~~~~~~
+      |     IfxGtm_Tom_Timer_Base
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/gtm_tom_3_phase_inverter_pwm.h:53:5: error: unknown type name 'IfxGtm_Tom_PwmHl'; did you mean 'IfxGtm_Tom_PwmHl_Config'?
+   53 |     IfxGtm_Tom_PwmHl  pwm;                    /* Complementary PWM driver */
+      |     ^~~~~~~~~~~~~~~~
+      |     IfxGtm_Tom_PwmHl_Config
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:9:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxGtm.h:8:20: error: unknown type name 'Ifx_GTM'; did you mean 'Ifx_STMx'?
+    8 | void IfxGtm_enable(Ifx_GTM *gtm);
+      |                    ^~~~~~~
+      |                    Ifx_STMx
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:10:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxGtm_Cmu.h:8:33: error: unknown type name 'Ifx_GTM'; did you mean 'Ifx_STMx'?
+    8 | void IfxGtm_Cmu_setClkFrequency(Ifx_GTM *gtm, IfxGtm_Cmu_Clk clkIndex, float32 frequency);
+      |                                 ^~~~~~~
+      |                                 Ifx_STMx
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxGtm_Cmu.h:8:47: error: unknown type name 'IfxGtm_Cmu_Clk'
+    8 | void IfxGtm_Cmu_setClkFrequency(Ifx_GTM *gtm, IfxGtm_Cmu_Clk clkIndex, float32 frequency);
+      |                                               ^~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxGtm_Cmu.h:9:37: error: unknown type name 'Ifx_GTM'; did you mean 'Ifx_STMx'?
+    9 | float32 IfxGtm_Cmu_getGclkFrequency(Ifx_GTM *gtm);
+      |                                     ^~~~~~~
+      |                                     Ifx_STMx
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:11:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxGtm_Tom_Timer.h:8:43: error: unknown type name 'IfxGtm_Tom_Timer'; did you mean 'IfxGtm_Tom_Timer_Base'?
+    8 | Ifx_TimerValue IfxGtm_Tom_Timer_getPeriod(IfxGtm_Tom_Timer *driver);
+      |                                           ^~~~~~~~~~~~~~~~
+      |                                           IfxGtm_Tom_Timer_Base
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxGtm_Tom_Timer.h:9:35: error: unknown type name 'IfxGtm_Tom_Timer'; did you mean 'IfxGtm_Tom_Timer_Base'?
+    9 | void IfxGtm_Tom_Timer_applyUpdate(IfxGtm_Tom_Timer *driver);
+      |                                   ^~~~~~~~~~~~~~~~
+      |                                   IfxGtm_Tom_Timer_Base
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxGtm_Tom_Timer.h:10:27: error: unknown type name 'IfxGtm_Tom_Timer'; did you mean 'IfxGtm_Tom_Timer_Base'?
+   10 | void IfxGtm_Tom_Timer_run(IfxGtm_Tom_Timer *driver);
+      |                           ^~~~~~~~~~~~~~~~
+      |                           IfxGtm_Tom_Timer_Base
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxGtm_Tom_Timer.h:11:31: error: unknown type name 'IfxGtm_Tom_Timer'; did you mean 'IfxGtm_Tom_Timer_Base'?
+   11 | boolean IfxGtm_Tom_Timer_init(IfxGtm_Tom_Timer *driver, const IfxGtm_Tom_Timer_Config *config);
+      |                               ^~~~~~~~~~~~~~~~
+      |                               IfxGtm_Tom_Timer_Base
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxGtm_Tom_Timer.h:11:63: error: unknown type name 'IfxGtm_Tom_Timer_Config'; did you mean 'IfxGtm_Tom_PwmHl_Config'?
+   11 | boolean IfxGtm_Tom_Timer_init(IfxGtm_Tom_Timer *driver, const IfxGtm_Tom_Timer_Config *config);
+      |                                                               ^~~~~~~~~~~~~~~~~~~~~~~
+      |                                                               IfxGtm_Tom_PwmHl_Config
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxGtm_Tom_Timer.h:12:37: error: unknown type name 'IfxGtm_Tom_Timer'; did you mean 'IfxGtm_Tom_Timer_Base'?
+   12 | void IfxGtm_Tom_Timer_disableUpdate(IfxGtm_Tom_Timer *driver);
+      |                                     ^~~~~~~~~~~~~~~~
+      |                                     IfxGtm_Tom_Timer_Base
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxGtm_Tom_Timer.h:13:34: error: unknown type name 'IfxGtm_Tom_Timer_Config'; did you mean 'IfxGtm_Tom_PwmHl_Config'?
+   13 | void IfxGtm_Tom_Timer_initConfig(IfxGtm_Tom_Timer_Config *config, Ifx_GTM *gtm);
+      |                                  ^~~~~~~~~~~~~~~~~~~~~~~
+      |                                  IfxGtm_Tom_PwmHl_Config
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxGtm_Tom_Timer.h:13:67: error: unknown type name 'Ifx_GTM'; did you mean 'Ifx_STMx'?
+   13 | void IfxGtm_Tom_Timer_initConfig(IfxGtm_Tom_Timer_Config *config, Ifx_GTM *gtm);
+      |                                                                   ^~~~~~~
+      |                                                                   Ifx_STMx
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:12:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxGtm_Tom_PwmHl.h:8:33: error: unknown type name 'IfxGtm_Tom_PwmHl'; did you mean 'IFXGTM_TOM_PWMHL_H'?
+    8 | void IfxGtm_Tom_PwmHl_setOnTime(IfxGtm_Tom_PwmHl *driver, Ifx_TimerValue *tOn);
+      |                                 ^~~~~~~~~~~~~~~~
+      |                                 IFXGTM_TOM_PWMHL_H
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxGtm_Tom_PwmHl.h:9:31: error: unknown type name 'IfxGtm_Tom_PwmHl'; did you mean 'IFXGTM_TOM_PWMHL_H'?
+    9 | boolean IfxGtm_Tom_PwmHl_init(IfxGtm_Tom_PwmHl *driver, const IfxGtm_Tom_PwmHl_Config *config);
+      |                               ^~~~~~~~~~~~~~~~
+      |                               IFXGTM_TOM_PWMHL_H
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxGtm_Tom_PwmHl.h:10:38: error: unknown type name 'IfxGtm_Tom_PwmHl'; did you mean 'IFXGTM_TOM_PWMHL_H'?
+   10 | boolean IfxGtm_Tom_PwmHl_setMinPulse(IfxGtm_Tom_PwmHl *driver, float32 minPulse);
+      |                                      ^~~~~~~~~~~~~~~~
+      |                                      IFXGTM_TOM_PWMHL_H
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxGtm_Tom_PwmHl.h:11:34: error: unknown type name 'IfxGtm_Tom_PwmHl'; did you mean 'IFXGTM_TOM_PWMHL_H'?
+   11 | boolean IfxGtm_Tom_PwmHl_setMode(IfxGtm_Tom_PwmHl *driver, Ifx_Pwm_Mode mode);
+      |                                  ^~~~~~~~~~~~~~~~
+      |                                  IFXGTM_TOM_PWMHL_H
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxGtm_Tom_PwmHl.h:12:38: error: unknown type name 'IfxGtm_Tom_PwmHl'; did you mean 'IFXGTM_TOM_PWMHL_H'?
+   12 | boolean IfxGtm_Tom_PwmHl_setDeadtime(IfxGtm_Tom_PwmHl *driver, float32 deadtime);
+      |                                      ^~~~~~~~~~~~~~~~
+      |                                      IFXGTM_TOM_PWMHL_H
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:13:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxGtm_PinMap.h:8:31: error: unknown type name 'IfxGtm_Tom_ToutMap'
+    8 | void IfxGtm_PinMap_setTomTout(IfxGtm_Tom_ToutMap *config, IfxPort_OutputMode outputMode, IfxPort_PadDriver padDriver);
+      |                               ^~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxGtm_PinMap.h:8:59: error: unknown type name 'IfxPort_OutputMode'
+    8 | void IfxGtm_PinMap_setTomTout(IfxGtm_Tom_ToutMap *config, IfxPort_OutputMode outputMode, IfxPort_PadDriver padDriver);
+      |                                                           ^~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxGtm_PinMap.h:8:90: error: unknown type name 'IfxPort_PadDriver'
+    8 | void IfxGtm_PinMap_setTomTout(IfxGtm_Tom_ToutMap *config, IfxPort_OutputMode outputMode, IfxPort_PadDriver padDriver);
+      |                                                                                          ^~~~~~~~~~~~~~~~~
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:14:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxPort.h:11:25: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   11 | void IfxPort_setPinMode(Ifx_P *port, uint8 pinIndex, IfxPort_Mode mode);
+      |                         ^~~~~
+      |                         IFX_PI
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxPort.h:11:54: error: unknown type name 'IfxPort_Mode'; did you mean 'Ifx_Pwm_Mode'?
+   11 | void IfxPort_setPinMode(Ifx_P *port, uint8 pinIndex, IfxPort_Mode mode);
+      |                                                      ^~~~~~~~~~~~
+      |                                                      Ifx_Pwm_Mode
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxPort.h:12:31: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   12 | void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
+      |                               ^~~~~
+      |                               IFX_PI
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxPort.h:12:60: error: unknown type name 'IfxPort_OutputMode'
+   12 | void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
+      |                                                            ^~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxPort.h:12:85: error: unknown type name 'IfxPort_OutputIdx'
+   12 | void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
+      |                                                                                     ^~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxPort.h:13:30: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   13 | void IfxPort_setPinModeInput(Ifx_P *port, uint8 pinIndex, IfxPort_InputMode mode);
+      |                              ^~~~~
+      |                              IFX_PI
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxPort.h:13:59: error: unknown type name 'IfxPort_InputMode'
+   13 | void IfxPort_setPinModeInput(Ifx_P *port, uint8 pinIndex, IfxPort_InputMode mode);
+      |                                                           ^~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxPort.h:14:30: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   14 | void IfxPort_setPinPadDriver(Ifx_P *port, uint8 pinIndex, IfxPort_PadDriver padDriver);
+      |                              ^~~~~
+      |                              IFX_PI
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxPort.h:14:59: error: unknown type name 'IfxPort_PadDriver'
+   14 | void IfxPort_setPinPadDriver(Ifx_P *port, uint8 pinIndex, IfxPort_PadDriver padDriver);
+      |                                                           ^~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxPort.h:15:25: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   15 | void IfxPort_setPinHigh(Ifx_P *port, uint8 pinIndex);
+      |                         ^~~~~
+      |                         IFX_PI
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxPort.h:16:24: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   16 | void IfxPort_setPinLow(Ifx_P *port, uint8 pinIndex);
+      |                        ^~~~~
+      |                        IFX_PI
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxPort.h:17:24: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   17 | void IfxPort_togglePin(Ifx_P *port, uint8 pinIndex);
+      |                        ^~~~~
+      |                        IFX_PI
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxPort.h:18:1: error: unknown type name 'IfxPort_State'
+   18 | IfxPort_State IfxPort_getPinState(Ifx_P *port, uint8 pinIndex);
+      | ^~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxPort.h:18:35: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   18 | IfxPort_State IfxPort_getPinState(Ifx_P *port, uint8 pinIndex);
+      |                                   ^~~~~
+      |                                   IFX_PI
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxPort.h:19:26: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   19 | void IfxPort_setPinState(Ifx_P *port, uint8 pinIndex, IfxPort_State state);
+      |                          ^~~~~
+      |                          IFX_PI
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxPort.h:19:55: error: unknown type name 'IfxPort_State'
+   19 | void IfxPort_setPinState(Ifx_P *port, uint8 pinIndex, IfxPort_State state);
+      |                                                       ^~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:30:1: error: unknown type name 'IFX_STATIC'
+   30 | IFX_STATIC GtmTom3PhaseOutput g_pwm3PhaseOutput;
+      | ^~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:30:31: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'g_pwm3PhaseOutput'
+   30 | IFX_STATIC GtmTom3PhaseOutput g_pwm3PhaseOutput;
+      |                               ^~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c: In function 'configureTom1Pins':
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:41:5: error: implicit declaration of function 'IfxGtm_PinMap_setTomTout' [-Wimplicit-function-declaration]
+   41 |     IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_U_HS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:41:31: error: 'IfxGtm_Tom_ToutMap' undeclared (first use in this function)
+   41 |     IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_U_HS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
+      |                               ^~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:41:31: note: each undeclared identifier is reported only once for each function it appears in
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:41:51: error: expected expression before ')' token
+   41 |     IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_U_HS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
+      |                                                   ^
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:18:24: error: 'IfxGtm_TOM1_2_TOUT12_P00_3_OUT' undeclared (first use in this function)
+   18 | #define PHASE_U_HS   (&IfxGtm_TOM1_2_TOUT12_P00_3_OUT)
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:41:52: note: in expansion of macro 'PHASE_U_HS'
+   41 |     IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_U_HS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
+      |                                                    ^~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:41:64: error: 'IfxPort_OutputMode_pushPull' undeclared (first use in this function)
+   41 |     IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_U_HS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
+      |                                                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:41:93: error: 'IfxPort_PadDriver_cmosAutomotiveSpeed1' undeclared (first use in this function)
+   41 |     IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_U_HS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
+      |                                                                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:42:51: error: expected expression before ')' token
+   42 |     IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_V_HS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
+      |                                                   ^
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:20:24: error: 'IfxGtm_TOM1_4_TOUT14_P00_5_OUT' undeclared (first use in this function)
+   20 | #define PHASE_V_HS   (&IfxGtm_TOM1_4_TOUT14_P00_5_OUT)
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:42:52: note: in expansion of macro 'PHASE_V_HS'
+   42 |     IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_V_HS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
+      |                                                    ^~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:43:51: error: expected expression before ')' token
+   43 |     IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_W_HS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
+      |                                                   ^
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:22:24: error: 'IfxGtm_TOM1_6_TOUT16_P00_7_OUT' undeclared (first use in this function)
+   22 | #define PHASE_W_HS   (&IfxGtm_TOM1_6_TOUT16_P00_7_OUT)
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:43:52: note: in expansion of macro 'PHASE_W_HS'
+   43 |     IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_W_HS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
+      |                                                    ^~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:46:51: error: expected expression before ')' token
+   46 |     IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_U_LS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
+      |                                                   ^
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:19:24: error: 'IfxGtm_TOM1_1_TOUT11_P00_2_OUT' undeclared (first use in this function)
+   19 | #define PHASE_U_LS   (&IfxGtm_TOM1_1_TOUT11_P00_2_OUT)
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:46:52: note: in expansion of macro 'PHASE_U_LS'
+   46 |     IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_U_LS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
+      |                                                    ^~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:47:51: error: expected expression before ')' token
+   47 |     IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_V_LS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
+      |                                                   ^
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:21:24: error: 'IfxGtm_TOM1_3_TOUT13_P00_4_OUT' undeclared (first use in this function)
+   21 | #define PHASE_V_LS   (&IfxGtm_TOM1_3_TOUT13_P00_4_OUT)
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:47:52: note: in expansion of macro 'PHASE_V_LS'
+   47 |     IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_V_LS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
+      |                                                    ^~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:48:51: error: expected expression before ')' token
+   48 |     IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_W_LS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
+      |                                                   ^
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:23:24: error: 'IfxGtm_TOM1_5_TOUT15_P00_6_OUT' undeclared (first use in this function)
+   23 | #define PHASE_W_LS   (&IfxGtm_TOM1_5_TOUT15_P00_6_OUT)
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:48:52: note: in expansion of macro 'PHASE_W_LS'
+   48 |     IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_W_LS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
+      |                                                    ^~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTom3phInv':
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:69:5: error: implicit declaration of function 'IfxGtm_enable' [-Wimplicit-function-declaration]
+   69 |     IfxGtm_enable(&MODULE_GTM);
+      |     ^~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:69:20: error: 'MODULE_GTM' undeclared (first use in this function)
+   69 |     IfxGtm_enable(&MODULE_GTM);
+      |                    ^~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:71:30: error: implicit declaration of function 'IfxGtm_Cmu_getModuleFrequency' [-Wimplicit-function-declaration]
+   71 |         float32 moduleFreq = IfxGtm_Cmu_getModuleFrequency(&MODULE_GTM);
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:72:9: error: implicit declaration of function 'IfxGtm_Cmu_setGclkFrequency' [-Wimplicit-function-declaration]
+   72 |         IfxGtm_Cmu_setGclkFrequency(&MODULE_GTM, moduleFreq);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:74:28: error: implicit declaration of function 'IfxGtm_Cmu_getGclkFrequency' [-Wimplicit-function-declaration]
+   74 |             float32 gclk = IfxGtm_Cmu_getGclkFrequency(&MODULE_GTM);
+      |                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:75:13: error: implicit declaration of function 'IfxGtm_Cmu_setClkFrequency' [-Wimplicit-function-declaration]
+   75 |             IfxGtm_Cmu_setClkFrequency(&MODULE_GTM, IfxGtm_Cmu_Clk_0, gclk);
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:75:53: error: 'IfxGtm_Cmu_Clk_0' undeclared (first use in this function)
+   75 |             IfxGtm_Cmu_setClkFrequency(&MODULE_GTM, IfxGtm_Cmu_Clk_0, gclk);
+      |                                                     ^~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:77:9: error: implicit declaration of function 'IfxGtm_Cmu_enableClocks' [-Wimplicit-function-declaration]
+   77 |         IfxGtm_Cmu_enableClocks(&MODULE_GTM, IFXGTM_CMU_CLKEN_FXCLK);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:77:46: error: expected expression before 'IFXGTM_CMU_CLKEN_FXCLK'
+   77 |         IfxGtm_Cmu_enableClocks(&MODULE_GTM, IFXGTM_CMU_CLKEN_FXCLK);
+      |                                              ^~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:81:5: error: unknown type name 'IfxGtm_Tom_Timer_Config'; did you mean 'IfxGtm_Tom_PwmHl_Config'?
+   81 |     IfxGtm_Tom_Timer_Config timerConfig;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxGtm_Tom_PwmHl_Config
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:82:5: error: implicit declaration of function 'IfxGtm_Tom_Timer_initConfig'; did you mean 'IfxGtm_Tom_PwmHl_initConfig'? [-Wimplicit-function-declaration]
+   82 |     IfxGtm_Tom_Timer_initConfig(&timerConfig, &MODULE_GTM);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxGtm_Tom_PwmHl_initConfig
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:83:16: error: request for member 'base' in something not a structure or union
+   83 |     timerConfig.base.frequency = TIMING_PWM_FREQUENCY_HZ;      /* 20 kHz */
+      |                ^
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:84:16: error: request for member 'clock' in something not a structure or union
+   84 |     timerConfig.clock          = IfxGtm_Tom_Ch_ClkSrc_cmuFxclk0;
+      |                ^
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:84:34: error: 'IfxGtm_Tom_Ch_ClkSrc_cmuFxclk0' undeclared (first use in this function)
+   84 |     timerConfig.clock          = IfxGtm_Tom_Ch_ClkSrc_cmuFxclk0;
+      |                                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:85:16: error: request for member 'tom' in something not a structure or union
+   85 |     timerConfig.tom            = IfxGtm_Tom_1;                 /* Keep TOM1 */
+      |                ^
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:85:34: error: 'IfxGtm_Tom_1' undeclared (first use in this function)
+   85 |     timerConfig.tom            = IfxGtm_Tom_1;                 /* Keep TOM1 */
+      |                                  ^~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:86:16: error: request for member 'timerChannel' in something not a structure or union
+   86 |     timerConfig.timerChannel   = IfxGtm_Tom_Ch_0;              /* Master time base ch */
+      |                ^
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:86:34: error: 'IfxGtm_Tom_Ch_0' undeclared (first use in this function)
+   86 |     timerConfig.timerChannel   = IfxGtm_Tom_Ch_0;              /* Master time base ch */
+      |                                  ^~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:88:10: error: implicit declaration of function 'IfxGtm_Tom_Timer_init' [-Wimplicit-function-declaration]
+   88 |     ok = IfxGtm_Tom_Timer_init(&g_pwm3PhaseOutput.timer, &timerConfig);
+      |          ^~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:100:9: error: unknown type name 'IfxGtm_Tom_ToutMapP'
+  100 |         IfxGtm_Tom_ToutMapP ccx[] = { PHASE_U_HS, PHASE_V_HS, PHASE_W_HS };
+      |         ^~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:18:24: error: 'IfxGtm_TOM1_2_TOUT12_P00_3_OUT' undeclared (first use in this function)
+   18 | #define PHASE_U_HS   (&IfxGtm_TOM1_2_TOUT12_P00_3_OUT)
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:100:39: note: in expansion of macro 'PHASE_U_HS'
+  100 |         IfxGtm_Tom_ToutMapP ccx[] = { PHASE_U_HS, PHASE_V_HS, PHASE_W_HS };
+      |                                       ^~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:20:24: error: 'IfxGtm_TOM1_4_TOUT14_P00_5_OUT' undeclared (first use in this function)
+   20 | #define PHASE_V_HS   (&IfxGtm_TOM1_4_TOUT14_P00_5_OUT)
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:100:51: note: in expansion of macro 'PHASE_V_HS'
+  100 |         IfxGtm_Tom_ToutMapP ccx[] = { PHASE_U_HS, PHASE_V_HS, PHASE_W_HS };
+      |                                                   ^~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:22:24: error: 'IfxGtm_TOM1_6_TOUT16_P00_7_OUT' undeclared (first use in this function)
+   22 | #define PHASE_W_HS   (&IfxGtm_TOM1_6_TOUT16_P00_7_OUT)
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:100:63: note: in expansion of macro 'PHASE_W_HS'
+  100 |         IfxGtm_Tom_ToutMapP ccx[] = { PHASE_U_HS, PHASE_V_HS, PHASE_W_HS };
+      |                                                               ^~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:101:9: error: unknown type name 'IfxGtm_Tom_ToutMapP'
+  101 |         IfxGtm_Tom_ToutMapP coutx[] = { PHASE_U_LS, PHASE_V_LS, PHASE_W_LS };
+      |         ^~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:19:24: error: 'IfxGtm_TOM1_1_TOUT11_P00_2_OUT' undeclared (first use in this function)
+   19 | #define PHASE_U_LS   (&IfxGtm_TOM1_1_TOUT11_P00_2_OUT)
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:101:41: note: in expansion of macro 'PHASE_U_LS'
+  101 |         IfxGtm_Tom_ToutMapP coutx[] = { PHASE_U_LS, PHASE_V_LS, PHASE_W_LS };
+      |                                         ^~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:21:24: error: 'IfxGtm_TOM1_3_TOUT13_P00_4_OUT' undeclared (first use in this function)
+   21 | #define PHASE_V_LS   (&IfxGtm_TOM1_3_TOUT13_P00_4_OUT)
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:101:53: note: in expansion of macro 'PHASE_V_LS'
+  101 |         IfxGtm_Tom_ToutMapP coutx[] = { PHASE_U_LS, PHASE_V_LS, PHASE_W_LS };
+      |                                                     ^~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:23:24: error: 'IfxGtm_TOM1_5_TOUT15_P00_6_OUT' undeclared (first use in this function)
+   23 | #define PHASE_W_LS   (&IfxGtm_TOM1_5_TOUT15_P00_6_OUT)
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:101:65: note: in expansion of macro 'PHASE_W_LS'
+  101 |         IfxGtm_Tom_ToutMapP coutx[] = { PHASE_U_LS, PHASE_V_LS, PHASE_W_LS };
+      |                                                                 ^~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:107:45: error: 'IfxPort_OutputMode_pushPull' undeclared (first use in this function)
+  107 |         pwmHlConfig.base.outputMode       = IfxPort_OutputMode_pushPull;
+      |                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:108:45: error: 'IfxPort_PadDriver_cmosAutomotiveSpeed1' undeclared (first use in this function)
+  108 |         pwmHlConfig.base.outputDriver     = IfxPort_PadDriver_cmosAutomotiveSpeed1;
+      |                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:111:43: error: assignment to 'uint32' {aka 'unsigned int'} from 'int *' makes integer from pointer without a cast [-Wint-conversion]
+  111 |         pwmHlConfig.ccx                   = ccx;
+      |                                           ^
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:112:43: error: assignment to 'uint32' {aka 'unsigned int'} from 'int *' makes integer from pointer without a cast [-Wint-conversion]
+  112 |         pwmHlConfig.coutx                 = coutx;
+      |                                           ^
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:114:56: error: request for member 'tom' in something not a structure or union
+  114 |         pwmHlConfig.tom                   = timerConfig.tom;
+      |                                                        ^
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:116:14: error: implicit declaration of function 'IfxGtm_Tom_PwmHl_init'; did you mean 'IfxGtm_Tom_PwmHl_initConfig'? [-Wimplicit-function-declaration]
+  116 |         ok = IfxGtm_Tom_PwmHl_init(&g_pwm3PhaseOutput.pwm, &pwmHlConfig);
+      |              ^~~~~~~~~~~~~~~~~~~~~
+      |              IfxGtm_Tom_PwmHl_initConfig
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:123:14: error: implicit declaration of function 'IfxGtm_Tom_PwmHl_setMode'; did you mean 'IfxGtm_Tom_PwmHl_initConfig'? [-Wimplicit-function-declaration]
+  123 |         ok = IfxGtm_Tom_PwmHl_setMode(&g_pwm3PhaseOutput.pwm, Ifx_Pwm_Mode_centerAligned);
+      |              ^~~~~~~~~~~~~~~~~~~~~~~~
+      |              IfxGtm_Tom_PwmHl_initConfig
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:130:14: error: implicit declaration of function 'IfxGtm_Tom_PwmHl_setDeadtime' [-Wimplicit-function-declaration]
+  130 |         ok = IfxGtm_Tom_PwmHl_setDeadtime(&g_pwm3PhaseOutput.pwm, PWM_DEAD_TIME);
+      |              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:135:14: error: implicit declaration of function 'IfxGtm_Tom_PwmHl_setMinPulse' [-Wimplicit-function-declaration]
+  135 |         ok = IfxGtm_Tom_PwmHl_setMinPulse(&g_pwm3PhaseOutput.pwm, PWM_MIN_PULSE_TIME);
+      |              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:143:5: error: implicit declaration of function 'IfxGtm_Tom_Timer_run' [-Wimplicit-function-declaration]
+  143 |     IfxGtm_Tom_Timer_run(&g_pwm3PhaseOutput.timer);
+      |     ^~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:147:33: error: implicit declaration of function 'IfxGtm_Tom_Timer_getPeriod' [-Wimplicit-function-declaration]
+  147 |         Ifx_TimerValue period = IfxGtm_Tom_Timer_getPeriod(&g_pwm3PhaseOutput.timer);
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:152:9: error: implicit declaration of function 'IfxGtm_Tom_Timer_disableUpdate' [-Wimplicit-function-declaration]
+  152 |         IfxGtm_Tom_Timer_disableUpdate(&g_pwm3PhaseOutput.timer);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:153:9: error: implicit declaration of function 'IfxGtm_Tom_PwmHl_setOnTime'; did you mean 'IfxGtm_Tom_PwmHl_initConfig'? [-Wimplicit-function-declaration]
+  153 |         IfxGtm_Tom_PwmHl_setOnTime(&g_pwm3PhaseOutput.pwm, g_pwm3PhaseOutput.pwmOnTimes);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+      |         IfxGtm_Tom_PwmHl_initConfig
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:154:9: error: implicit declaration of function 'IfxGtm_Tom_Timer_applyUpdate' [-Wimplicit-function-declaration]
+  154 |         IfxGtm_Tom_Timer_applyUpdate(&g_pwm3PhaseOutput.timer);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\mocks\IfxEgtm_Pwm.c:1:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include\illd_types/Ifx_Types.h:683:5: error: unknown type name 'IFX_CONST'
+  683 |     IFX_CONST IfxGtm_Tom_ToutMapP *ccx;
+      |     ^~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include\illd_types/Ifx_Types.h:683:35: error: expected ':', ',', ';', '}' or '__attribute__' before '*' token
+  683 |     IFX_CONST IfxGtm_Tom_ToutMapP *ccx;
+      |                                   ^
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include\illd_types/Ifx_Types.h:737:8: error: unknown type name 'Ifx_SRC'; did you mean 'Ifx_STM'?
+  737 | extern Ifx_SRC MODULE_SRC;
+      |        ^~~~~~~
+      |        Ifx_STM
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include\illd_types/Ifx_Types.h:742:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?
+  742 | extern Ifx_STMx MODULE_STMx;
+      |        ^~~~~~~~
+      |        Ifx_STM
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\mocks\IfxEgtm_Pwm.c: In function 'IfxEgtm_Pwm_initConfig':
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\mocks\IfxEgtm_Pwm.c:16:15: error: 'IfxEgtm_Pwm_Config' has no member named 'frequency'
+   16 |         config->frequency = 0.0f;  /* default zero â€” production sets from requirements */
+      |               ^~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\mocks\IfxEgtm_Pwm.c: In function 'IfxEgtm_Pwm_initChannelConfig':
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\mocks\IfxEgtm_Pwm.c:22:22: error: 'IfxEgtm_Pwm_ChannelConfig' has no member named 'duty'
+   22 |         channelConfig->duty = 0.0f;  /* default zero â€” production sets from requirements */
+      |                      ^~
+
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\mocks\IfxGtm.c:1:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include\illd_types/Ifx_Types.h:683:5: error: unknown type name 'IFX_CONST'
+  683 |     IFX_CONST IfxGtm_Tom_ToutMapP *ccx;
+      |     ^~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include\illd_types/Ifx_Types.h:683:35: error: expected ':', ',', ';', '}' or '__attribute__' before '*' token
+  683 |     IFX_CONST IfxGtm_Tom_ToutMapP *ccx;
+      |                                   ^
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include\illd_types/Ifx_Types.h:737:8: error: unknown type name 'Ifx_SRC'; did you mean 'Ifx_STM'?
+  737 | extern Ifx_SRC MODULE_SRC;
+      |        ^~~~~~~
+      |        Ifx_STM
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include\illd_types/Ifx_Types.h:742:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?
+  742 | extern Ifx_STMx MODULE_STMx;
+      |        ^~~~~~~~
+      |        Ifx_STM
+
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\mocks\IfxGtm_Cmu.c:1:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include\illd_types/Ifx_Types.h:683:5: error: unknown type name 'IFX_CONST'
+  683 |     IFX_CONST IfxGtm_Tom_ToutMapP *ccx;
+      |     ^~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include\illd_types/Ifx_Types.h:683:35: error: expected ':', ',', ';', '}' or '__attribute__' before '*' token
+  683 |     IFX_CONST IfxGtm_Tom_ToutMapP *ccx;
+      |                                   ^
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include\illd_types/Ifx_Types.h:737:8: error: unknown type name 'Ifx_SRC'; did you mean 'Ifx_STM'?
+  737 | extern Ifx_SRC MODULE_SRC;
+      |        ^~~~~~~
+      |        Ifx_STM
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include\illd_types/Ifx_Types.h:742:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?
+  742 | extern Ifx_STMx MODULE_STMx;
+      |        ^~~~~~~~
+      |        Ifx_STM
+
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\mocks\IfxGtm_PinMap.c:1:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include\illd_types/Ifx_Types.h:683:5: error: unknown type name 'IFX_CONST'
+  683 |     IFX_CONST IfxGtm_Tom_ToutMapP *ccx;
+      |     ^~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include\illd_types/Ifx_Types.h:683:35: error: expected ':', ',', ';', '}' or '__attribute__' before '*' token
+  683 |     IFX_CONST IfxGtm_Tom_ToutMapP *ccx;
+      |                                   ^
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include\illd_types/Ifx_Types.h:737:8: error: unknown type name 'Ifx_SRC'; did you mean 'Ifx_STM'?
+  737 | extern Ifx_SRC MODULE_SRC;
+      |        ^~~~~~~
+      |        Ifx_STM
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include\illd_types/Ifx_Types.h:742:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?
+  742 | extern Ifx_STMx MODULE_STMx;
+      |        ^~~~~~~~
+      |        Ifx_STM
+
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxGtm_Tom.h:4,
+                 from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\mocks\IfxGtm_Tom.c:1:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/illd_types/Ifx_Types.h:683:5: error: unknown type name 'IFX_CONST'
+  683 |     IFX_CONST IfxGtm_Tom_ToutMapP *ccx;
+      |     ^~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/illd_types/Ifx_Types.h:683:35: error: expected ':', ',', ';', '}' or '__attribute__' before '*' token
+  683 |     IFX_CONST IfxGtm_Tom_ToutMapP *ccx;
+      |                                   ^
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/illd_types/Ifx_Types.h:737:8: error: unknown type name 'Ifx_SRC'; did you mean 'Ifx_STM'?
+  737 | extern Ifx_SRC MODULE_SRC;
+      |        ^~~~~~~
+      |        Ifx_STM
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/illd_types/Ifx_Types.h:742:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?
+  742 | extern Ifx_STMx MODULE_STMx;
+      |        ^~~~~~~~
+      |        Ifx_STM
+
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\mocks\IfxGtm_Tom_PwmHl.c:1:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include\illd_types/Ifx_Types.h:683:5: error: unknown type name 'IFX_CONST'
+  683 |     IFX_CONST IfxGtm_Tom_ToutMapP *ccx;
+      |     ^~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include\illd_types/Ifx_Types.h:683:35: error: expected ':', ',', ';', '}' or '__attribute__' before '*' token
+  683 |     IFX_CONST IfxGtm_Tom_ToutMapP *ccx;
+      |                                   ^
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include\illd_types/Ifx_Types.h:737:8: error: unknown type name 'Ifx_SRC'; did you mean 'Ifx_STM'?
+  737 | extern Ifx_SRC MODULE_SRC;
+      |        ^~~~~~~
+      |        Ifx_STM
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include\illd_types/Ifx_Types.h:742:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?
+  742 | extern Ifx_STMx MODULE_STMx;
+      |        ^~~~~~~~
+      |        Ifx_STM
+
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\mocks\IfxGtm_Tom_Timer.c:1:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include\illd_types/Ifx_Types.h:683:5: error: unknown type name 'IFX_CONST'
+  683 |     IFX_CONST IfxGtm_Tom_ToutMapP *ccx;
+      |     ^~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include\illd_types/Ifx_Types.h:683:35: error: expected ':', ',', ';', '}' or '__attribute__' before '*' token
+  683 |     IFX_CONST IfxGtm_Tom_ToutMapP *ccx;
+      |                                   ^
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include\illd_types/Ifx_Types.h:737:8: error: unknown type name 'Ifx_SRC'; did you mean 'Ifx_STM'?
+  737 | extern Ifx_SRC MODULE_SRC;
+      |        ^~~~~~~
+      |        Ifx_STM
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include\illd_types/Ifx_Types.h:742:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?
+  742 | extern Ifx_STMx MODULE_STMx;
+      |        ^~~~~~~~
+      |        Ifx_STM
+
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\mocks\IfxPort.c:1:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include\illd_types/Ifx_Types.h:683:5: error: unknown type name 'IFX_CONST'
+  683 |     IFX_CONST IfxGtm_Tom_ToutMapP *ccx;
+      |     ^~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include\illd_types/Ifx_Types.h:683:35: error: expected ':', ',', ';', '}' or '__attribute__' before '*' token
+  683 |     IFX_CONST IfxGtm_Tom_ToutMapP *ccx;
+      |                                   ^
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include\illd_types/Ifx_Types.h:737:8: error: unknown type name 'Ifx_SRC'; did you mean 'Ifx_STM'?
+  737 | extern Ifx_SRC MODULE_SRC;
+      |        ^~~~~~~
+      |        Ifx_STM
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include\illd_types/Ifx_Types.h:742:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?
+  742 | extern Ifx_STMx MODULE_STMx;
+      |        ^~~~~~~~
+      |        Ifx_STM
+
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\mocks\IfxPort_PinMap.c:1:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include\illd_types/Ifx_Types.h:683:5: error: unknown type name 'IFX_CONST'
+  683 |     IFX_CONST IfxGtm_Tom_ToutMapP *ccx;
+      |     ^~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include\illd_types/Ifx_Types.h:683:35: error: expected ':', ',', ';', '}' or '__attribute__' before '*' token
+  683 |     IFX_CONST IfxGtm_Tom_ToutMapP *ccx;
+      |                                   ^
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include\illd_types/Ifx_Types.h:737:8: error: unknown type name 'Ifx_SRC'; did you mean 'Ifx_STM'?
+  737 | extern Ifx_SRC MODULE_SRC;
+      |        ^~~~~~~
+      |        Ifx_STM
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include\illd_types/Ifx_Types.h:742:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?
+  742 | extern Ifx_STMx MODULE_STMx;
+      |        ^~~~~~~~
+      |        Ifx_STM
+
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\mocks\IfxStm.c:1:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include\illd_types/Ifx_Types.h:683:5: error: unknown type name 'IFX_CONST'
+  683 |     IFX_CONST IfxGtm_Tom_ToutMapP *ccx;
+      |     ^~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include\illd_types/Ifx_Types.h:683:35: error: expected ':', ',', ';', '}' or '__attribute__' before '*' token
+  683 |     IFX_CONST IfxGtm_Tom_ToutMapP *ccx;
+      |                                   ^
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include\illd_types/Ifx_Types.h:737:8: error: unknown type name 'Ifx_SRC'; did you mean 'Ifx_STM'?
+  737 | extern Ifx_SRC MODULE_SRC;
+      |        ^~~~~~~
+      |        Ifx_STM
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include\illd_types/Ifx_Types.h:742:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?
+  742 | extern Ifx_STMx MODULE_STMx;
+      |        ^~~~~~~~
+      |        Ifx_STM
+
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\mocks\Ifx_Types.c:1:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include\illd_types/ifx_types.h:683:5: error: unknown type name 'IFX_CONST'
+  683 |     IFX_CONST IfxGtm_Tom_ToutMapP *ccx;
+      |     ^~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include\illd_types/ifx_types.h:683:35: error: expected ':', ',', ';', '}' or '__attribute__' before '*' token
+  683 |     IFX_CONST IfxGtm_Tom_ToutMapP *ccx;
+      |                                   ^
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include\illd_types/ifx_types.h:737:8: error: unknown type name 'Ifx_SRC'; did you mean 'Ifx_STM'?
+  737 | extern Ifx_SRC MODULE_SRC;
+      |        ^~~~~~~
+      |        Ifx_STM
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include\illd_types/ifx_types.h:742:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?
+  742 | extern Ifx_STMx MODULE_STMx;
+      |        ^~~~~~~~
+      |        Ifx_STM
+
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:2:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/gtm_tom_3_phase_inverter_pwm.h:52:5: error: unknown type name 'IfxGtm_Tom_Timer'; did you mean 'IfxGtm_Tom_Timer_Base'?
+   52 |     IfxGtm_Tom_Timer  timer;                  /* TOM time-base driver */
+      |     ^~~~~~~~~~~~~~~~
+      |     IfxGtm_Tom_Timer_Base
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/gtm_tom_3_phase_inverter_pwm.h:53:5: error: unknown type name 'IfxGtm_Tom_PwmHl'; did you mean 'IfxGtm_Tom_PwmHl_Config'?
+   53 |     IfxGtm_Tom_PwmHl  pwm;                    /* Complementary PWM driver */
+      |     ^~~~~~~~~~~~~~~~
+      |     IfxGtm_Tom_PwmHl_Config
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:6:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxGtm.h:8:20: error: unknown type name 'Ifx_GTM'; did you mean 'Ifx_STMx'?
+    8 | void IfxGtm_enable(Ifx_GTM *gtm);
+      |                    ^~~~~~~
+      |                    Ifx_STMx
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:7:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxGtm_Cmu.h:8:33: error: unknown type name 'Ifx_GTM'; did you mean 'Ifx_STMx'?
+    8 | void IfxGtm_Cmu_setClkFrequency(Ifx_GTM *gtm, IfxGtm_Cmu_Clk clkIndex, float32 frequency);
+      |                                 ^~~~~~~
+      |                                 Ifx_STMx
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxGtm_Cmu.h:8:47: error: unknown type name 'IfxGtm_Cmu_Clk'
+    8 | void IfxGtm_Cmu_setClkFrequency(Ifx_GTM *gtm, IfxGtm_Cmu_Clk clkIndex, float32 frequency);
+      |                                               ^~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxGtm_Cmu.h:9:37: error: unknown type name 'Ifx_GTM'; did you mean 'Ifx_STMx'?
+    9 | float32 IfxGtm_Cmu_getGclkFrequency(Ifx_GTM *gtm);
+      |                                     ^~~~~~~
+      |                                     Ifx_STMx
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:8:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxGtm_Tom_Timer.h:8:43: error: unknown type name 'IfxGtm_Tom_Timer'; did you mean 'IfxGtm_Tom_Timer_Base'?
+    8 | Ifx_TimerValue IfxGtm_Tom_Timer_getPeriod(IfxGtm_Tom_Timer *driver);
+      |                                           ^~~~~~~~~~~~~~~~
+      |                                           IfxGtm_Tom_Timer_Base
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxGtm_Tom_Timer.h:9:35: error: unknown type name 'IfxGtm_Tom_Timer'; did you mean 'IfxGtm_Tom_Timer_Base'?
+    9 | void IfxGtm_Tom_Timer_applyUpdate(IfxGtm_Tom_Timer *driver);
+      |                                   ^~~~~~~~~~~~~~~~
+      |                                   IfxGtm_Tom_Timer_Base
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxGtm_Tom_Timer.h:10:27: error: unknown type name 'IfxGtm_Tom_Timer'; did you mean 'IfxGtm_Tom_Timer_Base'?
+   10 | void IfxGtm_Tom_Timer_run(IfxGtm_Tom_Timer *driver);
+      |                           ^~~~~~~~~~~~~~~~
+      |                           IfxGtm_Tom_Timer_Base
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxGtm_Tom_Timer.h:11:31: error: unknown type name 'IfxGtm_Tom_Timer'; did you mean 'IfxGtm_Tom_Timer_Base'?
+   11 | boolean IfxGtm_Tom_Timer_init(IfxGtm_Tom_Timer *driver, const IfxGtm_Tom_Timer_Config *config);
+      |                               ^~~~~~~~~~~~~~~~
+      |                               IfxGtm_Tom_Timer_Base
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxGtm_Tom_Timer.h:11:63: error: unknown type name 'IfxGtm_Tom_Timer_Config'; did you mean 'IfxGtm_Tom_PwmHl_Config'?
+   11 | boolean IfxGtm_Tom_Timer_init(IfxGtm_Tom_Timer *driver, const IfxGtm_Tom_Timer_Config *config);
+      |                                                               ^~~~~~~~~~~~~~~~~~~~~~~
+      |                                                               IfxGtm_Tom_PwmHl_Config
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxGtm_Tom_Timer.h:12:37: error: unknown type name 'IfxGtm_Tom_Timer'; did you mean 'IfxGtm_Tom_Timer_Base'?
+   12 | void IfxGtm_Tom_Timer_disableUpdate(IfxGtm_Tom_Timer *driver);
+      |                                     ^~~~~~~~~~~~~~~~
+      |                                     IfxGtm_Tom_Timer_Base
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxGtm_Tom_Timer.h:13:34: error: unknown type name 'IfxGtm_Tom_Timer_Config'; did you mean 'IfxGtm_Tom_PwmHl_Config'?
+   13 | void IfxGtm_Tom_Timer_initConfig(IfxGtm_Tom_Timer_Config *config, Ifx_GTM *gtm);
+      |                                  ^~~~~~~~~~~~~~~~~~~~~~~
+      |                                  IfxGtm_Tom_PwmHl_Config
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxGtm_Tom_Timer.h:13:67: error: unknown type name 'Ifx_GTM'; did you mean 'Ifx_STMx'?
+   13 | void IfxGtm_Tom_Timer_initConfig(IfxGtm_Tom_Timer_Config *config, Ifx_GTM *gtm);
+      |                                                                   ^~~~~~~
+      |                                                                   Ifx_STMx
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:9:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxGtm_Tom_PwmHl.h:8:33: error: unknown type name 'IfxGtm_Tom_PwmHl'; did you mean 'IFXGTM_TOM_PWMHL_H'?
+    8 | void IfxGtm_Tom_PwmHl_setOnTime(IfxGtm_Tom_PwmHl *driver, Ifx_TimerValue *tOn);
+      |                                 ^~~~~~~~~~~~~~~~
+      |                                 IFXGTM_TOM_PWMHL_H
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxGtm_Tom_PwmHl.h:9:31: error: unknown type name 'IfxGtm_Tom_PwmHl'; did you mean 'IFXGTM_TOM_PWMHL_H'?
+    9 | boolean IfxGtm_Tom_PwmHl_init(IfxGtm_Tom_PwmHl *driver, const IfxGtm_Tom_PwmHl_Config *config);
+      |                               ^~~~~~~~~~~~~~~~
+      |                               IFXGTM_TOM_PWMHL_H
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxGtm_Tom_PwmHl.h:10:38: error: unknown type name 'IfxGtm_Tom_PwmHl'; did you mean 'IFXGTM_TOM_PWMHL_H'?
+   10 | boolean IfxGtm_Tom_PwmHl_setMinPulse(IfxGtm_Tom_PwmHl *driver, float32 minPulse);
+      |                                      ^~~~~~~~~~~~~~~~
+      |                                      IFXGTM_TOM_PWMHL_H
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxGtm_Tom_PwmHl.h:11:34: error: unknown type name 'IfxGtm_Tom_PwmHl'; did you mean 'IFXGTM_TOM_PWMHL_H'?
+   11 | boolean IfxGtm_Tom_PwmHl_setMode(IfxGtm_Tom_PwmHl *driver, Ifx_Pwm_Mode mode);
+      |                                  ^~~~~~~~~~~~~~~~
+      |                                  IFXGTM_TOM_PWMHL_H
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxGtm_Tom_PwmHl.h:12:38: error: unknown type name 'IfxGtm_Tom_PwmHl'; did you mean 'IFXGTM_TOM_PWMHL_H'?
+   12 | boolean IfxGtm_Tom_PwmHl_setDeadtime(IfxGtm_Tom_PwmHl *driver, float32 deadtime);
+      |                                      ^~~~~~~~~~~~~~~~
+      |                                      IFXGTM_TOM_PWMHL_H
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:10:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxGtm_PinMap.h:8:31: error: unknown type name 'IfxGtm_Tom_ToutMap'
+    8 | void IfxGtm_PinMap_setTomTout(IfxGtm_Tom_ToutMap *config, IfxPort_OutputMode outputMode, IfxPort_PadDriver padDriver);
+      |                               ^~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxGtm_PinMap.h:8:59: error: unknown type name 'IfxPort_OutputMode'
+    8 | void IfxGtm_PinMap_setTomTout(IfxGtm_Tom_ToutMap *config, IfxPort_OutputMode outputMode, IfxPort_PadDriver padDriver);
+      |                                                           ^~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxGtm_PinMap.h:8:90: error: unknown type name 'IfxPort_PadDriver'
+    8 | void IfxGtm_PinMap_setTomTout(IfxGtm_Tom_ToutMap *config, IfxPort_OutputMode outputMode, IfxPort_PadDriver padDriver);
+      |                                                                                          ^~~~~~~~~~~~~~~~~
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:11:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxPort.h:11:25: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   11 | void IfxPort_setPinMode(Ifx_P *port, uint8 pinIndex, IfxPort_Mode mode);
+      |                         ^~~~~
+      |                         IFX_PI
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxPort.h:11:54: error: unknown type name 'IfxPort_Mode'; did you mean 'Ifx_Pwm_Mode'?
+   11 | void IfxPort_setPinMode(Ifx_P *port, uint8 pinIndex, IfxPort_Mode mode);
+      |                                                      ^~~~~~~~~~~~
+      |                                                      Ifx_Pwm_Mode
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxPort.h:12:31: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   12 | void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
+      |                               ^~~~~
+      |                               IFX_PI
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxPort.h:12:60: error: unknown type name 'IfxPort_OutputMode'
+   12 | void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
+      |                                                            ^~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxPort.h:12:85: error: unknown type name 'IfxPort_OutputIdx'
+   12 | void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
+      |                                                                                     ^~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxPort.h:13:30: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   13 | void IfxPort_setPinModeInput(Ifx_P *port, uint8 pinIndex, IfxPort_InputMode mode);
+      |                              ^~~~~
+      |                              IFX_PI
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxPort.h:13:59: error: unknown type name 'IfxPort_InputMode'
+   13 | void IfxPort_setPinModeInput(Ifx_P *port, uint8 pinIndex, IfxPort_InputMode mode);
+      |                                                           ^~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxPort.h:14:30: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   14 | void IfxPort_setPinPadDriver(Ifx_P *port, uint8 pinIndex, IfxPort_PadDriver padDriver);
+      |                              ^~~~~
+      |                              IFX_PI
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxPort.h:14:59: error: unknown type name 'IfxPort_PadDriver'
+   14 | void IfxPort_setPinPadDriver(Ifx_P *port, uint8 pinIndex, IfxPort_PadDriver padDriver);
+      |                                                           ^~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxPort.h:15:25: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   15 | void IfxPort_setPinHigh(Ifx_P *port, uint8 pinIndex);
+      |                         ^~~~~
+      |                         IFX_PI
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxPort.h:16:24: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   16 | void IfxPort_setPinLow(Ifx_P *port, uint8 pinIndex);
+      |                        ^~~~~
+      |                        IFX_PI
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxPort.h:17:24: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   17 | void IfxPort_togglePin(Ifx_P *port, uint8 pinIndex);
+      |                        ^~~~~
+      |                        IFX_PI
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxPort.h:18:1: error: unknown type name 'IfxPort_State'
+   18 | IfxPort_State IfxPort_getPinState(Ifx_P *port, uint8 pinIndex);
+      | ^~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxPort.h:18:35: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   18 | IfxPort_State IfxPort_getPinState(Ifx_P *port, uint8 pinIndex);
+      |                                   ^~~~~
+      |                                   IFX_PI
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxPort.h:19:26: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   19 | void IfxPort_setPinState(Ifx_P *port, uint8 pinIndex, IfxPort_State state);
+      |                          ^~~~~
+      |                          IFX_PI
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\include/IfxPort.h:19:55: error: unknown type name 'IfxPort_State'
+   19 | void IfxPort_setPinState(Ifx_P *port, uint8 pinIndex, IfxPort_State state);
+      |                                                       ^~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c: In function 'setUp':
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:26:5: error: implicit declaration of function 'IfxGtm_Mock_Reset'; did you mean 'IfxPort_Mock_Reset'? [-Wimplicit-function-declaration]
+   26 |     IfxGtm_Mock_Reset();
+      |     ^~~~~~~~~~~~~~~~~
+      |     IfxPort_Mock_Reset
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:27:5: error: implicit declaration of function 'IfxGtm_Cmu_Mock_Reset'; did you mean 'IfxPort_Mock_Reset'? [-Wimplicit-function-declaration]
+   27 |     IfxGtm_Cmu_Mock_Reset();
+      |     ^~~~~~~~~~~~~~~~~~~~~
+      |     IfxPort_Mock_Reset
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:28:5: error: implicit declaration of function 'IfxGtm_Tom_Timer_Mock_Reset' [-Wimplicit-function-declaration]
+   28 |     IfxGtm_Tom_Timer_Mock_Reset();
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:29:5: error: implicit declaration of function 'IfxGtm_Tom_PwmHl_Mock_Reset' [-Wimplicit-function-declaration]
+   29 |     IfxGtm_Tom_PwmHl_Mock_Reset();
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:30:5: error: implicit declaration of function 'IfxGtm_PinMap_Mock_Reset' [-Wimplicit-function-declaration]
+   30 |     IfxGtm_PinMap_Mock_Reset();
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c: In function 'test_initGtmTom3phInv_CallsExpectedDriverAPIs':
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:40:5: error: implicit declaration of function 'IfxGtm_Tom_Timer_Mock_SetReturn_init' [-Wimplicit-function-declaration]
+   40 |     IfxGtm_Tom_Timer_Mock_SetReturn_init(TRUE);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:41:5: error: implicit declaration of function 'IfxGtm_Tom_PwmHl_Mock_SetReturn_init' [-Wimplicit-function-declaration]
+   41 |     IfxGtm_Tom_PwmHl_Mock_SetReturn_init(TRUE);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\unity/unity.h:22,
+                 from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:1:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:47:22: error: implicit declaration of function 'IfxGtm_Mock_GetCallCount_enable'; did you mean 'IfxPort_Mock_GetCallCount_togglePin'? [-Wimplicit-function-declaration]
+   47 |     TEST_ASSERT_TRUE(IfxGtm_Mock_GetCallCount_enable() > 0);
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\unity/unity_internals.h:891:107: note: in definition of macro 'UNITY_TEST_ASSERT'
+  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)
+      |                                                                                                           ^~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:47:5: note: in expansion of macro 'TEST_ASSERT_TRUE'
+   47 |     TEST_ASSERT_TRUE(IfxGtm_Mock_GetCallCount_enable() > 0);
+      |     ^~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:48:22: error: implicit declaration of function 'IfxGtm_Cmu_Mock_GetCallCount_enableClocks' [-Wimplicit-function-declaration]
+   48 |     TEST_ASSERT_TRUE(IfxGtm_Cmu_Mock_GetCallCount_enableClocks() > 0);
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\unity/unity_internals.h:891:107: note: in definition of macro 'UNITY_TEST_ASSERT'
+  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)
+      |                                                                                                           ^~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:48:5: note: in expansion of macro 'TEST_ASSERT_TRUE'
+   48 |     TEST_ASSERT_TRUE(IfxGtm_Cmu_Mock_GetCallCount_enableClocks() > 0);
+      |     ^~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:49:22: error: implicit declaration of function 'IfxGtm_Tom_Timer_Mock_GetCallCount_init' [-Wimplicit-function-declaration]
+   49 |     TEST_ASSERT_TRUE(IfxGtm_Tom_Timer_Mock_GetCallCount_init() > 0);
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\unity/unity_internals.h:891:107: note: in definition of macro 'UNITY_TEST_ASSERT'
+  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)
+      |                                                                                                           ^~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:49:5: note: in expansion of macro 'TEST_ASSERT_TRUE'
+   49 |     TEST_ASSERT_TRUE(IfxGtm_Tom_Timer_Mock_GetCallCount_init() > 0);
+      |     ^~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:50:22: error: implicit declaration of function 'IfxGtm_Tom_PwmHl_Mock_GetCallCount_init' [-Wimplicit-function-declaration]
+   50 |     TEST_ASSERT_TRUE(IfxGtm_Tom_PwmHl_Mock_GetCallCount_init() > 0);
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\unity/unity_internals.h:891:107: note: in definition of macro 'UNITY_TEST_ASSERT'
+  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)
+      |                                                                                                           ^~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:50:5: note: in expansion of macro 'TEST_ASSERT_TRUE'
+   50 |     TEST_ASSERT_TRUE(IfxGtm_Tom_PwmHl_Mock_GetCallCount_init() > 0);
+      |     ^~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:51:22: error: implicit declaration of function 'IfxGtm_PinMap_Mock_GetCallCount_setTomTout' [-Wimplicit-function-declaration]
+   51 |     TEST_ASSERT_TRUE(IfxGtm_PinMap_Mock_GetCallCount_setTomTout() > 0);
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\unity/unity_internals.h:891:107: note: in definition of macro 'UNITY_TEST_ASSERT'
+  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)
+      |                                                                                                           ^~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:51:5: note: in expansion of macro 'TEST_ASSERT_TRUE'
+   51 |     TEST_ASSERT_TRUE(IfxGtm_PinMap_Mock_GetCallCount_setTomTout() > 0);
+      |     ^~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c: In function 'test_initGtmTom3phInv_SetsExpectedConfigValues':
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:67:54: error: request for member 'base' in something not a structure or union
+   67 |     float32 period = (float32)g_pwm3PhaseOutput.timer.base.period;
+      |                                                      ^
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:78:102: error: request for member 'base' in something not a structure or union
+   78 |     TEST_ASSERT_FLOAT_WITHIN(1.0f, (float32)TIMING_PWM_FREQUENCY_HZ, (float32)g_pwm3PhaseOutput.timer.base.frequency);
+      |                                                                                                      ^
+C:\Users\extpedj\Desktop\infineon_POC_MVP\unity/unity_internals.h:1119:183: note: in definition of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'
+ 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))
+      |                                                                                                                                                                                       ^~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:78:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN'
+   78 |     TEST_ASSERT_FLOAT_WITHIN(1.0f, (float32)TIMING_PWM_FREQUENCY_HZ, (float32)g_pwm3PhaseOutput.timer.base.frequency);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c: In function 'test_updateGtmTom3phInvDuty_SingleCall_UpdatesValues':
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:93:54: error: request for member 'base' in something not a structure or union
+   93 |     float32 period = (float32)g_pwm3PhaseOutput.timer.base.period;
+      |                                                      ^
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c: In function 'test_updateGtmTom3phInvDuty_MultipleCalls_ProgressesCorrectly':
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:116:54: error: request for member 'base' in something not a structure or union
+  116 |     float32 period = (float32)g_pwm3PhaseOutput.timer.base.period;
+      |                                                      ^
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c: In function 'test_updateGtmTom3phInvDuty_BoundaryWrapAround':
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260323-091521-45354771\6ee0b236-20b\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:158:54: error: request for member 'base' in something not a structure or union
+  158 |     float32 period = (float32)g_pwm3PhaseOutput.timer.base.period;
+      |                                                      ^
