@@ -1,0 +1,161 @@
+{
+  "generation_mode": "MIGRATION",
+  "migration_info": {
+    "has_reference": true,
+    "reference_family": "TC3xx",
+    "target_family": "TC3xx",
+    "migration_required": false,
+    "driver_mappings": {
+      "IfxGtm_Tom_PwmHl": "IfxGtm_Pwm"
+    },
+    "header_mappings": {
+      "IfxGtm_Tom_PwmHl.h": "IfxGtm_Pwm.h"
+    },
+    "api_changes": [
+      {
+        "from": "IfxGtm_Tom_PwmHl_initConfig",
+        "to": "IfxGtm_Pwm_initConfig",
+        "reason": "Upgrade to high-level unified PWM driver (single-output)"
+      },
+      {
+        "from": "IfxGtm_Tom_PwmHl_init",
+        "to": "IfxGtm_Pwm_init",
+        "reason": "Upgrade to high-level unified PWM driver (single-output)"
+      },
+      {
+        "from": "IfxGtm_Tom_PwmHl_setOnTime",
+        "to": "IfxGtm_Pwm_updateChannelsDutyImmediate",
+        "reason": "Replace HL-pair on-time API with unified duty update for single-ended channels"
+      }
+    ],
+    "function_names_to_preserve": []
+  },
+  "peripheral_requirement": {
+    "type": "PWM",
+    "driver_available": true,
+    "driver_name": "IfxGtm_Pwm",
+    "purpose": "Three independent single-ended PWM outputs on GTM TOM1 CH2/4/6 at 20 kHz, center-aligned using CMU Fxclk0; routed to P02.0/P02.1/P02.2."
+  },
+  "signal_requirements": {
+    "gtm_enable": true,
+    "cmu_clock": "Fxclk0",
+    "tom_module": "TOM1",
+    "timebase": {
+      "channel": "TOM1_CH0",
+      "alignment": "center",
+      "frequency_hz": 20000
+    },
+    "pwm_channels": [
+      {
+        "name": "U",
+        "tom": "TOM1",
+        "channel": 2,
+        "pin_route_macro": "&IfxGtm_TOM1_2_TOUT12_P02_0_OUT",
+        "pin": "P02.0",
+        "initial_duty_percent": 25
+      },
+      {
+        "name": "V",
+        "tom": "TOM1",
+        "channel": 4,
+        "pin_route_macro": "&IfxGtm_TOM1_4_TOUT14_P02_1_OUT",
+        "pin": "P02.1",
+        "initial_duty_percent": 50
+      },
+      {
+        "name": "W",
+        "tom": "TOM1",
+        "channel": 6,
+        "pin_route_macro": "&IfxGtm_TOM1_6_TOUT16_P02_2_OUT",
+        "pin": "P02.2",
+        "initial_duty_percent": 75
+      }
+    ],
+    "ignore_low_side_outputs": true
+  },
+  "timing_requirements": {
+    "pwm_frequency_hz": 20000,
+    "alignment": "center",
+    "duty_update_period_ms": 500,
+    "duty_step_percent": 10,
+    "wraparound_at_100_to_0": true,
+    "cpu0_wait_time_ms": 500
+  },
+  "device_configuration": {
+    "target_device_macro": "DEVICE_TC38X",
+    "pin_package": "IFX_PIN_PACKAGE_516",
+    "device_family": "TC3xx",
+    "clock_requirements": {
+      "requires_xtal": true,
+      "expected_system_freq_mhz": 300,
+      "gtm_cmu_fxclk_source": "Fxclk0"
+    }
+  },
+  "code_structure": {
+    "file_pattern": "reference",
+    "expected_files": [
+      "GTM_TOM_3_Phase_Inverter_PWM.c",
+      "GTM_TOM_3_Phase_Inverter_PWM.h"
+    ],
+    "has_cpu_files": true
+  },
+  "reference_context": {
+    "includes_used": [
+      "Ifx_Types.h",
+      "IfxCpu.h",
+      "IfxScuWdt.h",
+      "Bsp.h",
+      "GTM_TOM_3_Phase_Inverter_PWM.h",
+      "IfxGtm_Tom_PwmHl.h",
+      "IfxGtm_PinMap.h"
+    ],
+    "function_patterns": [
+      "init*GtmTom*",
+      "update*GtmTom*Duty*"
+    ],
+    "peripheral_usage": {
+      "GTM_TOM": "Reference used PwmHl (high/low pairs) for a 3-phase inverter; migrate to IfxGtm_Pwm single-output on TOM1 CH2/4/6 with TOM1 CH0 as timebase."
+    }
+  },
+  "template_compatibility": {
+    "validated": true,
+    "supported_peripherals": [
+      "PWM",
+      "GTM",
+      "CPU"
+    ],
+    "suggested_drivers": {
+      "PWM": [
+        "IfxCcu6_PwmBc",
+        "IfxGtm_Tom_Pwm",
+        "IfxGtm_Tom_Dtm_PwmHl",
+        "IfxGtm_Atom_Dtm_PwmHl",
+        "IfxGtm_Atom_Pwm",
+        "IfxGtm_Pwm",
+        "IfxCcu6_TPwm",
+        "IfxGtm_Tom_PwmHl",
+        "IfxCcu6_PwmHl",
+        "IfxGtm_Atom_PwmHl"
+      ],
+      "GTM": [
+        "IfxGtm_Dtm",
+        "IfxGtm_Tbu",
+        "IfxGtm",
+        "IfxGtm_Spe",
+        "IfxGtm_Pwm",
+        "IfxGtm_Psm",
+        "IfxGtm_PinMap_TC38x_LFBGA516",
+        "IfxGtm_PinMap_TC38x_LFBGA292",
+        "IfxGtm_Trig",
+        "IfxGtm_Dpll",
+        "IfxGtm_PinMap_TC38x_516"
+      ],
+      "CPU": [
+        "IfxCpu"
+      ]
+    },
+    "warnings": []
+  },
+  "header_documentation_available": true,
+  "config_values_extracted": 16
+}
