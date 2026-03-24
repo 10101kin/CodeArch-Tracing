@@ -71,10 +71,7 @@
         "initial_duty_percent": 75
       }
     ],
-    "ignore_low_side_outputs": {
-      "enabled": true,
-      "handling": "explicitly_disabled_in_software"
-    }
+    "ignore_low_side_outputs": true
   },
   "timing_requirements": {
     "pwm_frequency_hz": 20000,
@@ -82,12 +79,11 @@
     "duty_update_period_ms": 500,
     "duty_step_percent": 10,
     "wraparound_at_100_to_0": true,
-    "cpu0_wait_time_ms": 500,
-    "synchronization": "duty_update_after_each_cpu0_wait"
+    "cpu0_wait_time_ms": 500
   },
   "device_configuration": {
     "target_device_macro": "DEVICE_TC38X",
-    "pin_package": "IFX_PIN_PACKAGE_516",
+    "pin_package": "IFX_PIN_PACKAGE_292",
     "device_family": "TC3xx",
     "clock_requirements": {
       "requires_xtal": true,
