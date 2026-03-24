@@ -1,0 +1,42 @@
+{
+  "module_name": "egtm_atom_3ph_pwm",
+  "public_functions": [
+    {
+      "signature": "void initEgtmAtom3phInv(void)",
+      "behavior_description": "Initialize only peripherals present on TC4D7. 1) Optionally configure a system timebase using supported TC4Dx resources (e.g., WUT) if periodic tasks are required; no eGTM usage. 2) Enable the ADC module and configure TMADC in queued/polled mode: prepare a queue of required channels, initialize their configurations, and start TMADC in polled (non-interrupt) mode. 3) Configure the LED GPIO as a push-pull output and set its initial inactive level. 4) Any PWM generation for a 3-phase inverter must use TC4Dx-supported timer modules (e.g., CCU6 or GPT12) and is not configured here.",
+      "driver_calls": [
+        "IfxAdc_enableModule",
+        "IfxAdc_Tmadc_initModuleConfig",
+        "IfxAdc_Tmadc_initModule",
+        "IfxAdc_Tmadc_initChannelConfig",
+        "IfxAdc_Tmadc_initChannel",
+        "IfxAdc_Tmadc_runModule",
+        "IfxPort_setPinModeOutput",
+        "IfxPort_setPinState"
+      ],
+      "from_reference": true,
+      "call_context": "init"
+    }
+  ],
+  "private_functions": [],
+  "dependencies": {
+    "includes": [
+      "Ifx_Types.h",
+      "IfxAdc.h",
+      "IfxAdc_Tmadc.h",
+      "IfxPort.h"
+    ],
+    "driver_calls": []
+  },
+  "cpu_main_requirements": {
+    "needs_cpu_sync": true,
+    "uses_timer_delay": true,
+    "delay_ms": 500,
+    "additional_includes": [
+      "Bsp.h"
+    ]
+  },
+  "header_selection": {
+    "applied": false
+  }
+}
