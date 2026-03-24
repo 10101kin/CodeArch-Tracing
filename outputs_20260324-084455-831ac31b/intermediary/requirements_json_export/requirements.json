@@ -162,8 +162,8 @@
     "deadtime_tolerance_us": 0.1
   },
   "device_configuration": {
-    "target_device_macro": "DEVICE_TC4D7",
-    "pin_package": "IFX_PIN_PACKAGE_BGA292_COM",
+    "target_device_macro": "DEVICE_TC4DX",
+    "pin_package": "IFX_PIN_PACKAGE_BGA436_COM",
     "device_family": "TC4xx",
     "clock_requirements": {
       "requires_xtal": true,
