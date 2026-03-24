@@ -3,16 +3,14 @@
   "public_functions": [
     {
       "signature": "void initGtmTom3PhaseInverterPwm(void)",
-      "behavior_description": "Enable the GTM and its functional clocks needed for PWM. Initialize an IfxGtm_Pwm configuration with defaults, then set: 20 kHz operating frequency, center-aligned mode, and select the CMU Fxclk0 as the clock source. Assign the timebase to a dedicated TOM timebase channel and select the TOM1 submodule. Configure exactly three synchronized PWM channels corresponding to TOM1 channel indices 2, 4, and 6. For each channel, initialize the channel configuration and assign its output pin using the provided pin mapping function with an appropriate push-pull mode and pad driver. Initialize the PWM driver with the prepared config and channel array. Start the synchronized PWM channels so they run in lock-step on the shared timebase. Finally, set initial single-ended duty percentages for the three channels to 25%, 50%, and 75% respectively via an immediate multi-channel duty update so the outputs reflect these starting values right after initialization.",
+      "behavior_description": "Enable the GTM and its functional clocks needed for PWM. Initialize an IfxGtm_Pwm configuration with defaults, then set: 20 kHz operating frequency, center-aligned mode, and select the CMU Fxclk0 as the clock source. Assign the timebase to a dedicated TOM timebase channel and select the TOM1 submodule. Configure exactly three synchronized PWM channels corresponding to TOM1 channel indices 2, 4, and 6. For each channel, initialize the channel configuration and assign its output pin by setting the configuration's output pin field to the correct pin-mapping macros: &IfxGtm_TOM1_2_TOUT0_P02_0_OUT, &IfxGtm_TOM1_4_TOUT1_P02_1_OUT, and &IfxGtm_TOM1_6_TOUT2_P02_2_OUT. Initialize the PWM driver with the prepared config and channel array. Start the synchronized PWM channels so they run in lock-step on the shared timebase. Finally, set initial single-ended duty percentages for the three channels to 25%, 50%, and 75% respectively via an immediate multi-channel duty update so the outputs reflect these starting values right after initialization.",
       "driver_calls": [
         "IfxGtm_enable",
         "IfxGtm_Cmu_enableClocks",
-        "IfxGtm_Pwm_initConfig",
-        "IfxGtm_Pwm_initChannelConfig",
-        "IfxGtm_PinMap_setTomTout",
-        "IfxGtm_Pwm_init",
-        "IfxGtm_Pwm_startSyncedChannels",
-        "IfxGtm_Pwm_updateChannelsDutyImmediate"
+        "IfxGtm_Tom_Pwm_initConfig",
+        "IfxGtm_Tom_Pwm_init",
+        "IfxGtm_Tom_Pwm_start",
+        "IfxGtm_Tom_Pwm_updatePulse"
       ],
       "from_reference": true,
       "call_context": "init"
@@ -21,7 +19,7 @@
       "signature": "void updateGtmTom3PhaseDuty(void)",
       "behavior_description": "Maintain three duty percentage values for the configured PWM channels. On each call, increase each duty by a fixed step of 10 percentage points. If any duty reaches or exceeds 100%, wrap it to 0% (wrap-around). After updating all three duty values, apply them immediately to the active PWM outputs using a single immediate multi-channel duty update call so the changes take effect without waiting for the next sync point. This function is intended to be called periodically (every 500 ms) from the main loop.",
       "driver_calls": [
-        "IfxGtm_Pwm_updateChannelsDutyImmediate"
+        "IfxGtm_Tom_Pwm_updatePulse"
       ],
       "from_reference": true,
       "call_context": "loop"
