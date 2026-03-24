@@ -71,6 +71,38 @@
         "IfxEgtm_Pwm_updateChannelDutyImmediate"
       ],
       "purpose": "Update U/V/W duties synchronously in main loop every 500 ms while maintaining center-aligned complementary outputs with 1.0 µs deadtime."
+    },
+    "adc_results_interface": {
+      "functions": [
+        {
+          "name": "getTmadcLatestResults",
+          "driver_calls": [
+            "IfxAdc_Tmadc_getResult"
+          ],
+          "purpose": "Return latest converted results for the 5 configured TMADC0 channels with validity/status flags."
+        },
+        {
+          "name": "getTmadcChannelResult",
+          "driver_calls": [
+            "IfxAdc_Tmadc_getResult"
+          ],
+          "purpose": "Return latest result for a single TMADC channel index; non-blocking."
+        }
+      ]
+    },
+    "status_error_interface": {
+      "functions": [
+        {
+          "name": "getInverterStatus",
+          "driver_calls": [],
+          "purpose": "Report module status (eGTM/DTM enabled, ATOM running, trigger active, TMADC running)."
+        },
+        {
+          "name": "getInverterError",
+          "driver_calls": [],
+          "purpose": "Retrieve and clear latched error bits (ADC overrun, invalid config, trigger timeout)."
+        }
+      ]
     }
   },
   "migration_notes": {
@@ -139,7 +171,13 @@
         "reason": "Use TC4xx TMADC high-level API"
       }
     ],
-    "context_preserved": "All functional requirements are mapped to TC4xx: center-aligned complementary 3-phase PWM on EGTM ATOM0 C0 CH0–2 with 1.0 µs CDTM/DTM deadtime, 20 kHz frequency, initial duties 25/50/75%, ATOM0 C0 CH3 used as falling-edge ADC trigger and also routed to a TOUT pin, watchdog replaced by WTU, duties updated in main loop at 500 ms, and TMADC0 configured for 5 externally triggered channels. GPIO handling remains via IfxPort."
+    "context_preserved": "All functional requirements are mapped to TC4xx: center-aligned complementary 3-phase PWM on EGTM ATOM0 C0 CH0–2 with 1.0 µs CDTM/DTM deadtime, 20 kHz frequency, initial duties 25/50/75%, ATOM0 C0 CH3 used as falling-edge ADC trigger and also routed to a TOUT pin, watchdog replaced by WTU, duties updated in main loop at 500 ms, and TMADC0 configured for 5 externally triggered channels. GPIO handling remains via IfxPort.",
+    "configuration_points": {
+      "pin_mapping": "U/V/W TOUT pins and trigger pin defined via macros in EGTM_ATOM_3_Phase_Inverter.h",
+      "channel_count": "PWM channels and TMADC0 channel list defined in the module header for easy adjustment",
+      "duty_update_interval_ms": 500,
+      "location": "Centralized in EGTM_ATOM_3_Phase_Inverter_cfg.h (or module header) to simplify future changes"
+    }
   },
   "header_selection": {
     "applied": true,
@@ -184,10 +222,10 @@
     },
     "recommendations": {
       "ADC": {
-        "driver": "IfxEvadc_Adc",
-        "score": -10.0,
-        "complexity": "moderate",
-        "rationale": "âš ï¸ NOT found in template - may need to add | âœ… Matches target family (TC4xx) | Complexity: moderate | Best for: analog measurement, motor current sensing, high-speed sampling | Features: enhanced_vadc, parallel_sampling, fast_compare, result_fifo, limit_checking",
+        "driver": "IfxAdc_Tmadc",
+        "score": 85.0,
+        "complexity": "simple",
+        "rationale": "Matches TC4xx TMADC; available in template; aligned with architecture using TMADC0 with ATOM-triggered conversions.",
         "alternatives": [
           "IfxEdsadc_Edsadc"
         ]
