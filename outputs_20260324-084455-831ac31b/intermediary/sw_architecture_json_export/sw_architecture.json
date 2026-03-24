@@ -5,7 +5,7 @@
     "technical_approach": "Use unified high-level IfxEgtm_Pwm for multi-channel ATOM PWM with center alignment and hardware deadtime via IfxEgtm_Dtm. Route ATOM0 C0 CH3 trigger to TMADC0 using IfxEgtm_Trigger_trigToAdc and also map CH3 to P33.0 using IfxEgtm_PinMap. Initialize TMADC0 and channels with IfxAdc_Tmadc. Replace watchdog APIs with IfxWtu. GPIO with IfxPort remains unchanged."
   },
   "driver_selection": {
-    "recommended_driver": "IfxEgtm_Atom_PwmHl",
+    "recommended_driver": "IfxEgtm_Pwm",
     "selection_rationale": "Unified high-level eGTM PWM driver supports synchronous multi-channel ATOM configuration, center alignment, duty updates, and integrates cleanly with eGTM clocks/DTM. It matches the TC4xx target and simplifies migration from GTM unified API.",
     "available_in_template": true,
     "complexity_level": "advanced",
@@ -184,10 +184,10 @@
     },
     "recommendations": {
       "ADC": {
-        "driver": "IfxAdc_Tmadc",
+        "driver": "IfxEvadc_Adc",
         "score": -10.0,
         "complexity": "moderate",
-        "rationale": "âš ï¸ NOT found in template - may need to add | âœ… Matches target family (TC4xx) | Complexity: moderate | Best for: analog measurement, motor current sensing, high-speed sampling | Features: enhanced_vadc, parallel_sampling, fast_compare, result_fifo, limit_checking",
+        "rationale": "âš ï¸ NOT found in template - may need to add | â“¦ Matches target family (TC4xx) | Complexity: moderate | Best for: analog measurement, motor current sensing, high-speed sampling | Features: enhanced_vadc, parallel_sampling, fast_compare, result_fifo, limit_checking",
         "alternatives": [
           "IfxEdsadc_Edsadc"
         ]
