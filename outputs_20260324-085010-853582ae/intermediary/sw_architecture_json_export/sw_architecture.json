@@ -2,7 +2,7 @@
   "user_intent_preservation": {
     "original_goal": "Implement 3-phase PWM motor control",
     "functional_behavior": "Generate 3-phase complementary, center-aligned PWM at 20 kHz with 0.5 µs dead-time and 1.0 µs minimum pulse using GTM TOM, with initial duties U/V/W = 25%/50%/75%, pad pushPull and cmosAutomotiveSpeed1 on P02.0/P02.7 (U HS/LS), P02.1/P02.4 (V HS/LS), P02.2/P02.5 (W HS/LS), cmuFxclk0 clock and CH0 as time base on the selected TOM instance.",
-    "technical_approach": "Use IfxGtm_Tom_PwmHl to configure 3 complementary pairs and center-aligned mode; use IfxGtm_Tom_Timer as time base at 20 kHz sourced from cmuFxclk0; configure P02.* pins via IfxGtm_PinMap_setTomTout with pushPull and cmosAutomotiveSpeed1; compute and set dead-time and minimum pulse; replace PHASE_* macros with IfxGtm_PinMap.h symbols matched to the TC387 package. Introduce a board/package configuration layer to select TOM instance (prefer TOM1 if supported by the selected package/pin mapping; otherwise fall back to TOM0) and the exact IfxGtm_PinMap TOUT symbols at build-time (via package-specific compile-time defines) or initialization-time (via a configuration structure). This layer validates that requested P02.* pins are driven by the chosen TOM; if validation fails, it falls back to the verified TOM0 mapping and flags a diagnostic while keeping CH0 as the time base. Mapping check shows P02.* are TOUT0/1/2/4/5/7 on TOM0 for TC387 LFBGA‑516; if using LFBGA‑292, the configuration must select the matching TOUT/TOM mapping and will automatically revert to TOM0 if TOM1 cannot drive P02.*."
+    "technical_approach": "Use IfxGtm_Tom_PwmHl to configure 3 complementary pairs and center-aligned mode; use IfxGtm_Tom_Timer as time base at 20 kHz sourced from cmuFxclk0; configure P02.* pins via IfxGtm_PinMap_setTomTout with pushPull and cmosAutomotiveSpeed1; compute and set dead-time and minimum pulse; replace PHASE_* macros with IfxGtm_PinMap.h symbols matched to the TC387 package. Mapping check shows P02.* are TOUT0/1/2/4/5/7 on TOM0 for TC387 LFBGA‑516; if using LFBGA‑292, verify the exact TOUTs before finalizing TOM instance. If TOM1 cannot drive P02.*, switch to TOM0 while keeping CH0 as time base."
   },
   "driver_selection": {
     "recommended_driver": "IfxGtm_Tom_PwmHl",
@@ -19,11 +19,9 @@
     "primary_driver": "IfxGtm_Tom_PwmHl",
     "available_in_template": true,
     "initialization_apis": [
-      "IfxGtm_Tom_PwmHl_initConfig",
-      "IfxGtm_Tom_PwmHl_init",
-      "IfxGtm_Tom_Timer_initConfig",
-      "IfxGtm_Tom_Timer_init",
-      "IfxGtm_PinMap_setTomTout"
+      "IfxGtm_Tom_Pwm_initConfig",
+      "IfxGtm_Tom_Pwm_init",
+      "IfxGtm_Tom_Pwm_start"
     ],
     "runtime_apis": [
       "IfxGtm_Tom_PwmHl_setDeadtime",
@@ -40,34 +38,12 @@
     "cpu_files": [
       "Cpu0_Main.c"
     ],
-    "from_reference": true,
-    "testability": {
-      "strategy": "Abstract hardware access behind thin wrapper interfaces and provide mock implementations for unit/integration testing.",
-      "abstractions": [
-        "Board/package configuration layer for TOM instance and TOUT mapping",
-        "Wrapper interfaces around IfxGtm_Tom_PwmHl and IfxGtm_PinMap used by the module"
-      ],
-      "mock_interfaces": [
-        "Mock IfxGtm_Tom_PwmHl wrapper (dead-time, min-pulse, mode, duty updates)",
-        "Mock IfxGtm_PinMap wrapper (pin routing selection)"
-      ],
-      "test_support_files": [
-        "GTM_TOM_3_Phase_Inverter_PWM_mock.c",
-        "GTM_TOM_3_Phase_Inverter_PWM_mock.h",
-        "GtmPwmBoardCfg.h"
-      ],
-      "simulation_hooks": [
-        "Weak-link hooks for duty update and timer apply to observe updates without hardware",
-        "Compile-time switch to replace pin routing calls with no-ops in host-based tests"
-      ]
-    }
+    "from_reference": true
   },
   "function_mapping": {
     "init_function": {
       "name": "GTM_TOM_3_Phase_Inverter_PWM_init",
       "driver_calls": [
-        "IfxGtm_Pinmap_initConfig",
-        "IfxGtm_Pinmap_init",
         "IfxGtm_Tom_Timer_initConfig",
         "IfxGtm_Tom_Timer_init",
         "IfxGtm_PinMap_setTomTout"
@@ -76,9 +52,9 @@
     "runtime_function": {
       "name": "GTM_TOM_3_Phase_Inverter_PWM_update",
       "driver_calls": [
-        "IfxGtm_Tom_PwmHl_setDeadtime",
-        "IfxGtm_Tom_PwmHl_setMinPulse",
-        "IfxGtm_Tom_PwmHl_setMode",
+        "IfxGtm_Pinmap_setDeadtime",
+        "IfxGtm_Pinmap_setMinPulse",
+        "IfxGtm_Pinmap_setMode",
         "IfxGtm_Tom_Timer_applyUpdate"
       ],
       "purpose": "Maintain complementary, center-aligned operation; adjust dead-time/min-pulse/mode and apply pending shadow updates. Duty initialization at 25/50/75% is applied during setup; further duty updates can reuse the project’s existing PwmHl update routine if present."
@@ -93,35 +69,35 @@
       {
         "from": "PHASE_U_HS",
         "to": "IfxGtm_TOM0_0_TOUT0_P02_0_OUT (TC387 LFBGA-516)",
-        "reason": "Replace board macro with IfxGtm_PinMap.h symbol for P02.0; TOM instance verified as TOM0 on 516 package."
+        "reason": "Replace board macro with IfxGtm_PinMap.h symbol for P02.0; TOM instance verified as TOM0 on 516 package. Note: For TC387/TC38x LFBGA-292, consult the datasheet section 'Pin Definition and Functions – LFBGA-292 – Port 02 Functions' to confirm the TOM0/TOUT/P02 mapping."
       },
       {
         "from": "PHASE_U_LS",
         "to": "IfxGtm_TOM0_7_TOUT7_P02_7_OUT (TC387 LFBGA-516)",
-        "reason": "Replace board macro with IfxGtm_PinMap.h symbol for P02.7; TOM instance verified as TOM0 on 516 package."
+        "reason": "Replace board macro with IfxGtm_PinMap.h symbol for P02.7; TOM instance verified as TOM0 on 516 package. Note: For TC387/TC38x LFBGA-292, consult the datasheet section 'Pin Definition and Functions – LFBGA-292 – Port 02 Functions' to confirm the TOM0/TOUT/P02 mapping."
       },
       {
         "from": "PHASE_V_HS",
         "to": "IfxGtm_TOM0_1_TOUT1_P02_1_OUT (TC387 LFBGA-516)",
-        "reason": "Replace board macro with IfxGtm_PinMap.h symbol for P02.1; TOM instance verified as TOM0 on 516 package."
+        "reason": "Replace board macro with IfxGtm_PinMap.h symbol for P02.1; TOM instance verified as TOM0 on 516 package. Note: For TC387/TC38x LFBGA-292, consult the datasheet section 'Pin Definition and Functions – LFBGA-292 – Port 02 Functions' to confirm the TOM0/TOUT/P02 mapping."
       },
       {
         "from": "PHASE_V_LS",
         "to": "IfxGtm_TOM0_4_TOUT4_P02_4_OUT (TC387 LFBGA-516)",
-        "reason": "Replace board macro with IfxGtm_PinMap.h symbol for P02.4; TOM instance verified as TOM0 on 516 package."
+        "reason": "Replace board macro with IfxGtm_PinMap.h symbol for P02.4; TOM instance verified as TOM0 on 516 package. Note: For TC387/TC38x LFBGA-292, consult the datasheet section 'Pin Definition and Functions – LFBGA-292 – Port 02 Functions' to confirm the TOM0/TOUT/P02 mapping."
       },
       {
         "from": "PHASE_W_HS",
         "to": "IfxGtm_TOM0_2_TOUT2_P02_2_OUT (TC387 LFBGA-516)",
-        "reason": "Replace board macro with IfxGtm_PinMap.h symbol for P02.2; TOM instance verified as TOM0 on 516 package."
+        "reason": "Replace board macro with IfxGtm_PinMap.h symbol for P02.2; TOM instance verified as TOM0 on 516 package. Note: For TC387/TC38x LFBGA-292, consult the datasheet section 'Pin Definition and Functions – LFBGA-292 – Port 02 Functions' to confirm the TOM0/TOUT/P02 mapping."
       },
       {
         "from": "PHASE_W_LS",
         "to": "IfxGtm_TOM0_5_TOUT5_P02_5_OUT (TC387 LFBGA-516)",
-        "reason": "Replace board macro with IfxGtm_PinMap.h symbol for P02.5; TOM instance verified as TOM0 on 516 package."
+        "reason": "Replace board macro with IfxGtm_PinMap.h symbol for P02.5; TOM instance verified as TOM0 on 516 package. Note: For TC387/TC38x LFBGA-292, consult the datasheet section 'Pin Definition and Functions – LFBGA-292 – Port 02 Functions' to confirm the TOM0/TOUT/P02 mapping."
       }
     ],
-    "context_preserved": "The solution keeps complementary, center-aligned PWM at 20 kHz with specified dead-time/min-pulse, assigns the requested P02 pins via IfxGtm_PinMap, and preserves initial duties 25/50/75%. Mapping verification shows P02.* are TOM0 TOUT[0,1,2,4,5,7] on TC387 LFBGA‑516; thus TOM1 cannot drive these pins. Pending user confirmation, select TOM0 with CH0 as time base (requirement to keep CH0 as base remains satisfied). If the actual board uses LFBGA‑292, confirm the P02.* ↔ TOUT/TOM mapping in IfxGtm_PinMap_TC38x_LFBGA292 before finalizing the TOM instance. Configuration guideline: (1) Identify the MCU package on the board (e.g., TC387 LFBGA-516 vs. LFBGA-292). (2) Open the corresponding IfxGtm_PinMap header (e.g., IfxGtm_PinMap_TC38x_LFBGA516.h or IfxGtm_PinMap_TC38x_LFBGA292.h). (3) Search for P02_0, P02_1, P02_2, P02_4, P02_5, P02_7 and note the TOMx/TOUTy symbols provided. (4) In the board/package configuration layer, select the preferred TOM instance (try TOM1 first if symbols exist for all required P02.*; otherwise select TOM0) and assign the exact IfxGtm_TOMx_y_TOUTz_P02_n_OUT symbols. (5) Enable a build-time check (static assert or #error) to fail compilation if any required P02.* mapping is missing for the selected TOM, and provide a fallback path that automatically selects the verified TOM0 mapping when TOM1 is unsupported. (6) Keep CH0 as the time base on the selected TOM instance. (7) Document the final selection in the board config and, if changing packages, repeat steps (2)–(6)."
+    "context_preserved": "The solution keeps complementary, center-aligned PWM at 20 kHz with specified dead-time/min-pulse, assigns the requested P02 pins via IfxGtm_PinMap, and preserves initial duties 25/50/75%. Mapping verification shows P02.* are TOM0 TOUT[0,1,2,4,5,7] on TC387 LFBGA‑516; thus TOM1 cannot drive these pins. Pending user confirmation, select TOM0 with CH0 as time base (requirement to keep CH0 as base remains satisfied). If the actual board uses LFBGA‑292, confirm the P02.* ↔ TOUT/TOM mapping in IfxGtm_PinMap_TC38x_LFBGA292 before finalizing the TOM instance."
   },
   "header_selection": {
     "applied": true,
