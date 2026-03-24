@@ -1,7 +1,7 @@
 {
   "user_intent_preservation": {
     "original_goal": "Migrate PWM functionality to the AURIX TC4D7 target on KIT_A3G_TC4D7_LITE.",
-    "functional_behavior": "Use eGTM Cluster 0 ATOM0 CH0–2 to generate three complementary, center-aligned PWM pairs at 20 kHz with 1 µs deadtime (U,V,W), and ATOM0 CH3 as a 20 kHz falling-edge 50% duty trigger routed to TMADC0. Poll TMADC0 for 5 conversions each PWM period. Replace IfxScuWdt with IfxWtu. Update U,V,W duties every 500 ms and toggle LED P03.9.",
+    "functional_behavior": "Use eGTM Cluster 0 ATOM0 CH0–2 to generate three complementary, center-aligned PWM pairs at 20 kHz with 1 μs deadtime (U,V,W), and ATOM0 CH3 as a 20 kHz falling-edge 50% duty trigger routed to TMADC0. TMADC0: use channels CH0–CH4 mapped to pins P40.0, P40.1, P40.2, P40.3, P40.4, respectively; queue conversion order [CH0, CH1, CH2, CH3, CH4] per PWM period; results polled each trigger. Replace IfxScuWdt with IfxWtu. Update U,V,W duties every 500 ms and toggle LED P03.9.",
     "technical_approach": "Adopt the unified high-level IfxEgtm_Pwm driver on TC4xx with eGTM CMU CLK0 at 100 MHz for 20 kHz center-aligned PWM and HW dead-time via DTM. Configure ATOM0 CH0–2 as a synchronized 3-phase inverter group with complementary outputs and 1 µs deadtime. Configure ATOM0 CH3 to output a 50% duty, falling-edge marker and route it to TMADC0 with IfxEgtm_Trigger_trigToAdc. Initialize TMADC0 with 5 queued channels and poll results each trigger. Replace watchdog handling with IfxWtu. Consolidate into egtm_atom_3ph_pwm.c/.h and call periodic duty updates from main while toggling P03.9."
   },
   "driver_selection": {
@@ -53,14 +53,14 @@
         "IfxEgtm_Pwm_updateFrequency",
         "IfxEgtm_Pwm_startSyncedChannels",
         "IfxEgtm_Trigger_trigToAdc",
-        "VERIFY_TC4XX_TMADC_APIS",
-        "VERIFY_TC4XX_TMADC_APIS",
-        "VERIFY_TC4XX_TMADC_APIS",
-        "VERIFY_TC4XX_TMADC_APIS",
-        "VERIFY_TC4XX_TMADC_APIS",
-        "VERIFY_TC4XX_WATCHDOG_APIS",
-        "VERIFY_TC4XX_WATCHDOG_APIS",
-        "VERIFY_TC4XX_WATCHDOG_APIS"
+        "IfxAdc_Tmadc_initModule",
+        "IfxAdc_Tmadc_initQueue",
+        "IfxAdc_Tmadc_addChannelToQueue",
+        "IfxAdc_Tmadc_configureExternalTrigger",
+        "IfxAdc_Tmadc_startQueue",
+        "IfxWtu_initModule",
+        "IfxWtu_initCpuWatchdog",
+        "IfxWtu_disableCpuWatchdog"
       ]
     },
     "runtime_function": {
@@ -121,7 +121,7 @@
         "reason": "Module base migration GTM→EGTM"
       }
     ],
-    "context_preserved": "The solution configures eGTM Cluster 0 ATOM0 for three center-aligned, complementary PWM pairs with 1 µs deadtime at 20 kHz using IfxEgtm_Pwm. ATOM0 CH3 generates a 50% waveform whose falling edge is used as a 20 kHz TMADC0 trigger through IfxEgtm_Trigger_trigToAdc; TMADC0 runs 5 queued channels in polled mode. Duties are updated in the main loop every 500 ms and the LED on P03.9 is toggled. IfxScuWdt usage is migrated to IfxWtu. Pins P00.x/P33.0 from the original request are adapted to template-verified EGTM ATOM0 TOUT pins on P02.x (U/V/W: P02.0/1, P02.2/3, P02.4/5; trigger: P02.6) to keep functionality on the provided target template."
+    "context_preserved": "The solution configures eGTM Cluster 0 ATOM0 for three center-aligned, complementary PWM pairs with 1 µs deadtime at 20 kHz using IfxEgtm_Pwm. ATOM0 CH3 generates a 50% waveform whose falling edge is used as a 20 kHz TMADC0 trigger through IfxEgtm_Trigger_trigToAdc; TMADC0 runs 5 queued channels in polled mode. Duties are updated in the main loop every 500 ms and the LED on P03.9 is toggled. IfxScuWdt usage is migrated to IfxWtu. Pins P00.x/P33.0 from the original request are adapted to template-verified EGTM ATOM0 TOUT pins on P02.x (U/V/W: P02.0/1, P02.2/3, P02.4/5; trigger: P02.6) to keep functionality on the provided target template. Original request referenced PWM pins on P00.x/P33.0; on KIT_A3G_TC4D7_LITE the eGTM ATOM0 TOUT signals are routed to Port 02 and validated in the template. Mapping is therefore: U: P02.0 (TOUT0) high / P02.1 (TOUT1) low; V: P02.2 (TOUT2) high / P02.3 (TOUT3) low; W: P02.4 (TOUT4) high / P02.5 (TOUT5) low; ADC trigger: P02.6 (TOUT6). These P02.x pins are available on the board connectors and are functionally equivalent for ATOM0 PWM/trigger usage, ensuring identical timing, polarity control, and routability on KIT_A3G_TC4D7_LITE."
   },
   "header_selection": {
     "applied": false
