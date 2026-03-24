@@ -1,0 +1,12 @@
+{
+  "attempt": 3,
+  "phase_attempt": 3,
+  "phase": "production",
+  "timestamp": "2026-03-24T08:04:21.425262",
+  "success": false,
+  "files": [],
+  "errors": [
+    "[Errno 36] File name too long: ' expected \u2018IfxAdc_Tmadc_ChConfig *\u2019 but argument is of type \u2018IfxAdc_Tmadc_ChannelConfig *\u2019\\n   14 | void IfxAdc_Tmadc_initChannel(IfxAdc_Tmadc_Ch *channel, IfxAdc_Tmadc_ChConfig *config);\\n      |                                                         ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~\\n/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_075551/attempts/phase_003_build/src/egtm_atom_3ph_pwm.c'"
+  ],
+  "build_result": null
+}

@@ -1,0 +1,10 @@
+Attempt 3 - PRODUCTION (Global: 3)
+Status: FAILED ❌
+Timestamp: 2026-03-24 08:04:21
+Files generated: 0
+
+============================================================
+
+ERRORS:
+
+1. [Errno 36] File name too long: ' expected ‘IfxAdc_Tmadc_ChConfig *’ but argument is of type ‘IfxAdc_Tmadc_ChannelConfig *’\n   14 | void IfxAdc_Tmadc_initChannel(IfxAdc_Tmadc_Ch *channel, IfxAdc_Tmadc_ChConfig *config);\n      |                                                         ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~\n/tmp/outputs_20260324-070156-1639e424/acecf41e-941/Migrate_to_TC4D7_on_KIT_A3G_TC4D7_LITE_using_IfxEg_r_20260324_075551/attempts/phase_003_build/src/egtm_atom_3ph_pwm.c'
