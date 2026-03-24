@@ -3,7 +3,6 @@
 
 #include "illd_types/Ifx_Types.h"  /* REQUIRED for uint8, uint16, uint32, boolean, float32 types */
 
-/* Stubbed iLLD API declarations */
 /* Mock control functions */
 /* GTM enable/disable functions (auto-injected for TDD) */
 

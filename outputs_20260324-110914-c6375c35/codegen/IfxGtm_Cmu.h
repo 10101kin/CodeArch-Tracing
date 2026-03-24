@@ -7,7 +7,6 @@
 /* ============= Type Definitions ============= */
 /* IfxGtm_Cmu_Eclk - from illd_types/Ifx_Types.h */
 
-/* Stubbed iLLD API declarations */
 /* Mock control functions */
 /* ============= GTM CMU Enums (MUST be before function declarations) ============= */
 /* DUPLICATE IfxGtm_Cmu_Clk REMOVED - defined in illd_types/Ifx_Types.h */

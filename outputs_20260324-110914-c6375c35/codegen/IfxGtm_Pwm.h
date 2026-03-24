@@ -3,9 +3,9 @@
 
 #include "illd_types/Ifx_Types.h"  /* REQUIRED for uint8, uint16, uint32, boolean, float32 types */
 
-/* Stubbed iLLD API declarations */
 /* Mock control functions */
-/* Array capture helpers for updateChannelsDutyImmediate */
+/* Pattern D: captured config fields from init() */
+/* Pattern B: array capture for updateChannelsDutyImmediate */
 
 /* ============= Function Declarations ============= */
 void IfxGtm_Pwm_initConfig(IfxGtm_Pwm_Config *config, Ifx_GTM *gtmSFR);
@@ -18,6 +18,10 @@ uint32  IfxGtm_Pwm_Mock_GetCallCount_init(void);
 uint32  IfxGtm_Pwm_Mock_GetCallCount_startSyncedChannels(void);
 uint32  IfxGtm_Pwm_Mock_GetCallCount_initChannelConfig(void);
 uint32  IfxGtm_Pwm_Mock_GetCallCount_updateChannelsDutyImmediate(void);
+float32 IfxGtm_Pwm_Mock_GetLastArg_init_frequency(void);
+uint32  IfxGtm_Pwm_Mock_GetLastArg_init_numChannels(void);
+uint32  IfxGtm_Pwm_Mock_GetLastArg_init_alignment(void);
+uint32  IfxGtm_Pwm_Mock_GetLastArg_init_syncStart(void);
 float32 IfxGtm_Pwm_Mock_GetLastArrayArg_updateChannelsDutyImmediate(uint32 index);
 float32 IfxGtm_Pwm_Mock_GetArgHistory_updateChannelsDutyImmediate(uint32 callIdx, uint32 elemIdx);
 uint32  IfxGtm_Pwm_Mock_GetArgHistoryCount_updateChannelsDutyImmediate(void);

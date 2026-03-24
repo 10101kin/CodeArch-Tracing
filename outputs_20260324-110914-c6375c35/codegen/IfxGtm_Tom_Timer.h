@@ -4,7 +4,6 @@
 #include "IfxGtm_Tom.h"
 #include "illd_types/Ifx_Types.h"  /* REQUIRED for uint8, uint16, uint32, boolean, float32 types */
 
-/* Stubbed iLLD API declarations */
 /* Mock control functions */
 
 /* ============= Function Declarations ============= */
@@ -15,8 +14,8 @@ void    IfxGtm_Tom_Timer_addToChannelMask(IfxGtm_Tom_Timer *driver, IfxGtm_Tom_C
 uint32  IfxGtm_Tom_Timer_Mock_GetCallCount_applyUpdate(void);
 uint32  IfxGtm_Tom_Timer_Mock_GetCallCount_initConfig(void);
 uint32  IfxGtm_Tom_Timer_Mock_GetCallCount_init(void);
-uint32  IfxGtm_Tom_Timer_Mock_GetCallCount_addToChannelMask(void);
 void    IfxGtm_Tom_Timer_Mock_SetReturn_init(boolean value);
+uint32  IfxGtm_Tom_Timer_Mock_GetCallCount_addToChannelMask(void);
 uint32  IfxGtm_Tom_Timer_Mock_GetLastArg_addToChannelMask_channel(void);
 void    IfxGtm_Tom_Timer_Mock_Reset(void);
 

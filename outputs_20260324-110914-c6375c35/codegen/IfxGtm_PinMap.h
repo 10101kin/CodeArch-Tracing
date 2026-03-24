@@ -4,9 +4,7 @@
 #include "IfxGtm_Tom.h"
 #include "IfxPort.h"
 #include "illd_types/Ifx_Types.h"  /* REQUIRED for uint8, uint16, uint32, boolean, float32 types */
-#include "IfxPort.h"    /* Uses IfxPort_OutputMode, IfxPort_PadDriver */
 
-/* Stubbed iLLD API declarations */
 /* Mock control functions */
 
 /* ============= Function Declarations ============= */
