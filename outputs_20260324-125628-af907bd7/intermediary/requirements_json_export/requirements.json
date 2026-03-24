@@ -1,0 +1,159 @@
+{
+  "generation_mode": "MIGRATION",
+  "migration_info": {
+    "has_reference": true,
+    "reference_family": "TC3xx",
+    "target_family": "TC3xx",
+    "migration_required": false,
+    "driver_mappings": {
+      "IfxGtm_Tom_PwmHl": "IfxGtm_Tom_PwmHl",
+      "IfxGtm_Pwm": "IfxGtm_Tom_PwmHl",
+      "IfxScuWdt": "IfxScuWdt"
+    },
+    "header_mappings": {
+      "IfxGtm_Pwm.h": "IfxGtm_Tom_PwmHl.h"
+    },
+    "api_changes": [],
+    "function_names_to_preserve": [
+      "initGtmTom3phInv",
+      "updateGtmTom3phInvDuty"
+    ],
+    "explicit_driver_upgrade": true,
+    "target_driver": "IfxGtm_Tom_PwmHl"
+  },
+  "peripheral_requirement": {
+    "type": "GTM_TOM",
+    "driver_available": true,
+    "driver_name": "IfxGtm_Tom_PwmHl",
+    "purpose": "3-phase complementary PWM on TOM1 with center-aligned 20 kHz and preserved pin mapping"
+  },
+  "signal_requirements": {
+    "preserve_existing_pin_mapping": true,
+    "pins": [
+      "P00.2",
+      "P00.3",
+      "P00.4",
+      "P00.5",
+      "P00.6",
+      "P00.7"
+    ],
+    "phases": [
+      "U",
+      "V",
+      "W"
+    ],
+    "initial_duty_percent": {
+      "U": 25,
+      "V": 50,
+      "W": 75
+    },
+    "duty_step_percent": 10,
+    "wrap_range_percent": "0-100",
+    "complementary_outputs": true
+  },
+  "timing_requirements": {
+    "pwm_frequency_hz": 20000,
+    "pwm_alignment": "center-aligned",
+    "deadtime_us": 0.5,
+    "min_pulse_us": 1.0,
+    "duty_update_period_ms": 500,
+    "duty_update_behavior": "increment each channel by +10% every 500 ms; wrap at 100% to 0%"
+  },
+  "device_configuration": {
+    "target_device_macro": "DEVICE_TC38X",
+    "pin_package": "IFX_PIN_PACKAGE_516",
+    "device_family": "TC3xx",
+    "clock_requirements": {
+      "requires_xtal": true,
+      "expected_system_freq_mhz": 300,
+      "preserve_existing_gtm_cmu": true,
+      "gtm_cmu_clock": "cmuFxclk0"
+    }
+  },
+  "code_structure": {
+    "file_pattern": "reference",
+    "expected_files": [
+      "GTM_TOM_3_Phase_Inverter_PWM.c",
+      "GTM_TOM_3_Phase_Inverter_PWM.h",
+      "Cpu0_Main.c",
+      "Cpu1_Main.c",
+      "Cpu2_Main.c",
+      "Cpu3_Main.c"
+    ],
+    "has_cpu_files": true
+  },
+  "reference_context": {
+    "includes_used": [
+      "Ifx_Types.h",
+      "IfxCpu.h",
+      "IfxScuWdt.h",
+      "Bsp.h",
+      "GTM_TOM_3_Phase_Inverter_PWM.h",
+      "IfxGtm_Tom_PwmHl.h",
+      "IfxGtm_cfg_TC38x.h"
+    ],
+    "function_patterns": [
+      "initGtmTom3phInv",
+      "updateGtmTom3phInvDuty"
+    ],
+    "peripheral_usage": {
+      "GTM_TOM": "3-phase complementary PWM generation on TOM1",
+      "Port": "Pin configuration preserved from reference",
+      "STM": "Delay/wait for 500 ms cadence in Cpu0_Main (via Bsp/STM utilities)"
+    }
+  },
+  "template_compatibility": {
+    "validated": true,
+    "supported_peripherals": [
+      "PWM",
+      "GTM",
+      "TIMER",
+      "CPU"
+    ],
+    "suggested_drivers": {
+      "PWM": [
+        "IfxGtm_Tom_PwmHl",
+        "IfxGtm_Tom_Pwm",
+        "IfxGtm_Tom_Dtm_PwmHl",
+        "IfxGtm_Atom_Dtm_PwmHl",
+        "IfxGtm_Atom_Pwm",
+        "IfxGtm_Atom_PwmHl"
+      ],
+      "GTM": [
+        "IfxGtm_Tom_PwmHl",
+        "IfxGtm_Dtm",
+        "IfxGtm_Tbu",
+        "IfxGtm",
+        "IfxGtm_Spe",
+        "IfxGtm_Psm",
+        "IfxGtm_PinMap_TC38x_LFBGA516",
+        "IfxGtm_PinMap_TC38x_LFBGA292",
+        "IfxGtm_Trig",
+        "IfxGtm_Dpll",
+        "IfxGtm_PinMap_TC38x_516"
+      ],
+      "TIMER": [
+        "IfxGtm_Tom_PwmHl",
+        "IfxGtm_Tom_Timer",
+        "IfxGtm_Tim_Timer",
+        "IfxGtm_Atom_Timer"
+      ],
+      "CPU": [
+        "IfxCpu"
+      ],
+      "_driver_selection": {
+        "explicit_target": "IfxGtm_Tom_PwmHl",
+        "replaced_source": "IfxGtm_Pwm",
+        "primary_drivers": [
+          "IfxGtm_Tom_PwmHl"
+        ],
+        "avoid_drivers": [
+          "IfxGtm_Pwm"
+        ]
+      }
+    },
+    "warnings": []
+  },
+  "header_documentation_available": true,
+  "config_values_extracted": 16
+}
