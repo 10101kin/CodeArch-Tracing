@@ -1,0 +1,279 @@
+Attempt 1 - PRODUCTION (Global: 1)
+Status: FAILED ❌
+Timestamp: 2026-03-24 11:41:27
+Files generated: 2
+
+============================================================
+
+ERRORS:
+
+1. conflicting types for 'IfxGtm_Tom_Timer_init'; have 'boolean(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)' {aka 'unsigned char(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)'}
+
+2. field 'pwm' has incomplete type
+
+3. initialization of 'unsigned int' from 'const IfxGtm_Tom_ToutMap *' makes integer from pointer without a cast [-Wint-conversion]
+
+4. initialization of 'unsigned int' from 'const IfxGtm_Tom_ToutMap *' makes integer from pointer without a cast [-Wint-conversion]
+
+5. initialization of 'unsigned int' from 'const IfxGtm_Tom_ToutMap *' makes integer from pointer without a cast [-Wint-conversion]
+
+6. initialization of 'unsigned int' from 'const IfxGtm_Tom_ToutMap *' makes integer from pointer without a cast [-Wint-conversion]
+
+7. initialization of 'unsigned int' from 'const IfxGtm_Tom_ToutMap *' makes integer from pointer without a cast [-Wint-conversion]
+
+8. initialization of 'unsigned int' from 'const IfxGtm_Tom_ToutMap *' makes integer from pointer without a cast [-Wint-conversion]
+
+9. assignment to 'uint32' {aka 'unsigned int'} from 'IfxGtm_Tom_ToutMapP *' makes integer from pointer without a cast [-Wint-conversion]
+
+10. assignment to 'uint32' {aka 'unsigned int'} from 'IfxGtm_Tom_ToutMapP *' makes integer from pointer without a cast [-Wint-conversion]
+
+============================================================
+BUILD RESULT:
+{
+  "success": false,
+  "errors": [
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\include/IfxGtm_Tom_Timer.h",
+      "line": 11,
+      "column": 9,
+      "message": "conflicting types for 'IfxGtm_Tom_Timer_init'; have 'boolean(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)' {aka 'unsigned char(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)'}",
+      "category": "type_mismatch",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\include/gtm_tom_3_phase_inverter_pwm.h",
+      "line": 73,
+      "column": 24,
+      "message": "field 'pwm' has incomplete type",
+      "category": "linker_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\include/gtm_tom_3_phase_inverter_pwm.h",
+      "line": 33,
+      "column": 28,
+      "message": "initialization of 'unsigned int' from 'const IfxGtm_Tom_ToutMap *' makes integer from pointer without a cast [-Wint-conversion]",
+      "category": "illd_api_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\include/gtm_tom_3_phase_inverter_pwm.h",
+      "line": 35,
+      "column": 28,
+      "message": "initialization of 'unsigned int' from 'const IfxGtm_Tom_ToutMap *' makes integer from pointer without a cast [-Wint-conversion]",
+      "category": "illd_api_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\include/gtm_tom_3_phase_inverter_pwm.h",
+      "line": 37,
+      "column": 28,
+      "message": "initialization of 'unsigned int' from 'const IfxGtm_Tom_ToutMap *' makes integer from pointer without a cast [-Wint-conversion]",
+      "category": "illd_api_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\include/gtm_tom_3_phase_inverter_pwm.h",
+      "line": 34,
+      "column": 28,
+      "message": "initialization of 'unsigned int' from 'const IfxGtm_Tom_ToutMap *' makes integer from pointer without a cast [-Wint-conversion]",
+      "category": "illd_api_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\include/gtm_tom_3_phase_inverter_pwm.h",
+      "line": 36,
+      "column": 28,
+      "message": "initialization of 'unsigned int' from 'const IfxGtm_Tom_ToutMap *' makes integer from pointer without a cast [-Wint-conversion]",
+      "category": "illd_api_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\include/gtm_tom_3_phase_inverter_pwm.h",
+      "line": 38,
+      "column": 28,
+      "message": "initialization of 'unsigned int' from 'const IfxGtm_Tom_ToutMap *' makes integer from pointer without a cast [-Wint-conversion]",
+      "category": "illd_api_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 74,
+      "column": 20,
+      "message": "assignment to 'uint32' {aka 'unsigned int'} from 'IfxGtm_Tom_ToutMapP *' makes integer from pointer without a cast [-Wint-conversion]",
+      "category": "illd_api_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 75,
+      "column": 20,
+      "message": "assignment to 'uint32' {aka 'unsigned int'} from 'IfxGtm_Tom_ToutMapP *' makes integer from pointer without a cast [-Wint-conversion]",
+      "category": "illd_api_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 76,
+      "column": 13,
+      "message": "'IfxGtm_Tom_PwmHl_Config' has no member named 'timer'",
+      "category": "illd_api_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\mocks\\IfxGtm_PinMap.c",
+      "line": 9,
+      "column": 15,
+      "message": "redefinition of 's_setTomTout_count'",
+      "category": "unknown",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\mocks\\IfxGtm_PinMap.c",
+      "line": 22,
+      "column": 8,
+      "message": "redefinition of 'IfxGtm_PinMap_Mock_GetCallCount_setTomTout'",
+      "category": "illd_api_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\include/IfxGtm_Tom_Timer.h",
+      "line": 11,
+      "column": 9,
+      "message": "conflicting types for 'IfxGtm_Tom_Timer_init'; have 'boolean(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)' {aka 'unsigned char(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)'}",
+      "category": "type_mismatch",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\mocks\\IfxGtm_Tom_Timer.c",
+      "line": 8,
+      "column": 9,
+      "message": "conflicting types for 'IfxGtm_Tom_Timer_init'; have 'boolean(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)' {aka 'unsigned char(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)'}",
+      "category": "type_mismatch",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\include/IfxGtm_Tom_Timer.h",
+      "line": 11,
+      "column": 9,
+      "message": "conflicting types for 'IfxGtm_Tom_Timer_init'; have 'boolean(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)' {aka 'unsigned char(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)'}",
+      "category": "type_mismatch",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\include/gtm_tom_3_phase_inverter_pwm.h",
+      "line": 73,
+      "column": 24,
+      "message": "field 'pwm' has incomplete type",
+      "category": "linker_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c",
+      "line": 67,
+      "column": 31,
+      "message": "'g_pwm3PhaseOutput' undeclared (first use in this function)",
+      "category": "unknown",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c",
+      "line": 78,
+      "column": 45,
+      "message": "expected expression before 'TIMING_PWM_FREQUENCY_HZ'",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c",
+      "line": 93,
+      "column": 31,
+      "message": "'g_pwm3PhaseOutput' undeclared (first use in this function)",
+      "category": "unknown",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c",
+      "line": 98,
+      "column": 53,
+      "message": "expected expression before 'TIMING_DUTY_STEP_PERCENT'",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c",
+      "line": 99,
+      "column": 53,
+      "message": "expected expression before 'TIMING_DUTY_STEP_PERCENT'",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c",
+      "line": 100,
+      "column": 53,
+      "message": "expected expression before 'TIMING_DUTY_STEP_PERCENT'",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c",
+      "line": 116,
+      "column": 31,
+      "message": "'g_pwm3PhaseOutput' undeclared (first use in this function)",
+      "category": "unknown",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c",
+      "line": 121,
+      "column": 60,
+      "message": "expected expression before 'TIMING_DUTY_STEP_PERCENT'",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c",
+      "line": 122,
+      "column": 60,
+      "message": "expected expression before 'TIMING_DUTY_STEP_PERCENT'",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c",
+      "line": 123,
+      "column": 60,
+      "message": "expected expression before 'TIMING_DUTY_STEP_PERCENT'",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c",
+      "line": 132,
+      "column": 25,
+      "message": "expected expression before 'TIMING_DUTY_STEP_PERCENT'",
+      "category": "syntax_error",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c",
+      "line": 158,
+      "column": 31,
+      "message": "'g_pwm3PhaseOutput' undeclared (first use in this function)",
+      "category": "unknown",
+      "severity": "error"
+    },
+    {
+      "file": "\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c",
+      "line": 172,
+      "column": 37,
+      "message": "expected expression before 'TIMING_DUTY_STEP_PERCENT'",
+      "category": "syntax_error",
+      "severity": "error"
+    }
+  ],
+  "warnings": [],
+  "stderr": "In file included from C:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\include/gtm_tom_3_phase_inverter_pwm.h:11,\n                 from C:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\src\\gtm_tom_3_phase_inverter_pwm.c:5:\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\include/IfxGtm_Tom_Timer.h:11:9: error: conflicting types for 'IfxGtm_Tom_Timer_init'; have 'boolean(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)' {aka 'unsigned char(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)'}\n   11 | boolean IfxGtm_Tom_Timer_init(IfxGtm_Tom_Timer *driver, const IfxGtm_Tom_Timer_Config *config);\n      |         ^~~~~~~~~~~~~~~~~~~~~\nIn file included from C:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\include/IfxGtm_Tom_Timer.h:4:\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\include/IfxGtm_Tom.h:23:6: note: previous declaration of 'IfxGtm_Tom_Timer_init' with type 'void(void *, void *)'\n   23 | void IfxGtm_Tom_Timer_init(void *driver, void *config);\n      |      ^~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\include/gtm_tom_3_phase_inverter_pwm.h:73:24: error: field 'pwm' has incomplete type\n   73 |     IfxGtm_Tom_PwmHl   pwm;                   /* Complementary PWM driver */\n      |                        ^~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\src\\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTom3phInv':\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\include/gtm_tom_3_phase_inverter_pwm.h:33:28: error: initialization of 'unsigned int' from 'const IfxGtm_Tom_ToutMap *' makes integer from pointer without a cast [-Wint-conversion]\n   33 | #define PHASE_U_HS         (&IfxGtm_TOM1_2_TOUT12_P00_3_OUT)\n      |                            ^\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\src\\gtm_tom_3_phase_inverter_pwm.c:62:45: note: in expansion of macro 'PHASE_U_HS'\n   62 |     IfxGtm_Tom_ToutMapP ccx[NUM_PHASES] = { PHASE_U_HS, PHASE_V_HS, PHASE_W_HS };\n      |                                             ^~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\include/gtm_tom_3_phase_inverter_pwm.h:33:28: note: (near initialization for 'ccx[0].dummy')\n   33 | #define PHASE_U_HS         (&IfxGtm_TOM1_2_TOUT12_P00_3_OUT)\n      |                            ^\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\src\\gtm_tom_3_phase_inverter_pwm.c:62:45: note: in expansion of macro 'PHASE_U_HS'\n   62 |     IfxGtm_Tom_ToutMapP ccx[NUM_PHASES] = { PHASE_U_HS, PHASE_V_HS, PHASE_W_HS };\n      |                                             ^~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\include/gtm_tom_3_phase_inverter_pwm.h:35:28: error: initialization of 'unsigned int' from 'const IfxGtm_Tom_ToutMap *' makes integer from pointer without a cast [-Wint-conversion]\n   35 | #define PHASE_V_HS         (&IfxGtm_TOM1_4_TOUT14_P00_5_OUT)\n      |                            ^\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\src\\gtm_tom_3_phase_inverter_pwm.c:62:57: note: in expansion of macro 'PHASE_V_HS'\n   62 |     IfxGtm_Tom_ToutMapP ccx[NUM_PHASES] = { PHASE_U_HS, PHASE_V_HS, PHASE_W_HS };\n      |                                                         ^~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\include/gtm_tom_3_phase_inverter_pwm.h:35:28: note: (near initialization for 'ccx[1].dummy')\n   35 | #define PHASE_V_HS         (&IfxGtm_TOM1_4_TOUT14_P00_5_OUT)\n      |                            ^\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\src\\gtm_tom_3_phase_inverter_pwm.c:62:57: note: in expansion of macro 'PHASE_V_HS'\n   62 |     IfxGtm_Tom_ToutMapP ccx[NUM_PHASES] = { PHASE_U_HS, PHASE_V_HS, PHASE_W_HS };\n      |                                                         ^~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\include/gtm_tom_3_phase_inverter_pwm.h:37:28: error: initialization of 'unsigned int' from 'const IfxGtm_Tom_ToutMap *' makes integer from pointer without a cast [-Wint-conversion]\n   37 | #define PHASE_W_HS         (&IfxGtm_TOM1_6_TOUT16_P00_7_OUT)\n      |                            ^\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\src\\gtm_tom_3_phase_inverter_pwm.c:62:69: note: in expansion of macro 'PHASE_W_HS'\n   62 |     IfxGtm_Tom_ToutMapP ccx[NUM_PHASES] = { PHASE_U_HS, PHASE_V_HS, PHASE_W_HS };\n      |                                                                     ^~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\include/gtm_tom_3_phase_inverter_pwm.h:37:28: note: (near initialization for 'ccx[2].dummy')\n   37 | #define PHASE_W_HS         (&IfxGtm_TOM1_6_TOUT16_P00_7_OUT)\n      |                            ^\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\src\\gtm_tom_3_phase_inverter_pwm.c:62:69: note: in expansion of macro 'PHASE_W_HS'\n   62 |     IfxGtm_Tom_ToutMapP ccx[NUM_PHASES] = { PHASE_U_HS, PHASE_V_HS, PHASE_W_HS };\n      |                                                                     ^~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\src\\gtm_tom_3_phase_inverter_pwm.c:62:43: warning: missing braces around initializer [-Wmissing-braces]\n   62 |     IfxGtm_Tom_ToutMapP ccx[NUM_PHASES] = { PHASE_U_HS, PHASE_V_HS, PHASE_W_HS };\n      |                                           ^\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\include/gtm_tom_3_phase_inverter_pwm.h:34:28: error: initialization of 'unsigned int' from 'const IfxGtm_Tom_ToutMap *' makes integer from pointer without a cast [-Wint-conversion]\n   34 | #define PHASE_U_LS         (&IfxGtm_TOM1_1_TOUT11_P00_2_OUT)\n      |                            ^\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\src\\gtm_tom_3_phase_inverter_pwm.c:63:47: note: in expansion of macro 'PHASE_U_LS'\n   63 |     IfxGtm_Tom_ToutMapP coutx[NUM_PHASES] = { PHASE_U_LS, PHASE_V_LS, PHASE_W_LS };\n      |                                               ^~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\include/gtm_tom_3_phase_inverter_pwm.h:34:28: note: (near initialization for 'coutx[0].dummy')\n   34 | #define PHASE_U_LS         (&IfxGtm_TOM1_1_TOUT11_P00_2_OUT)\n      |                            ^\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\src\\gtm_tom_3_phase_inverter_pwm.c:63:47: note: in expansion of macro 'PHASE_U_LS'\n   63 |     IfxGtm_Tom_ToutMapP coutx[NUM_PHASES] = { PHASE_U_LS, PHASE_V_LS, PHASE_W_LS };\n      |                                               ^~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\include/gtm_tom_3_phase_inverter_pwm.h:36:28: error: initialization of 'unsigned int' from 'const IfxGtm_Tom_ToutMap *' makes integer from pointer without a cast [-Wint-conversion]\n   36 | #define PHASE_V_LS         (&IfxGtm_TOM1_3_TOUT13_P00_4_OUT)\n      |                            ^\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\src\\gtm_tom_3_phase_inverter_pwm.c:63:59: note: in expansion of macro 'PHASE_V_LS'\n   63 |     IfxGtm_Tom_ToutMapP coutx[NUM_PHASES] = { PHASE_U_LS, PHASE_V_LS, PHASE_W_LS };\n      |                                                           ^~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\include/gtm_tom_3_phase_inverter_pwm.h:36:28: note: (near initialization for 'coutx[1].dummy')\n   36 | #define PHASE_V_LS         (&IfxGtm_TOM1_3_TOUT13_P00_4_OUT)\n      |                            ^\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\src\\gtm_tom_3_phase_inverter_pwm.c:63:59: note: in expansion of macro 'PHASE_V_LS'\n   63 |     IfxGtm_Tom_ToutMapP coutx[NUM_PHASES] = { PHASE_U_LS, PHASE_V_LS, PHASE_W_LS };\n      |                                                           ^~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\include/gtm_tom_3_phase_inverter_pwm.h:38:28: error: initialization of 'unsigned int' from 'const IfxGtm_Tom_ToutMap *' makes integer from pointer without a cast [-Wint-conversion]\n   38 | #define PHASE_W_LS         (&IfxGtm_TOM1_5_TOUT15_P00_6_OUT)\n      |                            ^\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\src\\gtm_tom_3_phase_inverter_pwm.c:63:71: note: in expansion of macro 'PHASE_W_LS'\n   63 |     IfxGtm_Tom_ToutMapP coutx[NUM_PHASES] = { PHASE_U_LS, PHASE_V_LS, PHASE_W_LS };\n      |                                                                       ^~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\include/gtm_tom_3_phase_inverter_pwm.h:38:28: note: (near initialization for 'coutx[2].dummy')\n   38 | #define PHASE_W_LS         (&IfxGtm_TOM1_5_TOUT15_P00_6_OUT)\n      |                            ^\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\src\\gtm_tom_3_phase_inverter_pwm.c:63:71: note: in expansion of macro 'PHASE_W_LS'\n   63 |     IfxGtm_Tom_ToutMapP coutx[NUM_PHASES] = { PHASE_U_LS, PHASE_V_LS, PHASE_W_LS };\n      |                                                                       ^~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\src\\gtm_tom_3_phase_inverter_pwm.c:63:45: warning: missing braces around initializer [-Wmissing-braces]\n   63 |     IfxGtm_Tom_ToutMapP coutx[NUM_PHASES] = { PHASE_U_LS, PHASE_V_LS, PHASE_W_LS };\n      |                                             ^\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\src\\gtm_tom_3_phase_inverter_pwm.c:74:20: error: assignment to 'uint32' {aka 'unsigned int'} from 'IfxGtm_Tom_ToutMapP *' makes integer from pointer without a cast [-Wint-conversion]\n   74 |     pwmHlCfg.ccx   = ccx;\n      |                    ^\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\src\\gtm_tom_3_phase_inverter_pwm.c:75:20: error: assignment to 'uint32' {aka 'unsigned int'} from 'IfxGtm_Tom_ToutMapP *' makes integer from pointer without a cast [-Wint-conversion]\n   75 |     pwmHlCfg.coutx = coutx;\n      |                    ^\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\src\\gtm_tom_3_phase_inverter_pwm.c:76:13: error: 'IfxGtm_Tom_PwmHl_Config' has no member named 'timer'\n   76 |     pwmHlCfg.timer = &s_drv.timer;\n      |             ^\n\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\mocks\\IfxGtm_PinMap.c:9:15: error: redefinition of 's_setTomTout_count'\n    9 | static uint32 s_setTomTout_count = 0;\n      |               ^~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\mocks\\IfxGtm_PinMap.c:5:15: note: previous definition of 's_setTomTout_count' with type 'uint32' {aka 'unsigned int'}\n    5 | static uint32 s_setTomTout_count = 0u;\n      |               ^~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\mocks\\IfxGtm_PinMap.c:22:8: error: redefinition of 'IfxGtm_PinMap_Mock_GetCallCount_setTomTout'\n   22 | uint32 IfxGtm_PinMap_Mock_GetCallCount_setTomTout(void)\n      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\mocks\\IfxGtm_PinMap.c:18:8: note: previous definition of 'IfxGtm_PinMap_Mock_GetCallCount_setTomTout' with type 'uint32(void)' {aka 'unsigned int(void)'}\n   18 | uint32 IfxGtm_PinMap_Mock_GetCallCount_setTomTout(void) {\n      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\mocks\\IfxGtm_Tom_Timer.c:1:\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\include/IfxGtm_Tom_Timer.h:11:9: error: conflicting types for 'IfxGtm_Tom_Timer_init'; have 'boolean(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)' {aka 'unsigned char(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)'}\n   11 | boolean IfxGtm_Tom_Timer_init(IfxGtm_Tom_Timer *driver, const IfxGtm_Tom_Timer_Config *config);\n      |         ^~~~~~~~~~~~~~~~~~~~~\nIn file included from C:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\include/IfxGtm_Tom_Timer.h:4:\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\include/IfxGtm_Tom.h:23:6: note: previous declaration of 'IfxGtm_Tom_Timer_init' with type 'void(void *, void *)'\n   23 | void IfxGtm_Tom_Timer_init(void *driver, void *config);\n      |      ^~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\mocks\\IfxGtm_Tom_Timer.c:8:9: error: conflicting types for 'IfxGtm_Tom_Timer_init'; have 'boolean(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)' {aka 'unsigned char(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)'}\n    8 | boolean IfxGtm_Tom_Timer_init(IfxGtm_Tom_Timer *driver, const IfxGtm_Tom_Timer_Config *config)\n      |         ^~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\include/IfxGtm_Tom.h:23:6: note: previous declaration of 'IfxGtm_Tom_Timer_init' with type 'void(void *, void *)'\n   23 | void IfxGtm_Tom_Timer_init(void *driver, void *config);\n      |      ^~~~~~~~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\include/gtm_tom_3_phase_inverter_pwm.h:11,\n                 from C:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c:2:\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\include/IfxGtm_Tom_Timer.h:11:9: error: conflicting types for 'IfxGtm_Tom_Timer_init'; have 'boolean(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)' {aka 'unsigned char(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)'}\n   11 | boolean IfxGtm_Tom_Timer_init(IfxGtm_Tom_Timer *driver, const IfxGtm_Tom_Timer_Config *config);\n      |         ^~~~~~~~~~~~~~~~~~~~~\nIn file included from C:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\include/IfxGtm_Tom_Timer.h:4:\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\include/IfxGtm_Tom.h:23:6: note: previous declaration of 'IfxGtm_Tom_Timer_init' with type 'void(void *, void *)'\n   23 | void IfxGtm_Tom_Timer_init(void *driver, void *config);\n      |      ^~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\include/gtm_tom_3_phase_inverter_pwm.h:73:24: error: field 'pwm' has incomplete type\n   73 |     IfxGtm_Tom_PwmHl   pwm;                   /* Complementary PWM driver */\n      |                        ^~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c: In function 'test_initGtmTom3phInv_SetsExpectedConfigValues':\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c:67:31: error: 'g_pwm3PhaseOutput' undeclared (first use in this function)\n   67 |     float32 period = (float32)g_pwm3PhaseOutput.timer.base.period;\n      |                               ^~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c:67:31: note: each undeclared identifier is reported only once for each function it appears in\nIn file included from C:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\unity/unity.h:22,\n                 from C:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c:1:\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c:78:45: error: expected expression before 'TIMING_PWM_FREQUENCY_HZ'\n   78 |     TEST_ASSERT_FLOAT_WITHIN(1.0f, (float32)TIMING_PWM_FREQUENCY_HZ, (float32)g_pwm3PhaseOutput.timer.base.frequency);\n      |                                             ^~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\unity/unity_internals.h:1119:158: note: in definition of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'\n 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))\n      |                                                                                                                                                              ^~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c:78:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN'\n   78 |     TEST_ASSERT_FLOAT_WITHIN(1.0f, (float32)TIMING_PWM_FREQUENCY_HZ, (float32)g_pwm3PhaseOutput.timer.base.frequency);\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c: In function 'test_updateGtmTom3phInvDuty_SingleCall_UpdatesValues':\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c:93:31: error: 'g_pwm3PhaseOutput' undeclared (first use in this function)\n   93 |     float32 period = (float32)g_pwm3PhaseOutput.timer.base.period;\n      |                               ^~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c:98:53: error: expected expression before 'TIMING_DUTY_STEP_PERCENT'\n   98 |     TEST_ASSERT_FLOAT_WITHIN(1.0f, 25.0f + (float32)TIMING_DUTY_STEP_PERCENT, du); // 35%\n      |                                                     ^~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\unity/unity_internals.h:1119:158: note: in definition of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'\n 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))\n      |                                                                                                                                                              ^~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c:98:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN'\n   98 |     TEST_ASSERT_FLOAT_WITHIN(1.0f, 25.0f + (float32)TIMING_DUTY_STEP_PERCENT, du); // 35%\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c:99:53: error: expected expression before 'TIMING_DUTY_STEP_PERCENT'\n   99 |     TEST_ASSERT_FLOAT_WITHIN(1.0f, 50.0f + (float32)TIMING_DUTY_STEP_PERCENT, dv); // 60%\n      |                                                     ^~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\unity/unity_internals.h:1119:158: note: in definition of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'\n 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))\n      |                                                                                                                                                              ^~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c:99:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN'\n   99 |     TEST_ASSERT_FLOAT_WITHIN(1.0f, 50.0f + (float32)TIMING_DUTY_STEP_PERCENT, dv); // 60%\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c:100:53: error: expected expression before 'TIMING_DUTY_STEP_PERCENT'\n  100 |     TEST_ASSERT_FLOAT_WITHIN(1.0f, 75.0f + (float32)TIMING_DUTY_STEP_PERCENT, dw); // 85%\n      |                                                     ^~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\unity/unity_internals.h:1119:158: note: in definition of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'\n 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))\n      |                                                                                                                                                              ^~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c:100:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN'\n  100 |     TEST_ASSERT_FLOAT_WITHIN(1.0f, 75.0f + (float32)TIMING_DUTY_STEP_PERCENT, dw); // 85%\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c: In function 'test_updateGtmTom3phInvDuty_MultipleCalls_ProgressesCorrectly':\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c:116:31: error: 'g_pwm3PhaseOutput' undeclared (first use in this function)\n  116 |     float32 period = (float32)g_pwm3PhaseOutput.timer.base.period;\n      |                               ^~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c:121:60: error: expected expression before 'TIMING_DUTY_STEP_PERCENT'\n  121 |     TEST_ASSERT_FLOAT_WITHIN(1.0f, 25.0f + 2.0f * (float32)TIMING_DUTY_STEP_PERCENT, du); // 45%\n      |                                                            ^~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\unity/unity_internals.h:1119:158: note: in definition of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'\n 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))\n      |                                                                                                                                                              ^~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c:121:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN'\n  121 |     TEST_ASSERT_FLOAT_WITHIN(1.0f, 25.0f + 2.0f * (float32)TIMING_DUTY_STEP_PERCENT, du); // 45%\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c:122:60: error: expected expression before 'TIMING_DUTY_STEP_PERCENT'\n  122 |     TEST_ASSERT_FLOAT_WITHIN(1.0f, 50.0f + 2.0f * (float32)TIMING_DUTY_STEP_PERCENT, dv); // 70%\n      |                                                            ^~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\unity/unity_internals.h:1119:158: note: in definition of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'\n 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))\n      |                                                                                                                                                              ^~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c:122:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN'\n  122 |     TEST_ASSERT_FLOAT_WITHIN(1.0f, 50.0f + 2.0f * (float32)TIMING_DUTY_STEP_PERCENT, dv); // 70%\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c:123:60: error: expected expression before 'TIMING_DUTY_STEP_PERCENT'\n  123 |     TEST_ASSERT_FLOAT_WITHIN(1.0f, 75.0f + 2.0f * (float32)TIMING_DUTY_STEP_PERCENT, dw); // 95%\n      |                                                            ^~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\unity/unity_internals.h:1119:158: note: in definition of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'\n 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))\n      |                                                                                                                                                              ^~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c:123:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN'\n  123 |     TEST_ASSERT_FLOAT_WITHIN(1.0f, 75.0f + 2.0f * (float32)TIMING_DUTY_STEP_PERCENT, dw); // 95%\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c: In function 'expected_percent_after_N':\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c:132:25: error: expected expression before 'TIMING_DUTY_STEP_PERCENT'\n  132 |         pct += (float32)TIMING_DUTY_STEP_PERCENT;\n      |                         ^~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c: In function 'test_updateGtmTom3phInvDuty_BoundaryWrapAround':\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c:158:31: error: 'g_pwm3PhaseOutput' undeclared (first use in this function)\n  158 |     float32 period = (float32)g_pwm3PhaseOutput.timer.base.period;\n      |                               ^~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c:172:37: error: expected expression before 'TIMING_DUTY_STEP_PERCENT'\n  172 |     TEST_ASSERT_TRUE(du <= (float32)TIMING_DUTY_STEP_PERCENT);\n      |                                     ^~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\unity/unity_internals.h:891:107: note: in definition of macro 'UNITY_TEST_ASSERT'\n  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)\n      |                                                                                                           ^~~~~~~~~\nC:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\outputs_20260323-091521-45354771\\6ee0b236-20b\\Update_the_KIT_A2G_TC387_5V_TFT_TC387_3-phase_PW_r_20260324_113441\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c:172:5: note: in expansion of macro 'TEST_ASSERT_TRUE'\n  172 |     TEST_ASSERT_TRUE(du <= (float32)TIMING_DUTY_STEP_PERCENT);\n      |     ^~~~~~~~~~~~~~~~\n",
+  "stdout": ""
+}
