@@ -2,7 +2,7 @@
   "module_name": "EGTM_ATOM_3_Phase_Inverter_PWM",
   "public_functions": [
     {
-      "signature": "IfxEgtm_Atom_Pwm_init()",
+      "signature": "void initEgtmAtom3phInv(void)",
       "behavior_description": "Initialize the eGTM-based 3-phase complementary PWM. Steps: 1) Enable the eGTM module clocks and verify the functional clock is present. 2) Configure three PWM channels (base + two synchronous) on the selected submodule for center-aligned operation at the required frequency. 3) Attach complementary outputs for each channel and set active high/low polarity pairing to generate complementary PWM signals. Assign the mapped output pins using the pin map configuration and configure them for push-pull output with an appropriate pad drive. 4) Configure hardware dead time for each complementary pair with the specified rising and falling delay values. 5) Configure a period interrupt for the base channel: set interrupt mode, provider (CPU0), and priority; assign the interrupt only to the first (base) channel while leaving other channels without interrupts. 6) Initialize the unified PWM driver with the main and per-channel configuration structures. 7) Enable synchronized shadow-to-active updates and start all configured channels synchronously so that frequency and duty are aligned across phases. 8) Initialize the LED GPIO as a push-pull output for visual indication and install the ISR handler that will toggle the LED on each PWM period event. Maintain basic status flags (e.g., pwm_initialized, dtm_configured, error_* flags) based on the success of clock checks, pin mapping, and channel initialization.",
       "driver_calls": [
         "IfxEgtm_enable",
@@ -21,7 +21,7 @@
       "call_context": "init"
     },
     {
-      "signature": "IfxEgtm_Atom_Pwm_setDutyCycle()",
+      "signature": "void updateEgtmAtom3phInvDuty(void)",
       "behavior_description": "Apply runtime duty cycle updates for the three phases in a synchronized manner. Algorithm: 1) Read the requested duty array (three values for U, V, W) from the module’s shared state. 2) For each entry, clamp to the valid range [0.0 .. 1.0]; if any value is out of range, set an error flag and clamp it. 3) Set an update_in_progress flag, write all three duty values to the PWM driver using the synchronized multi-channel update API so changes take effect at the next PWM period boundary, then clear the update_in_progress flag. The function does not block for the period boundary; the hardware applies shadow-to-active transfer at the next cycle automatically.",
       "driver_calls": [
         "IfxEgtm_Pwm_updateChannelsDuty"
@@ -39,7 +39,7 @@
   ],
   "dependencies": {
     "includes": [
-      "IfxEgtm_Atom_Pwm.h",
+      "IfxEgtm_Pwm.h",
       "IfxEgtm_Cmu.h",
       "IfxEgtm_PinMap.h",
       "IfxEgtm.h",
@@ -51,16 +51,16 @@
       "IfxEgtm_Cmu_enableClocks",
       "IfxEgtm_Cmu_isFxClockEnabled",
       "IfxEgtm_PinMap_setAtomTout",
-      "IfxEgtm_Atom_Pwm_initConfig",
-      "IfxEgtm_Atom_Pwm_initChannelConfig",
-      "IfxEgtm_Atom_Pwm_init",
-      "IfxEgtm_Atom_Pwm_updateChannelsDeadTime",
-      "IfxEgtm_Atom_Pwm_startSyncedChannels",
-      "IfxEgtm_Atom_Pwm_updateChannelsDuty",
+      "IfxEgtm_Pwm_initConfig",
+      "IfxEgtm_Pwm_initChannelConfig",
+      "IfxEgtm_Pwm_init",
+      "IfxEgtm_Pwm_updateChannelsDeadTime",
+      "IfxEgtm_Pwm_startSyncedChannels",
+      "IfxEgtm_Pwm_updateChannelsDuty",
       "IfxPort_setPinModeOutput",
       "IfxPort_togglePin",
       "IfxCpu_Irq_installInterruptHandler",
-      "IfxEgtm_Atom_Pwm_interruptHandler"
+      "IfxEgtm_Pwm_interruptHandler"
     ]
   },
   "cpu_main_requirements": {
