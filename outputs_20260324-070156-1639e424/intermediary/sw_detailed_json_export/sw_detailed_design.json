@@ -3,7 +3,7 @@
   "public_functions": [
     {
       "signature": "void initEgtmAtom3phInv(void)",
-      "behavior_description": "Initialize only peripherals present on TC4D7. 1) Optionally configure a system timebase using supported TC4Dx resources (e.g., WUT) if periodic tasks are required; no eGTM usage. 2) Enable the ADC module and configure TMADC in queued/polled mode: prepare a queue of required channels, initialize their configurations, and start TMADC in polled (non-interrupt) mode. 3) Configure the LED GPIO as a push-pull output and set its initial inactive level. 4) Any PWM generation for a 3-phase inverter must use TC4Dx-supported timer modules (e.g., CCU6 or GPT12) and is not configured here. NOTE: Verify the exact TMADC iLLD initialization API sequence and the TMADC configuration structure field names against the TC4Dx iLLD headers/documentation.",
+      "behavior_description": "Initialize only peripherals present on TC4D7. 1) Optionally configure a system timebase using supported TC4Dx resources (e.g., WUT) if periodic tasks are required; no eGTM usage. 2) Enable the ADC module and configure TMADC in queued/polled mode: prepare a queue of required channels, initialize their configurations, and start TMADC in polled (non-interrupt) mode. 3) Configure the LED GPIO as a push-pull output and set its initial inactive level. 4) Any PWM generation for a 3-phase inverter must use TC4Dx-supported timer modules (e.g., CCU6 or GPT12) and is not configured here.",
       "driver_calls": [
         "IfxAdc_enableModule",
         "IfxAdc_Tmadc_initModuleConfig",
@@ -24,8 +24,7 @@
       "Ifx_Types.h",
       "IfxAdc.h",
       "IfxAdc_Tmadc.h",
-      "IfxPort.h",
-      "TODO: Verify correct TC4Dx iLLD header names for TMADC and Port drivers"
+      "IfxPort.h"
     ],
     "driver_calls": []
   },
