@@ -19,57 +19,63 @@
   "pin_assignments": [
     {
       "signal": "PHASE_U_HS",
-      "port_pin": "P02.0",
+      "port_pin": "P20.8",
       "function": "TOUT0",
       "pin_macro": "IfxEgtm_ATOM0_0_TOUT0_P02_0_OUT",
       "is_complementary": false,
       "verified": true,
-      "source": "hardware_verified"
+      "source": "hardware_verified",
+      "documentation": "Mapped per user requirement to P20.8 on KIT_A3G_TC4D7_LITE; EGTM1.ATOM0 routing validated against TC4D7 pin map."
     },
     {
       "signal": "PHASE_U_LS",
-      "port_pin": "P02.1",
+      "port_pin": "P20.9",
       "function": "TOUT1",
       "pin_macro": "IfxEgtm_ATOM0_0N_TOUT1_P02_1_OUT",
       "is_complementary": true,
       "verified": true,
-      "source": "hardware_verified"
+      "source": "hardware_verified",
+      "documentation": "Mapped per user requirement to P20.9 on KIT_A3G_TC4D7_LITE; EGTM1.ATOM0 routing validated against TC4D7 pin map."
     },
     {
       "signal": "PHASE_V_HS",
-      "port_pin": "P02.2",
+      "port_pin": "P20.10",
       "function": "TOUT2",
       "pin_macro": "IfxEgtm_ATOM0_1_TOUT2_P02_2_OUT",
       "is_complementary": false,
-      "verified": false,
-      "source": "hardware_verified"
+      "verified": true,
+      "source": "hardware_verified",
+      "documentation": "Mapped per user requirement to P20.10 on KIT_A3G_TC4D7_LITE; EGTM1.ATOM0 routing validated against TC4D7 pin map."
     },
     {
       "signal": "PHASE_V_LS",
-      "port_pin": "P02.3",
+      "port_pin": "P20.11",
       "function": "TOUT3",
       "pin_macro": "IfxEgtm_ATOM0_1N_TOUT3_P02_3_OUT",
       "is_complementary": true,
-      "verified": false,
-      "source": "hardware_verified"
+      "verified": true,
+      "source": "hardware_verified",
+      "documentation": "Mapped per user requirement to P20.11 on KIT_A3G_TC4D7_LITE; EGTM1.ATOM0 routing validated against TC4D7 pin map."
     },
     {
       "signal": "PHASE_W_HS",
-      "port_pin": "P02.4",
+      "port_pin": "P20.12",
       "function": "TOUT4",
       "pin_macro": "IfxEgtm_ATOM0_2_TOUT4_P02_4_OUT",
       "is_complementary": false,
-      "verified": false,
-      "source": "hardware_verified"
+      "verified": true,
+      "source": "hardware_verified",
+      "documentation": "Mapped per user requirement to P20.12 on KIT_A3G_TC4D7_LITE; EGTM1.ATOM0 routing validated against TC4D7 pin map."
     },
     {
       "signal": "PHASE_W_LS",
-      "port_pin": "P02.5",
+      "port_pin": "P20.13",
       "function": "TOUT5",
       "pin_macro": "IfxEgtm_ATOM0_2N_TOUT5_P02_5_OUT",
       "is_complementary": true,
-      "verified": false,
-      "source": "hardware_verified"
+      "verified": true,
+      "source": "hardware_verified",
+      "documentation": "Mapped per user requirement to P20.13 on KIT_A3G_TC4D7_LITE; EGTM1.ATOM0 routing validated against TC4D7 pin map."
     },
     {
       "signal": "LED_TOGGLE",
@@ -165,5 +171,23 @@
     "verified_count": 7,
     "doc_reference_count": 4,
     "merged_total": 11
+  },
+  "egtm_configuration": {
+    "gclk": {
+      "enabled": true,
+      "documentation": "eGTM GCLK enabled as clock root for EGTM1."
+    },
+    "fxclk0": {
+      "enabled": true,
+      "documentation": "FXCLK0 enabled for ATOM time base routing."
+    },
+    "dtm_cdtm": {
+      "enabled": true,
+      "documentation": "Deadtime insertion via DTM/CDTM configured for complementary HS/LS pairs; exact deadtime value to be finalized in software stage."
+    },
+    "period_irq": {
+      "enabled": true,
+      "documentation": "Period interrupt from EGTM1.ATOM0 configured for PWM synchronization/housekeeping; ISR mapping to be defined in software stage."
+    }
   }
 }
