@@ -25,7 +25,16 @@
       "pin_macro": "IfxEgtm_ATOM0_0_TOUT0_P02_0_OUT",
       "is_complementary": false,
       "verified": true,
-      "source": "hardware_verified"
+      "source": "hardware_verified",
+      "assignment_status": "assigned",
+      "assignment_origin": "template_default_fallback",
+      "requested_port_pin": "P20.8",
+      "notes": "User requested remap to P20.8, but Port 20 pins P20.8–P20.13 have no EGTM ATOM TOUT mapping on TC4Dx (BGA436_COM); using template default pin as fallback.",
+      "alternatives": [
+        "Continue using P02.0 (ATOM0 C0 TOUT0) as assigned",
+        "Select other valid EGTM ATOM TOUT-capable pins per IfxEgtm_PinMap for TC4Dx"
+      ],
+      "blocking_issue": false
     },
     {
       "signal": "PWM_U_LOW",
@@ -34,7 +43,88 @@
       "pin_macro": "IfxEgtm_ATOM0_0N_TOUT1_P02_1_OUT",
       "is_complementary": true,
       "verified": true,
-      "source": "hardware_verified"
+      "source": "hardware_verified",
+      "assignment_status": "assigned",
+      "assignment_origin": "template_default_fallback",
+      "requested_port_pin": "P20.9",
+      "notes": "User requested remap to P20.9, but Port 20 pins P20.8–P20.13 have no EGTM ATOM TOUT mapping on TC4Dx (BGA436_COM); using template default pin as fallback.",
+      "alternatives": [
+        "Continue using P02.1 (ATOM0 C0N TOUT1) as assigned",
+        "Select other valid EGTM ATOM TOUT-capable pins per IfxEgtm_PinMap for TC4Dx"
+      ],
+      "blocking_issue": false
+    },
+    {
+      "signal": "PWM_V_HIGH",
+      "port_pin": "P20.10",
+      "function": null,
+      "pin_macro": null,
+      "is_complementary": false,
+      "verified": false,
+      "source": "user_requested",
+      "assignment_status": "unassigned",
+      "assignment_origin": "user_request",
+      "requested_port_pin": "P20.10",
+      "notes": "Unassignable on TC4Dx (BGA436_COM): Port 20 pins P20.8–P20.13 do not provide EGTM ATOM TOUT functionality per IfxEgtm_PinMap/datasheet.",
+      "alternatives": [
+        "Select EGTM ATOM-capable pins listed in IfxEgtm_PinMap for TC4Dx (e.g., Port 2 options)",
+        "Consider GTM TOM outputs if Port 20 usage is mandatory and supported by pin mux"
+      ],
+      "blocking_issue": true
+    },
+    {
+      "signal": "PWM_V_LOW",
+      "port_pin": "P20.11",
+      "function": null,
+      "pin_macro": null,
+      "is_complementary": true,
+      "verified": false,
+      "source": "user_requested",
+      "assignment_status": "unassigned",
+      "assignment_origin": "user_request",
+      "requested_port_pin": "P20.11",
+      "notes": "Unassignable on TC4Dx (BGA436_COM): Port 20 pins P20.8–P20.13 do not provide EGTM ATOM TOUT functionality per IfxEgtm_PinMap/datasheet.",
+      "alternatives": [
+        "Select EGTM ATOM-capable pins listed in IfxEgtm_PinMap for TC4Dx (e.g., Port 2 options)",
+        "Consider GTM TOM outputs if Port 20 usage is mandatory and supported by pin mux"
+      ],
+      "blocking_issue": true
+    },
+    {
+      "signal": "PWM_W_HIGH",
+      "port_pin": "P20.12",
+      "function": null,
+      "pin_macro": null,
+      "is_complementary": false,
+      "verified": false,
+      "source": "user_requested",
+      "assignment_status": "unassigned",
+      "assignment_origin": "user_request",
+      "requested_port_pin": "P20.12",
+      "notes": "Unassignable on TC4Dx (BGA436_COM): Port 20 pins P20.8–P20.13 do not provide EGTM ATOM TOUT functionality per IfxEgtm_PinMap/datasheet.",
+      "alternatives": [
+        "Select EGTM ATOM-capable pins listed in IfxEgtm_PinMap for TC4Dx (e.g., Port 2 options)",
+        "Consider GTM TOM outputs if Port 20 usage is mandatory and supported by pin mux"
+      ],
+      "blocking_issue": true
+    },
+    {
+      "signal": "PWM_W_LOW",
+      "port_pin": "P20.13",
+      "function": null,
+      "pin_macro": null,
+      "is_complementary": true,
+      "verified": false,
+      "source": "user_requested",
+      "assignment_status": "unassigned",
+      "assignment_origin": "user_request",
+      "requested_port_pin": "P20.13",
+      "notes": "Unassignable on TC4Dx (BGA436_COM): Port 20 pins P20.8–P20.13 do not provide EGTM ATOM TOUT functionality per IfxEgtm_PinMap/datasheet.",
+      "alternatives": [
+        "Select EGTM ATOM-capable pins listed in IfxEgtm_PinMap for TC4Dx (e.g., Port 2 options)",
+        "Consider GTM TOM outputs if Port 20 usage is mandatory and supported by pin mux"
+      ],
+      "blocking_issue": true
     }
   ],
   "clock_configuration": {
@@ -44,10 +134,11 @@
   "validation": {
     "all_verified": false,
     "conflicts": [
-      "User-specified PWM pins P20.8–P20.13 could not be validated against IfxEgtm_PinMap for DEVICE_TC4DX (BGA436_COM). Using template defaults where available.",
+      "User-specified PWM pins P20.8–P20.13 could not be validated or assigned: IfxEgtm_PinMap for DEVICE_TC4DX (BGA436_COM) defines no EGTM ATOM TOUT mappings on Port 20. Per TC4Dx datasheet (Port 20 multiplexing tables), P20.8–P20.13 do not support EGTM/ATOM TOUT signals. Fallback to template defaults applied (e.g., ATOM0 C0 on P02.0/P02.1). Action required: select alternative EGTM-capable pins or change output module; blocking for V/W phases until resolved.",
       "ATOM0 C0 CH1/CH2 complementary outputs: no template PinMap macros available. Pins not assigned.",
       "ATOM0 C0 CH3 trigger to P33.0: no template PinMap macro available. Pin not assigned.",
-      "LED P03.9: GPIO pin macro not available in template context. Pin not assigned."
+      "LED P03.9: GPIO pin macro not available in template context. Pin not assigned.",
+      "TMADC0: Channel IDs and analog input pins are TBD — TODO: define TMADC0 channel/pin assignments; required follow-up hardware specification."
     ],
     "reference_pins_valid": true
   },
