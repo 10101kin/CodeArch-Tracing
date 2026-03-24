@@ -1,0 +1,82 @@
+{
+  "module_name": "GTM_TOM_3_Phase_Inverter_PWM",
+  "public_functions": [
+    {
+      "signature": "void GTM_TOM_3_Phase_Inverter_PWM_init(void)",
+      "behavior_description": "Enable the GTM module and its CMU clocks required for TOM operation. Configure a TOM-based time base to generate a 20 kHz center-aligned PWM period and assign it as the time base for the multi-channel PWM cluster. Initialize the unified multi-channel PWM driver with six output channels grouped as three complementary pairs (U, V, W). Configure the driver for synchronous (atomic) shadow-to-compare register updates across all configured channels. Initialize and mux the six configured PWM output pins to the TOM function with the selected output mode and pad driver using the generic pin map APIs. Build an initial duty array (percent values) for the six outputs where each complementary pair uses the same initial duty: U=25%, V=50%, W=75%. Apply the initial duty settings atomically and start the synchronized PWM outputs.",
+      "driver_calls": [
+        "IfxGtm_enable",
+        "IfxGtm_Cmu_enableClocks",
+        "IfxGtm_Tom_Timer_initConfig",
+        "IfxGtm_Tom_Timer_init",
+        "IfxGtm_Tom_Timer_addToChannelMask",
+        "IfxGtm_Tom_Timer_applyUpdate",
+        "IfxGtm_PinMap_setTomTout",
+        "IfxGtm_Pwm_initConfig",
+        "IfxGtm_Pwm_initChannelConfig",
+        "IfxGtm_Pwm_init",
+        "IfxGtm_Pwm_updateChannelsDutyImmediate",
+        "IfxGtm_Pwm_startSyncedChannels"
+      ],
+      "from_reference": true,
+      "call_context": "init"
+    },
+    {
+      "signature": "void GTM_TOM_3_Phase_Inverter_PWM_stepDuty(void)",
+      "behavior_description": "Maintain three stored duty percentages for phases U, V, and W. On each call: compute a step increment equal to the configured step delta (e.g., 10%). For each phase, add the step to its current duty. If a phase duty exceeds 100%, wrap it to 0%. Construct a six-element duty array mapping each phase's duty to its corresponding complementary pair outputs. Apply the new six-channel duties atomically using the multi-channel immediate update API so all outputs change synchronously at the next hardware update boundary.",
+      "driver_calls": [
+        "IfxGtm_Pwm_updateChannelsDutyImmediate"
+      ],
+      "from_reference": true,
+      "call_context": "loop"
+    }
+  ],
+  "private_functions": [
+    {
+      "signature": "static void GTM_TOM_3_Phase_Inverter_PWM_buildDutyArray(float32 *outDutyPercent6)",
+      "needed": true,
+      "from_reference": false
+    }
+  ],
+  "dependencies": {
+    "includes": [
+      "IfxGtm_Pwm.h",
+      "IfxGtm_Tom_Timer.h",
+      "IfxGtm_Cmu.h",
+      "IfxGtm_PinMap.h",
+      "IfxGtm.h",
+      "IfxPort.h"
+    ],
+    "driver_calls": [
+      "IfxGtm_enable",
+      "IfxGtm_Cmu_enableClocks",
+      "IfxGtm_Tom_Timer_initConfig",
+      "IfxGtm_Tom_Timer_init",
+      "IfxGtm_Tom_Timer_addToChannelMask",
+      "IfxGtm_Tom_Timer_applyUpdate",
+      "IfxGtm_PinMap_setTomTout",
+      "IfxGtm_Pwm_initConfig",
+      "IfxGtm_Pwm_initChannelConfig",
+      "IfxGtm_Pwm_init",
+      "IfxGtm_Pwm_updateChannelsDutyImmediate",
+      "IfxGtm_Pwm_startSyncedChannels"
+    ]
+  },
+  "cpu_main_requirements": {
+    "needs_cpu_sync": true,
+    "uses_timer_delay": true,
+    "delay_ms": 500,
+    "additional_includes": [
+      "Bsp.h"
+    ]
+  },
+  "header_selection": {
+    "applied": true,
+    "peripheral_type": "PWM",
+    "recommended_header": "IfxGtm_Pwm",
+    "template_functions_count": 1026,
+    "required_includes": [
+      "IfxGtm_Pwm.h"
+    ]
+  }
+}
