@@ -1,12 +1,11 @@
 #ifndef IFXPORT_H
 #define IFXPORT_H
 
-#include "illd_types/Ifx_Types.h"  /* REQUIRED for uint8, uint16, uint32, boolean, float32 types */
+#include "illd_types/Ifx_Types.h"  /* REQUIRED for uint8, uint32, boolean, float32 types */
 
-/* iLLD API declarations */
+/* iLLD API declarations (no type definitions here) */
 /* Mock control: call counts */
-/* Mock control: last-arg capture getters */
-/* Mock control: return control for non-void returning stubs */
+/* Mock control: last-argument capture (value-carrying params) */
 /* Mock control: reset */
 
 /* ============= Function Declarations ============= */
@@ -28,23 +27,22 @@ uint32 IfxPort_Mock_GetCallCount_setPinModeInput(void);
 uint32 IfxPort_Mock_GetCallCount_togglePin(void);
 uint32 IfxPort_Mock_GetCallCount_setPinMode(void);
 uint32 IfxPort_Mock_GetCallCount_setPinModeLVDS(void);
-uint8  IfxPort_Mock_GetLastArg_setPinModeOutput_pinIndex(void);
+uint32 IfxPort_Mock_GetLastArg_setPinModeOutput_pinIndex(void);
 uint32 IfxPort_Mock_GetLastArg_setPinModeOutput_mode(void);
 uint32 IfxPort_Mock_GetLastArg_setPinModeOutput_index(void);
-uint8  IfxPort_Mock_GetLastArg_setPinState_pinIndex(void);
+uint32 IfxPort_Mock_GetLastArg_setPinState_pinIndex(void);
 uint32 IfxPort_Mock_GetLastArg_setPinState_action(void);
-uint8  IfxPort_Mock_GetLastArg_getPinState_pinIndex(void);
-uint8  IfxPort_Mock_GetLastArg_setPinHigh_pinIndex(void);
-uint8  IfxPort_Mock_GetLastArg_setPinLow_pinIndex(void);
-uint8  IfxPort_Mock_GetLastArg_setPinModeInput_pinIndex(void);
+void   IfxPort_Mock_SetReturn_getPinState(boolean value);
+uint32 IfxPort_Mock_GetLastArg_getPinState_pinIndex(void);
+uint32 IfxPort_Mock_GetLastArg_setPinHigh_pinIndex(void);
+uint32 IfxPort_Mock_GetLastArg_setPinLow_pinIndex(void);
+uint32 IfxPort_Mock_GetLastArg_setPinModeInput_pinIndex(void);
 uint32 IfxPort_Mock_GetLastArg_setPinModeInput_mode(void);
-uint8  IfxPort_Mock_GetLastArg_togglePin_pinIndex(void);
-uint8  IfxPort_Mock_GetLastArg_setPinMode_pinIndex(void);
+uint32 IfxPort_Mock_GetLastArg_togglePin_pinIndex(void);
+uint32 IfxPort_Mock_GetLastArg_setPinMode_pinIndex(void);
 uint32 IfxPort_Mock_GetLastArg_setPinMode_mode(void);
-uint8  IfxPort_Mock_GetLastArg_setPinModeLVDS_pinIndex(void);
+uint32 IfxPort_Mock_GetLastArg_setPinModeLVDS_pinIndex(void);
 uint32 IfxPort_Mock_GetLastArg_setPinModeLVDS_pinMode(void);
-void    IfxPort_Mock_SetReturn_getPinState(boolean value);
-boolean IfxPort_Mock_GetReturn_getPinState(void);
 void IfxPort_Mock_Reset(void);
 
 #endif

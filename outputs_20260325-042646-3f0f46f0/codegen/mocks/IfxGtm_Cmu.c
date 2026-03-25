@@ -1,9 +1,12 @@
 #include "IfxGtm_Cmu.h"
 
-static uint32 s_enableClocks_count = 0;
-static uint32 s_enableClocks_lastClkMask = 0;
+/* Call counters */
+static uint32 s_enableClocks_count = 0u;
+/* Captured args */
+static uint32 s_enableClocks_lastClkMask = 0u;
 
-void IfxGtm_Cmu_enableClocks(Ifx_GTM *gtm, uint32 clkMask) {
+void IfxGtm_Cmu_enableClocks(Ifx_GTM *gtm, uint32 clkMask)
+{
     (void)gtm;
     s_enableClocks_count++;
     s_enableClocks_lastClkMask = clkMask;
@@ -12,9 +15,10 @@ void IfxGtm_Cmu_enableClocks(Ifx_GTM *gtm, uint32 clkMask) {
 uint32 IfxGtm_Cmu_Mock_GetCallCount_enableClocks(void) { return s_enableClocks_count; }
 uint32 IfxGtm_Cmu_Mock_GetLastArg_enableClocks_clkMask(void) { return s_enableClocks_lastClkMask; }
 
-void IfxGtm_Cmu_Mock_Reset(void) {
-    s_enableClocks_count = 0;
-    s_enableClocks_lastClkMask = 0;
+void IfxGtm_Cmu_Mock_Reset(void)
+{
+    s_enableClocks_count = 0u;
+    s_enableClocks_lastClkMask = 0u;
 }
 
 float32 IfxGtm_Cmu_getGclkFrequency(Ifx_GTM *gtm) {

@@ -2,15 +2,13 @@
 #define IFXGTM_CMU_H
 #ifndef IFX_GTM_CMU_ECLK_DEFINED
 
-#include "illd_types/Ifx_Types.h"  /* REQUIRED for uint8, uint16, uint32, boolean, float32 types */
+#include "illd_types/Ifx_Types.h"  /* REQUIRED for uint8, uint32, boolean, float32 types */
 
 /* ============= Type Definitions ============= */
 /* IfxGtm_Cmu_Eclk - from illd_types/Ifx_Types.h */
 
 /* iLLD API declarations */
-/* Mock control: call counts */
-/* Mock control: last-arg capture getters */
-/* Mock control: reset */
+/* Mock control */
 /* ============= GTM CMU Enums (MUST be before function declarations) ============= */
 /* DUPLICATE IfxGtm_Cmu_Clk REMOVED - defined in illd_types/Ifx_Types.h */
 /* DUPLICATE IfxGtm_Cmu_Eclk REMOVED - defined in illd_types/Ifx_Types.h */
@@ -38,7 +36,7 @@
 void IfxGtm_Cmu_enableClocks(Ifx_GTM *gtm, uint32 clkMask);
 uint32 IfxGtm_Cmu_Mock_GetCallCount_enableClocks(void);
 uint32 IfxGtm_Cmu_Mock_GetLastArg_enableClocks_clkMask(void);
-void IfxGtm_Cmu_Mock_Reset(void);
+void   IfxGtm_Cmu_Mock_Reset(void);
 float32 IfxGtm_Cmu_getGclkFrequency(Ifx_GTM *gtm);
 float32 IfxGtm_Cmu_getClkFrequency(Ifx_GTM *gtm, IfxGtm_Cmu_Clk clkIndex, boolean assumeEnabled);
 float32 IfxGtm_Cmu_getFxclkFrequency(Ifx_GTM *gtm, uint8 fxclkIndex, boolean assumeEnabled);

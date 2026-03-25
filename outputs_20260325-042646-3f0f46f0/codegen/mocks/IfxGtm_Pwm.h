@@ -1,11 +1,11 @@
 #ifndef IFXGTM_PWM_H
 #define IFXGTM_PWM_H
 
-#include "illd_types/Ifx_Types.h"  /* REQUIRED for uint8, uint16, uint32, boolean, float32 types */
+#include "illd_types/Ifx_Types.h"  /* REQUIRED for uint8, uint32, boolean, float32 types */
 
 /* iLLD API declarations */
 /* Mock control: call counts */
-/* Mock control: array/value capture for updateChannelsDutyImmediate */
+/* Mock control: array capture for duty updates with history */
 /* Mock control: reset */
 
 /* ============= Function Declarations ============= */

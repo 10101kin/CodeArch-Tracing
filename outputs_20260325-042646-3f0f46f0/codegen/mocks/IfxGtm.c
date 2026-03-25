@@ -1,6 +1,7 @@
 #include "IfxGtm.h"
 
-static uint32 s_enable_count = 0;
+/* Call counters */
+static uint32 s_enable_count = 0u;
 
 /* Replaced by stateful mock below */
 
