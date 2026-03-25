@@ -1,0 +1,188 @@
+{
+  "user_intent_preservation": {
+    "original_goal": "Migrate KIT_A2G_TC387_5V_TFT 3-phase inverter PWM from IfxGtm_Tom_PwmHl to IfxGtm_Pwm on TC387",
+    "functional_behavior": "Generate three complementary, center-aligned 10 kHz PWM phase legs (U/V/W) on TOM0 TGC0 channels 0..5, active-high with 500 ns dead-time. Start duties U=25%, V=50%, W=75% and every 500 ms step each by +10% with wrap 0..100%, applying all six updates atomically via TGC gating.",
+    "technical_approach": "Use unified IfxGtm_Pwm on TOM submodule with IfxGtm_Tom_Timer as the shared timebase and update gate. Configure TOM0_CH0..CH5 as three complementary pairs, use IfxGtm_PinMap_setTomTout for pins P02.0..P02.5, enable GTM and CMU clocks, set 10 kHz center-aligned period on TOM0_CH7 timebase, set active-high polarity and 500 ns dead-time via IfxGtm_Pwm_updateChannelDeadTimeImmediate, and enforce atomic updates using IfxGtm_Tom_Timer_disableUpdate / IfxGtm_Tom_Timer_applyUpdate. Schedule 500 ms stepping with IfxStm_Timer."
+  },
+  "driver_selection": {
+    "recommended_driver": "IfxGtm_Pwm",
+    "selection_rationale": "Unified high-level GTM PWM driver supports multi-channel synchronized PWM, complementary pairs, dead-time, and center-aligned operation on TC3xx; aligns with migration away from IfxGtm_Tom_PwmHl.",
+    "available_in_template": true,
+    "complexity_level": "advanced",
+    "alternatives_considered": [
+      "IfxGtm_Tom_PwmHl",
+      "IfxGtm_Tom_Pwm",
+      "IfxGtm_Tom_Dtm_PwmHl"
+    ]
+  },
+  "driver_usage": {
+    "primary_driver": "IfxGtm_Pwm",
+    "available_in_template": true,
+    "initialization_apis": [
+      "IfxGtm_Pwm_initConfig",
+      "IfxGtm_Pwm_initChannelConfig",
+      "IfxGtm_Pwm_init"
+    ],
+    "runtime_apis": [
+      "IfxGtm_Pwm_updateChannelDutyImmediate",
+      "IfxGtm_Pwm_setChannelPolarity",
+      "IfxGtm_Pwm_updateChannelDeadTimeImmediate"
+    ]
+  },
+  "file_structure": {
+    "module_files": [
+      "GTM_TOM_3_Phase_Inverter_PWM.c",
+      "GTM_TOM_3_Phase_Inverter_PWM.h"
+    ],
+    "cpu_files": [
+      "Cpu0_Main.c"
+    ],
+    "from_reference": false
+  },
+  "function_mapping": {
+    "init_function": {
+      "name": "initGtmTom3phInv",
+      "driver_calls": [
+        "IfxGtm_enable",
+        "IfxGtm_Cmu_enableClocks",
+        "IfxGtm_Tom_Timer_initConfig",
+        "IfxGtm_Tom_Timer_init",
+        "IfxGtm_PinMap_setTomTout",
+        "IfxGtm_Pwm_initConfig",
+        "IfxGtm_Pwm_initChannelConfig",
+        "IfxGtm_Pwm_init",
+        "IfxGtm_Pwm_setChannelPolarity",
+        "IfxGtm_Pwm_updateChannelDeadTimeImmediate",
+        "IfxGtm_Tom_Timer_disableUpdate",
+        "IfxGtm_Tom_Timer_applyUpdate"
+      ]
+    },
+    "runtime_function": {
+      "name": "updateGtmTom3phInvDuty",
+      "driver_calls": [
+        "IfxGtm_Tom_Timer_disableUpdate",
+        "IfxGtm_Pwm_updateChannelDutyImmediate",
+        "IfxGtm_Tom_Timer_applyUpdate"
+      ],
+      "purpose": "Atomically latch new duties for all six channels every 500 ms (U/V/W with complementary outputs), preserving center alignment and dead-time."
+    }
+  },
+  "migration_notes": {
+    "is_migration": false,
+    "driver_changes": [
+      "Replaced IfxGtm_Tom_PwmHl with unified IfxGtm_Pwm"
+    ],
+    "api_changes": [
+      "Use IfxGtm_Pwm_initConfig / IfxGtm_Pwm_initChannelConfig / IfxGtm_Pwm_init instead of IfxGtm_Tom_PwmHl_initConfig / init",
+      "Use IfxGtm_Pwm_updateChannelDutyImmediate to write duty per channel; dead-time via IfxGtm_Pwm_updateChannelDeadTimeImmediate",
+      "Keep atomic updates with IfxGtm_Tom_Timer_disableUpdate / IfxGtm_Tom_Timer_applyUpdate unchanged",
+      "Clock setup: IfxGtm_Cmu_setGclkFrequency / IfxGtm_Cmu_setClkFrequency are not available in this template; enable GTM and CMU clocks with IfxGtm_enable and IfxGtm_Cmu_enableClocks and use existing clock configuration"
+    ],
+    "context_preserved": "The solution retains TOM-based 3-phase complementary PWM at 10 kHz, center-aligned, active-high with 500 ns dead-time. Atomic multi-channel updates are guaranteed using the same TGC (TOM0 TGC0) and IfxGtm_Tom_Timer_disableUpdate/applyUpdate. Initial duties and 500 ms duty stepping behavior are implemented while using the unified IfxGtm_Pwm driver as requested."
+  },
+  "header_selection": {
+    "applied": true,
+    "peripheral_type": "PWM",
+    "recommended_header": "IfxGtm_Pwm",
+    "score": 310,
+    "required_includes": [
+      "IfxGtm_Pwm.h"
+    ],
+    "function_mapping": {},
+    "available_functions_count": 20
+  },
+  "driver_selection_engine": {
+    "applied": true,
+    "mcu_family": "TC3xx",
+    "requirement_analysis": {
+      "peripherals": [
+        "PWM",
+        "TIMER",
+        "CAN",
+        "ADC",
+        "GPIO"
+      ],
+      "complexity_hints": {
+        "PWM": "advanced",
+        "TIMER": "simple",
+        "CAN": "simple",
+        "ADC": "simple",
+        "GPIO": "simple"
+      },
+      "specific_features": [
+        "inverter"
+      ]
+    },
+    "recommendations": {
+      "PWM": {
+        "driver": "IfxGtm_Pwm",
+        "score": 95.0,
+        "complexity": "advanced",
+        "rationale": "âœ… Available in template | âœ… Matches target family (TC3xx) | Complexity: advanced | Best for: 3-phase inverter, motor control, multi-channel synchronized PWM | Features: multi_channel_sync, complementary_pairs, dead_time, center_aligned, edge_aligned",
+        "alternatives": []
+      },
+      "TIMER": {
+        "driver": "IfxStm",
+        "score": 75.0,
+        "complexity": "simple",
+        "rationale": "âœ… Available in template | âœ… Generic driver (works on all families) | Complexity: simple | Best for: periodic interrupts, time measurement, delays | Features: 64bit_counter, compare_match, interrupt",
+        "alternatives": [
+          "IfxGpt12",
+          "IfxCcu6"
+        ]
+      },
+      "CAN": {
+        "driver": "IfxCan_Can",
+        "score": 50.0,
+        "complexity": "moderate",
+        "rationale": "âœ… Available in template | âœ… Generic driver (works on all families) | Complexity: moderate | Best for: CAN communication, CAN-FD high-speed, automotive networking | Features: can_fd, flexible_data_rate, message_ram, tx_fifo, rx_fifo",
+        "alternatives": [
+          "IfxMultican_Can"
+        ]
+      },
+      "ADC": {
+        "driver": "IfxEdsadc_Edsadc",
+        "score": 50.0,
+        "complexity": "advanced",
+        "rationale": "âœ… Available in template | âœ… Generic driver (works on all families) | Complexity: advanced | Best for: motor current measurement, resolver feedback, high-precision ADC | Features: delta_sigma, high_resolution, 24bit, noise_filtering, demodulator",
+        "alternatives": [
+          "IfxVadc_Adc"
+        ]
+      },
+      "GPIO": {
+        "driver": "IfxPort",
+        "score": 75.0,
+        "complexity": "simple",
+        "rationale": "âœ… Available in template | âœ… Generic driver (works on all families) | Complexity: simple | Best for: LED control, button input, digital signals | Features: digital_io, pin_config, output_strength, pull_up, pull_down",
+        "alternatives": [
+          "IfxPort_Io"
+        ]
+      }
+    }
+  },
+  "driver_knowledge_base": {
+    "applied": true,
+    "recommended_driver": "IfxGtm_Pwm",
+    "api_layer": "unified",
+    "rationale": "User explicitly requested IfxGtm_Pwm",
+    "avoid_drivers": [
+      "IfxGtm_Tom_PwmHl",
+      "IfxGtm_Tom_Pwm",
+      "IfxGtm_Atom_Pwm"
+    ],
+    "companion_drivers": [
+      "IfxGtm_Cmu"
+    ],
+    "handles_internally": [
+      "complementary_output_pairing",
+      "dead_time_via_DTM",
+      "center_aligned_mode",
+      "multi_channel_synchronization",
+      "TOM_ATOM_submodule_selection"
+    ],
+    "user_must_handle": [
+      "clock_setup_via_CMU",
+      "pin_mapping"
+    ]
+  }
+}
