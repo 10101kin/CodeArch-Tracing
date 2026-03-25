@@ -1,9 +1,12 @@
 #include "IfxGtm.h"
 
-static uint32 s_enable_count = 0u;
+/* Call counters */
+static uint32 s_enable_count = 0;
 
+/* ==================== Stub implementations ==================== */
 /* Replaced by stateful mock below */
 
+/* ==================== Mock controls ==================== */
 
 
 

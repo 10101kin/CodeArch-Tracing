@@ -2,12 +2,13 @@
 #define IFXGTM_CMU_H
 #ifndef IFX_GTM_CMU_ECLK_DEFINED
 
-#include "illd_types/Ifx_Types.h"
+#include "illd_types/Ifx_Types.h"  /* REQUIRED for uint8, uint16, uint32, boolean, float32 types */
 
 /* ============= Type Definitions ============= */
 /* IfxGtm_Cmu_Eclk - from illd_types/Ifx_Types.h */
 
-/* Mock control */
+/* iLLD API declarations */
+/* Mock control functions */
 /* ============= GTM CMU Enums (MUST be before function declarations) ============= */
 /* DUPLICATE IfxGtm_Cmu_Clk REMOVED - defined in illd_types/Ifx_Types.h */
 /* DUPLICATE IfxGtm_Cmu_Eclk REMOVED - defined in illd_types/Ifx_Types.h */

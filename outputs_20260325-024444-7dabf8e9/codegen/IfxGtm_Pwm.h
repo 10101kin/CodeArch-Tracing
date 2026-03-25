@@ -1,25 +1,12 @@
 #ifndef IFXGTM_PWM_H
 #define IFXGTM_PWM_H
 
-#include "illd_types/Ifx_Types.h"
+#include "illd_types/Ifx_Types.h"  /* REQUIRED for uint8, uint16, uint32, boolean, float32 types */
 
-/* ============= Type Definitions ============= */
-struct IfxGtm_Pwm { uint32 __mock; };
-/* IfxGtm_Pwm - defined in Ifx_Types.h */
-struct IfxGtm_Pwm_Channel { uint32 __mock; };
-/* IfxGtm_Pwm_Channel - defined in Ifx_Types.h */
-struct IfxGtm_Pwm_ChannelConfig { uint32 __mock; };
-/* IfxGtm_Pwm_ChannelConfig - defined in Ifx_Types.h */
-struct IfxGtm_Pwm_ClusterSFR { uint32 __mock; };
-/* IfxGtm_Pwm_ClusterSFR - defined in Ifx_Types.h */
-/* IfxGtm_Pwm_Config - defined in Ifx_Types.h */
-
-/* Minimal mock types to allow API usage and config capture */
-/* Config struct with key fields for Pattern D capture */
-/* API declarations */
-/* Mock control */
-/* Pattern D: capture config fields passed to init() */
-/* Value-carrying argument capture */
+/* iLLD API declarations */
+/* Mock control functions */
+/* Value captures */
+/* Pattern D captures for init config values (if provided by config) */
 
 /* ============= Function Declarations ============= */
 void IfxGtm_Pwm_initConfig(IfxGtm_Pwm_Config *config, Ifx_GTM *gtmSFR);
@@ -36,18 +23,14 @@ uint32 IfxGtm_Pwm_Mock_GetCallCount_initChannelConfig(void);
 uint32 IfxGtm_Pwm_Mock_GetCallCount_startSyncedChannels(void);
 uint32 IfxGtm_Pwm_Mock_GetCallCount_updateChannelDutyImmediate(void);
 uint32 IfxGtm_Pwm_Mock_GetCallCount_setChannelPolarity(void);
+float32 IfxGtm_Pwm_Mock_GetLastArg_updateChannelDutyImmediate_duty(void);
+float32 IfxGtm_Pwm_Mock_GetLastArg_updateChannelDeadTimeImmediate_risingEdge(void);
+float32 IfxGtm_Pwm_Mock_GetLastArg_updateChannelDeadTimeImmediate_fallingEdge(void);
+uint32  IfxGtm_Pwm_Mock_GetLastArg_setChannelPolarity_polarity(void);
 float32 IfxGtm_Pwm_Mock_GetLastArg_init_frequency(void);
 uint32  IfxGtm_Pwm_Mock_GetLastArg_init_numChannels(void);
 uint32  IfxGtm_Pwm_Mock_GetLastArg_init_alignment(void);
 uint32  IfxGtm_Pwm_Mock_GetLastArg_init_syncStart(void);
-uint32  IfxGtm_Pwm_Mock_GetLastArg_updateChannelDutyImmediate_index(void);
-float32 IfxGtm_Pwm_Mock_GetLastArg_updateChannelDutyImmediate_duty(void);
-uint32  IfxGtm_Pwm_Mock_GetLastArg_updateChannelDeadTimeImmediate_index(void);
-float32 IfxGtm_Pwm_Mock_GetLastArg_updateChannelDeadTimeImmediate_rising(void);
-float32 IfxGtm_Pwm_Mock_GetLastArg_updateChannelDeadTimeImmediate_falling(void);
-uint32 IfxGtm_Pwm_Mock_GetLastArg_setChannelPolarity_subModule(void);
-uint32 IfxGtm_Pwm_Mock_GetLastArg_setChannelPolarity_channel(void);
-uint32 IfxGtm_Pwm_Mock_GetLastArg_setChannelPolarity_polarity(void);
 void IfxGtm_Pwm_Mock_Reset(void);
 
 #endif

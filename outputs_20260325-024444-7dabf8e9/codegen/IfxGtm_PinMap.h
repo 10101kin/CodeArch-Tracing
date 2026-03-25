@@ -1,17 +1,13 @@
 #ifndef IFXGTM_PINMAP_H
 #define IFXGTM_PINMAP_H
 
-#include "illd_types/Ifx_Types.h"
 #include "IfxGtm_Tom.h"
 #include "IfxPort.h"
-#include "IfxPort.h"  /* For IfxPort_OutputMode, IfxPort_PadDriver */
+#include "illd_types/Ifx_Types.h"  /* REQUIRED for uint8, uint16, uint32, boolean, float32 types */
+#include "IfxPort.h"    /* Uses IfxPort_OutputMode, IfxPort_PadDriver */
 
-/* ============= Type Definitions ============= */
-struct IfxGtm_Tom_ToutMap { uint32 __mock; };
-/* IfxGtm_Tom_ToutMap - defined in Ifx_Types.h */
-
-/* Opaque map type for TOM TOUT mapping (pointer only) */
-/* Mock control */
+/* iLLD API declarations */
+/* Mock control functions */
 
 /* ============= Function Declarations ============= */
 void IfxGtm_PinMap_setTomTout(IfxGtm_Tom_ToutMap *config, IfxPort_OutputMode outputMode, IfxPort_PadDriver padDriver);
