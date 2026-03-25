@@ -1,0 +1,96 @@
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-024444-7dabf8e9\6ee0b236-20b\Migrate_KIT_A2G_TC387_5V_TFT_TC387_3_phase_inver_r_20260325_105737\attempts\phase_001_build\include/gtm_tom_3_phase_inverter_pwm.h:8,
+                 from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-024444-7dabf8e9\6ee0b236-20b\Migrate_KIT_A2G_TC387_5V_TFT_TC387_3_phase_inver_r_20260325_105737\attempts\phase_001_build\src\gtm_tom_3_phase_inverter_pwm.c:1:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-024444-7dabf8e9\6ee0b236-20b\Migrate_KIT_A2G_TC387_5V_TFT_TC387_3_phase_inver_r_20260325_105737\attempts\phase_001_build\include/IfxGtm_Tom_Timer.h:23:9: error: conflicting types for 'IfxGtm_Tom_Timer_init'; have 'boolean(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)' {aka 'unsigned char(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)'}
+   23 | boolean IfxGtm_Tom_Timer_init(IfxGtm_Tom_Timer *driver, const IfxGtm_Tom_Timer_Config *config);
+      |         ^~~~~~~~~~~~~~~~~~~~~
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-024444-7dabf8e9\6ee0b236-20b\Migrate_KIT_A2G_TC387_5V_TFT_TC387_3_phase_inver_r_20260325_105737\attempts\phase_001_build\include/IfxGtm_Tom_Timer.h:5:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-024444-7dabf8e9\6ee0b236-20b\Migrate_KIT_A2G_TC387_5V_TFT_TC387_3_phase_inver_r_20260325_105737\attempts\phase_001_build\include/IfxGtm_Tom.h:22:6: note: previous declaration of 'IfxGtm_Tom_Timer_init' with type 'void(void *, void *)'
+   22 | void IfxGtm_Tom_Timer_init(void *driver, void *config);
+      |      ^~~~~~~~~~~~~~~~~~~~~
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-024444-7dabf8e9\6ee0b236-20b\Migrate_KIT_A2G_TC387_5V_TFT_TC387_3_phase_inver_r_20260325_105737\attempts\phase_001_build\include/IfxGtm_PinMap.h:6,
+                 from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-024444-7dabf8e9\6ee0b236-20b\Migrate_KIT_A2G_TC387_5V_TFT_TC387_3_phase_inver_r_20260325_105737\attempts\phase_001_build\include/gtm_tom_3_phase_inverter_pwm.h:9:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-024444-7dabf8e9\6ee0b236-20b\Migrate_KIT_A2G_TC387_5V_TFT_TC387_3_phase_inver_r_20260325_105737\attempts\phase_001_build\include/IfxPort.h:10:17: warning: 'IfxPort_setPinModeOutput' used but never defined
+   10 | IFX_INLINE void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~
+
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-024444-7dabf8e9\6ee0b236-20b\Migrate_KIT_A2G_TC387_5V_TFT_TC387_3_phase_inver_r_20260325_105737\attempts\phase_001_build\mocks\IfxGtm_Cmu.c:18:15: error: redefinition of 's_selectClkInput_count'
+   18 | static uint32 s_selectClkInput_count = 0;
+      |               ^~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-024444-7dabf8e9\6ee0b236-20b\Migrate_KIT_A2G_TC387_5V_TFT_TC387_3_phase_inver_r_20260325_105737\attempts\phase_001_build\mocks\IfxGtm_Cmu.c:6:15: note: previous definition of 's_selectClkInput_count' with type 'uint32' {aka 'unsigned int'}
+    6 | static uint32 s_selectClkInput_count = 0u;
+      |               ^~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-024444-7dabf8e9\6ee0b236-20b\Migrate_KIT_A2G_TC387_5V_TFT_TC387_3_phase_inver_r_20260325_105737\attempts\phase_001_build\mocks\IfxGtm_Cmu.c:32:8: error: redefinition of 'IfxGtm_Cmu_Mock_GetCallCount_selectClkInput'
+   32 | uint32 IfxGtm_Cmu_Mock_GetCallCount_selectClkInput(void) { return s_selectClkInput_count; }
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-024444-7dabf8e9\6ee0b236-20b\Migrate_KIT_A2G_TC387_5V_TFT_TC387_3_phase_inver_r_20260325_105737\attempts\phase_001_build\mocks\IfxGtm_Cmu.c:27:8: note: previous definition of 'IfxGtm_Cmu_Mock_GetCallCount_selectClkInput' with type 'uint32(void)' {aka 'unsigned int(void)'}
+   27 | uint32 IfxGtm_Cmu_Mock_GetCallCount_selectClkInput(void) {
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-024444-7dabf8e9\6ee0b236-20b\Migrate_KIT_A2G_TC387_5V_TFT_TC387_3_phase_inver_r_20260325_105737\attempts\phase_001_build\mocks\IfxGtm_PinMap.c:9:15: error: redefinition of 's_setTomTout_count'
+    9 | static uint32 s_setTomTout_count = 0;
+      |               ^~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-024444-7dabf8e9\6ee0b236-20b\Migrate_KIT_A2G_TC387_5V_TFT_TC387_3_phase_inver_r_20260325_105737\attempts\phase_001_build\mocks\IfxGtm_PinMap.c:5:15: note: previous definition of 's_setTomTout_count' with type 'uint32' {aka 'unsigned int'}
+    5 | static uint32 s_setTomTout_count = 0u;
+      |               ^~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-024444-7dabf8e9\6ee0b236-20b\Migrate_KIT_A2G_TC387_5V_TFT_TC387_3_phase_inver_r_20260325_105737\attempts\phase_001_build\mocks\IfxGtm_PinMap.c:22:8: error: redefinition of 'IfxGtm_PinMap_Mock_GetCallCount_setTomTout'
+   22 | uint32 IfxGtm_PinMap_Mock_GetCallCount_setTomTout(void) { return s_setTomTout_count; }
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-024444-7dabf8e9\6ee0b236-20b\Migrate_KIT_A2G_TC387_5V_TFT_TC387_3_phase_inver_r_20260325_105737\attempts\phase_001_build\mocks\IfxGtm_PinMap.c:18:8: note: previous definition of 'IfxGtm_PinMap_Mock_GetCallCount_setTomTout' with type 'uint32(void)' {aka 'unsigned int(void)'}
+   18 | uint32 IfxGtm_PinMap_Mock_GetCallCount_setTomTout(void) {
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-024444-7dabf8e9\6ee0b236-20b\Migrate_KIT_A2G_TC387_5V_TFT_TC387_3_phase_inver_r_20260325_105737\attempts\phase_001_build\include/IfxGtm_PinMap.h:6,
+                 from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-024444-7dabf8e9\6ee0b236-20b\Migrate_KIT_A2G_TC387_5V_TFT_TC387_3_phase_inver_r_20260325_105737\attempts\phase_001_build\mocks\IfxGtm_PinMap.c:1:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-024444-7dabf8e9\6ee0b236-20b\Migrate_KIT_A2G_TC387_5V_TFT_TC387_3_phase_inver_r_20260325_105737\attempts\phase_001_build\include/IfxPort.h:10:17: warning: 'IfxPort_setPinModeOutput' declared 'static' but never defined [-Wunused-function]
+   10 | IFX_INLINE void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~
+
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-024444-7dabf8e9\6ee0b236-20b\Migrate_KIT_A2G_TC387_5V_TFT_TC387_3_phase_inver_r_20260325_105737\attempts\phase_001_build\mocks\IfxGtm_Tom_Timer.c:1:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-024444-7dabf8e9\6ee0b236-20b\Migrate_KIT_A2G_TC387_5V_TFT_TC387_3_phase_inver_r_20260325_105737\attempts\phase_001_build\include/IfxGtm_Tom_Timer.h:23:9: error: conflicting types for 'IfxGtm_Tom_Timer_init'; have 'boolean(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)' {aka 'unsigned char(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)'}
+   23 | boolean IfxGtm_Tom_Timer_init(IfxGtm_Tom_Timer *driver, const IfxGtm_Tom_Timer_Config *config);
+      |         ^~~~~~~~~~~~~~~~~~~~~
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-024444-7dabf8e9\6ee0b236-20b\Migrate_KIT_A2G_TC387_5V_TFT_TC387_3_phase_inver_r_20260325_105737\attempts\phase_001_build\include/IfxGtm_Tom_Timer.h:5:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-024444-7dabf8e9\6ee0b236-20b\Migrate_KIT_A2G_TC387_5V_TFT_TC387_3_phase_inver_r_20260325_105737\attempts\phase_001_build\include/IfxGtm_Tom.h:22:6: note: previous declaration of 'IfxGtm_Tom_Timer_init' with type 'void(void *, void *)'
+   22 | void IfxGtm_Tom_Timer_init(void *driver, void *config);
+      |      ^~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-024444-7dabf8e9\6ee0b236-20b\Migrate_KIT_A2G_TC387_5V_TFT_TC387_3_phase_inver_r_20260325_105737\attempts\phase_001_build\mocks\IfxGtm_Tom_Timer.c:29:9: error: conflicting types for 'IfxGtm_Tom_Timer_init'; have 'boolean(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)' {aka 'unsigned char(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)'}
+   29 | boolean IfxGtm_Tom_Timer_init(IfxGtm_Tom_Timer *driver, const IfxGtm_Tom_Timer_Config *config) {
+      |         ^~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-024444-7dabf8e9\6ee0b236-20b\Migrate_KIT_A2G_TC387_5V_TFT_TC387_3_phase_inver_r_20260325_105737\attempts\phase_001_build\include/IfxGtm_Tom.h:22:6: note: previous declaration of 'IfxGtm_Tom_Timer_init' with type 'void(void *, void *)'
+   22 | void IfxGtm_Tom_Timer_init(void *driver, void *config);
+      |      ^~~~~~~~~~~~~~~~~~~~~
+
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-024444-7dabf8e9\6ee0b236-20b\Migrate_KIT_A2G_TC387_5V_TFT_TC387_3_phase_inver_r_20260325_105737\attempts\phase_001_build\mocks\IfxPort.c:4:15: error: 'IfxPort_State_low' redeclared as different kind of symbol
+    4 | static uint32 IfxPort_State_low = 0;
+      |               ^~~~~~~~~~~~~~~~~
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-024444-7dabf8e9\6ee0b236-20b\Migrate_KIT_A2G_TC387_5V_TFT_TC387_3_phase_inver_r_20260325_105737\attempts\phase_001_build\mocks\IfxPort.c:1:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-024444-7dabf8e9\6ee0b236-20b\Migrate_KIT_A2G_TC387_5V_TFT_TC387_3_phase_inver_r_20260325_105737\attempts\phase_001_build\include\illd_types/Ifx_Types.h:1023:5: note: previous definition of 'IfxPort_State_low' with type 'enum <anonymous>'
+ 1023 |     IfxPort_State_low = 0
+      |     ^~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-024444-7dabf8e9\6ee0b236-20b\Migrate_KIT_A2G_TC387_5V_TFT_TC387_3_phase_inver_r_20260325_105737\attempts\phase_001_build\mocks\IfxPort.c:4:15: warning: 'IfxPort_State_low' defined but not used [-Wunused-variable]
+    4 | static uint32 IfxPort_State_low = 0;
+      |               ^~~~~~~~~~~~~~~~~
+
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-024444-7dabf8e9\6ee0b236-20b\Migrate_KIT_A2G_TC387_5V_TFT_TC387_3_phase_inver_r_20260325_105737\attempts\phase_001_build\mocks\IfxStm.c: In function 'IfxStm_getTicksFromMilliseconds':
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-024444-7dabf8e9\6ee0b236-20b\Migrate_KIT_A2G_TC387_5V_TFT_TC387_3_phase_inver_r_20260325_105737\attempts\phase_001_build\mocks\IfxStm.c:20:21: error: 'millis' undeclared (first use in this function)
+   20 |     return (sint32)(millis * 1000);  /* Simple conversion for testing */
+      |                     ^~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-024444-7dabf8e9\6ee0b236-20b\Migrate_KIT_A2G_TC387_5V_TFT_TC387_3_phase_inver_r_20260325_105737\attempts\phase_001_build\mocks\IfxStm.c:20:21: note: each undeclared identifier is reported only once for each function it appears in
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-024444-7dabf8e9\6ee0b236-20b\Migrate_KIT_A2G_TC387_5V_TFT_TC387_3_phase_inver_r_20260325_105737\attempts\phase_001_build\mocks\IfxStm.c: In function 'IfxStm_getTicksFromMicroseconds':
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-024444-7dabf8e9\6ee0b236-20b\Migrate_KIT_A2G_TC387_5V_TFT_TC387_3_phase_inver_r_20260325_105737\attempts\phase_001_build\mocks\IfxStm.c:25:20: error: 'micros' undeclared (first use in this function)
+   25 |     return (sint32)micros;
+      |                    ^~~~~~
+
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-024444-7dabf8e9\6ee0b236-20b\Migrate_KIT_A2G_TC387_5V_TFT_TC387_3_phase_inver_r_20260325_105737\attempts\phase_001_build\include/gtm_tom_3_phase_inverter_pwm.h:8,
+                 from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-024444-7dabf8e9\6ee0b236-20b\Migrate_KIT_A2G_TC387_5V_TFT_TC387_3_phase_inver_r_20260325_105737\attempts\phase_001_build\test\test_gtm_tom_3_phase_inverter_pwm.c:2:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-024444-7dabf8e9\6ee0b236-20b\Migrate_KIT_A2G_TC387_5V_TFT_TC387_3_phase_inver_r_20260325_105737\attempts\phase_001_build\include/IfxGtm_Tom_Timer.h:23:9: error: conflicting types for 'IfxGtm_Tom_Timer_init'; have 'boolean(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)' {aka 'unsigned char(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)'}
+   23 | boolean IfxGtm_Tom_Timer_init(IfxGtm_Tom_Timer *driver, const IfxGtm_Tom_Timer_Config *config);
+      |         ^~~~~~~~~~~~~~~~~~~~~
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-024444-7dabf8e9\6ee0b236-20b\Migrate_KIT_A2G_TC387_5V_TFT_TC387_3_phase_inver_r_20260325_105737\attempts\phase_001_build\include/IfxGtm_Tom_Timer.h:5:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-024444-7dabf8e9\6ee0b236-20b\Migrate_KIT_A2G_TC387_5V_TFT_TC387_3_phase_inver_r_20260325_105737\attempts\phase_001_build\include/IfxGtm_Tom.h:22:6: note: previous declaration of 'IfxGtm_Tom_Timer_init' with type 'void(void *, void *)'
+   22 | void IfxGtm_Tom_Timer_init(void *driver, void *config);
+      |      ^~~~~~~~~~~~~~~~~~~~~
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-024444-7dabf8e9\6ee0b236-20b\Migrate_KIT_A2G_TC387_5V_TFT_TC387_3_phase_inver_r_20260325_105737\attempts\phase_001_build\include/IfxGtm_PinMap.h:6,
+                 from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-024444-7dabf8e9\6ee0b236-20b\Migrate_KIT_A2G_TC387_5V_TFT_TC387_3_phase_inver_r_20260325_105737\attempts\phase_001_build\include/gtm_tom_3_phase_inverter_pwm.h:9:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-024444-7dabf8e9\6ee0b236-20b\Migrate_KIT_A2G_TC387_5V_TFT_TC387_3_phase_inver_r_20260325_105737\attempts\phase_001_build\include/IfxPort.h:10:17: warning: 'IfxPort_setPinModeOutput' declared 'static' but never defined [-Wunused-function]
+   10 | IFX_INLINE void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~

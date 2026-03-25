@@ -1,36 +1,3 @@
-Status: FAILED
-
-Attempt 1 - PRODUCTION (Global: 1)
-Status: FAILED ❌
-Timestamp: 2026-03-25 11:09:22
-Files generated: 2
-
-============================================================
-
-ERRORS:
-
-1. conflicting types for 'IfxGtm_Tom_Timer_init'; have 'boolean(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)' {aka 'unsigned char(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)'}
-
-2. redefinition of 's_selectClkInput_count'
-
-3. redefinition of 'IfxGtm_Cmu_Mock_GetCallCount_selectClkInput'
-
-4. redefinition of 's_setTomTout_count'
-
-5. redefinition of 'IfxGtm_PinMap_Mock_GetCallCount_setTomTout'
-
-6. conflicting types for 'IfxGtm_Tom_Timer_init'; have 'boolean(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)' {aka 'unsigned char(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)'}
-
-7. conflicting types for 'IfxGtm_Tom_Timer_init'; have 'boolean(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)' {aka 'unsigned char(IfxGtm_Tom_Timer *, const IfxGtm_Tom_Timer_Config *)'}
-
-8. 'IfxPort_State_low' redeclared as different kind of symbol
-
-9. 'millis' undeclared (first use in this function)
-
-10. 'micros' undeclared (first use in this function)
-
-============================================================
-BUILD RESULT:
 {
   "success": false,
   "errors": [
