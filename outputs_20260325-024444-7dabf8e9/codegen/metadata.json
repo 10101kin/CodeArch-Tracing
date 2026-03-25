@@ -1,26 +1,11 @@
 {
   "attempt": 1,
   "phase_attempt": 1,
-  "phase": "mock",
-  "timestamp": "2026-03-25T11:00:14.327124",
+  "phase": "test",
+  "timestamp": "2026-03-25T11:02:53.855142",
   "success": true,
   "files": [
-    "Ifx_Types.h",
-    "Ifx_Types.c",
-    "IfxPort.h",
-    "IfxPort.c",
-    "IfxGtm.h",
-    "IfxGtm.c",
-    "IfxGtm_Cmu.h",
-    "IfxGtm_Cmu.c",
-    "IfxGtm_Tom_Timer.h",
-    "IfxGtm_Tom_Timer.c",
-    "IfxGtm_Pwm.h",
-    "IfxGtm_Pwm.c",
-    "IfxGtm_PinMap.h",
-    "IfxGtm_PinMap.c",
-    "ifxgtm_tom.h",
-    "ifxgtm_tom.c"
+    "test_gtm_tom_3_phase_inverter_pwm.c"
   ],
   "errors": [],
   "build_result": null
