@@ -1,32 +1,31 @@
 {
   "user_intent_preservation": {
     "original_goal": "Implement 3-phase PWM motor control",
-    "functional_behavior": "Generate 3-phase PWM on GTM.TOM1 using existing pins P00.2–P00.7, center-aligned at 20 kHz. Initialize U/V/W duty at 25/50/75%. Every 500 ms increment each channel duty by +10% with wrap in 0–100% and clamp 100% to (period-1 tick). Complementary/DTM: currently not required; if later required, enable TOM1 CDTM/DTM while staying on IfxGtm_Pwm.",
-    "technical_approach": "Migrate from IfxGtm_Tom_PwmHl to unified IfxGtm_Pwm. Use TOM1 channels 5–10 mapped to P00.2–P00.7. Configure center-aligned 20 kHz with GTM CMU FXCLK (~100 MHz). Initialize three phases with requested duties and perform 500 ms duty steps using IfxGtm_Pwm_updateChannelsDutyImmediate. Keep DTM off now; if enabled later, manage dead-time via unified driver APIs."
+    "functional_behavior": "Generate 3-phase PWM on GTM.TOM1 using pins P00.2–P00.7, center-aligned at 20 kHz. Initialize duties U/V/W to 25/50/75% and every 500 ms increment each by +10% with wrap in 0–100% (clamp 100% to period-1 tick). Dead time 0.5 µs is omitted now (no complementary HS/LS); if complementary outputs are later required, enable TOM1 CDTM/DTM and apply 0.5 µs dead time.",
+    "technical_approach": "Use the unified high-level IfxGtm_Pwm driver on TC38x to control TOM1 channels 5–10 mapped to P00.2–P00.7 with IfxGtm_PinMap_TC38x_LFBGA516. Configure GTM CMU FXCLK (~100 MHz), center-aligned PWM at 20 kHz, and start synced channels. Update duties periodically via IfxGtm_Pwm_updateChannelsDutyImmediate with a 500 ms schedule (e.g., IfxStm_Timer). Keep no dead time now; if later needed, configure TOM1 CDTM/DTM and use IfxGtm_Pwm_updateChannelsDeadTimeImmediate."
   },
   "driver_selection": {
     "recommended_driver": "IfxGtm_Pwm",
-    "selection_rationale": "Unified high-level PWM driver supports multi-channel sync, center alignment, TOM submodule selection, and optional DTM. It is available in the template and matches TC3xx family and advanced 3-phase inverter needs.",
+    "selection_rationale": "Unified high-level PWM fits advanced multi-channel synchronized PWM on GTM.TOM1, supports center-aligned mode, complementary pairing and dead time if later required. It is available in the template for TC3xx.",
     "available_in_template": true,
     "complexity_level": "advanced",
     "alternatives_considered": [
       "IfxGtm_Tom_Pwm",
-      "IfxGtm_Tom_Dtm_PwmHl"
+      "IfxGtm_Tom_PwmHl"
     ]
   },
   "driver_usage": {
-    "primary_driver": "IfxGtm_Pwm.h",
+    "primary_driver": "IfxGtm_Pwm",
     "available_in_template": true,
     "initialization_apis": [
       "IfxGtm_Pwm_initConfig",
       "IfxGtm_Pwm_initChannelConfig",
-      "IfxGtm_Pwm_init",
-      "IfxGtm_enable",
-      "IfxGtm_Cmu_enableClocks"
+      "IfxGtm_Pwm_init"
     ],
     "runtime_apis": [
+      "IfxGtm_Pwm_updateChannelsDutyImmediate",
       "IfxGtm_Pwm_startSyncedChannels",
-      "IfxGtm_Pwm_updateChannelsDutyImmediate"
+      "IfxGtm_Pwm_stopSyncedChannels"
     ]
   },
   "file_structure": {
@@ -48,40 +47,38 @@
         "IfxGtm_Pwm_initConfig",
         "IfxGtm_Pwm_initChannelConfig",
         "IfxGtm_Pwm_init",
+        "IfxGtm_PinMap_setTomTout",
         "IfxGtm_Pwm_startSyncedChannels"
       ]
     },
     "runtime_function": {
-      "name": "GTM_TOM_3_Phase_Inverter_PWM_stepDuty",
+      "name": "GTM_TOM_3_Phase_Inverter_PWM_stepDuties",
       "driver_calls": [
         "IfxGtm_Pwm_updateChannelsDutyImmediate"
       ],
-      "purpose": "Every 500 ms, add +10% to each U/V/W duty, wrap within 0–100%, and when 100% clamp duty to (period-1 tick) before updating all six channels atomically."
+      "purpose": "Every 500 ms, increment U/V/W duties by +10% with wrap in 0–100%. When request equals 100%, clamp to period-1 tick by slightly reducing the duty request to avoid a full-period compare match."
     }
   },
   "migration_notes": {
     "is_migration": true,
     "driver_changes": [
-      "IfxGtm_Tom_PwmHl -> IfxGtm_Pwm (unified high-level)"
+      "IfxGtm_Tom_PwmHl -> IfxGtm_Pwm"
     ],
     "api_changes": [
       {
         "from": "IfxGtm_Tom_PwmHl_init",
-        "to": "IfxGtm_Pwm_init (with IfxGtm_Pwm_initConfig)",
-        "reason": "Upgrade to unified high-level driver"
+        "to": "IfxGtm_Pwm_init (with IfxGtm_Pwm_initConfig/IfxGtm_Pwm_initChannelConfig)"
       },
       {
         "from": "IfxGtm_Tom_PwmHl_setOnTime",
-        "to": "IfxGtm_Pwm_updateChannelsDutyImmediate",
-        "reason": "Unified API for synchronized multi-channel duty update"
+        "to": "IfxGtm_Pwm_updateChannelsDutyImmediate"
       },
       {
         "from": "IfxGtm_Tom_PwmHl_setMode",
-        "to": "Configured via IfxGtm_Pwm_initConfig + IfxGtm_Pwm_init",
-        "reason": "Mode handled at initialization in unified driver"
+        "to": "Mode configured via IfxGtm_Pwm_initConfig + IfxGtm_Pwm_init (center-aligned)"
       }
     ],
-    "context_preserved": "The solution remains on GTM.TOM1 with the exact pins (P00.2–P00.7), runs center-aligned at 20 kHz using FXCLK, initializes U/V/W at 25/50/75%, and steps duty every 500 ms using the specified immediate multi-channel update API. Dead-time is omitted now per requirement; if complementary outputs are later needed, retain IfxGtm_Pwm and enable TOM1 DTM with IfxGtm_Pwm_updateChannelsDeadTimeImmediate (and GTM DTM configuration) without changing the driver."
+    "context_preserved": "TOM1 and pin map P00.2–P00.7 are kept. Center-aligned 20 kHz, initial U/V/W 25/50/75%, and 500 ms stepped duty updates are implemented with synchronized updates. Dead time is omitted now as complementary outputs are not required; If later enabled, TOM1 CDTM/DTM can be configured while staying on IfxGtm_Pwm using dead-time update APIs."
   },
   "header_selection": {
     "applied": true,
