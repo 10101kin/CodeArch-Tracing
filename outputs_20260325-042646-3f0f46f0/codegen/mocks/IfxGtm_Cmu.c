@@ -1,9 +1,7 @@
 #include "IfxGtm_Cmu.h"
 
-/* Call counters */
-static uint32 s_enableClocks_count = 0u;
-/* Captured args */
-static uint32 s_enableClocks_lastClkMask = 0u;
+static uint32 s_enableClocks_count = 0;
+static uint32 s_enableClocks_lastClkMask = 0;
 
 void IfxGtm_Cmu_enableClocks(Ifx_GTM *gtm, uint32 clkMask)
 {

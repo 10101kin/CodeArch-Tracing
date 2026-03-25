@@ -1,22 +1,23 @@
 #include "IfxGtm_PinMap.h"
 
-/* Call counters */
-static uint32 s_setTomTout_count = 0u;
-/* Captured args */
-static uint32 s_setTomTout_lastOutputMode = 0u;
-static uint32 s_setTomTout_lastPadDriver  = 0u;
+/* Counter */
+static uint32 s_setTomTout_count = 0;
+
+/* Captured values */
+static uint32 s_setTomTout_lastOutputMode = 0;
+static uint32 s_setTomTout_lastPadDriver = 0;
 
 void IfxGtm_PinMap_setTomTout(IfxGtm_Tom_ToutMap *config, IfxPort_OutputMode outputMode, IfxPort_PadDriver padDriver)
 {
     (void)config;
     s_setTomTout_count++;
     s_setTomTout_lastOutputMode = (uint32)outputMode;
-    s_setTomTout_lastPadDriver  = (uint32)padDriver;
+    s_setTomTout_lastPadDriver = (uint32)padDriver;
 }
 
 uint32 IfxGtm_PinMap_Mock_GetCallCount_setTomTout(void) { return s_setTomTout_count; }
 uint32 IfxGtm_PinMap_Mock_GetLastArg_setTomTout_outputMode(void) { return s_setTomTout_lastOutputMode; }
-uint32 IfxGtm_PinMap_Mock_GetLastArg_setTomTout_padDriver(void)  { return s_setTomTout_lastPadDriver; }
+uint32 IfxGtm_PinMap_Mock_GetLastArg_setTomTout_padDriver(void) { return s_setTomTout_lastPadDriver; }
 
 void IfxGtm_PinMap_Mock_Reset(void)
 {

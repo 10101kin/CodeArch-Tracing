@@ -7,8 +7,11 @@
 /* ============= Type Definitions ============= */
 /* IfxGtm_Cmu_Eclk - from illd_types/Ifx_Types.h */
 
-/* iLLD API declarations */
-/* Mock control */
+/* Pull in real CMU types via GCC include_next (for Ifx_GTM, etc.) */
+#ifdef __GNUC__
+# include_next "IfxGtm_Cmu.h"
+/* Exact function declaration from SW Detailed Design */
+/* Mock controls */
 /* ============= GTM CMU Enums (MUST be before function declarations) ============= */
 /* DUPLICATE IfxGtm_Cmu_Clk REMOVED - defined in illd_types/Ifx_Types.h */
 /* DUPLICATE IfxGtm_Cmu_Eclk REMOVED - defined in illd_types/Ifx_Types.h */
