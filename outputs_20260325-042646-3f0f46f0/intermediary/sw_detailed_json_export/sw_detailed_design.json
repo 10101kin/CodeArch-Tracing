@@ -1,0 +1,76 @@
+{
+  "module_name": "GTM_TOM_3_Phase_Inverter_PWM",
+  "public_functions": [
+    {
+      "signature": "void initGtmTomPwm(void)",
+      "behavior_description": "Enable the GTM and its FXCLK domain, then initialize the unified IfxGtm_Pwm driver to generate center-aligned PWM at 20 kHz on a synchronized multi-channel group. Assign the required TOM outputs to the configured I/O pins using the generic GTM pin-map API with proper output mode and pad driver. Configure exactly the channels needed for 3-phase operation on the selected TOM instance, ensuring synchronous shadow update is enabled. Initialize the PWM configuration struct with defaults, set the operating frequency and center-aligned mode, and create per-channel configurations mapped to the selected TOM submodule channels. Apply the initial duty commands for the three phases as 25%, 50%, and 75% using the unified duty update API. Start the synchronized PWM outputs so all channels run with a common time base. For unused complementary outputs (if any are present on the board but not required now), set them to a safe GPIO state (push-pull, driven low) to avoid unintended switching.",
+      "driver_calls": [
+        "IfxGtm_enable",
+        "IfxGtm_Cmu_enableClocks",
+        "IfxGtm_PinMap_setTomTout",
+        "IfxPort_setPinModeOutput",
+        "IfxPort_setPinState",
+        "IfxGtm_Pwm_initConfig",
+        "IfxGtm_Pwm_initChannelConfig",
+        "IfxGtm_Pwm_init",
+        "IfxGtm_Pwm_updateChannelsDutyImmediate",
+        "IfxGtm_Pwm_startSyncedChannels"
+      ],
+      "from_reference": true,
+      "call_context": "init"
+    },
+    {
+      "signature": "void updateGtmTomPwmDutyCycles(void)",
+      "behavior_description": "Maintain and update three phase duty commands over time. On each invocation, check whether the 500 ms interval has elapsed (using a software counter or timestamp accumulated across calls). When 500 ms have passed, increment each phase duty by +10 percentage points. If a duty value reaches or exceeds 100%, wrap it back within the 0–100% range; specifically, clamp the request so that an exact 100% command never produces a full-period match by reducing the request to just below one full period (equivalent to a period-minus-1-tick condition in the underlying timer domain). Store the updated duty values and apply them atomically to all configured channels using the immediate multi-channel duty update API to keep the waveforms synchronized.",
+      "driver_calls": [
+        "IfxGtm_Pwm_updateChannelsDutyImmediate"
+      ],
+      "from_reference": true,
+      "call_context": "loop"
+    }
+  ],
+  "private_functions": [
+    {
+      "signature": "static void configureTomPins(void)",
+      "needed": true,
+      "from_reference": false
+    }
+  ],
+  "dependencies": {
+    "includes": [
+      "IfxGtm_Pwm.h",
+      "IfxGtm_Cmu.h",
+      "IfxGtm_PinMap.h",
+      "IfxPort.h"
+    ],
+    "driver_calls": [
+      "IfxGtm_enable",
+      "IfxGtm_Cmu_enableClocks",
+      "IfxGtm_PinMap_setTomTout",
+      "IfxPort_setPinModeOutput",
+      "IfxPort_setPinState",
+      "IfxGtm_Pwm_initConfig",
+      "IfxGtm_Pwm_initChannelConfig",
+      "IfxGtm_Pwm_init",
+      "IfxGtm_Pwm_updateChannelsDutyImmediate",
+      "IfxGtm_Pwm_startSyncedChannels"
+    ]
+  },
+  "cpu_main_requirements": {
+    "needs_cpu_sync": true,
+    "uses_timer_delay": true,
+    "delay_ms": 10,
+    "additional_includes": [
+      "Bsp.h"
+    ]
+  },
+  "header_selection": {
+    "applied": true,
+    "peripheral_type": "PWM",
+    "recommended_header": "IfxGtm_Pwm",
+    "template_functions_count": 1026,
+    "required_includes": [
+      "IfxGtm_Pwm.h"
+    ]
+  }
+}
