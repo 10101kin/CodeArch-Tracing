@@ -1,0 +1,89 @@
+{
+  "module_name": "GTM_TOM_3_Phase_Inverter_PWM",
+  "public_functions": [
+    {
+      "signature": "void initGtmTom3phInv(void)",
+      "behavior_description": "Initialize the GTM for a 3-phase inverter using TOM with a shared timebase and synchronous update gating. Steps: 1) Enable the GTM and required CMU clocks. 2) Configure a dedicated TOM timebase channel for center-aligned PWM at 10 kHz so all PWM channels share the same period and alignment. 3) Route six PWM outputs to the assigned pins (three complementary pairs) using the generic pin-map API and proper output mode/pad settings. 4) Build the unified PWM configuration with six synchronized channels on the same TOM instance/TGC for atomic updates. 5) Initialize the PWM handle and channels, set output polarity to active-high for all six channels. 6) Program dead-time of 500 ns for each phase-leg via the PWM driver (using hardware dead-time path when available). 7) Gate TGC updates: disable updates, write initial duty values for all six channels (U_high=25%, U_low=75%, V_high=50%, V_low=50%, W_high=75%, W_low=25%), then atomically apply the update so all outputs start coherently. 8) Start the synchronized PWM outputs.",
+      "driver_calls": [
+        "IfxGtm_enable",
+        "IfxGtm_Cmu_selectClkInput",
+        "IfxGtm_Cmu_enableClocks",
+        "IfxGtm_Tom_Timer_initConfig",
+        "IfxGtm_Tom_Timer_init",
+        "IfxGtm_PinMap_setTomTout",
+        "IfxGtm_Pwm_initConfig",
+        "IfxGtm_Pwm_initChannelConfig",
+        "IfxGtm_Pwm_init",
+        "IfxGtm_Pwm_setChannelPolarity",
+        "IfxGtm_Pwm_updateChannelDeadTimeImmediate",
+        "IfxGtm_Tom_Timer_disableUpdate",
+        "IfxGtm_Pwm_updateChannelDutyImmediate",
+        "IfxGtm_Tom_Timer_applyUpdate",
+        "IfxGtm_Pwm_startSyncedChannels"
+      ],
+      "from_reference": false,
+      "call_context": "init"
+    },
+    {
+      "signature": "void updateGtmTom3phInvDuty(void)",
+      "behavior_description": "Implements the runtime duty-step behavior for the 3-phase inverter. Maintains module-scope duty values for the three high-side channels. On each call: 1) Increase each phase's high-side duty by +10% of full-scale. 2) Wrap any duty that exceeds 100% back into the 0..100% range. 3) Compute each complementary low-side duty as (100% - high-side duty) to maintain complementary modulation with fixed dead-time. 4) Disable the TGC update to gate changes. 5) Write all six new duty values immediately to their respective PWM channels. 6) Atomically apply the update to latch all six channels simultaneously, preserving center alignment and dead-time timing.",
+      "driver_calls": [
+        "IfxGtm_Tom_Timer_disableUpdate",
+        "IfxGtm_Pwm_updateChannelDutyImmediate",
+        "IfxGtm_Tom_Timer_applyUpdate"
+      ],
+      "from_reference": false,
+      "call_context": "loop"
+    }
+  ],
+  "private_functions": [
+    {
+      "signature": "static void configurePwmPins(void)",
+      "needed": true,
+      "from_reference": false
+    }
+  ],
+  "dependencies": {
+    "includes": [
+      "IfxGtm_Pwm.h",
+      "IfxGtm_Tom_Timer.h",
+      "IfxGtm_PinMap.h",
+      "IfxGtm.h",
+      "IfxPort.h"
+    ],
+    "driver_calls": [
+      "IfxGtm_enable",
+      "IfxGtm_Cmu_selectClkInput",
+      "IfxGtm_Cmu_enableClocks",
+      "IfxGtm_Tom_Timer_initConfig",
+      "IfxGtm_Tom_Timer_init",
+      "IfxGtm_Tom_Timer_disableUpdate",
+      "IfxGtm_Tom_Timer_applyUpdate",
+      "IfxGtm_PinMap_setTomTout",
+      "IfxGtm_Pwm_initConfig",
+      "IfxGtm_Pwm_initChannelConfig",
+      "IfxGtm_Pwm_init",
+      "IfxGtm_Pwm_setChannelPolarity",
+      "IfxGtm_Pwm_updateChannelDeadTimeImmediate",
+      "IfxGtm_Pwm_updateChannelDutyImmediate",
+      "IfxGtm_Pwm_startSyncedChannels"
+    ]
+  },
+  "cpu_main_requirements": {
+    "needs_cpu_sync": false,
+    "uses_timer_delay": true,
+    "delay_ms": 500,
+    "additional_includes": [
+      "Bsp.h"
+    ]
+  },
+  "header_selection": {
+    "applied": true,
+    "peripheral_type": "PWM",
+    "recommended_header": "IfxGtm_Pwm",
+    "template_functions_count": 1026,
+    "required_includes": [
+      "IfxGtm_Pwm.h"
+    ]
+  }
+}
