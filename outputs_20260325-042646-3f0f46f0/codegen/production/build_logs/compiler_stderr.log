@@ -1,0 +1,138 @@
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\include/Ifx_Types.h:5,
+                 from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\include/gtm_tom_3_phase_inverter_pwm.h:15,
+                 from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\src\gtm_tom_3_phase_inverter_pwm.c:15:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\include/illd_types/Ifx_Types.h:1341:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?
+ 1341 | extern Ifx_STMx MODULE_STMx;
+      |        ^~~~~~~~
+      |        Ifx_STM
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\include/IfxGtm_PinMap.h:5,
+                 from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\src\gtm_tom_3_phase_inverter_pwm.c:20:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\include/IfxPort.h:10:17: warning: 'IfxPort_setPinModeOutput' used but never defined
+   10 | IFX_INLINE void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~
+
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\include/IfxCpu.h:4,
+                 from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\mocks\IfxCpu.c:1:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\include/illd_types/Ifx_Types.h:1341:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?
+ 1341 | extern Ifx_STMx MODULE_STMx;
+      |        ^~~~~~~~
+      |        Ifx_STM
+
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\include/IfxCpu_Irq.h:4,
+                 from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\mocks\IfxCpu_Irq.c:1:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\include/illd_types/Ifx_Types.h:1341:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?
+ 1341 | extern Ifx_STMx MODULE_STMx;
+      |        ^~~~~~~~
+      |        Ifx_STM
+
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\mocks\IfxEgtm_Pwm.c:1:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\include\illd_types/Ifx_Types.h:1341:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?
+ 1341 | extern Ifx_STMx MODULE_STMx;
+      |        ^~~~~~~~
+      |        Ifx_STM
+
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\include/IfxGtm.h:4,
+                 from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\mocks\IfxGtm.c:1:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\include/illd_types/Ifx_Types.h:1341:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?
+ 1341 | extern Ifx_STMx MODULE_STMx;
+      |        ^~~~~~~~
+      |        Ifx_STM
+
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\include/IfxGtm_Cmu.h:4,
+                 from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\mocks\IfxGtm_Cmu.c:1:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\include/illd_types/Ifx_Types.h:1341:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?
+ 1341 | extern Ifx_STMx MODULE_STMx;
+      |        ^~~~~~~~
+      |        Ifx_STM
+
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\include/IfxGtm_Tom.h:4,
+                 from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\include/IfxGtm_PinMap.h:4,
+                 from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\mocks\IfxGtm_PinMap.c:1:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\include/illd_types/Ifx_Types.h:1341:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?
+ 1341 | extern Ifx_STMx MODULE_STMx;
+      |        ^~~~~~~~
+      |        Ifx_STM
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\include/IfxGtm_PinMap.h:5:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\include/IfxPort.h:10:17: warning: 'IfxPort_setPinModeOutput' declared 'static' but never defined [-Wunused-function]
+   10 | IFX_INLINE void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~
+
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\include/IfxGtm_Pwm.h:4,
+                 from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\mocks\IfxGtm_Pwm.c:1:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\include/illd_types/Ifx_Types.h:1341:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?
+ 1341 | extern Ifx_STMx MODULE_STMx;
+      |        ^~~~~~~~
+      |        Ifx_STM
+
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\include/IfxGtm_Tom.h:4,
+                 from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\mocks\IfxGtm_Tom.c:1:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\include/illd_types/Ifx_Types.h:1341:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?
+ 1341 | extern Ifx_STMx MODULE_STMx;
+      |        ^~~~~~~~
+      |        Ifx_STM
+
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\mocks\IfxPort.c:1:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\include\illd_types/Ifx_Types.h:1341:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?
+ 1341 | extern Ifx_STMx MODULE_STMx;
+      |        ^~~~~~~~
+      |        Ifx_STM
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\mocks\IfxPort.c:76:15: error: redefinition of 's_setPinModeOutput_count'
+   76 | static uint32 s_setPinModeOutput_count = 0;
+      |               ^~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\mocks\IfxPort.c:16:15: note: previous definition of 's_setPinModeOutput_count' with type 'uint32' {aka 'unsigned int'}
+   16 | static uint32 s_setPinModeOutput_count = 0;
+      |               ^~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\mocks\IfxPort.c:77:8: error: redefinition of 'IfxPort_Mock_GetCallCount_setPinModeOutput'
+   77 | uint32 IfxPort_Mock_GetCallCount_setPinModeOutput(void) { return s_setPinModeOutput_count; }
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\mocks\IfxPort.c:26:8: note: previous definition of 'IfxPort_Mock_GetCallCount_setPinModeOutput' with type 'uint32(void)' {aka 'unsigned int(void)'}
+   26 | uint32 IfxPort_Mock_GetCallCount_setPinModeOutput(void) {
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\mocks\IfxPort_PinMap.c:1:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\include\illd_types/Ifx_Types.h:1341:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?
+ 1341 | extern Ifx_STMx MODULE_STMx;
+      |        ^~~~~~~~
+      |        Ifx_STM
+
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\include/IfxSrc.h:4,
+                 from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\mocks\IfxSrc.c:1:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\include/illd_types/Ifx_Types.h:1341:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?
+ 1341 | extern Ifx_STMx MODULE_STMx;
+      |        ^~~~~~~~
+      |        Ifx_STM
+
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\include/IfxStm.h:4,
+                 from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\mocks\IfxStm.c:1:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\include/illd_types/Ifx_Types.h:1341:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?
+ 1341 | extern Ifx_STMx MODULE_STMx;
+      |        ^~~~~~~~
+      |        Ifx_STM
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\mocks\IfxStm.c: In function 'IfxStm_getTicksFromMilliseconds':
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\mocks\IfxStm.c:20:21: error: 'millis' undeclared (first use in this function)
+   20 |     return (sint32)(millis * 1000);  /* Simple conversion for testing */
+      |                     ^~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\mocks\IfxStm.c:20:21: note: each undeclared identifier is reported only once for each function it appears in
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\mocks\IfxStm.c: In function 'IfxStm_getTicksFromMicroseconds':
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\mocks\IfxStm.c:25:20: error: 'micros' undeclared (first use in this function)
+   25 |     return (sint32)micros;
+      |                    ^~~~~~
+
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\mocks\Ifx_Types.c:1:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\include\illd_types/Ifx_Types.h:1341:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?
+ 1341 | extern Ifx_STMx MODULE_STMx;
+      |        ^~~~~~~~
+      |        Ifx_STM
+
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\include/Ifx_Types.h:5,
+                 from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\include/gtm_tom_3_phase_inverter_pwm.h:15,
+                 from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\test\test_gtm_tom_3_phase_inverter_pwm.c:2:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\include/illd_types/Ifx_Types.h:1341:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?
+ 1341 | extern Ifx_STMx MODULE_STMx;
+      |        ^~~~~~~~
+      |        Ifx_STM
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\include/IfxGtm_PinMap.h:5,
+                 from C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\test\test_gtm_tom_3_phase_inverter_pwm.c:5:
+C:\Users\extpedj\Desktop\infineon_POC_MVP\outputs_20260325-042646-3f0f46f0\6ee0b236-20b\Upgrade_the_KIT_A2G_TC387_5V_TFT_TC38x_3-phase_i_r_20260325_131656\attempts\phase_001_build\include/IfxPort.h:10:17: warning: 'IfxPort_setPinModeOutput' declared 'static' but never defined [-Wunused-function]
+   10 | IFX_INLINE void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~
