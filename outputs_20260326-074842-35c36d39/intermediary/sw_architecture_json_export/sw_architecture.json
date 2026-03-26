@@ -107,8 +107,8 @@
         "GPIO"
       ],
       "complexity_hints": {
-        "PWM": "advanced",
-        "GPIO": "simple"
+        "PWM": "DriverComplexity.ADVANCED",
+        "GPIO": "DriverComplexity.SIMPLE"
       },
       "specific_features": [
         "inverter"
