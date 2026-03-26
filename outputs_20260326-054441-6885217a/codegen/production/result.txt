@@ -1,61 +1,11 @@
-Status: FAILED
+Status: SUCCESS
 
-Attempt 3 - PRODUCTION (Global: 3)
-Status: FAILED ❌
-Timestamp: 2026-03-26 14:59:55
-Files generated: 2
-
-============================================================
-
-ERRORS:
-
-1. redefinition of 's_setTomTout_count'
-
-2. redefinition of 'IfxGtm_PinMap_Mock_GetCallCount_setTomTout'
-
-3. 'pushPull' undeclared (first use in this function)
-
-4. 'cmosAutomotiveSpeed1' undeclared (first use in this function)
-
-============================================================
-BUILD RESULT:
-{
-  "success": false,
-  "errors": [
-    {
-      "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-054441-6885217a\\c5bc9be6-7a3\\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\\attempts\\phase_003_build\\mocks\\IfxGtm_PinMap.c",
-      "line": 12,
-      "column": 15,
-      "message": "redefinition of 's_setTomTout_count'",
-      "category": "unknown",
-      "severity": "error"
-    },
-    {
-      "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-054441-6885217a\\c5bc9be6-7a3\\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\\attempts\\phase_003_build\\mocks\\IfxGtm_PinMap.c",
-      "line": 25,
-      "column": 8,
-      "message": "redefinition of 'IfxGtm_PinMap_Mock_GetCallCount_setTomTout'",
-      "category": "illd_api_error",
-      "severity": "error"
-    },
-    {
-      "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-054441-6885217a\\c5bc9be6-7a3\\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\\attempts\\phase_003_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c",
-      "line": 71,
-      "column": 23,
-      "message": "'pushPull' undeclared (first use in this function)",
-      "category": "unknown",
-      "severity": "error"
-    },
-    {
-      "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-054441-6885217a\\c5bc9be6-7a3\\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\\attempts\\phase_003_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c",
-      "line": 72,
-      "column": 23,
-      "message": "'cmosAutomotiveSpeed1' undeclared (first use in this function)",
-      "category": "unknown",
-      "severity": "error"
-    }
-  ],
-  "warnings": [],
-  "stderr": "C:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-054441-6885217a\\c5bc9be6-7a3\\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\\attempts\\phase_003_build\\mocks\\IfxGtm_PinMap.c:12:15: error: redefinition of 's_setTomTout_count'\n   12 | static uint32 s_setTomTout_count = 0;\n      |               ^~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-054441-6885217a\\c5bc9be6-7a3\\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\\attempts\\phase_003_build\\mocks\\IfxGtm_PinMap.c:6:15: note: previous definition of 's_setTomTout_count' with type 'uint32' {aka 'unsigned int'}\n    6 | static uint32 s_setTomTout_count = 0;\n      |               ^~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-054441-6885217a\\c5bc9be6-7a3\\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\\attempts\\phase_003_build\\mocks\\IfxGtm_PinMap.c:25:8: error: redefinition of 'IfxGtm_PinMap_Mock_GetCallCount_setTomTout'\n   25 | uint32 IfxGtm_PinMap_Mock_GetCallCount_setTomTout(void) { return s_setTomTout_count; }\n      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-054441-6885217a\\c5bc9be6-7a3\\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\\attempts\\phase_003_build\\mocks\\IfxGtm_PinMap.c:21:8: note: previous definition of 'IfxGtm_PinMap_Mock_GetCallCount_setTomTout' with type 'uint32(void)' {aka 'unsigned int(void)'}\n   21 | uint32 IfxGtm_PinMap_Mock_GetCallCount_setTomTout(void) {\n      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\unity/unity.h:22,\n                 from C:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-054441-6885217a\\c5bc9be6-7a3\\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\\attempts\\phase_003_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c:1:\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-054441-6885217a\\c5bc9be6-7a3\\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\\attempts\\phase_003_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c: In function 'test_GTM_TOM_3_Phase_Inverter_PWM_init_SetsExpectedConfigValues':\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-054441-6885217a\\c5bc9be6-7a3\\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\\attempts\\phase_003_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c:71:23: error: 'pushPull' undeclared (first use in this function)\n   71 |     TEST_ASSERT_EQUAL(pushPull, IfxGtm_PinMap_Mock_GetLastArg_setTomTout_outputMode());\n      |                       ^~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\unity/unity_internals.h:897:133: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_INT'\n  897 | #define UNITY_TEST_ASSERT_EQUAL_INT(expected, actual, line, message)                             UnityAssertEqualNumber((UNITY_INT)(expected), (UNITY_INT)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_INT)\n      |                                                                                                                                     ^~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-054441-6885217a\\c5bc9be6-7a3\\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\\attempts\\phase_003_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c:71:5: note: in expansion of macro 'TEST_ASSERT_EQUAL'\n   71 |     TEST_ASSERT_EQUAL(pushPull, IfxGtm_PinMap_Mock_GetLastArg_setTomTout_outputMode());\n      |     ^~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-054441-6885217a\\c5bc9be6-7a3\\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\\attempts\\phase_003_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c:71:23: note: each undeclared identifier is reported only once for each function it appears in\n   71 |     TEST_ASSERT_EQUAL(pushPull, IfxGtm_PinMap_Mock_GetLastArg_setTomTout_outputMode());\n      |                       ^~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\unity/unity_internals.h:897:133: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_INT'\n  897 | #define UNITY_TEST_ASSERT_EQUAL_INT(expected, actual, line, message)                             UnityAssertEqualNumber((UNITY_INT)(expected), (UNITY_INT)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_INT)\n      |                                                                                                                                     ^~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-054441-6885217a\\c5bc9be6-7a3\\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\\attempts\\phase_003_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c:71:5: note: in expansion of macro 'TEST_ASSERT_EQUAL'\n   71 |     TEST_ASSERT_EQUAL(pushPull, IfxGtm_PinMap_Mock_GetLastArg_setTomTout_outputMode());\n      |     ^~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-054441-6885217a\\c5bc9be6-7a3\\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\\attempts\\phase_003_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c:72:23: error: 'cmosAutomotiveSpeed1' undeclared (first use in this function)\n   72 |     TEST_ASSERT_EQUAL(cmosAutomotiveSpeed1, IfxGtm_PinMap_Mock_GetLastArg_setTomTout_padDriver());\n      |                       ^~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\unity/unity_internals.h:897:133: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_INT'\n  897 | #define UNITY_TEST_ASSERT_EQUAL_INT(expected, actual, line, message)                             UnityAssertEqualNumber((UNITY_INT)(expected), (UNITY_INT)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_INT)\n      |                                                                                                                                     ^~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-054441-6885217a\\c5bc9be6-7a3\\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\\attempts\\phase_003_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c:72:5: note: in expansion of macro 'TEST_ASSERT_EQUAL'\n   72 |     TEST_ASSERT_EQUAL(cmosAutomotiveSpeed1, IfxGtm_PinMap_Mock_GetLastArg_setTomTout_padDriver());\n      |     ^~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-054441-6885217a\\c5bc9be6-7a3\\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\\attempts\\phase_003_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c: In function 'test_GTM_TOM_3_Phase_Inverter_PWM_updateUVW_MultipleCalls_ProgressesCorrectly':\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-054441-6885217a\\c5bc9be6-7a3\\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\\attempts\\phase_003_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c:142:13: warning: unused variable 'w_2' [-Wunused-variable]\n  142 |     float32 w_2 = IfxGtm_Pwm_Mock_GetArgHistory_updateChannelsDutyImmediate(2u, 2u);\n      |             ^~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-054441-6885217a\\c5bc9be6-7a3\\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\\attempts\\phase_003_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c:141:13: warning: unused variable 'v_2' [-Wunused-variable]\n  141 |     float32 v_2 = IfxGtm_Pwm_Mock_GetArgHistory_updateChannelsDutyImmediate(2u, 1u);\n      |             ^~~\n",
-  "stdout": ""
-}
+Node JSON export
+Stage: code_generation
+Reason: stage_failed
+Modified By: system
+Modifier: N/A
+Reviewer: N/A
+Attempt: 5
+Phase attempt: 1
+Timestamp: 2026-03-26T15:00:07.183028
