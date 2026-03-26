@@ -1,7 +1,7 @@
 {
   "user_intent_preservation": {
     "original_goal": "Migrate 3‑phase PWM motor control to KIT_A2G_TC387_5V_TFT using GTM TOM1 with the unified IfxGtm_Pwm API.",
-    "functional_behavior": "Generate a center‑aligned 20 kHz two‑level 3‑phase inverter PWM on TOM1 with 6 complementary, active‑high outputs, 0.5 µs dead‑time, 1.0 µs minimum pulse, push‑pull pads (IfxPort_PadDriver_cmosAutomotiveSpeed1), TOM1 CH0 as master time base on cmuFxclk0 (GCLK). Map outputs to Port 02: U(HS=P02.0 CH1, LS=P02.7 CH2), V(HS=P02.1 CH3, LS=P02.4 CH4), W(HS=P02.2 CH5, LS=P02.5 CH6). Initialize duties U=25%, V=50%, W=75% and update duties synchronously.",
+    "functional_behavior": "Generate a center‑aligned 20 kHz two‑level 3‑phase inverter PWM on TOM1 with 6 complementary, active‑high outputs, 0.5 µs dead‑time, 1.0 µs minimum pulse, push‑pull pads (IfxPort_PadDriver_cmosAutomotiveSpeed1), TOM1 CH0 as master time base on cmuFxclk0 (GCLK). Map outputs to Port 02: U(HS=P02.0 CH1, LS=P02.7 CH2), V(HS=P02.1 CH3, LS=P02.4 CH4), W(HS=P02.2 CH5, LS=P02.5 CH6). Initialize duties U=25%, V=50%, W=75% and update duties synchronously. Duty ramping/transition profiles are implemented in the application layer; this PWM module provides synchronous duty update/latching only. Extension point: an application-supplied ramp generator invokes the module's update API to apply ramps.",
     "technical_approach": "Use the unified high‑level IfxGtm_Pwm driver to configure TOM1 with CH0 as the master time base sourced by cmuFxclk0 from GCLK, center‑aligned at 20 kHz. Enable GTM and CMU clocks via IfxGtm_enable and IfxGtm_Cmu_enableClocks. Configure TOM1 TOUT pins with IfxGtm_PinMap_setTomTout for push‑pull and pad driver settings. Provide complementary pairs and dead‑time through the unified driver configuration and, if needed, IfxGtm_Pwm_updateChannelsDeadTimeImmediate. Set initial duties (U=25%, V=50%, W=75%) using non‑immediate channel duty updates so latching occurs synchronously at the next timer update event."
   },
   "driver_selection": {
@@ -59,6 +59,10 @@
         "IfxGtm_Pwm_updateChannelsDuty"
       ],
       "purpose": "Stage new U/V/W duties that will latch synchronously at the next PWM period boundary for all six complementary outputs."
+    },
+    "testability": {
+      "hardware_interface_abstraction": true,
+      "dependency_injection": "Module accepts a HwIf ops table (enable, clock, pin_map, start/stop, duty/deadtime update); defaults bind to IfxGtm_/IfxPort_ implementations, and tests can inject mocks."
     }
   },
   "migration_notes": {
@@ -94,8 +98,9 @@
       "IfxGtm_Pwm.h"
     ],
     "function_mapping": {
-      "IfxGtm_enable": "IfxGtm_Pwm_enableChannel"
+      "IfxGtm_enable": "IfxGtm_enable"
     },
+    "mapping_note": "Use IfxGtm_enable to enable the GTM module; channel enablement is handled by IfxGtm_Pwm during initialization.",
     "available_functions_count": 99
   },
   "driver_selection_engine": {
