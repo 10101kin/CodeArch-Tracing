@@ -1,0 +1,185 @@
+{
+  "generation_mode": "FRESH_GENERATION",
+  "migration_info": {
+    "has_reference": false,
+    "reference_family": "None",
+    "target_family": "TC3xx",
+    "migration_required": false,
+    "driver_mappings": {},
+    "header_mappings": {},
+    "api_changes": [],
+    "function_names_to_preserve": []
+  },
+  "peripheral_requirement": {
+    "type": "GTM_TOM",
+    "driver_available": true,
+    "driver_name": "IfxGtm_Pwm",
+    "purpose": "3-phase inverter PWM using TOM0 with complementary HS/LS via DTM0, center-aligned 10 kHz, and a TOM0 period interrupt"
+  },
+  "signal_requirements": {
+    "gtm_enable": true,
+    "tom": {
+      "module": "TOM0",
+      "pairs": [
+        {
+          "phase": "A",
+          "hs_channel": "TOM0_CH0",
+          "ls_channel": "TOM0_CH1",
+          "dtm_pair": "DTM0_PAIR0"
+        },
+        {
+          "phase": "B",
+          "hs_channel": "TOM0_CH2",
+          "ls_channel": "TOM0_CH3",
+          "dtm_pair": "DTM0_PAIR1"
+        },
+        {
+          "phase": "C",
+          "hs_channel": "TOM0_CH4",
+          "ls_channel": "TOM0_CH5",
+          "dtm_pair": "DTM0_PAIR2"
+        }
+      ],
+      "tgc_usage": "Use TGC0 for CH0–CH7; enable update trigger and shadow transfer on period event"
+    },
+    "dtm": {
+      "module": "DTM0",
+      "clock_source": "FXCLK",
+      "clock_hz": 100000000,
+      "deadtime_ns_rise": 1000,
+      "deadtime_ns_fall": 1000,
+      "pairing": "Even channel = HS, Odd channel = LS; complementary outputs enforced by DTM gating",
+      "mode": "Frame-based with both-edge deadtime insertion"
+    },
+    "pin_map": {
+      "package": "IFX_PIN_PACKAGE_516",
+      "pinmap_header": "IfxGtm_PinMap.h",
+      "selection_rule": "Use IfxGtm_PinMap_TC38x_LFBGA516 TOUT macros matching TOM0_CH0..CH5 for the chosen pins; HS uses even-channel TOUT, LS uses odd-channel TOUT",
+      "gpio_headers": [
+        "IfxPort.h"
+      ]
+    },
+    "macros": {
+      "PHASE_A_HS": "maps to TOM0_CH0 TOUT (default: first valid TOUT macro for package 516)",
+      "PHASE_A_LS": "maps to TOM0_CH1 TOUT",
+      "PHASE_B_HS": "maps to TOM0_CH2 TOUT",
+      "PHASE_B_LS": "maps to TOM0_CH3 TOUT",
+      "PHASE_C_HS": "maps to TOM0_CH4 TOUT",
+      "PHASE_C_LS": "maps to TOM0_CH5 TOUT"
+    },
+    "interrupt": {
+      "source": "TOM0 period event (use CH0 CM0/period as tick)",
+      "sr_line": "SR0",
+      "isr_name": "ISR_tom0_period",
+      "priority": 10,
+      "type_of_service": "CPU0",
+      "src_header": "IfxSrc.h"
+    }
+  },
+  "timing_requirements": {
+    "alignment": "center-aligned (up/down)",
+    "pwm_frequency_hz": 10000,
+    "gtm_clocks": {
+      "cmu_clk0_hz": 100000000,
+      "fxclk_hz": 100000000,
+      "tom_base_clock": "CMU_CLK0"
+    },
+    "tom_period_ticks": 5000,
+    "duty_cycle": {
+      "initial_percent": 50,
+      "min_percent_with_deadtime_margin": 1,
+      "max_percent_with_deadtime_margin": 99,
+      "update_mode": "Immediate update at period event (shadow transfer on reset)"
+    },
+    "deadtime": {
+      "ns_rise": 1000,
+      "ns_fall": 1000
+    }
+  },
+  "device_configuration": {
+    "target_device_macro": "DEVICE_TC38X",
+    "pin_package": "IFX_PIN_PACKAGE_516",
+    "device_family": "TC3xx",
+    "clock_requirements": {
+      "requires_xtal": true,
+      "expected_system_freq_mhz": 300
+    }
+  },
+  "code_structure": {
+    "file_pattern": "custom",
+    "expected_files": [
+      "GTM_TOM_3ph_Inv_Pwm.c",
+      "GTM_TOM_3ph_Inv_Pwm.h"
+    ],
+    "has_cpu_files": true
+  },
+  "reference_context": {
+    "includes_used": [
+      "IfxGtm_Pwm.h",
+      "IfxGtm_Dtm.h",
+      "IfxGtm_Tom.h",
+      "IfxGtm_PinMap.h",
+      "IfxPort.h",
+      "IfxSrc.h",
+      "Bsp.h"
+    ],
+    "function_patterns": [
+      "initGtmTom3phInv",
+      "updateGtmTom3phInvDuty",
+      "ISR_tom0_period"
+    ],
+    "peripheral_usage": {
+      "GTM": "3-phase PWM generation on TOM0; DTM0 for hardware deadtime on complementary pairs",
+      "SRC": "Route TOM0 period interrupt to CPU0 SR0",
+      "Port": "Configure TOUT pins for TOM0_CH0..CH5 outputs"
+    }
+  },
+  "template_compatibility": {
+    "validated": true,
+    "supported_peripherals": [
+      "PWM",
+      "GTM",
+      "ASCLIN",
+      "INTERRUPT"
+    ],
+    "suggested_drivers": {
+      "PWM": [
+        "IfxCcu6_PwmBc",
+        "IfxGtm_Tom_Pwm",
+        "IfxGtm_Tom_Dtm_PwmHl",
+        "IfxGtm_Atom_Dtm_PwmHl",
+        "IfxGtm_Atom_Pwm",
+        "IfxGtm_Pwm",
+        "IfxCcu6_TPwm",
+        "IfxGtm_Tom_PwmHl",
+        "IfxCcu6_PwmHl",
+        "IfxGtm_Atom_PwmHl"
+      ],
+      "GTM": [
+        "IfxGtm_Dtm",
+        "IfxGtm_Tbu",
+        "IfxGtm",
+        "IfxGtm_Spe",
+        "IfxGtm_Pwm",
+        "IfxGtm_Psm",
+        "IfxGtm_PinMap_TC38x_LFBGA516",
+        "IfxGtm_PinMap_TC38x_LFBGA292",
+        "IfxGtm_Trig",
+        "IfxGtm_Dpll",
+        "IfxGtm_PinMap_TC38x_516"
+      ],
+      "ASCLIN": [
+        "IfxAsclin_Asc",
+        "IfxAsclin_Lin",
+        "IfxAsclin_Spi",
+        "IfxAsclin"
+      ],
+      "INTERRUPT": [
+        "IfxCpu_Irq"
+      ]
+    },
+    "warnings": []
+  },
+  "header_documentation_available": true,
+  "config_values_extracted": 16
+}

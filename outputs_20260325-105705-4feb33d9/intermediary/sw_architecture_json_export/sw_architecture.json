@@ -1,0 +1,160 @@
+{
+  "user_intent_preservation": {
+    "original_goal": "Implement 3-phase PWM motor control on TC387 using GTM TOM with complementary HS/LS via DTM and a TOM0 period interrupt.",
+    "functional_behavior": "Generate synchronized, center-aligned 10 kHz PWM on TOM0 channel pairs (0/1, 2/3, 4/5) with hardware dead-time via DTM0 and trigger an interrupt on the TOM0 period event to run control code. Provide clean init and duty-update functions and call out compile/API errors and likely GTM/TOM/DTM misconfigurations.",
+    "technical_approach": "Use unified high-level IfxGtm_Pwm driver to configure TOM0 3-phase complementary PWM with DTM dead-time and center alignment; enable GTM CMU clocking; map TOUT pins via IfxGtm_PinMap_TC38x_LFBGA516; route TOM0 period interrupt using IfxSrc. Update duties via IfxGtm_Pwm_updateChannelDuty to commit at period event."
+  },
+  "driver_selection": {
+    "recommended_driver": "IfxGtm_Pwm",
+    "selection_rationale": "Unified PWM driver supports multi-channel TOM configuration, complementary outputs with DTM dead-time, and center-aligned mode. It simplifies synchronized updates across 3 phases and matches the TC3xx platform.",
+    "available_in_template": true,
+    "complexity_level": "advanced",
+    "alternatives_considered": [
+      "IfxGtm_Tom_Dtm_PwmHl",
+      "IfxGtm_Tom_Pwm"
+    ]
+  },
+  "driver_usage": {
+    "primary_driver": "IfxGtm_Pwm.h",
+    "available_in_template": true,
+    "initialization_apis": [
+      "IfxGtm_enable",
+      "IfxGtm_Cmu_enableClocks",
+      "IfxGtm_Pwm_initConfig",
+      "IfxGtm_Pwm_initChannelConfig",
+      "IfxGtm_Pwm_init",
+      "IfxGtm_PinMap_setTomTout",
+      "IfxSrc_init",
+      "IfxSrc_enable"
+    ],
+    "runtime_apis": [
+      "IfxGtm_Pwm_updateChannelDuty",
+      "IfxGtm_Pwm_updateChannelPhase",
+      "IfxGtm_Pwm_updateChannelDeadTimeImmediate",
+      "IfxSrc_clearRequest"
+    ]
+  },
+  "file_structure": {
+    "module_files": [
+      "GTM_TOM_3ph_Inv_Pwm.c",
+      "GTM_TOM_3ph_Inv_Pwm.h"
+    ],
+    "cpu_files": [
+      "Cpu0_Main.c"
+    ],
+    "from_reference": true
+  },
+  "function_mapping": {
+    "init_function": {
+      "name": "initGtmTom3phInv",
+      "driver_calls": [
+        "IfxGtm_enable",
+        "IfxGtm_Cmu_enableClocks",
+        "IfxGtm_Pwm_initConfig",
+        "IfxGtm_Pwm_initChannelConfig",
+        "IfxGtm_Pwm_init",
+        "IfxGtm_PinMap_setTomTout",
+        "IfxSrc_init",
+        "IfxSrc_enable"
+      ]
+    },
+    "runtime_function": {
+      "name": "updateGtmTom3phInvDuty",
+      "driver_calls": [
+        "IfxGtm_Pwm_updateChannelDuty",
+        "IfxGtm_Pwm_updateChannelDuty",
+        "IfxGtm_Pwm_updateChannelDuty"
+      ],
+      "purpose": "Update the A/B/C phase duty cycles atomically; changes take effect at the period event (shadow transfer on reset) while preserving center-aligned timing and DTM dead-time."
+    }
+  },
+  "migration_notes": {
+    "is_migration": false,
+    "driver_changes": [
+      "Use IfxGtm_Pwm (unified) to configure TOM0 3-phase complementary PWM with DTM dead-time instead of mixing mid/low-level calls.",
+      "Configure GTM CMU primary clock (CMU_CLK0) to 100 MHz and enable TOM0 clocks before PWM init via IfxGtm_Cmu_enableClocks.",
+      "Pin routing must use IfxGtm_PinMap_TC38x_LFBGA516 and IfxGtm_PinMap_setTomTout for TOM0_CH0..CH5 TOUT selection."
+    ],
+    "api_changes": [
+      "Definite compile-time pitfalls to fix (search-and-replace):",
+      "- IfxGtm_enableModule(...) → Replace with IfxGtm_enable(MODULE_GTM); (IfxGtm_enableModule not in template)",
+      "- IfxGtm_Cmu_initClk(...)/IfxGtm_Cmu_setFxclkFrequency(...) → Use IfxGtm_Cmu_enableClocks(&MODULE_GTM, <mask_for_CMU_CLK0|FXCLK>);",
+      "- IfxGtm_Tom_PwmHl_setDeadtime(...) when using unified → Prefer configuring dead-time in IfxGtm_Pwm config, and for runtime tweaks use IfxGtm_Pwm_updateChannelDeadTimeImmediate(...);",
+      "- Direct port muxing (IfxPort_setPinModeOutput + manual ALT) for TOUT → Use IfxGtm_PinMap_setTomTout(&IfxGtm_TOM0_<ch>_TOUT<idx>_P<Port>_<Pin>_OUT, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);",
+      "- Using non-existent unified calls like IfxGtm_Pwm_start()/stop() → Not in template list. For runtime updates, use IfxGtm_Pwm_updateChannelDuty(...) or Immediate variants.",
+      "Likely GTM/TOM/DTM misconfigurations to correct:",
+      "- Not enabling GTM before PWM init: Call IfxGtm_enable(&MODULE_GTM) if not already enabled.",
+      "- Missing/incorrect CMU clock: Ensure IfxGtm_Cmu_enableClocks(&MODULE_GTM, (1U<<IfxGtm_Cmu_Clk_0) | (1U<<IfxGtm_Cmu_Fxclk_0))); Target 100 MHz CMU_CLK0/FXCLK.",
+      "- TOM period mismatch for center-aligned: With 100 MHz and 10 kHz up/down, period ticks must be 5000 (requirement).",
+      "- Channel pairing wrong: Ensure even=HS, odd=LS in DTM0 pairs (0/1, 2/3, 4/5).",
+      "- TGC0 shadow transfer not tied to period: Configure update-on-reset in IfxGtm_Pwm so duty changes latch at CM0/period.",
+      "- Interrupt routed from wrong SRC: Use the TOM0 period (e.g., CH0 CM0/period) SRC to CPU0 SR0 via IfxSrc_init(..., IfxSrc_Tos_cpu0, 10) then IfxSrc_enable(...).",
+      "- Pin macros from wrong package: Select macros only from IfxGtm_PinMap_TC38x_LFBGA516 for TOM0_CH0..CH5.",
+      "- Polarity inverted: If required, fix with IfxGtm_Pwm_setChannelPolarity(...)."
+    ],
+    "context_preserved": "The user’s goal (3-phase PWM with DTM dead-time, center-aligned 10 kHz, period interrupt) is implemented using the unified IfxGtm_Pwm driver. TOM0 channel pairs (0/1, 2/3, 4/5) are configured as complementary with DTM0, CMU clocks are enabled at 100 MHz, pins are set via TC38x LFBGA516 PinMap, and the TOM0 period SRC is routed to CPU0 SR0 with priority 10 using IfxSrc. The provided init and update function mappings reflect these requirements while using only verified template APIs."
+  },
+  "header_selection": {
+    "applied": false
+  },
+  "driver_selection_engine": {
+    "applied": true,
+    "mcu_family": "TC3xx",
+    "requirement_analysis": {
+      "peripherals": [
+        "PWM",
+        "INTERRUPT"
+      ],
+      "complexity_hints": {
+        "PWM": "advanced",
+        "INTERRUPT": "simple"
+      },
+      "specific_features": [
+        "3[- ]?phase"
+      ]
+    },
+    "recommendations": {
+      "PWM": {
+        "driver": "IfxGtm_Pwm",
+        "score": 95.0,
+        "complexity": "advanced",
+        "rationale": "âœ… Available in template | âœ… Matches target family (TC3xx) | Complexity: advanced | Best for: 3-phase inverter, motor control, multi-channel synchronized PWM | Features: multi_channel_sync, complementary_pairs, dead_time, center_aligned, edge_aligned",
+        "alternatives": []
+      },
+      "INTERRUPT": {
+        "driver": "IfxSrc",
+        "score": 75.0,
+        "complexity": "simple",
+        "rationale": "âœ… Available in template | âœ… Generic driver (works on all families) | Complexity: simple | Best for: interrupt configuration, ISR routing, priority management | Features: interrupt_routing, priority_config, type_of_service, service_request_node",
+        "alternatives": [
+          "IfxCpu_Irq"
+        ]
+      }
+    }
+  },
+  "driver_knowledge_base": {
+    "applied": true,
+    "recommended_driver": "IfxGtm_Pwm",
+    "api_layer": "unified",
+    "rationale": "User requirement mentions IfxGtm_Pwm",
+    "avoid_drivers": [
+      "IfxGtm_Tom_PwmHl",
+      "IfxGtm_Tom_Pwm",
+      "IfxGtm_Atom_Pwm"
+    ],
+    "companion_drivers": [
+      "IfxGtm_Cmu"
+    ],
+    "handles_internally": [
+      "complementary_output_pairing",
+      "dead_time_via_DTM",
+      "center_aligned_mode",
+      "multi_channel_synchronization",
+      "TOM_ATOM_submodule_selection"
+    ],
+    "user_must_handle": [
+      "clock_setup_via_CMU",
+      "pin_mapping"
+    ]
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "module_name": "GTM_TOM_3ph_Inv_Pwm",
+  "public_functions": [
+    {
+      "signature": "void initGtmTom3phInv(void)",
+      "behavior_description": "Initialize the GTM and TOM-based 3-phase complementary PWM with DTM deadtime and a period interrupt. Algorithm: 1) Ensure the GTM module is enabled. 2) Enable required GTM CMU clocks for the TOM time base and the DTM deadtime generator (targeting 100 MHz for both). 3) Prepare a unified PWM configuration with defaults, then set: center-aligned (up/down) operation at 10 kHz; a period of 5000 timer ticks based on the selected 100 MHz clock; three synchronized logical channels representing phases A, B, and C, each mapped to a TOM channel pair where even = high-side and odd = low-side; complementary outputs gated by DTM; update (shadow) transfers to occur automatically on the period reset so all duty changes take effect atomically on the next cycle. 4) For each phase, initialize per-channel configuration: assign the TOM submodule instance (TOM0) and the specific even/odd hardware channels for HS/LS; keep default (non-inverted) polarity unless design requires inversion; assign the output pins for both HS and LS using the provided TOUT pin macros for the target package; select push-pull output mode and an appropriate pad driver. 5) Initialize the PWM driver with the prepared config and allocated channel handle array; then enable the channel outputs. 6) Configure the DTM for the utilized pairs: select the DTM clock source (FXCLK at 100 MHz) and program rising/falling deadtime counts corresponding to 1000 ns each (both-edge insertion). 7) Route the TOM0 period event service request (e.g., from the period/reset of the first channel used as the timebase) to CPU0 SR0 using the SRC: set the type of service to CPU0, priority 10, then enable the SRC node. Result: three complementary PWM pairs on TOM0 channels (0/1, 2/3, 4/5) are driven center-aligned at 10 kHz with hardware deadtime; duty updates will latch at the period event; the period ISR will be invoked each cycle.",
+      "driver_calls": [
+        "IfxGtm_enable",
+        "IfxGtm_Cmu_enableClocks",
+        "IfxGtm_Pwm_initConfig",
+        "IfxGtm_Pwm_initChannelConfig",
+        "IfxGtm_Pwm_init",
+        "IfxGtm_PinMap_setTomTout",
+        "IfxGtm_Pwm_startChannelOutputs",
+        "IfxGtm_Dtm_setClockSource",
+        "IfxGtm_Dtm_setDeadtime",
+        "IfxSrc_init",
+        "IfxSrc_enable"
+      ],
+      "from_reference": true,
+      "call_context": "init"
+    },
+    {
+      "signature": "void updateGtmTom3phInvDuty(float32 dutyA_percent, float32 dutyB_percent, float32 dutyC_percent)",
+      "behavior_description": "Apply new duty commands for phases A, B, and C with deadtime-safe clamping and synchronized update at the next PWM period. Algorithm: 1) For each input duty (A/B/C), clamp to a minimum of 1% and maximum of 99% to respect deadtime margins and avoid shoot-through on complementary pairs. 2) Write the clamped duty values to the three synchronized logical channels corresponding to phases A/B/C using the PWM driver update API; each call programs the shadow registers. 3) Because the PWM was configured for update-on-period-reset, all three new duty values take effect atomically at the next period event, preserving center alignment and DTM-enforced complementary behavior. 4) No phase or frequency changes occur here; only duty is updated.",
+      "driver_calls": [
+        "IfxGtm_Pwm_updateChannelDuty",
+        "IfxGtm_Pwm_updateChannelDuty",
+        "IfxGtm_Pwm_updateChannelDuty"
+      ],
+      "from_reference": true,
+      "call_context": "loop"
+    },
+    {
+      "signature": "void ISR_tom0_period(void)",
+      "behavior_description": "Interrupt service routine for the TOM0 period event. Algorithm: 1) Acknowledge the service request by clearing the SRC request flag for the configured TOM0 period interrupt node. 2) Perform minimal work to keep ISR latency low (e.g., increment a scheduler tick or set a flag for the main loop to process control tasks). 3) Exit promptly; do not perform heavy computation in the ISR. The ISR must be declared with the platform interrupt macro using priority 10 and assigned to CPU0 as configured by the SRC routing.",
+      "driver_calls": [
+        "IfxSrc_clearRequest"
+      ],
+      "from_reference": true,
+      "call_context": "none"
+    }
+  ],
+  "private_functions": [
+    {
+      "signature": "static float32 clampDuty(float32 dutyPercent)",
+      "needed": true,
+      "from_reference": false
+    }
+  ],
+  "dependencies": {
+    "includes": [
+      "IfxGtm_Pwm.h",
+      "IfxGtm.h",
+      "IfxGtm_Cmu.h",
+      "IfxGtm_Dtm.h",
+      "IfxGtm_PinMap.h",
+      "IfxPort.h",
+      "IfxSrc.h"
+    ],
+    "driver_calls": [
+      "IfxGtm_enable",
+      "IfxGtm_Cmu_enableClocks",
+      "IfxGtm_Pwm_init",
+      "IfxGtm_PinMap_setTomTout",
+      "IfxSrc_init"
+    ]
+  },
+  "cpu_main_requirements": {
+    "needs_cpu_sync": false,
+    "uses_timer_delay": false,
+    "delay_ms": 0,
+    "additional_includes": []
+  },
+  "header_selection": {
+    "applied": false
+  }
+}
