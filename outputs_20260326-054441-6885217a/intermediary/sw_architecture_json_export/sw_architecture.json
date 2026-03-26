@@ -117,10 +117,10 @@
         "INTERRUPT"
       ],
       "complexity_hints": {
-        "PWM": "advanced",
-        "TIMER": "simple",
-        "GPIO": "simple",
-        "INTERRUPT": "simple"
+        "PWM": "DriverComplexity.ADVANCED",
+        "TIMER": "DriverComplexity.SIMPLE",
+        "GPIO": "DriverComplexity.SIMPLE",
+        "INTERRUPT": "DriverComplexity.SIMPLE"
       },
       "specific_features": [
         "3[- ]?phase"
