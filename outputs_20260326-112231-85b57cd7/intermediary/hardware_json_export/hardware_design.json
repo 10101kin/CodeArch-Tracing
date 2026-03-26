@@ -1,0 +1,163 @@
+{
+  "microcontroller": {
+    "model": "TC387",
+    "family": "TC3xx",
+    "verified": true,
+    "device_macro": "DEVICE_TC38X",
+    "pin_package": "IFX_PIN_PACKAGE_516"
+  },
+  "peripheral_instance": {
+    "type": "PWM",
+    "module": "TOM1",
+    "channels": [
+      0,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "driver": "IfxGtm_Pwm"
+  },
+  "pin_assignments": [
+    {
+      "signal": "U_HS",
+      "port_pin": "P02.0",
+      "function": "TOUT (verify)",
+      "pin_macro": "",
+      "is_complementary": true,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "U_LS",
+      "port_pin": "P02.7",
+      "function": "TOUT (verify)",
+      "pin_macro": "",
+      "is_complementary": true,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "V_HS",
+      "port_pin": "P02.1",
+      "function": "TOUT (verify)",
+      "pin_macro": "",
+      "is_complementary": true,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "V_LS",
+      "port_pin": "P02.4",
+      "function": "TOUT (verify)",
+      "pin_macro": "",
+      "is_complementary": true,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "W_HS",
+      "port_pin": "P02.2",
+      "function": "TOUT (verify)",
+      "pin_macro": "",
+      "is_complementary": true,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "W_LS",
+      "port_pin": "P02.5",
+      "function": "TOUT (verify)",
+      "pin_macro": "",
+      "is_complementary": true,
+      "verified": false,
+      "source": "hardware_verified"
+    }
+  ],
+  "clock_configuration": {
+    "xtal_frequency_mhz": 20,
+    "system_frequency_mhz": 300
+  },
+  "validation": {
+    "all_verified": false,
+    "conflicts": [
+      "Pin macro not found in IfxGtm_PinMap_TC38x_516 for TOM1 output on P02.0",
+      "Pin macro not found in IfxGtm_PinMap_TC38x_516 for TOM1 output on P02.7",
+      "Pin macro not found in IfxGtm_PinMap_TC38x_516 for TOM1 output on P02.1",
+      "Pin macro not found in IfxGtm_PinMap_TC38x_516 for TOM1 output on P02.4",
+      "Pin macro not found in IfxGtm_PinMap_TC38x_516 for TOM1 output on P02.2",
+      "Pin macro not found in IfxGtm_PinMap_TC38x_516 for TOM1 output on P02.5"
+    ],
+    "reference_pins_valid": false
+  },
+  "template_validation": {
+    "supported_peripherals": [
+      "PWM",
+      "GTM",
+      "TIMER",
+      "GPIO",
+      "ASCLIN",
+      "INTERRUPT",
+      "CPU"
+    ],
+    "suggested_drivers": {
+      "PWM": [
+        "IfxCcu6_PwmBc",
+        "IfxGtm_Tom_Pwm",
+        "IfxGtm_Tom_Dtm_PwmHl",
+        "IfxGtm_Atom_Dtm_PwmHl",
+        "IfxGtm_Atom_Pwm",
+        "IfxGtm_Pwm",
+        "IfxCcu6_TPwm",
+        "IfxGtm_Tom_PwmHl",
+        "IfxCcu6_PwmHl",
+        "IfxGtm_Atom_PwmHl"
+      ],
+      "GTM": [
+        "IfxGtm_Dtm",
+        "IfxGtm_Tbu",
+        "IfxGtm",
+        "IfxGtm_Spe",
+        "IfxGtm_Pwm",
+        "IfxGtm_Psm",
+        "IfxGtm_PinMap_TC38x_LFBGA516",
+        "IfxGtm_PinMap_TC38x_LFBGA292",
+        "IfxGtm_Trig",
+        "IfxGtm_Dpll",
+        "IfxGtm_PinMap_TC38x_516"
+      ],
+      "TIMER": [
+        "IfxStm_Timer",
+        "IfxGtm_Tom_Timer",
+        "IfxGtm_Tim_Timer",
+        "IfxGtm_Atom_Timer",
+        "IfxCcu6_Timer",
+        "IfxCcu6_TimerWithTrigger"
+      ],
+      "GPIO": [
+        "IfxPort_Io",
+        "IfxPort"
+      ],
+      "ASCLIN": [
+        "IfxAsclin_Asc",
+        "IfxAsclin_Lin",
+        "IfxAsclin_Spi",
+        "IfxAsclin"
+      ],
+      "INTERRUPT": [
+        "IfxCpu_Irq"
+      ],
+      "CPU": [
+        "IfxCpu"
+      ]
+    },
+    "warnings": []
+  },
+  "pin_analysis": {
+    "verified_count": 6,
+    "doc_reference_count": 1,
+    "merged_total": 7
+  }
+}
