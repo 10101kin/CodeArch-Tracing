@@ -1,0 +1,19 @@
+{
+  "attempt": 3,
+  "phase": "production",
+  "success": false,
+  "errors": [
+    "unknown type name 'IfxGtm_IrqMode'",
+    "unknown type name 'IfxPort_OutputMode'",
+    "unknown type name 'IfxPort_PadDriver'",
+    "unknown type name 'IfxGtm_Cmu_Clk'",
+    "unknown type name 'IfxGtm_Cmu_Fxclk'",
+    "unknown type name 'IfxPort_OutputMode'",
+    "unknown type name 'IfxPort_PadDriver'",
+    "implicit declaration of function 'IfxGtm_enable' [-Wimplicit-function-declaration]",
+    "implicit declaration of function 'IfxGtm_Cmu_getModuleFrequency'; did you mean 'IfxGtm_Cmu_setGclkFrequency'? [-Wimplicit-function-declaration]",
+    "'IFXGTM_CMU_CLKEN_ALL' undeclared (first use in this function)"
+  ],
+  "timestamp": "2026-03-26T14:53:06.631407",
+  "project_name": "Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TOM1_3_phase_r_20260326_144504"
+}

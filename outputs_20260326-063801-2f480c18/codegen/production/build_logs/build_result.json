@@ -1,0 +1,318 @@
+{
+  "success": false,
+  "errors": [
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\include/IfxGtm_Pwm.h",
+      "line": 110,
+      "category": "error",
+      "message": "unknown type name 'IfxGtm_IrqMode'"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\include/IfxGtm_Pwm.h",
+      "line": 124,
+      "category": "error",
+      "message": "unknown type name 'IfxPort_OutputMode'"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\include/IfxGtm_Pwm.h",
+      "line": 125,
+      "category": "error",
+      "message": "unknown type name 'IfxPort_PadDriver'"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\include/IfxGtm_Pwm.h",
+      "line": 154,
+      "category": "error",
+      "message": "unknown type name 'IfxGtm_Cmu_Clk'"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\include/IfxGtm_Pwm.h",
+      "line": 155,
+      "category": "error",
+      "message": "unknown type name 'IfxGtm_Cmu_Fxclk'"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\include/IfxGtm_Pwm.h",
+      "line": 181,
+      "category": "error",
+      "message": "unknown type name 'IfxPort_OutputMode'"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\include/IfxGtm_Pwm.h",
+      "line": 182,
+      "category": "error",
+      "message": "unknown type name 'IfxPort_PadDriver'"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 123,
+      "category": "error",
+      "message": "implicit declaration of function 'IfxGtm_enable' [-Wimplicit-function-declaration]"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 125,
+      "category": "error",
+      "message": "implicit declaration of function 'IfxGtm_Cmu_getModuleFrequency'; did you mean 'IfxGtm_Cmu_setGclkFrequency'? [-Wimplicit-function-declaration]"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 128,
+      "category": "error",
+      "message": "'IFXGTM_CMU_CLKEN_ALL' undeclared (first use in this function)"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 136,
+      "category": "error",
+      "message": "'IfxGtm_Tom_Timer_Config' has no member named 'tom'"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 36,
+      "category": "error",
+      "message": "'IfxGtm_Tom_1' undeclared (first use in this function); did you mean 'IfxGtm_Tom_Ch'?"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 137,
+      "category": "error",
+      "message": "'IfxGtm_Tom_Timer_Config' has no member named 'timerChannel'"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 138,
+      "category": "error",
+      "message": "'IfxGtm_Tom_Timer_Config' has no member named 'clock'"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 41,
+      "category": "error",
+      "message": "'IfxGtm_Tom_Ch_ClkSrc_cmuFxclk0' undeclared (first use in this function)"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 140,
+      "category": "error",
+      "message": "'IfxGtm_Tom_Timer_Config' has no member named 'base'"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 141,
+      "category": "error",
+      "message": "'IfxGtm_Tom_Timer_Config' has no member named 'base'"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 142,
+      "category": "error",
+      "message": "'IfxGtm_Tom_Timer_Config' has no member named 'base'"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 142,
+      "category": "error",
+      "message": "'IfxSrc_Tos_none' undeclared (first use in this function); did you mean 'IfxSrc_Tos_dma'?"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 143,
+      "category": "error",
+      "message": "'IfxGtm_Tom_Timer_Config' has no member named 'base'"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 63,
+      "category": "error",
+      "message": "'IfxGtm_TOM1_2_TOUT12_P00_3_OUT' undeclared (first use in this function)"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 64,
+      "category": "error",
+      "message": "'IfxGtm_TOM1_4_TOUT14_P00_5_OUT' undeclared (first use in this function)"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 65,
+      "category": "error",
+      "message": "'IfxGtm_TOM1_6_TOUT16_P00_7_OUT' undeclared (first use in this function)"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 194,
+      "category": "error",
+      "message": "'IfxGtm_IrqMode_pulseNotify' undeclared (first use in this function)"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 197,
+      "category": "error",
+      "message": "assignment to 'IfxGtm_Pwm_callBack' {aka 'void (*)(void)'} from incompatible pointer type 'void (*)(void *)' [-Wincompatible-pointer-types]"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 206,
+      "category": "error",
+      "message": "'IfxGtm_Pwm_ChannelConfig' has no member named 'mscOut'"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 214,
+      "category": "error",
+      "message": "'IfxGtm_Pwm_ChannelConfig' has no member named 'mscOut'"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 222,
+      "category": "error",
+      "message": "'IfxGtm_Pwm_ChannelConfig' has no member named 'mscOut'"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 226,
+      "category": "error",
+      "message": "'IfxGtm_Pwm_Config' has no member named 'cluster'"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 226,
+      "category": "error",
+      "message": "'IfxGtm_Cluster' undeclared (first use in this function)"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 229,
+      "category": "error",
+      "message": "'IfxGtm_Pwm_Config' has no member named 'syncStart'"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 231,
+      "category": "error",
+      "message": "assignment to 'IfxGtm_Pwm_Channel *' from incompatible pointer type 'IfxGtm_Pwm_ChannelConfig *' [-Wincompatible-pointer-types]"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 233,
+      "category": "error",
+      "message": "'IfxGtm_Pwm_Config' has no member named 'dtmClockSource'"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 233,
+      "category": "error",
+      "message": "'IfxGtm_Dtm_ClockSource_cmuClock0' undeclared (first use in this function)"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 234,
+      "category": "error",
+      "message": "'IfxGtm_Pwm_Config' has no member named 'syncUpdateEnabled'"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\include/IfxGtm_Pwm.h",
+      "line": 124,
+      "category": "error",
+      "message": "unknown type name 'IfxPort_OutputMode'"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\include/IfxGtm_Pwm.h",
+      "line": 125,
+      "category": "error",
+      "message": "unknown type name 'IfxPort_PadDriver'"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\include/IfxGtm_Pwm.h",
+      "line": 154,
+      "category": "error",
+      "message": "unknown type name 'IfxGtm_Cmu_Clk'"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\include/IfxGtm_Pwm.h",
+      "line": 155,
+      "category": "error",
+      "message": "unknown type name 'IfxGtm_Cmu_Fxclk'"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\include/IfxGtm_Pwm.h",
+      "line": 181,
+      "category": "error",
+      "message": "unknown type name 'IfxPort_OutputMode'"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\include/IfxGtm_Pwm.h",
+      "line": 182,
+      "category": "error",
+      "message": "unknown type name 'IfxPort_PadDriver'"
+    }
+  ],
+  "warnings": [
+    {
+      "file": "",
+      "message": "In file included from C:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\unity/unity.h:22,",
+      "category": "warning"
+    },
+    {
+      "file": "",
+      "message": "from C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\test\\test_gtm_tom_3_phase_inverter_pwm.c:1:",
+      "category": "warning"
+    },
+    {
+      "file": "",
+      "message": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\test\\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G1_001_init_enables_gtm_clocks_and_inits_pwm_once':",
+      "category": "warning"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\test\\test_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 37,
+      "category": "warning",
+      "message": "comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Wsign-compare]"
+    },
+    {
+      "file": "",
+      "message": "37 |     TEST_ASSERT_TRUE_MESSAGE((mock_IfxGtm_Tom_Timer_addToChannelMask_getCallCount() >= 1U), \"Timer addToChannelMask should be called at least once to include all three channels in update mask\");",
+      "category": "warning"
+    },
+    {
+      "file": "",
+      "message": "|                                                                                     ^~",
+      "category": "warning"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\Desktop\\infineon_POC_MVP\\unity/unity_internals.h",
+      "line": 891,
+      "category": "note",
+      "message": "in definition of macro 'UNITY_TEST_ASSERT'"
+    },
+    {
+      "file": "",
+      "message": "891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)",
+      "category": "warning"
+    },
+    {
+      "file": "",
+      "message": "|                                                                                                           ^~~~~~~~~",
+      "category": "warning"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\test\\test_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 37,
+      "category": "note",
+      "message": "in expansion of macro 'TEST_ASSERT_TRUE_MESSAGE'"
+    },
+    {
+      "file": "",
+      "message": "37 |     TEST_ASSERT_TRUE_MESSAGE((mock_IfxGtm_Tom_Timer_addToChannelMask_getCallCount() >= 1U), \"Timer addToChannelMask should be called at least once to include all three channels in update mask\");",
+      "category": "warning"
+    },
+    {
+      "file": "",
+      "message": "|     ^~~~~~~~~~~~~~~~~~~~~~~~",
+      "category": "warning"
+    }
+  ],
+  "stderr": "In file included from C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c:19:\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\include/IfxGtm_Pwm.h:110:5: error: unknown type name 'IfxGtm_IrqMode'\n  110 |     IfxGtm_IrqMode      mode;\n      |     ^~~~~~~~~~~~~~\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\include/IfxGtm_Pwm.h:124:5: error: unknown type name 'IfxPort_OutputMode'\n  124 |     IfxPort_OutputMode  outputMode;\n      |     ^~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\include/IfxGtm_Pwm.h:125:5: error: unknown type name 'IfxPort_PadDriver'\n  125 |     IfxPort_PadDriver   padDriver;\n      |     ^~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\include/IfxGtm_Pwm.h:154:5: error: unknown type name 'IfxGtm_Cmu_Clk'\n  154 |     IfxGtm_Cmu_Clk   atom;\n      |     ^~~~~~~~~~~~~~\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\include/IfxGtm_Pwm.h:155:5: error: unknown type name 'IfxGtm_Cmu_Fxclk'\n  155 |     IfxGtm_Cmu_Fxclk tom;\n      |     ^~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\include/IfxGtm_Pwm.h:181:5: error: unknown type name 'IfxPort_OutputMode'\n  181 |     IfxPort_OutputMode  outputMode;\n      |     ^~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\include/IfxGtm_Pwm.h:182:5: error: unknown type name 'IfxPort_PadDriver'\n  182 |     IfxPort_PadDriver   padDriver;\n      |     ^~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTomPwm':\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c:123:5: error: implicit declaration of function 'IfxGtm_enable' [-Wimplicit-function-declaration]\n  123 |     IfxGtm_enable(&MODULE_GTM);\n      |     ^~~~~~~~~~~~~\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c:125:27: error: implicit declaration of function 'IfxGtm_Cmu_getModuleFrequency'; did you mean 'IfxGtm_Cmu_setGclkFrequency'? [-Wimplicit-function-declaration]\n  125 |         float32 modFreq = IfxGtm_Cmu_getModuleFrequency(&MODULE_GTM);\n      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n      |                           IfxGtm_Cmu_setGclkFrequency\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c:128:46: error: 'IFXGTM_CMU_CLKEN_ALL' undeclared (first use in this function)\n  128 |         IfxGtm_Cmu_enableClocks(&MODULE_GTM, IFXGTM_CMU_CLKEN_ALL);\n      |                                              ^~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c:128:46: note: each undeclared identifier is reported only once for each function it appears in\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c:136:17: error: 'IfxGtm_Tom_Timer_Config' has no member named 'tom'\n  136 |         timerCfg.tom          = PWM_TOM_MODULE;\n      |                 ^\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c:36:46: error: 'IfxGtm_Tom_1' undeclared (first use in this function); did you mean 'IfxGtm_Tom_Ch'?\n   36 | #define PWM_TOM_MODULE                       IfxGtm_Tom_1\n      |                                              ^~~~~~~~~~~~\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c:136:33: note: in expansion of macro 'PWM_TOM_MODULE'\n  136 |         timerCfg.tom          = PWM_TOM_MODULE;\n      |                                 ^~~~~~~~~~~~~~\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c:137:17: error: 'IfxGtm_Tom_Timer_Config' has no member named 'timerChannel'\n  137 |         timerCfg.timerChannel = PWM_TIMEBASE_CHANNEL;\n      |                 ^\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c:138:17: error: 'IfxGtm_Tom_Timer_Config' has no member named 'clock'\n  138 |         timerCfg.clock        = PWM_TIMEBASE_CLOCK_SOURCE;\n      |                 ^\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c:41:46: error: 'IfxGtm_Tom_Ch_ClkSrc_cmuFxclk0' undeclared (first use in this function)\n   41 | #define PWM_TIMEBASE_CLOCK_SOURCE            IfxGtm_Tom_Ch_ClkSrc_cmuFxclk0\n      |                                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c:138:33: note: in expansion of macro 'PWM_TIMEBASE_CLOCK_SOURCE'\n  138 |         timerCfg.clock        = PWM_TIMEBASE_CLOCK_SOURCE;\n      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c:140:17: error: 'IfxGtm_Tom_Timer_Config' has no member named 'base'\n  140 |         timerCfg.base.frequency = PWM_FREQUENCY_HZ;              /* target PWM frequency */\n      |                 ^\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c:141:17: error: 'IfxGtm_Tom_Timer_Config' has no member named 'base'\n  141 |         timerCfg.base.isrPriority = 0;                           /* no timer ISR required here */\n      |                 ^\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c:142:17: error: 'IfxGtm_Tom_Timer_Config' has no member named 'base'\n  142 |         timerCfg.base.isrProvider = IfxSrc_Tos_none;             /* no ISR provider */\n      |                 ^\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c:142:37: error: 'IfxSrc_Tos_none' undeclared (first use in this function); did you mean 'IfxSrc_Tos_dma'?\n  142 |         timerCfg.base.isrProvider = IfxSrc_Tos_none;             /* no ISR provider */\n      |                                     ^~~~~~~~~~~~~~~\n      |                                     IfxSrc_Tos_dma\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c:143:17: error: 'IfxGtm_Tom_Timer_Config' has no member named 'base'\n  143 |         timerCfg.base.countDir = IfxStdIf_Timer_CountDir_upAndDown; /* center-aligned up/down */\n      |                 ^\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c:63:36: error: 'IfxGtm_TOM1_2_TOUT12_P00_3_OUT' undeclared (first use in this function)\n   63 | #define PHASE_U_HS                &IfxGtm_TOM1_2_TOUT12_P00_3_OUT\n      |                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c:164:67: note: in expansion of macro 'PHASE_U_HS'\n  164 |         outputCfg[0].pin                   = (IfxGtm_Pwm_ToutMap*)PHASE_U_HS;\n      |                                                                   ^~~~~~~~~~\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c:64:36: error: 'IfxGtm_TOM1_4_TOUT14_P00_5_OUT' undeclared (first use in this function)\n   64 | #define PHASE_V_HS                &IfxGtm_TOM1_4_TOUT14_P00_5_OUT\n      |                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c:171:67: note: in expansion of macro 'PHASE_V_HS'\n  171 |         outputCfg[1].pin                   = (IfxGtm_Pwm_ToutMap*)PHASE_V_HS;\n      |                                                                   ^~~~~~~~~~\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c:65:36: error: 'IfxGtm_TOM1_6_TOUT16_P00_7_OUT' undeclared (first use in this function)\n   65 | #define PHASE_W_HS                &IfxGtm_TOM1_6_TOUT16_P00_7_OUT\n      |                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c:178:67: note: in expansion of macro 'PHASE_W_HS'\n  178 |         outputCfg[2].pin                   = (IfxGtm_Pwm_ToutMap*)PHASE_W_HS;\n      |                                                                   ^~~~~~~~~~\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c:194:30: error: 'IfxGtm_IrqMode_pulseNotify' undeclared (first use in this function)\n  194 |         irqCfg.mode        = IfxGtm_IrqMode_pulseNotify;\n      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c:197:28: error: assignment to 'IfxGtm_Pwm_callBack' {aka 'void (*)(void)'} from incompatible pointer type 'void (*)(void *)' [-Wincompatible-pointer-types]\n  197 |         irqCfg.periodEvent = gtmTomPwm_periodEvent;\n      |                            ^\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c:86:6: note: 'gtmTomPwm_periodEvent' declared here\n   86 | void gtmTomPwm_periodEvent(void *data)\n      |      ^~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\include/IfxGtm_Pwm.h:99:16: note: 'IfxGtm_Pwm_callBack' declared here\n   99 | typedef void (*IfxGtm_Pwm_callBack)(void);\n      |                ^~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c:206:17: error: 'IfxGtm_Pwm_ChannelConfig' has no member named 'mscOut'\n  206 |         chCfg[0].mscOut     = NULL_PTR;\n      |                 ^\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c:214:17: error: 'IfxGtm_Pwm_ChannelConfig' has no member named 'mscOut'\n  214 |         chCfg[1].mscOut     = NULL_PTR;\n      |                 ^\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c:222:17: error: 'IfxGtm_Pwm_ChannelConfig' has no member named 'mscOut'\n  222 |         chCfg[2].mscOut     = NULL_PTR;\n      |                 ^\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c:226:15: error: 'IfxGtm_Pwm_Config' has no member named 'cluster'\n  226 |         pwmCfg.cluster           = (IfxGtm_Cluster)IFXGTM_CLUSTER;\n      |               ^\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c:226:37: error: 'IfxGtm_Cluster' undeclared (first use in this function)\n  226 |         pwmCfg.cluster           = (IfxGtm_Cluster)IFXGTM_CLUSTER;\n      |                                     ^~~~~~~~~~~~~~\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c:229:15: error: 'IfxGtm_Pwm_Config' has no member named 'syncStart'\n  229 |         pwmCfg.syncStart         = TRUE;\n      |               ^\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c:231:34: error: assignment to 'IfxGtm_Pwm_Channel *' from incompatible pointer type 'IfxGtm_Pwm_ChannelConfig *' [-Wincompatible-pointer-types]\n  231 |         pwmCfg.channels          = &chCfg[0];\n      |                                  ^\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c:233:15: error: 'IfxGtm_Pwm_Config' has no member named 'dtmClockSource'\n  233 |         pwmCfg.dtmClockSource    = IfxGtm_Dtm_ClockSource_cmuClock0;\n      |               ^\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c:233:36: error: 'IfxGtm_Dtm_ClockSource_cmuClock0' undeclared (first use in this function)\n  233 |         pwmCfg.dtmClockSource    = IfxGtm_Dtm_ClockSource_cmuClock0;\n      |                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\src\\gtm_tom_3_phase_inverter_pwm.c:234:15: error: 'IfxGtm_Pwm_Config' has no member named 'syncUpdateEnabled'\n  234 |         pwmCfg.syncUpdateEnabled = TRUE;\n      |               ^\n\nIn file included from C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c:5:\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\include/IfxGtm_Pwm.h:124:5: error: unknown type name 'IfxPort_OutputMode'\n  124 |     IfxPort_OutputMode  outputMode;\n      |     ^~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\include/IfxGtm_Pwm.h:125:5: error: unknown type name 'IfxPort_PadDriver'\n  125 |     IfxPort_PadDriver   padDriver;\n      |     ^~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\include/IfxGtm_Pwm.h:154:5: error: unknown type name 'IfxGtm_Cmu_Clk'\n  154 |     IfxGtm_Cmu_Clk   atom;\n      |     ^~~~~~~~~~~~~~\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\include/IfxGtm_Pwm.h:155:5: error: unknown type name 'IfxGtm_Cmu_Fxclk'\n  155 |     IfxGtm_Cmu_Fxclk tom;\n      |     ^~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\include/IfxGtm_Pwm.h:181:5: error: unknown type name 'IfxPort_OutputMode'\n  181 |     IfxPort_OutputMode  outputMode;\n      |     ^~~~~~~~~~~~~~~~~~\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_2aibsvdn\\include/IfxGtm_Pwm.h:182:5: error: unknown type name 'IfxPort_PadDriver'\n  182 |     IfxPort_PadDriver   padDriver;\n      |     ^~~~~~~~~~~~~~~~~\n",
+  "stdout": ""
+}
