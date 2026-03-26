@@ -1,0 +1,82 @@
+{
+  "module_name": "GTM_TOM_3_Phase_Inverter_PWM",
+  "public_functions": [
+    {
+      "signature": "void GTM_TOM_3PhaseInverterPWM_init(void)",
+      "behavior_description": "Enable the GTM module and configure its CMU to use the selected fixed clock derived from the global clock as the PWM time base. Initialize a unified GTM PWM configuration with defaults, then set: center-aligned mode at the requested frequency, one base time channel in the target TOM submodule as the master timebase, and three complementary output pairs with active-high polarity, specified dead-time and minimum pulse constraints. Assign the pre-verified output pins via the provided pin macros, configuring push-pull mode and the requested pad driver. Create and initialize the PWM handle with an internal channels array using the unified driver. After initialization, stage the initial duty values for the three phases (e.g., 25%, 50%, 75%) for the complementary pairs. To guarantee a synchronous latch of all updated duties at the next PWM period boundary, first disable synchronous updates, write the duty set to the shadow registers, then re-enable synchronous updates. Finally, enable the channel outputs so the configured PWM starts running on all assigned pins.",
+      "driver_calls": [
+        "IfxGtm_enable",
+        "IfxGtm_Cmu_selectClkInput",
+        "IfxGtm_Cmu_enableClocks",
+        "IfxGtm_Pwm_initConfig",
+        "IfxGtm_Pwm_initChannelConfig",
+        "IfxGtm_Pwm_init",
+        "IfxGtm_PinMap_setTomTout",
+        "IfxGtm_Pwm_updateChannelsPulseImmediate",
+        "IfxGtm_Pwm_updateChannelsDuty",
+        "IfxGtm_Pwm_updateChannelsPulseImmediate",
+        "IfxGtm_Pwm_startChannelOutputs"
+      ],
+      "from_reference": true,
+      "call_context": "init"
+    },
+    {
+      "signature": "void GTM_TOM_3PhaseInverterPWM_updateDuties(void)",
+      "behavior_description": "At each call, compute a duty step as a fraction of the PWM period and add it to each phase’s currently stored duty request. Apply wrap-around behavior: when any phase’s duty reaches or exceeds the configured upper threshold, reset that phase to the configured lower threshold. This results in a repeating ramp for each phase between defined minimum and maximum duty limits. To apply the three updated phase duties synchronously to all six complementary outputs, disable synchronous update first, write the new duty set to the driver (staging into shadow registers), then re-enable synchronous update so the new values latch simultaneously at the next PWM period boundary.",
+      "driver_calls": [
+        "IfxGtm_Pwm_updateChannelsPulseImmediate",
+        "IfxGtm_Pwm_updateChannelsDuty",
+        "IfxGtm_Pwm_updateChannelsPulseImmediate"
+      ],
+      "from_reference": true,
+      "call_context": "loop"
+    }
+  ],
+  "private_functions": [
+    {
+      "signature": "static void configureGtmTomPins(void)",
+      "needed": true,
+      "from_reference": false
+    }
+  ],
+  "dependencies": {
+    "includes": [
+      "Ifx_Types.h",
+      "IfxGtm_Pwm.h",
+      "IfxGtm_Cmu.h",
+      "IfxGtm.h",
+      "IfxGtm_PinMap.h",
+      "IfxPort.h"
+    ],
+    "driver_calls": [
+      "IfxGtm_enable",
+      "IfxGtm_Cmu_selectClkInput",
+      "IfxGtm_Cmu_enableClocks",
+      "IfxGtm_Pwm_initConfig",
+      "IfxGtm_Pwm_initChannelConfig",
+      "IfxGtm_Pwm_init",
+      "IfxGtm_PinMap_setTomTout",
+      "IfxGtm_Pwm_updateChannelsPulseImmediate",
+      "IfxGtm_Pwm_updateChannelsDuty",
+      "IfxGtm_Pwm_updateChannelsPulseImmediate",
+      "IfxGtm_Pwm_startChannelOutputs"
+    ]
+  },
+  "cpu_main_requirements": {
+    "needs_cpu_sync": true,
+    "uses_timer_delay": true,
+    "delay_ms": 10,
+    "additional_includes": [
+      "Bsp.h"
+    ]
+  },
+  "header_selection": {
+    "applied": true,
+    "peripheral_type": "PWM",
+    "recommended_header": "IfxGtm_Pwm",
+    "template_functions_count": 1026,
+    "required_includes": [
+      "IfxGtm_Pwm.h"
+    ]
+  }
+}
