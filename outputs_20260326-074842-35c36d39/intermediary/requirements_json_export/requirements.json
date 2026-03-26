@@ -6,11 +6,11 @@
     "target_family": "TC3xx",
     "migration_required": false,
     "driver_mappings": {
-      "IfxGtm_Tom_PwmHl": "IfxGtm_Pwm",
+      "IfxGtm_Tom_PwmHl": "IfxGtm_Tom_PwmHl",
       "IfxScuWdt": "IfxScuWdt"
     },
     "header_mappings": {
-      "IfxGtm_Tom_PwmHl.h": "IfxGtm_Pwm.h"
+      "IfxGtm_Tom_PwmHl.h": "IfxGtm_Tom_PwmHl.h"
     },
     "api_changes": [
       {
@@ -34,7 +34,7 @@
   "peripheral_requirement": {
     "type": "GTM_TOM",
     "driver_available": true,
-    "driver_name": "IfxGtm_Pwm",
+    "driver_name": "IfxGtm_Tom_PwmHl",
     "purpose": "Two-level 3-phase inverter PWM using TOM1 with 6 complementary outputs (center-aligned 20 kHz, dead-time and min-pulse enforced)"
   },
   "signal_requirements": {
@@ -106,11 +106,11 @@
     },
     "update_strategy": "synchronized via disableUpdate/applyUpdate",
     "duty_update_behavior": "static_initial",
-    "duty_update_behavior_note": "Static initial duties only; 10 ms ramp is not implemented."
+    "duty_update_behavior_note": "Default is to hold static initial duties; a 10 ms ramp can be enabled later if required"
   },
   "device_configuration": {
     "target_device_macro": "DEVICE_TC38X",
-    "pin_package": "IFX_PIN_PACKAGE_516",
+    "pin_package": "IFX_PIN_PACKAGE_292",
     "device_family": "TC3xx",
     "clock_requirements": {
       "requires_xtal": true,
