@@ -1,19 +1,19 @@
 {
-  "attempt": 5,
+  "attempt": 7,
   "phase": "production",
   "success": false,
   "errors": [
-    "unknown type name 'IfxGtm_IrqMode'",
-    "duplicate 'static'",
-    "implicit declaration of function 'IfxGtm_enable' [-Wimplicit-function-declaration]",
-    "implicit declaration of function 'IfxGtm_Cmu_getModuleFrequency'; did you mean 'IfxGtm_Cmu_setGclkFrequency'? [-Wimplicit-function-declaration]",
-    "'IFXGTM_CMU_CLKEN_ALL' undeclared (first use in this function)",
+    "'IFXGTM_CMU_CLKEN_FXCLK' undeclared (first use in this function)",
     "'IfxGtm_Tom_Timer_Config' has no member named 'tom'",
     "'IfxGtm_Tom_1' undeclared (first use in this function); did you mean 'IfxGtm_Tom_Ch'?",
     "'IfxGtm_Tom_Timer_Config' has no member named 'timerChannel'",
     "'IfxGtm_Tom_Timer_Config' has no member named 'clock'",
-    "'IfxGtm_Tom_Ch_ClkSrc_cmuFxclk0' undeclared (first use in this function)"
+    "'IfxGtm_Tom_Ch_ClkSrc_cmuFxclk0' undeclared (first use in this function)",
+    "'IfxGtm_Tom_Timer_Config' has no member named 'base'",
+    "'IfxGtm_TOM1_2_TOUT12_P00_3_OUT' undeclared (first use in this function)",
+    "'IfxGtm_TOM1_4_TOUT14_P00_5_OUT' undeclared (first use in this function)",
+    "'IfxGtm_TOM1_6_TOUT16_P00_7_OUT' undeclared (first use in this function)"
   ],
-  "timestamp": "2026-03-26T14:58:51.486655",
+  "timestamp": "2026-03-26T15:04:45.364925",
   "project_name": "Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TOM1_3_phase_r_20260326_144504"
 }

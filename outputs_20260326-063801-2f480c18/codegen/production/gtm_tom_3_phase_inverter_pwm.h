@@ -1,9 +1,10 @@
 /*
  * gtm_tom_3_phase_inverter_pwm.h
  *
- * Public API for GTM TOM 3-Phase Inverter PWM (single-ended) using IfxGtm_Tom_Timer timebase
+ * Public API for GTM TOM 3-Phase Inverter PWM using IfxGtm_Pwm (single-ended)
  *
- * NOTE: Do not place watchdog disable code here. Follow AURIX standard: watchdog handling only in CpuX_Main.c
+ * This header intentionally contains only include guards and function prototypes,
+ * as required by the production code rules.
  */
 #ifndef GTM_TOM_3_PHASE_INVERTER_PWM_H
 #define GTM_TOM_3_PHASE_INVERTER_PWM_H
@@ -12,8 +13,10 @@
 extern "C" {
 #endif
 
-/* Public API */
+/* Initialize GTM, TOM timebase, and unified PWM for 3 single-ended channels */
 void initGtmTomPwm(void);
+
+/* Update duties (+10% step with 0..100% wrap) and apply synchronous shadow transfer */
 void updateGtmTomPwmDutyCycles(void);
 
 #ifdef __cplusplus
