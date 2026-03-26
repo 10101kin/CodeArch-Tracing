@@ -1,9 +1,9 @@
 #ifndef IFXGTM_H
 #define IFXGTM_H
 
-#include "illd_types/Ifx_Types.h"  /* REQUIRED for uint8, uint16, uint32, boolean, float32 types */
+#include "illd_types/Ifx_Types.h"  /* REQUIRED for base types */
 
-/* API declarations */
+/* Function declarations */
 /* Mock controls */
 /* GTM enable/disable functions (auto-injected for TDD) */
 

@@ -13,9 +13,9 @@
 /* IfxGtm_Tom - from illd_types/Ifx_Types.h */
 /* IfxGtm_Tom_Ch - from illd_types/Ifx_Types.h */
 
-/* IfxPort_OutputIdx - defined in IfxPort.h */
+/* IfxPort_OutputIdx - defined in Ifx_Types.h */
 
-/* IfxGtm_Tom_ToutMap - from illd_types/Ifx_Types.h */
+/* IfxGtm_Tom_ToutMap - defined in Ifx_Types.h */
 
 typedef IfxGtm_Tom_ToutMap* IfxGtm_Tom_ToutMapP;
 
