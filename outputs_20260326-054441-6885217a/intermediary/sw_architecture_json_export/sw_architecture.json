@@ -31,8 +31,7 @@
       "IfxGtm_Pwm_stopSyncedChannels",
       "IfxGtm_Pwm_startChannelOutputs",
       "IfxGtm_Pwm_stopChannelOutputs"
-    ],
-    "initialization_apis_verification": "PENDING: Consult the iLLD Doxygen or header files for TC3xx to confirm the existence and signatures of these APIs."
+    ]
   },
   "file_structure": {
     "module_files": [
@@ -92,11 +91,7 @@
         "reason": "Program 0.5 µs dead-time via unified driver (DTM handled internally)"
       }
     ],
-    "context_preserved": "The solution keeps TOM1 with CH0 as master at cmuFxclk0, center-aligned complementary PWM with active-high CCX/COUTX, enforces dead-time and min pulse, uses the exact requested pins (P00.2..P00.7) in push-pull with cmosAutomotiveSpeed1, and initializes duties to 25/50/75%. Unified IfxGtm_Pwm maintains the original high/low complementary intent while leveraging template-available APIs.",
-    "api_changes_verification": "PENDING: Check the iLLD release notes or Doxygen for official migration guidance between these APIs.",
-    "resource_conflicts": [
-      "TOM1_4–TOM1_6 must not be used as CAN triggers if used for PWM."
-    ]
+    "context_preserved": "The solution keeps TOM1 with CH0 as master at cmuFxclk0, center-aligned complementary PWM with active-high CCX/COUTX, enforces dead-time and min pulse, uses the exact requested pins (P00.2..P00.7) in push-pull with cmosAutomotiveSpeed1, and initializes duties to 25/50/75%. Unified IfxGtm_Pwm maintains the original high/low complementary intent while leveraging template-available APIs."
   },
   "header_selection": {
     "applied": true,
@@ -109,8 +104,7 @@
     "function_mapping": {
       "IfxGtm_enable": "IfxGtm_Pwm_enableChannel"
     },
-    "available_functions_count": 99,
-    "recommended_header_verification": "PENDING: Check the iLLD package for TC3xx (TC387) and confirm IfxGtm_Pwm.h is present in the include directory."
+    "available_functions_count": 99
   },
   "driver_selection_engine": {
     "applied": true,
@@ -194,7 +188,6 @@
     "user_must_handle": [
       "clock_setup_via_CMU",
       "pin_mapping"
-    ],
-    "handles_internally_verification": "PENDING: Review the iLLD documentation for IfxGtm_Pwm to confirm these features are handled internally."
+    ]
   }
 }
