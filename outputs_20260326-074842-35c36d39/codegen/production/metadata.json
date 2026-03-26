@@ -1,0 +1,183 @@
+{
+  "attempt": 1,
+  "phase_attempt": 1,
+  "phase": "production",
+  "timestamp": "2026-03-26T16:44:26.598228",
+  "success": false,
+  "files": [
+    "gtm_tom_3_phase_inverter_pwm.h",
+    "gtm_tom_3_phase_inverter_pwm.c"
+  ],
+  "errors": [
+    "unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?",
+    "unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?",
+    "unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?",
+    "unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?",
+    "unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?",
+    "unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?",
+    "redefinition of 's_selectClkInput_count'",
+    "redefinition of 'IfxGtm_Cmu_Mock_GetCallCount_selectClkInput'",
+    "unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?",
+    "unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?"
+  ],
+  "build_result": {
+    "success": false,
+    "errors": [
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h",
+        "line": 1341,
+        "column": 8,
+        "message": "unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?",
+        "category": "illd_api_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h",
+        "line": 1341,
+        "column": 8,
+        "message": "unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?",
+        "category": "illd_api_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h",
+        "line": 1341,
+        "column": 8,
+        "message": "unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?",
+        "category": "illd_api_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include\\illd_types/Ifx_Types.h",
+        "line": 1341,
+        "column": 8,
+        "message": "unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?",
+        "category": "illd_api_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h",
+        "line": 1341,
+        "column": 8,
+        "message": "unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?",
+        "category": "illd_api_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h",
+        "line": 1341,
+        "column": 8,
+        "message": "unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?",
+        "category": "illd_api_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\mocks\\IfxGtm_Cmu.c",
+        "line": 20,
+        "column": 15,
+        "message": "redefinition of 's_selectClkInput_count'",
+        "category": "unknown",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\mocks\\IfxGtm_Cmu.c",
+        "line": 34,
+        "column": 8,
+        "message": "redefinition of 'IfxGtm_Cmu_Mock_GetCallCount_selectClkInput'",
+        "category": "illd_api_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h",
+        "line": 1341,
+        "column": 8,
+        "message": "unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?",
+        "category": "illd_api_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h",
+        "line": 1341,
+        "column": 8,
+        "message": "unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?",
+        "category": "illd_api_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h",
+        "line": 1341,
+        "column": 8,
+        "message": "unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?",
+        "category": "illd_api_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include\\illd_types/Ifx_Types.h",
+        "line": 1341,
+        "column": 8,
+        "message": "unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?",
+        "category": "illd_api_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include\\illd_types/Ifx_Types.h",
+        "line": 1341,
+        "column": 8,
+        "message": "unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?",
+        "category": "illd_api_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h",
+        "line": 1341,
+        "column": 8,
+        "message": "unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?",
+        "category": "illd_api_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h",
+        "line": 1341,
+        "column": 8,
+        "message": "unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?",
+        "category": "illd_api_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\mocks\\IfxStm.c",
+        "line": 20,
+        "column": 21,
+        "message": "'millis' undeclared (first use in this function)",
+        "category": "unknown",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\mocks\\IfxStm.c",
+        "line": 25,
+        "column": 20,
+        "message": "'micros' undeclared (first use in this function)",
+        "category": "unknown",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include\\illd_types/Ifx_Types.h",
+        "line": 1341,
+        "column": 8,
+        "message": "unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?",
+        "category": "illd_api_error",
+        "severity": "error"
+      },
+      {
+        "file": "\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h",
+        "line": 1341,
+        "column": 8,
+        "message": "unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?",
+        "category": "illd_api_error",
+        "severity": "error"
+      }
+    ],
+    "warnings": [],
+    "stderr": "In file included from C:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include/Ifx_Types.h:5,\n                 from C:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include/gtm_tom_3_phase_inverter_pwm.h:4,\n                 from C:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\src\\gtm_tom_3_phase_inverter_pwm.c:1:\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h:1341:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?\n 1341 | extern Ifx_STMx MODULE_STMx;\n      |        ^~~~~~~~\n      |        Ifx_STM\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\src\\gtm_tom_3_phase_inverter_pwm.c: In function 'GTM_TOM_3PhaseInverterPWM_init':\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\src\\gtm_tom_3_phase_inverter_pwm.c:144:23: warning: unused variable 'deadTime_s' [-Wunused-variable]\n  144 |         const float32 deadTime_s = (TIMING_DEADTIME_US * 1.0e-6f);  /* 0.5 us */\n      |                       ^~~~~~~~~~\nIn file included from C:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include/IfxGtm_PinMap.h:5,\n                 from C:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\src\\gtm_tom_3_phase_inverter_pwm.c:7:\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include/IfxPort.h: At top level:\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include/IfxPort.h:10:17: warning: 'IfxPort_setPinModeOutput' used but never defined\n   10 | IFX_INLINE void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);\n      |                 ^~~~~~~~~~~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include/IfxCpu.h:4,\n                 from C:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\mocks\\IfxCpu.c:1:\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h:1341:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?\n 1341 | extern Ifx_STMx MODULE_STMx;\n      |        ^~~~~~~~\n      |        Ifx_STM\n\nIn file included from C:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include/IfxCpu_Irq.h:4,\n                 from C:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\mocks\\IfxCpu_Irq.c:1:\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h:1341:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?\n 1341 | extern Ifx_STMx MODULE_STMx;\n      |        ^~~~~~~~\n      |        Ifx_STM\n\nIn file included from C:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\mocks\\IfxEgtm_Pwm.c:1:\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include\\illd_types/Ifx_Types.h:1341:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?\n 1341 | extern Ifx_STMx MODULE_STMx;\n      |        ^~~~~~~~\n      |        Ifx_STM\n\nIn file included from C:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include/IfxGtm.h:4,\n                 from C:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\mocks\\IfxGtm.c:1:\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h:1341:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?\n 1341 | extern Ifx_STMx MODULE_STMx;\n      |        ^~~~~~~~\n      |        Ifx_STM\n\nIn file included from C:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include/IfxGtm_Cmu.h:4,\n                 from C:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\mocks\\IfxGtm_Cmu.c:1:\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h:1341:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?\n 1341 | extern Ifx_STMx MODULE_STMx;\n      |        ^~~~~~~~\n      |        Ifx_STM\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\mocks\\IfxGtm_Cmu.c:20:15: error: redefinition of 's_selectClkInput_count'\n   20 | static uint32 s_selectClkInput_count = 0;\n      |               ^~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\mocks\\IfxGtm_Cmu.c:7:15: note: previous definition of 's_selectClkInput_count' with type 'uint32' {aka 'unsigned int'}\n    7 | static uint32 s_selectClkInput_count = 0u;\n      |               ^~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\mocks\\IfxGtm_Cmu.c:34:8: error: redefinition of 'IfxGtm_Cmu_Mock_GetCallCount_selectClkInput'\n   34 | uint32 IfxGtm_Cmu_Mock_GetCallCount_selectClkInput(void) { return s_selectClkInput_count; }\n      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\mocks\\IfxGtm_Cmu.c:29:8: note: previous definition of 'IfxGtm_Cmu_Mock_GetCallCount_selectClkInput' with type 'uint32(void)' {aka 'unsigned int(void)'}\n   29 | uint32 IfxGtm_Cmu_Mock_GetCallCount_selectClkInput(void) {\n      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include/IfxGtm_Tom.h:4,\n                 from C:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include/IfxGtm_PinMap.h:4,\n                 from C:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\mocks\\IfxGtm_PinMap.c:1:\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h:1341:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?\n 1341 | extern Ifx_STMx MODULE_STMx;\n      |        ^~~~~~~~\n      |        Ifx_STM\nIn file included from C:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include/IfxGtm_PinMap.h:5:\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include/IfxPort.h:10:17: warning: 'IfxPort_setPinModeOutput' declared 'static' but never defined [-Wunused-function]\n   10 | IFX_INLINE void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);\n      |                 ^~~~~~~~~~~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include/IfxGtm_Pwm.h:4,\n                 from C:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\mocks\\IfxGtm_Pwm.c:1:\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h:1341:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?\n 1341 | extern Ifx_STMx MODULE_STMx;\n      |        ^~~~~~~~\n      |        Ifx_STM\n\nIn file included from C:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include/IfxGtm_Tom.h:4,\n                 from C:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\mocks\\IfxGtm_Tom.c:1:\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h:1341:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?\n 1341 | extern Ifx_STMx MODULE_STMx;\n      |        ^~~~~~~~\n      |        Ifx_STM\n\nIn file included from C:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\mocks\\IfxPort.c:1:\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include\\illd_types/Ifx_Types.h:1341:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?\n 1341 | extern Ifx_STMx MODULE_STMx;\n      |        ^~~~~~~~\n      |        Ifx_STM\n\nIn file included from C:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\mocks\\IfxPort_PinMap.c:1:\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include\\illd_types/Ifx_Types.h:1341:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?\n 1341 | extern Ifx_STMx MODULE_STMx;\n      |        ^~~~~~~~\n      |        Ifx_STM\n\nIn file included from C:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include/IfxSrc.h:4,\n                 from C:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\mocks\\IfxSrc.c:1:\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h:1341:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?\n 1341 | extern Ifx_STMx MODULE_STMx;\n      |        ^~~~~~~~\n      |        Ifx_STM\n\nIn file included from C:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include/IfxStm.h:4,\n                 from C:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\mocks\\IfxStm.c:1:\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h:1341:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?\n 1341 | extern Ifx_STMx MODULE_STMx;\n      |        ^~~~~~~~\n      |        Ifx_STM\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\mocks\\IfxStm.c: In function 'IfxStm_getTicksFromMilliseconds':\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\mocks\\IfxStm.c:20:21: error: 'millis' undeclared (first use in this function)\n   20 |     return (sint32)(millis * 1000);  /* Simple conversion for testing */\n      |                     ^~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\mocks\\IfxStm.c:20:21: note: each undeclared identifier is reported only once for each function it appears in\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\mocks\\IfxStm.c: In function 'IfxStm_getTicksFromMicroseconds':\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\mocks\\IfxStm.c:25:20: error: 'micros' undeclared (first use in this function)\n   25 |     return (sint32)micros;\n      |                    ^~~~~~\n\nIn file included from C:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\mocks\\Ifx_Types.c:1:\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include\\illd_types/Ifx_Types.h:1341:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?\n 1341 | extern Ifx_STMx MODULE_STMx;\n      |        ^~~~~~~~\n      |        Ifx_STM\n\nIn file included from C:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include/Ifx_Types.h:5,\n                 from C:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include/gtm_tom_3_phase_inverter_pwm.h:4,\n                 from C:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c:2:\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include/illd_types/Ifx_Types.h:1341:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?\n 1341 | extern Ifx_STMx MODULE_STMx;\n      |        ^~~~~~~~\n      |        Ifx_STM\nIn file included from C:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include/IfxGtm_PinMap.h:5,\n                 from C:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c:6:\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\include/IfxPort.h:10:17: warning: 'IfxPort_setPinModeOutput' declared 'static' but never defined [-Wunused-function]\n   10 | IFX_INLINE void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);\n      |                 ^~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\outputs_20260326-074842-35c36d39\\c5bc9be6-7a3\\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\\attempts\\phase_001_build\\test\\test_GTM_TOM_3_Phase_Inverter_PWM.c:116:15: warning: 'get_history_count' defined but not used [-Wunused-function]\n  116 | static uint32 get_history_count(UpdateApi api)\n      |               ^~~~~~~~~~~~~~~~~\n",
+    "stdout": ""
+  }
+}
