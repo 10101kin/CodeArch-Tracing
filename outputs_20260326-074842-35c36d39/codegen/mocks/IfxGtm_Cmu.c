@@ -1,13 +1,13 @@
 #include "IfxGtm_Cmu.h"
 
 /* Call counters */
-static uint32 s_enableClocks_count = 0u;
-static uint32 s_selectClkInput_count = 0u;
+static uint32 s_enableClocks_count = 0;
+static uint32 s_selectClkInput_count = 0;
 
 /* Last-argument captures */
-static uint32 s_enableClocks_lastClkMask = 0u;
-static uint32 s_selectClkInput_lastClkIndex = 0u;
-static uint32 s_selectClkInput_lastUseGlobal = 0u;
+static uint32 s_enableClocks_lastClkMask = 0;
+static uint32 s_selectClkInput_lastClkIndex = 0;
+static uint32 s_selectClkInput_lastUseGlobal = 0;
 
 void IfxGtm_Cmu_enableClocks(Ifx_GTM *gtm, uint32 clkMask) {
     (void)gtm;
@@ -22,18 +22,18 @@ void IfxGtm_Cmu_selectClkInput(Ifx_GTM *gtm, IfxGtm_Cmu_Clk clkIndex, boolean us
     s_selectClkInput_lastUseGlobal = (uint32)useGlobal;
 }
 
+/* Mock controls */
 uint32 IfxGtm_Cmu_Mock_GetCallCount_enableClocks(void) { return s_enableClocks_count; }
-uint32 IfxGtm_Cmu_Mock_GetCallCount_selectClkInput(void) { return s_selectClkInput_count; }
 uint32 IfxGtm_Cmu_Mock_GetLastArg_enableClocks_clkMask(void) { return s_enableClocks_lastClkMask; }
+
+uint32 IfxGtm_Cmu_Mock_GetCallCount_selectClkInput(void) { return s_selectClkInput_count; }
 uint32 IfxGtm_Cmu_Mock_GetLastArg_selectClkInput_clkIndex(void) { return s_selectClkInput_lastClkIndex; }
 uint32 IfxGtm_Cmu_Mock_GetLastArg_selectClkInput_useGlobal(void) { return s_selectClkInput_lastUseGlobal; }
 
 void IfxGtm_Cmu_Mock_Reset(void) {
-    s_enableClocks_count = 0u;
-    s_selectClkInput_count = 0u;
-    s_enableClocks_lastClkMask = 0u;
-    s_selectClkInput_lastClkIndex = 0u;
-    s_selectClkInput_lastUseGlobal = 0u;
+    s_enableClocks_count = 0; s_selectClkInput_count = 0;
+    s_enableClocks_lastClkMask = 0;
+    s_selectClkInput_lastClkIndex = 0; s_selectClkInput_lastUseGlobal = 0;
 }
 
 float32 IfxGtm_Cmu_getGclkFrequency(Ifx_GTM *gtm) {

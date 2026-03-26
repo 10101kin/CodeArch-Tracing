@@ -2,13 +2,13 @@
 #define IFXGTM_CMU_H
 #ifndef IFX_GTM_CMU_ECLK_DEFINED
 
-#include "illd_types/Ifx_Types.h"  /* REQUIRED for uint32, boolean, etc. */
+#include "illd_types/Ifx_Types.h"  /* REQUIRED for uint32, boolean, float32 types */
 
 /* ============= Type Definitions ============= */
 /* IfxGtm_Cmu_Eclk - from illd_types/Ifx_Types.h */
 
-/* Function declarations */
-/* Mock control functions */
+/* Production API */
+/* Mock controls */
 /* ============= GTM CMU Enums (MUST be before function declarations) ============= */
 /* DUPLICATE IfxGtm_Cmu_Clk REMOVED - defined in illd_types/Ifx_Types.h */
 /* DUPLICATE IfxGtm_Cmu_Eclk REMOVED - defined in illd_types/Ifx_Types.h */
@@ -36,8 +36,8 @@
 void IfxGtm_Cmu_enableClocks(Ifx_GTM *gtm, uint32 clkMask);
 void IfxGtm_Cmu_selectClkInput(Ifx_GTM *gtm, IfxGtm_Cmu_Clk clkIndex, boolean useGlobal);
 uint32 IfxGtm_Cmu_Mock_GetCallCount_enableClocks(void);
-uint32 IfxGtm_Cmu_Mock_GetCallCount_selectClkInput(void);
 uint32 IfxGtm_Cmu_Mock_GetLastArg_enableClocks_clkMask(void);
+uint32 IfxGtm_Cmu_Mock_GetCallCount_selectClkInput(void);
 uint32 IfxGtm_Cmu_Mock_GetLastArg_selectClkInput_clkIndex(void);
 uint32 IfxGtm_Cmu_Mock_GetLastArg_selectClkInput_useGlobal(void);
 void   IfxGtm_Cmu_Mock_Reset(void);

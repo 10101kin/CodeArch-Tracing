@@ -11,26 +11,27 @@ static uint32 s_togglePin_count = 0;
 static uint32 s_setPinMode_count = 0;
 static uint32 s_setPinModeLVDS_count = 0;
 
-/* Return value storage */
+/* Return controls */
 static boolean s_getPinState_ret = 0u;
 
-/* Last-argument captures */
-static uint32 s_getPinState_lastPinIndex = 0u;
-static uint32 s_setPinHigh_lastPinIndex = 0u;
-static uint32 s_setPinLow_lastPinIndex = 0u;
-static uint32 s_setPinModeInput_lastPinIndex = 0u;
-static uint32 s_setPinModeInput_lastMode = 0u;
-static uint32 s_setPinModeOutput_lastPinIndex = 0u;
-static uint32 s_setPinModeOutput_lastMode = 0u;
-static uint32 s_setPinModeOutput_lastIndex = 0u;
-static uint32 s_setPinState_lastPinIndex = 0u;
-static uint32 s_setPinState_lastAction = 0u;
-static uint32 s_togglePin_lastPinIndex = 0u;
-static uint32 s_setPinMode_lastPinIndex = 0u;
-static uint32 s_setPinMode_lastMode = 0u;
-static uint32 s_setPinModeLVDS_lastPinIndex = 0u;
-static uint32 s_setPinModeLVDS_lastPinMode = 0u;
+/* Last-argument captures (value-carrying parameters) */
+static uint32 s_getPinState_lastPinIndex = 0;
+static uint32 s_setPinHigh_lastPinIndex = 0;
+static uint32 s_setPinLow_lastPinIndex = 0;
+static uint32 s_setPinModeInput_lastPinIndex = 0;
+static uint32 s_setPinModeInput_lastMode = 0;
+static uint32 s_setPinModeOutput_lastPinIndex = 0;
+static uint32 s_setPinModeOutput_lastMode = 0;
+static uint32 s_setPinModeOutput_lastIndex = 0;
+static uint32 s_setPinState_lastPinIndex = 0;
+static uint32 s_setPinState_lastAction = 0;
+static uint32 s_togglePin_lastPinIndex = 0;
+static uint32 s_setPinMode_lastPinIndex = 0;
+static uint32 s_setPinMode_lastMode = 0;
+static uint32 s_setPinModeLVDS_lastPinIndex = 0;
+static uint32 s_setPinModeLVDS_lastPinMode = 0;
 
+/* Stub implementations */
 boolean IfxPort_getPinState(Ifx_P *port, uint8 pinIndex) {
     (void)port;
     s_getPinState_count++;
@@ -93,62 +94,55 @@ void IfxPort_setPinModeLVDS(Ifx_P *port, uint8 pinIndex, IfxPort_Mode pinMode, I
     s_setPinModeLVDS_lastPinMode = (uint32)pinMode;
 }
 
-/* Mock control implementations */
+/* Mock controls */
 uint32 IfxPort_Mock_GetCallCount_getPinState(void) { return s_getPinState_count; }
-uint32 IfxPort_Mock_GetCallCount_setPinHigh(void) { return s_setPinHigh_count; }
-uint32 IfxPort_Mock_GetCallCount_setPinLow(void) { return s_setPinLow_count; }
-uint32 IfxPort_Mock_GetCallCount_setPinModeInput(void) { return s_setPinModeInput_count; }
-uint32 IfxPort_Mock_GetCallCount_setPinModeOutput(void) { return s_setPinModeOutput_count; }
-uint32 IfxPort_Mock_GetCallCount_setPinState(void) { return s_setPinState_count; }
-uint32 IfxPort_Mock_GetCallCount_togglePin(void) { return s_togglePin_count; }
-uint32 IfxPort_Mock_GetCallCount_setPinMode(void) { return s_setPinMode_count; }
-uint32 IfxPort_Mock_GetCallCount_setPinModeLVDS(void) { return s_setPinModeLVDS_count; }
-
-void IfxPort_Mock_SetReturn_getPinState(boolean value) { s_getPinState_ret = value; }
-boolean IfxPort_Mock_GetReturn_getPinState(void) { return s_getPinState_ret; }
-
+void   IfxPort_Mock_SetReturn_getPinState(boolean value) { s_getPinState_ret = value; }
 uint32 IfxPort_Mock_GetLastArg_getPinState_pinIndex(void) { return s_getPinState_lastPinIndex; }
+
+uint32 IfxPort_Mock_GetCallCount_setPinHigh(void) { return s_setPinHigh_count; }
 uint32 IfxPort_Mock_GetLastArg_setPinHigh_pinIndex(void) { return s_setPinHigh_lastPinIndex; }
+
+uint32 IfxPort_Mock_GetCallCount_setPinLow(void) { return s_setPinLow_count; }
 uint32 IfxPort_Mock_GetLastArg_setPinLow_pinIndex(void) { return s_setPinLow_lastPinIndex; }
+
+uint32 IfxPort_Mock_GetCallCount_setPinModeInput(void) { return s_setPinModeInput_count; }
 uint32 IfxPort_Mock_GetLastArg_setPinModeInput_pinIndex(void) { return s_setPinModeInput_lastPinIndex; }
 uint32 IfxPort_Mock_GetLastArg_setPinModeInput_mode(void) { return s_setPinModeInput_lastMode; }
+
+uint32 IfxPort_Mock_GetCallCount_setPinModeOutput(void) { return s_setPinModeOutput_count; }
 uint32 IfxPort_Mock_GetLastArg_setPinModeOutput_pinIndex(void) { return s_setPinModeOutput_lastPinIndex; }
 uint32 IfxPort_Mock_GetLastArg_setPinModeOutput_mode(void) { return s_setPinModeOutput_lastMode; }
 uint32 IfxPort_Mock_GetLastArg_setPinModeOutput_index(void) { return s_setPinModeOutput_lastIndex; }
+
+uint32 IfxPort_Mock_GetCallCount_setPinState(void) { return s_setPinState_count; }
 uint32 IfxPort_Mock_GetLastArg_setPinState_pinIndex(void) { return s_setPinState_lastPinIndex; }
 uint32 IfxPort_Mock_GetLastArg_setPinState_action(void) { return s_setPinState_lastAction; }
+
+uint32 IfxPort_Mock_GetCallCount_togglePin(void) { return s_togglePin_count; }
 uint32 IfxPort_Mock_GetLastArg_togglePin_pinIndex(void) { return s_togglePin_lastPinIndex; }
+
+uint32 IfxPort_Mock_GetCallCount_setPinMode(void) { return s_setPinMode_count; }
 uint32 IfxPort_Mock_GetLastArg_setPinMode_pinIndex(void) { return s_setPinMode_lastPinIndex; }
 uint32 IfxPort_Mock_GetLastArg_setPinMode_mode(void) { return s_setPinMode_lastMode; }
+
+uint32 IfxPort_Mock_GetCallCount_setPinModeLVDS(void) { return s_setPinModeLVDS_count; }
 uint32 IfxPort_Mock_GetLastArg_setPinModeLVDS_pinIndex(void) { return s_setPinModeLVDS_lastPinIndex; }
 uint32 IfxPort_Mock_GetLastArg_setPinModeLVDS_pinMode(void) { return s_setPinModeLVDS_lastPinMode; }
 
 void IfxPort_Mock_Reset(void) {
-    s_getPinState_count = 0u;
-    s_setPinHigh_count = 0u;
-    s_setPinLow_count = 0u;
-    s_setPinModeInput_count = 0u;
-    s_setPinModeOutput_count = 0u;
-    s_setPinState_count = 0u;
-    s_togglePin_count = 0u;
-    s_setPinMode_count = 0u;
-    s_setPinModeLVDS_count = 0u;
+    s_getPinState_count = 0; s_setPinHigh_count = 0; s_setPinLow_count = 0;
+    s_setPinModeInput_count = 0; s_setPinModeOutput_count = 0; s_setPinState_count = 0;
+    s_togglePin_count = 0; s_setPinMode_count = 0; s_setPinModeLVDS_count = 0;
 
     s_getPinState_ret = 0u;
 
-    s_getPinState_lastPinIndex = 0u;
-    s_setPinHigh_lastPinIndex = 0u;
-    s_setPinLow_lastPinIndex = 0u;
-    s_setPinModeInput_lastPinIndex = 0u;
-    s_setPinModeInput_lastMode = 0u;
-    s_setPinModeOutput_lastPinIndex = 0u;
-    s_setPinModeOutput_lastMode = 0u;
-    s_setPinModeOutput_lastIndex = 0u;
-    s_setPinState_lastPinIndex = 0u;
-    s_setPinState_lastAction = 0u;
-    s_togglePin_lastPinIndex = 0u;
-    s_setPinMode_lastPinIndex = 0u;
-    s_setPinMode_lastMode = 0u;
-    s_setPinModeLVDS_lastPinIndex = 0u;
-    s_setPinModeLVDS_lastPinMode = 0u;
+    s_getPinState_lastPinIndex = 0;
+    s_setPinHigh_lastPinIndex = 0;
+    s_setPinLow_lastPinIndex = 0;
+    s_setPinModeInput_lastPinIndex = 0; s_setPinModeInput_lastMode = 0;
+    s_setPinModeOutput_lastPinIndex = 0; s_setPinModeOutput_lastMode = 0; s_setPinModeOutput_lastIndex = 0;
+    s_setPinState_lastPinIndex = 0; s_setPinState_lastAction = 0;
+    s_togglePin_lastPinIndex = 0;
+    s_setPinMode_lastPinIndex = 0; s_setPinMode_lastMode = 0;
+    s_setPinModeLVDS_lastPinIndex = 0; s_setPinModeLVDS_lastPinMode = 0;
 }
