@@ -1,0 +1,197 @@
+{
+  "generation_mode": "MIGRATION",
+  "migration_info": {
+    "has_reference": true,
+    "reference_family": "TC3xx",
+    "target_family": "TC3xx",
+    "migration_required": false,
+    "driver_mappings": {
+      "IfxGtm_Tom_PwmHl": "IfxGtm_Pwm",
+      "IfxScuWdt": "IfxScuWdt"
+    },
+    "header_mappings": {
+      "IfxGtm_Tom_PwmHl.h": "IfxGtm_Pwm.h"
+    },
+    "api_changes": [
+      {
+        "from": "IfxGtm_Tom_PwmHl_initConfig",
+        "to": "IfxGtm_Pwm_initConfig",
+        "reason": "Upgrade to unified high-level API per user request"
+      },
+      {
+        "from": "IfxGtm_Tom_PwmHl_init",
+        "to": "IfxGtm_Pwm_init",
+        "reason": "Upgrade to unified high-level API per user request"
+      },
+      {
+        "from": "IfxGtm_Tom_PwmHl_setOnTime",
+        "to": "IfxGtm_Pwm_updateChannelsDutyImmediate",
+        "reason": "Unified API duty update per user request (synchronized updates will use disable/apply update calls in unified API)"
+      }
+    ],
+    "function_names_to_preserve": []
+  },
+  "peripheral_requirement": {
+    "type": "GTM_TOM",
+    "driver_available": true,
+    "driver_name": "IfxGtm_Pwm",
+    "purpose": "Two-level 3-phase inverter PWM using TOM1 with 6 complementary outputs (center-aligned 20 kHz, dead-time and min-pulse enforced)"
+  },
+  "signal_requirements": {
+    "pwm_topology": "three_phase_two_level_complementary",
+    "complementary": true,
+    "active_high": true,
+    "output_mode": "push-pull",
+    "pad_driver": "IfxPort_PadDriver_cmosAutomotiveSpeed1",
+    "master_timebase": {
+      "tom_module": 1,
+      "channel": 0,
+      "clock": "cmuFxclk0",
+      "clock_source": "GCLK",
+      "center_aligned": true
+    },
+    "pairs": [
+      {
+        "phase": "U",
+        "hs_pin": "P02.0",
+        "ls_pin": "P02.7",
+        "tom_module": 1,
+        "hs_channel": 1,
+        "ls_channel": 2,
+        "route_note": "Select TOM1 channel routes to P02.0 and P02.7 from IfxGtm_PinMap_TC38x_516"
+      },
+      {
+        "phase": "V",
+        "hs_pin": "P02.1",
+        "ls_pin": "P02.4",
+        "tom_module": 1,
+        "hs_channel": 3,
+        "ls_channel": 4,
+        "route_note": "Select TOM1 channel routes to P02.1 and P02.4 from IfxGtm_PinMap_TC38x_516"
+      },
+      {
+        "phase": "W",
+        "hs_pin": "P02.2",
+        "ls_pin": "P02.5",
+        "tom_module": 1,
+        "hs_channel": 5,
+        "ls_channel": 6,
+        "route_note": "Select TOM1 channel routes to P02.2 and P02.5 from IfxGtm_PinMap_TC38x_516"
+      }
+    ],
+    "initial_duty_percent": {
+      "U": 25.0,
+      "V": 50.0,
+      "W": 75.0
+    },
+    "synchronized_update": {
+      "use_disable_apply_update": true,
+      "note": "Apply disableUpdate before writing duties, then applyUpdate to latch all six outputs synchronously"
+    }
+  },
+  "timing_requirements": {
+    "pwm_frequency_hz": 20000,
+    "alignment": "center",
+    "deadtime_us": 0.5,
+    "min_pulse_us": 1.0,
+    "gtm_cmu": {
+      "gclk_source": "GCLK",
+      "fxclk_index": 0,
+      "assumed_gclk_mhz": 100
+    },
+    "computed_ticks_at_assumed_gclk": {
+      "period_ticks_center_aligned": 2500,
+      "deadtime_ticks": 50,
+      "min_pulse_ticks": 100
+    },
+    "update_strategy": "synchronized via disableUpdate/applyUpdate",
+    "duty_update_behavior": "static_initial",
+    "duty_update_behavior_note": "Default is to hold static initial duties; a 10 ms ramp can be enabled later if required"
+  },
+  "device_configuration": {
+    "target_device_macro": "DEVICE_TC38X",
+    "pin_package": "IFX_PIN_PACKAGE_516",
+    "device_family": "TC3xx",
+    "clock_requirements": {
+      "requires_xtal": true,
+      "expected_system_freq_mhz": 300,
+      "expected_gtm_gclk_mhz": 100,
+      "gtm_cmu_fxclk": "cmuFxclk0"
+    }
+  },
+  "code_structure": {
+    "file_pattern": "reference",
+    "expected_files": [
+      "GTM_TOM_3_Phase_Inverter_PWM.c",
+      "GTM_TOM_3_Phase_Inverter_PWM.h"
+    ],
+    "has_cpu_files": true
+  },
+  "reference_context": {
+    "includes_used": [
+      "Ifx_Types.h",
+      "IfxCpu.h",
+      "IfxScuWdt.h",
+      "Bsp.h",
+      "GTM_TOM_3_Phase_Inverter_PWM.h",
+      "IfxGtm_Tom_PwmHl.h"
+    ],
+    "function_patterns": [
+      "IfxGtm_Tom_PwmHl_initConfig",
+      "IfxGtm_Tom_PwmHl_init",
+      "IfxGtm_Tom_PwmHl_setOnTime",
+      "IfxScuWdt_disableSafetyWatchdog",
+      "IfxScuWdt_getSafetyWatchdogPassword",
+      "IfxScuWdt_getCpuWatchdogPassword",
+      "IfxCpu_enableInterrupts",
+      "IfxCpu_emitEvent",
+      "IfxCpu_waitEvent"
+    ],
+    "peripheral_usage": {
+      "GTM": "3-phase PWM generation (complementary pairs with dead-time)",
+      "Port": "Pad configuration and push-pull output"
+    }
+  },
+  "template_compatibility": {
+    "validated": true,
+    "supported_peripherals": [
+      "PWM",
+      "GTM",
+      "GPIO"
+    ],
+    "suggested_drivers": {
+      "PWM": [
+        "IfxCcu6_PwmBc",
+        "IfxGtm_Tom_Pwm",
+        "IfxGtm_Tom_Dtm_PwmHl",
+        "IfxGtm_Atom_Dtm_PwmHl",
+        "IfxGtm_Atom_Pwm",
+        "IfxGtm_Pwm",
+        "IfxCcu6_TPwm",
+        "IfxGtm_Tom_PwmHl",
+        "IfxCcu6_PwmHl",
+        "IfxGtm_Atom_PwmHl"
+      ],
+      "GTM": [
+        "IfxGtm_Dtm",
+        "IfxGtm_Tbu",
+        "IfxGtm",
+        "IfxGtm_Spe",
+        "IfxGtm_Pwm",
+        "IfxGtm_Psm",
+        "IfxGtm_PinMap_TC38x_LFBGA516",
+        "IfxGtm_PinMap_TC38x_LFBGA292",
+        "IfxGtm_Trig",
+        "IfxGtm_Dpll",
+        "IfxGtm_PinMap_TC38x_516"
+      ],
+      "GPIO": [
+        "IfxPort_Io",
+        "IfxPort"
+      ]
+    },
+    "warnings": []
+  },
+  "header_documentation_available": true,
+  "config_values_extracted": 16
+}
