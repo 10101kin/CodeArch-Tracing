@@ -2,67 +2,25 @@
   "success": false,
   "errors": [
     {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zhvdgu0y\\include/IfxPort.h",
-      "line": 8,
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zh1b10un\\test\\test_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 43,
       "category": "error",
-      "message": "unknown type name 'IfxPort_LvdsMode'"
+      "message": "implicit declaration of function 'mock_IfxGtm_Pwm_updateChannelsDeadTimeImmediate_getCallCount'; did you mean 'mock_IfxGtm_Pwm_updateChannelsDutyImmediate_getCallCount'? [-Wimplicit-function-declaration]"
     },
     {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zhvdgu0y\\include/IfxPort.h",
-      "line": 9,
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zh1b10un\\test\\test_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 50,
       "category": "error",
-      "message": "unknown type name 'IfxPort_ControlledBy'"
+      "message": "'mock_IfxGtm_Cmu_getModuleFrequency_returnValue' undeclared (first use in this function); did you mean 'mock_IfxGtm_Cmu_getModuleFrequency_getCallCount'?"
     },
     {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zhvdgu0y\\include/IfxPort.h",
-      "line": 10,
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zh1b10un\\test\\test_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 186,
       "category": "error",
-      "message": "unknown type name 'IfxPort_PadSupply'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zhvdgu0y\\include/IfxPort.h",
-      "line": 21,
-      "category": "error",
-      "message": "unknown type name 'IfxPort_OutputIdx'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zhvdgu0y\\include/IfxPort.h",
-      "line": 22,
-      "category": "error",
-      "message": "unknown type name 'IfxPort_PadDriver'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zhvdgu0y\\include/IfxPort.h",
-      "line": 8,
-      "category": "error",
-      "message": "unknown type name 'IfxPort_LvdsMode'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zhvdgu0y\\include/IfxPort.h",
-      "line": 9,
-      "category": "error",
-      "message": "unknown type name 'IfxPort_ControlledBy'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zhvdgu0y\\include/IfxPort.h",
-      "line": 10,
-      "category": "error",
-      "message": "unknown type name 'IfxPort_PadSupply'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zhvdgu0y\\include/IfxPort.h",
-      "line": 21,
-      "category": "error",
-      "message": "unknown type name 'IfxPort_OutputIdx'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zhvdgu0y\\include/IfxPort.h",
-      "line": 22,
-      "category": "error",
-      "message": "unknown type name 'IfxPort_PadDriver'"
+      "message": "'mock_IfxGtm_Cmu_getModuleFrequency_returnValue' undeclared (first use in this function); did you mean 'mock_IfxGtm_Cmu_getModuleFrequency_getCallCount'?"
     }
   ],
   "warnings": [],
-  "stderr": "In file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zhvdgu0y\\include/IfxGtm_Pwm.h:7,\n                 from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zhvdgu0y\\src\\gtm_tom_3_phase_inverter_pwm.c:13:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zhvdgu0y\\include/IfxPort.h:8:5: error: unknown type name 'IfxPort_LvdsMode'\n    8 |     IfxPort_LvdsMode     lvdsMode;\n      |     ^~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zhvdgu0y\\include/IfxPort.h:9:5: error: unknown type name 'IfxPort_ControlledBy'\n    9 |     IfxPort_ControlledBy enablePortControlled;\n      |     ^~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zhvdgu0y\\include/IfxPort.h:10:5: error: unknown type name 'IfxPort_PadSupply'\n   10 |     IfxPort_PadSupply    padSupply;\n      |     ^~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zhvdgu0y\\include/IfxPort.h:21:5: error: unknown type name 'IfxPort_OutputIdx'\n   21 |     IfxPort_OutputIdx mode;\n      |     ^~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zhvdgu0y\\include/IfxPort.h:22:5: error: unknown type name 'IfxPort_PadDriver'\n   22 |     IfxPort_PadDriver padDriver;\n      |     ^~~~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zhvdgu0y\\include/IfxGtm_Pwm.h:7,\n                 from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zhvdgu0y\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c:5:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zhvdgu0y\\include/IfxPort.h:8:5: error: unknown type name 'IfxPort_LvdsMode'\n    8 |     IfxPort_LvdsMode     lvdsMode;\n      |     ^~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zhvdgu0y\\include/IfxPort.h:9:5: error: unknown type name 'IfxPort_ControlledBy'\n    9 |     IfxPort_ControlledBy enablePortControlled;\n      |     ^~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zhvdgu0y\\include/IfxPort.h:10:5: error: unknown type name 'IfxPort_PadSupply'\n   10 |     IfxPort_PadSupply    padSupply;\n      |     ^~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zhvdgu0y\\include/IfxPort.h:21:5: error: unknown type name 'IfxPort_OutputIdx'\n   21 |     IfxPort_OutputIdx mode;\n      |     ^~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zhvdgu0y\\include/IfxPort.h:22:5: error: unknown type name 'IfxPort_PadDriver'\n   22 |     IfxPort_PadDriver padDriver;\n      |     ^~~~~~~~~~~~~~~~~\n",
+  "stderr": "In file included from C:\\Users\\extsiyv\\Desktop\\Infineon\\Workstream_3\\agentic_workflow_Infineon\\unity/unity.h:22,\n                 from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zh1b10un\\test\\test_gtm_tom_3_phase_inverter_pwm.c:1:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zh1b10un\\test\\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G1_001_init_when_GTM_enabled_calls_minimal':\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zh1b10un\\test\\test_gtm_tom_3_phase_inverter_pwm.c:43:38: error: implicit declaration of function 'mock_IfxGtm_Pwm_updateChannelsDeadTimeImmediate_getCallCount'; did you mean 'mock_IfxGtm_Pwm_updateChannelsDutyImmediate_getCallCount'? [-Wimplicit-function-declaration]\n   43 |     TEST_ASSERT_EQUAL_INT_MESSAGE(0, mock_IfxGtm_Pwm_updateChannelsDeadTimeImmediate_getCallCount(), \"No runtime dead-time update expected during init\");\n      |                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\Desktop\\Infineon\\Workstream_3\\agentic_workflow_Infineon\\unity/unity_internals.h:897:156: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_INT'\n  897 | #define UNITY_TEST_ASSERT_EQUAL_INT(expected, actual, line, message)                             UnityAssertEqualNumber((UNITY_INT)(expected), (UNITY_INT)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_INT)\n      |                                                                                                                                                            ^~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zh1b10un\\test\\test_gtm_tom_3_phase_inverter_pwm.c:43:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_INT_MESSAGE'\n   43 |     TEST_ASSERT_EQUAL_INT_MESSAGE(0, mock_IfxGtm_Pwm_updateChannelsDeadTimeImmediate_getCallCount(), \"No runtime dead-time update expected during init\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zh1b10un\\test\\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G1_002_init_when_GTM_disabled_enables_and_configures_clocks':\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zh1b10un\\test\\test_gtm_tom_3_phase_inverter_pwm.c:50:5: error: 'mock_IfxGtm_Cmu_getModuleFrequency_returnValue' undeclared (first use in this function); did you mean 'mock_IfxGtm_Cmu_getModuleFrequency_getCallCount'?\n   50 |     mock_IfxGtm_Cmu_getModuleFrequency_returnValue = UT_GTM_ASSUMED_FXCLK_HZ; /* Provide a valid FXCLK */\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n      |     mock_IfxGtm_Cmu_getModuleFrequency_getCallCount\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zh1b10un\\test\\test_gtm_tom_3_phase_inverter_pwm.c:50:5: note: each undeclared identifier is reported only once for each function it appears in\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zh1b10un\\test\\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G5_002_update_after_init_disabled_path_clock_guard_executed':\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zh1b10un\\test\\test_gtm_tom_3_phase_inverter_pwm.c:186:5: error: 'mock_IfxGtm_Cmu_getModuleFrequency_returnValue' undeclared (first use in this function); did you mean 'mock_IfxGtm_Cmu_getModuleFrequency_getCallCount'?\n  186 |     mock_IfxGtm_Cmu_getModuleFrequency_returnValue = UT_GTM_ASSUMED_FXCLK_HZ;\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n      |     mock_IfxGtm_Cmu_getModuleFrequency_getCallCount\n",
   "stdout": ""
 }

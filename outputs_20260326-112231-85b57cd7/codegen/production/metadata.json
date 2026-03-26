@@ -1,19 +1,12 @@
 {
-  "attempt": 3,
+  "attempt": 5,
   "phase": "production",
   "success": false,
   "errors": [
-    "unknown type name 'IfxPort_LvdsMode'",
-    "unknown type name 'IfxPort_ControlledBy'",
-    "unknown type name 'IfxPort_PadSupply'",
-    "unknown type name 'IfxPort_OutputIdx'",
-    "unknown type name 'IfxPort_PadDriver'",
-    "unknown type name 'IfxPort_LvdsMode'",
-    "unknown type name 'IfxPort_ControlledBy'",
-    "unknown type name 'IfxPort_PadSupply'",
-    "unknown type name 'IfxPort_OutputIdx'",
-    "unknown type name 'IfxPort_PadDriver'"
+    "implicit declaration of function 'mock_IfxGtm_Pwm_updateChannelsDeadTimeImmediate_getCallCount'; did you mean 'mock_IfxGtm_Pwm_updateChannelsDutyImmediate_getCallCount'? [-Wimplicit-function-declaration]",
+    "'mock_IfxGtm_Cmu_getModuleFrequency_returnValue' undeclared (first use in this function); did you mean 'mock_IfxGtm_Cmu_getModuleFrequency_getCallCount'?",
+    "'mock_IfxGtm_Cmu_getModuleFrequency_returnValue' undeclared (first use in this function); did you mean 'mock_IfxGtm_Cmu_getModuleFrequency_getCallCount'?"
   ],
-  "timestamp": "2026-03-27T00:01:04.881681",
+  "timestamp": "2026-03-27T00:09:08.237527",
   "project_name": "Upgrade_the_TC387_3-phase_inverter_PWM_to_IfxGtm_P_r_20260326_234712"
 }
