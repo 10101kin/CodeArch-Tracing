@@ -1,0 +1,11 @@
+<thinking>
+The user wants to generate 3-phase inverter PWM control code for TC387.
+Let me analyze the requirements:
+1. Need GTM TOM module for PWM generation
+2. 3-phase means we need 3 channels with 120-degree phase shift
+3. Dead-time insertion is critical for avoiding shoot-through
+4. Should use IfxGtm_Tom_Pwm driver from iLLD
+
+I'll generate mock files first to test the driver interface,
+then unit tests to verify the behavior, and finally production code.
+</thinking>
