@@ -1,45 +1,45 @@
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_rfk960v0\src\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTom3phInv':
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_rfk960v0\src\gtm_tom_3_phase_inverter_pwm.c:165:35: error: 'IfxGtm_Pwm_SubModule_Ch_10' undeclared (first use in this function); did you mean 'IfxGtm_Pwm_SubModule_Ch_1'?
-  165 |     channelConfig[1].timerCh    = IfxGtm_Pwm_SubModule_Ch_10;
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_2cn0mlbf\src\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTom3phInv':
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_2cn0mlbf\src\gtm_tom_3_phase_inverter_pwm.c:142:35: error: 'IfxGtm_Pwm_SubModule_Ch_10' undeclared (first use in this function); did you mean 'IfxGtm_Pwm_SubModule_Ch_1'?
+  142 |     channelConfig[1].timerCh    = IfxGtm_Pwm_SubModule_Ch_10;
       |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~
       |                                   IfxGtm_Pwm_SubModule_Ch_1
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_rfk960v0\src\gtm_tom_3_phase_inverter_pwm.c:165:35: note: each undeclared identifier is reported only once for each function it appears in
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_rfk960v0\src\gtm_tom_3_phase_inverter_pwm.c:174:35: error: 'IfxGtm_Pwm_SubModule_Ch_12' undeclared (first use in this function); did you mean 'IfxGtm_Pwm_SubModule_Ch_2'?
-  174 |     channelConfig[2].timerCh    = IfxGtm_Pwm_SubModule_Ch_12;
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_2cn0mlbf\src\gtm_tom_3_phase_inverter_pwm.c:142:35: note: each undeclared identifier is reported only once for each function it appears in
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_2cn0mlbf\src\gtm_tom_3_phase_inverter_pwm.c:150:35: error: 'IfxGtm_Pwm_SubModule_Ch_12' undeclared (first use in this function); did you mean 'IfxGtm_Pwm_SubModule_Ch_2'?
+  150 |     channelConfig[2].timerCh    = IfxGtm_Pwm_SubModule_Ch_12;
       |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~
       |                                   IfxGtm_Pwm_SubModule_Ch_2
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_rfk960v0\src\gtm_tom_3_phase_inverter_pwm.c:191:33: error: implicit conversion from 'enum <anonymous>' to 'IfxGtm_Cmu_Clk' [-Werror=enum-conversion]
-  191 |     config.clockSource.atom     = IfxGtm_Cmu_Fxclk_0;                     /* FXCLK0 for TOM */
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_2cn0mlbf\src\gtm_tom_3_phase_inverter_pwm.c:167:33: error: implicit conversion from 'enum <anonymous>' to 'IfxGtm_Cmu_Clk' [-Werror=enum-conversion]
+  167 |     config.clockSource.atom     = IfxGtm_Cmu_Fxclk_0;                 /* FXCLK0 source  */
       |                                 ^
 cc1.exe: all warnings being treated as errors
 
 In file included from C:\Users\extsiyv\Desktop\Infineon\Workstream_3\agentic_workflow_Infineon\unity/unity.h:22,
-                 from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_rfk960v0\test\test_gtm_tom_3_phase_inverter_pwm.c:1:
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_rfk960v0\test\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G2_001_init_config_sets_frequency_and_channels':
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_rfk960v0\test\test_gtm_tom_3_phase_inverter_pwm.c:75:55: error: 'mock_IfxGtm_Pwm_initConfig_lastNumChannels' undeclared (first use in this function); did you mean 'mock_IfxGtm_Pwm_init_lastNumChannels'?
+                 from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_2cn0mlbf\test\test_gtm_tom_3_phase_inverter_pwm.c:1:
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_2cn0mlbf\test\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G2_001_init_config_sets_frequency_and_channels':
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_2cn0mlbf\test\test_gtm_tom_3_phase_inverter_pwm.c:75:55: error: 'mock_IfxGtm_Pwm_initConfig_lastNumChannels' undeclared (first use in this function); did you mean 'mock_IfxGtm_Pwm_init_lastNumChannels'?
    75 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_NUM_CHANNELS, mock_IfxGtm_Pwm_initConfig_lastNumChannels, "Number of logical PWM channels must be 3 in IfxGtm_Pwm_initConfig");
       |                                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 C:\Users\extsiyv\Desktop\Infineon\Workstream_3\agentic_workflow_Infineon\unity/unity_internals.h:904:184: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_UINT32'
   904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)
       |                                                                                                                                                                                        ^~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_rfk960v0\test\test_gtm_tom_3_phase_inverter_pwm.c:75:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_2cn0mlbf\test\test_gtm_tom_3_phase_inverter_pwm.c:75:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'
    75 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_NUM_CHANNELS, mock_IfxGtm_Pwm_initConfig_lastNumChannels, "Number of logical PWM channels must be 3 in IfxGtm_Pwm_initConfig");
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_rfk960v0\test\test_gtm_tom_3_phase_inverter_pwm.c:75:55: note: each undeclared identifier is reported only once for each function it appears in
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_2cn0mlbf\test\test_gtm_tom_3_phase_inverter_pwm.c:75:55: note: each undeclared identifier is reported only once for each function it appears in
    75 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_NUM_CHANNELS, mock_IfxGtm_Pwm_initConfig_lastNumChannels, "Number of logical PWM channels must be 3 in IfxGtm_Pwm_initConfig");
       |                                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 C:\Users\extsiyv\Desktop\Infineon\Workstream_3\agentic_workflow_Infineon\unity/unity_internals.h:904:184: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_UINT32'
   904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)
       |                                                                                                                                                                                        ^~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_rfk960v0\test\test_gtm_tom_3_phase_inverter_pwm.c:75:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_2cn0mlbf\test\test_gtm_tom_3_phase_inverter_pwm.c:75:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'
    75 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_NUM_CHANNELS, mock_IfxGtm_Pwm_initConfig_lastNumChannels, "Number of logical PWM channels must be 3 in IfxGtm_Pwm_initConfig");
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_rfk960v0\test\test_gtm_tom_3_phase_inverter_pwm.c:76:54: error: 'mock_IfxGtm_Pwm_initConfig_lastFrequency' undeclared (first use in this function); did you mean 'mock_IfxGtm_Pwm_init_lastFrequency'?
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_2cn0mlbf\test\test_gtm_tom_3_phase_inverter_pwm.c:76:54: error: 'mock_IfxGtm_Pwm_initConfig_lastFrequency' undeclared (first use in this function); did you mean 'mock_IfxGtm_Pwm_init_lastFrequency'?
    76 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_PWM_FREQ_HZ, mock_IfxGtm_Pwm_initConfig_lastFrequency, "Configured PWM frequency must be 20 kHz in IfxGtm_Pwm_initConfig");
       |                                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 C:\Users\extsiyv\Desktop\Infineon\Workstream_3\agentic_workflow_Infineon\unity/unity_internals.h:904:184: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_UINT32'
   904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)
       |                                                                                                                                                                                        ^~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_rfk960v0\test\test_gtm_tom_3_phase_inverter_pwm.c:76:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_2cn0mlbf\test\test_gtm_tom_3_phase_inverter_pwm.c:76:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'
    76 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_PWM_FREQ_HZ, mock_IfxGtm_Pwm_initConfig_lastFrequency, "Configured PWM frequency must be 20 kHz in IfxGtm_Pwm_initConfig");
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
