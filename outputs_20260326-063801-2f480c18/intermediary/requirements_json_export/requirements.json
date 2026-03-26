@@ -1,0 +1,183 @@
+{
+  "generation_mode": "MIGRATION",
+  "migration_info": {
+    "has_reference": true,
+    "reference_family": "TC3xx",
+    "target_family": "TC3xx",
+    "migration_required": false,
+    "driver_mappings": {
+      "IfxGtm_Tom_PwmHl": "IfxGtm_Pwm"
+    },
+    "header_mappings": {
+      "IfxGtm_Tom_PwmHl.h": "IfxGtm_Pwm.h"
+    },
+    "api_changes": [
+      {
+        "from": "IfxGtm_Tom_PwmHl_initConfig",
+        "to": "IfxGtm_Pwm_initConfig",
+        "reason": "Upgrade to unified high-level PWM driver"
+      },
+      {
+        "from": "IfxGtm_Tom_PwmHl_init",
+        "to": "IfxGtm_Pwm_init",
+        "reason": "Upgrade to unified high-level PWM driver"
+      },
+      {
+        "from": "IfxGtm_Tom_PwmHl_setMode",
+        "to": "IfxGtm_Pwm (center-aligned configured via config)",
+        "reason": "Mode configured in IfxGtm_Pwm configuration instead of setMode"
+      },
+      {
+        "from": "(no explicit timebase driver)",
+        "to": "IfxGtm_Tom_Timer_initConfig/IfxGtm_Tom_Timer_init on TOM1 CH0 with IfxGtm_Tom_Ch_ClkSrc_cmuFxclk0",
+        "reason": "Explicit TOM timebase required per instruction for 20 kHz center-aligned PWM"
+      },
+      {
+        "from": "WAIT_TIME (Bsp.h) default",
+        "to": "WAIT_TIME = 500 ms",
+        "reason": "Periodic duty update every 500 ms per instruction"
+      }
+    ],
+    "function_names_to_preserve": [],
+    "explicit_driver_upgrade": true,
+    "target_driver": "IfxGtm_Pwm"
+  },
+  "peripheral_requirement": {
+    "type": "PWM",
+    "driver_available": true,
+    "driver_name": "IfxGtm_Pwm",
+    "purpose": "3-phase single-ended, center-aligned PWM on TOM1 CH2/4/6 at 20 kHz using TOM1 CH0 as timebase with synchronous shadow updates",
+    "driver_locked": true,
+    "driver_selection_source": "user_explicit"
+  },
+  "signal_requirements": {
+    "outputs": [
+      {
+        "name": "U",
+        "pin": "P00.3",
+        "tom_module": "TOM1",
+        "tom_channel": 2,
+        "function": "TOUT2",
+        "mode": "push-pull",
+        "initial_duty_percent": 25.0
+      },
+      {
+        "name": "V",
+        "pin": "P00.5",
+        "tom_module": "TOM1",
+        "tom_channel": 4,
+        "function": "TOUT4",
+        "mode": "push-pull",
+        "initial_duty_percent": 50.0
+      },
+      {
+        "name": "W",
+        "pin": "P00.7",
+        "tom_module": "TOM1",
+        "tom_channel": 6,
+        "function": "TOUT6",
+        "mode": "push-pull",
+        "initial_duty_percent": 75.0
+      }
+    ],
+    "low_side_pins": {
+      "policy": "unused_or_mirrored",
+      "pins": [
+        "P00.2",
+        "P00.4",
+        "P00.6"
+      ],
+      "deadtime_us": 0.0,
+      "note": "TBD: either leave unused or mirror HS signals without dead-time"
+    },
+    "synchronous_update": true,
+    "allow_true_zero_and_full_scale": true
+  },
+  "timing_requirements": {
+    "pwm_frequency_hz": 20000,
+    "alignment": "center",
+    "timebase": {
+      "driver": "IfxGtm_Tom_Timer",
+      "tom_module": "TOM1",
+      "channel": 0,
+      "clock_source": "IfxGtm_Tom_Ch_ClkSrc_cmuFxclk0"
+    },
+    "shadow_transfer": "enabled_for_all_channels",
+    "duty_update_interval_ms": 500,
+    "duty_update_step_percent": 10.0,
+    "wrap_mode": "0_to_100_inclusive",
+    "period_ticks_formula": "periodTicks = f(FXCLK0) / (2 * 20000) for center-aligned up/down counting"
+  },
+  "device_configuration": {
+    "target_device_macro": "DEVICE_TC38X",
+    "pin_package": "IFX_PIN_PACKAGE_516",
+    "device_family": "TC3xx",
+    "clock_requirements": {
+      "requires_xtal": true,
+      "expected_system_freq_mhz": 200
+    }
+  },
+  "code_structure": {
+    "file_pattern": "reference",
+    "expected_files": [
+      "GTM_TOM_3_Phase_Inverter_PWM.c",
+      "GTM_TOM_3_Phase_Inverter_PWM.h"
+    ],
+    "has_cpu_files": true
+  },
+  "reference_context": {
+    "includes_used": [
+      "Ifx_Types.h",
+      "IfxCpu.h",
+      "IfxScuWdt.h",
+      "Bsp.h",
+      "GTM_TOM_3_Phase_Inverter_PWM.h",
+      "IfxGtm_Tom_PwmHl.h"
+    ],
+    "function_patterns": [],
+    "peripheral_usage": {
+      "GTM_TOM": "3-phase PWM generation on TOM1 using PwmHl in reference, upgraded to IfxGtm_Pwm single-ended"
+    }
+  },
+  "template_compatibility": {
+    "validated": true,
+    "supported_peripherals": [
+      "PWM",
+      "GTM",
+      "TIMER",
+      "ETHERNET",
+      "CPU"
+    ],
+    "suggested_drivers": {
+      "PWM": [
+        "IfxGtm_Pwm"
+      ],
+      "GTM": [
+        "IfxGtm_Pwm"
+      ],
+      "TIMER": [
+        "IfxGtm_Pwm"
+      ],
+      "ETHERNET": [
+        "IfxGeth",
+        "IfxGeth_Eth"
+      ],
+      "CPU": [
+        "IfxCpu"
+      ],
+      "_driver_selection": {
+        "explicit_target": "IfxGtm_Pwm",
+        "replaced_source": "IfxGtm_Tom_PwmHl",
+        "primary_drivers": [
+          "IfxGtm_Pwm"
+        ],
+        "avoid_drivers": [
+          "IfxGtm_Tom_PwmHl"
+        ]
+      }
+    },
+    "warnings": []
+  },
+  "header_documentation_available": true,
+  "config_values_extracted": 16
+}
