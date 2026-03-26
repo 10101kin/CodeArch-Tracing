@@ -1,0 +1,256 @@
+{
+  "generation_mode": "MIGRATION",
+  "migration_info": {
+    "has_reference": true,
+    "reference_family": "TC3xx",
+    "target_family": "TC3xx",
+    "migration_required": false,
+    "driver_mappings": {
+      "IfxGtm_Tom_PwmHl": "IfxGtm_Pwm"
+    },
+    "header_mappings": {
+      "IfxGtm_Tom_PwmHl.h": "IfxGtm_Pwm.h"
+    },
+    "api_changes": [
+      {
+        "from": "IfxGtm_Tom_PwmHl_init",
+        "to": "IfxGtm_Pwm_init",
+        "reason": "Upgrade to unified high-level PWM driver"
+      },
+      {
+        "from": "IfxGtm_Tom_PwmHl_setOnTime",
+        "to": "IfxGtm_Pwm_updateChannelsDutyImmediate",
+        "reason": "Unified duty update API"
+      },
+      {
+        "from": "IfxGtm_Tom_PwmHl_setMode",
+        "to": "IfxGtm_Pwm_initConfig (mode=center-aligned)",
+        "reason": "Mode selected via high-level init config"
+      },
+      {
+        "from": "Manual CMU FXCLK setup without DISS guard",
+        "to": "Check GTM.CLC.DISS == 0 before enabling and configuring CMU_FXCLK0",
+        "reason": "Clock enable/guard requirement"
+      }
+    ],
+    "function_names_to_preserve": [
+      "initGtmTom3phInv",
+      "updateGtmTom3phInvDuty",
+      "IfxGtm_periodEventFunction"
+    ]
+  },
+  "peripheral_requirement": {
+    "type": "PWM",
+    "driver_available": true,
+    "driver_name": "IfxGtm_Pwm",
+    "purpose": "3-phase inverter PWM on TOM1 Cluster_1, center-aligned, three complementary HS/LS pairs with 1 µs deadtime, synchronous start/update using TOM1 CH0 as master",
+    "driver_locked": true,
+    "driver_selection_source": "engine_scored"
+  },
+  "signal_requirements": {
+    "pwm_outputs": {
+      "phase_U": {
+        "hs_pin": "P02.0",
+        "ls_pin": "P02.7",
+        "module": "GTM",
+        "submodule": "TOM1",
+        "cluster": 1,
+        "assumed_channels": {
+          "hs_channel": 8,
+          "ls_channel": 9
+        },
+        "pinmap_source": "IfxGtm_PinMap_TC38x_516 (verify)",
+        "notes": "Assumed mapping to TOM1 cluster_1; verify exact TOUT/channel routing for TC387 LFBGA516"
+      },
+      "phase_V": {
+        "hs_pin": "P02.1",
+        "ls_pin": "P02.4",
+        "module": "GTM",
+        "submodule": "TOM1",
+        "cluster": 1,
+        "assumed_channels": {
+          "hs_channel": 10,
+          "ls_channel": 11
+        },
+        "pinmap_source": "IfxGtm_PinMap_TC38x_516 (verify)"
+      },
+      "phase_W": {
+        "hs_pin": "P02.2",
+        "ls_pin": "P02.5",
+        "module": "GTM",
+        "submodule": "TOM1",
+        "cluster": 1,
+        "assumed_channels": {
+          "hs_channel": 12,
+          "ls_channel": 13
+        },
+        "pinmap_source": "IfxGtm_PinMap_TC38x_516 (verify)"
+      },
+      "complementary_output": true,
+      "deadtime_rising_ns": 1000,
+      "deadtime_falling_ns": 1000,
+      "use_hardware_dtm": true,
+      "sync_start": true,
+      "sync_update": true,
+      "master_timer": {
+        "tom": "TOM1",
+        "channel": 0,
+        "cluster": 0,
+        "pin_routed": false,
+        "purpose": "Time base and synchronous update trigger for TOM1 Cluster_1"
+      }
+    },
+    "led_toggle": {
+      "pin": "P13.0",
+      "direction": "push-pull output",
+      "initial_state": "low",
+      "toggled_by": "GTM ATOM0 CH0 ISR at 2 Hz",
+      "interrupt": {
+        "source": "GTM_ATOM0_CH0",
+        "priority": 20,
+        "cpu": 0
+      }
+    },
+    "callbacks": {
+      "period_callback": "IfxGtm_periodEventFunction (empty body; registered with PWM period event if supported)"
+    },
+    "assumptions": [
+      "TOM1 Cluster_1 is channels 8..15; channels assigned as {U:8/9, V:10/11, W:12/13} pending pinmap confirmation",
+      "IfxGtm_Pwm provides deadtime via underlying DTM; configured via initConfig fields"
+    ]
+  },
+  "timing_requirements": {
+    "pwm": {
+      "frequency_hz": 20000,
+      "center_aligned": true,
+      "duty_init_percent": {
+        "U": 25,
+        "V": 50,
+        "W": 75
+      },
+      "duty_step_rule": "+10% with wrap: if (duty + 10%) >= 100% → duty = 0%, then +10%",
+      "clocking": {
+        "fxclk": "CMU_FXCLK0",
+        "gtm_enable_guard": "Check GTM.CLC.DISS; if 1, clear DISS and wait until 0 before CMU config",
+        "assumed_fxclk_hz": 100000000,
+        "tick_calc_note": "Center-aligned (up/down) effective period ticks = fxclk / (2 * f_pwm). For 100 MHz and 20 kHz → 2500 ticks."
+      }
+    },
+    "atom_timer_for_led": {
+      "module": "GTM_ATOM0_CH0",
+      "mode": "periodic interrupt (no pin output)",
+      "frequency_hz": 2,
+      "period_s": 0.5,
+      "clocking": {
+        "source": "CMU_CLK0 (assumed 100 MHz)",
+        "prescaler_ticks": "Choose prescaler/ticks to achieve 0.5 s period"
+      }
+    }
+  },
+  "device_configuration": {
+    "target_device_macro": "DEVICE_TC38X",
+    "pin_package": "IFX_PIN_PACKAGE_516",
+    "device_family": "TC3xx",
+    "clock_requirements": {
+      "requires_xtal": true,
+      "expected_system_freq_mhz": 300,
+      "gtm_clock_assumed_mhz": 100
+    }
+  },
+  "code_structure": {
+    "file_pattern": "reference",
+    "expected_files": [
+      "Cpu0_Main-Reference.c",
+      "GTM_TOM_3_Phase_Inverter_PWM_2-Reference.c",
+      "GTM_TOM_3_Phase_Inverter_PWM.h"
+    ],
+    "has_cpu_files": true
+  },
+  "reference_context": {
+    "includes_used": [
+      "Ifx_Types.h",
+      "IfxCpu.h",
+      "IfxScuWdt.h",
+      "Bsp.h",
+      "GTM_TOM_3_Phase_Inverter_PWM.h",
+      "IfxGtm_Tom_PwmHl.h",
+      "IfxCpu_Irq.h",
+      "IfxGtm_cfg_TC38x.h"
+    ],
+    "function_patterns": [
+      "initGtmTom3phInv",
+      "updateGtmTom3phInvDuty"
+    ],
+    "peripheral_usage": {
+      "GTM_TOM": "3-phase PWM generation (mid-level PwmHl in reference)",
+      "GTM_ATOM": "Timer/interrupt for LED toggle (to be added)",
+      "Port": "LED P13.0 GPIO control (to be added)"
+    }
+  },
+  "template_compatibility": {
+    "validated": true,
+    "supported_peripherals": [
+      "PWM",
+      "GTM",
+      "TIMER",
+      "GPIO",
+      "ASCLIN",
+      "INTERRUPT",
+      "CPU"
+    ],
+    "suggested_drivers": {
+      "PWM": [
+        "IfxCcu6_PwmBc",
+        "IfxGtm_Tom_Pwm",
+        "IfxGtm_Tom_Dtm_PwmHl",
+        "IfxGtm_Atom_Dtm_PwmHl",
+        "IfxGtm_Atom_Pwm",
+        "IfxGtm_Pwm",
+        "IfxCcu6_TPwm",
+        "IfxGtm_Tom_PwmHl",
+        "IfxCcu6_PwmHl",
+        "IfxGtm_Atom_PwmHl"
+      ],
+      "GTM": [
+        "IfxGtm_Dtm",
+        "IfxGtm_Tbu",
+        "IfxGtm",
+        "IfxGtm_Spe",
+        "IfxGtm_Pwm",
+        "IfxGtm_Psm",
+        "IfxGtm_PinMap_TC38x_LFBGA516",
+        "IfxGtm_PinMap_TC38x_LFBGA292",
+        "IfxGtm_Trig",
+        "IfxGtm_Dpll",
+        "IfxGtm_PinMap_TC38x_516"
+      ],
+      "TIMER": [
+        "IfxStm_Timer",
+        "IfxGtm_Tom_Timer",
+        "IfxGtm_Tim_Timer",
+        "IfxGtm_Atom_Timer",
+        "IfxCcu6_Timer",
+        "IfxCcu6_TimerWithTrigger"
+      ],
+      "GPIO": [
+        "IfxPort_Io",
+        "IfxPort"
+      ],
+      "ASCLIN": [
+        "IfxAsclin_Asc",
+        "IfxAsclin_Lin",
+        "IfxAsclin_Spi",
+        "IfxAsclin"
+      ],
+      "INTERRUPT": [
+        "IfxCpu_Irq"
+      ],
+      "CPU": [
+        "IfxCpu"
+      ]
+    },
+    "warnings": []
+  },
+  "header_documentation_available": true,
+  "config_values_extracted": 16
+}
