@@ -18,7 +18,8 @@
         "IfxGtm_Pwm_startChannelOutputs"
       ],
       "from_reference": true,
-      "call_context": "init"
+      "call_context": "init",
+      "error_handling": "No explicit error handling is implemented; GTM initialization and all iLLD driver calls are assumed to succeed. The function returns void and does not report status."
     },
     {
       "signature": "void GTM_TOM_3_Phase_Inverter_PWM_updateUVW(void)",
@@ -27,7 +28,8 @@
         "IfxGtm_Pwm_updateChannelsDutyImmediate"
       ],
       "from_reference": true,
-      "call_context": "loop"
+      "call_context": "loop",
+      "error_handling": "No explicit error handling is implemented; the iLLD driver call is assumed to succeed. The function returns void and does not report status."
     }
   ],
   "private_functions": [
