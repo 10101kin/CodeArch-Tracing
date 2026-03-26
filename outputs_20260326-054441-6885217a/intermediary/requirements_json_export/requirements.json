@@ -1,0 +1,206 @@
+{
+  "generation_mode": "MIGRATION",
+  "migration_info": {
+    "has_reference": true,
+    "reference_family": "TC3xx",
+    "target_family": "TC3xx",
+    "migration_required": false,
+    "driver_mappings": {
+      "IfxGtm_Tom_PwmHl": "IfxGtm_Tom_Dtm_PwmHl"
+    },
+    "header_mappings": {
+      "IfxGtm_Tom_PwmHl.h": "IfxGtm_Tom_Dtm_PwmHl.h"
+    },
+    "api_changes": [
+      {
+        "from": "IfxGtm_Tom_PwmHl_init",
+        "to": "IfxGtm_Tom_Dtm_PwmHl_init",
+        "reason": "Enable hardware dead-time and min pulse via DTM variant"
+      },
+      {
+        "from": "IfxGtm_Tom_PwmHl_setMode",
+        "to": "IfxGtm_Tom_Dtm_PwmHl_setMode",
+        "reason": "DTM variant API for complementary mode"
+      },
+      {
+        "from": "IfxGtm_Tom_PwmHl_setOnTime",
+        "to": "IfxGtm_Tom_Dtm_PwmHl_setOnTime",
+        "reason": "DTM variant timing update API"
+      },
+      {
+        "from": "[add]",
+        "to": "IfxGtm_Tom_Dtm_PwmHl_setDeadtime",
+        "reason": "Configure 0.5 µs hardware dead-time"
+      },
+      {
+        "from": "[add]",
+        "to": "IfxGtm_Tom_Dtm_PwmHl_setMinPulse",
+        "reason": "Enforce 1.0 µs minimum pulse"
+      }
+    ],
+    "function_names_to_preserve": []
+  },
+  "peripheral_requirement": {
+    "type": "GTM_TOM",
+    "driver_available": true,
+    "driver_name": "IfxGtm_Tom_Dtm_PwmHl",
+    "purpose": "3-phase inverter complementary PWM (TOM1) with hardware dead-time and minimum pulse enforcement"
+  },
+  "signal_requirements": {
+    "module": "GTM",
+    "submodule": "TOM1",
+    "master_timer": {
+      "channel": "TOM1_CH0",
+      "clock_source": "IfxGtm_Tom_Ch_ClkSrc_cmuFxclk0",
+      "used_as_time_base_only": true
+    },
+    "pairs": [
+      {
+        "phase": "U",
+        "high_side": {
+          "tom_channel": "TOM1_CH2",
+          "pin": "P00.3",
+          "tout": "TOM1_2"
+        },
+        "low_side": {
+          "tom_channel": "TOM1_CH1",
+          "pin": "P00.2",
+          "tout": "TOM1_1"
+        }
+      },
+      {
+        "phase": "V",
+        "high_side": {
+          "tom_channel": "TOM1_CH4",
+          "pin": "P00.5",
+          "tout": "TOM1_4"
+        },
+        "low_side": {
+          "tom_channel": "TOM1_CH3",
+          "pin": "P00.4",
+          "tout": "TOM1_3"
+        }
+      },
+      {
+        "phase": "W",
+        "high_side": {
+          "tom_channel": "TOM1_CH6",
+          "pin": "P00.7",
+          "tout": "TOM1_6"
+        },
+        "low_side": {
+          "tom_channel": "TOM1_CH5",
+          "pin": "P00.6",
+          "tout": "TOM1_5"
+        }
+      }
+    ],
+    "output": {
+      "complementary": true,
+      "ccx_active_state": "high",
+      "coutx_active_state": "high",
+      "pad_driver": "cmosAutomotiveSpeed1",
+      "port_output_mode": "pushPull",
+      "update": "synchronous_all_channels"
+    },
+    "initial_duty_cycle_percent": {
+      "U": 25,
+      "V": 50,
+      "W": 75
+    },
+    "pinmap_headers": [
+      "IfxGtm_PinMap.h"
+    ],
+    "gpio_headers": [
+      "IfxPort.h"
+    ]
+  },
+  "timing_requirements": {
+    "pwm_frequency_hz": 20000,
+    "alignment": "centerAligned",
+    "dead_time_seconds": 5e-07,
+    "min_pulse_seconds": 1e-06,
+    "dtm_required": true,
+    "timer_base": "TOM1_CH0@cmuFxclk0"
+  },
+  "device_configuration": {
+    "target_device_macro": "DEVICE_TC38X",
+    "pin_package": "IFX_PIN_PACKAGE_516",
+    "device_family": "TC3xx",
+    "clock_requirements": {
+      "requires_xtal": true,
+      "expected_system_freq_mhz": 300
+    }
+  },
+  "code_structure": {
+    "file_pattern": "reference",
+    "expected_files": [
+      "GTM_TOM_3_Phase_Inverter_PWM.c",
+      "GTM_TOM_3_Phase_Inverter_PWM.h"
+    ],
+    "has_cpu_files": true
+  },
+  "reference_context": {
+    "includes_used": [
+      "Ifx_Types.h",
+      "IfxCpu.h",
+      "IfxScuWdt.h",
+      "IfxGtm_Tom_PwmHl.h",
+      "IfxGtm_PinMap.h",
+      "IfxPort.h",
+      "Bsp.h",
+      "GTM_TOM_3_Phase_Inverter_PWM.h"
+    ],
+    "function_patterns": [],
+    "peripheral_usage": {
+      "GTM_TOM": "3-phase PWM generation",
+      "Port": "Pin configuration"
+    }
+  },
+  "template_compatibility": {
+    "validated": true,
+    "supported_peripherals": [
+      "PWM",
+      "GTM",
+      "TIMER"
+    ],
+    "suggested_drivers": {
+      "PWM": [
+        "IfxCcu6_PwmBc",
+        "IfxGtm_Tom_Pwm",
+        "IfxGtm_Tom_Dtm_PwmHl",
+        "IfxGtm_Atom_Dtm_PwmHl",
+        "IfxGtm_Atom_Pwm",
+        "IfxGtm_Pwm",
+        "IfxCcu6_TPwm",
+        "IfxGtm_Tom_PwmHl",
+        "IfxCcu6_PwmHl",
+        "IfxGtm_Atom_PwmHl"
+      ],
+      "GTM": [
+        "IfxGtm_Dtm",
+        "IfxGtm_Tbu",
+        "IfxGtm",
+        "IfxGtm_Spe",
+        "IfxGtm_Pwm",
+        "IfxGtm_Psm",
+        "IfxGtm_PinMap_TC38x_LFBGA516",
+        "IfxGtm_PinMap_TC38x_LFBGA292",
+        "IfxGtm_Trig",
+        "IfxGtm_Dpll",
+        "IfxGtm_PinMap_TC38x_516"
+      ],
+      "TIMER": [
+        "IfxStm_Timer",
+        "IfxGtm_Tom_Timer",
+        "IfxGtm_Tim_Timer",
+        "IfxGtm_Atom_Timer",
+        "IfxCcu6_Timer",
+        "IfxCcu6_TimerWithTrigger"
+      ]
+    },
+    "warnings": []
+  },
+  "header_documentation_available": true,
+  "config_values_extracted": 16
+}
