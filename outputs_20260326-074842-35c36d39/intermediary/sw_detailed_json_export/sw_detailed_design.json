@@ -8,9 +8,14 @@
         "IfxGtm_enable",
         "IfxGtm_Cmu_selectClkInput",
         "IfxGtm_Cmu_enableClocks",
-        "IfxGtm_Tom_Pwm_initConfig",
-        "IfxGtm_Tom_Pwm_init",
-        "IfxGtm_Tom_Pwm_start"
+        "IfxGtm_Pwm_initConfig",
+        "IfxGtm_Pwm_initChannelConfig",
+        "IfxGtm_Pwm_init",
+        "IfxGtm_PinMap_setTomTout",
+        "IfxGtm_Pwm_updateChannelsPulseImmediate",
+        "IfxGtm_Pwm_updateChannelsDuty",
+        "IfxGtm_Pwm_updateChannelsPulseImmediate",
+        "IfxGtm_Pwm_startChannelOutputs"
       ],
       "from_reference": true,
       "call_context": "init"
@@ -18,7 +23,11 @@
     {
       "signature": "void GTM_TOM_3PhaseInverterPWM_updateDuties(void)",
       "behavior_description": "At each call, compute a duty step as a fraction of the PWM period and add it to each phase’s currently stored duty request. Apply wrap-around behavior: when any phase’s duty reaches or exceeds the configured upper threshold, reset that phase to the configured lower threshold. This results in a repeating ramp for each phase between defined minimum and maximum duty limits. To apply the three updated phase duties synchronously to all six complementary outputs, disable synchronous update first, write the new duty set to the driver (staging into shadow registers), then re-enable synchronous update so the new values latch simultaneously at the next PWM period boundary.",
-      "driver_calls": [],
+      "driver_calls": [
+        "IfxGtm_Pwm_updateChannelsPulseImmediate",
+        "IfxGtm_Pwm_updateChannelsDuty",
+        "IfxGtm_Pwm_updateChannelsPulseImmediate"
+      ],
       "from_reference": true,
       "call_context": "loop"
     }
@@ -33,7 +42,7 @@
   "dependencies": {
     "includes": [
       "Ifx_Types.h",
-      "IfxGtm_Tom_Pwm.h",
+      "IfxGtm_Pwm.h",
       "IfxGtm_Cmu.h",
       "IfxGtm.h",
       "IfxGtm_PinMap.h",
