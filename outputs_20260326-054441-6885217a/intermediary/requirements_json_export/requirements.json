@@ -121,7 +121,9 @@
     "dead_time_seconds": 5e-07,
     "min_pulse_seconds": 1e-06,
     "dtm_required": true,
-    "timer_base": "TOM1_CH0@cmuFxclk0"
+    "timer_base": "TOM1_CH0@cmuFxclk0",
+    "dead_time_configurable": true,
+    "dead_time_override_policy": "User override allowed; on change, update dead_time_seconds to the requested value and reconfigure DTM via IfxGtm_Tom_Dtm_PwmHl_setDeadtime during initialization."
   },
   "device_configuration": {
     "target_device_macro": "DEVICE_TC38X",
