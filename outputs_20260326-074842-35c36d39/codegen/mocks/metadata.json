@@ -1,0 +1,25 @@
+{
+  "attempt": 2,
+  "phase_attempt": 2,
+  "phase": "mock",
+  "timestamp": "2026-03-26T16:47:30.487519",
+  "success": true,
+  "files": [
+    "Ifx_Types.h",
+    "Ifx_Types.c",
+    "IfxPort.h",
+    "IfxPort.c",
+    "IfxGtm.h",
+    "IfxGtm.c",
+    "IfxGtm_Cmu.h",
+    "IfxGtm_Cmu.c",
+    "IfxGtm_Pwm.h",
+    "IfxGtm_Pwm.c",
+    "IfxGtm_PinMap.h",
+    "IfxGtm_PinMap.c",
+    "ifxgtm_tom.h",
+    "ifxgtm_tom.c"
+  ],
+  "errors": [],
+  "build_result": null
+}
