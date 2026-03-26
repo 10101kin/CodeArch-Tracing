@@ -4,7 +4,8 @@
 
 #include "mock_gtm_tom_3_phase_inverter_pwm.h"
 
-/* Types/Structs */
+/* Required enums and types */
+
 typedef enum {
     IfxPort_ControlledBy_port = 0,
     IfxPort_ControlledBy_hsct = 1
@@ -65,9 +66,15 @@ typedef enum {
     IfxPort_PadDriver_ttl3v3Speed2
 } IfxPort_PadDriver;
 
-typedef enum { IfxPort_PadSupply_3v = 0, IfxPort_PadSupply_5v = 1 } IfxPort_PadSupply;
+typedef enum {
+    IfxPort_PadSupply_3v = 0,
+    IfxPort_PadSupply_5v = 1
+} IfxPort_PadSupply;
 
-typedef enum { IfxPort_PinFunctionMode_digital = 0, IfxPort_PinFunctionMode_analog = 1 } IfxPort_PinFunctionMode;
+typedef enum {
+    IfxPort_PinFunctionMode_digital = 0,
+    IfxPort_PinFunctionMode_analog  = 1
+} IfxPort_PinFunctionMode;
 
 typedef enum {
     IfxPort_State_notChanged = (0 << 16) | (0 << 0),
@@ -76,14 +83,27 @@ typedef enum {
     IfxPort_State_toggled    = (1u << 16) | (1u << 0)
 } IfxPort_State;
 
-typedef enum { IfxPort_LvdsDirection_rx = 0, IfxPort_LvdsDirection_tx = 1 } IfxPort_LvdsDirection;
+typedef enum {
+    IfxPort_LvdsDirection_rx = 0,
+    IfxPort_LvdsDirection_tx = 1
+} IfxPort_LvdsDirection;
 
-typedef enum { IfxPort_LvdsPath_enable = 0, IfxPort_LvdsPath_disable = 1 } IfxPort_LvdsPath;
+typedef enum {
+    IfxPort_LvdsPath_enable  = 0,
+    IfxPort_LvdsPath_disable = 1
+} IfxPort_LvdsPath;
 
-typedef enum { IfxPort_LvdsPullDown_disable = 0, IfxPort_LvdsPullDown_enable = 1 } IfxPort_LvdsPullDown;
+typedef enum {
+    IfxPort_LvdsPullDown_disable = 0,
+    IfxPort_LvdsPullDown_enable  = 1
+} IfxPort_LvdsPullDown;
 
-typedef enum { IfxPort_LvdsTerminationMode_external = 0, IfxPort_LvdsTerminationMode_internal = 1 } IfxPort_LvdsTerminationMode;
+typedef enum {
+    IfxPort_LvdsTerminationMode_external = 0,
+    IfxPort_LvdsTerminationMode_internal = 1
+} IfxPort_LvdsTerminationMode;
 
+/* Structs */
 typedef struct {
     IfxPort_LvdsMode     lvdsMode;
     IfxPort_ControlledBy enablePortControlled;
