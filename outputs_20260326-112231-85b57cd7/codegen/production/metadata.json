@@ -1,0 +1,12 @@
+{
+  "attempt": 3,
+  "phase": "production",
+  "success": false,
+  "errors": [
+    "'IfxGtm_Pwm_SubModule_Ch_10' undeclared (first use in this function); did you mean 'IfxGtm_Pwm_SubModule_Ch_1'?",
+    "'IfxGtm_Pwm_SubModule_Ch_12' undeclared (first use in this function); did you mean 'IfxGtm_Pwm_SubModule_Ch_2'?",
+    "implicit conversion from 'enum <anonymous>' to 'IfxGtm_Cmu_Clk' [-Werror=enum-conversion]"
+  ],
+  "timestamp": "2026-03-26T19:58:33.593149",
+  "project_name": "Upgrade_the_TC387_3-phase_inverter_PWM_to_IfxGtm_P_r_20260326_194920"
+}

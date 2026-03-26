@@ -1,0 +1,26 @@
+{
+  "success": false,
+  "errors": [
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_pqbqn5km\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 159,
+      "category": "error",
+      "message": "'IfxGtm_Pwm_SubModule_Ch_10' undeclared (first use in this function); did you mean 'IfxGtm_Pwm_SubModule_Ch_1'?"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_pqbqn5km\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 167,
+      "category": "error",
+      "message": "'IfxGtm_Pwm_SubModule_Ch_12' undeclared (first use in this function); did you mean 'IfxGtm_Pwm_SubModule_Ch_2'?"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_pqbqn5km\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 184,
+      "category": "error",
+      "message": "implicit conversion from 'enum <anonymous>' to 'IfxGtm_Cmu_Clk' [-Werror=enum-conversion]"
+    }
+  ],
+  "warnings": [],
+  "stderr": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_pqbqn5km\\src\\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTom3phInv':\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_pqbqn5km\\src\\gtm_tom_3_phase_inverter_pwm.c:159:35: error: 'IfxGtm_Pwm_SubModule_Ch_10' undeclared (first use in this function); did you mean 'IfxGtm_Pwm_SubModule_Ch_1'?\n  159 |     channelConfig[1].timerCh    = IfxGtm_Pwm_SubModule_Ch_10;\n      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~\n      |                                   IfxGtm_Pwm_SubModule_Ch_1\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_pqbqn5km\\src\\gtm_tom_3_phase_inverter_pwm.c:159:35: note: each undeclared identifier is reported only once for each function it appears in\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_pqbqn5km\\src\\gtm_tom_3_phase_inverter_pwm.c:167:35: error: 'IfxGtm_Pwm_SubModule_Ch_12' undeclared (first use in this function); did you mean 'IfxGtm_Pwm_SubModule_Ch_2'?\n  167 |     channelConfig[2].timerCh    = IfxGtm_Pwm_SubModule_Ch_12;\n      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~\n      |                                   IfxGtm_Pwm_SubModule_Ch_2\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_pqbqn5km\\src\\gtm_tom_3_phase_inverter_pwm.c:184:32: error: implicit conversion from 'enum <anonymous>' to 'IfxGtm_Cmu_Clk' [-Werror=enum-conversion]\n  184 |     config.clockSource.atom    = IfxGtm_Cmu_Fxclk_0;                   /* FXCLK0 for TOM/ATOM */\n      |                                ^\ncc1.exe: all warnings being treated as errors\n",
+  "stdout": ""
+}
