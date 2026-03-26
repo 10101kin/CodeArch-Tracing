@@ -1,13 +1,13 @@
 {
-  "attempt": 7,
-  "phase": "production",
-  "success": false,
-  "errors": [
-    "implicit declaration of function 'mock_IfxGtm_Pwm_updateChannelsDeadTimeImmediate_getCallCount'; did you mean 'mock_IfxGtm_Pwm_updateChannelsDutyImmediate_getCallCount'? [-Wimplicit-function-declaration]",
-    "'mock_IfxGtm_Cmu_getModuleFrequency_returnValue' undeclared (first use in this function); did you mean 'mock_IfxGtm_Cmu_getModuleFrequency_getCallCount'?",
-    "implicit declaration of function 'mock_IfxPort_togglePin_getCallCount'; did you mean 'mock_IfxGtm_enable_getCallCount'? [-Wimplicit-function-declaration]",
-    "'mock_IfxGtm_Cmu_getModuleFrequency_returnValue' undeclared (first use in this function); did you mean 'mock_IfxGtm_Cmu_getModuleFrequency_getCallCount'?"
-  ],
-  "timestamp": "2026-03-27T00:14:45.666653",
-  "project_name": "Upgrade_the_TC387_3-phase_inverter_PWM_to_IfxGtm_P_r_20260326_234712"
+  "export_type": "node_json",
+  "export_reason": "stage_failed",
+  "node_stage": "code_generation",
+  "reviewer_name": null,
+  "reviewer_applied": false,
+  "modified_by": "system",
+  "modifier_name": null,
+  "workflow_stage": "code_generation_failed",
+  "target_board": "KIT_A2G_TC387_5V_TFT",
+  "generation_mode": "MIGRATION",
+  "timestamp": "2026-03-27T00:14:54.681932"
 }
