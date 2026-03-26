@@ -31,7 +31,8 @@
       "IfxGtm_Pwm_stopSyncedChannels",
       "IfxGtm_Pwm_startChannelOutputs",
       "IfxGtm_Pwm_stopChannelOutputs"
-    ]
+    ],
+    "initialization_apis_verification": "PENDING: Consult the iLLD Doxygen or header files for TC3xx to confirm the existence and signatures of these APIs."
   },
   "file_structure": {
     "module_files": [
@@ -52,31 +53,15 @@
         "IfxGtm_Pwm_init",
         "IfxGtm_Pwm_updateFrequencyImmediate",
         "IfxGtm_Pwm_startSyncedChannels"
-      ],
-      "return_type": "Ifx_Return"
+      ]
     },
     "runtime_function": {
       "name": "GTM_TOM_3_Phase_Inverter_PWM_updateUVW",
       "driver_calls": [
         "IfxGtm_Pwm_updateChannelsDutyImmediate"
       ],
-      "purpose": "Apply updated duty cycles for U, V, W phases synchronously while preserving complementary outputs and dead-time.",
-      "return_type": "Ifx_Return"
-    },
-    "diagnostic_functions": [
-      {
-        "name": "GTM_TOM_3_Phase_Inverter_PWM_getLastError",
-        "purpose": "Expose last error/status code for unit testing and runtime diagnostics."
-      },
-      {
-        "name": "GTM_TOM_3_Phase_Inverter_PWM_getChannelState",
-        "purpose": "Report effective channel enable, duty, and polarity for each CCX/COUTX pair for validation."
-      },
-      {
-        "name": "GTM_TOM_3_Phase_Inverter_PWM_selfTest",
-        "purpose": "Perform basic self-test of GTM/CMU clocking and TOM1 channel linkage for testability."
-      }
-    ]
+      "purpose": "Apply updated duty cycles for U, V, W phases synchronously while preserving complementary outputs and dead-time."
+    }
   },
   "migration_notes": {
     "is_migration": true,
@@ -107,7 +92,11 @@
         "reason": "Program 0.5 µs dead-time via unified driver (DTM handled internally)"
       }
     ],
-    "context_preserved": "The solution keeps TOM1 with CH0 as master at cmuFxclk0, center-aligned complementary PWM with active-high CCX/COUTX, enforces dead-time and min pulse, uses the exact requested pins (P00.2..P00.7) in push-pull with cmosAutomotiveSpeed1, and initializes duties to 25/50/75%. Unified IfxGtm_Pwm maintains the original high/low complementary intent while leveraging template-available APIs."
+    "context_preserved": "The solution keeps TOM1 with CH0 as master at cmuFxclk0, center-aligned complementary PWM with active-high CCX/COUTX, enforces dead-time and min pulse, uses the exact requested pins (P00.2..P00.7) in push-pull with cmosAutomotiveSpeed1, and initializes duties to 25/50/75%. Unified IfxGtm_Pwm maintains the original high/low complementary intent while leveraging template-available APIs.",
+    "api_changes_verification": "PENDING: Check the iLLD release notes or Doxygen for official migration guidance between these APIs.",
+    "resource_conflicts": [
+      "TOM1_4–TOM1_6 must not be used as CAN triggers if used for PWM."
+    ]
   },
   "header_selection": {
     "applied": true,
@@ -120,7 +109,8 @@
     "function_mapping": {
       "IfxGtm_enable": "IfxGtm_Pwm_enableChannel"
     },
-    "available_functions_count": 99
+    "available_functions_count": 99,
+    "recommended_header_verification": "PENDING: Check the iLLD package for TC3xx (TC387) and confirm IfxGtm_Pwm.h is present in the include directory."
   },
   "driver_selection_engine": {
     "applied": true,
@@ -205,19 +195,6 @@
       "clock_setup_via_CMU",
       "pin_mapping"
     ],
-    "extension_points": {
-      "pin_mapping": "Abstract all pin selections through a single configuration table (e.g., IfxGtm_PinMap entries) in the module header so that alternative TOM1 TOUT pins (e.g., P02.x) can be selected without code changes. Provide compile-time switches for board variants and a runtime-selectable mapping for test harnesses.",
-      "pwm_topology": "Isolate complementary-pairing and dead-time configuration in a topology descriptor so the design can switch between 3-phase 2-level (TOM+DTM), half-bridge pairs count, or migrate to ATOM with minimal impact. Keep channel pairing and polarity defined in data, not code."
-    },
-    "configuration_mechanisms": {
-      "compile_time": [
-        "Preprocessor macros for board/variant selection (e.g., PWM_PIN_SET_A/B/C)",
-        "Const mapping tables for TOM channel-to-pin routing and pair definitions"
-      ],
-      "runtime": [
-        "Initializer accepts a pointer to pin/topology config to enable test-specific remaps",
-        "Diagnostic build can inject a mock mapping to validate behavior without hardware rewire"
-      ]
-    }
+    "handles_internally_verification": "PENDING: Review the iLLD documentation for IfxGtm_Pwm to confirm these features are handled internally."
   }
 }
