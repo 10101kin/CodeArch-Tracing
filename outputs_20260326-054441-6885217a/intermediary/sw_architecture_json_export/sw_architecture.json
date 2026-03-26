@@ -52,15 +52,31 @@
         "IfxGtm_Pwm_init",
         "IfxGtm_Pwm_updateFrequencyImmediate",
         "IfxGtm_Pwm_startSyncedChannels"
-      ]
+      ],
+      "return_type": "Ifx_Return"
     },
     "runtime_function": {
       "name": "GTM_TOM_3_Phase_Inverter_PWM_updateUVW",
       "driver_calls": [
         "IfxGtm_Pwm_updateChannelsDutyImmediate"
       ],
-      "purpose": "Apply updated duty cycles for U, V, W phases synchronously while preserving complementary outputs and dead-time."
-    }
+      "purpose": "Apply updated duty cycles for U, V, W phases synchronously while preserving complementary outputs and dead-time.",
+      "return_type": "Ifx_Return"
+    },
+    "diagnostic_functions": [
+      {
+        "name": "GTM_TOM_3_Phase_Inverter_PWM_getLastError",
+        "purpose": "Expose last error/status code for unit testing and runtime diagnostics."
+      },
+      {
+        "name": "GTM_TOM_3_Phase_Inverter_PWM_getChannelState",
+        "purpose": "Report effective channel enable, duty, and polarity for each CCX/COUTX pair for validation."
+      },
+      {
+        "name": "GTM_TOM_3_Phase_Inverter_PWM_selfTest",
+        "purpose": "Perform basic self-test of GTM/CMU clocking and TOM1 channel linkage for testability."
+      }
+    ]
   },
   "migration_notes": {
     "is_migration": true,
@@ -188,6 +204,20 @@
     "user_must_handle": [
       "clock_setup_via_CMU",
       "pin_mapping"
-    ]
+    ],
+    "extension_points": {
+      "pin_mapping": "Abstract all pin selections through a single configuration table (e.g., IfxGtm_PinMap entries) in the module header so that alternative TOM1 TOUT pins (e.g., P02.x) can be selected without code changes. Provide compile-time switches for board variants and a runtime-selectable mapping for test harnesses.",
+      "pwm_topology": "Isolate complementary-pairing and dead-time configuration in a topology descriptor so the design can switch between 3-phase 2-level (TOM+DTM), half-bridge pairs count, or migrate to ATOM with minimal impact. Keep channel pairing and polarity defined in data, not code."
+    },
+    "configuration_mechanisms": {
+      "compile_time": [
+        "Preprocessor macros for board/variant selection (e.g., PWM_PIN_SET_A/B/C)",
+        "Const mapping tables for TOM channel-to-pin routing and pair definitions"
+      ],
+      "runtime": [
+        "Initializer accepts a pointer to pin/topology config to enable test-specific remaps",
+        "Diagnostic build can inject a mock mapping to validate behavior without hardware rewire"
+      ]
+    }
   }
 }
