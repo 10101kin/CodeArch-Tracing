@@ -106,7 +106,7 @@
     },
     "update_strategy": "synchronized via disableUpdate/applyUpdate",
     "duty_update_behavior": "static_initial",
-    "duty_update_behavior_note": "Default is to hold static initial duties; a 10 ms ramp can be enabled later if required"
+    "duty_update_behavior_note": "Static initial duties only; 10 ms ramp is not implemented."
   },
   "device_configuration": {
     "target_device_macro": "DEVICE_TC38X",
