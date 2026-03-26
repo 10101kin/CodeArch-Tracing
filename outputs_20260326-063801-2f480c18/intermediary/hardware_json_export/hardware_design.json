@@ -1,0 +1,103 @@
+{
+  "microcontroller": {
+    "model": "TC387",
+    "family": "TC3xx",
+    "verified": true,
+    "device_macro": "DEVICE_TC38X",
+    "pin_package": "IFX_PIN_PACKAGE_516"
+  },
+  "peripheral_instance": {
+    "type": "PWM",
+    "module": "TOM1",
+    "channels": [
+      2,
+      4,
+      6
+    ],
+    "driver": "IfxGtm_Pwm"
+  },
+  "pin_assignments": [
+    {
+      "signal": "U",
+      "port_pin": "P00.3",
+      "function": "TOUT2",
+      "pin_macro": "IfxGtm_TOM1_2_TOUT12_P00_3_OUT",
+      "is_complementary": false,
+      "verified": true,
+      "source": "hardware_verified",
+      "_original_pin_macro": "IfxGtm_TOM1_2_TOUT2_P00_3_OUT"
+    },
+    {
+      "signal": "V",
+      "port_pin": "P00.5",
+      "function": "TOUT4",
+      "pin_macro": "IfxGtm_TOM1_1N_TOUT14_P00_5_OUT",
+      "is_complementary": false,
+      "verified": true,
+      "source": "hardware_verified",
+      "_original_pin_macro": "IfxGtm_TOM1_4_TOUT4_P00_5_OUT"
+    },
+    {
+      "signal": "W",
+      "port_pin": "P00.7",
+      "function": "TOUT6",
+      "pin_macro": "IfxGtm_TOM1_3N_TOUT16_P00_7_OUT",
+      "is_complementary": false,
+      "verified": true,
+      "source": "hardware_verified",
+      "_original_pin_macro": "IfxGtm_TOM1_6_TOUT6_P00_7_OUT"
+    }
+  ],
+  "clock_configuration": {
+    "xtal_frequency_mhz": 20,
+    "system_frequency_mhz": 200
+  },
+  "validation": {
+    "all_verified": true,
+    "conflicts": [],
+    "reference_pins_valid": true
+  },
+  "template_validation": {
+    "supported_peripherals": [
+      "PWM",
+      "GTM",
+      "TIMER",
+      "ETHERNET",
+      "CPU"
+    ],
+    "suggested_drivers": {
+      "PWM": [
+        "IfxGtm_Pwm"
+      ],
+      "GTM": [
+        "IfxGtm_Pwm"
+      ],
+      "TIMER": [
+        "IfxGtm_Pwm"
+      ],
+      "ETHERNET": [
+        "IfxGeth",
+        "IfxGeth_Eth"
+      ],
+      "CPU": [
+        "IfxCpu"
+      ],
+      "_driver_selection": {
+        "explicit_target": "IfxGtm_Pwm",
+        "replaced_source": "IfxGtm_Tom_PwmHl",
+        "primary_drivers": [
+          "IfxGtm_Pwm"
+        ],
+        "avoid_drivers": [
+          "IfxGtm_Tom_PwmHl"
+        ]
+      }
+    },
+    "warnings": []
+  },
+  "pin_analysis": {
+    "verified_count": 3,
+    "doc_reference_count": 1,
+    "merged_total": 4
+  }
+}

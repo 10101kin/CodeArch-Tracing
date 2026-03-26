@@ -1,0 +1,61 @@
+{
+  "module_name": "GTM_TOM_3_Phase_Inverter_PWM",
+  "public_functions": [
+    {
+      "signature": "void initGtmTomPwm(void)",
+      "behavior_description": "Enable the GTM and its functional clocks, then configure a TOM-based timebase and a unified PWM cluster for three single-ended outputs with center-aligned operation. Steps: 1) Enable the GTM and enable the functional clocks needed by TOM. 2) Initialize a TOM timer on the selected TOM, using a designated timer channel as the common timebase at the required PWM frequency, aligned for up/down (center-aligned) operation. 3) Initialize the unified PWM driver with three channels, assign the output pins (from hardware macros) to each channel, set active-high polarity and push-pull output mode, and link the PWM driver to the previously configured TOM timer for synchronous shadow transfers. 4) Start the timebase and add the three PWM channels to the timer’s channel update mask, ensuring all three outputs share atomic/shadow updates. 5) Stage initial duties (25%, 50%, 75%) as fractional values for the three channels, disable timer updates, write the staged duties to the PWM driver (shadow registers), and apply a single shadow transfer so that all channels update synchronously.",
+      "driver_calls": [
+        "IfxGtm_enable",
+        "IfxGtm_Cmu_enableClocks",
+        "IfxGtm_Tom_Timer_initConfig",
+        "IfxGtm_Tom_Timer_init",
+        "IfxGtm_Tom_Timer_updateInputFrequency",
+        "IfxGtm_Pwm_initConfig",
+        "IfxGtm_Pwm_init",
+        "IfxGtm_Tom_Timer_addToChannelMask",
+        "IfxGtm_Tom_Timer_disableUpdate",
+        "IfxGtm_Pwm_updateChannelsDuty",
+        "IfxGtm_Tom_Timer_applyUpdate",
+        "IfxGtm_Tom_Timer_run"
+      ],
+      "from_reference": true,
+      "call_context": "init"
+    },
+    {
+      "signature": "void updateGtmTomPwmDutyCycles(void)",
+      "behavior_description": "Maintain three duty values (one per PWM channel) in 0..100% inclusive. On each call: 1) Increase each duty by a fixed step (+10%). 2) If a duty exceeds 100%, wrap it to 0% (true 0% and true 100% are both valid; a duty equal to 100% remains until the next increment, which wraps to 0%). 3) Convert the three updated duty percentages to fractional values expected by the PWM driver’s multi-channel update. 4) Disable the timer update to stage a synchronous change, write all three duty values into PWM shadow registers in one call, then apply a single shadow transfer so that all outputs update coherently.",
+      "driver_calls": [
+        "IfxGtm_Tom_Timer_disableUpdate",
+        "IfxGtm_Pwm_updateChannelsDuty",
+        "IfxGtm_Tom_Timer_applyUpdate"
+      ],
+      "from_reference": true,
+      "call_context": "loop"
+    }
+  ],
+  "private_functions": [
+    {
+      "signature": "static void configureInternalState(uint8_t param)",
+      "needed": false,
+      "from_reference": false
+    }
+  ],
+  "dependencies": {
+    "includes": []
+  },
+  "header_selection": {
+    "applied": true,
+    "peripheral_type": "PWM",
+    "recommended_header": "IfxGtm_Tom",
+    "template_functions_count": 1037,
+    "required_includes": [
+      "IfxGtm_Tom.h"
+    ],
+    "original_recommendation": "IfxGtm_Tom_Timer",
+    "reconciled": true,
+    "reconciliation_reason": "LLM driver_calls use IfxGtm_Tom_* API, not IfxGtm_Tom_Timer (the reference API). Updated to match actual usage.",
+    "original_required_includes": [
+      "IfxGtm_Tom_Timer.h"
+    ]
+  }
+}
