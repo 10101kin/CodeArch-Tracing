@@ -1,10 +1,10 @@
-/* IfxGtm types + functions */
+/* IfxGtm.h - GTM core driver mock */
 #ifndef IFXGTM_H
 #define IFXGTM_H
 
 #include "mock_gtm_tom_3_phase_inverter_pwm.h"
 
-/* Enums */
+/* Types/Enums */
 typedef enum {
     IfxGtm_IrqMode_level       = 0,
     IfxGtm_IrqMode_pulse       = 1,
@@ -18,7 +18,6 @@ typedef enum {
     IfxGtm_SuspendMode_soft = 2
 } IfxGtm_SuspendMode;
 
-/* Cluster enum required by PWM config */
 typedef enum {
     IfxGtm_Cluster_0 = 0,
     IfxGtm_Cluster_1,

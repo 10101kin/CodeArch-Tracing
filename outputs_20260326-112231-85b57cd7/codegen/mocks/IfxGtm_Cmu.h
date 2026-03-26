@@ -1,10 +1,10 @@
-/* IfxGtm_Cmu types + functions */
+/* IfxGtm_Cmu.h - GTM CMU driver mock */
 #ifndef IFXGTM_CMU_H
 #define IFXGTM_CMU_H
 
 #include "mock_gtm_tom_3_phase_inverter_pwm.h"
 
-/* Enums */
+/* Types/Enums */
 typedef enum {
     IfxGtm_Cmu_Clk_0 = 0,
     IfxGtm_Cmu_Clk_1,
@@ -37,7 +37,7 @@ typedef enum {
     IfxGtm_Cmu_Tim_Filter_Clk_7
 } IfxGtm_Cmu_Tim_Filter_Clk;
 
-/* DTM Clock source + macros */
+/* DTM clock source required by Pwm config */
 typedef enum {
     IfxGtm_Dtm_ClockSource_cmuClock0 = 0,
     IfxGtm_Dtm_ClockSource_cmuClock1,
@@ -54,7 +54,7 @@ typedef enum {
 /* Function declarations */
 void    IfxGtm_Cmu_enableClocks(Ifx_GTM *gtm, uint32 clkMask);
 float32 IfxGtm_Cmu_getClkFrequency(Ifx_GTM *gtm, IfxGtm_Cmu_Clk clk);
-float32 IfxGtm_Cmu_getEclkFrequency(Ifx_GTM *gtm, IfxGtm_Cmu_Eclk eclk);
+float32 IfxGtm_Cmu_getEclkFrequency(Ifx_GTM *gtm, IfxGtm_Cmu_Eclk clk);
 float32 IfxGtm_Cmu_getFxClkFrequency(Ifx_GTM *gtm, IfxGtm_Cmu_Fxclk fxclk);
 float32 IfxGtm_Cmu_getGclkFrequency(Ifx_GTM *gtm);
 float32 IfxGtm_Cmu_getModuleFrequency(Ifx_GTM *gtm);

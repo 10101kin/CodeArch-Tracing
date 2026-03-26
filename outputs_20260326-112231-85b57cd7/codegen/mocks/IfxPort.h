@@ -1,11 +1,10 @@
-/* IfxPort types + functions */
+/* IfxPort.h - Port driver mock */
 #ifndef IFXPORT_H
 #define IFXPORT_H
 
 #include "mock_gtm_tom_3_phase_inverter_pwm.h"
 
-/* Required enums and types */
-
+/* Types/Structs */
 typedef enum {
     IfxPort_ControlledBy_port = 0,
     IfxPort_ControlledBy_hsct = 1
@@ -55,15 +54,15 @@ typedef enum {
 
 typedef enum {
     IfxPort_PadDriver_cmosAutomotiveSpeed1 = 0,
-    IfxPort_PadDriver_cmosAutomotiveSpeed2,
-    IfxPort_PadDriver_cmosAutomotiveSpeed3,
-    IfxPort_PadDriver_cmosAutomotiveSpeed4,
-    IfxPort_PadDriver_ttlSpeed1,
-    IfxPort_PadDriver_ttlSpeed2,
-    IfxPort_PadDriver_ttlSpeed3,
-    IfxPort_PadDriver_ttlSpeed4,
-    IfxPort_PadDriver_ttl3v3Speed1,
-    IfxPort_PadDriver_ttl3v3Speed2
+    IfxPort_PadDriver_cmosAutomotiveSpeed2 = 1,
+    IfxPort_PadDriver_cmosAutomotiveSpeed3 = 2,
+    IfxPort_PadDriver_cmosAutomotiveSpeed4 = 3,
+    IfxPort_PadDriver_ttlSpeed1            = 4,
+    IfxPort_PadDriver_ttlSpeed2            = 5,
+    IfxPort_PadDriver_ttlSpeed3            = 6,
+    IfxPort_PadDriver_ttlSpeed4            = 7,
+    IfxPort_PadDriver_ttl3v3Speed1         = 8,
+    IfxPort_PadDriver_ttl3v3Speed2         = 9
 } IfxPort_PadDriver;
 
 typedef enum {
@@ -103,7 +102,6 @@ typedef enum {
     IfxPort_LvdsTerminationMode_internal = 1
 } IfxPort_LvdsTerminationMode;
 
-/* Structs */
 typedef struct {
     IfxPort_LvdsMode     lvdsMode;
     IfxPort_ControlledBy enablePortControlled;
@@ -129,7 +127,7 @@ void IfxPort_setPinHigh(Ifx_P *port, uint8 pinIndex);
 void IfxPort_setPinLow(Ifx_P *port, uint8 pinIndex);
 void IfxPort_setPinModeInput(Ifx_P *port, uint8 pinIndex, IfxPort_InputMode mode);
 void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
-void IfxPort_setPinState(Ifx_P *port, uint8 pinIndex, IfxPort_State action);
+void IfxPort_setPinState(Ifx_P *port, uint8 pinIndex, IfxPort_State state);
 void IfxPort_togglePin(Ifx_P *port, uint8 pinIndex);
 void IfxPort_disableEmergencyStop(Ifx_P *port, uint8 pinIndex);
 void IfxPort_enableEmergencyStop(Ifx_P *port, uint8 pinIndex);
