@@ -8,14 +8,14 @@
         "IfxGtm_enable",
         "IfxGtm_Cmu_enableClocks",
         "IfxGtm_PinMap_setTomTout",
-        "IfxGtm_Tom_Pwm_initConfig",
-        "IfxGtm_Tom_Pwm_initChannelConfig",
-        "IfxGtm_Tom_Pwm_init",
-        "IfxGtm_Tom_Pwm_updateFrequencyImmediate",
-        "IfxGtm_Tom_Pwm_updateChannelsDeadTimeImmediate",
-        "IfxGtm_Tom_Pwm_updateChannelsDutyImmediate",
-        "IfxGtm_Tom_Pwm_startSyncedChannels",
-        "IfxGtm_Tom_Pwm_startChannelOutputs"
+        "IfxGtm_Pwm_initConfig",
+        "IfxGtm_Pwm_initChannelConfig",
+        "IfxGtm_Pwm_init",
+        "IfxGtm_Pwm_updateFrequencyImmediate",
+        "IfxGtm_Pwm_updateChannelsDeadTimeImmediate",
+        "IfxGtm_Pwm_updateChannelsDutyImmediate",
+        "IfxGtm_Pwm_startSyncedChannels",
+        "IfxGtm_Pwm_startChannelOutputs"
       ],
       "from_reference": true,
       "call_context": "init"
@@ -24,7 +24,7 @@
       "signature": "void GTM_TOM_3_Phase_Inverter_PWM_updateUVW(void)",
       "behavior_description": "On each call, compute a duty increment as a fixed fraction of the PWM period (duty step). For each of the three phase duties, add the step and constrain the result using lower and upper bounds (minimum and maximum duty limits). If a channel’s duty reaches or exceeds the maximum bound, wrap it to the minimum bound. After updating all three duty values, build a duty array ordered consistently with the configured PWM channels and perform a single synchronous duty update so all complementary outputs change coherently while maintaining complementary behavior and the configured dead-time.",
       "driver_calls": [
-        "IfxGtm_Tom_Pwm_updateChannelsDutyImmediate"
+        "IfxGtm_Pwm_updateChannelsDutyImmediate"
       ],
       "from_reference": true,
       "call_context": "loop"
@@ -39,7 +39,7 @@
   ],
   "dependencies": {
     "includes": [
-      "IfxGtm_Tom_Pwm.h",
+      "IfxGtm_Pwm.h",
       "IfxGtm_Cmu.h",
       "IfxGtm_PinMap.h",
       "IfxPort.h"
@@ -69,7 +69,7 @@
   "header_selection": {
     "applied": true,
     "peripheral_type": "PWM",
-    "recommended_header": "IfxGtm_Tom_Pwm.h",
+    "recommended_header": "IfxGtm_Pwm",
     "template_functions_count": 1026,
     "required_includes": [
       "IfxGtm_Pwm.h"
