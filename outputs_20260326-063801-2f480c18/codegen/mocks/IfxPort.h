@@ -1,16 +1,15 @@
-/* IfxPort types + functions (enums only as needed) */
 #ifndef IFXPORT_H
 #define IFXPORT_H
 
 #include "mock_gtm_tom_3_phase_inverter_pwm.h"
 
-/* Port output mode enum */
+/* IfxPort driver mock: types only (no functions required by current module) */
+
 typedef enum {
     IfxPort_OutputMode_pushPull = 0,
     IfxPort_OutputMode_openDrain = 1
 } IfxPort_OutputMode;
 
-/* Port pad driver enum */
 typedef enum {
     IfxPort_PadDriver_cmosAutomotiveSpeed1 = 0,
     IfxPort_PadDriver_cmosAutomotiveSpeed2 = 1,
@@ -18,16 +17,23 @@ typedef enum {
     IfxPort_PadDriver_cmosAutomotiveSpeed4 = 3
 } IfxPort_PadDriver;
 
-/* Additional enums required by rules */
 typedef enum {
-    IfxPort_OutputIdx_general = 0,
-    IfxPort_OutputIdx_alt1 = 1,
-    IfxPort_OutputIdx_alt2 = 2,
-    IfxPort_OutputIdx_alt3 = 3,
-    IfxPort_OutputIdx_alt4 = 4,
-    IfxPort_OutputIdx_alt5 = 5,
-    IfxPort_OutputIdx_alt6 = 6,
-    IfxPort_OutputIdx_alt7 = 7
+    IfxPort_OutputIdx_0 = 0,
+    IfxPort_OutputIdx_1,
+    IfxPort_OutputIdx_2,
+    IfxPort_OutputIdx_3,
+    IfxPort_OutputIdx_4,
+    IfxPort_OutputIdx_5,
+    IfxPort_OutputIdx_6,
+    IfxPort_OutputIdx_7,
+    IfxPort_OutputIdx_8,
+    IfxPort_OutputIdx_9,
+    IfxPort_OutputIdx_10,
+    IfxPort_OutputIdx_11,
+    IfxPort_OutputIdx_12,
+    IfxPort_OutputIdx_13,
+    IfxPort_OutputIdx_14,
+    IfxPort_OutputIdx_15
 } IfxPort_OutputIdx;
 
 typedef enum {

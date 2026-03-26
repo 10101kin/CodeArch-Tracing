@@ -1,16 +1,15 @@
-/* IfxGtm_Tom_Timer types + functions */
 #ifndef IFXGTM_TOM_TIMER_H
 #define IFXGTM_TOM_TIMER_H
 
 #include "mock_gtm_tom_3_phase_inverter_pwm.h"
 
-/* Support types used by Timer */
+/* Driver-specific types and enums */
 typedef uint32 Ifx_TimerValue;
 
 typedef enum {
     IfxStdIf_Timer_CountDir_up = 0,
-    IfxStdIf_Timer_CountDir_down = 1,
-    IfxStdIf_Timer_CountDir_upDown = 2
+    IfxStdIf_Timer_CountDir_down,
+    IfxStdIf_Timer_CountDir_upAndDown
 } IfxStdIf_Timer_CountDir;
 
 typedef enum {
@@ -32,50 +31,53 @@ typedef enum {
     IfxGtm_Tom_Ch_15
 } IfxGtm_Tom_Ch;
 
-/* IfxGtm_Tom_Timer_Base definition */
-typedef struct {
-    Ifx_TimerValue          period;               /* Timer period in ticks (cached value) */
-    boolean                 triggerEnabled;       /* If TRUE, trigger functionality is Initialized */
-    float32                 clockFreq;            /* Timer input clock frequency (cached value) */
-    IfxStdIf_Timer_CountDir countDir;             /* Timer counting mode */
+typedef struct
+{
+    Ifx_TimerValue                  period;       /* cached period in ticks */
+    boolean                         triggerEnabled;
+    float32                         clockFreq;    /* input clock frequency */
+    IfxStdIf_Timer_CountDir         countDir;     /* counting mode */
 } IfxGtm_Tom_Timer_Base;
 
-/* Driver object and configuration (minimal mock representations) */
-typedef struct {
-    IfxGtm_Tom_Timer_Base base;
-    void *internal; /* reserved */
+typedef struct
+{
+    IfxGtm_Tom_Timer_Base           base;
+    uint32                          channelMask;
+    Ifx_GTM                         *gtm;
 } IfxGtm_Tom_Timer;
 
-typedef struct {
-    Ifx_GTM *gtm;
-    float32  frequency;
-    uint32   channelsMask;
+typedef struct
+{
+    Ifx_GTM                         *gtm;
+    float32                         frequency;
+    uint32                          channelMask;
+    IfxStdIf_Timer_CountDir         countDir;
 } IfxGtm_Tom_Timer_Config;
 
-/* Function declarations (as per template requirements) */
-void IfxGtm_Tom_Timer_initConfig(IfxGtm_Tom_Timer_Config *config, Ifx_GTM *gtm);
+/* Functions (declare all listed in template) */
+void    IfxGtm_Tom_Timer_initConfig(IfxGtm_Tom_Timer_Config *config, Ifx_GTM *gtm);
 boolean IfxGtm_Tom_Timer_init(IfxGtm_Tom_Timer *driver, const IfxGtm_Tom_Timer_Config *config);
 
-/* StdIf interface declarations used by template */
-void IfxGtm_Tom_Timer_stdIfTimerInit(void *stdif, IfxGtm_Tom_Timer *driver);
-void IfxStdIf_Timer_run(void *stdif);
-void IfxStdIf_Timer_disableUpdate(void *stdif);
-void IfxStdIf_Timer_setPeriod(void *stdif, Ifx_TimerValue period);
-void IfxStdIf_Timer_applyUpdate(void *stdif);
+/* StdIf-style declarations (dummies for completeness) */
+void IfxGtm_Tom_Timer_stdIfTimerInit(void);
+void IfxStdIf_Timer_run(void);
+void IfxStdIf_Timer_disableUpdate(void);
+void IfxStdIf_Timer_setPeriod(Ifx_TimerValue period);
+void IfxStdIf_Timer_applyUpdate(void);
 
-/* Additional Timer APIs referenced by template */
-uint32 IfxGtm_Tom_Timer_getOffset(IfxGtm_Tom_Timer *driver);
-void IfxGtm_Tom_Timer_acknowledgeTimerIrq(IfxGtm_Tom_Timer *driver);
-void IfxGtm_Tom_Timer_acknowledgeTriggerIrq(IfxGtm_Tom_Timer *driver);
-void IfxGtm_Tom_Timer_addToChannelMask(IfxGtm_Tom_Timer *driver, IfxGtm_Tom_Ch channel);
-void IfxGtm_Tom_Timer_applyUpdate(IfxGtm_Tom_Timer *driver);
-void IfxGtm_Tom_Timer_disableUpdate(IfxGtm_Tom_Timer *driver);
-float32 IfxGtm_Tom_Timer_getFrequency(IfxGtm_Tom_Timer *driver);
-float32 IfxGtm_Tom_Timer_getInputFrequency(IfxGtm_Tom_Timer *driver);
-Ifx_TimerValue IfxGtm_Tom_Timer_getPeriod(IfxGtm_Tom_Timer *driver);
-float32 IfxGtm_Tom_Timer_getResolution(IfxGtm_Tom_Timer *driver);
-uint32 IfxGtm_Tom_Timer_getTrigger(IfxGtm_Tom_Timer *driver);
-void IfxGtm_Tom_Timer_run(IfxGtm_Tom_Timer *driver);
-void IfxGtm_Tom_Timer_updateInputFrequency(IfxGtm_Tom_Timer *driver);
+/* Additional API from template list */
+uint32  IfxGtm_Tom_Timer_getOffset(void);
+void    IfxGtm_Tom_Timer_acknowledgeTimerIrq(void);
+void    IfxGtm_Tom_Timer_acknowledgeTriggerIrq(void);
+void    IfxGtm_Tom_Timer_addToChannelMask(IfxGtm_Tom_Timer *driver, IfxGtm_Tom_Ch channel);
+void    IfxGtm_Tom_Timer_applyUpdate(IfxGtm_Tom_Timer *driver);
+void    IfxGtm_Tom_Timer_disableUpdate(IfxGtm_Tom_Timer *driver);
+float32 IfxGtm_Tom_Timer_getFrequency(void);
+float32 IfxGtm_Tom_Timer_getInputFrequency(void);
+Ifx_TimerValue IfxGtm_Tom_Timer_getPeriod(void);
+float32 IfxGtm_Tom_Timer_getResolution(void);
+uint32  IfxGtm_Tom_Timer_getTrigger(void);
+void    IfxGtm_Tom_Timer_run(IfxGtm_Tom_Timer *driver);
+void    IfxGtm_Tom_Timer_updateInputFrequency(IfxGtm_Tom_Timer *driver);
 
 #endif /* IFXGTM_TOM_TIMER_H */
