@@ -1,13 +1,12 @@
-/* IfxGtm.h - GTM core driver mock */
 #ifndef IFXGTM_H
 #define IFXGTM_H
 
 #include "mock_gtm_tom_3_phase_inverter_pwm.h"
 
-/* Types/Enums */
+/* Enums */
 typedef enum {
-    IfxGtm_IrqMode_level       = 0,
-    IfxGtm_IrqMode_pulse       = 1,
+    IfxGtm_IrqMode_level = 0,
+    IfxGtm_IrqMode_pulse = 1,
     IfxGtm_IrqMode_pulseNotify = 2,
     IfxGtm_IrqMode_singlePulse = 3
 } IfxGtm_IrqMode;
