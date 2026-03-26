@@ -1,9 +1,11 @@
 /*
  * gtm_tom_3_phase_inverter_pwm.h
  *
- * Public API for GTM TOM 3-Phase Inverter PWM driver (TC3xx, IfxGtm_Pwm).
+ * Public API for GTM TOM 3-Phase Inverter PWM driver (TC3xx).
  *
- * Do not include other headers here; keep only prototypes per module interface rules.
+ * Note:
+ *  - This header intentionally contains only the public function prototypes.
+ *  - Do not add includes/macros/types here.
  */
 #ifndef GTM_TOM_3_PHASE_INVERTER_PWM_H
 #define GTM_TOM_3_PHASE_INVERTER_PWM_H
@@ -12,7 +14,6 @@
 extern "C" {
 #endif
 
-/* Public functions */
 void initGtmTom3phInv(void);
 void updateGtmTom3phInvDuty(void);
 
