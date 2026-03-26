@@ -1,11 +1,105 @@
-Status: SUCCESS
+Status: FAILED
 
-Node JSON export
-Stage: code_generation
-Reason: stage_failed
-Modified By: system
-Modifier: N/A
-Reviewer: N/A
-Attempt: 5
-Phase attempt: 1
-Timestamp: 2026-03-26T20:15:33.473195
+============================================================
+TDD CODE GENERATION - ATTEMPT STATUS
+============================================================
+Phase: production
+Attempt: 3
+Status: FAILED
+Timestamp: 2026-03-27 00:01:04
+Files generated: 2
+
+============================================================
+
+ERRORS:
+
+1. unknown type name 'IfxPort_LvdsMode'
+
+2. unknown type name 'IfxPort_ControlledBy'
+
+3. unknown type name 'IfxPort_PadSupply'
+
+4. unknown type name 'IfxPort_OutputIdx'
+
+5. unknown type name 'IfxPort_PadDriver'
+
+6. unknown type name 'IfxPort_LvdsMode'
+
+7. unknown type name 'IfxPort_ControlledBy'
+
+8. unknown type name 'IfxPort_PadSupply'
+
+9. unknown type name 'IfxPort_OutputIdx'
+
+10. unknown type name 'IfxPort_PadDriver'
+
+============================================================
+BUILD RESULT:
+{
+  "success": false,
+  "errors": [
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zhvdgu0y\\include/IfxPort.h",
+      "line": 8,
+      "category": "error",
+      "message": "unknown type name 'IfxPort_LvdsMode'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zhvdgu0y\\include/IfxPort.h",
+      "line": 9,
+      "category": "error",
+      "message": "unknown type name 'IfxPort_ControlledBy'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zhvdgu0y\\include/IfxPort.h",
+      "line": 10,
+      "category": "error",
+      "message": "unknown type name 'IfxPort_PadSupply'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zhvdgu0y\\include/IfxPort.h",
+      "line": 21,
+      "category": "error",
+      "message": "unknown type name 'IfxPort_OutputIdx'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zhvdgu0y\\include/IfxPort.h",
+      "line": 22,
+      "category": "error",
+      "message": "unknown type name 'IfxPort_PadDriver'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zhvdgu0y\\include/IfxPort.h",
+      "line": 8,
+      "category": "error",
+      "message": "unknown type name 'IfxPort_LvdsMode'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zhvdgu0y\\include/IfxPort.h",
+      "line": 9,
+      "category": "error",
+      "message": "unknown type name 'IfxPort_ControlledBy'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zhvdgu0y\\include/IfxPort.h",
+      "line": 10,
+      "category": "error",
+      "message": "unknown type name 'IfxPort_PadSupply'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zhvdgu0y\\include/IfxPort.h",
+      "line": 21,
+      "category": "error",
+      "message": "unknown type name 'IfxPort_OutputIdx'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zhvdgu0y\\include/IfxPort.h",
+      "line": 22,
+      "category": "error",
+      "message": "unknown type name 'IfxPort_PadDriver'"
+    }
+  ],
+  "warnings": [],
+  "stderr": "In file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zhvdgu0y\\include/IfxGtm_Pwm.h:7,\n                 from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zhvdgu0y\\src\\gtm_tom_3_phase_inverter_pwm.c:13:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zhvdgu0y\\include/IfxPort.h:8:5: error: unknown type name 'IfxPort_LvdsMode'\n    8 |     IfxPort_LvdsMode     lvdsMode;\n      |     ^~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zhvdgu0y\\include/IfxPort.h:9:5: error: unknown type name 'IfxPort_ControlledBy'\n    9 |     IfxPort_ControlledBy enablePortControlled;\n      |     ^~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zhvdgu0y\\include/IfxPort.h:10:5: error: unknown type name 'IfxPort_PadSupply'\n   10 |     IfxPort_PadSupply    padSupply;\n      |     ^~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zhvdgu0y\\include/IfxPort.h:21:5: error: unknown type name 'IfxPort_OutputIdx'\n   21 |     IfxPort_OutputIdx mode;\n      |     ^~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zhvdgu0y\\include/IfxPort.h:22:5: error: unknown type name 'IfxPort_PadDriver'\n   22 |     IfxPort_PadDriver padDriver;\n      |     ^~~~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zhvdgu0y\\include/IfxGtm_Pwm.h:7,\n                 from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zhvdgu0y\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c:5:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zhvdgu0y\\include/IfxPort.h:8:5: error: unknown type name 'IfxPort_LvdsMode'\n    8 |     IfxPort_LvdsMode     lvdsMode;\n      |     ^~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zhvdgu0y\\include/IfxPort.h:9:5: error: unknown type name 'IfxPort_ControlledBy'\n    9 |     IfxPort_ControlledBy enablePortControlled;\n      |     ^~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zhvdgu0y\\include/IfxPort.h:10:5: error: unknown type name 'IfxPort_PadSupply'\n   10 |     IfxPort_PadSupply    padSupply;\n      |     ^~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zhvdgu0y\\include/IfxPort.h:21:5: error: unknown type name 'IfxPort_OutputIdx'\n   21 |     IfxPort_OutputIdx mode;\n      |     ^~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zhvdgu0y\\include/IfxPort.h:22:5: error: unknown type name 'IfxPort_PadDriver'\n   22 |     IfxPort_PadDriver padDriver;\n      |     ^~~~~~~~~~~~~~~~~\n",
+  "stdout": ""
+}

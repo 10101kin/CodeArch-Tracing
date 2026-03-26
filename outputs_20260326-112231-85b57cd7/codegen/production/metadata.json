@@ -1,13 +1,19 @@
 {
-  "export_type": "node_json",
-  "export_reason": "stage_failed",
-  "node_stage": "code_generation",
-  "reviewer_name": null,
-  "reviewer_applied": false,
-  "modified_by": "system",
-  "modifier_name": null,
-  "workflow_stage": "code_generation_failed",
-  "target_board": "KIT_A2G_TC387_5V_TFT",
-  "generation_mode": "MIGRATION",
-  "timestamp": "2026-03-26T20:15:33.473191"
+  "attempt": 3,
+  "phase": "production",
+  "success": false,
+  "errors": [
+    "unknown type name 'IfxPort_LvdsMode'",
+    "unknown type name 'IfxPort_ControlledBy'",
+    "unknown type name 'IfxPort_PadSupply'",
+    "unknown type name 'IfxPort_OutputIdx'",
+    "unknown type name 'IfxPort_PadDriver'",
+    "unknown type name 'IfxPort_LvdsMode'",
+    "unknown type name 'IfxPort_ControlledBy'",
+    "unknown type name 'IfxPort_PadSupply'",
+    "unknown type name 'IfxPort_OutputIdx'",
+    "unknown type name 'IfxPort_PadDriver'"
+  ],
+  "timestamp": "2026-03-27T00:01:04.881681",
+  "project_name": "Upgrade_the_TC387_3-phase_inverter_PWM_to_IfxGtm_P_r_20260326_234712"
 }
