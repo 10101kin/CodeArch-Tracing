@@ -1,76 +1,936 @@
-In file included from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_001_build\src\gtm_tom_3_phase_inverter_pwm.c:25:
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_001_build\include/gtm_tom_3_phase_inverter_pwm.h:30:60: warning: '/*' within comment [-Wcomment]
-   30 | /* #define PWM_DEAD_TIME_S                 (5.0e-07f)      /* TIMING_DEAD_TIME_SECONDS = 0.5us */ */  /* auto-fix: incompatible struct types */
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_001_build\include/gtm_tom_3_phase_inverter_pwm.h:30:100: error: expected identifier or '(' before '/' token
-   30 | /* #define PWM_DEAD_TIME_S                 (5.0e-07f)      /* TIMING_DEAD_TIME_SECONDS = 0.5us */ */  /* auto-fix: incompatible struct types */
-      |                                                                                                    ^
+In file included from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:14:
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/gtm_tom_3_phase_inverter_pwm.h:61:5: error: unknown type name 'IfxGtm_Pwm'
+   61 |     IfxGtm_Pwm           pwm;                                 /* PWM driver handle */
+      |     ^~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/gtm_tom_3_phase_inverter_pwm.h:62:5: error: unknown type name 'IfxGtm_Pwm_Channel'
+   62 |     IfxGtm_Pwm_Channel   channels[NUM_OF_CHANNELS];           /* Populated by init */
+      |     ^~~~~~~~~~~~~~~~~~
+In file included from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:17:
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxGtm.h:8:20: error: unknown type name 'Ifx_GTM'; did you mean 'Ifx_STMx'?
+    8 | void IfxGtm_enable(Ifx_GTM *gtm);
+      |                    ^~~~~~~
+      |                    Ifx_STMx
+In file included from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:18:
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxGtm_Cmu.h:8:33: error: unknown type name 'Ifx_GTM'; did you mean 'Ifx_STMx'?
+    8 | void IfxGtm_Cmu_setClkFrequency(Ifx_GTM *gtm, IfxGtm_Cmu_Clk clkIndex, float32 frequency);
+      |                                 ^~~~~~~
+      |                                 Ifx_STMx
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxGtm_Cmu.h:8:47: error: unknown type name 'IfxGtm_Cmu_Clk'
+    8 | void IfxGtm_Cmu_setClkFrequency(Ifx_GTM *gtm, IfxGtm_Cmu_Clk clkIndex, float32 frequency);
+      |                                               ^~~~~~~~~~~~~~
+In file included from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:19:
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxGtm_Pwm.h:8:28: error: unknown type name 'IfxGtm_Pwm_Config'; did you mean 'IfxEgtm_Pwm_Config'?
+    8 | void IfxGtm_Pwm_initConfig(IfxGtm_Pwm_Config *config, Ifx_GTM *gtmSFR);
+      |                            ^~~~~~~~~~~~~~~~~
+      |                            IfxEgtm_Pwm_Config
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxGtm_Pwm.h:8:55: error: unknown type name 'Ifx_GTM'; did you mean 'Ifx_STMx'?
+    8 | void IfxGtm_Pwm_initConfig(IfxGtm_Pwm_Config *config, Ifx_GTM *gtmSFR);
+      |                                                       ^~~~~~~
+      |                                                       Ifx_STMx
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxGtm_Pwm.h:9:37: error: unknown type name 'IfxGtm_Pwm'
+    9 | void IfxGtm_Pwm_startChannelOutputs(IfxGtm_Pwm *pwm);
+      |                                     ^~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxGtm_Pwm.h:10:45: error: unknown type name 'IfxGtm_Pwm'
+   10 | void IfxGtm_Pwm_updateChannelsDutyImmediate(IfxGtm_Pwm *pwm, float32 *requestDuty);
+      |                                             ^~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxGtm_Pwm.h:11:37: error: unknown type name 'IfxGtm_Pwm'
+   11 | void IfxGtm_Pwm_startSyncedChannels(IfxGtm_Pwm *pwm);
+      |                                     ^~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxGtm_Pwm.h:12:22: error: unknown type name 'IfxGtm_Pwm'
+   12 | void IfxGtm_Pwm_init(IfxGtm_Pwm *pwm, IfxGtm_Pwm_Channel *channels, IfxGtm_Pwm_Config *config);
+      |                      ^~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxGtm_Pwm.h:12:39: error: unknown type name 'IfxGtm_Pwm_Channel'
+   12 | void IfxGtm_Pwm_init(IfxGtm_Pwm *pwm, IfxGtm_Pwm_Channel *channels, IfxGtm_Pwm_Config *config);
+      |                                       ^~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxGtm_Pwm.h:12:69: error: unknown type name 'IfxGtm_Pwm_Config'; did you mean 'IfxEgtm_Pwm_Config'?
+   12 | void IfxGtm_Pwm_init(IfxGtm_Pwm *pwm, IfxGtm_Pwm_Channel *channels, IfxGtm_Pwm_Config *config);
+      |                                                                     ^~~~~~~~~~~~~~~~~
+      |                                                                     IfxEgtm_Pwm_Config
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxGtm_Pwm.h:13:49: error: unknown type name 'IfxGtm_Pwm'
+   13 | void IfxGtm_Pwm_updateChannelsDeadTimeImmediate(IfxGtm_Pwm *pwm, IfxGtm_Pwm_DeadTime *requestDeadTime);
+      |                                                 ^~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxGtm_Pwm.h:13:66: error: unknown type name 'IfxGtm_Pwm_DeadTime'
+   13 | void IfxGtm_Pwm_updateChannelsDeadTimeImmediate(IfxGtm_Pwm *pwm, IfxGtm_Pwm_DeadTime *requestDeadTime);
+      |                                                                  ^~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxGtm_Pwm.h:14:42: error: unknown type name 'IfxGtm_Pwm'
+   14 | void IfxGtm_Pwm_updateFrequencyImmediate(IfxGtm_Pwm *pwm, float32 requestFrequency);
+      |                                          ^~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxGtm_Pwm.h:15:35: error: unknown type name 'IfxGtm_Pwm_ChannelConfig'; did you mean 'IfxEgtm_Pwm_ChannelConfig'?
+   15 | void IfxGtm_Pwm_initChannelConfig(IfxGtm_Pwm_ChannelConfig *channelConfig);
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~
+      |                                   IfxEgtm_Pwm_ChannelConfig
+In file included from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:20:
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxGtm_PinMap.h:8:31: error: unknown type name 'IfxGtm_Tom_ToutMap'
+    8 | void IfxGtm_PinMap_setTomTout(IfxGtm_Tom_ToutMap *config, IfxPort_OutputMode outputMode, IfxPort_PadDriver padDriver);
+      |                               ^~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxGtm_PinMap.h:8:59: error: unknown type name 'IfxPort_OutputMode'
+    8 | void IfxGtm_PinMap_setTomTout(IfxGtm_Tom_ToutMap *config, IfxPort_OutputMode outputMode, IfxPort_PadDriver padDriver);
+      |                                                           ^~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxGtm_PinMap.h:8:90: error: unknown type name 'IfxPort_PadDriver'
+    8 | void IfxGtm_PinMap_setTomTout(IfxGtm_Tom_ToutMap *config, IfxPort_OutputMode outputMode, IfxPort_PadDriver padDriver);
+      |                                                                                          ^~~~~~~~~~~~~~~~~
+In file included from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:21:
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxPort.h:11:25: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   11 | void IfxPort_setPinMode(Ifx_P *port, uint8 pinIndex, IfxPort_Mode mode);
+      |                         ^~~~~
+      |                         IFX_PI
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxPort.h:11:54: error: unknown type name 'IfxPort_Mode'; did you mean 'Ifx_Pwm_Mode'?
+   11 | void IfxPort_setPinMode(Ifx_P *port, uint8 pinIndex, IfxPort_Mode mode);
+      |                                                      ^~~~~~~~~~~~
+      |                                                      Ifx_Pwm_Mode
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxPort.h:12:31: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   12 | void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
+      |                               ^~~~~
+      |                               IFX_PI
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxPort.h:12:60: error: unknown type name 'IfxPort_OutputMode'
+   12 | void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
+      |                                                            ^~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxPort.h:12:85: error: unknown type name 'IfxPort_OutputIdx'
+   12 | void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
+      |                                                                                     ^~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxPort.h:13:30: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   13 | void IfxPort_setPinModeInput(Ifx_P *port, uint8 pinIndex, IfxPort_InputMode mode);
+      |                              ^~~~~
+      |                              IFX_PI
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxPort.h:13:59: error: unknown type name 'IfxPort_InputMode'
+   13 | void IfxPort_setPinModeInput(Ifx_P *port, uint8 pinIndex, IfxPort_InputMode mode);
+      |                                                           ^~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxPort.h:14:30: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   14 | void IfxPort_setPinPadDriver(Ifx_P *port, uint8 pinIndex, IfxPort_PadDriver padDriver);
+      |                              ^~~~~
+      |                              IFX_PI
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxPort.h:14:59: error: unknown type name 'IfxPort_PadDriver'
+   14 | void IfxPort_setPinPadDriver(Ifx_P *port, uint8 pinIndex, IfxPort_PadDriver padDriver);
+      |                                                           ^~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxPort.h:15:25: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   15 | void IfxPort_setPinHigh(Ifx_P *port, uint8 pinIndex);
+      |                         ^~~~~
+      |                         IFX_PI
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxPort.h:16:24: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   16 | void IfxPort_setPinLow(Ifx_P *port, uint8 pinIndex);
+      |                        ^~~~~
+      |                        IFX_PI
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxPort.h:17:24: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   17 | void IfxPort_togglePin(Ifx_P *port, uint8 pinIndex);
+      |                        ^~~~~
+      |                        IFX_PI
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxPort.h:18:1: error: unknown type name 'IfxPort_State'
+   18 | IfxPort_State IfxPort_getPinState(Ifx_P *port, uint8 pinIndex);
+      | ^~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxPort.h:18:35: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   18 | IfxPort_State IfxPort_getPinState(Ifx_P *port, uint8 pinIndex);
+      |                                   ^~~~~
+      |                                   IFX_PI
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxPort.h:19:26: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   19 | void IfxPort_setPinState(Ifx_P *port, uint8 pinIndex, IfxPort_State state);
+      |                          ^~~~~
+      |                          IFX_PI
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxPort.h:19:55: error: unknown type name 'IfxPort_State'
+   19 | void IfxPort_setPinState(Ifx_P *port, uint8 pinIndex, IfxPort_State state);
+      |                                                       ^~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:41:1: error: unknown type name 'IFX_STATIC'
+   41 | IFX_STATIC GTM_TOM_3Ph_Driver s_drv;
+      | ^~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:41:31: error: expected '=', ',', ';', 'asm' or '__attribute__' before 's_drv'
+   41 | IFX_STATIC GTM_TOM_3Ph_Driver s_drv;
+      |                               ^~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c: In function 'GTM_TOM_3_Phase_Inverter_PWM_init':
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:58:5: error: implicit declaration of function 'IfxGtm_enable' [-Wimplicit-function-declaration]
+   58 |     IfxGtm_enable(&MODULE_GTM);
+      |     ^~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:58:20: error: 'MODULE_GTM' undeclared (first use in this function)
+   58 |     IfxGtm_enable(&MODULE_GTM);
+      |                    ^~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:58:20: note: each undeclared identifier is reported only once for each function it appears in
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:62:30: error: implicit declaration of function 'IfxGtm_Cmu_getModuleFrequency' [-Wimplicit-function-declaration]
+   62 |         float32 moduleFreq = IfxGtm_Cmu_getModuleFrequency(&MODULE_GTM);
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:63:9: error: implicit declaration of function 'IfxGtm_Cmu_setGclkFrequency' [-Wimplicit-function-declaration]
+   63 |         IfxGtm_Cmu_setGclkFrequency(&MODULE_GTM, moduleFreq);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:64:9: error: implicit declaration of function 'IfxGtm_Cmu_setClkFrequency' [-Wimplicit-function-declaration]
+   64 |         IfxGtm_Cmu_setClkFrequency(&MODULE_GTM, IfxGtm_Cmu_Clk_0, moduleFreq);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:64:49: error: 'IfxGtm_Cmu_Clk_0' undeclared (first use in this function)
+   64 |         IfxGtm_Cmu_setClkFrequency(&MODULE_GTM, IfxGtm_Cmu_Clk_0, moduleFreq);
+      |                                                 ^~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:65:9: error: implicit declaration of function 'IfxGtm_Cmu_enableClocks' [-Wimplicit-function-declaration]
+   65 |         IfxGtm_Cmu_enableClocks(&MODULE_GTM, IFXGTM_CMU_CLKEN_FXCLK);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:65:46: error: expected expression before 'IFXGTM_CMU_CLKEN_FXCLK'
+   65 |         IfxGtm_Cmu_enableClocks(&MODULE_GTM, IFXGTM_CMU_CLKEN_FXCLK);
+      |                                              ^~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:69:5: error: implicit declaration of function 'IfxGtm_PinMap_setTomTout' [-Wimplicit-function-declaration]
+   69 |     IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_U_HS, OUTPUT_PORT_OUTPUT_MODE, OUTPUT_PAD_DRIVER);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:69:31: error: 'IfxGtm_Tom_ToutMap' undeclared (first use in this function)
+   69 |     IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_U_HS, OUTPUT_PORT_OUTPUT_MODE, OUTPUT_PAD_DRIVER);
+      |                               ^~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:69:51: error: expected expression before ')' token
+   69 |     IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_U_HS, OUTPUT_PORT_OUTPUT_MODE, OUTPUT_PAD_DRIVER);
+      |                                                   ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:28:24: error: 'IfxGtm_TOM1_2_TOUT12_P00_3_OUT' undeclared (first use in this function)
+   28 | #define PHASE_U_HS   (&IfxGtm_TOM1_2_TOUT12_P00_3_OUT)
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:69:52: note: in expansion of macro 'PHASE_U_HS'
+   69 |     IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_U_HS, OUTPUT_PORT_OUTPUT_MODE, OUTPUT_PAD_DRIVER);
+      |                                                    ^~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/gtm_tom_3_phase_inverter_pwm.h:30:48: error: 'IfxPort_OutputMode_pushPull' undeclared (first use in this function)
+   30 | #define OUTPUT_PORT_OUTPUT_MODE                IfxPort_OutputMode_pushPull
+      |                                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:69:64: note: in expansion of macro 'OUTPUT_PORT_OUTPUT_MODE'
+   69 |     IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_U_HS, OUTPUT_PORT_OUTPUT_MODE, OUTPUT_PAD_DRIVER);
+      |                                                                ^~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/gtm_tom_3_phase_inverter_pwm.h:31:48: error: 'IfxPort_PadDriver_cmosAutomotiveSpeed1' undeclared (first use in this function)
+   31 | #define OUTPUT_PAD_DRIVER                      IfxPort_PadDriver_cmosAutomotiveSpeed1
+      |                                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:69:89: note: in expansion of macro 'OUTPUT_PAD_DRIVER'
+   69 |     IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_U_HS, OUTPUT_PORT_OUTPUT_MODE, OUTPUT_PAD_DRIVER);
+      |                                                                                         ^~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:70:51: error: expected expression before ')' token
+   70 |     IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_U_LS, OUTPUT_PORT_OUTPUT_MODE, OUTPUT_PAD_DRIVER);
+      |                                                   ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:29:24: error: 'IfxGtm_TOM1_1_TOUT11_P00_2_OUT' undeclared (first use in this function)
+   29 | #define PHASE_U_LS   (&IfxGtm_TOM1_1_TOUT11_P00_2_OUT)
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:70:52: note: in expansion of macro 'PHASE_U_LS'
+   70 |     IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_U_LS, OUTPUT_PORT_OUTPUT_MODE, OUTPUT_PAD_DRIVER);
+      |                                                    ^~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:71:51: error: expected expression before ')' token
+   71 |     IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_V_HS, OUTPUT_PORT_OUTPUT_MODE, OUTPUT_PAD_DRIVER);
+      |                                                   ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:30:24: error: 'IfxGtm_TOM1_4_TOUT14_P00_5_OUT' undeclared (first use in this function)
+   30 | #define PHASE_V_HS   (&IfxGtm_TOM1_4_TOUT14_P00_5_OUT)
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:71:52: note: in expansion of macro 'PHASE_V_HS'
+   71 |     IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_V_HS, OUTPUT_PORT_OUTPUT_MODE, OUTPUT_PAD_DRIVER);
+      |                                                    ^~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:72:51: error: expected expression before ')' token
+   72 |     IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_V_LS, OUTPUT_PORT_OUTPUT_MODE, OUTPUT_PAD_DRIVER);
+      |                                                   ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:31:24: error: 'IfxGtm_TOM1_3_TOUT13_P00_4_OUT' undeclared (first use in this function)
+   31 | #define PHASE_V_LS   (&IfxGtm_TOM1_3_TOUT13_P00_4_OUT)
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:72:52: note: in expansion of macro 'PHASE_V_LS'
+   72 |     IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_V_LS, OUTPUT_PORT_OUTPUT_MODE, OUTPUT_PAD_DRIVER);
+      |                                                    ^~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:73:51: error: expected expression before ')' token
+   73 |     IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_W_HS, OUTPUT_PORT_OUTPUT_MODE, OUTPUT_PAD_DRIVER);
+      |                                                   ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:32:24: error: 'IfxGtm_TOM1_6_TOUT16_P00_7_OUT' undeclared (first use in this function)
+   32 | #define PHASE_W_HS   (&IfxGtm_TOM1_6_TOUT16_P00_7_OUT)
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:73:52: note: in expansion of macro 'PHASE_W_HS'
+   73 |     IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_W_HS, OUTPUT_PORT_OUTPUT_MODE, OUTPUT_PAD_DRIVER);
+      |                                                    ^~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:74:51: error: expected expression before ')' token
+   74 |     IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_W_LS, OUTPUT_PORT_OUTPUT_MODE, OUTPUT_PAD_DRIVER);
+      |                                                   ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:33:24: error: 'IfxGtm_TOM1_5_TOUT15_P00_6_OUT' undeclared (first use in this function)
+   33 | #define PHASE_W_LS   (&IfxGtm_TOM1_5_TOUT15_P00_6_OUT)
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:74:52: note: in expansion of macro 'PHASE_W_LS'
+   74 |     IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_W_LS, OUTPUT_PORT_OUTPUT_MODE, OUTPUT_PAD_DRIVER);
+      |                                                    ^~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:78:9: error: unknown type name 'IfxGtm_Pwm_Config'; did you mean 'IfxEgtm_Pwm_Config'?
+   78 |         IfxGtm_Pwm_Config         config;
+      |         ^~~~~~~~~~~~~~~~~
+      |         IfxEgtm_Pwm_Config
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:79:9: error: unknown type name 'IfxGtm_Pwm_ChannelConfig'; did you mean 'IfxEgtm_Pwm_ChannelConfig'?
+   79 |         IfxGtm_Pwm_ChannelConfig  chCfg[NUM_OF_CHANNELS];
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~
+      |         IfxEgtm_Pwm_ChannelConfig
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:80:9: error: unknown type name 'IfxGtm_Pwm_OutputConfig'; did you mean 'IfxEgtm_Pwm_Config'?
+   80 |         IfxGtm_Pwm_OutputConfig   outCfg[NUM_OF_CHANNELS];
+      |         ^~~~~~~~~~~~~~~~~~~~~~~
+      |         IfxEgtm_Pwm_Config
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:83:9: error: implicit declaration of function 'IfxGtm_Pwm_initConfig' [-Wimplicit-function-declaration]
+   83 |         IfxGtm_Pwm_initConfig(&config, &MODULE_GTM);
+      |         ^~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:87:18: error: request for member 'pin' in something not a structure or union
+   87 |         outCfg[0].pin                    = (IfxGtm_Pwm_ToutMap *)PHASE_U_HS;
+      |                  ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:87:45: error: 'IfxGtm_Pwm_ToutMap' undeclared (first use in this function)
+   87 |         outCfg[0].pin                    = (IfxGtm_Pwm_ToutMap *)PHASE_U_HS;
+      |                                             ^~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:87:65: error: expected expression before ')' token
+   87 |         outCfg[0].pin                    = (IfxGtm_Pwm_ToutMap *)PHASE_U_HS;
+      |                                                                 ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:88:18: error: request for member 'complementaryPin' in something not a structure or union
+   88 |         outCfg[0].complementaryPin       = (IfxGtm_Pwm_ToutMap *)PHASE_U_LS;
+      |                  ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:88:65: error: expected expression before ')' token
+   88 |         outCfg[0].complementaryPin       = (IfxGtm_Pwm_ToutMap *)PHASE_U_LS;
+      |                                                                 ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:89:18: error: request for member 'polarity' in something not a structure or union
+   89 |         outCfg[0].polarity               = Ifx_ActiveState_high;   /* CCX active high */
+      |                  ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:90:18: error: request for member 'complementaryPolarity' in something not a structure or union
+   90 |         outCfg[0].complementaryPolarity  = Ifx_ActiveState_high;   /* COUTX active high (per requirement) */
+      |                  ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:91:18: error: request for member 'outputMode' in something not a structure or union
+   91 |         outCfg[0].outputMode             = OUTPUT_PORT_OUTPUT_MODE;
+      |                  ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:92:18: error: request for member 'padDriver' in something not a structure or union
+   92 |         outCfg[0].padDriver              = OUTPUT_PAD_DRIVER;
+      |                  ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:94:18: error: request for member 'pin' in something not a structure or union
+   94 |         outCfg[1].pin                    = (IfxGtm_Pwm_ToutMap *)PHASE_V_HS;
+      |                  ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:94:65: error: expected expression before ')' token
+   94 |         outCfg[1].pin                    = (IfxGtm_Pwm_ToutMap *)PHASE_V_HS;
+      |                                                                 ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:95:18: error: request for member 'complementaryPin' in something not a structure or union
+   95 |         outCfg[1].complementaryPin       = (IfxGtm_Pwm_ToutMap *)PHASE_V_LS;
+      |                  ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:95:65: error: expected expression before ')' token
+   95 |         outCfg[1].complementaryPin       = (IfxGtm_Pwm_ToutMap *)PHASE_V_LS;
+      |                                                                 ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:96:18: error: request for member 'polarity' in something not a structure or union
+   96 |         outCfg[1].polarity               = Ifx_ActiveState_high;
+      |                  ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:97:18: error: request for member 'complementaryPolarity' in something not a structure or union
+   97 |         outCfg[1].complementaryPolarity  = Ifx_ActiveState_high;
+      |                  ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:98:18: error: request for member 'outputMode' in something not a structure or union
+   98 |         outCfg[1].outputMode             = OUTPUT_PORT_OUTPUT_MODE;
+      |                  ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:99:18: error: request for member 'padDriver' in something not a structure or union
+   99 |         outCfg[1].padDriver              = OUTPUT_PAD_DRIVER;
+      |                  ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:101:18: error: request for member 'pin' in something not a structure or union
+  101 |         outCfg[2].pin                    = (IfxGtm_Pwm_ToutMap *)PHASE_W_HS;
+      |                  ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:101:65: error: expected expression before ')' token
+  101 |         outCfg[2].pin                    = (IfxGtm_Pwm_ToutMap *)PHASE_W_HS;
+      |                                                                 ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:102:18: error: request for member 'complementaryPin' in something not a structure or union
+  102 |         outCfg[2].complementaryPin       = (IfxGtm_Pwm_ToutMap *)PHASE_W_LS;
+      |                  ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:102:65: error: expected expression before ')' token
+  102 |         outCfg[2].complementaryPin       = (IfxGtm_Pwm_ToutMap *)PHASE_W_LS;
+      |                                                                 ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:103:18: error: request for member 'polarity' in something not a structure or union
+  103 |         outCfg[2].polarity               = Ifx_ActiveState_high;
+      |                  ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:104:18: error: request for member 'complementaryPolarity' in something not a structure or union
+  104 |         outCfg[2].complementaryPolarity  = Ifx_ActiveState_high;
+      |                  ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:105:18: error: request for member 'outputMode' in something not a structure or union
+  105 |         outCfg[2].outputMode             = OUTPUT_PORT_OUTPUT_MODE;
+      |                  ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:106:18: error: request for member 'padDriver' in something not a structure or union
+  106 |         outCfg[2].padDriver              = OUTPUT_PAD_DRIVER;
+      |                  ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:114:17: error: implicit declaration of function 'IfxGtm_Pwm_initChannelConfig' [-Wimplicit-function-declaration]
+  114 |                 IfxGtm_Pwm_initChannelConfig(&chCfg[i]);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:117:21: error: request for member 'timerCh' in something not a structure or union
+  117 |             chCfg[0].timerCh   = IfxGtm_Pwm_SubModule_Ch_2;  /* U phase base */
+      |                     ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:117:34: error: 'IfxGtm_Pwm_SubModule_Ch_2' undeclared (first use in this function)
+  117 |             chCfg[0].timerCh   = IfxGtm_Pwm_SubModule_Ch_2;  /* U phase base */
+      |                                  ^~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:118:21: error: request for member 'phase' in something not a structure or union
+  118 |             chCfg[0].phase     = 0.0f;
+      |                     ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:119:21: error: request for member 'duty' in something not a structure or union
+  119 |             chCfg[0].duty      = INITIAL_DUTY_CYCLE_PERCENT_U;
+      |                     ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:120:21: error: request for member 'dtm' in something not a structure or union
+  120 |             chCfg[0].dtm       = NULL_PTR; /* DTM updated via runtime API as requested */
+      |                     ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:121:21: error: request for member 'output' in something not a structure or union
+  121 |             chCfg[0].output    = &outCfg[0];
+      |                     ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:122:21: error: request for member 'mscOut' in something not a structure or union
+  122 |             chCfg[0].mscOut    = NULL_PTR;
+      |                     ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:123:21: error: request for member 'interrupt' in something not a structure or union
+  123 |             chCfg[0].interrupt = NULL_PTR;
+      |                     ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:125:21: error: request for member 'timerCh' in something not a structure or union
+  125 |             chCfg[1].timerCh   = IfxGtm_Pwm_SubModule_Ch_4;  /* V phase */
+      |                     ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:125:34: error: 'IfxGtm_Pwm_SubModule_Ch_4' undeclared (first use in this function)
+  125 |             chCfg[1].timerCh   = IfxGtm_Pwm_SubModule_Ch_4;  /* V phase */
+      |                                  ^~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:126:21: error: request for member 'phase' in something not a structure or union
+  126 |             chCfg[1].phase     = 0.0f;
+      |                     ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:127:21: error: request for member 'duty' in something not a structure or union
+  127 |             chCfg[1].duty      = INITIAL_DUTY_CYCLE_PERCENT_V;
+      |                     ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:128:21: error: request for member 'dtm' in something not a structure or union
+  128 |             chCfg[1].dtm       = NULL_PTR;
+      |                     ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:129:21: error: request for member 'output' in something not a structure or union
+  129 |             chCfg[1].output    = &outCfg[1];
+      |                     ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:130:21: error: request for member 'mscOut' in something not a structure or union
+  130 |             chCfg[1].mscOut    = NULL_PTR;
+      |                     ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:131:21: error: request for member 'interrupt' in something not a structure or union
+  131 |             chCfg[1].interrupt = NULL_PTR;
+      |                     ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:133:21: error: request for member 'timerCh' in something not a structure or union
+  133 |             chCfg[2].timerCh   = IfxGtm_Pwm_SubModule_Ch_6;  /* W phase */
+      |                     ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:133:34: error: 'IfxGtm_Pwm_SubModule_Ch_6' undeclared (first use in this function)
+  133 |             chCfg[2].timerCh   = IfxGtm_Pwm_SubModule_Ch_6;  /* W phase */
+      |                                  ^~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:134:21: error: request for member 'phase' in something not a structure or union
+  134 |             chCfg[2].phase     = 0.0f;
+      |                     ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:135:21: error: request for member 'duty' in something not a structure or union
+  135 |             chCfg[2].duty      = INITIAL_DUTY_CYCLE_PERCENT_W;
+      |                     ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:136:21: error: request for member 'dtm' in something not a structure or union
+  136 |             chCfg[2].dtm       = NULL_PTR;
+      |                     ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:137:21: error: request for member 'output' in something not a structure or union
+  137 |             chCfg[2].output    = &outCfg[2];
+      |                     ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:138:21: error: request for member 'mscOut' in something not a structure or union
+  138 |             chCfg[2].mscOut    = NULL_PTR;
+      |                     ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:139:21: error: request for member 'interrupt' in something not a structure or union
+  139 |             chCfg[2].interrupt = NULL_PTR;
+      |                     ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:143:15: error: request for member 'cluster' in something not a structure or union
+  143 |         config.cluster            = IfxGtm_Cluster_0;                 /* Cluster selection */
+      |               ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:143:37: error: 'IfxGtm_Cluster_0' undeclared (first use in this function)
+  143 |         config.cluster            = IfxGtm_Cluster_0;                 /* Cluster selection */
+      |                                     ^~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:144:15: error: request for member 'subModule' in something not a structure or union
+  144 |         config.subModule          = IfxGtm_Pwm_SubModule_tom;         /* TOM submodule */
+      |               ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:144:37: error: 'IfxGtm_Pwm_SubModule_tom' undeclared (first use in this function)
+  144 |         config.subModule          = IfxGtm_Pwm_SubModule_tom;         /* TOM submodule */
+      |                                     ^~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:145:15: error: request for member 'alignment' in something not a structure or union
+  145 |         config.alignment          = IfxGtm_Pwm_Alignment_center;      /* Center-aligned */
+      |               ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:145:37: error: 'IfxGtm_Pwm_Alignment_center' undeclared (first use in this function)
+  145 |         config.alignment          = IfxGtm_Pwm_Alignment_center;      /* Center-aligned */
+      |                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:146:15: error: request for member 'syncStart' in something not a structure or union
+  146 |         config.syncStart          = TRUE;                              /* Start after init */
+      |               ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:147:15: error: request for member 'syncUpdateEnabled' in something not a structure or union
+  147 |         config.syncUpdateEnabled  = TRUE;                              /* Shadow updates */
+      |               ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:148:15: error: request for member 'numChannels' in something not a structure or union
+  148 |         config.numChannels        = NUM_OF_CHANNELS;
+      |               ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:149:15: error: request for member 'channels' in something not a structure or union
+  149 |         config.channels           = &chCfg[0];
+      |               ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:150:15: error: request for member 'frequency' in something not a structure or union
+  150 |         config.frequency          = TIMING_PWM_FREQUENCY_HZ;
+      |               ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:151:15: error: request for member 'clockSource' in something not a structure or union
+  151 |         config.clockSource.tom    = IfxGtm_Cmu_Fxclk_0;                /* Fxclk0 per requirement */
+      |               ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:151:37: error: 'IfxGtm_Cmu_Fxclk_0' undeclared (first use in this function)
+  151 |         config.clockSource.tom    = IfxGtm_Cmu_Fxclk_0;                /* Fxclk0 per requirement */
+      |                                     ^~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:152:15: error: request for member 'dtmClockSource' in something not a structure or union
+  152 |         config.dtmClockSource     = IfxGtm_Dtm_ClockSource_cmuClock0;  /* DTM clock */
+      |               ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:152:37: error: 'IfxGtm_Dtm_ClockSource_cmuClock0' undeclared (first use in this function)
+  152 |         config.dtmClockSource     = IfxGtm_Dtm_ClockSource_cmuClock0;  /* DTM clock */
+      |                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:155:9: error: implicit declaration of function 'IfxGtm_Pwm_init' [-Wimplicit-function-declaration]
+  155 |         IfxGtm_Pwm_init(&s_drv.pwm, &s_drv.channels[0], &config);
+      |         ^~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:159:5: error: implicit declaration of function 'IfxGtm_Pwm_updateFrequencyImmediate' [-Wimplicit-function-declaration]
+  159 |     IfxGtm_Pwm_updateFrequencyImmediate(&s_drv.pwm, TIMING_PWM_FREQUENCY_HZ);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:163:9: error: unknown type name 'IfxGtm_Pwm_DeadTime'
+  163 |         IfxGtm_Pwm_DeadTime reqDeadTime[NUM_OF_CHANNELS];
+      |         ^~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:168:27: error: request for member 'rising' in something not a structure or union
+  168 |             reqDeadTime[i].rising  = TIMING_DEAD_TIME_SECONDS;
+      |                           ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:169:27: error: request for member 'falling' in something not a structure or union
+  169 |             reqDeadTime[i].falling = TIMING_DEAD_TIME_SECONDS;
+      |                           ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:171:9: error: implicit declaration of function 'IfxGtm_Pwm_updateChannelsDeadTimeImmediate' [-Wimplicit-function-declaration]
+  171 |         IfxGtm_Pwm_updateChannelsDeadTimeImmediate(&s_drv.pwm, &reqDeadTime[0]);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:180:9: error: implicit declaration of function 'IfxGtm_Pwm_updateChannelsDutyImmediate' [-Wimplicit-function-declaration]
+  180 |         IfxGtm_Pwm_updateChannelsDutyImmediate(&s_drv.pwm, &duties[0]);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:189:1: error: implicit declaration of function 'IfxGtm_Pwm_startChannelOutputs' [-Wimplicit-function-declaration]
+  189 | IfxGtm_Pwm_startChannelOutputs(&s_drv.pwm);
+      | ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c: At top level:
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\src\gtm_tom_3_phase_inverter_pwm.c:236:13: warning: 'GTM_TOM_3_Phase_Inverter_PWM_updateDutyArrayInternal' defined but not used [-Wunused-function]
+  236 | static void GTM_TOM_3_Phase_Inverter_PWM_updateDutyArrayInternal(void)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_001_build\mocks\gtm_tom_3.c:7:15: error: redefinition of 's_init_count'
+In file included from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\mocks\gtm_tom_3.c:1:
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include\illd_types/Ifx_Types.h:1120:8: error: unknown type name 'Ifx_SRC'; did you mean 'Ifx_STM'?
+ 1120 | extern Ifx_SRC MODULE_SRC;
+      |        ^~~~~~~
+      |        Ifx_STM
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include\illd_types/Ifx_Types.h:1125:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?
+ 1125 | extern Ifx_STMx MODULE_STMx;
+      |        ^~~~~~~~
+      |        Ifx_STM
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\mocks\gtm_tom_3.c:9:15: error: redefinition of 's_init_count'
+    9 | static uint32 s_init_count = 0;
+      |               ^~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\mocks\gtm_tom_3.c:7:15: note: previous definition of 's_init_count' with type 'uint32' {aka 'unsigned int'}
     7 | static uint32 s_init_count = 0;
       |               ^~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_001_build\mocks\gtm_tom_3.c:5:15: note: previous definition of 's_init_count' with type 'uint32' {aka 'unsigned int'}
-    5 | static uint32 s_init_count = 0;
-      |               ^~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_001_build\mocks\gtm_tom_3.c:18:8: error: redefinition of 'GTM_TOM_3_Phase_Inverter_PWM_Mock_GetCallCount_init'
-   18 | uint32 GTM_TOM_3_Phase_Inverter_PWM_Mock_GetCallCount_init(void) {
-      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_001_build\mocks\gtm_tom_3.c:14:8: note: previous definition of 'GTM_TOM_3_Phase_Inverter_PWM_Mock_GetCallCount_init' with type 'uint32(void)' {aka 'unsigned int(void)'}
-   14 | uint32 GTM_TOM_3_Phase_Inverter_PWM_Mock_GetCallCount_init(void) {
-      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_001_build\mocks\IfxGtm_PinMap.c:9:15: error: redefinition of 's_setTomTout_count'
-    9 | static uint32 s_setTomTout_count = 0;
-      |               ^~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_001_build\mocks\IfxGtm_PinMap.c:5:15: note: previous definition of 's_setTomTout_count' with type 'uint32' {aka 'unsigned int'}
-    5 | static uint32 s_setTomTout_count = 0;
-      |               ^~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_001_build\mocks\IfxGtm_PinMap.c:22:8: error: redefinition of 'IfxGtm_PinMap_Mock_GetCallCount_setTomTout'
-   22 | uint32 IfxGtm_PinMap_Mock_GetCallCount_setTomTout(void)
-      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_001_build\mocks\IfxGtm_PinMap.c:18:8: note: previous definition of 'IfxGtm_PinMap_Mock_GetCallCount_setTomTout' with type 'uint32(void)' {aka 'unsigned int(void)'}
-   18 | uint32 IfxGtm_PinMap_Mock_GetCallCount_setTomTout(void) {
-      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\mocks\IfxEgtm_Pwm.c:1:
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include\illd_types/Ifx_Types.h:1120:8: error: unknown type name 'Ifx_SRC'; did you mean 'Ifx_STM'?
+ 1120 | extern Ifx_SRC MODULE_SRC;
+      |        ^~~~~~~
+      |        Ifx_STM
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include\illd_types/Ifx_Types.h:1125:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?
+ 1125 | extern Ifx_STMx MODULE_STMx;
+      |        ^~~~~~~~
+      |        Ifx_STM
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\mocks\IfxEgtm_Pwm.c: In function 'IfxEgtm_Pwm_initConfig':
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\mocks\IfxEgtm_Pwm.c:16:15: error: 'IfxEgtm_Pwm_Config' has no member named 'frequency'
+   16 |         config->frequency = 0.0f;  /* default zero â€” production sets from requirements */
+      |               ^~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\mocks\IfxEgtm_Pwm.c: In function 'IfxEgtm_Pwm_initChannelConfig':
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\mocks\IfxEgtm_Pwm.c:22:22: error: 'IfxEgtm_Pwm_ChannelConfig' has no member named 'duty'
+   22 |         channelConfig->duty = 0.0f;  /* default zero â€” production sets from requirements */
+      |                      ^~
 
-In file included from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_001_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:2:
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_001_build\include/gtm_tom_3_phase_inverter_pwm.h:30:60: warning: '/*' within comment [-Wcomment]
-   30 | /* #define PWM_DEAD_TIME_S                 (5.0e-07f)      /* TIMING_DEAD_TIME_SECONDS = 0.5us */ */  /* auto-fix: incompatible struct types */
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_001_build\include/gtm_tom_3_phase_inverter_pwm.h:30:100: error: expected identifier or '(' before '/' token
-   30 | /* #define PWM_DEAD_TIME_S                 (5.0e-07f)      /* TIMING_DEAD_TIME_SECONDS = 0.5us */ */  /* auto-fix: incompatible struct types */
-      |                                                                                                    ^
+In file included from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\mocks\IfxGtm.c:1:
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include\illd_types/Ifx_Types.h:1120:8: error: unknown type name 'Ifx_SRC'; did you mean 'Ifx_STM'?
+ 1120 | extern Ifx_SRC MODULE_SRC;
+      |        ^~~~~~~
+      |        Ifx_STM
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include\illd_types/Ifx_Types.h:1125:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?
+ 1125 | extern Ifx_STMx MODULE_STMx;
+      |        ^~~~~~~~
+      |        Ifx_STM
+
+In file included from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\mocks\IfxGtm_Cmu.c:1:
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include\illd_types/Ifx_Types.h:1120:8: error: unknown type name 'Ifx_SRC'; did you mean 'Ifx_STM'?
+ 1120 | extern Ifx_SRC MODULE_SRC;
+      |        ^~~~~~~
+      |        Ifx_STM
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include\illd_types/Ifx_Types.h:1125:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?
+ 1125 | extern Ifx_STMx MODULE_STMx;
+      |        ^~~~~~~~
+      |        Ifx_STM
+
+In file included from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\mocks\IfxGtm_PinMap.c:1:
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include\illd_types/Ifx_Types.h:1120:8: error: unknown type name 'Ifx_SRC'; did you mean 'Ifx_STM'?
+ 1120 | extern Ifx_SRC MODULE_SRC;
+      |        ^~~~~~~
+      |        Ifx_STM
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include\illd_types/Ifx_Types.h:1125:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?
+ 1125 | extern Ifx_STMx MODULE_STMx;
+      |        ^~~~~~~~
+      |        Ifx_STM
+
+In file included from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:1:
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include\illd_types/Ifx_Types.h:1120:8: error: unknown type name 'Ifx_SRC'; did you mean 'Ifx_STM'?
+ 1120 | extern Ifx_SRC MODULE_SRC;
+      |        ^~~~~~~
+      |        Ifx_STM
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include\illd_types/Ifx_Types.h:1125:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?
+ 1125 | extern Ifx_STMx MODULE_STMx;
+      |        ^~~~~~~~
+      |        Ifx_STM
+
+In file included from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxGtm_Tom.h:4,
+                 from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\mocks\IfxGtm_Tom.c:1:
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/illd_types/Ifx_Types.h:1120:8: error: unknown type name 'Ifx_SRC'; did you mean 'Ifx_STM'?
+ 1120 | extern Ifx_SRC MODULE_SRC;
+      |        ^~~~~~~
+      |        Ifx_STM
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/illd_types/Ifx_Types.h:1125:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?
+ 1125 | extern Ifx_STMx MODULE_STMx;
+      |        ^~~~~~~~
+      |        Ifx_STM
+
+In file included from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\mocks\IfxPort.c:1:
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include\illd_types/Ifx_Types.h:1120:8: error: unknown type name 'Ifx_SRC'; did you mean 'Ifx_STM'?
+ 1120 | extern Ifx_SRC MODULE_SRC;
+      |        ^~~~~~~
+      |        Ifx_STM
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include\illd_types/Ifx_Types.h:1125:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?
+ 1125 | extern Ifx_STMx MODULE_STMx;
+      |        ^~~~~~~~
+      |        Ifx_STM
+
+In file included from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\mocks\IfxPort_PinMap.c:1:
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include\illd_types/Ifx_Types.h:1120:8: error: unknown type name 'Ifx_SRC'; did you mean 'Ifx_STM'?
+ 1120 | extern Ifx_SRC MODULE_SRC;
+      |        ^~~~~~~
+      |        Ifx_STM
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include\illd_types/Ifx_Types.h:1125:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?
+ 1125 | extern Ifx_STMx MODULE_STMx;
+      |        ^~~~~~~~
+      |        Ifx_STM
+
+In file included from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\mocks\IfxStm.c:1:
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include\illd_types/Ifx_Types.h:1120:8: error: unknown type name 'Ifx_SRC'; did you mean 'Ifx_STM'?
+ 1120 | extern Ifx_SRC MODULE_SRC;
+      |        ^~~~~~~
+      |        Ifx_STM
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include\illd_types/Ifx_Types.h:1125:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?
+ 1125 | extern Ifx_STMx MODULE_STMx;
+      |        ^~~~~~~~
+      |        Ifx_STM
+
+In file included from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\mocks\Ifx_Types.c:1:
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include\illd_types/ifx_types.h:1120:8: error: unknown type name 'Ifx_SRC'; did you mean 'Ifx_STM'?
+ 1120 | extern Ifx_SRC MODULE_SRC;
+      |        ^~~~~~~
+      |        Ifx_STM
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include\illd_types/ifx_types.h:1125:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?
+ 1125 | extern Ifx_STMx MODULE_STMx;
+      |        ^~~~~~~~
+      |        Ifx_STM
+
+In file included from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:2:
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/gtm_tom_3_phase_inverter_pwm.h:61:5: error: unknown type name 'IfxGtm_Pwm'
+   61 |     IfxGtm_Pwm           pwm;                                 /* PWM driver handle */
+      |     ^~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/gtm_tom_3_phase_inverter_pwm.h:62:5: error: unknown type name 'IfxGtm_Pwm_Channel'
+   62 |     IfxGtm_Pwm_Channel   channels[NUM_OF_CHANNELS];           /* Populated by init */
+      |     ^~~~~~~~~~~~~~~~~~
+In file included from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:5:
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxGtm.h:8:20: error: unknown type name 'Ifx_GTM'; did you mean 'Ifx_STMx'?
+    8 | void IfxGtm_enable(Ifx_GTM *gtm);
+      |                    ^~~~~~~
+      |                    Ifx_STMx
+In file included from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:6:
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxGtm_Cmu.h:8:33: error: unknown type name 'Ifx_GTM'; did you mean 'Ifx_STMx'?
+    8 | void IfxGtm_Cmu_setClkFrequency(Ifx_GTM *gtm, IfxGtm_Cmu_Clk clkIndex, float32 frequency);
+      |                                 ^~~~~~~
+      |                                 Ifx_STMx
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxGtm_Cmu.h:8:47: error: unknown type name 'IfxGtm_Cmu_Clk'
+    8 | void IfxGtm_Cmu_setClkFrequency(Ifx_GTM *gtm, IfxGtm_Cmu_Clk clkIndex, float32 frequency);
+      |                                               ^~~~~~~~~~~~~~
+In file included from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:7:
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxGtm_PinMap.h:8:31: error: unknown type name 'IfxGtm_Tom_ToutMap'
+    8 | void IfxGtm_PinMap_setTomTout(IfxGtm_Tom_ToutMap *config, IfxPort_OutputMode outputMode, IfxPort_PadDriver padDriver);
+      |                               ^~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxGtm_PinMap.h:8:59: error: unknown type name 'IfxPort_OutputMode'
+    8 | void IfxGtm_PinMap_setTomTout(IfxGtm_Tom_ToutMap *config, IfxPort_OutputMode outputMode, IfxPort_PadDriver padDriver);
+      |                                                           ^~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxGtm_PinMap.h:8:90: error: unknown type name 'IfxPort_PadDriver'
+    8 | void IfxGtm_PinMap_setTomTout(IfxGtm_Tom_ToutMap *config, IfxPort_OutputMode outputMode, IfxPort_PadDriver padDriver);
+      |                                                                                          ^~~~~~~~~~~~~~~~~
+In file included from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:8:
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxGtm_Pwm.h:8:28: error: unknown type name 'IfxGtm_Pwm_Config'; did you mean 'IfxEgtm_Pwm_Config'?
+    8 | void IfxGtm_Pwm_initConfig(IfxGtm_Pwm_Config *config, Ifx_GTM *gtmSFR);
+      |                            ^~~~~~~~~~~~~~~~~
+      |                            IfxEgtm_Pwm_Config
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxGtm_Pwm.h:8:55: error: unknown type name 'Ifx_GTM'; did you mean 'Ifx_STMx'?
+    8 | void IfxGtm_Pwm_initConfig(IfxGtm_Pwm_Config *config, Ifx_GTM *gtmSFR);
+      |                                                       ^~~~~~~
+      |                                                       Ifx_STMx
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxGtm_Pwm.h:9:37: error: unknown type name 'IfxGtm_Pwm'
+    9 | void IfxGtm_Pwm_startChannelOutputs(IfxGtm_Pwm *pwm);
+      |                                     ^~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxGtm_Pwm.h:10:45: error: unknown type name 'IfxGtm_Pwm'
+   10 | void IfxGtm_Pwm_updateChannelsDutyImmediate(IfxGtm_Pwm *pwm, float32 *requestDuty);
+      |                                             ^~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxGtm_Pwm.h:11:37: error: unknown type name 'IfxGtm_Pwm'
+   11 | void IfxGtm_Pwm_startSyncedChannels(IfxGtm_Pwm *pwm);
+      |                                     ^~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxGtm_Pwm.h:12:22: error: unknown type name 'IfxGtm_Pwm'
+   12 | void IfxGtm_Pwm_init(IfxGtm_Pwm *pwm, IfxGtm_Pwm_Channel *channels, IfxGtm_Pwm_Config *config);
+      |                      ^~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxGtm_Pwm.h:12:39: error: unknown type name 'IfxGtm_Pwm_Channel'
+   12 | void IfxGtm_Pwm_init(IfxGtm_Pwm *pwm, IfxGtm_Pwm_Channel *channels, IfxGtm_Pwm_Config *config);
+      |                                       ^~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxGtm_Pwm.h:12:69: error: unknown type name 'IfxGtm_Pwm_Config'; did you mean 'IfxEgtm_Pwm_Config'?
+   12 | void IfxGtm_Pwm_init(IfxGtm_Pwm *pwm, IfxGtm_Pwm_Channel *channels, IfxGtm_Pwm_Config *config);
+      |                                                                     ^~~~~~~~~~~~~~~~~
+      |                                                                     IfxEgtm_Pwm_Config
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxGtm_Pwm.h:13:49: error: unknown type name 'IfxGtm_Pwm'
+   13 | void IfxGtm_Pwm_updateChannelsDeadTimeImmediate(IfxGtm_Pwm *pwm, IfxGtm_Pwm_DeadTime *requestDeadTime);
+      |                                                 ^~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxGtm_Pwm.h:13:66: error: unknown type name 'IfxGtm_Pwm_DeadTime'
+   13 | void IfxGtm_Pwm_updateChannelsDeadTimeImmediate(IfxGtm_Pwm *pwm, IfxGtm_Pwm_DeadTime *requestDeadTime);
+      |                                                                  ^~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxGtm_Pwm.h:14:42: error: unknown type name 'IfxGtm_Pwm'
+   14 | void IfxGtm_Pwm_updateFrequencyImmediate(IfxGtm_Pwm *pwm, float32 requestFrequency);
+      |                                          ^~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxGtm_Pwm.h:15:35: error: unknown type name 'IfxGtm_Pwm_ChannelConfig'; did you mean 'IfxEgtm_Pwm_ChannelConfig'?
+   15 | void IfxGtm_Pwm_initChannelConfig(IfxGtm_Pwm_ChannelConfig *channelConfig);
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~
+      |                                   IfxEgtm_Pwm_ChannelConfig
+In file included from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:9:
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxPort.h:11:25: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   11 | void IfxPort_setPinMode(Ifx_P *port, uint8 pinIndex, IfxPort_Mode mode);
+      |                         ^~~~~
+      |                         IFX_PI
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxPort.h:11:54: error: unknown type name 'IfxPort_Mode'; did you mean 'Ifx_Pwm_Mode'?
+   11 | void IfxPort_setPinMode(Ifx_P *port, uint8 pinIndex, IfxPort_Mode mode);
+      |                                                      ^~~~~~~~~~~~
+      |                                                      Ifx_Pwm_Mode
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxPort.h:12:31: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   12 | void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
+      |                               ^~~~~
+      |                               IFX_PI
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxPort.h:12:60: error: unknown type name 'IfxPort_OutputMode'
+   12 | void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
+      |                                                            ^~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxPort.h:12:85: error: unknown type name 'IfxPort_OutputIdx'
+   12 | void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
+      |                                                                                     ^~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxPort.h:13:30: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   13 | void IfxPort_setPinModeInput(Ifx_P *port, uint8 pinIndex, IfxPort_InputMode mode);
+      |                              ^~~~~
+      |                              IFX_PI
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxPort.h:13:59: error: unknown type name 'IfxPort_InputMode'
+   13 | void IfxPort_setPinModeInput(Ifx_P *port, uint8 pinIndex, IfxPort_InputMode mode);
+      |                                                           ^~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxPort.h:14:30: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   14 | void IfxPort_setPinPadDriver(Ifx_P *port, uint8 pinIndex, IfxPort_PadDriver padDriver);
+      |                              ^~~~~
+      |                              IFX_PI
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxPort.h:14:59: error: unknown type name 'IfxPort_PadDriver'
+   14 | void IfxPort_setPinPadDriver(Ifx_P *port, uint8 pinIndex, IfxPort_PadDriver padDriver);
+      |                                                           ^~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxPort.h:15:25: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   15 | void IfxPort_setPinHigh(Ifx_P *port, uint8 pinIndex);
+      |                         ^~~~~
+      |                         IFX_PI
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxPort.h:16:24: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   16 | void IfxPort_setPinLow(Ifx_P *port, uint8 pinIndex);
+      |                        ^~~~~
+      |                        IFX_PI
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxPort.h:17:24: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   17 | void IfxPort_togglePin(Ifx_P *port, uint8 pinIndex);
+      |                        ^~~~~
+      |                        IFX_PI
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxPort.h:18:1: error: unknown type name 'IfxPort_State'
+   18 | IfxPort_State IfxPort_getPinState(Ifx_P *port, uint8 pinIndex);
+      | ^~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxPort.h:18:35: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   18 | IfxPort_State IfxPort_getPinState(Ifx_P *port, uint8 pinIndex);
+      |                                   ^~~~~
+      |                                   IFX_PI
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxPort.h:19:26: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   19 | void IfxPort_setPinState(Ifx_P *port, uint8 pinIndex, IfxPort_State state);
+      |                          ^~~~~
+      |                          IFX_PI
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/IfxPort.h:19:55: error: unknown type name 'IfxPort_State'
+   19 | void IfxPort_setPinState(Ifx_P *port, uint8 pinIndex, IfxPort_State state);
+      |                                                       ^~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:17:9: warning: 'TIMING_DEAD_TIME_SECONDS' redefined
+   17 | #define TIMING_DEAD_TIME_SECONDS       (5e-07f)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/gtm_tom_3_phase_inverter_pwm.h:17:9: note: this is the location of the previous definition
+   17 | #define TIMING_DEAD_TIME_SECONDS               (5.0e-07f)     /* 0.5 us */
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:18:9: warning: 'TIMING_MIN_PULSE_SECONDS' redefined
+   18 | #define TIMING_MIN_PULSE_SECONDS       (1e-06f)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\include/gtm_tom_3_phase_inverter_pwm.h:18:9: note: this is the location of the previous definition
+   18 | #define TIMING_MIN_PULSE_SECONDS               (1.0e-06f)     /* 1.0 us */
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c: In function 'setUp':
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:28:5: error: implicit declaration of function 'IfxGtm_Mock_Reset'; did you mean 'IfxPort_Mock_Reset'? [-Wimplicit-function-declaration]
+   28 |     IfxGtm_Mock_Reset();
+      |     ^~~~~~~~~~~~~~~~~
+      |     IfxPort_Mock_Reset
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:29:5: error: implicit declaration of function 'IfxGtm_Cmu_Mock_Reset'; did you mean 'IfxPort_Mock_Reset'? [-Wimplicit-function-declaration]
+   29 |     IfxGtm_Cmu_Mock_Reset();
+      |     ^~~~~~~~~~~~~~~~~~~~~
+      |     IfxPort_Mock_Reset
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:30:5: error: implicit declaration of function 'IfxGtm_PinMap_Mock_Reset' [-Wimplicit-function-declaration]
+   30 |     IfxGtm_PinMap_Mock_Reset();
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:31:5: error: implicit declaration of function 'IfxGtm_Pwm_Mock_Reset'; did you mean 'IfxPort_Mock_Reset'? [-Wimplicit-function-declaration]
+   31 |     IfxGtm_Pwm_Mock_Reset();
+      |     ^~~~~~~~~~~~~~~~~~~~~
+      |     IfxPort_Mock_Reset
 In file included from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\unity/unity.h:22,
-                 from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_001_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:1:
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_001_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c: In function 'test_GTM_TOM_3_Phase_Inverter_PWM_init_SetsExpectedConfigValues':
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_001_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:72:23: error: 'pushPull' undeclared (first use in this function)
-   72 |     TEST_ASSERT_EQUAL(pushPull, IfxGtm_PinMap_Mock_GetLastArg_setTomTout_outputMode());
+                 from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:1:
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c: In function 'test_GTM_TOM_3_Phase_Inverter_PWM_init_CallsExpectedDriverAPIs':
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:44:22: error: implicit declaration of function 'IfxGtm_Mock_GetCallCount_enable'; did you mean 'IfxPort_Mock_GetCallCount_togglePin'? [-Wimplicit-function-declaration]
+   44 |     TEST_ASSERT_TRUE(IfxGtm_Mock_GetCallCount_enable() > 0);
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\unity/unity_internals.h:891:107: note: in definition of macro 'UNITY_TEST_ASSERT'
+  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)
+      |                                                                                                           ^~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:44:5: note: in expansion of macro 'TEST_ASSERT_TRUE'
+   44 |     TEST_ASSERT_TRUE(IfxGtm_Mock_GetCallCount_enable() > 0);
+      |     ^~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:45:22: error: implicit declaration of function 'IfxGtm_Cmu_Mock_GetCallCount_enableClocks' [-Wimplicit-function-declaration]
+   45 |     TEST_ASSERT_TRUE(IfxGtm_Cmu_Mock_GetCallCount_enableClocks() > 0);
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\unity/unity_internals.h:891:107: note: in definition of macro 'UNITY_TEST_ASSERT'
+  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)
+      |                                                                                                           ^~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:45:5: note: in expansion of macro 'TEST_ASSERT_TRUE'
+   45 |     TEST_ASSERT_TRUE(IfxGtm_Cmu_Mock_GetCallCount_enableClocks() > 0);
+      |     ^~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:46:22: error: implicit declaration of function 'IfxGtm_PinMap_Mock_GetCallCount_setTomTout' [-Wimplicit-function-declaration]
+   46 |     TEST_ASSERT_TRUE(IfxGtm_PinMap_Mock_GetCallCount_setTomTout() > 0);
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\unity/unity_internals.h:891:107: note: in definition of macro 'UNITY_TEST_ASSERT'
+  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)
+      |                                                                                                           ^~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:46:5: note: in expansion of macro 'TEST_ASSERT_TRUE'
+   46 |     TEST_ASSERT_TRUE(IfxGtm_PinMap_Mock_GetCallCount_setTomTout() > 0);
+      |     ^~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:48:22: error: implicit declaration of function 'IfxGtm_Pwm_Mock_GetCallCount_initConfig' [-Wimplicit-function-declaration]
+   48 |     TEST_ASSERT_TRUE(IfxGtm_Pwm_Mock_GetCallCount_initConfig() > 0);
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\unity/unity_internals.h:891:107: note: in definition of macro 'UNITY_TEST_ASSERT'
+  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)
+      |                                                                                                           ^~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:48:5: note: in expansion of macro 'TEST_ASSERT_TRUE'
+   48 |     TEST_ASSERT_TRUE(IfxGtm_Pwm_Mock_GetCallCount_initConfig() > 0);
+      |     ^~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:49:22: error: implicit declaration of function 'IfxGtm_Pwm_Mock_GetCallCount_initChannelConfig' [-Wimplicit-function-declaration]
+   49 |     TEST_ASSERT_TRUE(IfxGtm_Pwm_Mock_GetCallCount_initChannelConfig() > 0);
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\unity/unity_internals.h:891:107: note: in definition of macro 'UNITY_TEST_ASSERT'
+  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)
+      |                                                                                                           ^~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:49:5: note: in expansion of macro 'TEST_ASSERT_TRUE'
+   49 |     TEST_ASSERT_TRUE(IfxGtm_Pwm_Mock_GetCallCount_initChannelConfig() > 0);
+      |     ^~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:50:22: error: implicit declaration of function 'IfxGtm_Pwm_Mock_GetCallCount_init' [-Wimplicit-function-declaration]
+   50 |     TEST_ASSERT_TRUE(IfxGtm_Pwm_Mock_GetCallCount_init() > 0);
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\unity/unity_internals.h:891:107: note: in definition of macro 'UNITY_TEST_ASSERT'
+  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)
+      |                                                                                                           ^~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:50:5: note: in expansion of macro 'TEST_ASSERT_TRUE'
+   50 |     TEST_ASSERT_TRUE(IfxGtm_Pwm_Mock_GetCallCount_init() > 0);
+      |     ^~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:52:22: error: implicit declaration of function 'IfxGtm_Pwm_Mock_GetCallCount_updateFrequencyImmediate' [-Wimplicit-function-declaration]
+   52 |     TEST_ASSERT_TRUE(IfxGtm_Pwm_Mock_GetCallCount_updateFrequencyImmediate() > 0);
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\unity/unity_internals.h:891:107: note: in definition of macro 'UNITY_TEST_ASSERT'
+  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)
+      |                                                                                                           ^~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:52:5: note: in expansion of macro 'TEST_ASSERT_TRUE'
+   52 |     TEST_ASSERT_TRUE(IfxGtm_Pwm_Mock_GetCallCount_updateFrequencyImmediate() > 0);
+      |     ^~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:53:22: error: implicit declaration of function 'IfxGtm_Pwm_Mock_GetCallCount_updateChannelsDeadTimeImmediate' [-Wimplicit-function-declaration]
+   53 |     TEST_ASSERT_TRUE(IfxGtm_Pwm_Mock_GetCallCount_updateChannelsDeadTimeImmediate() > 0);
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\unity/unity_internals.h:891:107: note: in definition of macro 'UNITY_TEST_ASSERT'
+  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)
+      |                                                                                                           ^~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:53:5: note: in expansion of macro 'TEST_ASSERT_TRUE'
+   53 |     TEST_ASSERT_TRUE(IfxGtm_Pwm_Mock_GetCallCount_updateChannelsDeadTimeImmediate() > 0);
+      |     ^~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:54:22: error: implicit declaration of function 'IfxGtm_Pwm_Mock_GetCallCount_updateChannelsDutyImmediate' [-Wimplicit-function-declaration]
+   54 |     TEST_ASSERT_TRUE(IfxGtm_Pwm_Mock_GetCallCount_updateChannelsDutyImmediate() > 0);
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\unity/unity_internals.h:891:107: note: in definition of macro 'UNITY_TEST_ASSERT'
+  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)
+      |                                                                                                           ^~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:54:5: note: in expansion of macro 'TEST_ASSERT_TRUE'
+   54 |     TEST_ASSERT_TRUE(IfxGtm_Pwm_Mock_GetCallCount_updateChannelsDutyImmediate() > 0);
+      |     ^~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:56:22: error: implicit declaration of function 'IfxGtm_Pwm_Mock_GetCallCount_startSyncedChannels' [-Wimplicit-function-declaration]
+   56 |     TEST_ASSERT_TRUE(IfxGtm_Pwm_Mock_GetCallCount_startSyncedChannels() > 0);
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\unity/unity_internals.h:891:107: note: in definition of macro 'UNITY_TEST_ASSERT'
+  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)
+      |                                                                                                           ^~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:56:5: note: in expansion of macro 'TEST_ASSERT_TRUE'
+   56 |     TEST_ASSERT_TRUE(IfxGtm_Pwm_Mock_GetCallCount_startSyncedChannels() > 0);
+      |     ^~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:57:22: error: implicit declaration of function 'IfxGtm_Pwm_Mock_GetCallCount_startChannelOutputs' [-Wimplicit-function-declaration]
+   57 |     TEST_ASSERT_TRUE(IfxGtm_Pwm_Mock_GetCallCount_startChannelOutputs() > 0);
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\unity/unity_internals.h:891:107: note: in definition of macro 'UNITY_TEST_ASSERT'
+  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)
+      |                                                                                                           ^~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:57:5: note: in expansion of macro 'TEST_ASSERT_TRUE'
+   57 |     TEST_ASSERT_TRUE(IfxGtm_Pwm_Mock_GetCallCount_startChannelOutputs() > 0);
+      |     ^~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c: In function 'test_GTM_TOM_3_Phase_Inverter_PWM_init_SetsExpectedConfigValues':
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:67:27: error: implicit declaration of function 'IfxGtm_Pwm_Mock_GetLastArg_updateFrequencyImmediate' [-Wimplicit-function-declaration]
+   67 |     float32 f_immediate = IfxGtm_Pwm_Mock_GetLastArg_updateFrequencyImmediate();
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:71:23: error: 'pushPull' undeclared (first use in this function)
+   71 |     TEST_ASSERT_EQUAL(pushPull, IfxGtm_PinMap_Mock_GetLastArg_setTomTout_outputMode());
       |                       ^~~~~~~~
 C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\unity/unity_internals.h:897:133: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_INT'
   897 | #define UNITY_TEST_ASSERT_EQUAL_INT(expected, actual, line, message)                             UnityAssertEqualNumber((UNITY_INT)(expected), (UNITY_INT)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_INT)
       |                                                                                                                                     ^~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_001_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:72:5: note: in expansion of macro 'TEST_ASSERT_EQUAL'
-   72 |     TEST_ASSERT_EQUAL(pushPull, IfxGtm_PinMap_Mock_GetLastArg_setTomTout_outputMode());
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:71:5: note: in expansion of macro 'TEST_ASSERT_EQUAL'
+   71 |     TEST_ASSERT_EQUAL(pushPull, IfxGtm_PinMap_Mock_GetLastArg_setTomTout_outputMode());
       |     ^~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_001_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:72:23: note: each undeclared identifier is reported only once for each function it appears in
-   72 |     TEST_ASSERT_EQUAL(pushPull, IfxGtm_PinMap_Mock_GetLastArg_setTomTout_outputMode());
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:71:23: note: each undeclared identifier is reported only once for each function it appears in
+   71 |     TEST_ASSERT_EQUAL(pushPull, IfxGtm_PinMap_Mock_GetLastArg_setTomTout_outputMode());
       |                       ^~~~~~~~
 C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\unity/unity_internals.h:897:133: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_INT'
   897 | #define UNITY_TEST_ASSERT_EQUAL_INT(expected, actual, line, message)                             UnityAssertEqualNumber((UNITY_INT)(expected), (UNITY_INT)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_INT)
       |                                                                                                                                     ^~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_001_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:72:5: note: in expansion of macro 'TEST_ASSERT_EQUAL'
-   72 |     TEST_ASSERT_EQUAL(pushPull, IfxGtm_PinMap_Mock_GetLastArg_setTomTout_outputMode());
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:71:5: note: in expansion of macro 'TEST_ASSERT_EQUAL'
+   71 |     TEST_ASSERT_EQUAL(pushPull, IfxGtm_PinMap_Mock_GetLastArg_setTomTout_outputMode());
       |     ^~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_001_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:73:23: error: 'cmosAutomotiveSpeed1' undeclared (first use in this function)
-   73 |     TEST_ASSERT_EQUAL(cmosAutomotiveSpeed1, IfxGtm_PinMap_Mock_GetLastArg_setTomTout_padDriver());
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:71:33: error: implicit declaration of function 'IfxGtm_PinMap_Mock_GetLastArg_setTomTout_outputMode' [-Wimplicit-function-declaration]
+   71 |     TEST_ASSERT_EQUAL(pushPull, IfxGtm_PinMap_Mock_GetLastArg_setTomTout_outputMode());
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\unity/unity_internals.h:897:156: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_INT'
+  897 | #define UNITY_TEST_ASSERT_EQUAL_INT(expected, actual, line, message)                             UnityAssertEqualNumber((UNITY_INT)(expected), (UNITY_INT)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_INT)
+      |                                                                                                                                                            ^~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:71:5: note: in expansion of macro 'TEST_ASSERT_EQUAL'
+   71 |     TEST_ASSERT_EQUAL(pushPull, IfxGtm_PinMap_Mock_GetLastArg_setTomTout_outputMode());
+      |     ^~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:72:23: error: 'cmosAutomotiveSpeed1' undeclared (first use in this function)
+   72 |     TEST_ASSERT_EQUAL(cmosAutomotiveSpeed1, IfxGtm_PinMap_Mock_GetLastArg_setTomTout_padDriver());
       |                       ^~~~~~~~~~~~~~~~~~~~
 C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\unity/unity_internals.h:897:133: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_INT'
   897 | #define UNITY_TEST_ASSERT_EQUAL_INT(expected, actual, line, message)                             UnityAssertEqualNumber((UNITY_INT)(expected), (UNITY_INT)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_INT)
       |                                                                                                                                     ^~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_001_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:73:5: note: in expansion of macro 'TEST_ASSERT_EQUAL'
-   73 |     TEST_ASSERT_EQUAL(cmosAutomotiveSpeed1, IfxGtm_PinMap_Mock_GetLastArg_setTomTout_padDriver());
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:72:5: note: in expansion of macro 'TEST_ASSERT_EQUAL'
+   72 |     TEST_ASSERT_EQUAL(cmosAutomotiveSpeed1, IfxGtm_PinMap_Mock_GetLastArg_setTomTout_padDriver());
       |     ^~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_001_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c: In function 'test_GTM_TOM_3_Phase_Inverter_PWM_updateUVW_MultipleCalls_ProgressesCorrectly':
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_001_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:143:13: warning: unused variable 'w_2' [-Wunused-variable]
-  143 |     float32 w_2 = IfxGtm_Pwm_Mock_GetArgHistory_updateChannelsDutyImmediate(2u, 2u);
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:72:45: error: implicit declaration of function 'IfxGtm_PinMap_Mock_GetLastArg_setTomTout_padDriver' [-Wimplicit-function-declaration]
+   72 |     TEST_ASSERT_EQUAL(cmosAutomotiveSpeed1, IfxGtm_PinMap_Mock_GetLastArg_setTomTout_padDriver());
+      |                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\unity/unity_internals.h:897:156: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_INT'
+  897 | #define UNITY_TEST_ASSERT_EQUAL_INT(expected, actual, line, message)                             UnityAssertEqualNumber((UNITY_INT)(expected), (UNITY_INT)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_INT)
+      |                                                                                                                                                            ^~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:72:5: note: in expansion of macro 'TEST_ASSERT_EQUAL'
+   72 |     TEST_ASSERT_EQUAL(cmosAutomotiveSpeed1, IfxGtm_PinMap_Mock_GetLastArg_setTomTout_padDriver());
+      |     ^~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:75:21: error: implicit declaration of function 'IfxGtm_Pwm_Mock_GetLastArrayArg_updateChannelsDutyImmediate' [-Wimplicit-function-declaration]
+   75 |     float32 dutyU = IfxGtm_Pwm_Mock_GetLastArrayArg_updateChannelsDutyImmediate(0);
+      |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c: In function 'test_GTM_TOM_3_Phase_Inverter_PWM_updateUVW_MultipleCalls_ProgressesCorrectly':
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:132:22: error: implicit declaration of function 'IfxGtm_Pwm_Mock_GetArgHistory_updateChannelsDutyImmediate' [-Wimplicit-function-declaration]
+  132 |     float32 u_init = IfxGtm_Pwm_Mock_GetArgHistory_updateChannelsDutyImmediate(0u, 0u);
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:142:13: warning: unused variable 'w_2' [-Wunused-variable]
+  142 |     float32 w_2 = IfxGtm_Pwm_Mock_GetArgHistory_updateChannelsDutyImmediate(2u, 2u);
       |             ^~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_001_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:142:13: warning: unused variable 'v_2' [-Wunused-variable]
-  142 |     float32 v_2 = IfxGtm_Pwm_Mock_GetArgHistory_updateChannelsDutyImmediate(2u, 1u);
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:141:13: warning: unused variable 'v_2' [-Wunused-variable]
+  141 |     float32 v_2 = IfxGtm_Pwm_Mock_GetArgHistory_updateChannelsDutyImmediate(2u, 1u);
       |             ^~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c: In function 'test_GTM_TOM_3_Phase_Inverter_PWM_updateUVW_BoundaryWrapAround':
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:164:5: error: unknown type name 'bool'
+  164 |     bool wrapped = false;
+      |     ^~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:11:1: note: 'bool' is defined in header '<stdbool.h>'; this is probably fixable by adding '#include <stdbool.h>'
+   10 | #include "Ifx_Types.h"
+  +++ |+#include <stdbool.h>
+   11 | 
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:164:20: error: 'false' undeclared (first use in this function)
+  164 |     bool wrapped = false;
+      |                    ^~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:164:20: note: 'false' is defined in header '<stdbool.h>'; this is probably fixable by adding '#include <stdbool.h>'
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:172:38: error: 'true' undeclared (first use in this function)
+  172 |         if (curr < prev) { wrapped = true; break; }
+      |                                      ^~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-054441-6885217a\c5bc9be6-7a3\Implement_a_3-phase_inverter_PWM_on_KIT_A2G_TC387_r_20260326_144402\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:172:38: note: 'true' is defined in header '<stdbool.h>'; this is probably fixable by adding '#include <stdbool.h>'
