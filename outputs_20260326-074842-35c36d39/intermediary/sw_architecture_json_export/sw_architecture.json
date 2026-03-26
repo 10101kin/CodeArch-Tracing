@@ -13,7 +13,8 @@
       "IfxGtm_Tom_PwmHl",
       "IfxGtm_Tom_Dtm_PwmHl",
       "IfxGtm_Tom_Pwm"
-    ]
+    ],
+    "recommended_driver_verification": "Consult the iLLD package documentation or Doxygen for TC3xx to confirm the presence of IfxGtm_Pwm and IfxGtm_Pwm.h."
   },
   "driver_usage": {
     "primary_driver": "IfxGtm_Pwm",
@@ -29,7 +30,8 @@
       "IfxGtm_Pwm_updateChannelsDuty",
       "IfxGtm_Pwm_updateChannelsDutyImmediate",
       "IfxGtm_Pwm_updateChannelsDeadTimeImmediate"
-    ]
+    ],
+    "initialization_apis_verification": "Check the iLLD Doxygen or official API reference for TC3xx to confirm these API names."
   },
   "file_structure": {
     "module_files": [
@@ -83,7 +85,8 @@
         "reason": "Unified API duty update; synchronized multi‑channel updates use non‑immediate calls that latch on the next period"
       }
     ],
-    "context_preserved": "TOM1 is used with CH0 as master time base (cmuFxclk0 @ GCLK), center‑aligned 20 kHz, complementary outputs with 0.5 µs dead‑time and 1.0 µs minimum pulse, active‑high, push‑pull pads (IfxPort_PadDriver_cmosAutomotiveSpeed1), and remapped to P02.0/2/1/4/5/7 as specified. Initial duties (U=25%, V=50%, W=75%) are applied using unified API synchronized shadow updates. Where reference used disable/applyUpdate, unified IfxGtm_Pwm uses non‑immediate update APIs to achieve the same synchronous latching at the period boundary."
+    "context_preserved": "TOM1 is used with CH0 as master time base (cmuFxclk0 @ GCLK), center‑aligned 20 kHz, complementary outputs with 0.5 µs dead‑time and 1.0 µs minimum pulse, active‑high, push‑pull pads (IfxPort_PadDriver_cmosAutomotiveSpeed1), and remapped to P02.0/2/1/4/5/7 as specified. Initial duties (U=25%, V=50%, W=75%) are applied using unified API synchronized shadow updates. Where reference used disable/applyUpdate, unified IfxGtm_Pwm uses non‑immediate update APIs to achieve the same synchronous latching at the period boundary.",
+    "driver_changes_verification": "Refer to the iLLD release notes or migration guides for TC3xx to confirm the official migration path and API mapping."
   },
   "header_selection": {
     "applied": true,
