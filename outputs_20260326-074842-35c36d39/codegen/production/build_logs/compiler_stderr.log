@@ -1,214 +1,880 @@
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Cmu.c:20:15: error: redefinition of 's_selectClkInput_count'
-   20 | static uint32 s_selectClkInput_count = 0;
-      |               ^~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Cmu.c:7:15: note: previous definition of 's_selectClkInput_count' with type 'uint32' {aka 'unsigned int'}
-    7 | static uint32 s_selectClkInput_count = 0;
-      |               ^~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Cmu.c:37:8: error: redefinition of 'IfxGtm_Cmu_Mock_GetCallCount_selectClkInput'
-   37 | uint32 IfxGtm_Cmu_Mock_GetCallCount_selectClkInput(void) { return s_selectClkInput_count; }
-      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Cmu.c:29:8: note: previous definition of 'IfxGtm_Cmu_Mock_GetCallCount_selectClkInput' with type 'uint32(void)' {aka 'unsigned int(void)'}
-   29 | uint32 IfxGtm_Cmu_Mock_GetCallCount_selectClkInput(void) {
-      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:1:
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/gtm_tom_3_phase_inverter_pwm.h:60:5: error: unknown type name 'IfxGtm_Pwm'
+   60 |     IfxGtm_Pwm          pwm;                                        /* PWM driver handle */
+      |     ^~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/gtm_tom_3_phase_inverter_pwm.h:61:5: error: unknown type name 'IfxGtm_Pwm_Channel'
+   61 |     IfxGtm_Pwm_Channel  channels[NUM_OF_CHANNELS];                  /* Channel runtime handles */
+      |     ^~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/gtm_tom_3_phase_inverter_pwm.h:64:5: error: unknown type name 'IfxGtm_Pwm_DeadTime'
+   64 |     IfxGtm_Pwm_DeadTime deadTimes[NUM_OF_CHANNELS];                  /* Dead time (rising/falling) per channel */
+      |     ^~~~~~~~~~~~~~~~~~~
+In file included from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:3:
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxGtm_Pwm.h:8:36: error: unknown type name 'IfxGtm_Pwm'
+    8 | void IfxGtm_Pwm_updateChannelsDuty(IfxGtm_Pwm *pwm, float32 *requestDuty);
+      |                                    ^~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxGtm_Pwm.h:9:22: error: unknown type name 'IfxGtm_Pwm'
+    9 | void IfxGtm_Pwm_init(IfxGtm_Pwm *pwm, IfxGtm_Pwm_Channel *channels, IfxGtm_Pwm_Config *config);
+      |                      ^~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxGtm_Pwm.h:9:39: error: unknown type name 'IfxGtm_Pwm_Channel'
+    9 | void IfxGtm_Pwm_init(IfxGtm_Pwm *pwm, IfxGtm_Pwm_Channel *channels, IfxGtm_Pwm_Config *config);
+      |                                       ^~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxGtm_Pwm.h:9:69: error: unknown type name 'IfxGtm_Pwm_Config'; did you mean 'IfxEgtm_Pwm_Config'?
+    9 | void IfxGtm_Pwm_init(IfxGtm_Pwm *pwm, IfxGtm_Pwm_Channel *channels, IfxGtm_Pwm_Config *config);
+      |                                                                     ^~~~~~~~~~~~~~~~~
+      |                                                                     IfxEgtm_Pwm_Config
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxGtm_Pwm.h:10:35: error: unknown type name 'IfxGtm_Pwm_ChannelConfig'; did you mean 'IfxEgtm_Pwm_ChannelConfig'?
+   10 | void IfxGtm_Pwm_initChannelConfig(IfxGtm_Pwm_ChannelConfig *channelConfig);
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~
+      |                                   IfxEgtm_Pwm_ChannelConfig
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxGtm_Pwm.h:11:28: error: unknown type name 'IfxGtm_Pwm_Config'; did you mean 'IfxEgtm_Pwm_Config'?
+   11 | void IfxGtm_Pwm_initConfig(IfxGtm_Pwm_Config *config, Ifx_GTM *gtmSFR);
+      |                            ^~~~~~~~~~~~~~~~~
+      |                            IfxEgtm_Pwm_Config
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxGtm_Pwm.h:11:55: error: unknown type name 'Ifx_GTM'; did you mean 'Ifx_STMx'?
+   11 | void IfxGtm_Pwm_initConfig(IfxGtm_Pwm_Config *config, Ifx_GTM *gtmSFR);
+      |                                                       ^~~~~~~
+      |                                                       Ifx_STMx
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxGtm_Pwm.h:12:37: error: unknown type name 'IfxGtm_Pwm'
+   12 | void IfxGtm_Pwm_startChannelOutputs(IfxGtm_Pwm *pwm);
+      |                                     ^~~~~~~~~~
+In file included from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:4:
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxGtm.h:8:20: error: unknown type name 'Ifx_GTM'; did you mean 'Ifx_STMx'?
+    8 | void IfxGtm_enable(Ifx_GTM *gtm);
+      |                    ^~~~~~~
+      |                    Ifx_STMx
+In file included from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:5:
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxGtm_Cmu.h:8:32: error: unknown type name 'Ifx_GTM'; did you mean 'Ifx_STMx'?
+    8 | void IfxGtm_Cmu_selectClkInput(Ifx_GTM *gtm, IfxGtm_Cmu_Clk clkIndex, boolean useGlobal);
+      |                                ^~~~~~~
+      |                                Ifx_STMx
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxGtm_Cmu.h:8:46: error: unknown type name 'IfxGtm_Cmu_Clk'
+    8 | void IfxGtm_Cmu_selectClkInput(Ifx_GTM *gtm, IfxGtm_Cmu_Clk clkIndex, boolean useGlobal);
+      |                                              ^~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxGtm_Cmu.h:9:33: error: unknown type name 'Ifx_GTM'; did you mean 'Ifx_STMx'?
+    9 | void IfxGtm_Cmu_setClkFrequency(Ifx_GTM *gtm, IfxGtm_Cmu_Clk clkIndex, float32 frequency);
+      |                                 ^~~~~~~
+      |                                 Ifx_STMx
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxGtm_Cmu.h:9:47: error: unknown type name 'IfxGtm_Cmu_Clk'
+    9 | void IfxGtm_Cmu_setClkFrequency(Ifx_GTM *gtm, IfxGtm_Cmu_Clk clkIndex, float32 frequency);
+      |                                               ^~~~~~~~~~~~~~
+In file included from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxGtm_PinMap.h:5,
+                 from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:6:
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxPort.h:11:25: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   11 | void IfxPort_setPinMode(Ifx_P *port, uint8 pinIndex, IfxPort_Mode mode);
+      |                         ^~~~~
+      |                         IFX_PI
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxPort.h:11:54: error: unknown type name 'IfxPort_Mode'; did you mean 'Ifx_Pwm_Mode'?
+   11 | void IfxPort_setPinMode(Ifx_P *port, uint8 pinIndex, IfxPort_Mode mode);
+      |                                                      ^~~~~~~~~~~~
+      |                                                      Ifx_Pwm_Mode
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxPort.h:12:31: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   12 | void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
+      |                               ^~~~~
+      |                               IFX_PI
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxPort.h:12:60: error: unknown type name 'IfxPort_OutputMode'
+   12 | void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
+      |                                                            ^~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxPort.h:12:85: error: unknown type name 'IfxPort_OutputIdx'
+   12 | void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
+      |                                                                                     ^~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxPort.h:13:30: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   13 | void IfxPort_setPinModeInput(Ifx_P *port, uint8 pinIndex, IfxPort_InputMode mode);
+      |                              ^~~~~
+      |                              IFX_PI
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxPort.h:13:59: error: unknown type name 'IfxPort_InputMode'
+   13 | void IfxPort_setPinModeInput(Ifx_P *port, uint8 pinIndex, IfxPort_InputMode mode);
+      |                                                           ^~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxPort.h:14:30: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   14 | void IfxPort_setPinPadDriver(Ifx_P *port, uint8 pinIndex, IfxPort_PadDriver padDriver);
+      |                              ^~~~~
+      |                              IFX_PI
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxPort.h:14:59: error: unknown type name 'IfxPort_PadDriver'
+   14 | void IfxPort_setPinPadDriver(Ifx_P *port, uint8 pinIndex, IfxPort_PadDriver padDriver);
+      |                                                           ^~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxPort.h:15:25: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   15 | void IfxPort_setPinHigh(Ifx_P *port, uint8 pinIndex);
+      |                         ^~~~~
+      |                         IFX_PI
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxPort.h:16:24: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   16 | void IfxPort_setPinLow(Ifx_P *port, uint8 pinIndex);
+      |                        ^~~~~
+      |                        IFX_PI
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxPort.h:17:24: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   17 | void IfxPort_togglePin(Ifx_P *port, uint8 pinIndex);
+      |                        ^~~~~
+      |                        IFX_PI
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxPort.h:18:1: error: unknown type name 'IfxPort_State'
+   18 | IfxPort_State IfxPort_getPinState(Ifx_P *port, uint8 pinIndex);
+      | ^~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxPort.h:18:35: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   18 | IfxPort_State IfxPort_getPinState(Ifx_P *port, uint8 pinIndex);
+      |                                   ^~~~~
+      |                                   IFX_PI
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxPort.h:19:26: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   19 | void IfxPort_setPinState(Ifx_P *port, uint8 pinIndex, IfxPort_State state);
+      |                          ^~~~~
+      |                          IFX_PI
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxPort.h:19:55: error: unknown type name 'IfxPort_State'
+   19 | void IfxPort_setPinState(Ifx_P *port, uint8 pinIndex, IfxPort_State state);
+      |                                                       ^~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxGtm_PinMap.h:15:14: error: unknown type name 'IfxGtm_Tom_ToutMap'
+   15 | extern const IfxGtm_Tom_ToutMap IfxGtm_TOM1_1_TOUT11_P00_2_OUT;
+      |              ^~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxGtm_PinMap.h:16:14: error: unknown type name 'IfxGtm_Tom_ToutMap'
+   16 | extern const IfxGtm_Tom_ToutMap IfxGtm_TOM1_2_TOUT12_P00_3_OUT;
+      |              ^~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxGtm_PinMap.h:17:14: error: unknown type name 'IfxGtm_Tom_ToutMap'
+   17 | extern const IfxGtm_Tom_ToutMap IfxGtm_TOM1_3_TOUT13_P00_4_OUT;
+      |              ^~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxGtm_PinMap.h:18:14: error: unknown type name 'IfxGtm_Tom_ToutMap'
+   18 | extern const IfxGtm_Tom_ToutMap IfxGtm_TOM1_4_TOUT14_P00_5_OUT;
+      |              ^~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxGtm_PinMap.h:19:14: error: unknown type name 'IfxGtm_Tom_ToutMap'
+   19 | extern const IfxGtm_Tom_ToutMap IfxGtm_TOM1_5_TOUT15_P00_6_OUT;
+      |              ^~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxGtm_PinMap.h:20:14: error: unknown type name 'IfxGtm_Tom_ToutMap'
+   20 | extern const IfxGtm_Tom_ToutMap IfxGtm_TOM1_6_TOUT16_P00_7_OUT;
+      |              ^~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxGtm_PinMap.h:23:31: error: unknown type name 'IfxGtm_Tom_ToutMap'
+   23 | void IfxGtm_PinMap_setTomTout(IfxGtm_Tom_ToutMap *config, IfxPort_OutputMode outputMode, IfxPort_PadDriver padDriver);
+      |                               ^~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxGtm_PinMap.h:23:59: error: unknown type name 'IfxPort_OutputMode'
+   23 | void IfxGtm_PinMap_setTomTout(IfxGtm_Tom_ToutMap *config, IfxPort_OutputMode outputMode, IfxPort_PadDriver padDriver);
+      |                                                           ^~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxGtm_PinMap.h:23:90: error: unknown type name 'IfxPort_PadDriver'
+   23 | void IfxGtm_PinMap_setTomTout(IfxGtm_Tom_ToutMap *config, IfxPort_OutputMode outputMode, IfxPort_PadDriver padDriver);
+      |                                                                                          ^~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:20:1: error: unknown type name 'IFX_STATIC'
+   20 | IFX_STATIC GtmTom3phInv g_gtmTom3phInv;
+      | ^~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:20:25: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'g_gtmTom3phInv'
+   20 | IFX_STATIC GtmTom3phInv g_gtmTom3phInv;
+      |                         ^~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c: In function 'GTM_TOM_3PhaseInverterPWM_init':
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:27:5: error: implicit declaration of function 'IfxGtm_enable' [-Wimplicit-function-declaration]
+   27 |     IfxGtm_enable(&MODULE_GTM);
+      |     ^~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:27:20: error: 'MODULE_GTM' undeclared (first use in this function)
+   27 |     IfxGtm_enable(&MODULE_GTM);
+      |                    ^~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:27:20: note: each undeclared identifier is reported only once for each function it appears in
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:30:5: error: implicit declaration of function 'IfxGtm_Cmu_setGclkFrequency' [-Wimplicit-function-declaration]
+   30 |     IfxGtm_Cmu_setGclkFrequency(&MODULE_GTM, GTM_GCLK_FREQ_HZ);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:31:5: error: implicit declaration of function 'IfxGtm_Cmu_selectClkInput' [-Wimplicit-function-declaration]
+   31 |     IfxGtm_Cmu_selectClkInput(&MODULE_GTM, IfxGtm_Cmu_Clk_0, TRUE);   /* useGlobal = TRUE selects GCLK as source */
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:31:44: error: 'IfxGtm_Cmu_Clk_0' undeclared (first use in this function)
+   31 |     IfxGtm_Cmu_selectClkInput(&MODULE_GTM, IfxGtm_Cmu_Clk_0, TRUE);   /* useGlobal = TRUE selects GCLK as source */
+      |                                            ^~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:32:5: error: implicit declaration of function 'IfxGtm_Cmu_setClkFrequency' [-Wimplicit-function-declaration]
+   32 |     IfxGtm_Cmu_setClkFrequency(&MODULE_GTM, IfxGtm_Cmu_Clk_0, GTM_GCLK_FREQ_HZ);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:33:5: error: implicit declaration of function 'IfxGtm_Cmu_enableClocks' [-Wimplicit-function-declaration]
+   33 |     IfxGtm_Cmu_enableClocks(&MODULE_GTM, IFXGTM_CMU_CLKEN_FXCLK);     /* enable all Fx clocks */
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:33:42: error: expected expression before 'IFXGTM_CMU_CLKEN_FXCLK'
+   33 |     IfxGtm_Cmu_enableClocks(&MODULE_GTM, IFXGTM_CMU_CLKEN_FXCLK);     /* enable all Fx clocks */
+      |                                          ^~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:36:5: error: unknown type name 'IfxGtm_Pwm_Config'; did you mean 'IfxEgtm_Pwm_Config'?
+   36 |     IfxGtm_Pwm_Config          config;
+      |     ^~~~~~~~~~~~~~~~~
+      |     IfxEgtm_Pwm_Config
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:37:5: error: unknown type name 'IfxGtm_Pwm_ChannelConfig'; did you mean 'IfxEgtm_Pwm_ChannelConfig'?
+   37 |     IfxGtm_Pwm_ChannelConfig   channelConfig[NUM_OF_CHANNELS];
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxEgtm_Pwm_ChannelConfig
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:38:5: error: unknown type name 'IfxGtm_Pwm_OutputConfig'; did you mean 'IfxEgtm_Pwm_Config'?
+   38 |     IfxGtm_Pwm_OutputConfig    outputCfg[NUM_OF_CHANNELS];
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxEgtm_Pwm_Config
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:39:5: error: unknown type name 'IfxGtm_Pwm_DtmConfig'; did you mean 'IfxEgtm_Pwm_Config'?
+   39 |     IfxGtm_Pwm_DtmConfig       dtmCfg[NUM_OF_CHANNELS];
+      |     ^~~~~~~~~~~~~~~~~~~~
+      |     IfxEgtm_Pwm_Config
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:41:5: error: implicit declaration of function 'IfxGtm_Pwm_initConfig' [-Wimplicit-function-declaration]
+   41 |     IfxGtm_Pwm_initConfig(&config, &MODULE_GTM);
+      |     ^~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:45:17: error: request for member 'pin' in something not a structure or union
+   45 |     outputCfg[0].pin                        = (IfxGtm_Pwm_ToutMap*)&PHASE_U_HS;
+      |                 ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:45:48: error: 'IfxGtm_Pwm_ToutMap' undeclared (first use in this function)
+   45 |     outputCfg[0].pin                        = (IfxGtm_Pwm_ToutMap*)&PHASE_U_HS;
+      |                                                ^~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:45:67: error: expected expression before ')' token
+   45 |     outputCfg[0].pin                        = (IfxGtm_Pwm_ToutMap*)&PHASE_U_HS;
+      |                                                                   ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:46:17: error: request for member 'complementaryPin' in something not a structure or union
+   46 |     outputCfg[0].complementaryPin           = (IfxGtm_Pwm_ToutMap*)&PHASE_U_LS;
+      |                 ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:46:67: error: expected expression before ')' token
+   46 |     outputCfg[0].complementaryPin           = (IfxGtm_Pwm_ToutMap*)&PHASE_U_LS;
+      |                                                                   ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:47:17: error: request for member 'polarity' in something not a structure or union
+   47 |     outputCfg[0].polarity                   = Ifx_ActiveState_high;
+      |                 ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:48:17: error: request for member 'complementaryPolarity' in something not a structure or union
+   48 |     outputCfg[0].complementaryPolarity      = Ifx_ActiveState_low;
+      |                 ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:49:17: error: request for member 'outputMode' in something not a structure or union
+   49 |     outputCfg[0].outputMode                 = IfxPort_OutputMode_pushPull;
+      |                 ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:49:47: error: 'IfxPort_OutputMode_pushPull' undeclared (first use in this function)
+   49 |     outputCfg[0].outputMode                 = IfxPort_OutputMode_pushPull;
+      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:50:17: error: request for member 'padDriver' in something not a structure or union
+   50 |     outputCfg[0].padDriver                  = IfxPort_PadDriver_cmosAutomotiveSpeed1;
+      |                 ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:50:47: error: 'IfxPort_PadDriver_cmosAutomotiveSpeed1' undeclared (first use in this function)
+   50 |     outputCfg[0].padDriver                  = IfxPort_PadDriver_cmosAutomotiveSpeed1;
+      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:53:17: error: request for member 'pin' in something not a structure or union
+   53 |     outputCfg[1].pin                        = (IfxGtm_Pwm_ToutMap*)&PHASE_V_HS;
+      |                 ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:53:67: error: expected expression before ')' token
+   53 |     outputCfg[1].pin                        = (IfxGtm_Pwm_ToutMap*)&PHASE_V_HS;
+      |                                                                   ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:54:17: error: request for member 'complementaryPin' in something not a structure or union
+   54 |     outputCfg[1].complementaryPin           = (IfxGtm_Pwm_ToutMap*)&PHASE_V_LS;
+      |                 ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:54:67: error: expected expression before ')' token
+   54 |     outputCfg[1].complementaryPin           = (IfxGtm_Pwm_ToutMap*)&PHASE_V_LS;
+      |                                                                   ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:55:17: error: request for member 'polarity' in something not a structure or union
+   55 |     outputCfg[1].polarity                   = Ifx_ActiveState_high;
+      |                 ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:56:17: error: request for member 'complementaryPolarity' in something not a structure or union
+   56 |     outputCfg[1].complementaryPolarity      = Ifx_ActiveState_low;
+      |                 ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:57:17: error: request for member 'outputMode' in something not a structure or union
+   57 |     outputCfg[1].outputMode                 = IfxPort_OutputMode_pushPull;
+      |                 ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:58:17: error: request for member 'padDriver' in something not a structure or union
+   58 |     outputCfg[1].padDriver                  = IfxPort_PadDriver_cmosAutomotiveSpeed1;
+      |                 ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:61:17: error: request for member 'pin' in something not a structure or union
+   61 |     outputCfg[2].pin                        = (IfxGtm_Pwm_ToutMap*)&PHASE_W_HS;
+      |                 ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:61:67: error: expected expression before ')' token
+   61 |     outputCfg[2].pin                        = (IfxGtm_Pwm_ToutMap*)&PHASE_W_HS;
+      |                                                                   ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:62:17: error: request for member 'complementaryPin' in something not a structure or union
+   62 |     outputCfg[2].complementaryPin           = (IfxGtm_Pwm_ToutMap*)&PHASE_W_LS;
+      |                 ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:62:67: error: expected expression before ')' token
+   62 |     outputCfg[2].complementaryPin           = (IfxGtm_Pwm_ToutMap*)&PHASE_W_LS;
+      |                                                                   ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:63:17: error: request for member 'polarity' in something not a structure or union
+   63 |     outputCfg[2].polarity                   = Ifx_ActiveState_high;
+      |                 ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:64:17: error: request for member 'complementaryPolarity' in something not a structure or union
+   64 |     outputCfg[2].complementaryPolarity      = Ifx_ActiveState_low;
+      |                 ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:65:17: error: request for member 'outputMode' in something not a structure or union
+   65 |     outputCfg[2].outputMode                 = IfxPort_OutputMode_pushPull;
+      |                 ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:66:17: error: request for member 'padDriver' in something not a structure or union
+   66 |     outputCfg[2].padDriver                  = IfxPort_PadDriver_cmosAutomotiveSpeed1;
+      |                 ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:69:14: error: request for member 'deadTime' in something not a structure or union
+   69 |     dtmCfg[0].deadTime.rising  = PWM_DEADTIME_S;
+      |              ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:70:14: error: request for member 'deadTime' in something not a structure or union
+   70 |     dtmCfg[0].deadTime.falling = PWM_DEADTIME_S;
+      |              ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:71:14: error: request for member 'deadTime' in something not a structure or union
+   71 |     dtmCfg[1].deadTime.rising  = PWM_DEADTIME_S;
+      |              ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:72:14: error: request for member 'deadTime' in something not a structure or union
+   72 |     dtmCfg[1].deadTime.falling = PWM_DEADTIME_S;
+      |              ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:73:14: error: request for member 'deadTime' in something not a structure or union
+   73 |     dtmCfg[2].deadTime.rising  = PWM_DEADTIME_S;
+      |              ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:74:14: error: request for member 'deadTime' in something not a structure or union
+   74 |     dtmCfg[2].deadTime.falling = PWM_DEADTIME_S;
+      |              ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:79:9: error: implicit declaration of function 'IfxGtm_Pwm_initChannelConfig' [-Wimplicit-function-declaration]
+   79 |         IfxGtm_Pwm_initChannelConfig(&channelConfig[i]);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:80:25: error: request for member 'phase' in something not a structure or union
+   80 |         channelConfig[i].phase     = 0.0f;                    /* no inter-phase offset at init */
+      |                         ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:81:25: error: request for member 'dtm' in something not a structure or union
+   81 |         channelConfig[i].dtm       = &dtmCfg[i];
+      |                         ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:82:25: error: request for member 'output' in something not a structure or union
+   82 |         channelConfig[i].output    = &outputCfg[i];
+      |                         ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:83:25: error: request for member 'mscOut' in something not a structure or union
+   83 |         channelConfig[i].mscOut    = NULL_PTR;                /* not used */
+      |                         ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:84:25: error: request for member 'interrupt' in something not a structure or union
+   84 |         channelConfig[i].interrupt = NULL_PTR;                /* no ISR in this module */
+      |                         ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:88:21: error: request for member 'timerCh' in something not a structure or union
+   88 |     channelConfig[0].timerCh = IfxGtm_Pwm_SubModule_Ch_0;  /* Master timebase */
+      |                     ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:88:32: error: 'IfxGtm_Pwm_SubModule_Ch_0' undeclared (first use in this function)
+   88 |     channelConfig[0].timerCh = IfxGtm_Pwm_SubModule_Ch_0;  /* Master timebase */
+      |                                ^~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:89:21: error: request for member 'timerCh' in something not a structure or union
+   89 |     channelConfig[1].timerCh = IfxGtm_Pwm_SubModule_Ch_1;
+      |                     ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:89:32: error: 'IfxGtm_Pwm_SubModule_Ch_1' undeclared (first use in this function)
+   89 |     channelConfig[1].timerCh = IfxGtm_Pwm_SubModule_Ch_1;
+      |                                ^~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:90:21: error: request for member 'timerCh' in something not a structure or union
+   90 |     channelConfig[2].timerCh = IfxGtm_Pwm_SubModule_Ch_2;
+      |                     ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:90:32: error: 'IfxGtm_Pwm_SubModule_Ch_2' undeclared (first use in this function)
+   90 |     channelConfig[2].timerCh = IfxGtm_Pwm_SubModule_Ch_2;
+      |                                ^~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:93:21: error: request for member 'duty' in something not a structure or union
+   93 |     channelConfig[0].duty = INITIAL_DUTY_PERCENT_U;
+      |                     ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:94:21: error: request for member 'duty' in something not a structure or union
+   94 |     channelConfig[1].duty = INITIAL_DUTY_PERCENT_V;
+      |                     ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:95:21: error: request for member 'duty' in something not a structure or union
+   95 |     channelConfig[2].duty = INITIAL_DUTY_PERCENT_W;
+      |                     ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:98:11: error: request for member 'cluster' in something not a structure or union
+   98 |     config.cluster              = IfxGtm_Cluster_0;                 /* GTM Cluster 0 */
+      |           ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:98:35: error: 'IfxGtm_Cluster_0' undeclared (first use in this function)
+   98 |     config.cluster              = IfxGtm_Cluster_0;                 /* GTM Cluster 0 */
+      |                                   ^~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:99:11: error: request for member 'subModule' in something not a structure or union
+   99 |     config.subModule            = IfxGtm_Pwm_SubModule_tom;         /* TOM submodule */
+      |           ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:99:35: error: 'IfxGtm_Pwm_SubModule_tom' undeclared (first use in this function)
+   99 |     config.subModule            = IfxGtm_Pwm_SubModule_tom;         /* TOM submodule */
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:100:11: error: request for member 'alignment' in something not a structure or union
+  100 |     config.alignment            = IfxGtm_Pwm_Alignment_center;      /* center-aligned */
+      |           ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:100:35: error: 'IfxGtm_Pwm_Alignment_center' undeclared (first use in this function)
+  100 |     config.alignment            = IfxGtm_Pwm_Alignment_center;      /* center-aligned */
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:101:11: error: request for member 'syncStart' in something not a structure or union
+  101 |     config.syncStart            = TRUE;                              /* start after init */
+      |           ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:102:11: error: request for member 'syncUpdateEnabled' in something not a structure or union
+  102 |     config.syncUpdateEnabled    = TRUE;                              /* shadow update at period boundary */
+      |           ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:103:11: error: request for member 'numChannels' in something not a structure or union
+  103 |     config.numChannels          = NUM_OF_CHANNELS;
+      |           ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:104:11: error: request for member 'channels' in something not a structure or union
+  104 |     config.channels             = &channelConfig[0];
+      |           ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:105:11: error: request for member 'frequency' in something not a structure or union
+  105 |     config.frequency            = PWM_FREQUENCY_HZ;                  /* 20 kHz */
+      |           ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:106:11: error: request for member 'clockSource' in something not a structure or union
+  106 |     config.clockSource.tom      = MASTER_TIMEBASE_CLOCK;             /* Fxclk0 */
+      |           ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/gtm_tom_3_phase_inverter_pwm.h:14:52: error: 'IfxGtm_Cmu_Fxclk_0' undeclared (first use in this function)
+   14 | #define MASTER_TIMEBASE_CLOCK                      IfxGtm_Cmu_Fxclk_0  /* cmuFxclk0 */
+      |                                                    ^~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:106:35: note: in expansion of macro 'MASTER_TIMEBASE_CLOCK'
+  106 |     config.clockSource.tom      = MASTER_TIMEBASE_CLOCK;             /* Fxclk0 */
+      |                                   ^~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:107:11: error: request for member 'dtmClockSource' in something not a structure or union
+  107 |     config.dtmClockSource       = IfxGtm_Dtm_ClockSource_cmuClock0;  /* DTM clock from CMU clock0 */
+      |           ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:107:35: error: 'IfxGtm_Dtm_ClockSource_cmuClock0' undeclared (first use in this function)
+  107 |     config.dtmClockSource       = IfxGtm_Dtm_ClockSource_cmuClock0;  /* DTM clock from CMU clock0 */
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:110:5: error: implicit declaration of function 'IfxGtm_Pwm_init' [-Wimplicit-function-declaration]
+  110 |     IfxGtm_Pwm_init(&g_gtmTom3phInv.pwm, &g_gtmTom3phInv.channels[0], &config);
+      |     ^~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:113:52: error: request for member 'duty' in something not a structure or union
+  113 |     g_gtmTom3phInv.dutyCycles[0] = channelConfig[0].duty;
+      |                                                    ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:114:52: error: request for member 'duty' in something not a structure or union
+  114 |     g_gtmTom3phInv.dutyCycles[1] = channelConfig[1].duty;
+      |                                                    ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:115:52: error: request for member 'duty' in something not a structure or union
+  115 |     g_gtmTom3phInv.dutyCycles[2] = channelConfig[2].duty;
+      |                                                    ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:117:45: error: request for member 'deadTime' in something not a structure or union
+  117 |     g_gtmTom3phInv.deadTimes[0]  = dtmCfg[0].deadTime;
+      |                                             ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:118:45: error: request for member 'deadTime' in something not a structure or union
+  118 |     g_gtmTom3phInv.deadTimes[1]  = dtmCfg[1].deadTime;
+      |                                             ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:119:45: error: request for member 'deadTime' in something not a structure or union
+  119 |     g_gtmTom3phInv.deadTimes[2]  = dtmCfg[2].deadTime;
+      |                                             ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\src\gtm_tom_3_phase_inverter_pwm.c:126:5: error: implicit declaration of function 'IfxGtm_Pwm_updateChannelsDuty' [-Wimplicit-function-declaration]
+  126 |     IfxGtm_Pwm_updateChannelsDuty(&g_gtmTom3phInv.pwm, &g_gtmTom3phInv.dutyCycles[0]);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:161:15: error: redefinition of 's_requestDuty_count'
-  161 | static uint32 s_requestDuty_count = 0;
-      |               ^~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:159:15: note: previous definition of 's_requestDuty_count' with type 'uint32' {aka 'unsigned int'}
-  159 | static uint32 s_requestDuty_count = 0;
-      |               ^~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:174:8: error: redefinition of 'IfxGtm_Pwm_Mock_GetArgHistoryCount_updateChannelsDuty_Mock_GetCallCount_requestDuty'
-  174 | uint32 IfxGtm_Pwm_Mock_GetArgHistoryCount_updateChannelsDuty_Mock_GetCallCount_requestDuty(void) {
-      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:170:8: note: previous definition of 'IfxGtm_Pwm_Mock_GetArgHistoryCount_updateChannelsDuty_Mock_GetCallCount_requestDuty' with type 'uint32(void)' {aka 'unsigned int(void)'}
-  170 | uint32 IfxGtm_Pwm_Mock_GetArgHistoryCount_updateChannelsDuty_Mock_GetCallCount_requestDuty(void) {
-      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:179:15: error: redefinition of 's_requestDuty_count'
-  179 | static uint32 s_requestDuty_count = 0;
-      |               ^~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:161:15: note: previous definition of 's_requestDuty_count' with type 'uint32' {aka 'unsigned int'}
-  161 | static uint32 s_requestDuty_count = 0;
-      |               ^~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:181:15: error: redefinition of 's_requestDuty_count'
-  181 | static uint32 s_requestDuty_count = 0;
-      |               ^~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:179:15: note: previous definition of 's_requestDuty_count' with type 'uint32' {aka 'unsigned int'}
-  179 | static uint32 s_requestDuty_count = 0;
-      |               ^~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:194:8: error: redefinition of 'IfxGtm_Pwm_Mock_GetArgHistoryCount_updateChannelsPulseImmediate_Mock_GetCallCount_requestDuty'
-  194 | uint32 IfxGtm_Pwm_Mock_GetArgHistoryCount_updateChannelsPulseImmediate_Mock_GetCallCount_requestDuty(void) {
-      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:190:8: note: previous definition of 'IfxGtm_Pwm_Mock_GetArgHistoryCount_updateChannelsPulseImmediate_Mock_GetCallCount_requestDuty' with type 'uint32(void)' {aka 'unsigned int(void)'}
-  190 | uint32 IfxGtm_Pwm_Mock_GetArgHistoryCount_updateChannelsPulseImmediate_Mock_GetCallCount_requestDuty(void) {
-      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:199:15: error: redefinition of 's_requestDuty_count'
-  199 | static uint32 s_requestDuty_count = 0;
-      |               ^~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:181:15: note: previous definition of 's_requestDuty_count' with type 'uint32' {aka 'unsigned int'}
-  181 | static uint32 s_requestDuty_count = 0;
-      |               ^~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:201:15: error: redefinition of 's_requestDuty_count'
-  201 | static uint32 s_requestDuty_count = 0;
-      |               ^~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:199:15: note: previous definition of 's_requestDuty_count' with type 'uint32' {aka 'unsigned int'}
-  199 | static uint32 s_requestDuty_count = 0;
-      |               ^~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:203:15: error: redefinition of 's_requestDuty_count'
-  203 | static uint32 s_requestDuty_count = 0;
-      |               ^~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:201:15: note: previous definition of 's_requestDuty_count' with type 'uint32' {aka 'unsigned int'}
-  201 | static uint32 s_requestDuty_count = 0;
-      |               ^~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:216:8: error: redefinition of 'IfxGtm_Pwm_Mock_GetArgHistory_updateChannelsDuty_Mock_GetCallCount_requestDuty'
-  216 | uint32 IfxGtm_Pwm_Mock_GetArgHistory_updateChannelsDuty_Mock_GetCallCount_requestDuty(void) {
-      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:212:8: note: previous definition of 'IfxGtm_Pwm_Mock_GetArgHistory_updateChannelsDuty_Mock_GetCallCount_requestDuty' with type 'uint32(void)' {aka 'unsigned int(void)'}
-  212 | uint32 IfxGtm_Pwm_Mock_GetArgHistory_updateChannelsDuty_Mock_GetCallCount_requestDuty(void) {
-      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:220:8: error: redefinition of 'IfxGtm_Pwm_Mock_GetArgHistory_updateChannelsDuty_Mock_GetCallCount_requestDuty'
-  220 | uint32 IfxGtm_Pwm_Mock_GetArgHistory_updateChannelsDuty_Mock_GetCallCount_requestDuty(void) {
-      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:212:8: note: previous definition of 'IfxGtm_Pwm_Mock_GetArgHistory_updateChannelsDuty_Mock_GetCallCount_requestDuty' with type 'uint32(void)' {aka 'unsigned int(void)'}
-  212 | uint32 IfxGtm_Pwm_Mock_GetArgHistory_updateChannelsDuty_Mock_GetCallCount_requestDuty(void) {
-      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:225:15: error: redefinition of 's_requestDuty_count'
-  225 | static uint32 s_requestDuty_count = 0;
-      |               ^~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:203:15: note: previous definition of 's_requestDuty_count' with type 'uint32' {aka 'unsigned int'}
-  203 | static uint32 s_requestDuty_count = 0;
-      |               ^~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:227:15: error: redefinition of 's_requestDuty_count'
-  227 | static uint32 s_requestDuty_count = 0;
-      |               ^~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:225:15: note: previous definition of 's_requestDuty_count' with type 'uint32' {aka 'unsigned int'}
-  225 | static uint32 s_requestDuty_count = 0;
-      |               ^~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:229:15: error: redefinition of 's_requestDuty_count'
-  229 | static uint32 s_requestDuty_count = 0;
-      |               ^~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:227:15: note: previous definition of 's_requestDuty_count' with type 'uint32' {aka 'unsigned int'}
-  227 | static uint32 s_requestDuty_count = 0;
-      |               ^~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:242:8: error: redefinition of 'IfxGtm_Pwm_Mock_GetArgHistory_updateChannelsPulseImmediate_Mock_GetCallCount_requestDuty'
-  242 | uint32 IfxGtm_Pwm_Mock_GetArgHistory_updateChannelsPulseImmediate_Mock_GetCallCount_requestDuty(void) {
-      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:238:8: note: previous definition of 'IfxGtm_Pwm_Mock_GetArgHistory_updateChannelsPulseImmediate_Mock_GetCallCount_requestDuty' with type 'uint32(void)' {aka 'unsigned int(void)'}
-  238 | uint32 IfxGtm_Pwm_Mock_GetArgHistory_updateChannelsPulseImmediate_Mock_GetCallCount_requestDuty(void) {
-      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:246:8: error: redefinition of 'IfxGtm_Pwm_Mock_GetArgHistory_updateChannelsPulseImmediate_Mock_GetCallCount_requestDuty'
-  246 | uint32 IfxGtm_Pwm_Mock_GetArgHistory_updateChannelsPulseImmediate_Mock_GetCallCount_requestDuty(void) {
-      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:238:8: note: previous definition of 'IfxGtm_Pwm_Mock_GetArgHistory_updateChannelsPulseImmediate_Mock_GetCallCount_requestDuty' with type 'uint32(void)' {aka 'unsigned int(void)'}
-  238 | uint32 IfxGtm_Pwm_Mock_GetArgHistory_updateChannelsPulseImmediate_Mock_GetCallCount_requestDuty(void) {
-      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:251:15: error: redefinition of 's_requestDuty_count'
-  251 | static uint32 s_requestDuty_count = 0;
-      |               ^~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:229:15: note: previous definition of 's_requestDuty_count' with type 'uint32' {aka 'unsigned int'}
-  229 | static uint32 s_requestDuty_count = 0;
-      |               ^~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:253:15: error: redefinition of 's_requestDuty_count'
-  253 | static uint32 s_requestDuty_count = 0;
-      |               ^~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:251:15: note: previous definition of 's_requestDuty_count' with type 'uint32' {aka 'unsigned int'}
-  251 | static uint32 s_requestDuty_count = 0;
-      |               ^~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:255:15: error: redefinition of 's_requestDuty_count'
-  255 | static uint32 s_requestDuty_count = 0;
-      |               ^~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:253:15: note: previous definition of 's_requestDuty_count' with type 'uint32' {aka 'unsigned int'}
-  253 | static uint32 s_requestDuty_count = 0;
-      |               ^~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:268:8: error: redefinition of 'IfxGtm_Pwm_Mock_GetLastArrayArg_updateChannelsDuty_Mock_GetCallCount_requestDuty'
-  268 | uint32 IfxGtm_Pwm_Mock_GetLastArrayArg_updateChannelsDuty_Mock_GetCallCount_requestDuty(void) {
-      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:264:8: note: previous definition of 'IfxGtm_Pwm_Mock_GetLastArrayArg_updateChannelsDuty_Mock_GetCallCount_requestDuty' with type 'uint32(void)' {aka 'unsigned int(void)'}
-  264 | uint32 IfxGtm_Pwm_Mock_GetLastArrayArg_updateChannelsDuty_Mock_GetCallCount_requestDuty(void) {
-      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:272:8: error: redefinition of 'IfxGtm_Pwm_Mock_GetLastArrayArg_updateChannelsDuty_Mock_GetCallCount_requestDuty'
-  272 | uint32 IfxGtm_Pwm_Mock_GetLastArrayArg_updateChannelsDuty_Mock_GetCallCount_requestDuty(void) {
-      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:264:8: note: previous definition of 'IfxGtm_Pwm_Mock_GetLastArrayArg_updateChannelsDuty_Mock_GetCallCount_requestDuty' with type 'uint32(void)' {aka 'unsigned int(void)'}
-  264 | uint32 IfxGtm_Pwm_Mock_GetLastArrayArg_updateChannelsDuty_Mock_GetCallCount_requestDuty(void) {
-      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:277:15: error: redefinition of 's_requestDuty_count'
-  277 | static uint32 s_requestDuty_count = 0;
-      |               ^~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:255:15: note: previous definition of 's_requestDuty_count' with type 'uint32' {aka 'unsigned int'}
-  255 | static uint32 s_requestDuty_count = 0;
-      |               ^~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:279:15: error: redefinition of 's_requestDuty_count'
-  279 | static uint32 s_requestDuty_count = 0;
-      |               ^~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:277:15: note: previous definition of 's_requestDuty_count' with type 'uint32' {aka 'unsigned int'}
-  277 | static uint32 s_requestDuty_count = 0;
-      |               ^~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:281:15: error: redefinition of 's_requestDuty_count'
-  281 | static uint32 s_requestDuty_count = 0;
-      |               ^~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:279:15: note: previous definition of 's_requestDuty_count' with type 'uint32' {aka 'unsigned int'}
-  279 | static uint32 s_requestDuty_count = 0;
-      |               ^~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:294:8: error: redefinition of 'IfxGtm_Pwm_Mock_GetLastArrayArg_updateChannelsPulseImmediate_Mock_GetCallCount_requestDuty'
-  294 | uint32 IfxGtm_Pwm_Mock_GetLastArrayArg_updateChannelsPulseImmediate_Mock_GetCallCount_requestDuty(void) {
-      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:290:8: note: previous definition of 'IfxGtm_Pwm_Mock_GetLastArrayArg_updateChannelsPulseImmediate_Mock_GetCallCount_requestDuty' with type 'uint32(void)' {aka 'unsigned int(void)'}
-  290 | uint32 IfxGtm_Pwm_Mock_GetLastArrayArg_updateChannelsPulseImmediate_Mock_GetCallCount_requestDuty(void) {
-      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:298:8: error: redefinition of 'IfxGtm_Pwm_Mock_GetLastArrayArg_updateChannelsPulseImmediate_Mock_GetCallCount_requestDuty'
-  298 | uint32 IfxGtm_Pwm_Mock_GetLastArrayArg_updateChannelsPulseImmediate_Mock_GetCallCount_requestDuty(void) {
-      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\mocks\IfxGtm_Pwm.c:290:8: note: previous definition of 'IfxGtm_Pwm_Mock_GetLastArrayArg_updateChannelsPulseImmediate_Mock_GetCallCount_requestDuty' with type 'uint32(void)' {aka 'unsigned int(void)'}
-  290 | uint32 IfxGtm_Pwm_Mock_GetLastArrayArg_updateChannelsPulseImmediate_Mock_GetCallCount_requestDuty(void) {
-      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\mocks\IfxEgtm_Pwm.c:1:
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include\illd_types/Ifx_Types.h:1094:8: error: unknown type name 'Ifx_SRC'; did you mean 'Ifx_STM'?
+ 1094 | extern Ifx_SRC MODULE_SRC;
+      |        ^~~~~~~
+      |        Ifx_STM
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include\illd_types/Ifx_Types.h:1099:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?
+ 1099 | extern Ifx_STMx MODULE_STMx;
+      |        ^~~~~~~~
+      |        Ifx_STM
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\mocks\IfxEgtm_Pwm.c: In function 'IfxEgtm_Pwm_initConfig':
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\mocks\IfxEgtm_Pwm.c:16:15: error: 'IfxEgtm_Pwm_Config' has no member named 'frequency'
+   16 |         config->frequency = 0.0f;  /* default zero â€” production sets from requirements */
+      |               ^~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\mocks\IfxEgtm_Pwm.c: In function 'IfxEgtm_Pwm_initChannelConfig':
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\mocks\IfxEgtm_Pwm.c:22:22: error: 'IfxEgtm_Pwm_ChannelConfig' has no member named 'duty'
+   22 |         channelConfig->duty = 0.0f;  /* default zero â€” production sets from requirements */
+      |                      ^~
 
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c: In function 'read_last_duties':
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:68:16: error: invalid use of void expression
-   68 |             *u = IfxGtm_Pwm_Mock_GetLastArrayArg_updateChannelsDuty_requestDuty(NULL, NULL, 0);
-      |                ^
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:69:16: error: invalid use of void expression
-   69 |             *v = IfxGtm_Pwm_Mock_GetLastArrayArg_updateChannelsDuty_requestDuty(NULL, NULL, 0);
-      |                ^
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:70:16: error: invalid use of void expression
-   70 |             *w = IfxGtm_Pwm_Mock_GetLastArrayArg_updateChannelsDuty_requestDuty(NULL, NULL, 0);
-      |                ^
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:73:16: error: invalid use of void expression
-   73 |             *u = IfxGtm_Pwm_Mock_GetLastArrayArg_updateChannelsPulseImmediate_requestDuty(NULL, NULL, 0);
-      |                ^
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:74:16: error: invalid use of void expression
-   74 |             *v = IfxGtm_Pwm_Mock_GetLastArrayArg_updateChannelsPulseImmediate_requestDuty(NULL, NULL, 0);
-      |                ^
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:75:16: error: invalid use of void expression
-   75 |             *w = IfxGtm_Pwm_Mock_GetLastArrayArg_updateChannelsPulseImmediate_requestDuty(NULL, NULL, 0);
-      |                ^
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c: In function 'get_history_value':
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:108:20: error: void value not ignored as it ought to be
-  108 |             return IfxGtm_Pwm_Mock_GetArgHistory_updateChannelsDuty_requestDuty(NULL, NULL, 0);
+In file included from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\mocks\IfxGtm.c:1:
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include\illd_types/Ifx_Types.h:1094:8: error: unknown type name 'Ifx_SRC'; did you mean 'Ifx_STM'?
+ 1094 | extern Ifx_SRC MODULE_SRC;
+      |        ^~~~~~~
+      |        Ifx_STM
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include\illd_types/Ifx_Types.h:1099:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?
+ 1099 | extern Ifx_STMx MODULE_STMx;
+      |        ^~~~~~~~
+      |        Ifx_STM
+
+In file included from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\mocks\IfxGtm_Cmu.c:1:
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include\illd_types/Ifx_Types.h:1094:8: error: unknown type name 'Ifx_SRC'; did you mean 'Ifx_STM'?
+ 1094 | extern Ifx_SRC MODULE_SRC;
+      |        ^~~~~~~
+      |        Ifx_STM
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include\illd_types/Ifx_Types.h:1099:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?
+ 1099 | extern Ifx_STMx MODULE_STMx;
+      |        ^~~~~~~~
+      |        Ifx_STM
+
+In file included from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxGtm_Tom.h:4,
+                 from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxGtm_PinMap.h:4,
+                 from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\mocks\IfxGtm_PinMap.c:1:
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/illd_types/Ifx_Types.h:1094:8: error: unknown type name 'Ifx_SRC'; did you mean 'Ifx_STM'?
+ 1094 | extern Ifx_SRC MODULE_SRC;
+      |        ^~~~~~~
+      |        Ifx_STM
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/illd_types/Ifx_Types.h:1099:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?
+ 1099 | extern Ifx_STMx MODULE_STMx;
+      |        ^~~~~~~~
+      |        Ifx_STM
+
+In file included from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\mocks\IfxGtm_Pwm.c:1:
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include\illd_types/Ifx_Types.h:1094:8: error: unknown type name 'Ifx_SRC'; did you mean 'Ifx_STM'?
+ 1094 | extern Ifx_SRC MODULE_SRC;
+      |        ^~~~~~~
+      |        Ifx_STM
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include\illd_types/Ifx_Types.h:1099:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?
+ 1099 | extern Ifx_STMx MODULE_STMx;
+      |        ^~~~~~~~
+      |        Ifx_STM
+
+In file included from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxGtm_Tom.h:4,
+                 from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\mocks\IfxGtm_Tom.c:1:
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/illd_types/Ifx_Types.h:1094:8: error: unknown type name 'Ifx_SRC'; did you mean 'Ifx_STM'?
+ 1094 | extern Ifx_SRC MODULE_SRC;
+      |        ^~~~~~~
+      |        Ifx_STM
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/illd_types/Ifx_Types.h:1099:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?
+ 1099 | extern Ifx_STMx MODULE_STMx;
+      |        ^~~~~~~~
+      |        Ifx_STM
+
+In file included from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\mocks\IfxPort.c:1:
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include\illd_types/Ifx_Types.h:1094:8: error: unknown type name 'Ifx_SRC'; did you mean 'Ifx_STM'?
+ 1094 | extern Ifx_SRC MODULE_SRC;
+      |        ^~~~~~~
+      |        Ifx_STM
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include\illd_types/Ifx_Types.h:1099:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?
+ 1099 | extern Ifx_STMx MODULE_STMx;
+      |        ^~~~~~~~
+      |        Ifx_STM
+
+In file included from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\mocks\IfxPort_PinMap.c:1:
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include\illd_types/Ifx_Types.h:1094:8: error: unknown type name 'Ifx_SRC'; did you mean 'Ifx_STM'?
+ 1094 | extern Ifx_SRC MODULE_SRC;
+      |        ^~~~~~~
+      |        Ifx_STM
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include\illd_types/Ifx_Types.h:1099:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?
+ 1099 | extern Ifx_STMx MODULE_STMx;
+      |        ^~~~~~~~
+      |        Ifx_STM
+
+In file included from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\mocks\IfxStm.c:1:
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include\illd_types/Ifx_Types.h:1094:8: error: unknown type name 'Ifx_SRC'; did you mean 'Ifx_STM'?
+ 1094 | extern Ifx_SRC MODULE_SRC;
+      |        ^~~~~~~
+      |        Ifx_STM
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include\illd_types/Ifx_Types.h:1099:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?
+ 1099 | extern Ifx_STMx MODULE_STMx;
+      |        ^~~~~~~~
+      |        Ifx_STM
+
+In file included from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\mocks\Ifx_Types.c:1:
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include\illd_types/ifx_types.h:1094:8: error: unknown type name 'Ifx_SRC'; did you mean 'Ifx_STM'?
+ 1094 | extern Ifx_SRC MODULE_SRC;
+      |        ^~~~~~~
+      |        Ifx_STM
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include\illd_types/ifx_types.h:1099:8: error: unknown type name 'Ifx_STMx'; did you mean 'Ifx_STM'?
+ 1099 | extern Ifx_STMx MODULE_STMx;
+      |        ^~~~~~~~
+      |        Ifx_STM
+
+In file included from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:2:
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/gtm_tom_3_phase_inverter_pwm.h:60:5: error: unknown type name 'IfxGtm_Pwm'
+   60 |     IfxGtm_Pwm          pwm;                                        /* PWM driver handle */
+      |     ^~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/gtm_tom_3_phase_inverter_pwm.h:61:5: error: unknown type name 'IfxGtm_Pwm_Channel'
+   61 |     IfxGtm_Pwm_Channel  channels[NUM_OF_CHANNELS];                  /* Channel runtime handles */
+      |     ^~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/gtm_tom_3_phase_inverter_pwm.h:64:5: error: unknown type name 'IfxGtm_Pwm_DeadTime'
+   64 |     IfxGtm_Pwm_DeadTime deadTimes[NUM_OF_CHANNELS];                  /* Dead time (rising/falling) per channel */
+      |     ^~~~~~~~~~~~~~~~~~~
+In file included from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:4:
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxGtm.h:8:20: error: unknown type name 'Ifx_GTM'; did you mean 'Ifx_STMx'?
+    8 | void IfxGtm_enable(Ifx_GTM *gtm);
+      |                    ^~~~~~~
+      |                    Ifx_STMx
+In file included from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:5:
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxGtm_Cmu.h:8:32: error: unknown type name 'Ifx_GTM'; did you mean 'Ifx_STMx'?
+    8 | void IfxGtm_Cmu_selectClkInput(Ifx_GTM *gtm, IfxGtm_Cmu_Clk clkIndex, boolean useGlobal);
+      |                                ^~~~~~~
+      |                                Ifx_STMx
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxGtm_Cmu.h:8:46: error: unknown type name 'IfxGtm_Cmu_Clk'
+    8 | void IfxGtm_Cmu_selectClkInput(Ifx_GTM *gtm, IfxGtm_Cmu_Clk clkIndex, boolean useGlobal);
+      |                                              ^~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxGtm_Cmu.h:9:33: error: unknown type name 'Ifx_GTM'; did you mean 'Ifx_STMx'?
+    9 | void IfxGtm_Cmu_setClkFrequency(Ifx_GTM *gtm, IfxGtm_Cmu_Clk clkIndex, float32 frequency);
+      |                                 ^~~~~~~
+      |                                 Ifx_STMx
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxGtm_Cmu.h:9:47: error: unknown type name 'IfxGtm_Cmu_Clk'
+    9 | void IfxGtm_Cmu_setClkFrequency(Ifx_GTM *gtm, IfxGtm_Cmu_Clk clkIndex, float32 frequency);
+      |                                               ^~~~~~~~~~~~~~
+In file included from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxGtm_PinMap.h:5,
+                 from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:6:
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxPort.h:11:25: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   11 | void IfxPort_setPinMode(Ifx_P *port, uint8 pinIndex, IfxPort_Mode mode);
+      |                         ^~~~~
+      |                         IFX_PI
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxPort.h:11:54: error: unknown type name 'IfxPort_Mode'; did you mean 'Ifx_Pwm_Mode'?
+   11 | void IfxPort_setPinMode(Ifx_P *port, uint8 pinIndex, IfxPort_Mode mode);
+      |                                                      ^~~~~~~~~~~~
+      |                                                      Ifx_Pwm_Mode
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxPort.h:12:31: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   12 | void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
+      |                               ^~~~~
+      |                               IFX_PI
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxPort.h:12:60: error: unknown type name 'IfxPort_OutputMode'
+   12 | void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
+      |                                                            ^~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxPort.h:12:85: error: unknown type name 'IfxPort_OutputIdx'
+   12 | void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
+      |                                                                                     ^~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxPort.h:13:30: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   13 | void IfxPort_setPinModeInput(Ifx_P *port, uint8 pinIndex, IfxPort_InputMode mode);
+      |                              ^~~~~
+      |                              IFX_PI
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxPort.h:13:59: error: unknown type name 'IfxPort_InputMode'
+   13 | void IfxPort_setPinModeInput(Ifx_P *port, uint8 pinIndex, IfxPort_InputMode mode);
+      |                                                           ^~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxPort.h:14:30: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   14 | void IfxPort_setPinPadDriver(Ifx_P *port, uint8 pinIndex, IfxPort_PadDriver padDriver);
+      |                              ^~~~~
+      |                              IFX_PI
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxPort.h:14:59: error: unknown type name 'IfxPort_PadDriver'
+   14 | void IfxPort_setPinPadDriver(Ifx_P *port, uint8 pinIndex, IfxPort_PadDriver padDriver);
+      |                                                           ^~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxPort.h:15:25: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   15 | void IfxPort_setPinHigh(Ifx_P *port, uint8 pinIndex);
+      |                         ^~~~~
+      |                         IFX_PI
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxPort.h:16:24: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   16 | void IfxPort_setPinLow(Ifx_P *port, uint8 pinIndex);
+      |                        ^~~~~
+      |                        IFX_PI
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxPort.h:17:24: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   17 | void IfxPort_togglePin(Ifx_P *port, uint8 pinIndex);
+      |                        ^~~~~
+      |                        IFX_PI
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxPort.h:18:1: error: unknown type name 'IfxPort_State'
+   18 | IfxPort_State IfxPort_getPinState(Ifx_P *port, uint8 pinIndex);
+      | ^~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxPort.h:18:35: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   18 | IfxPort_State IfxPort_getPinState(Ifx_P *port, uint8 pinIndex);
+      |                                   ^~~~~
+      |                                   IFX_PI
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxPort.h:19:26: error: unknown type name 'Ifx_P'; did you mean 'IFX_PI'?
+   19 | void IfxPort_setPinState(Ifx_P *port, uint8 pinIndex, IfxPort_State state);
+      |                          ^~~~~
+      |                          IFX_PI
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxPort.h:19:55: error: unknown type name 'IfxPort_State'
+   19 | void IfxPort_setPinState(Ifx_P *port, uint8 pinIndex, IfxPort_State state);
+      |                                                       ^~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxGtm_PinMap.h:15:14: error: unknown type name 'IfxGtm_Tom_ToutMap'
+   15 | extern const IfxGtm_Tom_ToutMap IfxGtm_TOM1_1_TOUT11_P00_2_OUT;
+      |              ^~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxGtm_PinMap.h:16:14: error: unknown type name 'IfxGtm_Tom_ToutMap'
+   16 | extern const IfxGtm_Tom_ToutMap IfxGtm_TOM1_2_TOUT12_P00_3_OUT;
+      |              ^~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxGtm_PinMap.h:17:14: error: unknown type name 'IfxGtm_Tom_ToutMap'
+   17 | extern const IfxGtm_Tom_ToutMap IfxGtm_TOM1_3_TOUT13_P00_4_OUT;
+      |              ^~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxGtm_PinMap.h:18:14: error: unknown type name 'IfxGtm_Tom_ToutMap'
+   18 | extern const IfxGtm_Tom_ToutMap IfxGtm_TOM1_4_TOUT14_P00_5_OUT;
+      |              ^~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxGtm_PinMap.h:19:14: error: unknown type name 'IfxGtm_Tom_ToutMap'
+   19 | extern const IfxGtm_Tom_ToutMap IfxGtm_TOM1_5_TOUT15_P00_6_OUT;
+      |              ^~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxGtm_PinMap.h:20:14: error: unknown type name 'IfxGtm_Tom_ToutMap'
+   20 | extern const IfxGtm_Tom_ToutMap IfxGtm_TOM1_6_TOUT16_P00_7_OUT;
+      |              ^~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxGtm_PinMap.h:23:31: error: unknown type name 'IfxGtm_Tom_ToutMap'
+   23 | void IfxGtm_PinMap_setTomTout(IfxGtm_Tom_ToutMap *config, IfxPort_OutputMode outputMode, IfxPort_PadDriver padDriver);
+      |                               ^~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxGtm_PinMap.h:23:59: error: unknown type name 'IfxPort_OutputMode'
+   23 | void IfxGtm_PinMap_setTomTout(IfxGtm_Tom_ToutMap *config, IfxPort_OutputMode outputMode, IfxPort_PadDriver padDriver);
+      |                                                           ^~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxGtm_PinMap.h:23:90: error: unknown type name 'IfxPort_PadDriver'
+   23 | void IfxGtm_PinMap_setTomTout(IfxGtm_Tom_ToutMap *config, IfxPort_OutputMode outputMode, IfxPort_PadDriver padDriver);
+      |                                                                                          ^~~~~~~~~~~~~~~~~
+In file included from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:7:
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxGtm_Pwm.h:8:36: error: unknown type name 'IfxGtm_Pwm'
+    8 | void IfxGtm_Pwm_updateChannelsDuty(IfxGtm_Pwm *pwm, float32 *requestDuty);
+      |                                    ^~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxGtm_Pwm.h:9:22: error: unknown type name 'IfxGtm_Pwm'
+    9 | void IfxGtm_Pwm_init(IfxGtm_Pwm *pwm, IfxGtm_Pwm_Channel *channels, IfxGtm_Pwm_Config *config);
+      |                      ^~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxGtm_Pwm.h:9:39: error: unknown type name 'IfxGtm_Pwm_Channel'
+    9 | void IfxGtm_Pwm_init(IfxGtm_Pwm *pwm, IfxGtm_Pwm_Channel *channels, IfxGtm_Pwm_Config *config);
+      |                                       ^~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxGtm_Pwm.h:9:69: error: unknown type name 'IfxGtm_Pwm_Config'; did you mean 'IfxEgtm_Pwm_Config'?
+    9 | void IfxGtm_Pwm_init(IfxGtm_Pwm *pwm, IfxGtm_Pwm_Channel *channels, IfxGtm_Pwm_Config *config);
+      |                                                                     ^~~~~~~~~~~~~~~~~
+      |                                                                     IfxEgtm_Pwm_Config
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxGtm_Pwm.h:10:35: error: unknown type name 'IfxGtm_Pwm_ChannelConfig'; did you mean 'IfxEgtm_Pwm_ChannelConfig'?
+   10 | void IfxGtm_Pwm_initChannelConfig(IfxGtm_Pwm_ChannelConfig *channelConfig);
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~
+      |                                   IfxEgtm_Pwm_ChannelConfig
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxGtm_Pwm.h:11:28: error: unknown type name 'IfxGtm_Pwm_Config'; did you mean 'IfxEgtm_Pwm_Config'?
+   11 | void IfxGtm_Pwm_initConfig(IfxGtm_Pwm_Config *config, Ifx_GTM *gtmSFR);
+      |                            ^~~~~~~~~~~~~~~~~
+      |                            IfxEgtm_Pwm_Config
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxGtm_Pwm.h:11:55: error: unknown type name 'Ifx_GTM'; did you mean 'Ifx_STMx'?
+   11 | void IfxGtm_Pwm_initConfig(IfxGtm_Pwm_Config *config, Ifx_GTM *gtmSFR);
+      |                                                       ^~~~~~~
+      |                                                       Ifx_STMx
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\include/IfxGtm_Pwm.h:12:37: error: unknown type name 'IfxGtm_Pwm'
+   12 | void IfxGtm_Pwm_startChannelOutputs(IfxGtm_Pwm *pwm);
+      |                                     ^~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c: In function 'pick_api_called_on_init':
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:54:22: error: implicit declaration of function 'IfxGtm_Pwm_Mock_GetCallCount_updateChannelsDuty' [-Wimplicit-function-declaration]
+   54 |     uint32 cntDuty = IfxGtm_Pwm_Mock_GetCallCount_updateChannelsDuty();
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:55:23: error: implicit declaration of function 'IfxGtm_Pwm_Mock_GetCallCount_updateChannelsPulseImmediate' [-Wimplicit-function-declaration]
+   55 |     uint32 cntPulse = IfxGtm_Pwm_Mock_GetCallCount_updateChannelsPulseImmediate();
+      |                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c: In function 'read_last_duties':
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:68:18: error: implicit declaration of function 'IfxGtm_Pwm_Mock_GetLastArrayArg_updateChannelsDuty_requestDuty' [-Wimplicit-function-declaration]
+   68 |             *u = IfxGtm_Pwm_Mock_GetLastArrayArg_updateChannelsDuty_requestDuty(0);
+      |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:73:18: error: implicit declaration of function 'IfxGtm_Pwm_Mock_GetLastArrayArg_updateChannelsPulseImmediate_requestDuty' [-Wimplicit-function-declaration]
+   73 |             *u = IfxGtm_Pwm_Mock_GetLastArrayArg_updateChannelsPulseImmediate_requestDuty(0);
+      |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c: In function 'get_history_value':
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:108:20: error: implicit declaration of function 'IfxGtm_Pwm_Mock_GetArgHistory_updateChannelsDuty_requestDuty' [-Wimplicit-function-declaration]
+  108 |             return IfxGtm_Pwm_Mock_GetArgHistory_updateChannelsDuty_requestDuty(callIdx, elemIdx);
+      |                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:110:20: error: implicit declaration of function 'IfxGtm_Pwm_Mock_GetArgHistory_updateChannelsPulseImmediate_requestDuty' [-Wimplicit-function-declaration]
+  110 |             return IfxGtm_Pwm_Mock_GetArgHistory_updateChannelsPulseImmediate_requestDuty(callIdx, elemIdx);
+      |                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c: In function 'get_history_count':
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:120:20: error: implicit declaration of function 'IfxGtm_Pwm_Mock_GetArgHistoryCount_updateChannelsDuty_requestDuty' [-Wimplicit-function-declaration]
+  120 |             return IfxGtm_Pwm_Mock_GetArgHistoryCount_updateChannelsDuty_requestDuty();
+      |                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:122:20: error: implicit declaration of function 'IfxGtm_Pwm_Mock_GetArgHistoryCount_updateChannelsPulseImmediate_requestDuty' [-Wimplicit-function-declaration]
+  122 |             return IfxGtm_Pwm_Mock_GetArgHistoryCount_updateChannelsPulseImmediate_requestDuty();
       |                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:110:20: error: void value not ignored as it ought to be
-  110 |             return IfxGtm_Pwm_Mock_GetArgHistory_updateChannelsPulseImmediate_requestDuty(NULL, NULL, 0);
-      |                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c: In function 'get_history_count':
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:120:20: error: void value not ignored as it ought to be
-  120 |             return IfxGtm_Pwm_Mock_GetArgHistoryCount_updateChannelsDuty_requestDuty(NULL, NULL, 0);
-      |                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:122:20: error: void value not ignored as it ought to be
-  122 |             return IfxGtm_Pwm_Mock_GetArgHistoryCount_updateChannelsPulseImmediate_requestDuty(NULL, NULL, 0);
-      |                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c: In function 'test_GTM_TOM_3PhaseInverterPWM_updateDuties_MultipleCalls_ProgressesCorrectly':
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:230:27: error: void value not ignored as it ought to be
-  230 |     uint32 baseDutyHist = IfxGtm_Pwm_Mock_GetArgHistoryCount_updateChannelsDuty_requestDuty(NULL, NULL, 0);
-      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:231:28: error: void value not ignored as it ought to be
-  231 |     uint32 basePulseHist = IfxGtm_Pwm_Mock_GetArgHistoryCount_updateChannelsPulseImmediate_requestDuty(NULL, NULL, 0);
-      |                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:238:23: error: void value not ignored as it ought to be
-  238 |     uint32 dutyHist = IfxGtm_Pwm_Mock_GetArgHistoryCount_updateChannelsDuty_requestDuty(NULL, NULL, 0);
-      |                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:239:24: error: void value not ignored as it ought to be
-  239 |     uint32 pulseHist = IfxGtm_Pwm_Mock_GetArgHistoryCount_updateChannelsPulseImmediate_requestDuty(NULL, NULL, 0);
-      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c: At top level:
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_002_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:116:15: warning: 'get_history_count' defined but not used [-Wunused-function]
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c: In function 'setUp':
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:130:5: error: implicit declaration of function 'IfxGtm_Mock_Reset'; did you mean 'IfxPort_Mock_Reset'? [-Wimplicit-function-declaration]
+  130 |     IfxGtm_Mock_Reset();
+      |     ^~~~~~~~~~~~~~~~~
+      |     IfxPort_Mock_Reset
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:131:5: error: implicit declaration of function 'IfxGtm_Cmu_Mock_Reset'; did you mean 'IfxGtm_PinMap_Mock_Reset'? [-Wimplicit-function-declaration]
+  131 |     IfxGtm_Cmu_Mock_Reset();
+      |     ^~~~~~~~~~~~~~~~~~~~~
+      |     IfxGtm_PinMap_Mock_Reset
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:133:5: error: implicit declaration of function 'IfxGtm_Pwm_Mock_Reset'; did you mean 'IfxGtm_PinMap_Mock_Reset'? [-Wimplicit-function-declaration]
+  133 |     IfxGtm_Pwm_Mock_Reset();
+      |     ^~~~~~~~~~~~~~~~~~~~~
+      |     IfxGtm_PinMap_Mock_Reset
+In file included from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\unity/unity.h:22,
+                 from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:1:
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c: In function 'test_GTM_TOM_3PhaseInverterPWM_init_CallsExpectedDriverAPIs':
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:145:22: error: implicit declaration of function 'IfxGtm_Mock_GetCallCount_enable'; did you mean 'IfxPort_Mock_GetCallCount_togglePin'? [-Wimplicit-function-declaration]
+  145 |     TEST_ASSERT_TRUE(IfxGtm_Mock_GetCallCount_enable() > 0U);
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\unity/unity_internals.h:891:107: note: in definition of macro 'UNITY_TEST_ASSERT'
+  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)
+      |                                                                                                           ^~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:145:5: note: in expansion of macro 'TEST_ASSERT_TRUE'
+  145 |     TEST_ASSERT_TRUE(IfxGtm_Mock_GetCallCount_enable() > 0U);
+      |     ^~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:145:56: warning: comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Wsign-compare]
+  145 |     TEST_ASSERT_TRUE(IfxGtm_Mock_GetCallCount_enable() > 0U);
+      |                                                        ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\unity/unity_internals.h:891:107: note: in definition of macro 'UNITY_TEST_ASSERT'
+  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)
+      |                                                                                                           ^~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:145:5: note: in expansion of macro 'TEST_ASSERT_TRUE'
+  145 |     TEST_ASSERT_TRUE(IfxGtm_Mock_GetCallCount_enable() > 0U);
+      |     ^~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:146:22: error: implicit declaration of function 'IfxGtm_Cmu_Mock_GetCallCount_selectClkInput' [-Wimplicit-function-declaration]
+  146 |     TEST_ASSERT_TRUE(IfxGtm_Cmu_Mock_GetCallCount_selectClkInput() > 0U);
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\unity/unity_internals.h:891:107: note: in definition of macro 'UNITY_TEST_ASSERT'
+  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)
+      |                                                                                                           ^~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:146:5: note: in expansion of macro 'TEST_ASSERT_TRUE'
+  146 |     TEST_ASSERT_TRUE(IfxGtm_Cmu_Mock_GetCallCount_selectClkInput() > 0U);
+      |     ^~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:146:68: warning: comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Wsign-compare]
+  146 |     TEST_ASSERT_TRUE(IfxGtm_Cmu_Mock_GetCallCount_selectClkInput() > 0U);
+      |                                                                    ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\unity/unity_internals.h:891:107: note: in definition of macro 'UNITY_TEST_ASSERT'
+  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)
+      |                                                                                                           ^~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:146:5: note: in expansion of macro 'TEST_ASSERT_TRUE'
+  146 |     TEST_ASSERT_TRUE(IfxGtm_Cmu_Mock_GetCallCount_selectClkInput() > 0U);
+      |     ^~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:147:22: error: implicit declaration of function 'IfxGtm_Cmu_Mock_GetCallCount_enableClocks' [-Wimplicit-function-declaration]
+  147 |     TEST_ASSERT_TRUE(IfxGtm_Cmu_Mock_GetCallCount_enableClocks() > 0U);
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\unity/unity_internals.h:891:107: note: in definition of macro 'UNITY_TEST_ASSERT'
+  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)
+      |                                                                                                           ^~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:147:5: note: in expansion of macro 'TEST_ASSERT_TRUE'
+  147 |     TEST_ASSERT_TRUE(IfxGtm_Cmu_Mock_GetCallCount_enableClocks() > 0U);
+      |     ^~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:147:66: warning: comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Wsign-compare]
+  147 |     TEST_ASSERT_TRUE(IfxGtm_Cmu_Mock_GetCallCount_enableClocks() > 0U);
+      |                                                                  ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\unity/unity_internals.h:891:107: note: in definition of macro 'UNITY_TEST_ASSERT'
+  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)
+      |                                                                                                           ^~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:147:5: note: in expansion of macro 'TEST_ASSERT_TRUE'
+  147 |     TEST_ASSERT_TRUE(IfxGtm_Cmu_Mock_GetCallCount_enableClocks() > 0U);
+      |     ^~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:150:22: error: implicit declaration of function 'IfxGtm_Pwm_Mock_GetCallCount_initConfig'; did you mean 'IfxGtm_PinMap_Mock_GetCallCount_setTomTout'? [-Wimplicit-function-declaration]
+  150 |     TEST_ASSERT_TRUE(IfxGtm_Pwm_Mock_GetCallCount_initConfig() > 0U);
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\unity/unity_internals.h:891:107: note: in definition of macro 'UNITY_TEST_ASSERT'
+  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)
+      |                                                                                                           ^~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:150:5: note: in expansion of macro 'TEST_ASSERT_TRUE'
+  150 |     TEST_ASSERT_TRUE(IfxGtm_Pwm_Mock_GetCallCount_initConfig() > 0U);
+      |     ^~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:150:64: warning: comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Wsign-compare]
+  150 |     TEST_ASSERT_TRUE(IfxGtm_Pwm_Mock_GetCallCount_initConfig() > 0U);
+      |                                                                ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\unity/unity_internals.h:891:107: note: in definition of macro 'UNITY_TEST_ASSERT'
+  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)
+      |                                                                                                           ^~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:150:5: note: in expansion of macro 'TEST_ASSERT_TRUE'
+  150 |     TEST_ASSERT_TRUE(IfxGtm_Pwm_Mock_GetCallCount_initConfig() > 0U);
+      |     ^~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:151:22: error: implicit declaration of function 'IfxGtm_Pwm_Mock_GetCallCount_init'; did you mean 'IfxGtm_PinMap_Mock_GetCallCount_setTomTout'? [-Wimplicit-function-declaration]
+  151 |     TEST_ASSERT_TRUE(IfxGtm_Pwm_Mock_GetCallCount_init() > 0U);
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\unity/unity_internals.h:891:107: note: in definition of macro 'UNITY_TEST_ASSERT'
+  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)
+      |                                                                                                           ^~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:151:5: note: in expansion of macro 'TEST_ASSERT_TRUE'
+  151 |     TEST_ASSERT_TRUE(IfxGtm_Pwm_Mock_GetCallCount_init() > 0U);
+      |     ^~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:151:58: warning: comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Wsign-compare]
+  151 |     TEST_ASSERT_TRUE(IfxGtm_Pwm_Mock_GetCallCount_init() > 0U);
+      |                                                          ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\unity/unity_internals.h:891:107: note: in definition of macro 'UNITY_TEST_ASSERT'
+  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)
+      |                                                                                                           ^~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:151:5: note: in expansion of macro 'TEST_ASSERT_TRUE'
+  151 |     TEST_ASSERT_TRUE(IfxGtm_Pwm_Mock_GetCallCount_init() > 0U);
+      |     ^~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:153:22: error: implicit declaration of function 'IfxGtm_Pwm_Mock_GetCallCount_startChannelOutputs' [-Wimplicit-function-declaration]
+  153 |     TEST_ASSERT_TRUE(IfxGtm_Pwm_Mock_GetCallCount_startChannelOutputs() > 0U);
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\unity/unity_internals.h:891:107: note: in definition of macro 'UNITY_TEST_ASSERT'
+  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)
+      |                                                                                                           ^~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:153:5: note: in expansion of macro 'TEST_ASSERT_TRUE'
+  153 |     TEST_ASSERT_TRUE(IfxGtm_Pwm_Mock_GetCallCount_startChannelOutputs() > 0U);
+      |     ^~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:153:73: warning: comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Wsign-compare]
+  153 |     TEST_ASSERT_TRUE(IfxGtm_Pwm_Mock_GetCallCount_startChannelOutputs() > 0U);
+      |                                                                         ^
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\unity/unity_internals.h:891:107: note: in definition of macro 'UNITY_TEST_ASSERT'
+  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)
+      |                                                                                                           ^~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:153:5: note: in expansion of macro 'TEST_ASSERT_TRUE'
+  153 |     TEST_ASSERT_TRUE(IfxGtm_Pwm_Mock_GetCallCount_startChannelOutputs() > 0U);
+      |     ^~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c: In function 'test_GTM_TOM_3PhaseInverterPWM_init_SetsExpectedConfigValues':
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:162:22: error: implicit declaration of function 'IfxGtm_Cmu_Mock_GetLastArg_selectClkInput_useGlobal' [-Wimplicit-function-declaration]
+  162 |     TEST_ASSERT_TRUE(IfxGtm_Cmu_Mock_GetLastArg_selectClkInput_useGlobal());
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\unity/unity_internals.h:891:107: note: in definition of macro 'UNITY_TEST_ASSERT'
+  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)
+      |                                                                                                           ^~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:162:5: note: in expansion of macro 'TEST_ASSERT_TRUE'
+  162 |     TEST_ASSERT_TRUE(IfxGtm_Cmu_Mock_GetLastArg_selectClkInput_useGlobal());
+      |     ^~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:165:23: error: 'IfxPort_OutputMode_pushPull' undeclared (first use in this function)
+  165 |     TEST_ASSERT_EQUAL(IfxPort_OutputMode_pushPull, IfxGtm_PinMap_Mock_GetLastArg_setTomTout_outputMode());
+      |                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\unity/unity_internals.h:897:133: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_INT'
+  897 | #define UNITY_TEST_ASSERT_EQUAL_INT(expected, actual, line, message)                             UnityAssertEqualNumber((UNITY_INT)(expected), (UNITY_INT)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_INT)
+      |                                                                                                                                     ^~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:165:5: note: in expansion of macro 'TEST_ASSERT_EQUAL'
+  165 |     TEST_ASSERT_EQUAL(IfxPort_OutputMode_pushPull, IfxGtm_PinMap_Mock_GetLastArg_setTomTout_outputMode());
+      |     ^~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:165:23: note: each undeclared identifier is reported only once for each function it appears in
+  165 |     TEST_ASSERT_EQUAL(IfxPort_OutputMode_pushPull, IfxGtm_PinMap_Mock_GetLastArg_setTomTout_outputMode());
+      |                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\unity/unity_internals.h:897:133: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_INT'
+  897 | #define UNITY_TEST_ASSERT_EQUAL_INT(expected, actual, line, message)                             UnityAssertEqualNumber((UNITY_INT)(expected), (UNITY_INT)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_INT)
+      |                                                                                                                                     ^~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:165:5: note: in expansion of macro 'TEST_ASSERT_EQUAL'
+  165 |     TEST_ASSERT_EQUAL(IfxPort_OutputMode_pushPull, IfxGtm_PinMap_Mock_GetLastArg_setTomTout_outputMode());
+      |     ^~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:166:23: error: 'IfxPort_PadDriver_cmosAutomotiveSpeed1' undeclared (first use in this function)
+  166 |     TEST_ASSERT_EQUAL(IfxPort_PadDriver_cmosAutomotiveSpeed1, IfxGtm_PinMap_Mock_GetLastArg_setTomTout_padDriver());
+      |                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\unity/unity_internals.h:897:133: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_INT'
+  897 | #define UNITY_TEST_ASSERT_EQUAL_INT(expected, actual, line, message)                             UnityAssertEqualNumber((UNITY_INT)(expected), (UNITY_INT)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_INT)
+      |                                                                                                                                     ^~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:166:5: note: in expansion of macro 'TEST_ASSERT_EQUAL'
+  166 |     TEST_ASSERT_EQUAL(IfxPort_PadDriver_cmosAutomotiveSpeed1, IfxGtm_PinMap_Mock_GetLastArg_setTomTout_padDriver());
+      |     ^~~~~~~~~~~~~~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c: In function 'test_GTM_TOM_3PhaseInverterPWM_updateDuties_BoundaryWrapAround':
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:298:5: error: unknown type name 'bool'
+  298 |     bool wrapped = false;
+      |     ^~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:10:1: note: 'bool' is defined in header '<stdbool.h>'; this is probably fixable by adding '#include <stdbool.h>'
+    9 | #include "Ifx_Types.h"
+  +++ |+#include <stdbool.h>
+   10 | 
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:298:20: error: 'false' undeclared (first use in this function)
+  298 |     bool wrapped = false;
+      |                    ^~~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:298:20: note: 'false' is defined in header '<stdbool.h>'; this is probably fixable by adding '#include <stdbool.h>'
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:304:23: error: 'true' undeclared (first use in this function)
+  304 |             wrapped = true; // wrap-around detected
+      |                       ^~~~
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:304:23: note: 'true' is defined in header '<stdbool.h>'; this is probably fixable by adding '#include <stdbool.h>'
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c: At top level:
+C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\outputs_20260326-074842-35c36d39\c5bc9be6-7a3\Generate_code_for_KIT_A2G_TC387_5V_TFT_using_GTM_T_r_20260326_163408\attempts\phase_003_build\test\test_GTM_TOM_3_Phase_Inverter_PWM.c:116:15: warning: 'get_history_count' defined but not used [-Wunused-function]
   116 | static uint32 get_history_count(UpdateApi api)
       |               ^~~~~~~~~~~~~~~~~
