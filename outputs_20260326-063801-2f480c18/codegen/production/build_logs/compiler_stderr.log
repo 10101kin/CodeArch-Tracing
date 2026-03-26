@@ -1,151 +1,200 @@
-In file included from C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\src\gtm_tom_3_phase_inverter_pwm.c:19:
-C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\include/IfxGtm_Pwm.h:110:5: error: unknown type name 'IfxGtm_IrqMode'
-  110 |     IfxGtm_IrqMode      mode;
+In file included from C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\src\gtm_tom_3_phase_inverter_pwm.c:19:
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\include/IfxGtm_Pwm.h:56:5: error: unknown type name 'IfxGtm_IrqMode'
+   56 |     IfxGtm_IrqMode      mode;              /* IRQ mode */
       |     ^~~~~~~~~~~~~~
-C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\include/IfxGtm_Pwm.h:124:5: error: unknown type name 'IfxPort_OutputMode'
-  124 |     IfxPort_OutputMode  outputMode;
-      |     ^~~~~~~~~~~~~~~~~~
-C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\include/IfxGtm_Pwm.h:125:5: error: unknown type name 'IfxPort_PadDriver'
-  125 |     IfxPort_PadDriver   padDriver;
-      |     ^~~~~~~~~~~~~~~~~
-C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\include/IfxGtm_Pwm.h:154:5: error: unknown type name 'IfxGtm_Cmu_Clk'
-  154 |     IfxGtm_Cmu_Clk   atom;
-      |     ^~~~~~~~~~~~~~
-C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\include/IfxGtm_Pwm.h:155:5: error: unknown type name 'IfxGtm_Cmu_Fxclk'
-  155 |     IfxGtm_Cmu_Fxclk tom;
-      |     ^~~~~~~~~~~~~~~~
-C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\include/IfxGtm_Pwm.h:181:5: error: unknown type name 'IfxPort_OutputMode'
-  181 |     IfxPort_OutputMode  outputMode;
-      |     ^~~~~~~~~~~~~~~~~~
-C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\include/IfxGtm_Pwm.h:182:5: error: unknown type name 'IfxPort_PadDriver'
-  182 |     IfxPort_PadDriver   padDriver;
-      |     ^~~~~~~~~~~~~~~~~
-C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\src\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTomPwm':
-C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\src\gtm_tom_3_phase_inverter_pwm.c:123:5: error: implicit declaration of function 'IfxGtm_enable' [-Wimplicit-function-declaration]
-  123 |     IfxGtm_enable(&MODULE_GTM);
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\src\gtm_tom_3_phase_inverter_pwm.c:82:1: error: duplicate 'static'
+   82 | static IFX_STATIC GtmTom3PhPwm_State g_gtnPwm = {0};
+      | ^~~~~~
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\src\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTomPwm':
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\src\gtm_tom_3_phase_inverter_pwm.c:116:5: error: implicit declaration of function 'IfxGtm_enable' [-Wimplicit-function-declaration]
+  116 |     IfxGtm_enable(gtm);
       |     ^~~~~~~~~~~~~
-C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\src\gtm_tom_3_phase_inverter_pwm.c:125:27: error: implicit declaration of function 'IfxGtm_Cmu_getModuleFrequency'; did you mean 'IfxGtm_Cmu_setGclkFrequency'? [-Wimplicit-function-declaration]
-  125 |         float32 modFreq = IfxGtm_Cmu_getModuleFrequency(&MODULE_GTM);
-      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      |                           IfxGtm_Cmu_setGclkFrequency
-C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\src\gtm_tom_3_phase_inverter_pwm.c:128:46: error: 'IFXGTM_CMU_CLKEN_ALL' undeclared (first use in this function)
-  128 |         IfxGtm_Cmu_enableClocks(&MODULE_GTM, IFXGTM_CMU_CLKEN_ALL);
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\src\gtm_tom_3_phase_inverter_pwm.c:119:30: error: implicit declaration of function 'IfxGtm_Cmu_getModuleFrequency'; did you mean 'IfxGtm_Cmu_setGclkFrequency'? [-Wimplicit-function-declaration]
+  119 |         float32 moduleFreq = IfxGtm_Cmu_getModuleFrequency(gtm);
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                              IfxGtm_Cmu_setGclkFrequency
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\src\gtm_tom_3_phase_inverter_pwm.c:122:46: error: 'IFXGTM_CMU_CLKEN_ALL' undeclared (first use in this function)
+  122 |         IfxGtm_Cmu_enableClocks(gtm, (uint32)IFXGTM_CMU_CLKEN_ALL);
       |                                              ^~~~~~~~~~~~~~~~~~~~
-C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\src\gtm_tom_3_phase_inverter_pwm.c:128:46: note: each undeclared identifier is reported only once for each function it appears in
-C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\src\gtm_tom_3_phase_inverter_pwm.c:136:17: error: 'IfxGtm_Tom_Timer_Config' has no member named 'tom'
-  136 |         timerCfg.tom          = PWM_TOM_MODULE;
-      |                 ^
-C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\src\gtm_tom_3_phase_inverter_pwm.c:36:46: error: 'IfxGtm_Tom_1' undeclared (first use in this function); did you mean 'IfxGtm_Tom_Ch'?
-   36 | #define PWM_TOM_MODULE                       IfxGtm_Tom_1
-      |                                              ^~~~~~~~~~~~
-C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\src\gtm_tom_3_phase_inverter_pwm.c:136:33: note: in expansion of macro 'PWM_TOM_MODULE'
-  136 |         timerCfg.tom          = PWM_TOM_MODULE;
-      |                                 ^~~~~~~~~~~~~~
-C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\src\gtm_tom_3_phase_inverter_pwm.c:137:17: error: 'IfxGtm_Tom_Timer_Config' has no member named 'timerChannel'
-  137 |         timerCfg.timerChannel = PWM_TIMEBASE_CHANNEL;
-      |                 ^
-C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\src\gtm_tom_3_phase_inverter_pwm.c:138:17: error: 'IfxGtm_Tom_Timer_Config' has no member named 'clock'
-  138 |         timerCfg.clock        = PWM_TIMEBASE_CLOCK_SOURCE;
-      |                 ^
-C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\src\gtm_tom_3_phase_inverter_pwm.c:41:46: error: 'IfxGtm_Tom_Ch_ClkSrc_cmuFxclk0' undeclared (first use in this function)
-   41 | #define PWM_TIMEBASE_CLOCK_SOURCE            IfxGtm_Tom_Ch_ClkSrc_cmuFxclk0
-      |                                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\src\gtm_tom_3_phase_inverter_pwm.c:138:33: note: in expansion of macro 'PWM_TIMEBASE_CLOCK_SOURCE'
-  138 |         timerCfg.clock        = PWM_TIMEBASE_CLOCK_SOURCE;
-      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\src\gtm_tom_3_phase_inverter_pwm.c:140:17: error: 'IfxGtm_Tom_Timer_Config' has no member named 'base'
-  140 |         timerCfg.base.frequency = PWM_FREQUENCY_HZ;              /* target PWM frequency */
-      |                 ^
-C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\src\gtm_tom_3_phase_inverter_pwm.c:141:17: error: 'IfxGtm_Tom_Timer_Config' has no member named 'base'
-  141 |         timerCfg.base.isrPriority = 0;                           /* no timer ISR required here */
-      |                 ^
-C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\src\gtm_tom_3_phase_inverter_pwm.c:142:17: error: 'IfxGtm_Tom_Timer_Config' has no member named 'base'
-  142 |         timerCfg.base.isrProvider = IfxSrc_Tos_none;             /* no ISR provider */
-      |                 ^
-C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\src\gtm_tom_3_phase_inverter_pwm.c:142:37: error: 'IfxSrc_Tos_none' undeclared (first use in this function); did you mean 'IfxSrc_Tos_dma'?
-  142 |         timerCfg.base.isrProvider = IfxSrc_Tos_none;             /* no ISR provider */
-      |                                     ^~~~~~~~~~~~~~~
-      |                                     IfxSrc_Tos_dma
-C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\src\gtm_tom_3_phase_inverter_pwm.c:143:17: error: 'IfxGtm_Tom_Timer_Config' has no member named 'base'
-  143 |         timerCfg.base.countDir = IfxStdIf_Timer_CountDir_upAndDown; /* center-aligned up/down */
-      |                 ^
-C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\src\gtm_tom_3_phase_inverter_pwm.c:63:36: error: 'IfxGtm_TOM1_2_TOUT12_P00_3_OUT' undeclared (first use in this function)
-   63 | #define PHASE_U_HS                &IfxGtm_TOM1_2_TOUT12_P00_3_OUT
-      |                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\src\gtm_tom_3_phase_inverter_pwm.c:164:67: note: in expansion of macro 'PHASE_U_HS'
-  164 |         outputCfg[0].pin                   = (IfxGtm_Pwm_ToutMap*)PHASE_U_HS;
-      |                                                                   ^~~~~~~~~~
-C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\src\gtm_tom_3_phase_inverter_pwm.c:64:36: error: 'IfxGtm_TOM1_4_TOUT14_P00_5_OUT' undeclared (first use in this function)
-   64 | #define PHASE_V_HS                &IfxGtm_TOM1_4_TOUT14_P00_5_OUT
-      |                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\src\gtm_tom_3_phase_inverter_pwm.c:171:67: note: in expansion of macro 'PHASE_V_HS'
-  171 |         outputCfg[1].pin                   = (IfxGtm_Pwm_ToutMap*)PHASE_V_HS;
-      |                                                                   ^~~~~~~~~~
-C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\src\gtm_tom_3_phase_inverter_pwm.c:65:36: error: 'IfxGtm_TOM1_6_TOUT16_P00_7_OUT' undeclared (first use in this function)
-   65 | #define PHASE_W_HS                &IfxGtm_TOM1_6_TOUT16_P00_7_OUT
-      |                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\src\gtm_tom_3_phase_inverter_pwm.c:178:67: note: in expansion of macro 'PHASE_W_HS'
-  178 |         outputCfg[2].pin                   = (IfxGtm_Pwm_ToutMap*)PHASE_W_HS;
-      |                                                                   ^~~~~~~~~~
-C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\src\gtm_tom_3_phase_inverter_pwm.c:194:30: error: 'IfxGtm_IrqMode_pulseNotify' undeclared (first use in this function)
-  194 |         irqCfg.mode        = IfxGtm_IrqMode_pulseNotify;
-      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\src\gtm_tom_3_phase_inverter_pwm.c:197:28: error: assignment to 'IfxGtm_Pwm_callBack' {aka 'void (*)(void)'} from incompatible pointer type 'void (*)(void *)' [-Wincompatible-pointer-types]
-  197 |         irqCfg.periodEvent = gtmTomPwm_periodEvent;
-      |                            ^
-C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\src\gtm_tom_3_phase_inverter_pwm.c:86:6: note: 'gtmTomPwm_periodEvent' declared here
-   86 | void gtmTomPwm_periodEvent(void *data)
-      |      ^~~~~~~~~~~~~~~~~~~~~
-C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\include/IfxGtm_Pwm.h:99:16: note: 'IfxGtm_Pwm_callBack' declared here
-   99 | typedef void (*IfxGtm_Pwm_callBack)(void);
-      |                ^~~~~~~~~~~~~~~~~~~
-C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\src\gtm_tom_3_phase_inverter_pwm.c:206:17: error: 'IfxGtm_Pwm_ChannelConfig' has no member named 'mscOut'
-  206 |         chCfg[0].mscOut     = NULL_PTR;
-      |                 ^
-C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\src\gtm_tom_3_phase_inverter_pwm.c:214:17: error: 'IfxGtm_Pwm_ChannelConfig' has no member named 'mscOut'
-  214 |         chCfg[1].mscOut     = NULL_PTR;
-      |                 ^
-C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\src\gtm_tom_3_phase_inverter_pwm.c:222:17: error: 'IfxGtm_Pwm_ChannelConfig' has no member named 'mscOut'
-  222 |         chCfg[2].mscOut     = NULL_PTR;
-      |                 ^
-C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\src\gtm_tom_3_phase_inverter_pwm.c:226:15: error: 'IfxGtm_Pwm_Config' has no member named 'cluster'
-  226 |         pwmCfg.cluster           = (IfxGtm_Cluster)IFXGTM_CLUSTER;
-      |               ^
-C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\src\gtm_tom_3_phase_inverter_pwm.c:226:37: error: 'IfxGtm_Cluster' undeclared (first use in this function)
-  226 |         pwmCfg.cluster           = (IfxGtm_Cluster)IFXGTM_CLUSTER;
-      |                                     ^~~~~~~~~~~~~~
-C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\src\gtm_tom_3_phase_inverter_pwm.c:229:15: error: 'IfxGtm_Pwm_Config' has no member named 'syncStart'
-  229 |         pwmCfg.syncStart         = TRUE;
-      |               ^
-C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\src\gtm_tom_3_phase_inverter_pwm.c:231:34: error: assignment to 'IfxGtm_Pwm_Channel *' from incompatible pointer type 'IfxGtm_Pwm_ChannelConfig *' [-Wincompatible-pointer-types]
-  231 |         pwmCfg.channels          = &chCfg[0];
-      |                                  ^
-C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\src\gtm_tom_3_phase_inverter_pwm.c:233:15: error: 'IfxGtm_Pwm_Config' has no member named 'dtmClockSource'
-  233 |         pwmCfg.dtmClockSource    = IfxGtm_Dtm_ClockSource_cmuClock0;
-      |               ^
-C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\src\gtm_tom_3_phase_inverter_pwm.c:233:36: error: 'IfxGtm_Dtm_ClockSource_cmuClock0' undeclared (first use in this function)
-  233 |         pwmCfg.dtmClockSource    = IfxGtm_Dtm_ClockSource_cmuClock0;
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\src\gtm_tom_3_phase_inverter_pwm.c:122:46: note: each undeclared identifier is reported only once for each function it appears in
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\src\gtm_tom_3_phase_inverter_pwm.c:131:13: error: 'IfxGtm_Tom_Timer_Config' has no member named 'tom'
+  131 |         tcfg.tom           = GTM_TOM_TIMEBASE_TOM;
+      |             ^
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\src\gtm_tom_3_phase_inverter_pwm.c:33:44: error: 'IfxGtm_Tom_1' undeclared (first use in this function); did you mean 'IfxGtm_Tom_Ch'?
+   33 | #define GTM_TOM_TIMEBASE_TOM               IfxGtm_Tom_1
+      |                                            ^~~~~~~~~~~~
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\src\gtm_tom_3_phase_inverter_pwm.c:131:30: note: in expansion of macro 'GTM_TOM_TIMEBASE_TOM'
+  131 |         tcfg.tom           = GTM_TOM_TIMEBASE_TOM;
+      |                              ^~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\src\gtm_tom_3_phase_inverter_pwm.c:132:13: error: 'IfxGtm_Tom_Timer_Config' has no member named 'timerChannel'
+  132 |         tcfg.timerChannel  = GTM_TOM_TIMEBASE_CHANNEL;
+      |             ^
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\src\gtm_tom_3_phase_inverter_pwm.c:133:13: error: 'IfxGtm_Tom_Timer_Config' has no member named 'clock'
+  133 |         tcfg.clock         = GTM_TOM_TIMEBASE_CLOCK;     /* FXCLK0 */
+      |             ^
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\src\gtm_tom_3_phase_inverter_pwm.c:35:44: error: 'IfxGtm_Tom_Ch_ClkSrc_cmuFxclk0' undeclared (first use in this function)
+   35 | #define GTM_TOM_TIMEBASE_CLOCK             IfxGtm_Tom_Ch_ClkSrc_cmuFxclk0
+      |                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\src\gtm_tom_3_phase_inverter_pwm.c:133:30: note: in expansion of macro 'GTM_TOM_TIMEBASE_CLOCK'
+  133 |         tcfg.clock         = GTM_TOM_TIMEBASE_CLOCK;     /* FXCLK0 */
+      |                              ^~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\src\gtm_tom_3_phase_inverter_pwm.c:134:13: error: 'IfxGtm_Tom_Timer_Config' has no member named 'triggerOut'
+  134 |         tcfg.triggerOut    = NULL_PTR;                   /* no external trigger */
+      |             ^
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\src\gtm_tom_3_phase_inverter_pwm.c:148:30: error: implicit declaration of function 'IfxGtm_Cmu_getFxClkFrequency'; did you mean 'IfxGtm_Cmu_setGclkFrequency'? [-Wimplicit-function-declaration]
+  148 |             float32 fxclk0 = IfxGtm_Cmu_getFxClkFrequency(gtm, IfxGtm_Cmu_Fxclk_0);
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                              IfxGtm_Cmu_setGclkFrequency
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\src\gtm_tom_3_phase_inverter_pwm.c:43:45: error: 'IfxGtm_TOM1_2_TOUT12_P00_3_OUT' undeclared (first use in this function)
+   43 | #define PHASE_U_HS                         &IfxGtm_TOM1_2_TOUT12_P00_3_OUT
+      |                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\src\gtm_tom_3_phase_inverter_pwm.c:164:73: note: in expansion of macro 'PHASE_U_HS'
+  164 |         g_gtnPwm.outCfg[0].pin                   = (IfxGtm_Pwm_ToutMap*)PHASE_U_HS;
+      |                                                                         ^~~~~~~~~~
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\src\gtm_tom_3_phase_inverter_pwm.c:44:45: error: 'IfxGtm_TOM1_4_TOUT14_P00_5_OUT' undeclared (first use in this function)
+   44 | #define PHASE_V_HS                         &IfxGtm_TOM1_4_TOUT14_P00_5_OUT
+      |                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\src\gtm_tom_3_phase_inverter_pwm.c:171:73: note: in expansion of macro 'PHASE_V_HS'
+  171 |         g_gtnPwm.outCfg[1].pin                   = (IfxGtm_Pwm_ToutMap*)PHASE_V_HS;
+      |                                                                         ^~~~~~~~~~
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\src\gtm_tom_3_phase_inverter_pwm.c:45:45: error: 'IfxGtm_TOM1_6_TOUT16_P00_7_OUT' undeclared (first use in this function)
+   45 | #define PHASE_W_HS                         &IfxGtm_TOM1_6_TOUT16_P00_7_OUT
+      |                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\src\gtm_tom_3_phase_inverter_pwm.c:178:73: note: in expansion of macro 'PHASE_W_HS'
+  178 |         g_gtnPwm.outCfg[2].pin                   = (IfxGtm_Pwm_ToutMap*)PHASE_W_HS;
+      |                                                                         ^~~~~~~~~~
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\src\gtm_tom_3_phase_inverter_pwm.c:216:13: error: 'IfxGtm_Pwm_Config' has no member named 'subModule'
+  216 |         pcfg.subModule           = IfxGtm_Pwm_SubModule_tom;
+      |             ^
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\src\gtm_tom_3_phase_inverter_pwm.c:218:13: error: 'IfxGtm_Pwm_Config' has no member named 'syncStart'
+  218 |         pcfg.syncStart           = TRUE;
+      |             ^
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\src\gtm_tom_3_phase_inverter_pwm.c:220:14: error: 'IfxGtm_Pwm_Config' has no member named 'channels'; did you mean 'numChannels'?
+  220 |         pcfg.channels            = &g_gtnPwm.chCfg[0];
+      |              ^~~~~~~~
+      |              numChannels
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\src\gtm_tom_3_phase_inverter_pwm.c:222:13: error: 'IfxGtm_Pwm_Config' has no member named 'dtmClockSource'
+  222 |         pcfg.dtmClockSource      = IfxGtm_Dtm_ClockSource_cmuClock0;
+      |             ^
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\src\gtm_tom_3_phase_inverter_pwm.c:222:36: error: 'IfxGtm_Dtm_ClockSource_cmuClock0' undeclared (first use in this function)
+  222 |         pcfg.dtmClockSource      = IfxGtm_Dtm_ClockSource_cmuClock0;
       |                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\src\gtm_tom_3_phase_inverter_pwm.c:234:15: error: 'IfxGtm_Pwm_Config' has no member named 'syncUpdateEnabled'
-  234 |         pwmCfg.syncUpdateEnabled = TRUE;
-      |               ^
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\src\gtm_tom_3_phase_inverter_pwm.c:223:13: error: 'IfxGtm_Pwm_Config' has no member named 'syncUpdateEnabled'
+  223 |         pcfg.syncUpdateEnabled   = TRUE;
+      |             ^
 
-In file included from C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\mocks\mock_gtm_tom_3_phase_inverter_pwm.c:5:
-C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\include/IfxGtm_Pwm.h:124:5: error: unknown type name 'IfxPort_OutputMode'
-  124 |     IfxPort_OutputMode  outputMode;
-      |     ^~~~~~~~~~~~~~~~~~
-C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\include/IfxGtm_Pwm.h:125:5: error: unknown type name 'IfxPort_PadDriver'
-  125 |     IfxPort_PadDriver   padDriver;
-      |     ^~~~~~~~~~~~~~~~~
-C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\include/IfxGtm_Pwm.h:154:5: error: unknown type name 'IfxGtm_Cmu_Clk'
-  154 |     IfxGtm_Cmu_Clk   atom;
-      |     ^~~~~~~~~~~~~~
-C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\include/IfxGtm_Pwm.h:155:5: error: unknown type name 'IfxGtm_Cmu_Fxclk'
-  155 |     IfxGtm_Cmu_Fxclk tom;
+In file included from C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\mocks\mock_gtm_tom_3_phase_inverter_pwm.c:7:
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\include/IfxGtm_Cmu.h:9:5: error: redeclaration of enumerator 'IfxGtm_Cmu_Clk_0'
+    9 |     IfxGtm_Cmu_Clk_0 = 0,
       |     ^~~~~~~~~~~~~~~~
-C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\include/IfxGtm_Pwm.h:181:5: error: unknown type name 'IfxPort_OutputMode'
-  181 |     IfxPort_OutputMode  outputMode;
+In file included from C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\mocks\mock_gtm_tom_3_phase_inverter_pwm.c:6:
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\include/IfxGtm_Pwm.h:116:5: note: previous definition of 'IfxGtm_Cmu_Clk_0' with type 'enum <anonymous>'
+  116 |     IfxGtm_Cmu_Clk_0 = 0,
+      |     ^~~~~~~~~~~~~~~~
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\include/IfxGtm_Cmu.h:10:5: error: redeclaration of enumerator 'IfxGtm_Cmu_Clk_1'
+   10 |     IfxGtm_Cmu_Clk_1,
+      |     ^~~~~~~~~~~~~~~~
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\include/IfxGtm_Pwm.h:117:5: note: previous definition of 'IfxGtm_Cmu_Clk_1' with type 'enum <anonymous>'
+  117 |     IfxGtm_Cmu_Clk_1,
+      |     ^~~~~~~~~~~~~~~~
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\include/IfxGtm_Cmu.h:11:5: error: redeclaration of enumerator 'IfxGtm_Cmu_Clk_2'
+   11 |     IfxGtm_Cmu_Clk_2,
+      |     ^~~~~~~~~~~~~~~~
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\include/IfxGtm_Pwm.h:118:5: note: previous definition of 'IfxGtm_Cmu_Clk_2' with type 'enum <anonymous>'
+  118 |     IfxGtm_Cmu_Clk_2,
+      |     ^~~~~~~~~~~~~~~~
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\include/IfxGtm_Cmu.h:12:5: error: redeclaration of enumerator 'IfxGtm_Cmu_Clk_3'
+   12 |     IfxGtm_Cmu_Clk_3,
+      |     ^~~~~~~~~~~~~~~~
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\include/IfxGtm_Pwm.h:119:5: note: previous definition of 'IfxGtm_Cmu_Clk_3' with type 'enum <anonymous>'
+  119 |     IfxGtm_Cmu_Clk_3,
+      |     ^~~~~~~~~~~~~~~~
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\include/IfxGtm_Cmu.h:13:5: error: redeclaration of enumerator 'IfxGtm_Cmu_Clk_4'
+   13 |     IfxGtm_Cmu_Clk_4,
+      |     ^~~~~~~~~~~~~~~~
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\include/IfxGtm_Pwm.h:120:5: note: previous definition of 'IfxGtm_Cmu_Clk_4' with type 'enum <anonymous>'
+  120 |     IfxGtm_Cmu_Clk_4,
+      |     ^~~~~~~~~~~~~~~~
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\include/IfxGtm_Cmu.h:14:5: error: redeclaration of enumerator 'IfxGtm_Cmu_Clk_5'
+   14 |     IfxGtm_Cmu_Clk_5,
+      |     ^~~~~~~~~~~~~~~~
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\include/IfxGtm_Pwm.h:121:5: note: previous definition of 'IfxGtm_Cmu_Clk_5' with type 'enum <anonymous>'
+  121 |     IfxGtm_Cmu_Clk_5,
+      |     ^~~~~~~~~~~~~~~~
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\include/IfxGtm_Cmu.h:15:5: error: redeclaration of enumerator 'IfxGtm_Cmu_Clk_6'
+   15 |     IfxGtm_Cmu_Clk_6,
+      |     ^~~~~~~~~~~~~~~~
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\include/IfxGtm_Pwm.h:122:5: note: previous definition of 'IfxGtm_Cmu_Clk_6' with type 'enum <anonymous>'
+  122 |     IfxGtm_Cmu_Clk_6,
+      |     ^~~~~~~~~~~~~~~~
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\include/IfxGtm_Cmu.h:16:5: error: redeclaration of enumerator 'IfxGtm_Cmu_Clk_7'
+   16 |     IfxGtm_Cmu_Clk_7
+      |     ^~~~~~~~~~~~~~~~
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\include/IfxGtm_Pwm.h:123:5: note: previous definition of 'IfxGtm_Cmu_Clk_7' with type 'enum <anonymous>'
+  123 |     IfxGtm_Cmu_Clk_7
+      |     ^~~~~~~~~~~~~~~~
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\include/IfxGtm_Cmu.h:17:3: error: conflicting types for 'IfxGtm_Cmu_Clk'; have 'enum <anonymous>'
+   17 | } IfxGtm_Cmu_Clk;
+      |   ^~~~~~~~~~~~~~
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\include/IfxGtm_Pwm.h:124:3: note: previous declaration of 'IfxGtm_Cmu_Clk' with type 'IfxGtm_Cmu_Clk'
+  124 | } IfxGtm_Cmu_Clk;
+      |   ^~~~~~~~~~~~~~
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\include/IfxGtm_Cmu.h:26:5: error: redeclaration of enumerator 'IfxGtm_Cmu_Fxclk_0'
+   26 |     IfxGtm_Cmu_Fxclk_0 = 0,
       |     ^~~~~~~~~~~~~~~~~~
-C:\Users\extpedj\AppData\Local\Temp\tdd_build_2aibsvdn\include/IfxGtm_Pwm.h:182:5: error: unknown type name 'IfxPort_PadDriver'
-  182 |     IfxPort_PadDriver   padDriver;
-      |     ^~~~~~~~~~~~~~~~~
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\include/IfxGtm_Pwm.h:127:5: note: previous definition of 'IfxGtm_Cmu_Fxclk_0' with type 'enum <anonymous>'
+  127 |     IfxGtm_Cmu_Fxclk_0 = 0,
+      |     ^~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\include/IfxGtm_Cmu.h:27:5: error: redeclaration of enumerator 'IfxGtm_Cmu_Fxclk_1'
+   27 |     IfxGtm_Cmu_Fxclk_1,
+      |     ^~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\include/IfxGtm_Pwm.h:128:5: note: previous definition of 'IfxGtm_Cmu_Fxclk_1' with type 'enum <anonymous>'
+  128 |     IfxGtm_Cmu_Fxclk_1,
+      |     ^~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\include/IfxGtm_Cmu.h:28:5: error: redeclaration of enumerator 'IfxGtm_Cmu_Fxclk_2'
+   28 |     IfxGtm_Cmu_Fxclk_2,
+      |     ^~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\include/IfxGtm_Pwm.h:129:5: note: previous definition of 'IfxGtm_Cmu_Fxclk_2' with type 'enum <anonymous>'
+  129 |     IfxGtm_Cmu_Fxclk_2,
+      |     ^~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\include/IfxGtm_Cmu.h:29:5: error: redeclaration of enumerator 'IfxGtm_Cmu_Fxclk_3'
+   29 |     IfxGtm_Cmu_Fxclk_3,
+      |     ^~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\include/IfxGtm_Pwm.h:130:5: note: previous definition of 'IfxGtm_Cmu_Fxclk_3' with type 'enum <anonymous>'
+  130 |     IfxGtm_Cmu_Fxclk_3,
+      |     ^~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\include/IfxGtm_Cmu.h:30:5: error: redeclaration of enumerator 'IfxGtm_Cmu_Fxclk_4'
+   30 |     IfxGtm_Cmu_Fxclk_4
+      |     ^~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\include/IfxGtm_Pwm.h:131:5: note: previous definition of 'IfxGtm_Cmu_Fxclk_4' with type 'enum <anonymous>'
+  131 |     IfxGtm_Cmu_Fxclk_4
+      |     ^~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\include/IfxGtm_Cmu.h:31:3: error: conflicting types for 'IfxGtm_Cmu_Fxclk'; have 'enum <anonymous>'
+   31 | } IfxGtm_Cmu_Fxclk;
+      |   ^~~~~~~~~~~~~~~~
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\include/IfxGtm_Pwm.h:132:3: note: previous declaration of 'IfxGtm_Cmu_Fxclk' with type 'IfxGtm_Cmu_Fxclk'
+  132 | } IfxGtm_Cmu_Fxclk;
+      |   ^~~~~~~~~~~~~~~~
+
+In file included from C:\Users\extpedj\Desktop\infineon_POC_MVP\unity/unity.h:22,
+                 from C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\test\test_gtm_tom_3_phase_inverter_pwm.c:1:
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\test\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G1_001_init_enables_gtm_clocks_and_inits_pwm_once':
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\test\test_gtm_tom_3_phase_inverter_pwm.c:37:85: warning: comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Wsign-compare]
+   37 |     TEST_ASSERT_TRUE_MESSAGE((mock_IfxGtm_Tom_Timer_addToChannelMask_getCallCount() >= 1U), "Timer addToChannelMask should be called at least once to include all three channels in update mask");
+      |                                                                                     ^~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\unity/unity_internals.h:891:107: note: in definition of macro 'UNITY_TEST_ASSERT'
+  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)
+      |                                                                                                           ^~~~~~~~~
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\test\test_gtm_tom_3_phase_inverter_pwm.c:37:5: note: in expansion of macro 'TEST_ASSERT_TRUE_MESSAGE'
+   37 |     TEST_ASSERT_TRUE_MESSAGE((mock_IfxGtm_Tom_Timer_addToChannelMask_getCallCount() >= 1U), "Timer addToChannelMask should be called at least once to include all three channels in update mask");
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\test\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G2_002_init_stages_initial_duties_and_applies_shadow_transfer':
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\test\test_gtm_tom_3_phase_inverter_pwm.c:97:41: error: implicit declaration of function 'mock_IfxGtm_Pwm_updateChannelDeadTimeImmediate_getCallCount'; did you mean 'mock_IfxGtm_Pwm_updateChannelsDuty_getCallCount'? [-Wimplicit-function-declaration]
+   97 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxGtm_Pwm_updateChannelDeadTimeImmediate_getCallCount(), "Dead-time should not be configured for single-ended PWM (call count must be 0)");
+      |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extpedj\Desktop\infineon_POC_MVP\unity/unity_internals.h:904:184: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_UINT32'
+  904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)
+      |                                                                                                                                                                                        ^~~~~~
+C:\Users\extpedj\AppData\Local\Temp\tdd_build_i6ir7zeo\test\test_gtm_tom_3_phase_inverter_pwm.c:97:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'
+   97 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxGtm_Pwm_updateChannelDeadTimeImmediate_getCallCount(), "Dead-time should not be configured for single-ended PWM (call count must be 0)");
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

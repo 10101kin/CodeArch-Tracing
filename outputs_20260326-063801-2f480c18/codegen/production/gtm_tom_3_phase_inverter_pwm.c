@@ -1,284 +1,281 @@
 /*
  * gtm_tom_3_phase_inverter_pwm.c
  *
- * Production driver: GTM TOM 3-Phase Inverter PWM (single-ended) using IfxGtm_Pwm
- * Target: TC3xx (e.g., TC387), TOM1 timebase on CH0, outputs on CH2/CH4/CH6 (P00.[3/5/7])
+ * Production driver for GTM TOM 3-phase inverter PWM (single-ended) on TC3xx.
+ * - Timebase: IfxGtm_Tom_Timer on TOM1 CH0, FXCLK0, center-aligned 20 kHz
+ * - Outputs: U=P00.3 (TOM1 CH2), V=P00.5 (TOM1 CH4), W=P00.7 (TOM1 CH6)
+ * - Single-ended (no dead-time), push-pull, active-high, synchronous shadow updates
+ * - Duties initialized to 25%, 50%, 75%
+ * - updateGtmTomPwmDutyCycles(): +10% every call, wrap 0..100 inclusive, synchronous apply
  *
- * Behavior:
- *  - 20 kHz center-aligned PWM, unified cluster, synchronous shadow updates.
- *  - Initial duties: U=25%, V=50%, W=75%.
- *  - Runtime update: +10% per call with wrap (0..100 inclusive policy managed by caller timing).
- *
- * Notes:
- *  - No watchdog disable here (must be in CpuX main only).
- *  - No STM timing here; scheduling done by application.
+ * Mandatory notes:
+ * - DO NOT place watchdog disable here (CpuX_Main.c only)
+ * - Use only iLLD APIs from provided signatures
  */
 
 #include "gtm_tom_3_phase_inverter_pwm.h"
 #include "Ifx_Types.h"
-#include "IfxGtm_Pwm.h"
 #include "IfxGtm_Tom_Timer.h"
+#include "IfxGtm_Pwm.h"
 #include "IfxPort.h"
 
-/* =============================
- * Numeric configuration macros
- * ============================= */
-#define DEVICE_TC38X                         (1)
-#define IFX_PIN_PACKAGE_516                  (1)
+/* =====================================================================
+ * Configuration Macros (from requirements)
+ * ===================================================================== */
+#define DEVICE_TC38X                       (1)
+#define IFX_PIN_PACKAGE_516                (1)
 
-/* Timing requirements */
-#define PWM_FREQUENCY_HZ                     (20000.0f)   /* 20 kHz */
-#define PWM_ALIGNMENT_CENTER                 (1)
-#define PWM_DUTY_STEP_PERCENT                (10.0f)
-#define PWM_UPDATE_INTERVAL_MS               (500U)
+/* PWM timing/alignment */
+#define PWM_FREQUENCY_HZ                   (20000.0f)     /* 20 kHz */
+#define PWM_ALIGNMENT_CENTER               (1)            /* informational */
 
-/* Channels / TOM configuration */
-#define PWM_TOM_MODULE                       IfxGtm_Tom_1
-#define PWM_TIMEBASE_CHANNEL                 IfxGtm_Tom_Ch_0
-#define PWM_CHANNEL_U                        IfxGtm_Tom_Ch_2
-#define PWM_CHANNEL_V                        IfxGtm_Tom_Ch_4
-#define PWM_CHANNEL_W                        IfxGtm_Tom_Ch_6
-#define PWM_TIMEBASE_CLOCK_SOURCE            IfxGtm_Tom_Ch_ClkSrc_cmuFxclk0
+/* Timebase selection */
+#define GTM_TOM_TIMEBASE_TOM               IfxGtm_Tom_1
+#define GTM_TOM_TIMEBASE_CHANNEL           IfxGtm_Tom_Ch_0
+#define GTM_TOM_TIMEBASE_CLOCK             IfxGtm_Tom_Ch_ClkSrc_cmuFxclk0
 
-/* Unified PWM (GTM cluster) */
-#define IFXGTM_CLUSTER                       (0)          /* default cluster 0 */
+/* Channel mapping (single-ended U/V/W) */
+#define PHASE_U_CH                         IfxGtm_Pwm_SubModule_Ch_2
+#define PHASE_V_CH                         IfxGtm_Pwm_SubModule_Ch_4
+#define PHASE_W_CH                         IfxGtm_Pwm_SubModule_Ch_6
 
-/* Initial duties (percent) */
-#define DUTY_INIT_U_PERCENT                  (25.0f)
-#define DUTY_INIT_V_PERCENT                  (50.0f)
-#define DUTY_INIT_W_PERCENT                  (75.0f)
+/* Validated pin symbols from reference project (TOM1 on P00.x) */
+#define PHASE_U_HS                         &IfxGtm_TOM1_2_TOUT12_P00_3_OUT
+#define PHASE_V_HS                         &IfxGtm_TOM1_4_TOUT14_P00_5_OUT
+#define PHASE_W_HS                         &IfxGtm_TOM1_6_TOUT16_P00_7_OUT
 
 /* Channel count */
-#define PWM_NUM_CHANNELS                     (3U)
+#define PWM_CHANNELS                       (3U)
 
-/* ISR priority for PWM period events (if used by unified driver) */
-#define PWM_ISR_PRIORITY                     (10)
+/* Initial duties (%) */
+#define DUTY_U_INIT_PERCENT                (25.0f)
+#define DUTY_V_INIT_PERCENT                (50.0f)
+#define DUTY_W_INIT_PERCENT                (75.0f)
 
-/* LED for minimal ISR callback activity (port, pin) */
-#define LED                                  &MODULE_P13, 0
+/* Update behavior */
+#define PWM_DUTY_STEP_PERCENT              (10.0f)        /* +10% per call */
+#define PWM_DUTY_MAX_PERCENT               (100.0f)
+#define PWM_DUTY_MIN_PERCENT               (0.0f)
 
-/* =============================
- * Validated TOM pin macros (from reference project)
- * ============================= */
-#define PHASE_U_HS                &IfxGtm_TOM1_2_TOUT12_P00_3_OUT
-#define PHASE_V_HS                &IfxGtm_TOM1_4_TOUT14_P00_5_OUT
-#define PHASE_W_HS                &IfxGtm_TOM1_6_TOUT16_P00_7_OUT
-
-/* =============================
+/* =====================================================================
  * Local driver state
- * ============================= */
+ * ===================================================================== */
+
 typedef struct
 {
     IfxGtm_Tom_Timer          timer;                       /* TOM timebase */
     IfxGtm_Pwm                pwm;                         /* Unified PWM driver */
-    IfxGtm_Pwm_Channel        channels[PWM_NUM_CHANNELS];  /* Channel handles for unified PWM */
-    float32                   dutyPercent[PWM_NUM_CHANNELS];
-    boolean                   initialized;
-    boolean                   error;
-} GtmTomPwm_Driver;
+    IfxGtm_Pwm_Channel        channels[PWM_CHANNELS];
 
-static GtmTomPwm_Driver g_gtmTomPwm = {0};
+    /* Config mirrors (kept for clarity/maintenance) */
+    IfxGtm_Pwm_OutputConfig   outCfg[PWM_CHANNELS];
+    IfxGtm_Pwm_DtmConfig      dtmCfg[PWM_CHANNELS];
+    IfxGtm_Pwm_ChannelConfig  chCfg[PWM_CHANNELS];
 
-/* =============================
- * Optional period-event callback used by unified PWM interrupt config
- * Signature required by high-level driver: void (*periodEvent)(void *data)
- * ============================= */
-void gtmTomPwm_periodEvent(void *data)
+    /* Runtime duties (percent and fractional) */
+    float32                   dutyPercent[PWM_CHANNELS];   /* 0..100 */
+    float32                   dutyFraction[PWM_CHANNELS];  /* 0.0..1.0 */
+
+    boolean                   initOk;
+} GtmTom3PhPwm_State;
+
+static IFX_STATIC GtmTom3PhPwm_State g_gtnPwm = {0};
+
+/* Convenience */
+static Ifx_GTM * const gtm = &MODULE_GTM;
+
+/* =====================================================================
+ * Internal helpers (local-only)
+ * ===================================================================== */
+static void local_convertPercentToFraction(const float32 *percent, float32 *fraction, uint32 count)
 {
-    /* Minimal ISR workload: toggle a debug LED pin */
-    (void)data;
-    IfxPort_togglePin(LED);
+    uint32 i;
+    for (i = 0; i < count; ++i)
+    {
+        fraction[i] = percent[i] * (1.0f / 100.0f);
+        if (fraction[i] < 0.0f)   { fraction[i] = 0.0f; }
+        if (fraction[i] > 1.0f)   { fraction[i] = 1.0f; }
+    }
 }
 
-/* =============================
- * Internal helpers
- * ============================= */
-static inline void gtmTomPwm_storeInitialDuties(void)
-{
-    g_gtmTomPwm.dutyPercent[0] = DUTY_INIT_U_PERCENT;
-    g_gtmTomPwm.dutyPercent[1] = DUTY_INIT_V_PERCENT;
-    g_gtmTomPwm.dutyPercent[2] = DUTY_INIT_W_PERCENT;
-}
-
-/* =============================
- * Public API implementation
- * ============================= */
+/* =====================================================================
+ * Public API
+ * ===================================================================== */
 
 /*
  * initGtmTomPwm
- *
- * Steps per SW detailed design:
- * 1) Enable GTM and functional clocks for TOM (FXCLK/GCLK per iLLD pattern).
- * 2) Initialize TOM1 timebase on CH0 for 20 kHz, up/down (center-aligned).
- * 3) Initialize unified IfxGtm_Pwm for 3 single-ended outputs (U/V/W) with active-high push-pull pins.
- * 4) Start timebase and add CH2/CH4/CH6 to timer's update mask for synchronous shadow transfers.
- * 5) Stage initial duties (25/50/75%), disable update, write shadow registers, then apply a single update.
+ * 1) Enable GTM and clocks, set GCLK to module frequency
+ * 2) Configure TOM1 CH0 as timebase for center-aligned 20 kHz (up/down)
+ * 3) Initialize unified PWM driver (IfxGtm_Pwm) with 3 single-ended channels, active-high, push-pull
+ * 4) Start timebase, add PWM channels (2/4/6) to update mask for synchronous shadow transfers
+ * 5) Stage initial duties (25/50/75%), disable update, write shadow, apply single update
  */
 void initGtmTomPwm(void)
 {
-    /* Debug LED pin mode (optional) */
-    IfxPort_setPinMode(LED, IfxPort_OutputMode_pushPull);
+    /* Step 1: Enable GTM module and functional clocks (FXCLK/CLK0 via ALL to be safe) */
+    IfxGtm_enable(gtm);
 
-    /* 1) Enable GTM and functional clocks (follow authoritative iLLD pattern) */
-    IfxGtm_enable(&MODULE_GTM);
     {
-        float32 modFreq = IfxGtm_Cmu_getModuleFrequency(&MODULE_GTM);
-        IfxGtm_Cmu_setGclkFrequency(&MODULE_GTM, modFreq);
-        /* Enable all GTM clocks (including FXCLK) per pattern */
-        IfxGtm_Cmu_enableClocks(&MODULE_GTM, IFXGTM_CMU_CLKEN_ALL);
+        float32 moduleFreq = IfxGtm_Cmu_getModuleFrequency(gtm);
+        IfxGtm_Cmu_setGclkFrequency(gtm, moduleFreq);
+        /* Enable all clocks to ensure TOM timebase and channels are clocked */
+        IfxGtm_Cmu_enableClocks(gtm, (uint32)IFXGTM_CMU_CLKEN_ALL);
     }
 
-    /* 2) Initialize TOM timebase (TOM1 CH0, FXCLK0, center-aligned target) */
+    /* Step 2: Initialize TOM1 CH0 as timebase */
     {
-        IfxGtm_Tom_Timer_Config timerCfg;
-        IfxGtm_Tom_Timer_initConfig(&timerCfg, &MODULE_GTM);
-        /* Basic TOM selection */
-        timerCfg.tom          = PWM_TOM_MODULE;
-        timerCfg.timerChannel = PWM_TIMEBASE_CHANNEL;
-        timerCfg.clock        = PWM_TIMEBASE_CLOCK_SOURCE;
-        /* Base settings for frequency and center alignment */
-        timerCfg.base.frequency = PWM_FREQUENCY_HZ;              /* target PWM frequency */
-        timerCfg.base.isrPriority = 0;                           /* no timer ISR required here */
-        timerCfg.base.isrProvider = IfxSrc_Tos_none;             /* no ISR provider */
-        timerCfg.base.countDir = IfxStdIf_Timer_CountDir_upAndDown; /* center-aligned up/down */
-        /* Initialize timebase */
-        if (IfxGtm_Tom_Timer_init(&g_gtmTomPwm.timer, &timerCfg) == FALSE)
+        IfxGtm_Tom_Timer_Config tcfg;
+        IfxGtm_Tom_Timer_initConfig(&tcfg, gtm);
+
+        /* Basic timebase selection */
+        tcfg.tom           = GTM_TOM_TIMEBASE_TOM;
+        tcfg.timerChannel  = GTM_TOM_TIMEBASE_CHANNEL;
+        tcfg.clock         = GTM_TOM_TIMEBASE_CLOCK;     /* FXCLK0 */
+        tcfg.triggerOut    = NULL_PTR;                   /* no external trigger */
+
+        /* Initialize timer */
+        if (IfxGtm_Tom_Timer_init(&g_gtnPwm.timer, &tcfg) == FALSE)
         {
-            g_gtmTomPwm.error = TRUE;
+            g_gtnPwm.initOk = FALSE;
             return;
         }
-        IfxGtm_Tom_Timer_updateInputFrequency(&g_gtmTomPwm.timer);
+
+        /* Update input frequency info so resolution/period calculations are coherent */
+        IfxGtm_Tom_Timer_updateInputFrequency(&g_gtnPwm.timer);
+
+        /* Compute center-aligned period ticks = f(FXCLK0) / (2 * Fpwm) */
+        {
+            float32 fxclk0 = IfxGtm_Cmu_getFxClkFrequency(gtm, IfxGtm_Cmu_Fxclk_0);
+            float32 periodTicksF = (fxclk0 / (2.0f * PWM_FREQUENCY_HZ));
+
+            /* Stage timebase period */
+            IfxGtm_Tom_Timer_disableUpdate(&g_gtnPwm.timer);
+            IfxStdIf_Timer_setPeriod(&g_gtnPwm.timer, (Ifx_TimerValue)periodTicksF);
+            IfxGtm_Tom_Timer_applyUpdate(&g_gtnPwm.timer);
+        }
     }
 
-    /* 3) Initialize unified PWM driver (single-ended U/V/W) */
+    /* Step 3: Initialize unified PWM driver (IfxGtm_Pwm) with 3 channels, center-aligned */
     {
-        IfxGtm_Pwm_Config           pwmCfg;
-        IfxGtm_Pwm_OutputConfig     outputCfg[PWM_NUM_CHANNELS];
-        IfxGtm_Pwm_DtmConfig        dtmCfg[PWM_NUM_CHANNELS];
-        IfxGtm_Pwm_ChannelConfig    chCfg[PWM_NUM_CHANNELS];
-        IfxGtm_Pwm_InterruptConfig  irqCfg;
+        IfxGtm_Pwm_Config pcfg;
+        IfxGtm_Pwm_initConfig(&pcfg, gtm);
 
-        IfxGtm_Pwm_initConfig(&pwmCfg, &MODULE_GTM);
+        /* Output configuration (pins, active-high, push-pull) */
+        g_gtnPwm.outCfg[0].pin                   = (IfxGtm_Pwm_ToutMap*)PHASE_U_HS;
+        g_gtnPwm.outCfg[0].complementaryPin      = NULL_PTR;
+        g_gtnPwm.outCfg[0].polarity              = Ifx_ActiveState_high;
+        g_gtnPwm.outCfg[0].complementaryPolarity = Ifx_ActiveState_low;
+        g_gtnPwm.outCfg[0].outputMode            = IfxPort_OutputMode_pushPull;
+        g_gtnPwm.outCfg[0].padDriver             = IfxPort_PadDriver_cmosAutomotiveSpeed1;
 
-        /* Output pin configurations: single-ended, push-pull, active HIGH */
-        outputCfg[0].pin                   = (IfxGtm_Pwm_ToutMap*)PHASE_U_HS;
-        outputCfg[0].complementaryPin      = NULL_PTR;
-        outputCfg[0].polarity              = Ifx_ActiveState_high;
-        outputCfg[0].complementaryPolarity = Ifx_ActiveState_low;
-        outputCfg[0].outputMode            = IfxPort_OutputMode_pushPull;
-        outputCfg[0].padDriver             = IfxPort_PadDriver_cmosAutomotiveSpeed1;
+        g_gtnPwm.outCfg[1].pin                   = (IfxGtm_Pwm_ToutMap*)PHASE_V_HS;
+        g_gtnPwm.outCfg[1].complementaryPin      = NULL_PTR;
+        g_gtnPwm.outCfg[1].polarity              = Ifx_ActiveState_high;
+        g_gtnPwm.outCfg[1].complementaryPolarity = Ifx_ActiveState_low;
+        g_gtnPwm.outCfg[1].outputMode            = IfxPort_OutputMode_pushPull;
+        g_gtnPwm.outCfg[1].padDriver             = IfxPort_PadDriver_cmosAutomotiveSpeed1;
 
-        outputCfg[1].pin                   = (IfxGtm_Pwm_ToutMap*)PHASE_V_HS;
-        outputCfg[1].complementaryPin      = NULL_PTR;
-        outputCfg[1].polarity              = Ifx_ActiveState_high;
-        outputCfg[1].complementaryPolarity = Ifx_ActiveState_low;
-        outputCfg[1].outputMode            = IfxPort_OutputMode_pushPull;
-        outputCfg[1].padDriver             = IfxPort_PadDriver_cmosAutomotiveSpeed1;
+        g_gtnPwm.outCfg[2].pin                   = (IfxGtm_Pwm_ToutMap*)PHASE_W_HS;
+        g_gtnPwm.outCfg[2].complementaryPin      = NULL_PTR;
+        g_gtnPwm.outCfg[2].polarity              = Ifx_ActiveState_high;
+        g_gtnPwm.outCfg[2].complementaryPolarity = Ifx_ActiveState_low;
+        g_gtnPwm.outCfg[2].outputMode            = IfxPort_OutputMode_pushPull;
+        g_gtnPwm.outCfg[2].padDriver             = IfxPort_PadDriver_cmosAutomotiveSpeed1;
 
-        outputCfg[2].pin                   = (IfxGtm_Pwm_ToutMap*)PHASE_W_HS;
-        outputCfg[2].complementaryPin      = NULL_PTR;
-        outputCfg[2].polarity              = Ifx_ActiveState_high;
-        outputCfg[2].complementaryPolarity = Ifx_ActiveState_low;
-        outputCfg[2].outputMode            = IfxPort_OutputMode_pushPull;
-        outputCfg[2].padDriver             = IfxPort_PadDriver_cmosAutomotiveSpeed1;
+        /* DTM configuration (no dead-time for single-ended) */
+        g_gtnPwm.dtmCfg[0].deadTime.rising = 0.0f; g_gtnPwm.dtmCfg[0].deadTime.falling = 0.0f;
+        g_gtnPwm.dtmCfg[1].deadTime.rising = 0.0f; g_gtnPwm.dtmCfg[1].deadTime.falling = 0.0f;
+        g_gtnPwm.dtmCfg[2].deadTime.rising = 0.0f; g_gtnPwm.dtmCfg[2].deadTime.falling = 0.0f;
 
-        /* Dead-time configuration: single-ended (no dead-time) */
-        dtmCfg[0].deadTime.rising = 0.0f;
-        dtmCfg[0].deadTime.falling = 0.0f;
-        dtmCfg[1].deadTime.rising = 0.0f;
-        dtmCfg[1].deadTime.falling = 0.0f;
-        dtmCfg[2].deadTime.rising = 0.0f;
-        dtmCfg[2].deadTime.falling = 0.0f;
+        /* Channel configuration */
+        g_gtnPwm.chCfg[0].timerCh    = PHASE_U_CH;
+        g_gtnPwm.chCfg[0].phase      = 0.0f;
+        g_gtnPwm.chCfg[0].duty       = DUTY_U_INIT_PERCENT;
+        g_gtnPwm.chCfg[0].dtm        = &g_gtnPwm.dtmCfg[0];
+        g_gtnPwm.chCfg[0].output     = &g_gtnPwm.outCfg[0];
+        g_gtnPwm.chCfg[0].mscOut     = NULL_PTR;
+        g_gtnPwm.chCfg[0].interrupt  = NULL_PTR; /* period IRQ not used here */
 
-        /* Interrupt configuration for unified PWM period events (optional) */
-        irqCfg.mode        = IfxGtm_IrqMode_pulseNotify;
-        irqCfg.isrProvider = IfxSrc_Tos_cpu0;
-        irqCfg.priority    = PWM_ISR_PRIORITY;
-        irqCfg.periodEvent = gtmTomPwm_periodEvent;
-        irqCfg.dutyEvent   = NULL_PTR;
+        g_gtnPwm.chCfg[1].timerCh    = PHASE_V_CH;
+        g_gtnPwm.chCfg[1].phase      = 0.0f;
+        g_gtnPwm.chCfg[1].duty       = DUTY_V_INIT_PERCENT;
+        g_gtnPwm.chCfg[1].dtm        = &g_gtnPwm.dtmCfg[1];
+        g_gtnPwm.chCfg[1].output     = &g_gtnPwm.outCfg[1];
+        g_gtnPwm.chCfg[1].mscOut     = NULL_PTR;
+        g_gtnPwm.chCfg[1].interrupt  = NULL_PTR;
 
-        /* Per-channel setup */
-        chCfg[0].timerCh    = (IfxGtm_Pwm_SubModule_Ch)PWM_CHANNEL_U;  /* TOM1 CH2 */
-        chCfg[0].phase      = 0.0f;
-        chCfg[0].duty       = DUTY_INIT_U_PERCENT;
-        chCfg[0].dtm        = &dtmCfg[0];
-        chCfg[0].output     = &outputCfg[0];
-        chCfg[0].mscOut     = NULL_PTR;
-        chCfg[0].interrupt  = &irqCfg;
+        g_gtnPwm.chCfg[2].timerCh    = PHASE_W_CH;
+        g_gtnPwm.chCfg[2].phase      = 0.0f;
+        g_gtnPwm.chCfg[2].duty       = DUTY_W_INIT_PERCENT;
+        g_gtnPwm.chCfg[2].dtm        = &g_gtnPwm.dtmCfg[2];
+        g_gtnPwm.chCfg[2].output     = &g_gtnPwm.outCfg[2];
+        g_gtnPwm.chCfg[2].mscOut     = NULL_PTR;
+        g_gtnPwm.chCfg[2].interrupt  = NULL_PTR;
 
-        chCfg[1].timerCh    = (IfxGtm_Pwm_SubModule_Ch)PWM_CHANNEL_V;  /* TOM1 CH4 */
-        chCfg[1].phase      = 0.0f;
-        chCfg[1].duty       = DUTY_INIT_V_PERCENT;
-        chCfg[1].dtm        = &dtmCfg[1];
-        chCfg[1].output     = &outputCfg[1];
-        chCfg[1].mscOut     = NULL_PTR;
-        chCfg[1].interrupt  = &irqCfg;
+        /* Top-level PWM configuration */
+        pcfg.subModule           = IfxGtm_Pwm_SubModule_tom;
+        pcfg.alignment           = IfxGtm_Pwm_Alignment_center;
+        pcfg.syncStart           = TRUE;
+        pcfg.numChannels         = PWM_CHANNELS;
+        pcfg.channels            = &g_gtnPwm.chCfg[0];
+        pcfg.frequency           = PWM_FREQUENCY_HZ;
+        pcfg.dtmClockSource      = IfxGtm_Dtm_ClockSource_cmuClock0;
+        pcfg.syncUpdateEnabled   = TRUE;
 
-        chCfg[2].timerCh    = (IfxGtm_Pwm_SubModule_Ch)PWM_CHANNEL_W;  /* TOM1 CH6 */
-        chCfg[2].phase      = 0.0f;
-        chCfg[2].duty       = DUTY_INIT_W_PERCENT;
-        chCfg[2].dtm        = &dtmCfg[2];
-        chCfg[2].output     = &outputCfg[2];
-        chCfg[2].mscOut     = NULL_PTR;
-        chCfg[2].interrupt  = &irqCfg;
-
-        /* Unified PWM driver configuration */
-        pwmCfg.cluster           = (IfxGtm_Cluster)IFXGTM_CLUSTER;
-        pwmCfg.subModule         = IfxGtm_Pwm_SubModule_tom;
-        pwmCfg.alignment         = IfxGtm_Pwm_Alignment_center;
-        pwmCfg.syncStart         = TRUE;
-        pwmCfg.numChannels       = PWM_NUM_CHANNELS;
-        pwmCfg.channels          = &chCfg[0];
-        pwmCfg.frequency         = PWM_FREQUENCY_HZ;
-        pwmCfg.dtmClockSource    = IfxGtm_Dtm_ClockSource_cmuClock0;
-        pwmCfg.syncUpdateEnabled = TRUE;
-
-        /* Initialize unified PWM (follows iLLD mandatory pattern) */
-        IfxGtm_Pwm_init(&g_gtmTomPwm.pwm, &g_gtmTomPwm.channels[0], &pwmCfg);
+        /* Initialize the unified PWM driver */
+        IfxGtm_Pwm_init(&g_gtnPwm.pwm, &g_gtnPwm.channels[0], &pcfg);
     }
 
-    /* 4) Start timebase and add PWM channels to timer update mask */
-    IfxGtm_Tom_Timer_addToChannelMask(&g_gtmTomPwm.timer, PWM_CHANNEL_U);
-    IfxGtm_Tom_Timer_addToChannelMask(&g_gtmTomPwm.timer, PWM_CHANNEL_V);
-    IfxGtm_Tom_Timer_addToChannelMask(&g_gtmTomPwm.timer, PWM_CHANNEL_W);
-    IfxGtm_Tom_Timer_run(&g_gtmTomPwm.timer);
+    /* Step 4: Start timebase and add PWM channels to update mask for atomic/shadow updates */
+    IfxGtm_Tom_Timer_addToChannelMask(&g_gtnPwm.timer, IfxGtm_Tom_Ch_2);
+    IfxGtm_Tom_Timer_addToChannelMask(&g_gtnPwm.timer, IfxGtm_Tom_Ch_4);
+    IfxGtm_Tom_Timer_addToChannelMask(&g_gtnPwm.timer, IfxGtm_Tom_Ch_6);
+    IfxGtm_Tom_Timer_run(&g_gtnPwm.timer);
 
-    /* 5) Stage initial duties and apply a single synchronous shadow transfer */
-    gtmTomPwm_storeInitialDuties();
-    IfxGtm_Tom_Timer_disableUpdate(&g_gtmTomPwm.timer);
-    IfxGtm_Pwm_updateChannelsDuty(&g_gtmTomPwm.pwm, &g_gtmTomPwm.dutyPercent[0]);
-    IfxGtm_Tom_Timer_applyUpdate(&g_gtmTomPwm.timer);
+    /* Step 5: Stage initial duties and apply synchronously */
+    g_gtnPwm.dutyPercent[0] = DUTY_U_INIT_PERCENT;
+    g_gtnPwm.dutyPercent[1] = DUTY_V_INIT_PERCENT;
+    g_gtnPwm.dutyPercent[2] = DUTY_W_INIT_PERCENT;
+    local_convertPercentToFraction(g_gtnPwm.dutyPercent, g_gtnPwm.dutyFraction, PWM_CHANNELS);
 
-    g_gtmTomPwm.initialized = TRUE;
+    IfxGtm_Tom_Timer_disableUpdate(&g_gtnPwm.timer);
+    IfxGtm_Pwm_updateChannelsDuty(&g_gtnPwm.pwm, &g_gtnPwm.dutyFraction[0]);
+    IfxGtm_Tom_Timer_applyUpdate(&g_gtnPwm.timer);
+
+    g_gtnPwm.initOk = TRUE;
 }
 
 /*
  * updateGtmTomPwmDutyCycles
- *
- * Runtime behavior:
- * 1) Increase each channel duty by +10%.
- * 2) If (duty + step) >= 100, wrap to 0 first, then add step (allow 0..100 policy handled by caller scheduling).
- * 3) Disable timer update, write all three duty values in one call, apply a single shadow transfer.
+ * - On each call: +10% per channel; if (duty + step) > 100 then wrap to 0; allow true 0% and 100%
+ * - Convert to fractional; stage via disableUpdate + multi-channel duty write; apply one shadow transfer
  */
 void updateGtmTomPwmDutyCycles(void)
 {
-    if ((g_gtmTomPwm.initialized == FALSE) || (g_gtmTomPwm.error == TRUE))
+    if (!g_gtnPwm.initOk)
     {
-        return;
+        return; /* Not initialized */
     }
 
-    /* Update each duty per mandatory wrap rule */
-    for (uint32 i = 0; i < PWM_NUM_CHANNELS; ++i)
+    /* Update duties with wrap 0..100 inclusive, preserving true 100% until next call wraps to 0% */
+    for (uint32 i = 0; i < PWM_CHANNELS; ++i)
     {
-        if ((g_gtmTomPwm.dutyPercent[i] + PWM_DUTY_STEP_PERCENT) >= 100.0f)
+        float32 d = g_gtnPwm.dutyPercent[i];
+        if ((d + PWM_DUTY_STEP_PERCENT) > PWM_DUTY_MAX_PERCENT)
         {
-            g_gtmTomPwm.dutyPercent[i] = 0.0f;
+            d = PWM_DUTY_MIN_PERCENT;  /* wrap to 0% */
         }
-        g_gtmTomPwm.dutyPercent[i] += PWM_DUTY_STEP_PERCENT;
+        else
+        {
+            d += PWM_DUTY_STEP_PERCENT;
+        }
+        g_gtnPwm.dutyPercent[i] = d;
     }
 
-    /* Stage synchronous update to all channels */
-    IfxGtm_Tom_Timer_disableUpdate(&g_gtmTomPwm.timer);
-    IfxGtm_Pwm_updateChannelsDuty(&g_gtmTomPwm.pwm, &g_gtmTomPwm.dutyPercent[0]);
-    IfxGtm_Tom_Timer_applyUpdate(&g_gtmTomPwm.timer);
+    local_convertPercentToFraction(g_gtnPwm.dutyPercent, g_gtnPwm.dutyFraction, PWM_CHANNELS);
+
+    /* Stage and apply synchronously */
+    IfxGtm_Tom_Timer_disableUpdate(&g_gtnPwm.timer);
+    IfxGtm_Pwm_updateChannelsDuty(&g_gtnPwm.pwm, &g_gtnPwm.dutyFraction[0]);
+    IfxGtm_Tom_Timer_applyUpdate(&g_gtnPwm.timer);
 }
