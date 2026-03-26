@@ -18,11 +18,15 @@
       5,
       6
     ],
-    "driver": "IfxGtm_Pwm"
+    "channels_note": "TOM1_CH0 serves as the master time base and has no external pin assignment.",
+    "driver": "IfxGtm_Pwm",
+    "dead_time_us": 0.5,
+    "minimum_pulse_width_us": 1.0,
+    "pad_driver": "IfxPort_PadDriver_cmosAutomotiveSpeed1"
   },
   "pin_assignments": [
     {
-      "signal": "PHASE_U_HS_TOM1_CH1",
+      "signal": "PHASE_U_HS_CH1",
       "port_pin": "P02.0",
       "function": "TOUT0",
       "pin_macro": "IfxGtm_TOM1_1_TOUT0_P02_0_OUT",
@@ -31,7 +35,7 @@
       "source": "hardware_verified"
     },
     {
-      "signal": "PHASE_U_LS_TOM1_CH2",
+      "signal": "PHASE_U_LS_CH2",
       "port_pin": "P02.7",
       "function": "TOUT7",
       "pin_macro": "IfxGtm_TOM1_2_TOUT7_P02_7_OUT",
@@ -40,7 +44,7 @@
       "source": "hardware_verified"
     },
     {
-      "signal": "PHASE_V_HS_TOM1_CH3",
+      "signal": "PHASE_V_HS_CH3",
       "port_pin": "P02.1",
       "function": "TOUT1",
       "pin_macro": "IfxGtm_TOM1_3_TOUT1_P02_1_OUT",
@@ -49,7 +53,7 @@
       "source": "hardware_verified"
     },
     {
-      "signal": "PHASE_V_LS_TOM1_CH4",
+      "signal": "PHASE_V_LS_CH4",
       "port_pin": "P02.4",
       "function": "TOUT4",
       "pin_macro": "IfxGtm_TOM1_4_TOUT4_P02_4_OUT",
@@ -58,7 +62,7 @@
       "source": "hardware_verified"
     },
     {
-      "signal": "PHASE_W_HS_TOM1_CH5",
+      "signal": "PHASE_W_HS_CH5",
       "port_pin": "P02.2",
       "function": "TOUT2",
       "pin_macro": "IfxGtm_TOM1_5_TOUT2_P02_2_OUT",
@@ -67,7 +71,7 @@
       "source": "hardware_verified"
     },
     {
-      "signal": "PHASE_W_LS_TOM1_CH6",
+      "signal": "PHASE_W_LS_CH6",
       "port_pin": "P02.5",
       "function": "TOUT5",
       "pin_macro": "IfxGtm_TOM1_6_TOUT5_P02_5_OUT",
