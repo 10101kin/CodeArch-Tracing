@@ -4,7 +4,7 @@
     "family": "TC3xx",
     "verified": true,
     "device_macro": "DEVICE_TC38X",
-    "pin_package": "IFX_PIN_PACKAGE_516"
+    "pin_package": "IFX_PIN_PACKAGE_292"
   },
   "peripheral_instance": {
     "type": "GTM_TOM",
@@ -18,69 +18,62 @@
       5,
       6
     ],
-    "driver": "IfxGtm_Tom_Dtm_PwmHl",
-    "doc_reference": "Infineon AURIX iLLD: IfxGtm_Tom_Dtm_PwmHl (TC3xx); AURIX TC3xx User Manual - GTM TOM/DTM overview"
+    "driver": "IfxGtm_Tom_Dtm_PwmHl"
   },
   "pin_assignments": [
     {
-      "signal": "PWM_U_LS (TOM1_CH5)",
+      "signal": "PWM_U_LS (TOM1_CH1)",
       "port_pin": "P00.2",
-      "function": "TOUT11",
-      "pin_macro": "IfxGtm_TOM1_5_TOUT11_P00_2_OUT",
+      "function": null,
+      "pin_macro": null,
       "is_complementary": true,
-      "verified": true,
-      "source": "hardware_verified",
-      "doc_reference": "IfxGtm_PinMap_TC38x_LFBGA516: IfxGtm_TOM1_5_TOUT11_P00_2_OUT"
+      "verified": false,
+      "source": "hardware_verified"
     },
     {
-      "signal": "PWM_U_HS (TOM1_CH6)",
+      "signal": "PWM_U_HS (TOM1_CH2)",
       "port_pin": "P00.3",
-      "function": "TOUT12",
-      "pin_macro": "IfxGtm_TOM1_6_TOUT12_P00_3_OUT",
+      "function": null,
+      "pin_macro": null,
       "is_complementary": true,
-      "verified": true,
-      "source": "hardware_verified",
-      "doc_reference": "IfxGtm_PinMap_TC38x_LFBGA516: IfxGtm_TOM1_6_TOUT12_P00_3_OUT"
+      "verified": false,
+      "source": "hardware_verified"
     },
     {
-      "signal": "PWM_V_LS (TOM1_CH7)",
+      "signal": "PWM_V_LS (TOM1_CH3)",
       "port_pin": "P00.4",
-      "function": "TOUT13",
-      "pin_macro": "IfxGtm_TOM1_7_TOUT13_P00_4_OUT",
+      "function": null,
+      "pin_macro": null,
       "is_complementary": true,
-      "verified": true,
-      "source": "hardware_verified",
-      "doc_reference": "IfxGtm_PinMap_TC38x_LFBGA516: IfxGtm_TOM1_7_TOUT13_P00_4_OUT"
+      "verified": false,
+      "source": "hardware_verified"
     },
     {
-      "signal": "PWM_V_HS (TOM1_CH8)",
+      "signal": "PWM_V_HS (TOM1_CH4)",
       "port_pin": "P00.5",
-      "function": "TOUT14",
-      "pin_macro": "IfxGtm_TOM1_8_TOUT14_P00_5_OUT",
+      "function": null,
+      "pin_macro": null,
       "is_complementary": true,
-      "verified": true,
-      "source": "hardware_verified",
-      "doc_reference": "IfxGtm_PinMap_TC38x_LFBGA516: IfxGtm_TOM1_8_TOUT14_P00_5_OUT"
+      "verified": false,
+      "source": "hardware_verified"
     },
     {
-      "signal": "PWM_W_LS (TOM1_CH9)",
+      "signal": "PWM_W_LS (TOM1_CH5)",
       "port_pin": "P00.6",
-      "function": "TOUT15",
-      "pin_macro": "IfxGtm_TOM1_9_TOUT15_P00_6_OUT",
+      "function": null,
+      "pin_macro": null,
       "is_complementary": true,
-      "verified": true,
-      "source": "hardware_verified",
-      "doc_reference": "IfxGtm_PinMap_TC38x_LFBGA516: IfxGtm_TOM1_9_TOUT15_P00_6_OUT"
+      "verified": false,
+      "source": "hardware_verified"
     },
     {
-      "signal": "PWM_W_HS (TOM1_CH10)",
+      "signal": "PWM_W_HS (TOM1_CH6)",
       "port_pin": "P00.7",
-      "function": "TOUT16",
-      "pin_macro": "IfxGtm_TOM1_10_TOUT16_P00_7_OUT",
+      "function": null,
+      "pin_macro": null,
       "is_complementary": true,
-      "verified": true,
-      "source": "hardware_verified",
-      "doc_reference": "IfxGtm_PinMap_TC38x_LFBGA516: IfxGtm_TOM1_10_TOUT16_P00_7_OUT"
+      "verified": false,
+      "source": "hardware_verified"
     }
   ],
   "clock_configuration": {
@@ -89,7 +82,10 @@
   },
   "validation": {
     "all_verified": false,
-    "conflicts": [],
+    "conflicts": [
+      "Pin macros for TOM1 on P00.2/P00.3/P00.4/P00.5/P00.6/P00.7 could not be confirmed in IfxGtm_PinMap_TC38x_LFBGA516 for the configured package IFX_PIN_PACKAGE_516.",
+      "Header documentation example indicates IfxGtm_TOM1_5_TOUT11_P00_2_OUT, which conflicts with the requested TOM1_CH1 on P00.2; verify exact TOM1 channel-to-TOUT mapping in the target PinMap header."
+    ],
     "reference_pins_valid": false
   },
   "template_validation": {
