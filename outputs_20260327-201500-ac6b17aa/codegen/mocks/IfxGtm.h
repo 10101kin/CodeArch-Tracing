@@ -1,12 +1,8 @@
-/* IfxGtm.h - mock */
+/* Mock IfxGtm.h - base GTM types and functions */
 #ifndef IFXGTM_H
 #define IFXGTM_H
 
 #include "mock_gtm_tom_3_phase_inverter_pwm.h"
-
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 /* Enums */
 typedef enum
@@ -24,25 +20,17 @@ typedef enum
     IfxGtm_SuspendMode_soft = 2
 } IfxGtm_SuspendMode;
 
-/* Cluster enum (shared across GTM) */
+/* Cluster enumeration (shared by PWM config) */
 typedef enum
 {
     IfxGtm_Cluster_0 = 0,
     IfxGtm_Cluster_1 = 1,
     IfxGtm_Cluster_2 = 2,
-    IfxGtm_Cluster_3 = 3,
-    IfxGtm_Cluster_4 = 4,
-    IfxGtm_Cluster_5 = 5,
-    IfxGtm_Cluster_6 = 6,
-    IfxGtm_Cluster_7 = 7
+    IfxGtm_Cluster_3 = 3
 } IfxGtm_Cluster;
 
-/* Function declarations used by production */
+/* Functions (subset used by module/tests) */
 boolean IfxGtm_isEnabled(Ifx_GTM *gtm);
 void    IfxGtm_enable(Ifx_GTM *gtm);
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif /* IFXGTM_H */
