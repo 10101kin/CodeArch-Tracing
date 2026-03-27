@@ -1,0 +1,97 @@
+{
+  "microcontroller": {
+    "model": "TC4D7",
+    "family": "TC4xx",
+    "verified": true,
+    "device_macro": "DEVICE_TC4DX",
+    "pin_package": "IFX_PIN_PACKAGE_BGA436_COM"
+  },
+  "peripheral_instance": {
+    "type": "PWM",
+    "module": "EGTM1.ATOM1",
+    "channels": [
+      0,
+      1,
+      2
+    ],
+    "driver": "IfxEgtm_Pwm"
+  },
+  "pin_assignments": [],
+  "clock_configuration": {
+    "xtal_frequency_mhz": 25,
+    "system_frequency_mhz": 500
+  },
+  "validation": {
+    "all_verified": false,
+    "conflicts": [
+      "No validated ATOM1 (Cluster 1) TOUT pin mappings available from IfxEgtm_PinMap for KIT_A3G_TC4D7_LITE in the provided template context.",
+      "Candidate reference pins (P33.10–P33.15) could not be validated against TC4D7 IfxEgtm_PinMap and package BGA436_COM.",
+      "Pin assignments deferred to MCU tool verification to ensure correct TOUT routing and alternate function support for EGTM Cluster 1 ATOM1 CH0/1/2 and their complementary outputs."
+    ],
+    "reference_pins_valid": false
+  },
+  "template_validation": {
+    "supported_peripherals": [
+      "PWM",
+      "GTM",
+      "EGTM",
+      "GPIO",
+      "ASCLIN",
+      "INTERRUPT",
+      "CPU"
+    ],
+    "suggested_drivers": {
+      "PWM": [
+        "IfxEgtm_Pwm"
+      ],
+      "GTM": [
+        "IfxGtm_Dtm",
+        "IfxGtm_Input",
+        "IfxGtm_Psm",
+        "IfxGtm",
+        "IfxGtm_PinMap",
+        "IfxGtm_Pwm",
+        "IfxGtm_Trigger",
+        "IfxGtm_Spe",
+        "IfxGtm_Tbu"
+      ],
+      "EGTM": [
+        "IfxEgtm_Pwm"
+      ],
+      "GPIO": [
+        "IfxPort_Io",
+        "IfxScrPort",
+        "IfxPort"
+      ],
+      "ASCLIN": [
+        "IfxAsclin_Asc",
+        "IfxAsclin_Lin",
+        "IfxAsclin_Spi",
+        "IfxAsclin"
+      ],
+      "INTERRUPT": [
+        "IfxCpu_Irq",
+        "IfxScrCpuIrq"
+      ],
+      "CPU": [
+        "IfxCpu"
+      ],
+      "_driver_selection": {
+        "explicit_target": "IfxEgtm_Pwm",
+        "replaced_source": "IfxGtm_Pwm",
+        "primary_drivers": [
+          "IfxEgtm_Pwm"
+        ],
+        "avoid_drivers": [
+          "IfxGtm_Pwm"
+        ]
+      }
+    },
+    "warnings": []
+  },
+  "pin_analysis": {
+    "verified_count": 0,
+    "doc_reference_count": 4,
+    "merged_total": 4
+  }
+}
