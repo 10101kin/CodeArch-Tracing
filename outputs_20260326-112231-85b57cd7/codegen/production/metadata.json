@@ -1,12 +1,10 @@
 {
-  "attempt": 5,
+  "attempt": 7,
   "phase": "production",
   "success": false,
   "errors": [
-    "'mock_IfxGtm_Pwm_updateChannelsDeadTimeImmediate_lastDtRising' undeclared (first use in this function); did you mean 'mock_IfxGtm_Pwm_updateChannelDeadTimeImmediate_lastDtRising'?",
-    "'mock_IfxGtm_Pwm_updateChannelsDeadTimeImmediate_lastDtFalling' undeclared (first use in this function); did you mean 'mock_IfxGtm_Pwm_updateChannelDeadTimeImmediate_lastDtFalling'?",
     "implicit declaration of function 'mock_IfxPort_togglePin_getCallCount'; did you mean 'mock_togglePin_getCallCount'? [-Wimplicit-function-declaration]"
   ],
-  "timestamp": "2026-03-27T11:45:10.738246",
+  "timestamp": "2026-03-27T11:51:00.027323",
   "project_name": "Upgrade_the_TC387_3-phase_inverter_PWM_to_IfxGtm_P_r_20260327_113315"
 }
