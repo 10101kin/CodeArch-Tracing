@@ -1,8 +1,15 @@
-/* IfxEgtm_Cmu mock header */
 #ifndef IFXEGTM_CMU_H
 #define IFXEGTM_CMU_H
 
 #include "mock_egtm_atom_3_phase_inverter_pwm.h"
+
+/* Macros (fix prior build error: IFXEGTM_CMU_CLKEN_CLK0) */
+#ifndef IFXEGTM_CMU_CLKEN_FXCLK
+#define IFXEGTM_CMU_CLKEN_FXCLK  (1u << 22)
+#endif
+#ifndef IFXEGTM_CMU_CLKEN_CLK0
+#define IFXEGTM_CMU_CLKEN_CLK0   (2u << 0)
+#endif
 
 /* Enums */
 typedef enum {
@@ -32,20 +39,12 @@ typedef enum {
 
 typedef enum {
     IfxEgtm_Cmu_Tim_Filter_Clk_0 = 0,
-    IfxEgtm_Cmu_Tim_Filter_Clk_1,
-    IfxEgtm_Cmu_Tim_Filter_Clk_6,
-    IfxEgtm_Cmu_Tim_Filter_Clk_7
+    IfxEgtm_Cmu_Tim_Filter_Clk_1 = 1,
+    IfxEgtm_Cmu_Tim_Filter_Clk_6 = 6,
+    IfxEgtm_Cmu_Tim_Filter_Clk_7 = 7
 } IfxEgtm_Cmu_Tim_Filter_Clk;
 
-/* Clock enable mask macros (fixes previous build errors) */
-#ifndef IFXEGTM_CMU_CLKEN_FXCLK
-#define IFXEGTM_CMU_CLKEN_FXCLK  (1u << 22)
-#endif
-#ifndef IFXEGTM_CMU_CLKEN_ECLK0
-#define IFXEGTM_CMU_CLKEN_ECLK0  (1u << 0)
-#endif
-
-/* Function declarations (subset used by module) */
+/* Declarations (limit to DRIVERS TO MOCK) */
 void    IfxEgtm_Cmu_setGclkDivider(Ifx_EGTM *egtm, uint32 numerator, uint32 denominator);
 void    IfxEgtm_Cmu_setEclkDivider(Ifx_EGTM *egtm, IfxEgtm_Cmu_Eclk clkIndex, uint32 numerator, uint32 denominator);
 float32 IfxEgtm_Cmu_getModuleFrequency(Ifx_EGTM *egtm);

@@ -1,10 +1,9 @@
-/* IfxPort mock header */
 #ifndef IFXPORT_H
 #define IFXPORT_H
 
 #include "mock_egtm_atom_3_phase_inverter_pwm.h"
 
-/* Enums first (ordering critical) */
+/* Enums (define before structs) */
 typedef enum {
     IfxPort_ControlledBy_port = 0,
     IfxPort_ControlledBy_hsct = 1
@@ -18,7 +17,7 @@ typedef enum {
 } IfxPort_InputMode;
 
 typedef enum {
-    IfxPort_LvdsMode_high   = 0,
+    IfxPort_LvdsMode_high = 0,
     IfxPort_LvdsMode_medium = 1
 } IfxPort_LvdsMode;
 
@@ -140,12 +139,11 @@ typedef enum {
 } IfxPort_BlankingTimerConfig;
 
 typedef enum {
-    IfxPort_EsrLevel_0 = 0,
-    IfxPort_EsrLevel_1
+    IfxPort_EsrLevel_0 = 0
 } IfxPort_EsrLevel;
 
 typedef enum {
-    IfxPort_EsrPadCfg_PP  = 0,
+    IfxPort_EsrPadCfg_PP = 0,
     IfxPort_EsrPadCfg_TPU = 1,
     IfxPort_EsrPadCfg_TPD = 2
 } IfxPort_EsrPadCfg;
@@ -156,13 +154,13 @@ typedef enum {
 } IfxPort_LvdsDirection;
 
 typedef enum {
-    IfxPort_LvdsPath_enable  = 0,
+    IfxPort_LvdsPath_enable = 0,
     IfxPort_LvdsPath_disable = 1
 } IfxPort_LvdsPath;
 
 typedef enum {
     IfxPort_LvdsPullDown_disable = 0,
-    IfxPort_LvdsPullDown_enable  = 1
+    IfxPort_LvdsPullDown_enable = 1
 } IfxPort_LvdsPullDown;
 
 typedef enum {
@@ -194,21 +192,26 @@ typedef enum {
 } IfxPort_PadDriver;
 
 /* Structs */
-typedef struct { IfxPort_LvdsMode lvdsMode; IfxPort_ControlledBy enablePortControlled; IfxPort_PadSupply padSupply; IfxPort_LvdsTerm lvdsTerm; } IfxPort_LvdsConfig;
+typedef struct {
+    Ifx_P *port;
+    uint8  pinIndex;
+} IfxPort_Pin;
 
-typedef struct { Ifx_P *port; uint8 pinIndex; } IfxPort_Pin;
+typedef struct {
+    Ifx_P            *port;
+    uint8             pinIndex;
+    IfxPort_OutputIdx mode;
+    IfxPort_PadDriver padDriver;
+} IfxPort_Pin_Config;
 
-typedef struct { Ifx_P *port; uint8 pinIndex; IfxPort_OutputIdx mode; IfxPort_PadDriver padDriver; } IfxPort_Pin_Config;
+typedef struct {
+    IfxPort_LvdsMode     lvdsMode;
+    IfxPort_ControlledBy enablePortControlled;
+    IfxPort_PadSupply    padSupply;
+    IfxPort_LvdsTerm     lvdsTerm;
+} IfxPort_LvdsConfig;
 
-typedef struct { IfxApApu_ApuConfig apuConfig; uint8 grpNum; } IfxPort_ApuConfig;
-
-typedef struct { uint8 pinIndex; uint8 grpNum; } IfxPort_Pin_ApuConfig;
-
-typedef struct { IfxApApu_ApuConfig apuConfig[2]; IfxPort_Pin_ApuConfig pinConfig[2]; } IfxPort_ApuGroupConfig;
-
-typedef struct { IfxApProt_ProtConfig protseConfig; } IfxPort_ProtConfig;
-
-/* Functions used by this module */
+/* Declarations (limit to DRIVERS TO MOCK) */
 void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
 
 #endif /* IFXPORT_H */
