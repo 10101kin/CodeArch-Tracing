@@ -1,84 +1,57 @@
 #ifndef IFXGTM_PWM_H
 #define IFXGTM_PWM_H
-
 #include "mock_gtm_tom_3_phase_inverter_pwm.h"
+#include "IfxStdIf.h"
 #include "IfxGtm.h"
 #include "IfxGtm_Cmu.h"
 #include "IfxPort.h"
 
-/* Enums for Pwm driver */
-typedef enum {
-    IfxGtm_Pwm_Alignment_edge = 0,
-    IfxGtm_Pwm_Alignment_center
-} IfxGtm_Pwm_Alignment;
+/* Forward/simple structs for ToutMap; keep ownership here as requested */
+typedef struct { uint32 u; } IfxGtm_Pwm_ToutMap;
 
-typedef enum {
-    IfxGtm_Pwm_SubModule_atom = 0,
-    IfxGtm_Pwm_SubModule_tom  = 1
-} IfxGtm_Pwm_SubModule;
+/* Enums first */
+typedef enum { IfxGtm_Pwm_Alignment_edge = 0, IfxGtm_Pwm_Alignment_center } IfxGtm_Pwm_Alignment;
 
-typedef enum {
-    IfxGtm_Pwm_SubModule_Ch_0 = 0,
-    IfxGtm_Pwm_SubModule_Ch_1,
-    IfxGtm_Pwm_SubModule_Ch_2,
-    IfxGtm_Pwm_SubModule_Ch_3,
-    IfxGtm_Pwm_SubModule_Ch_4,
-    IfxGtm_Pwm_SubModule_Ch_5,
-    IfxGtm_Pwm_SubModule_Ch_6,
-    IfxGtm_Pwm_SubModule_Ch_7,
-    IfxGtm_Pwm_SubModule_Ch_8,
-    IfxGtm_Pwm_SubModule_Ch_9,
-    IfxGtm_Pwm_SubModule_Ch_10,
-    IfxGtm_Pwm_SubModule_Ch_11,
-    IfxGtm_Pwm_SubModule_Ch_12,
-    IfxGtm_Pwm_SubModule_Ch_13,
-    IfxGtm_Pwm_SubModule_Ch_14,
-    IfxGtm_Pwm_SubModule_Ch_15
-} IfxGtm_Pwm_SubModule_Ch;
+typedef enum { IfxGtm_Pwm_SubModule_tom = 0, IfxGtm_Pwm_SubModule_atom = 1 } IfxGtm_Pwm_SubModule;
 
-typedef enum {
-    IfxGtm_Pwm_State_stopped = 0,
-    IfxGtm_Pwm_State_running
-} IfxGtm_Pwm_State;
+typedef enum { IfxGtm_Pwm_SubModule_Ch_0 = 0, IfxGtm_Pwm_SubModule_Ch_1, IfxGtm_Pwm_SubModule_Ch_2, IfxGtm_Pwm_SubModule_Ch_3, IfxGtm_Pwm_SubModule_Ch_4, IfxGtm_Pwm_SubModule_Ch_5, IfxGtm_Pwm_SubModule_Ch_6, IfxGtm_Pwm_SubModule_Ch_7 } IfxGtm_Pwm_SubModule_Ch;
 
-/* Avoid cross-enum conversion issues: union fields use uint32 */
-typedef union {
-    uint32 atom; /* accept IfxGtm_Cmu_Fxclk_x or IfxGtm_Cmu_Clk_x */
-    uint32 tom;  /* accept IfxGtm_Cmu_Clk_x */
-} IfxGtm_Pwm_ClockSource;
+typedef enum { IfxGtm_Pwm_State_stopped = 0, IfxGtm_Pwm_State_running } IfxGtm_Pwm_State;
 
-/* Basic structures referenced by ChannelConfig */
-typedef struct {
-    uint32 dummy;
-} IfxGtm_Pwm_DtmConfig;
+/* Simple structs and config helpers */
+typedef struct { IfxGtm_Dtm_ClockSource clockSource; } IfxGtm_Pwm_DtmConfig;
+
+typedef struct { uint8 irqPriority; IfxSrc_Tos isrProvider; } IfxGtm_Pwm_InterruptConfig;
 
 typedef struct {
-    uint32 dummy;
-} IfxGtm_Pwm_InterruptConfig;
-
-typedef struct {
-    uint32 dummy;
+    IfxPort_OutputMode outputMode;
+    IfxPort_PadDriver  padDriver;
 } IfxGtm_Pwm_OutputConfig;
 
-/* ChannelConfig completeness */
+typedef struct { uint8 port; uint8 pin; } IfxGtm_Pwm_Pin;
+
+/* Channel and ChannelConfig (complete fields as required) */
 typedef struct {
     IfxGtm_Pwm_SubModule_Ch     timerCh;
-    float32                     phase;
-    float32                     duty;
+    float32                      phase;
+    float32                      duty;
     IfxGtm_Pwm_DtmConfig       *dtm;
     IfxGtm_Pwm_OutputConfig    *output;
-    void                       *mscOut;     /* MSC config pointer */
+    void                        *mscOut;
     IfxGtm_Pwm_InterruptConfig *interrupt;
 } IfxGtm_Pwm_ChannelConfig;
 
-/* ToutMap type used by production/pin symbols */
 typedef struct {
-    uint32 module;  /* atom/tom id */
-    uint32 channel; /* channel id */
-    uint32 tout;    /* TOUT index */
-} IfxGtm_Pwm_ToutMap;
+    IfxGtm_Pwm_SubModule_Ch ch;
+} IfxGtm_Pwm_Channel;
 
-/* Config completeness */
+/* ClockSource union (uint32 fields to avoid enum-conversion issues) */
+typedef union {
+    uint32 atom;
+    uint32 tom;
+} IfxGtm_Pwm_ClockSource;
+
+/* Complete Config struct as required */
 typedef struct {
     Ifx_GTM                   *gtmSfr;
     IfxGtm_Pwm_SubModule       subModule;
@@ -93,7 +66,10 @@ typedef struct {
     IfxGtm_Dtm_ClockSource     dtmClockSource;
 } IfxGtm_Pwm_Config;
 
-/* Common missing stub often required by builds */
-void IfxGtm_Pwm_initChannelConfig(void *cfg);
+/* Driver handle (minimal) */
+typedef struct { IfxGtm_Pwm_State state; } IfxGtm_Pwm;
+
+/* Function declarations used by tests/build */
+void IfxGtm_Pwm_initChannelConfig(IfxGtm_Pwm_ChannelConfig *config);
 
 #endif /* IFXGTM_PWM_H */
