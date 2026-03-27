@@ -1,13 +1,8 @@
 {
-  "attempt": 5,
-  "phase_attempt": 2,
+  "type": "llm_response",
   "phase": "production",
-  "success": false,
-  "errors": [
-    "'interruptGtmTomPwm' defined but not used [-Werror=unused-function]",
-    "implicit declaration of function 'mock_IfxGtm_Cmu_setGclkFrequency_getCallCount'; did you mean 'mock_IfxGtm_Cmu_getModuleFrequency_getCallCount'? [-Wimplicit-function-declaration]",
-    "implicit declaration of function 'mock_IfxGtm_Cmu_setClkFrequency_getCallCount'; did you mean 'mock_IfxGtm_Cmu_getModuleFrequency_getCallCount'? [-Wimplicit-function-declaration]"
-  ],
-  "timestamp": "2026-03-28T04:40:22.082589",
-  "project_name": "Generate_C_code_for_KIT_A2G_TC387_5V_TFT_TC3xx_t_r_20260328_042943"
+  "attempt": 6,
+  "phase_attempt": 3,
+  "response_length": 10783,
+  "timestamp": "2026-03-28T04:42:04.160631"
 }
