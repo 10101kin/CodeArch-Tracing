@@ -1,3 +1,129 @@
-Status: SUCCESS
+Status: FAILED
 
-LLM response for production phase (attempt 7), 12235 chars
+============================================================
+TDD CODE GENERATION - ATTEMPT STATUS
+============================================================
+Phase: production
+Attempt: 7
+Status: FAILED
+Timestamp: 2026-03-27 18:45:58
+Files generated: 2
+
+============================================================
+
+ERRORS:
+
+1. unknown type name 'IfxEgtm_Pwm_Channel'; did you mean 'IfxEgtm_Pwm_State'?
+
+2. unknown type name 'IfxEgtm_Pwm_Channel'; did you mean 'IfxEgtm_Pwm_Config'?
+
+3. unknown type name 'IfxEgtm_Pwm_Channel'; did you mean 'IfxEgtm_Pwm_Config'?
+
+4. 'IfxEgtm_ATOM0_0_TOUT0_P02_0_OUT' undeclared (first use in this function); did you mean 'IfxEgtm_ATOM0_0N_TOUT81_P14_1_OUT'?
+
+5. 'IfxEgtm_ATOM0_0N_TOUT7_P02_7_OUT' undeclared (first use in this function); did you mean 'IfxEgtm_ATOM0_0N_TOUT81_P14_1_OUT'?
+
+6. 'IfxEgtm_ATOM0_0N_TOUT1_P02_1_OUT' undeclared (first use in this function); did you mean 'IfxEgtm_ATOM0_0N_TOUT81_P14_1_OUT'?
+
+7. 'IfxEgtm_ATOM0_0N_TOUT33_P33_11_OUT' undeclared (first use in this function); did you mean 'IfxEgtm_ATOM0_0N_TOUT81_P14_1_OUT'?
+
+8. implicit conversion from 'enum <anonymous>' to 'IfxEgtm_Cmu_Clk' [-Werror=enum-conversion]
+
+9. implicit declaration of function 'IfxEgtm_Pwm_init'; did you mean 'IfxEgtm_Pwm_initConfig'? [-Wimplicit-function-declaration]
+
+10. unknown type name 'IfxEgtm_Pwm_Channel'; did you mean 'IfxEgtm_Pwm_State'?
+
+============================================================
+BUILD RESULT:
+{
+  "success": false,
+  "errors": [
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_ume66j1l\\include/IfxEgtm_Pwm.h",
+      "line": 182,
+      "category": "error",
+      "message": "unknown type name 'IfxEgtm_Pwm_Channel'; did you mean 'IfxEgtm_Pwm_State'?"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_ume66j1l\\include/IfxEgtm_Pwm.h",
+      "line": 227,
+      "category": "error",
+      "message": "unknown type name 'IfxEgtm_Pwm_Channel'; did you mean 'IfxEgtm_Pwm_Config'?"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_ume66j1l\\src\\egtm_atom_3_phase_inverter_pwm.c",
+      "line": 85,
+      "category": "error",
+      "message": "unknown type name 'IfxEgtm_Pwm_Channel'; did you mean 'IfxEgtm_Pwm_Config'?"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_ume66j1l\\src\\egtm_atom_3_phase_inverter_pwm.c",
+      "line": 55,
+      "category": "error",
+      "message": "'IfxEgtm_ATOM0_0_TOUT0_P02_0_OUT' undeclared (first use in this function); did you mean 'IfxEgtm_ATOM0_0N_TOUT81_P14_1_OUT'?"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_ume66j1l\\src\\egtm_atom_3_phase_inverter_pwm.c",
+      "line": 56,
+      "category": "error",
+      "message": "'IfxEgtm_ATOM0_0N_TOUT7_P02_7_OUT' undeclared (first use in this function); did you mean 'IfxEgtm_ATOM0_0N_TOUT81_P14_1_OUT'?"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_ume66j1l\\src\\egtm_atom_3_phase_inverter_pwm.c",
+      "line": 58,
+      "category": "error",
+      "message": "'IfxEgtm_ATOM0_0N_TOUT1_P02_1_OUT' undeclared (first use in this function); did you mean 'IfxEgtm_ATOM0_0N_TOUT81_P14_1_OUT'?"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_ume66j1l\\src\\egtm_atom_3_phase_inverter_pwm.c",
+      "line": 60,
+      "category": "error",
+      "message": "'IfxEgtm_ATOM0_0N_TOUT33_P33_11_OUT' undeclared (first use in this function); did you mean 'IfxEgtm_ATOM0_0N_TOUT81_P14_1_OUT'?"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_ume66j1l\\src\\egtm_atom_3_phase_inverter_pwm.c",
+      "line": 190,
+      "category": "error",
+      "message": "implicit conversion from 'enum <anonymous>' to 'IfxEgtm_Cmu_Clk' [-Werror=enum-conversion]"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_ume66j1l\\src\\egtm_atom_3_phase_inverter_pwm.c",
+      "line": 211,
+      "category": "error",
+      "message": "implicit declaration of function 'IfxEgtm_Pwm_init'; did you mean 'IfxEgtm_Pwm_initConfig'? [-Wimplicit-function-declaration]"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_ume66j1l\\include/IfxEgtm_Pwm.h",
+      "line": 182,
+      "category": "error",
+      "message": "unknown type name 'IfxEgtm_Pwm_Channel'; did you mean 'IfxEgtm_Pwm_State'?"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_ume66j1l\\include/IfxEgtm_Pwm.h",
+      "line": 227,
+      "category": "error",
+      "message": "unknown type name 'IfxEgtm_Pwm_Channel'; did you mean 'IfxEgtm_Pwm_Config'?"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_ume66j1l\\mocks\\mock_egtm_atom_3_phase_inverter_pwm.c",
+      "line": 266,
+      "category": "error",
+      "message": "unknown type name 'IfxEgtm_Pwm_Channel'; did you mean 'IfxEgtm_Pwm_Config'?"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_ume66j1l\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+      "line": 107,
+      "category": "error",
+      "message": "'mock_IfxEgtm_Pwm_updateChannelsDeadTimeImmediate_lastDtRising' undeclared (first use in this function); did you mean 'mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtRising'?"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_ume66j1l\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+      "line": 110,
+      "category": "error",
+      "message": "'mock_IfxEgtm_Pwm_updateChannelsDeadTimeImmediate_lastDtFalling' undeclared (first use in this function); did you mean 'mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtFalling'?"
+    }
+  ],
+  "warnings": [],
+  "stderr": "In file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_ume66j1l\\src\\egtm_atom_3_phase_inverter_pwm.c:19:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_ume66j1l\\include/IfxEgtm_Pwm.h:182:5: error: unknown type name 'IfxEgtm_Pwm_Channel'; did you mean 'IfxEgtm_Pwm_State'?\n  182 |     IfxEgtm_Pwm_Channel      *channels;\n      |     ^~~~~~~~~~~~~~~~~~~\n      |     IfxEgtm_Pwm_State\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_ume66j1l\\include/IfxEgtm_Pwm.h:227:41: error: unknown type name 'IfxEgtm_Pwm_Channel'; did you mean 'IfxEgtm_Pwm_Config'?\n  227 | void IfxEgtm_Pwm_init(IfxEgtm_Pwm *pwm, IfxEgtm_Pwm_Channel *channels, IfxEgtm_Pwm_Config *config);\n      |                                         ^~~~~~~~~~~~~~~~~~~\n      |                                         IfxEgtm_Pwm_Config\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_ume66j1l\\src\\egtm_atom_3_phase_inverter_pwm.c:85:5: error: unknown type name 'IfxEgtm_Pwm_Channel'; did you mean 'IfxEgtm_Pwm_Config'?\n   85 |     IfxEgtm_Pwm_Channel      channels[NUM_OF_CHANNELS];         /* persistent channel handles */\n      |     ^~~~~~~~~~~~~~~~~~~\n      |     IfxEgtm_Pwm_Config\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_ume66j1l\\src\\egtm_atom_3_phase_inverter_pwm.c: In function 'initEgtmAtom3phInv':\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_ume66j1l\\src\\egtm_atom_3_phase_inverter_pwm.c:55:24: error: 'IfxEgtm_ATOM0_0_TOUT0_P02_0_OUT' undeclared (first use in this function); did you mean 'IfxEgtm_ATOM0_0N_TOUT81_P14_1_OUT'?\n   55 | #define PHASE_U_HS   (&IfxEgtm_ATOM0_0_TOUT0_P02_0_OUT)\n      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_ume66j1l\\src\\egtm_atom_3_phase_inverter_pwm.c:114:41: note: in expansion of macro 'PHASE_U_HS'\n  114 |     output[0].pin                     = PHASE_U_HS;                  /* high-side */\n      |                                         ^~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_ume66j1l\\src\\egtm_atom_3_phase_inverter_pwm.c:55:24: note: each undeclared identifier is reported only once for each function it appears in\n   55 | #define PHASE_U_HS   (&IfxEgtm_ATOM0_0_TOUT0_P02_0_OUT)\n      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_ume66j1l\\src\\egtm_atom_3_phase_inverter_pwm.c:114:41: note: in expansion of macro 'PHASE_U_HS'\n  114 |     output[0].pin                     = PHASE_U_HS;                  /* high-side */\n      |                                         ^~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_ume66j1l\\src\\egtm_atom_3_phase_inverter_pwm.c:56:24: error: 'IfxEgtm_ATOM0_0N_TOUT7_P02_7_OUT' undeclared (first use in this function); did you mean 'IfxEgtm_ATOM0_0N_TOUT81_P14_1_OUT'?\n   56 | #define PHASE_U_LS   (&IfxEgtm_ATOM0_0N_TOUT7_P02_7_OUT)\n      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_ume66j1l\\src\\egtm_atom_3_phase_inverter_pwm.c:115:41: note: in expansion of macro 'PHASE_U_LS'\n  115 |     output[0].complementaryPin        = PHASE_U_LS;                  /* low-side  */\n      |                                         ^~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_ume66j1l\\src\\egtm_atom_3_phase_inverter_pwm.c:58:24: error: 'IfxEgtm_ATOM0_0N_TOUT1_P02_1_OUT' undeclared (first use in this function); did you mean 'IfxEgtm_ATOM0_0N_TOUT81_P14_1_OUT'?\n   58 | #define PHASE_V_LS   (&IfxEgtm_ATOM0_0N_TOUT1_P02_1_OUT)  /* placeholder: update to ATOM1 */\n      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_ume66j1l\\src\\egtm_atom_3_phase_inverter_pwm.c:123:41: note: in expansion of macro 'PHASE_V_LS'\n  123 |     output[1].complementaryPin        = PHASE_V_LS;\n      |                                         ^~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_ume66j1l\\src\\egtm_atom_3_phase_inverter_pwm.c:60:24: error: 'IfxEgtm_ATOM0_0N_TOUT33_P33_11_OUT' undeclared (first use in this function); did you mean 'IfxEgtm_ATOM0_0N_TOUT81_P14_1_OUT'?\n   60 | #define PHASE_W_LS   (&IfxEgtm_ATOM0_0N_TOUT33_P33_11_OUT)/* placeholder: update to ATOM1 */\n      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_ume66j1l\\src\\egtm_atom_3_phase_inverter_pwm.c:131:41: note: in expansion of macro 'PHASE_W_LS'\n  131 |     output[2].complementaryPin        = PHASE_W_LS;\n      |                                         ^~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_ume66j1l\\src\\egtm_atom_3_phase_inverter_pwm.c:190:39: error: implicit conversion from 'enum <anonymous>' to 'IfxEgtm_Cmu_Clk' [-Werror=enum-conversion]\n  190 |     config.clockSource.atom           = IfxEgtm_Cmu_Fxclk_0;         /* FXCLK0 */\n      |                                       ^\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_ume66j1l\\src\\egtm_atom_3_phase_inverter_pwm.c:211:5: error: implicit declaration of function 'IfxEgtm_Pwm_init'; did you mean 'IfxEgtm_Pwm_initConfig'? [-Wimplicit-function-declaration]\n  211 |     IfxEgtm_Pwm_init(&g_egtmAtom3phInv.pwm, &g_egtmAtom3phInv.channels[0], &config);\n      |     ^~~~~~~~~~~~~~~~\n      |     IfxEgtm_Pwm_initConfig\ncc1.exe: all warnings being treated as errors\n\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_ume66j1l\\mocks\\mock_egtm_atom_3_phase_inverter_pwm.c:4:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_ume66j1l\\include/IfxEgtm_Pwm.h:182:5: error: unknown type name 'IfxEgtm_Pwm_Channel'; did you mean 'IfxEgtm_Pwm_State'?\n  182 |     IfxEgtm_Pwm_Channel      *channels;\n      |     ^~~~~~~~~~~~~~~~~~~\n      |     IfxEgtm_Pwm_State\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_ume66j1l\\include/IfxEgtm_Pwm.h:227:41: error: unknown type name 'IfxEgtm_Pwm_Channel'; did you mean 'IfxEgtm_Pwm_Config'?\n  227 | void IfxEgtm_Pwm_init(IfxEgtm_Pwm *pwm, IfxEgtm_Pwm_Channel *channels, IfxEgtm_Pwm_Config *config);\n      |                                         ^~~~~~~~~~~~~~~~~~~\n      |                                         IfxEgtm_Pwm_Config\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_ume66j1l\\mocks\\mock_egtm_atom_3_phase_inverter_pwm.c:266:41: error: unknown type name 'IfxEgtm_Pwm_Channel'; did you mean 'IfxEgtm_Pwm_Config'?\n  266 | void IfxEgtm_Pwm_init(IfxEgtm_Pwm *pwm, IfxEgtm_Pwm_Channel *channels, IfxEgtm_Pwm_Config *config)\n      |                                         ^~~~~~~~~~~~~~~~~~~\n      |                                         IfxEgtm_Pwm_Config\n\nIn file included from C:\\Users\\extsiyv\\Desktop\\Infineon\\Workstream_3\\agentic_workflow_Infineon\\unity/unity.h:22,\n                 from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_ume66j1l\\test\\test_egtm_atom_3_phase_inverter_pwm.c:1:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_ume66j1l\\test\\test_egtm_atom_3_phase_inverter_pwm.c: In function 'test_TC_G2_002_init_sets_initial_duties_and_deadtime':\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_ume66j1l\\test\\test_egtm_atom_3_phase_inverter_pwm.c:107:79: error: 'mock_IfxEgtm_Pwm_updateChannelsDeadTimeImmediate_lastDtRising' undeclared (first use in this function); did you mean 'mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtRising'?\n  107 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, UT_DEADTIME_RISING_S,  mock_IfxEgtm_Pwm_updateChannelsDeadTimeImmediate_lastDtRising[0], \"DT rising ch0 must be 1.0 us\");\n      |                                                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\Desktop\\Infineon\\Workstream_3\\agentic_workflow_Infineon\\unity/unity_internals.h:1119:183: note: in definition of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'\n 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))\n      |                                                                                                                                                                                       ^~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_ume66j1l\\test\\test_egtm_atom_3_phase_inverter_pwm.c:107:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN_MESSAGE'\n  107 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, UT_DEADTIME_RISING_S,  mock_IfxEgtm_Pwm_updateChannelsDeadTimeImmediate_lastDtRising[0], \"DT rising ch0 must be 1.0 us\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_ume66j1l\\test\\test_egtm_atom_3_phase_inverter_pwm.c:107:79: note: each undeclared identifier is reported only once for each function it appears in\n  107 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, UT_DEADTIME_RISING_S,  mock_IfxEgtm_Pwm_updateChannelsDeadTimeImmediate_lastDtRising[0], \"DT rising ch0 must be 1.0 us\");\n      |                                                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\Desktop\\Infineon\\Workstream_3\\agentic_workflow_Infineon\\unity/unity_internals.h:1119:183: note: in definition of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'\n 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))\n      |                                                                                                                                                                                       ^~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_ume66j1l\\test\\test_egtm_atom_3_phase_inverter_pwm.c:107:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN_MESSAGE'\n  107 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, UT_DEADTIME_RISING_S,  mock_IfxEgtm_Pwm_updateChannelsDeadTimeImmediate_lastDtRising[0], \"DT rising ch0 must be 1.0 us\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_ume66j1l\\test\\test_egtm_atom_3_phase_inverter_pwm.c:110:79: error: 'mock_IfxEgtm_Pwm_updateChannelsDeadTimeImmediate_lastDtFalling' undeclared (first use in this function); did you mean 'mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtFalling'?\n  110 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, UT_DEADTIME_FALLING_S, mock_IfxEgtm_Pwm_updateChannelsDeadTimeImmediate_lastDtFalling[0], \"DT falling ch0 must be 1.0 us\");\n      |                                                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\Desktop\\Infineon\\Workstream_3\\agentic_workflow_Infineon\\unity/unity_internals.h:1119:183: note: in definition of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'\n 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))\n      |                                                                                                                                                                                       ^~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_ume66j1l\\test\\test_egtm_atom_3_phase_inverter_pwm.c:110:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN_MESSAGE'\n  110 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, UT_DEADTIME_FALLING_S, mock_IfxEgtm_Pwm_updateChannelsDeadTimeImmediate_lastDtFalling[0], \"DT falling ch0 must be 1.0 us\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n",
+  "stdout": ""
+}

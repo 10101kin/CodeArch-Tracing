@@ -1,8 +1,20 @@
 {
-  "type": "llm_response",
-  "phase": "production",
   "attempt": 7,
   "phase_attempt": 3,
-  "response_length": 12235,
-  "timestamp": "2026-03-27T18:45:52.394586"
+  "phase": "production",
+  "success": false,
+  "errors": [
+    "unknown type name 'IfxEgtm_Pwm_Channel'; did you mean 'IfxEgtm_Pwm_State'?",
+    "unknown type name 'IfxEgtm_Pwm_Channel'; did you mean 'IfxEgtm_Pwm_Config'?",
+    "unknown type name 'IfxEgtm_Pwm_Channel'; did you mean 'IfxEgtm_Pwm_Config'?",
+    "'IfxEgtm_ATOM0_0_TOUT0_P02_0_OUT' undeclared (first use in this function); did you mean 'IfxEgtm_ATOM0_0N_TOUT81_P14_1_OUT'?",
+    "'IfxEgtm_ATOM0_0N_TOUT7_P02_7_OUT' undeclared (first use in this function); did you mean 'IfxEgtm_ATOM0_0N_TOUT81_P14_1_OUT'?",
+    "'IfxEgtm_ATOM0_0N_TOUT1_P02_1_OUT' undeclared (first use in this function); did you mean 'IfxEgtm_ATOM0_0N_TOUT81_P14_1_OUT'?",
+    "'IfxEgtm_ATOM0_0N_TOUT33_P33_11_OUT' undeclared (first use in this function); did you mean 'IfxEgtm_ATOM0_0N_TOUT81_P14_1_OUT'?",
+    "implicit conversion from 'enum <anonymous>' to 'IfxEgtm_Cmu_Clk' [-Werror=enum-conversion]",
+    "implicit declaration of function 'IfxEgtm_Pwm_init'; did you mean 'IfxEgtm_Pwm_initConfig'? [-Wimplicit-function-declaration]",
+    "unknown type name 'IfxEgtm_Pwm_Channel'; did you mean 'IfxEgtm_Pwm_State'?"
+  ],
+  "timestamp": "2026-03-27T18:45:58.108847",
+  "project_name": "Generate_code_to_migrate_the_TC387_GTM_TOM_IfxGtm_r_20260327_182112"
 }
