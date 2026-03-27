@@ -1,0 +1,6 @@
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_anali4_i\src\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTom3phInv':
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_anali4_i\src\gtm_tom_3_phase_inverter_pwm.c:195:35: error: 'IfxGtm_Dtm_ClockSource_cmuClock0' undeclared (first use in this function); did you mean 'IfxGtm_Dtm_ClockSource_clk0'?
+  195 |     config.dtmClockSource       = IfxGtm_Dtm_ClockSource_cmuClock0;
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                   IfxGtm_Dtm_ClockSource_clk0
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_anali4_i\src\gtm_tom_3_phase_inverter_pwm.c:195:35: note: each undeclared identifier is reported only once for each function it appears in
