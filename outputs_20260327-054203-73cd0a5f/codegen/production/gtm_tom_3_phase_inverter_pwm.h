@@ -1,19 +1,23 @@
 /*
  * gtm_tom_3_phase_inverter_pwm.h
- * Public API for GTM TOM three-phase inverter PWM driver (TC3xx)
+ *
+ * Public API for GTM TOM 3-Phase Inverter PWM driver (TC3xx).
+ *
+ * Note:
+ *  - No includes, typedefs, or macros here per project rules.
  */
 #ifndef GTM_TOM_3_PHASE_INVERTER_PWM_H
 #define GTM_TOM_3_PHASE_INVERTER_PWM_H
 
-/*
- * Initialize GTM TOM1 three-phase complementary PWM (20 kHz, center-aligned).
- */
-void initGtmTomPwm(void);
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-/*
- * Runtime update of three-phase PWM on-times using a fixed-step ramp with
- * synchronous shadow transfer at period boundary.
- */
+void initGtmTomPwm(void);
 void updateGtmTomPwmDutyCycles(void);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* GTM_TOM_3_PHASE_INVERTER_PWM_H */

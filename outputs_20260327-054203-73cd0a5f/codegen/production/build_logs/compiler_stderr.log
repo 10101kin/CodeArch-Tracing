@@ -1,368 +1,322 @@
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\src\gtm_tom_3_phase_inverter_pwm.c: In function 'interruptGtmAtom':
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\src\gtm_tom_3_phase_inverter_pwm.c:64:5: error: implicit declaration of function 'IfxPort_togglePin' [-Wimplicit-function-declaration]
-   64 |     IfxPort_togglePin(LED);
-      |     ^~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\src\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTomPwm':
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\src\gtm_tom_3_phase_inverter_pwm.c:101:30: error: 'IfxGtm_Tom_Ch_ClkSrc_cmuFxclk0' undeclared (first use in this function); did you mean 'IfxGtm_Tom_Ch_ClkSrc_cmuClk0'?
-  101 |         tcfg.clock         = IfxGtm_Tom_Ch_ClkSrc_cmuFxclk0;  /* FXCLK0 */
-      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      |                              IfxGtm_Tom_Ch_ClkSrc_cmuClk0
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\src\gtm_tom_3_phase_inverter_pwm.c:101:30: note: each undeclared identifier is reported only once for each function it appears in
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\src\gtm_tom_3_phase_inverter_pwm.c:42:22: error: initialization of 'const IfxGtm_Tom_ToutMap *' from incompatible pointer type 'IfxGtm_Pwm_ToutMap *' [-Wincompatible-pointer-types]
-   42 | #define PHASE_U_HS   &IfxGtm_TOM1_2_TOUT12_P00_3_OUT   /* TOM1 CH2 -> P00.3 */
-      |                      ^
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\src\gtm_tom_3_phase_inverter_pwm.c:111:59: note: in expansion of macro 'PHASE_U_HS'
-  111 |     const IfxGtm_Tom_ToutMap *ccx[PWM_CHANNELS_COUNT] = { PHASE_U_HS, PHASE_V_HS, PHASE_W_HS };
-      |                                                           ^~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\src\gtm_tom_3_phase_inverter_pwm.c:42:22: note: (near initialization for 'ccx[0]')
-   42 | #define PHASE_U_HS   &IfxGtm_TOM1_2_TOUT12_P00_3_OUT   /* TOM1 CH2 -> P00.3 */
-      |                      ^
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\src\gtm_tom_3_phase_inverter_pwm.c:111:59: note: in expansion of macro 'PHASE_U_HS'
-  111 |     const IfxGtm_Tom_ToutMap *ccx[PWM_CHANNELS_COUNT] = { PHASE_U_HS, PHASE_V_HS, PHASE_W_HS };
-      |                                                           ^~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\src\gtm_tom_3_phase_inverter_pwm.c:44:22: error: initialization of 'const IfxGtm_Tom_ToutMap *' from incompatible pointer type 'IfxGtm_Pwm_ToutMap *' [-Wincompatible-pointer-types]
-   44 | #define PHASE_V_HS   &IfxGtm_TOM1_4_TOUT14_P00_5_OUT   /* TOM1 CH4 -> P00.5 */
-      |                      ^
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\src\gtm_tom_3_phase_inverter_pwm.c:111:71: note: in expansion of macro 'PHASE_V_HS'
-  111 |     const IfxGtm_Tom_ToutMap *ccx[PWM_CHANNELS_COUNT] = { PHASE_U_HS, PHASE_V_HS, PHASE_W_HS };
-      |                                                                       ^~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\src\gtm_tom_3_phase_inverter_pwm.c:44:22: note: (near initialization for 'ccx[1]')
-   44 | #define PHASE_V_HS   &IfxGtm_TOM1_4_TOUT14_P00_5_OUT   /* TOM1 CH4 -> P00.5 */
-      |                      ^
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\src\gtm_tom_3_phase_inverter_pwm.c:111:71: note: in expansion of macro 'PHASE_V_HS'
-  111 |     const IfxGtm_Tom_ToutMap *ccx[PWM_CHANNELS_COUNT] = { PHASE_U_HS, PHASE_V_HS, PHASE_W_HS };
-      |                                                                       ^~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\src\gtm_tom_3_phase_inverter_pwm.c:46:22: error: initialization of 'const IfxGtm_Tom_ToutMap *' from incompatible pointer type 'IfxGtm_Pwm_ToutMap *' [-Wincompatible-pointer-types]
-   46 | #define PHASE_W_HS   &IfxGtm_TOM1_6_TOUT16_P00_7_OUT   /* TOM1 CH6 -> P00.7 */
-      |                      ^
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\src\gtm_tom_3_phase_inverter_pwm.c:111:83: note: in expansion of macro 'PHASE_W_HS'
-  111 |     const IfxGtm_Tom_ToutMap *ccx[PWM_CHANNELS_COUNT] = { PHASE_U_HS, PHASE_V_HS, PHASE_W_HS };
-      |                                                                                   ^~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\src\gtm_tom_3_phase_inverter_pwm.c:46:22: note: (near initialization for 'ccx[2]')
-   46 | #define PHASE_W_HS   &IfxGtm_TOM1_6_TOUT16_P00_7_OUT   /* TOM1 CH6 -> P00.7 */
-      |                      ^
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\src\gtm_tom_3_phase_inverter_pwm.c:111:83: note: in expansion of macro 'PHASE_W_HS'
-  111 |     const IfxGtm_Tom_ToutMap *ccx[PWM_CHANNELS_COUNT] = { PHASE_U_HS, PHASE_V_HS, PHASE_W_HS };
-      |                                                                                   ^~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\src\gtm_tom_3_phase_inverter_pwm.c:43:22: error: initialization of 'const IfxGtm_Tom_ToutMap *' from incompatible pointer type 'IfxGtm_Pwm_ToutMap *' [-Wincompatible-pointer-types]
-   43 | #define PHASE_U_LS   &IfxGtm_TOM1_1_TOUT11_P00_2_OUT   /* TOM1 CH1 -> P00.2 */
-      |                      ^
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\src\gtm_tom_3_phase_inverter_pwm.c:112:59: note: in expansion of macro 'PHASE_U_LS'
-  112 |     const IfxGtm_Tom_ToutMap *cCx[PWM_CHANNELS_COUNT] = { PHASE_U_LS, PHASE_V_LS, PHASE_W_LS };
-      |                                                           ^~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\src\gtm_tom_3_phase_inverter_pwm.c:43:22: note: (near initialization for 'cCx[0]')
-   43 | #define PHASE_U_LS   &IfxGtm_TOM1_1_TOUT11_P00_2_OUT   /* TOM1 CH1 -> P00.2 */
-      |                      ^
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\src\gtm_tom_3_phase_inverter_pwm.c:112:59: note: in expansion of macro 'PHASE_U_LS'
-  112 |     const IfxGtm_Tom_ToutMap *cCx[PWM_CHANNELS_COUNT] = { PHASE_U_LS, PHASE_V_LS, PHASE_W_LS };
-      |                                                           ^~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\src\gtm_tom_3_phase_inverter_pwm.c:45:22: error: initialization of 'const IfxGtm_Tom_ToutMap *' from incompatible pointer type 'IfxGtm_Pwm_ToutMap *' [-Wincompatible-pointer-types]
-   45 | #define PHASE_V_LS   &IfxGtm_TOM1_3_TOUT13_P00_4_OUT   /* TOM1 CH3 -> P00.4 */
-      |                      ^
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\src\gtm_tom_3_phase_inverter_pwm.c:112:71: note: in expansion of macro 'PHASE_V_LS'
-  112 |     const IfxGtm_Tom_ToutMap *cCx[PWM_CHANNELS_COUNT] = { PHASE_U_LS, PHASE_V_LS, PHASE_W_LS };
-      |                                                                       ^~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\src\gtm_tom_3_phase_inverter_pwm.c:45:22: note: (near initialization for 'cCx[1]')
-   45 | #define PHASE_V_LS   &IfxGtm_TOM1_3_TOUT13_P00_4_OUT   /* TOM1 CH3 -> P00.4 */
-      |                      ^
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\src\gtm_tom_3_phase_inverter_pwm.c:112:71: note: in expansion of macro 'PHASE_V_LS'
-  112 |     const IfxGtm_Tom_ToutMap *cCx[PWM_CHANNELS_COUNT] = { PHASE_U_LS, PHASE_V_LS, PHASE_W_LS };
-      |                                                                       ^~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\src\gtm_tom_3_phase_inverter_pwm.c:47:22: error: initialization of 'const IfxGtm_Tom_ToutMap *' from incompatible pointer type 'IfxGtm_Pwm_ToutMap *' [-Wincompatible-pointer-types]
-   47 | #define PHASE_W_LS   &IfxGtm_TOM1_5_TOUT15_P00_6_OUT   /* TOM1 CH5 -> P00.6 */
-      |                      ^
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\src\gtm_tom_3_phase_inverter_pwm.c:112:83: note: in expansion of macro 'PHASE_W_LS'
-  112 |     const IfxGtm_Tom_ToutMap *cCx[PWM_CHANNELS_COUNT] = { PHASE_U_LS, PHASE_V_LS, PHASE_W_LS };
-      |                                                                                   ^~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\src\gtm_tom_3_phase_inverter_pwm.c:47:22: note: (near initialization for 'cCx[2]')
-   47 | #define PHASE_W_LS   &IfxGtm_TOM1_5_TOUT15_P00_6_OUT   /* TOM1 CH5 -> P00.6 */
-      |                      ^
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\src\gtm_tom_3_phase_inverter_pwm.c:112:83: note: in expansion of macro 'PHASE_W_LS'
-  112 |     const IfxGtm_Tom_ToutMap *cCx[PWM_CHANNELS_COUNT] = { PHASE_U_LS, PHASE_V_LS, PHASE_W_LS };
-      |                                                                                   ^~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\src\gtm_tom_3_phase_inverter_pwm.c:121:18: error: 'IfxStdIf_PwmHl_Config' has no member named 'deadtime'
-  121 |         pcfg.base.deadtime         = (PWM_DEADTIME_US * 1.0e-6f);     /* seconds */
-      |                  ^
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\src\gtm_tom_3_phase_inverter_pwm.c:122:18: error: 'IfxStdIf_PwmHl_Config' has no member named 'minPulse'
-  122 |         pcfg.base.minPulse         = (PWM_MIN_PULSE_US * 1.0e-6f);    /* seconds */
-      |                  ^
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\src\gtm_tom_3_phase_inverter_pwm.c:123:18: error: 'IfxStdIf_PwmHl_Config' has no member named 'outputMode'
-  123 |         pcfg.base.outputMode       = IfxPort_OutputMode_pushPull;
-      |                  ^
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\src\gtm_tom_3_phase_inverter_pwm.c:123:38: error: 'IfxPort_OutputMode_pushPull' undeclared (first use in this function)
-  123 |         pcfg.base.outputMode       = IfxPort_OutputMode_pushPull;
-      |                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\src\gtm_tom_3_phase_inverter_pwm.c:124:18: error: 'IfxStdIf_PwmHl_Config' has no member named 'padDriver'
-  124 |         pcfg.base.padDriver        = IfxPort_PadDriver_cmosAutomotiveSpeed1;
-      |                  ^
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\src\gtm_tom_3_phase_inverter_pwm.c:124:38: error: 'IfxPort_PadDriver_cmosAutomotiveSpeed1' undeclared (first use in this function)
-  124 |         pcfg.base.padDriver        = IfxPort_PadDriver_cmosAutomotiveSpeed1;
-      |                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\src\gtm_tom_3_phase_inverter_pwm.c:127:13: error: 'IfxGtm_Tom_PwmHl_Config' has no member named 'pins'
-  127 |         pcfg.pins.ccx              = ccx;                             /* HS */
-      |             ^
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\src\gtm_tom_3_phase_inverter_pwm.c:128:13: error: 'IfxGtm_Tom_PwmHl_Config' has no member named 'pins'
-  128 |         pcfg.pins.cCx              = cCx;                             /* LS */
-      |             ^
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\src\gtm_tom_3_phase_inverter_pwm.c:157:5: error: implicit declaration of function 'IfxPort_setPinModeOutput' [-Wimplicit-function-declaration]
-  157 |     IfxPort_setPinModeOutput(LED, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+In file included from C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\src\gtm_tom_3_phase_inverter_pwm.c:25:
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\include/IfxGtm_Tom_PwmHl.h:28:3: error: conflicting types for 'IfxGtm_Tom_ToutMap'; have 'struct <anonymous>'
+   28 | } IfxGtm_Tom_ToutMap;
+      |   ^~~~~~~~~~~~~~~~~~
+In file included from C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\include/IfxGtm_Tom_PwmHl.h:8:
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\include/IfxGtm_Tom_Timer.h:54:70: note: previous declaration of 'IfxGtm_Tom_ToutMap' with type 'IfxGtm_Tom_ToutMap'
+   54 | typedef struct { uint8 tom; uint8 channel; uint8 tout; uint8 port; } IfxGtm_Tom_ToutMap;
+      |                                                                      ^~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\include/IfxGtm_Tom_PwmHl.h:67:5: error: unknown type name 'IFX_CONST'
+   67 |     IFX_CONST IfxGtm_Tom_ToutMapP *ccx;      /* array of size base.channelCount/2 */
+      |     ^~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\include/IfxGtm_Tom_PwmHl.h:67:35: error: expected ':', ',', ';', '}' or '__attribute__' before '*' token
+   67 |     IFX_CONST IfxGtm_Tom_ToutMapP *ccx;      /* array of size base.channelCount/2 */
+      |                                   ^
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\src\gtm_tom_3_phase_inverter_pwm.c:27:10: fatal error: IfxGtm_PinMap.h: No such file or directory
+   27 | #include "IfxGtm_PinMap.h"
+      |          ^~~~~~~~~~~~~~~~~
+compilation terminated.
 
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G1_001_init_enables_gtm_and_fxclk_when_disabled':
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:23:5: error: 'mock_IfxGtm_isEnabled_returnValue' undeclared (first use in this function)
+In file included from C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\mocks\mock_gtm_tom_3_phase_inverter_pwm.c:5:
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\include/IfxGtm_Tom_PwmHl.h:28:3: error: conflicting types for 'IfxGtm_Tom_ToutMap'; have 'struct <anonymous>'
+   28 | } IfxGtm_Tom_ToutMap;
+      |   ^~~~~~~~~~~~~~~~~~
+In file included from C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\mocks\mock_gtm_tom_3_phase_inverter_pwm.c:4:
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\include/IfxGtm_Tom_Timer.h:54:70: note: previous declaration of 'IfxGtm_Tom_ToutMap' with type 'IfxGtm_Tom_ToutMap'
+   54 | typedef struct { uint8 tom; uint8 channel; uint8 tout; uint8 port; } IfxGtm_Tom_ToutMap;
+      |                                                                      ^~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\include/IfxGtm_Tom_PwmHl.h:67:5: error: unknown type name 'IFX_CONST'
+   67 |     IFX_CONST IfxGtm_Tom_ToutMapP *ccx;      /* array of size base.channelCount/2 */
+      |     ^~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\include/IfxGtm_Tom_PwmHl.h:67:35: error: expected ':', ',', ';', '}' or '__attribute__' before '*' token
+   67 |     IFX_CONST IfxGtm_Tom_ToutMapP *ccx;      /* array of size base.channelCount/2 */
+      |                                   ^
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\mocks\mock_gtm_tom_3_phase_inverter_pwm.c:162:6: error: redefinition of 'IfxGtm_Tom_Timer_stdIfTimerInit'
+  162 | void IfxGtm_Tom_Timer_stdIfTimerInit(void *stdIf, IfxGtm_Tom_Timer *driver) { (void)stdIf; (void)driver; }
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\mocks\mock_gtm_tom_3_phase_inverter_pwm.c:140:6: note: previous definition of 'IfxGtm_Tom_Timer_stdIfTimerInit' with type 'void(void *, IfxGtm_Tom_Timer *)'
+  140 | void IfxGtm_Tom_Timer_stdIfTimerInit(void *stdIf, IfxGtm_Tom_Timer *driver) { (void)stdIf; (void)driver; }
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\mocks\mock_gtm_tom_3_phase_inverter_pwm.c:221:1: error: unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?
+  221 | IfxGtm_Pwm_ToutMap IfxGtm_TOM1_1_TOUT11_P00_2_OUT = {0};
+      | ^~~~~~~~~~~~~~~~~~
+      | IfxGtm_Tom_ToutMap
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\mocks\mock_gtm_tom_3_phase_inverter_pwm.c:222:1: error: unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?
+  222 | IfxGtm_Pwm_ToutMap IfxGtm_TOM1_2_TOUT12_P00_3_OUT = {0};
+      | ^~~~~~~~~~~~~~~~~~
+      | IfxGtm_Tom_ToutMap
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\mocks\mock_gtm_tom_3_phase_inverter_pwm.c:223:1: error: unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?
+  223 | IfxGtm_Pwm_ToutMap IfxGtm_TOM1_3_TOUT13_P00_4_OUT = {0};
+      | ^~~~~~~~~~~~~~~~~~
+      | IfxGtm_Tom_ToutMap
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\mocks\mock_gtm_tom_3_phase_inverter_pwm.c:224:1: error: unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?
+  224 | IfxGtm_Pwm_ToutMap IfxGtm_TOM1_4_TOUT14_P00_5_OUT = {0};
+      | ^~~~~~~~~~~~~~~~~~
+      | IfxGtm_Tom_ToutMap
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\mocks\mock_gtm_tom_3_phase_inverter_pwm.c:225:1: error: unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?
+  225 | IfxGtm_Pwm_ToutMap IfxGtm_TOM1_5_TOUT15_P00_6_OUT = {0};
+      | ^~~~~~~~~~~~~~~~~~
+      | IfxGtm_Tom_ToutMap
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\mocks\mock_gtm_tom_3_phase_inverter_pwm.c:226:1: error: unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?
+  226 | IfxGtm_Pwm_ToutMap IfxGtm_TOM1_6_TOUT16_P00_7_OUT = {0};
+      | ^~~~~~~~~~~~~~~~~~
+      | IfxGtm_Tom_ToutMap
+
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G1_001_init_enables_gtm_and_fxclk_when_disabled':
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:23:5: error: 'mock_IfxGtm_isEnabled_returnValue' undeclared (first use in this function)
    23 |     mock_IfxGtm_isEnabled_returnValue = 0; /* GTM not enabled */
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:23:5: note: each undeclared identifier is reported only once for each function it appears in
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:24:5: error: 'mock_IfxGtm_isModuleSuspended_returnValue' undeclared (first use in this function)
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:23:5: note: each undeclared identifier is reported only once for each function it appears in
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:24:5: error: 'mock_IfxGtm_isModuleSuspended_returnValue' undeclared (first use in this function)
    24 |     mock_IfxGtm_isModuleSuspended_returnValue = 0;
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:25:5: error: 'mock_IfxGtm_Cmu_isFxClockEnabled_returnValue' undeclared (first use in this function)
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:25:5: error: 'mock_IfxGtm_Cmu_isFxClockEnabled_returnValue' undeclared (first use in this function)
    25 |     mock_IfxGtm_Cmu_isFxClockEnabled_returnValue = 0;
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:26:5: error: 'mock_IfxGtm_Cmu_getFxClkFrequency_returnValue' undeclared (first use in this function); did you mean 'mock_IfxGtm_Cmu_getModuleFrequency_returnValue'?
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:26:5: error: 'mock_IfxGtm_Cmu_getFxClkFrequency_returnValue' undeclared (first use in this function); did you mean 'mock_IfxGtm_Cmu_getModuleFrequency_returnValue'?
    26 |     mock_IfxGtm_Cmu_getFxClkFrequency_returnValue = UT_FXCLK0_HZ;
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       |     mock_IfxGtm_Cmu_getModuleFrequency_returnValue
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G1_002_init_skips_enable_when_gtm_already_enabled':
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:48:5: error: 'mock_IfxGtm_isEnabled_returnValue' undeclared (first use in this function)
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G1_002_init_skips_enable_when_gtm_already_enabled':
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:48:5: error: 'mock_IfxGtm_isEnabled_returnValue' undeclared (first use in this function)
    48 |     mock_IfxGtm_isEnabled_returnValue = 1; /* GTM already enabled */
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:49:5: error: 'mock_IfxGtm_isModuleSuspended_returnValue' undeclared (first use in this function)
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:49:5: error: 'mock_IfxGtm_isModuleSuspended_returnValue' undeclared (first use in this function)
    49 |     mock_IfxGtm_isModuleSuspended_returnValue = 0;
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:50:5: error: 'mock_IfxGtm_Cmu_isFxClockEnabled_returnValue' undeclared (first use in this function)
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:50:5: error: 'mock_IfxGtm_Cmu_isFxClockEnabled_returnValue' undeclared (first use in this function)
    50 |     mock_IfxGtm_Cmu_isFxClockEnabled_returnValue = 1; /* FXCLK already enabled */
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:51:5: error: 'mock_IfxGtm_Cmu_getFxClkFrequency_returnValue' undeclared (first use in this function); did you mean 'mock_IfxGtm_Cmu_getModuleFrequency_returnValue'?
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:51:5: error: 'mock_IfxGtm_Cmu_getFxClkFrequency_returnValue' undeclared (first use in this function); did you mean 'mock_IfxGtm_Cmu_getModuleFrequency_returnValue'?
    51 |     mock_IfxGtm_Cmu_getFxClkFrequency_returnValue = UT_FXCLK0_HZ;
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       |     mock_IfxGtm_Cmu_getModuleFrequency_returnValue
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G2_001_init_sets_frequency_channels_and_deadtime_correctly':
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:72:5: error: 'mock_IfxGtm_isEnabled_returnValue' undeclared (first use in this function)
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G2_001_init_sets_frequency_channels_and_deadtime_correctly':
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:72:5: error: 'mock_IfxGtm_isEnabled_returnValue' undeclared (first use in this function)
    72 |     mock_IfxGtm_isEnabled_returnValue = 0;
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:73:5: error: 'mock_IfxGtm_isModuleSuspended_returnValue' undeclared (first use in this function)
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:73:5: error: 'mock_IfxGtm_isModuleSuspended_returnValue' undeclared (first use in this function)
    73 |     mock_IfxGtm_isModuleSuspended_returnValue = 0;
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:74:5: error: 'mock_IfxGtm_Cmu_isFxClockEnabled_returnValue' undeclared (first use in this function)
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:74:5: error: 'mock_IfxGtm_Cmu_isFxClockEnabled_returnValue' undeclared (first use in this function)
    74 |     mock_IfxGtm_Cmu_isFxClockEnabled_returnValue = 0;
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:75:5: error: 'mock_IfxGtm_Cmu_getFxClkFrequency_returnValue' undeclared (first use in this function); did you mean 'mock_IfxGtm_Cmu_getModuleFrequency_returnValue'?
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:75:5: error: 'mock_IfxGtm_Cmu_getFxClkFrequency_returnValue' undeclared (first use in this function); did you mean 'mock_IfxGtm_Cmu_getModuleFrequency_returnValue'?
    75 |     mock_IfxGtm_Cmu_getFxClkFrequency_returnValue = UT_FXCLK0_HZ;
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       |     mock_IfxGtm_Cmu_getModuleFrequency_returnValue
 In file included from C:\Users\extanke\Downloads\merge\infineon_POC_MVP\unity/unity.h:22,
-                 from C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:1:
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:84:55: error: 'mock_init_lastNumChannels' undeclared (first use in this function)
+                 from C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:1:
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:84:55: error: 'mock_init_lastNumChannels' undeclared (first use in this function)
    84 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_NUM_CHANNELS, mock_init_lastNumChannels, "Channel count must be 3 for U,V,W phases");
       |                                                       ^~~~~~~~~~~~~~~~~~~~~~~~~
 C:\Users\extanke\Downloads\merge\infineon_POC_MVP\unity/unity_internals.h:904:184: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_UINT32'
   904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)
       |                                                                                                                                                                                        ^~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:84:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:84:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'
    84 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_NUM_CHANNELS, mock_init_lastNumChannels, "Channel count must be 3 for U,V,W phases");
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:85:54: error: 'mock_init_lastFrequency' undeclared (first use in this function)
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:85:54: error: 'mock_init_lastFrequency' undeclared (first use in this function)
    85 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_PWM_FREQ_HZ, mock_init_lastFrequency, "PWM switching frequency must be 20 kHz");
       |                                                      ^~~~~~~~~~~~~~~~~~~~~~~
 C:\Users\extanke\Downloads\merge\infineon_POC_MVP\unity/unity_internals.h:904:184: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_UINT32'
   904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)
       |                                                                                                                                                                                        ^~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:85:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:85:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'
    85 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_PWM_FREQ_HZ, mock_init_lastFrequency, "PWM switching frequency must be 20 kHz");
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:88:61: error: 'mock_dt_lastDtRising' undeclared (first use in this function)
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:88:61: error: 'mock_dt_lastDtRising' undeclared (first use in this function)
    88 |         TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_DEADTIME_TICKS, mock_dt_lastDtRising[i], "Rising dead-time ticks must equal 0.5 us");
       |                                                             ^~~~~~~~~~~~~~~~~~~~
 C:\Users\extanke\Downloads\merge\infineon_POC_MVP\unity/unity_internals.h:904:184: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_UINT32'
   904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)
       |                                                                                                                                                                                        ^~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:88:9: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:88:9: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'
    88 |         TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_DEADTIME_TICKS, mock_dt_lastDtRising[i], "Rising dead-time ticks must equal 0.5 us");
       |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:89:61: error: 'mock_dt_lastDtFalling' undeclared (first use in this function)
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:89:61: error: 'mock_dt_lastDtFalling' undeclared (first use in this function)
    89 |         TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_DEADTIME_TICKS, mock_dt_lastDtFalling[i], "Falling dead-time ticks must equal 0.5 us");
       |                                                             ^~~~~~~~~~~~~~~~~~~~~
 C:\Users\extanke\Downloads\merge\infineon_POC_MVP\unity/unity_internals.h:904:184: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_UINT32'
   904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)
       |                                                                                                                                                                                        ^~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:89:9: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:89:9: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'
    89 |         TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_DEADTIME_TICKS, mock_dt_lastDtFalling[i], "Falling dead-time ticks must equal 0.5 us");
       |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G2_002_init_applies_initial_duties_with_shadow_update_sequence':
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:97:5: error: 'mock_IfxGtm_isEnabled_returnValue' undeclared (first use in this function)
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G2_002_init_applies_initial_duties_with_shadow_update_sequence':
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:97:5: error: 'mock_IfxGtm_isEnabled_returnValue' undeclared (first use in this function)
    97 |     mock_IfxGtm_isEnabled_returnValue = 0;
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:98:5: error: 'mock_IfxGtm_isModuleSuspended_returnValue' undeclared (first use in this function)
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:98:5: error: 'mock_IfxGtm_isModuleSuspended_returnValue' undeclared (first use in this function)
    98 |     mock_IfxGtm_isModuleSuspended_returnValue = 0;
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:99:5: error: 'mock_IfxGtm_Cmu_isFxClockEnabled_returnValue' undeclared (first use in this function)
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:99:5: error: 'mock_IfxGtm_Cmu_isFxClockEnabled_returnValue' undeclared (first use in this function)
    99 |     mock_IfxGtm_Cmu_isFxClockEnabled_returnValue = 0;
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:100:5: error: 'mock_IfxGtm_Cmu_getFxClkFrequency_returnValue' undeclared (first use in this function); did you mean 'mock_IfxGtm_Cmu_getModuleFrequency_returnValue'?
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:100:5: error: 'mock_IfxGtm_Cmu_getFxClkFrequency_returnValue' undeclared (first use in this function); did you mean 'mock_IfxGtm_Cmu_getModuleFrequency_returnValue'?
   100 |     mock_IfxGtm_Cmu_getFxClkFrequency_returnValue = UT_FXCLK0_HZ;
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       |     mock_IfxGtm_Cmu_getModuleFrequency_returnValue
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:114:25: error: 'mock_update_lastDuties' undeclared (first use in this function)
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:114:25: error: 'mock_update_lastDuties' undeclared (first use in this function)
   114 |     TEST_ASSERT_MESSAGE(mock_update_lastDuties[0] >= UT_MIN_PULSE_TICKS, "U duty must respect minimum pulse ticks");
       |                         ^~~~~~~~~~~~~~~~~~~~~~
 C:\Users\extanke\Downloads\merge\infineon_POC_MVP\unity/unity_internals.h:891:107: note: in definition of macro 'UNITY_TEST_ASSERT'
   891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)
       |                                                                                                           ^~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:114:5: note: in expansion of macro 'TEST_ASSERT_MESSAGE'
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:114:5: note: in expansion of macro 'TEST_ASSERT_MESSAGE'
   114 |     TEST_ASSERT_MESSAGE(mock_update_lastDuties[0] >= UT_MIN_PULSE_TICKS, "U duty must respect minimum pulse ticks");
       |     ^~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G3_001_init_uses_single_shadow_update_for_all_channels':
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:125:5: error: 'mock_IfxGtm_isEnabled_returnValue' undeclared (first use in this function)
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G3_001_init_uses_single_shadow_update_for_all_channels':
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:125:5: error: 'mock_IfxGtm_isEnabled_returnValue' undeclared (first use in this function)
   125 |     mock_IfxGtm_isEnabled_returnValue = 0;
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:126:5: error: 'mock_IfxGtm_isModuleSuspended_returnValue' undeclared (first use in this function)
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:126:5: error: 'mock_IfxGtm_isModuleSuspended_returnValue' undeclared (first use in this function)
   126 |     mock_IfxGtm_isModuleSuspended_returnValue = 0;
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:127:5: error: 'mock_IfxGtm_Cmu_isFxClockEnabled_returnValue' undeclared (first use in this function)
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:127:5: error: 'mock_IfxGtm_Cmu_isFxClockEnabled_returnValue' undeclared (first use in this function)
   127 |     mock_IfxGtm_Cmu_isFxClockEnabled_returnValue = 0;
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:128:5: error: 'mock_IfxGtm_Cmu_getFxClkFrequency_returnValue' undeclared (first use in this function); did you mean 'mock_IfxGtm_Cmu_getModuleFrequency_returnValue'?
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:128:5: error: 'mock_IfxGtm_Cmu_getFxClkFrequency_returnValue' undeclared (first use in this function); did you mean 'mock_IfxGtm_Cmu_getModuleFrequency_returnValue'?
   128 |     mock_IfxGtm_Cmu_getFxClkFrequency_returnValue = UT_FXCLK0_HZ;
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       |     mock_IfxGtm_Cmu_getModuleFrequency_returnValue
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G3_002_init_starts_timer_after_configuration':
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:145:5: error: 'mock_IfxGtm_isEnabled_returnValue' undeclared (first use in this function)
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G3_002_init_starts_timer_after_configuration':
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:145:5: error: 'mock_IfxGtm_isEnabled_returnValue' undeclared (first use in this function)
   145 |     mock_IfxGtm_isEnabled_returnValue = 0;
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:146:5: error: 'mock_IfxGtm_isModuleSuspended_returnValue' undeclared (first use in this function)
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:146:5: error: 'mock_IfxGtm_isModuleSuspended_returnValue' undeclared (first use in this function)
   146 |     mock_IfxGtm_isModuleSuspended_returnValue = 0;
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:147:5: error: 'mock_IfxGtm_Cmu_isFxClockEnabled_returnValue' undeclared (first use in this function)
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:147:5: error: 'mock_IfxGtm_Cmu_isFxClockEnabled_returnValue' undeclared (first use in this function)
   147 |     mock_IfxGtm_Cmu_isFxClockEnabled_returnValue = 0;
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:148:5: error: 'mock_IfxGtm_Cmu_getFxClkFrequency_returnValue' undeclared (first use in this function); did you mean 'mock_IfxGtm_Cmu_getModuleFrequency_returnValue'?
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:148:5: error: 'mock_IfxGtm_Cmu_getFxClkFrequency_returnValue' undeclared (first use in this function); did you mean 'mock_IfxGtm_Cmu_getModuleFrequency_returnValue'?
   148 |     mock_IfxGtm_Cmu_getFxClkFrequency_returnValue = UT_FXCLK0_HZ;
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       |     mock_IfxGtm_Cmu_getModuleFrequency_returnValue
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G4_001_update_performs_single_shadow_update_call_per_invocation':
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:166:5: error: 'mock_IfxGtm_isEnabled_returnValue' undeclared (first use in this function)
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G4_001_update_performs_single_shadow_update_call_per_invocation':
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:166:5: error: 'mock_IfxGtm_isEnabled_returnValue' undeclared (first use in this function)
   166 |     mock_IfxGtm_isEnabled_returnValue = 0;
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:167:5: error: 'mock_IfxGtm_isModuleSuspended_returnValue' undeclared (first use in this function)
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:167:5: error: 'mock_IfxGtm_isModuleSuspended_returnValue' undeclared (first use in this function)
   167 |     mock_IfxGtm_isModuleSuspended_returnValue = 0;
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:168:5: error: 'mock_IfxGtm_Cmu_isFxClockEnabled_returnValue' undeclared (first use in this function)
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:168:5: error: 'mock_IfxGtm_Cmu_isFxClockEnabled_returnValue' undeclared (first use in this function)
   168 |     mock_IfxGtm_Cmu_isFxClockEnabled_returnValue = 0;
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:169:5: error: 'mock_IfxGtm_Cmu_getFxClkFrequency_returnValue' undeclared (first use in this function); did you mean 'mock_IfxGtm_Cmu_getModuleFrequency_returnValue'?
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:169:5: error: 'mock_IfxGtm_Cmu_getFxClkFrequency_returnValue' undeclared (first use in this function); did you mean 'mock_IfxGtm_Cmu_getModuleFrequency_returnValue'?
   169 |     mock_IfxGtm_Cmu_getFxClkFrequency_returnValue = UT_FXCLK0_HZ;
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       |     mock_IfxGtm_Cmu_getModuleFrequency_returnValue
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G4_002_update_multiple_calls_accumulate_expected_counts':
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:194:5: error: 'mock_IfxGtm_isEnabled_returnValue' undeclared (first use in this function)
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G4_002_update_multiple_calls_accumulate_expected_counts':
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:194:5: error: 'mock_IfxGtm_isEnabled_returnValue' undeclared (first use in this function)
   194 |     mock_IfxGtm_isEnabled_returnValue = 1; /* already enabled */
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:195:5: error: 'mock_IfxGtm_isModuleSuspended_returnValue' undeclared (first use in this function)
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:195:5: error: 'mock_IfxGtm_isModuleSuspended_returnValue' undeclared (first use in this function)
   195 |     mock_IfxGtm_isModuleSuspended_returnValue = 0;
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:196:5: error: 'mock_IfxGtm_Cmu_isFxClockEnabled_returnValue' undeclared (first use in this function)
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:196:5: error: 'mock_IfxGtm_Cmu_isFxClockEnabled_returnValue' undeclared (first use in this function)
   196 |     mock_IfxGtm_Cmu_isFxClockEnabled_returnValue = 1;
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:197:5: error: 'mock_IfxGtm_Cmu_getFxClkFrequency_returnValue' undeclared (first use in this function); did you mean 'mock_IfxGtm_Cmu_getModuleFrequency_returnValue'?
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:197:5: error: 'mock_IfxGtm_Cmu_getFxClkFrequency_returnValue' undeclared (first use in this function); did you mean 'mock_IfxGtm_Cmu_getModuleFrequency_returnValue'?
   197 |     mock_IfxGtm_Cmu_getFxClkFrequency_returnValue = UT_FXCLK0_HZ;
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       |     mock_IfxGtm_Cmu_getModuleFrequency_returnValue
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G5_001_update_does_not_change_frequency_channelcount_or_deadtime':
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:221:5: error: 'mock_IfxGtm_isEnabled_returnValue' undeclared (first use in this function)
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G5_001_update_does_not_change_frequency_channelcount_or_deadtime':
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:221:5: error: 'mock_IfxGtm_isEnabled_returnValue' undeclared (first use in this function)
   221 |     mock_IfxGtm_isEnabled_returnValue = 0;
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:222:5: error: 'mock_IfxGtm_isModuleSuspended_returnValue' undeclared (first use in this function)
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:222:5: error: 'mock_IfxGtm_isModuleSuspended_returnValue' undeclared (first use in this function)
   222 |     mock_IfxGtm_isModuleSuspended_returnValue = 0;
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:223:5: error: 'mock_IfxGtm_Cmu_isFxClockEnabled_returnValue' undeclared (first use in this function)
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:223:5: error: 'mock_IfxGtm_Cmu_isFxClockEnabled_returnValue' undeclared (first use in this function)
   223 |     mock_IfxGtm_Cmu_isFxClockEnabled_returnValue = 0;
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:224:5: error: 'mock_IfxGtm_Cmu_getFxClkFrequency_returnValue' undeclared (first use in this function); did you mean 'mock_IfxGtm_Cmu_getModuleFrequency_returnValue'?
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:224:5: error: 'mock_IfxGtm_Cmu_getFxClkFrequency_returnValue' undeclared (first use in this function); did you mean 'mock_IfxGtm_Cmu_getModuleFrequency_returnValue'?
   224 |     mock_IfxGtm_Cmu_getFxClkFrequency_returnValue = UT_FXCLK0_HZ;
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       |     mock_IfxGtm_Cmu_getModuleFrequency_returnValue
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:234:55: error: 'mock_init_lastNumChannels' undeclared (first use in this function)
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:234:55: error: 'mock_init_lastNumChannels' undeclared (first use in this function)
   234 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_NUM_CHANNELS, mock_init_lastNumChannels, "Channel count must remain 3 after update");
       |                                                       ^~~~~~~~~~~~~~~~~~~~~~~~~
 C:\Users\extanke\Downloads\merge\infineon_POC_MVP\unity/unity_internals.h:904:184: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_UINT32'
   904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)
       |                                                                                                                                                                                        ^~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:234:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:234:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'
   234 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_NUM_CHANNELS, mock_init_lastNumChannels, "Channel count must remain 3 after update");
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:235:55: error: 'mock_init_lastFrequency' undeclared (first use in this function)
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:235:55: error: 'mock_init_lastFrequency' undeclared (first use in this function)
   235 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_PWM_FREQ_HZ,  mock_init_lastFrequency,   "PWM frequency must remain 20 kHz after update");
       |                                                       ^~~~~~~~~~~~~~~~~~~~~~~
 C:\Users\extanke\Downloads\merge\infineon_POC_MVP\unity/unity_internals.h:904:184: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_UINT32'
   904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)
       |                                                                                                                                                                                        ^~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:235:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:235:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'
   235 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_PWM_FREQ_HZ,  mock_init_lastFrequency,   "PWM frequency must remain 20 kHz after update");
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:238:61: error: 'mock_dt_lastDtRising' undeclared (first use in this function)
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:238:61: error: 'mock_dt_lastDtRising' undeclared (first use in this function)
   238 |         TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_DEADTIME_TICKS, mock_dt_lastDtRising[i], "Rising dead-time must remain unchanged after update");
       |                                                             ^~~~~~~~~~~~~~~~~~~~
 C:\Users\extanke\Downloads\merge\infineon_POC_MVP\unity/unity_internals.h:904:184: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_UINT32'
   904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)
       |                                                                                                                                                                                        ^~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:238:9: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:238:9: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'
   238 |         TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_DEADTIME_TICKS, mock_dt_lastDtRising[i], "Rising dead-time must remain unchanged after update");
       |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:239:61: error: 'mock_dt_lastDtFalling' undeclared (first use in this function)
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:239:61: error: 'mock_dt_lastDtFalling' undeclared (first use in this function)
   239 |         TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_DEADTIME_TICKS, mock_dt_lastDtFalling[i], "Falling dead-time must remain unchanged after update");
       |                                                             ^~~~~~~~~~~~~~~~~~~~~
 C:\Users\extanke\Downloads\merge\infineon_POC_MVP\unity/unity_internals.h:904:184: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_UINT32'
   904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)
       |                                                                                                                                                                                        ^~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:239:9: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:239:9: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'
   239 |         TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_DEADTIME_TICKS, mock_dt_lastDtFalling[i], "Falling dead-time must remain unchanged after update");
       |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G5_002_update_does_not_reconfigure_pwm_mode':
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:246:5: error: 'mock_IfxGtm_isEnabled_returnValue' undeclared (first use in this function)
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G5_002_update_does_not_reconfigure_pwm_mode':
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:246:5: error: 'mock_IfxGtm_isEnabled_returnValue' undeclared (first use in this function)
   246 |     mock_IfxGtm_isEnabled_returnValue = 1;
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:247:5: error: 'mock_IfxGtm_isModuleSuspended_returnValue' undeclared (first use in this function)
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:247:5: error: 'mock_IfxGtm_isModuleSuspended_returnValue' undeclared (first use in this function)
   247 |     mock_IfxGtm_isModuleSuspended_returnValue = 0;
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:248:5: error: 'mock_IfxGtm_Cmu_isFxClockEnabled_returnValue' undeclared (first use in this function)
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:248:5: error: 'mock_IfxGtm_Cmu_isFxClockEnabled_returnValue' undeclared (first use in this function)
   248 |     mock_IfxGtm_Cmu_isFxClockEnabled_returnValue = 1;
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:249:5: error: 'mock_IfxGtm_Cmu_getFxClkFrequency_returnValue' undeclared (first use in this function); did you mean 'mock_IfxGtm_Cmu_getModuleFrequency_returnValue'?
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:249:5: error: 'mock_IfxGtm_Cmu_getFxClkFrequency_returnValue' undeclared (first use in this function); did you mean 'mock_IfxGtm_Cmu_getModuleFrequency_returnValue'?
   249 |     mock_IfxGtm_Cmu_getFxClkFrequency_returnValue = UT_FXCLK0_HZ;
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       |     mock_IfxGtm_Cmu_getModuleFrequency_returnValue
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G6_001_update_increments_duty_when_below_boundary':
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:268:5: error: 'mock_IfxGtm_isEnabled_returnValue' undeclared (first use in this function)
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G6_001_update_increments_duty_when_below_boundary':
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:268:5: error: 'mock_IfxGtm_isEnabled_returnValue' undeclared (first use in this function)
   268 |     mock_IfxGtm_isEnabled_returnValue = 0;
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:269:5: error: 'mock_IfxGtm_isModuleSuspended_returnValue' undeclared (first use in this function)
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:269:5: error: 'mock_IfxGtm_isModuleSuspended_returnValue' undeclared (first use in this function)
   269 |     mock_IfxGtm_isModuleSuspended_returnValue = 0;
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:270:5: error: 'mock_IfxGtm_Cmu_isFxClockEnabled_returnValue' undeclared (first use in this function)
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:270:5: error: 'mock_IfxGtm_Cmu_isFxClockEnabled_returnValue' undeclared (first use in this function)
   270 |     mock_IfxGtm_Cmu_isFxClockEnabled_returnValue = 0;
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:271:5: error: 'mock_IfxGtm_Cmu_getFxClkFrequency_returnValue' undeclared (first use in this function); did you mean 'mock_IfxGtm_Cmu_getModuleFrequency_returnValue'?
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:271:5: error: 'mock_IfxGtm_Cmu_getFxClkFrequency_returnValue' undeclared (first use in this function); did you mean 'mock_IfxGtm_Cmu_getModuleFrequency_returnValue'?
   271 |     mock_IfxGtm_Cmu_getFxClkFrequency_returnValue = UT_FXCLK0_HZ;
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       |     mock_IfxGtm_Cmu_getModuleFrequency_returnValue
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:277:21: error: 'mock_update_lastDuties' undeclared (first use in this function)
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:277:21: error: 'mock_update_lastDuties' undeclared (first use in this function)
   277 |     uint32_t d0_U = mock_update_lastDuties[0];
       |                     ^~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G6_002_update_wraps_each_channel_independently_when_exceeding_max':
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:300:5: error: 'mock_IfxGtm_isEnabled_returnValue' undeclared (first use in this function)
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G6_002_update_wraps_each_channel_independently_when_exceeding_max':
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:300:5: error: 'mock_IfxGtm_isEnabled_returnValue' undeclared (first use in this function)
   300 |     mock_IfxGtm_isEnabled_returnValue = 1;
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:301:5: error: 'mock_IfxGtm_isModuleSuspended_returnValue' undeclared (first use in this function)
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:301:5: error: 'mock_IfxGtm_isModuleSuspended_returnValue' undeclared (first use in this function)
   301 |     mock_IfxGtm_isModuleSuspended_returnValue = 0;
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:302:5: error: 'mock_IfxGtm_Cmu_isFxClockEnabled_returnValue' undeclared (first use in this function)
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:302:5: error: 'mock_IfxGtm_Cmu_isFxClockEnabled_returnValue' undeclared (first use in this function)
   302 |     mock_IfxGtm_Cmu_isFxClockEnabled_returnValue = 1;
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:303:5: error: 'mock_IfxGtm_Cmu_getFxClkFrequency_returnValue' undeclared (first use in this function); did you mean 'mock_IfxGtm_Cmu_getModuleFrequency_returnValue'?
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:303:5: error: 'mock_IfxGtm_Cmu_getFxClkFrequency_returnValue' undeclared (first use in this function); did you mean 'mock_IfxGtm_Cmu_getModuleFrequency_returnValue'?
   303 |     mock_IfxGtm_Cmu_getFxClkFrequency_returnValue = UT_FXCLK0_HZ;
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       |     mock_IfxGtm_Cmu_getModuleFrequency_returnValue
-C:\Users\extanke\AppData\Local\Temp\tdd_build_yscl1bib\test\test_gtm_tom_3_phase_inverter_pwm.c:309:26: error: 'mock_update_lastDuties' undeclared (first use in this function)
+C:\Users\extanke\AppData\Local\Temp\tdd_build_r1yiep_2\test\test_gtm_tom_3_phase_inverter_pwm.c:309:26: error: 'mock_update_lastDuties' undeclared (first use in this function)
   309 |     uint32_t prev[3] = { mock_update_lastDuties[0], mock_update_lastDuties[1], mock_update_lastDuties[2] };
       |                          ^~~~~~~~~~~~~~~~~~~~~~
