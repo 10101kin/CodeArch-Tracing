@@ -1,3 +1,65 @@
-Status: SUCCESS
+Status: FAILED
 
-LLM response for production phase (attempt 6), 12131 chars
+============================================================
+TDD CODE GENERATION - ATTEMPT STATUS
+============================================================
+Phase: production
+Attempt: 6
+Status: FAILED
+Timestamp: 2026-03-28 05:56:18
+Files generated: 2
+
+============================================================
+
+ERRORS:
+
+1. unknown type name 'IfxGtm_Pwm_ChannelConfig'; did you mean 'IfxGtm_Pwm_Channel'?
+
+2. assignment to 'int *' from incompatible pointer type 'IfxGtm_Pwm_ChannelConfig *' [-Wincompatible-pointer-types]
+
+3. incompatible types when assigning to type 'IfxGtm_Pwm_ClockSource' from type 'unsigned int'
+
+4. unknown type name 'IfxGtm_Pwm_ChannelConfig'; did you mean 'IfxGtm_Pwm_Channel'?
+
+5. implicit declaration of function 'interruptGtmAtom0Ch0' [-Wimplicit-function-declaration]
+
+============================================================
+BUILD RESULT:
+{
+  "success": false,
+  "errors": [
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_jnkx8olk\\include/IfxGtm_Pwm.h",
+      "line": 190,
+      "category": "error",
+      "message": "unknown type name 'IfxGtm_Pwm_ChannelConfig'; did you mean 'IfxGtm_Pwm_Channel'?"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_jnkx8olk\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 187,
+      "category": "error",
+      "message": "assignment to 'int *' from incompatible pointer type 'IfxGtm_Pwm_ChannelConfig *' [-Wincompatible-pointer-types]"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_jnkx8olk\\include/IfxGtm_Pwm.h",
+      "line": 221,
+      "category": "error",
+      "message": "incompatible types when assigning to type 'IfxGtm_Pwm_ClockSource' from type 'unsigned int'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_jnkx8olk\\include/IfxGtm_Pwm.h",
+      "line": 190,
+      "category": "error",
+      "message": "unknown type name 'IfxGtm_Pwm_ChannelConfig'; did you mean 'IfxGtm_Pwm_Channel'?"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_jnkx8olk\\test\\test_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 146,
+      "category": "error",
+      "message": "implicit declaration of function 'interruptGtmAtom0Ch0' [-Wimplicit-function-declaration]"
+    }
+  ],
+  "warnings": [],
+  "stderr": "In file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_jnkx8olk\\src\\gtm_tom_3_phase_inverter_pwm.c:18:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_jnkx8olk\\include/IfxGtm_Pwm.h:190:5: error: unknown type name 'IfxGtm_Pwm_ChannelConfig'; did you mean 'IfxGtm_Pwm_Channel'?\n  190 |     IfxGtm_Pwm_ChannelConfig *channels; /* forward used below */\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~\n      |     IfxGtm_Pwm_Channel\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_jnkx8olk\\src\\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTom3phInv':\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_jnkx8olk\\src\\gtm_tom_3_phase_inverter_pwm.c:187:31: error: assignment to 'int *' from incompatible pointer type 'IfxGtm_Pwm_ChannelConfig *' [-Wincompatible-pointer-types]\n  187 |     config.channels           = &channelConfig[0];\n      |                               ^\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_jnkx8olk\\include/IfxGtm_Pwm.h:221:42: error: incompatible types when assigning to type 'IfxGtm_Pwm_ClockSource' from type 'unsigned int'\n  221 | #define IfxGtm_Pwm_ClockSource_cmuFxclk0 ((uint32)IfxGtm_Cmu_Fxclk_0)\n      |                                          ^\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_jnkx8olk\\src\\gtm_tom_3_phase_inverter_pwm.c:190:33: note: in expansion of macro 'IfxGtm_Pwm_ClockSource_cmuFxclk0'\n  190 |     config.clockSource        = IfxGtm_Pwm_ClockSource_cmuFxclk0;   /* FXCLK0 for TOM */\n      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_jnkx8olk\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c:5:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_jnkx8olk\\include/IfxGtm_Pwm.h:190:5: error: unknown type name 'IfxGtm_Pwm_ChannelConfig'; did you mean 'IfxGtm_Pwm_Channel'?\n  190 |     IfxGtm_Pwm_ChannelConfig *channels; /* forward used below */\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~\n      |     IfxGtm_Pwm_Channel\n\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_jnkx8olk\\test\\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G4_001_Irq_TogglesLedOnce':\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_jnkx8olk\\test\\test_gtm_tom_3_phase_inverter_pwm.c:146:5: error: implicit declaration of function 'interruptGtmAtom0Ch0' [-Wimplicit-function-declaration]\n  146 |     interruptGtmAtom0Ch0();\n      |     ^~~~~~~~~~~~~~~~~~~~\n",
+  "stdout": ""
+}
