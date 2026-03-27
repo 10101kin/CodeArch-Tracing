@@ -1,0 +1,129 @@
+{
+  "user_intent_preservation": {
+    "original_goal": "Migrate the TC387 three-phase inverter PWM to the IfxGtm_Pwm unified API on GTM TOM1 using the same six outputs and pins (U: HS TOM1 CH2->P00.3, LS TOM1 CH1->P00.2; V: HS CH4->P00.5, LS CH3->P00.4; W: HS CH6->P00.7, LS CH5->P00.6). Keep center-aligned PWM at 20 kHz, 0.5 µs dead-time, min pulse 1.0 µs, initial duties U=25%, V=50%, W=75%, TOM clock = cmuFxclk0, timer base = TOM1 CH0, push-pull with cmosAutomotiveSpeed1, active-high.",
+    "functional_behavior": "Generate six complementary PWM outputs on GTM TOM1 (three high-side and three low-side) with center-aligned 20 kHz period, 0.5 µs dead-time insertion, 1.0 µs minimum pulse enforcement, initial U/V/W duties of 25/50/75%, using cmuFxclk0 and TOM1 CH0 as time base, active-high polarity, push-pull outputs with cmosAutomotiveSpeed1, and shadow transfer on period match with synchronous updates.",
+    "technical_approach": "Use the unified IfxGtm_Pwm driver on TC3xx to configure TOM1 with CH0 as the time base and six TOM1 channels as complementary pairs. Enable GTM and FXCLK0, set pin outputs via IfxGtm_PinMap_setTomTout with push-pull and cmosAutomotiveSpeed1, set active-high polarity, configure center-aligned operation in the Pwm config, set 20 kHz period (assuming FXCLK0=100 MHz), apply 0.5 µs dead-time via IfxGtm_Pwm_updateChannelDeadTimeImmediate, and program initial duties via IfxGtm_Pwm_updateChannelDutyImmediate. Enforce 1.0 µs minimum pulse in the duty update logic."
+  },
+  "driver_selection": {
+    "recommended_driver": "IfxGtm_Pwm",
+    "selection_rationale": "Unified IfxGtm_Pwm is available in the template and matches the user’s explicit preference. It supports center-aligned operation, duty updates, polarity, and dead-time updates on TOM, fulfilling the 3-phase complementary PWM requirement on TOM1.",
+    "available_in_template": true,
+    "complexity_level": "moderate",
+    "alternatives_considered": [
+      "IfxGtm_Tom_PwmHl",
+      "IfxGtm_Tom_Dtm_PwmHl"
+    ]
+  },
+  "driver_usage": {
+    "primary_driver": "IfxGtm_Pwm.h",
+    "available_in_template": true,
+    "initialization_apis": [
+      "IfxGtm_enable",
+      "IfxGtm_Cmu_enableClocks",
+      "IfxGtm_Pwm_initConfig",
+      "IfxGtm_Pwm_initChannelConfig",
+      "IfxGtm_PinMap_setTomTout"
+    ],
+    "runtime_apis": [
+      "IfxGtm_Pwm_setChannelPolarity",
+      "IfxGtm_Pwm_updateChannelDutyImmediate",
+      "IfxGtm_Pwm_updateChannelDeadTimeImmediate"
+    ]
+  },
+  "file_structure": {
+    "module_files": [
+      "GTM_TOM_3_Phase_Inverter_PWM.c",
+      "GTM_TOM_3_Phase_Inverter_PWM.h"
+    ],
+    "cpu_files": [
+      "Cpu0_Main.c"
+    ],
+    "from_reference": true
+  },
+  "function_mapping": {
+    "init_function": {
+      "name": "GTM_TOM_3_Phase_Inverter_PWM_init",
+      "driver_calls": [
+        "IfxGtm_enable",
+        "IfxGtm_Cmu_enableClocks",
+        "IfxGtm_Tom_PwmHl_initConfig",
+        "IfxGtm_Tom_PwmHl_initChannelConfig",
+        "IfxGtm_PinMap_setTomTout",
+        "IfxGtm_Tom_PwmHl_setChannelPolarity",
+        "IfxGtm_Tom_PwmHl_updateChannelDeadTimeImmediate"
+      ]
+    },
+    "runtime_function": {
+      "name": "GTM_TOM_3_Phase_Inverter_PWM_update",
+      "driver_calls": [
+        "IfxGtm_Tom_PwmHl_updateChannelDutyImmediate"
+      ],
+      "purpose": "Update U/V/W duties synchronously with center-aligned PWM, enforcing 1.0 µs minimum pulse and maintaining 0.5 µs dead-time for complementary outputs."
+    }
+  },
+  "migration_notes": {
+    "is_migration": false,
+    "driver_changes": [],
+    "api_changes": [],
+    "context_preserved": "The solution keeps TOM1 as the PWM generator with center-aligned 20 kHz output, uses cmuFxclk0, preserves complementary high/low outputs with active-high polarity, assigns pins via IfxGtm_PinMap_setTomTout using push-pull and cmosAutomotiveSpeed1, applies 0.5 µs dead-time using IfxGtm_Pwm_updateChannelDeadTimeImmediate, and sets initial duties to U=25%, V=50%, W=75%. Note: Requested pin mappings must match actual TOUT-to-pin availability on TC38x LFBGA-516; P00.2 is TOM1 CH5 (TOUT11). Validate TOM1 CH2->P00.3, CH3->P00.4, CH4->P00.5, CH6->P00.7 against IfxGtm_PinMap.h and adjust channel-to-pin bindings if the requested pairs are not available."
+  },
+  "header_selection": {
+    "applied": true,
+    "peripheral_type": "PWM",
+    "recommended_header": "IfxGtm_Pwm",
+    "score": 628,
+    "required_includes": [
+      "IfxGtm_Pwm.h"
+    ],
+    "function_mapping": {
+      "IfxGtm_enable": "IfxGtm_Pwm_updateChannelDeadTimeImmediate"
+    },
+    "available_functions_count": 99
+  },
+  "driver_selection_engine": {
+    "applied": true,
+    "mcu_family": "TC3xx",
+    "requirement_analysis": {},
+    "recommendations": {
+      "PWM": {
+        "driver": "IfxGtm_Tom_PwmHl",
+        "score": 100,
+        "complexity": "locked",
+        "rationale": "Driver locked by refiner node (user explicit or engine-scored)",
+        "alternatives": []
+      }
+    },
+    "migration_mappings": {
+      "IfxScuWdt": {
+        "target_driver": "IfxScuWdt",
+        "api_mapping": {
+          "IfxScuWdt_init": "IfxScuWdt_init",
+          "IfxScuWdt_initConfig": "IfxScuWdt_initConfig"
+        }
+      },
+      "IfxGtm_Tom_PwmHl": {
+        "target_driver": "IfxGtm_Pwm",
+        "api_mapping": {
+          "IfxGtm_Tom_PwmHl_init": "IfxGtm_Pwm_init",
+          "IfxGtm_Tom_PwmHl_initConfig": "IfxGtm_Pwm_initConfig",
+          "IfxGtm_Tom_PwmHl_setOnTime": "IfxGtm_Pwm_setDuty",
+          "IfxGtm_Tom_PwmHl_setPeriod": "IfxGtm_Pwm_updatePeriod",
+          "IfxGtm_Tom_PwmHl_start": "IfxGtm_Pwm_start",
+          "IfxGtm_Tom_PwmHl_stop": "IfxGtm_Pwm_stop"
+        },
+        "upgrade_reason": "Known upgrade path: IfxGtm_Tom_PwmHl → IfxGtm_Pwm"
+      },
+      "IfxCpu_Irq": {
+        "target_driver": "IfxSrc",
+        "api_mapping": {
+          "IfxCpu_Irq_installInterruptHandler": "IfxSrc_init",
+          "IfxCpu_enableInterrupts": "IfxSrc_setRequest",
+          "IfxCpu_disableInterrupts": "IfxSrc_clearRequest"
+        }
+      }
+    }
+  },
+  "driver_knowledge_base": {
+    "applied": false
+  }
+}
