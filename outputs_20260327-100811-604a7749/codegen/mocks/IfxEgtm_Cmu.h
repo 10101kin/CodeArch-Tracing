@@ -1,3 +1,4 @@
+/* IfxEgtm_Cmu mock header */
 #ifndef IFXEGTM_CMU_H
 #define IFXEGTM_CMU_H
 
@@ -31,26 +32,23 @@ typedef enum {
 
 typedef enum {
     IfxEgtm_Cmu_Tim_Filter_Clk_0 = 0,
-    IfxEgtm_Cmu_Tim_Filter_Clk_1 = 1,
-    IfxEgtm_Cmu_Tim_Filter_Clk_6 = 6
+    IfxEgtm_Cmu_Tim_Filter_Clk_1,
+    IfxEgtm_Cmu_Tim_Filter_Clk_6,
+    IfxEgtm_Cmu_Tim_Filter_Clk_7
 } IfxEgtm_Cmu_Tim_Filter_Clk;
 
-/* Function declarations */
-void    IfxEgtm_Cmu_enableClocks(Ifx_EGTM *egtm, uint32 clkMask);
-float32 IfxEgtm_Cmu_getGclkFrequency(Ifx_EGTM *egtm);
-float32 IfxEgtm_Cmu_getModuleFrequency(Ifx_EGTM *egtm);
-boolean IfxEgtm_Cmu_isClkClockEnabled(Ifx_EGTM *egtm, IfxEgtm_Cmu_Clk clk);
-boolean IfxEgtm_Cmu_isEclkClockEnabled(Ifx_EGTM *egtm, IfxEgtm_Cmu_Eclk eclk);
-boolean IfxEgtm_Cmu_isFxClockEnabled(Ifx_EGTM *egtm, IfxEgtm_Cmu_Fxclk fxclk);
-void    IfxEgtm_Cmu_selectClkInput(Ifx_EGTM *egtm, IfxEgtm_Cmu_Clk clk, uint32 inputIdx);
-void    IfxEgtm_Cmu_setClkCount(Ifx_EGTM *egtm, IfxEgtm_Cmu_Clk clk, uint32 count);
-void    IfxEgtm_Cmu_setEclkDivider(Ifx_EGTM *egtm, IfxEgtm_Cmu_Eclk clkIndex, uint32 numerator, uint32 denominator);
+/* Clock enable mask macros (fixes previous build errors) */
+#ifndef IFXEGTM_CMU_CLKEN_FXCLK
+#define IFXEGTM_CMU_CLKEN_FXCLK  (1u << 22)
+#endif
+#ifndef IFXEGTM_CMU_CLKEN_ECLK0
+#define IFXEGTM_CMU_CLKEN_ECLK0  (1u << 0)
+#endif
+
+/* Function declarations (subset used by module) */
 void    IfxEgtm_Cmu_setGclkDivider(Ifx_EGTM *egtm, uint32 numerator, uint32 denominator);
-float32 IfxEgtm_Cmu_getClkFrequency(Ifx_EGTM *egtm, IfxEgtm_Cmu_Clk clk);
-float32 IfxEgtm_Cmu_getEclkFrequency(Ifx_EGTM *egtm, IfxEgtm_Cmu_Eclk eclk);
-float32 IfxEgtm_Cmu_getFxClkFrequency(Ifx_EGTM *egtm, IfxEgtm_Cmu_Fxclk fxclk);
-void    IfxEgtm_Cmu_setClkFrequency(Ifx_EGTM *egtm, IfxEgtm_Cmu_Clk clk, float32 freq);
-void    IfxEgtm_Cmu_setEclkFrequency(Ifx_EGTM *egtm, IfxEgtm_Cmu_Eclk eclk, float32 freq);
-void    IfxEgtm_Cmu_setGclkFrequency(Ifx_EGTM *egtm, float32 frequency);
+void    IfxEgtm_Cmu_setEclkDivider(Ifx_EGTM *egtm, IfxEgtm_Cmu_Eclk clkIndex, uint32 numerator, uint32 denominator);
+float32 IfxEgtm_Cmu_getModuleFrequency(Ifx_EGTM *egtm);
+void    IfxEgtm_Cmu_enableClocks(Ifx_EGTM *egtm, uint32 clkMask);
 
 #endif /* IFXEGTM_CMU_H */
