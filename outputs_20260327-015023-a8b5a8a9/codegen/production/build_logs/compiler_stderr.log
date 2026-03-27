@@ -1,0 +1,119 @@
+In file included from C:\Users\extanke\AppData\Local\Temp\tdd_build_vodyd3kg\src\qspi.c:19:
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vodyd3kg\include/qspi.h:14:1: error: unknown type name 'Ifx_Status'
+   14 | Ifx_Status Qspi_initQspi(QspiCommunication* const qspiCommunication);
+      | ^~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vodyd3kg\src\qspi.c:22:10: fatal error: IfxXspi_PinMap.h: No such file or directory
+   22 | #include "IfxXspi_PinMap.h"
+      |          ^~~~~~~~~~~~~~~~~~
+compilation terminated.
+
+In file included from C:\Users\extanke\AppData\Local\Temp\tdd_build_vodyd3kg\test\test_qspi.c:3:
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vodyd3kg\include/qspi.h:14:1: error: unknown type name 'Ifx_Status'
+   14 | Ifx_Status Qspi_initQspi(QspiCommunication* const qspiCommunication);
+      | ^~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vodyd3kg\test\test_qspi.c: In function 'test_TC_G1_001_init_calls_xspi_and_irqs_once':
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vodyd3kg\test\test_qspi.c:20:23: error: storage size of 'ctx' isn't known
+   20 |     QspiCommunication ctx;
+      |                       ^~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vodyd3kg\test\test_qspi.c:22:5: error: unknown type name 'Ifx_Status'
+   22 |     Ifx_Status st = Qspi_initQspi(&ctx);
+      |     ^~~~~~~~~~
+In file included from C:\Users\extanke\Downloads\merge\infineon_POC_MVP\unity/unity.h:22,
+                 from C:\Users\extanke\AppData\Local\Temp\tdd_build_vodyd3kg\test\test_qspi.c:1:
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vodyd3kg\test\test_qspi.c:23:35: error: 'Ifx_Status_ok' undeclared (first use in this function)
+   23 |     TEST_ASSERT_EQUAL_INT_MESSAGE(Ifx_Status_ok, st, "Qspi_initQspi should return Ifx_Status_ok on successful init");
+      |                                   ^~~~~~~~~~~~~
+C:\Users\extanke\Downloads\merge\infineon_POC_MVP\unity/unity_internals.h:897:133: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_INT'
+  897 | #define UNITY_TEST_ASSERT_EQUAL_INT(expected, actual, line, message)                             UnityAssertEqualNumber((UNITY_INT)(expected), (UNITY_INT)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_INT)
+      |                                                                                                                                     ^~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vodyd3kg\test\test_qspi.c:23:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_INT_MESSAGE'
+   23 |     TEST_ASSERT_EQUAL_INT_MESSAGE(Ifx_Status_ok, st, "Qspi_initQspi should return Ifx_Status_ok on successful init");
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vodyd3kg\test\test_qspi.c:23:35: note: each undeclared identifier is reported only once for each function it appears in
+   23 |     TEST_ASSERT_EQUAL_INT_MESSAGE(Ifx_Status_ok, st, "Qspi_initQspi should return Ifx_Status_ok on successful init");
+      |                                   ^~~~~~~~~~~~~
+C:\Users\extanke\Downloads\merge\infineon_POC_MVP\unity/unity_internals.h:897:133: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_INT'
+  897 | #define UNITY_TEST_ASSERT_EQUAL_INT(expected, actual, line, message)                             UnityAssertEqualNumber((UNITY_INT)(expected), (UNITY_INT)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_INT)
+      |                                                                                                                                     ^~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vodyd3kg\test\test_qspi.c:23:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_INT_MESSAGE'
+   23 |     TEST_ASSERT_EQUAL_INT_MESSAGE(Ifx_Status_ok, st, "Qspi_initQspi should return Ifx_Status_ok on successful init");
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vodyd3kg\test\test_qspi.c:33:68: error: comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Werror=sign-compare]
+   33 |     TEST_ASSERT_TRUE_MESSAGE(mock_IfxCpu_Irq_getTos_getCallCount() >= 1U, "Type-of-service (TOS) should be queried at least once during IRQ setup");
+      |                                                                    ^~
+C:\Users\extanke\Downloads\merge\infineon_POC_MVP\unity/unity_internals.h:891:107: note: in definition of macro 'UNITY_TEST_ASSERT'
+  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)
+      |                                                                                                           ^~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vodyd3kg\test\test_qspi.c:33:5: note: in expansion of macro 'TEST_ASSERT_TRUE_MESSAGE'
+   33 |     TEST_ASSERT_TRUE_MESSAGE(mock_IfxCpu_Irq_getTos_getCallCount() >= 1U, "Type-of-service (TOS) should be queried at least once during IRQ setup");
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vodyd3kg\test\test_qspi.c:20:23: error: unused variable 'ctx' [-Werror=unused-variable]
+   20 |     QspiCommunication ctx;
+      |                       ^~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vodyd3kg\test\test_qspi.c: In function 'test_TC_G1_002_gpio_direction_and_initial_state_configured':
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vodyd3kg\test\test_qspi.c:37:23: error: storage size of 'ctx' isn't known
+   37 |     QspiCommunication ctx;
+      |                       ^~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vodyd3kg\test\test_qspi.c:42:75: error: comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Werror=sign-compare]
+   42 |     TEST_ASSERT_TRUE_MESSAGE(mock_IfxPort_setPinModeOutput_getCallCount() >= 1U, "At least one output pin (enable) must be configured via IfxPort_setPinModeOutput");
+      |                                                                           ^~
+C:\Users\extanke\Downloads\merge\infineon_POC_MVP\unity/unity_internals.h:891:107: note: in definition of macro 'UNITY_TEST_ASSERT'
+  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)
+      |                                                                                                           ^~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vodyd3kg\test\test_qspi.c:42:5: note: in expansion of macro 'TEST_ASSERT_TRUE_MESSAGE'
+   42 |     TEST_ASSERT_TRUE_MESSAGE(mock_IfxPort_setPinModeOutput_getCallCount() >= 1U, "At least one output pin (enable) must be configured via IfxPort_setPinModeOutput");
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vodyd3kg\test\test_qspi.c:43:74: error: comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Werror=sign-compare]
+   43 |     TEST_ASSERT_TRUE_MESSAGE(mock_IfxPort_setPinModeInput_getCallCount() >= 1U, "At least one input pin (nINT) must be configured via IfxPort_setPinModeInput");
+      |                                                                          ^~
+C:\Users\extanke\Downloads\merge\infineon_POC_MVP\unity/unity_internals.h:891:107: note: in definition of macro 'UNITY_TEST_ASSERT'
+  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)
+      |                                                                                                           ^~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vodyd3kg\test\test_qspi.c:43:5: note: in expansion of macro 'TEST_ASSERT_TRUE_MESSAGE'
+   43 |     TEST_ASSERT_TRUE_MESSAGE(mock_IfxPort_setPinModeInput_getCallCount() >= 1U, "At least one input pin (nINT) must be configured via IfxPort_setPinModeInput");
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vodyd3kg\test\test_qspi.c:37:23: error: unused variable 'ctx' [-Werror=unused-variable]
+   37 |     QspiCommunication ctx;
+      |                       ^~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vodyd3kg\test\test_qspi.c: In function 'test_TC_G2_001_baudrate_configured_to_50MHz':
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vodyd3kg\test\test_qspi.c:54:23: error: storage size of 'ctx' isn't known
+   54 |     QspiCommunication ctx;
+      |                       ^~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vodyd3kg\test\test_qspi.c:54:23: error: unused variable 'ctx' [-Werror=unused-variable]
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vodyd3kg\test\test_qspi.c: In function 'test_TC_G2_002_number_of_channels_is_one':
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vodyd3kg\test\test_qspi.c:62:23: error: storage size of 'ctx' isn't known
+   62 |     QspiCommunication ctx;
+      |                       ^~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vodyd3kg\test\test_qspi.c:62:23: error: unused variable 'ctx' [-Werror=unused-variable]
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vodyd3kg\test\test_qspi.c: In function 'test_TC_G3_001_exchange_not_called_during_init':
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vodyd3kg\test\test_qspi.c:71:23: error: storage size of 'ctx' isn't known
+   71 |     QspiCommunication ctx;
+      |                       ^~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vodyd3kg\test\test_qspi.c:71:23: error: unused variable 'ctx' [-Werror=unused-variable]
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vodyd3kg\test\test_qspi.c: In function 'test_TC_G3_002_transfer_init_dead_times_zero_for_mode0':
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vodyd3kg\test\test_qspi.c:79:23: error: storage size of 'ctx' isn't known
+   79 |     QspiCommunication ctx;
+      |                       ^~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vodyd3kg\test\test_qspi.c:79:23: error: unused variable 'ctx' [-Werror=unused-variable]
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vodyd3kg\test\test_qspi.c: In function 'test_TC_G4_001_interrupt_handlers_installed_tx_rx_err':
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vodyd3kg\test\test_qspi.c:90:23: error: storage size of 'ctx' isn't known
+   90 |     QspiCommunication ctx;
+      |                       ^~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vodyd3kg\test\test_qspi.c:95:68: error: comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Werror=sign-compare]
+   95 |     TEST_ASSERT_TRUE_MESSAGE(mock_IfxCpu_Irq_getTos_getCallCount() >= 1U, "TOS retrieval should occur during ISR configuration (IfxSrc_Tos_cpu0)");
+      |                                                                    ^~
+C:\Users\extanke\Downloads\merge\infineon_POC_MVP\unity/unity_internals.h:891:107: note: in definition of macro 'UNITY_TEST_ASSERT'
+  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)
+      |                                                                                                           ^~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vodyd3kg\test\test_qspi.c:95:5: note: in expansion of macro 'TEST_ASSERT_TRUE_MESSAGE'
+   95 |     TEST_ASSERT_TRUE_MESSAGE(mock_IfxCpu_Irq_getTos_getCallCount() >= 1U, "TOS retrieval should occur during ISR configuration (IfxSrc_Tos_cpu0)");
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vodyd3kg\test\test_qspi.c:90:23: error: unused variable 'ctx' [-Werror=unused-variable]
+   90 |     QspiCommunication ctx;
+      |                       ^~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vodyd3kg\test\test_qspi.c: In function 'test_TC_G4_002_isr_driver_handlers_not_invoked_during_init':
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vodyd3kg\test\test_qspi.c:99:23: error: storage size of 'ctx' isn't known
+   99 |     QspiCommunication ctx;
+      |                       ^~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vodyd3kg\test\test_qspi.c:99:23: error: unused variable 'ctx' [-Werror=unused-variable]
+cc1.exe: all warnings being treated as errors
