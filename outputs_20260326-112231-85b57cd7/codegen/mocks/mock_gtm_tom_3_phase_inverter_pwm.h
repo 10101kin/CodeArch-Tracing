@@ -3,25 +3,21 @@
 #define MOCK_GTM_TOM_3_PHASE_INVERTER_PWM_H
 
 /* Base type aliases */
-typedef float    float32;
-typedef double   float64;
-typedef unsigned char  uint8;
-typedef signed char    sint8;
-typedef unsigned short uint16;
-typedef signed short   sint16;
-typedef unsigned int   uint32;
-typedef signed int     sint32;
-typedef unsigned long long uint64;
-typedef signed long long   sint64;
-typedef unsigned char  boolean;
-typedef uint32 Ifx_Priority;
+typedef float               float32;
+typedef unsigned char       uint8;
+typedef signed short        sint16;
+typedef unsigned short      uint16;
+typedef signed int          sint32;
+typedef unsigned int        uint32;
+typedef unsigned char       boolean;
+typedef unsigned char       Ifx_Priority;
 
 /* Macros */
 #ifndef TRUE
-#define TRUE   ((boolean)1)
+#define TRUE    ((boolean)1)
 #endif
 #ifndef FALSE
-#define FALSE  ((boolean)0)
+#define FALSE   ((boolean)0)
 #endif
 #ifndef NULL_PTR
 #define NULL_PTR ((void*)0)
@@ -33,7 +29,7 @@ typedef uint32 Ifx_Priority;
 #define IFX_INTERRUPT(isr_name, vectab_num, priority) void isr_name(void)
 #endif
 
-/* Shared enums used across multiple drivers */
+/* Shared enums */
 typedef enum {
     Ifx_ActiveState_low = 0,
     Ifx_ActiveState_high = 1
@@ -44,11 +40,10 @@ typedef enum {
     IfxSrc_Tos_cpu1 = 1,
     IfxSrc_Tos_cpu2 = 2,
     IfxSrc_Tos_cpu3 = 3,
-    IfxSrc_Tos_dma  = 4,
-    IfxSrc_Tos_spb  = 5
+    IfxSrc_Tos_dma  = 4
 } IfxSrc_Tos;
 
-/* MODULE_* register-block stub typedefs */
+/* MODULE_* register-block stubs (typedef + extern) */
 typedef struct { uint32 reserved; } Ifx_GTM;
 typedef struct { uint32 reserved; } Ifx_P;
 typedef struct { uint32 reserved; } Ifx_ASCLIN0;
@@ -116,10 +111,6 @@ typedef struct { uint32 reserved; } Ifx_PFI2;
 typedef struct { uint32 reserved; } Ifx_PFI3;
 typedef struct { uint32 reserved; } Ifx_PMS;
 typedef struct { uint32 reserved; } Ifx_PMU;
-/* Ports use Ifx_P type */
-
-/* More port modules as Ifx_P externs are listed below */
-
 typedef struct { uint32 reserved; } Ifx_PSI5S;
 typedef struct { uint32 reserved; } Ifx_PSI5;
 typedef struct { uint32 reserved; } Ifx_QSPI0;
@@ -137,7 +128,7 @@ typedef struct { uint32 reserved; } Ifx_STM1;
 typedef struct { uint32 reserved; } Ifx_STM2;
 typedef struct { uint32 reserved; } Ifx_STM3;
 
-/* MODULE_* extern declarations */
+/* Extern MODULE instances */
 extern Ifx_GTM MODULE_GTM;
 extern Ifx_P   MODULE_P00;
 extern Ifx_ASCLIN0 MODULE_ASCLIN0;
@@ -167,7 +158,7 @@ extern Ifx_ASCLIN23 MODULE_ASCLIN23;
 extern Ifx_CAN0 MODULE_CAN0;
 extern Ifx_CAN1 MODULE_CAN1;
 extern Ifx_CAN2 MODULE_CAN2;
-extern Ifx_CBS  MODULE_CBS;
+extern Ifx_CBS MODULE_CBS;
 extern Ifx_CCU60 MODULE_CCU60;
 extern Ifx_CCU61 MODULE_CCU61;
 extern Ifx_CONVCTRL MODULE_CONVCTRL;
@@ -176,8 +167,8 @@ extern Ifx_CPU1 MODULE_CPU1;
 extern Ifx_CPU2 MODULE_CPU2;
 extern Ifx_CPU3 MODULE_CPU3;
 extern Ifx_DAM0 MODULE_DAM0;
-extern Ifx_DMA  MODULE_DMA;
-extern Ifx_DMU  MODULE_DMU;
+extern Ifx_DMA MODULE_DMA;
+extern Ifx_DMU MODULE_DMU;
 extern Ifx_DOM0 MODULE_DOM0;
 extern Ifx_EDSADC MODULE_EDSADC;
 extern Ifx_ERAY0 MODULE_ERAY0;
@@ -228,57 +219,61 @@ extern Ifx_P   MODULE_P34;
 extern Ifx_P   MODULE_P40;
 extern Ifx_P   MODULE_P41;
 extern Ifx_PSI5S MODULE_PSI5S;
-extern Ifx_PSI5  MODULE_PSI5;
+extern Ifx_PSI5 MODULE_PSI5;
 extern Ifx_QSPI0 MODULE_QSPI0;
 extern Ifx_QSPI1 MODULE_QSPI1;
 extern Ifx_QSPI2 MODULE_QSPI2;
 extern Ifx_QSPI3 MODULE_QSPI3;
 extern Ifx_QSPI4 MODULE_QSPI4;
 extern Ifx_SBCU MODULE_SBCU;
-extern Ifx_SCU  MODULE_SCU;
+extern Ifx_SCU MODULE_SCU;
 extern Ifx_SENT MODULE_SENT;
-extern Ifx_SMU  MODULE_SMU;
-extern Ifx_SRC  MODULE_SRC;
+extern Ifx_SMU MODULE_SMU;
+extern Ifx_SRC MODULE_SRC;
 extern Ifx_STM0 MODULE_STM0;
 extern Ifx_STM1 MODULE_STM1;
 extern Ifx_STM2 MODULE_STM2;
 extern Ifx_STM3 MODULE_STM3;
 
-/* Spy counters and controls */
+/* Spy API declarations */
 #define MOCK_MAX_CHANNELS 16
 
-/* Call counters */
+/* Call counters for mocked functions */
 extern int mock_IfxGtm_enable_callCount;
 extern int mock_IfxGtm_isEnabled_callCount;
-extern int mock_IfxGtm_Cmu_enableClocks_callCount;
-extern int mock_IfxGtm_Cmu_getModuleFrequency_callCount;
-extern int mock_IfxGtm_Cmu_setGclkFrequency_callCount;
 extern int mock_IfxGtm_Pwm_initConfig_callCount;
 extern int mock_IfxGtm_Pwm_init_callCount;
 extern int mock_IfxGtm_Pwm_updateChannelsDutyImmediate_callCount;
 extern int mock_IfxPort_setPinModeOutput_callCount;
+extern int mock_IfxGtm_Cmu_getModuleFrequency_callCount;
+extern int mock_IfxGtm_Cmu_enableClocks_callCount;
+extern int mock_IfxGtm_Pwm_updateChannelsDeadTimeImmediate_callCount;
 extern uint32 mock_togglePin_callCount;
 
-/* Return value controls */
+/* Return value controls for non-void mocked functions */
 extern boolean mock_IfxGtm_isEnabled_returnValue;
+extern float32 mock_IfxGtm_Cmu_getModuleFrequency_returnValue;
 
-/* Captured values */
+/* Value capture fields */
 extern uint32  mock_IfxGtm_Pwm_init_lastNumChannels;
 extern float32 mock_IfxGtm_Pwm_init_lastFrequency;
 extern uint32  mock_IfxGtm_Pwm_initConfig_lastNumChannels;
 extern float32 mock_IfxGtm_Pwm_initConfig_lastFrequency;
 extern float32 mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[MOCK_MAX_CHANNELS];
+extern float32 mock_IfxGtm_Pwm_updateChannelsDeadTimeImmediate_lastDtRising[MOCK_MAX_CHANNELS];
+extern float32 mock_IfxGtm_Pwm_updateChannelsDeadTimeImmediate_lastDtFalling[MOCK_MAX_CHANNELS];
 
 /* Mock control API */
 void mock_gtm_tom_3_phase_inverter_pwm_reset(void);
 int  mock_IfxGtm_enable_getCallCount(void);
 int  mock_IfxGtm_isEnabled_getCallCount(void);
-int  mock_IfxGtm_Cmu_enableClocks_getCallCount(void);
-int  mock_IfxGtm_Cmu_getModuleFrequency_getCallCount(void);
-int  mock_IfxGtm_Cmu_setGclkFrequency_getCallCount(void);
 int  mock_IfxGtm_Pwm_initConfig_getCallCount(void);
 int  mock_IfxGtm_Pwm_init_getCallCount(void);
 int  mock_IfxGtm_Pwm_updateChannelsDutyImmediate_getCallCount(void);
 int  mock_IfxPort_setPinModeOutput_getCallCount(void);
+int  mock_IfxGtm_Cmu_getModuleFrequency_getCallCount(void);
+int  mock_IfxGtm_Cmu_enableClocks_getCallCount(void);
+int  mock_IfxGtm_Pwm_updateChannelsDeadTimeImmediate_getCallCount(void);
+int  mock_togglePin_getCallCount(void);
 
 #endif /* MOCK_GTM_TOM_3_PHASE_INVERTER_PWM_H */
