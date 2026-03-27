@@ -1,45 +1,57 @@
+/* IfxEgtm.h - Mock */
 #ifndef IFXEGTM_H
 #define IFXEGTM_H
 
 #include "mock_egtm_atom_3_phase_inverter_pwm.h"
 
-/* Additional EGTM SFR fragments used by PWM */
-typedef struct { uint32 reserved; } Ifx_EGTM_CLS;
+/* Additional basic config structs used by Egtm Apis (kept minimal) */
+typedef struct { uint32 dummy; } IfxApApu_ApuConfig;
+typedef struct { uint32 dummy; } IfxApProt_ProtConfig;
 
-/* Enums required by IfxEgtm_Pwm */
-typedef enum {
-    IfxEgtm_AeiBridgeOpMode_sync = 0u,
+#ifndef IFXEGTM_NUM_CCM_OBJECTS
+#define IFXEGTM_NUM_CCM_OBJECTS (2)
+#endif
+
+/* Enums required by template */
+typedef enum
+{
+    IfxEgtm_AeiBridgeOpMode_sync  = 0u,
     IfxEgtm_AeiBridgeOpMode_async = 1u
 } IfxEgtm_AeiBridgeOpMode;
 
-typedef enum {
-    IfxEgtm_ClusterClockDiv_disable = 0u,
-    IfxEgtm_ClusterClockDiv_enable = 1u,
+typedef enum
+{
+    IfxEgtm_ClusterClockDiv_disable    = 0u,
+    IfxEgtm_ClusterClockDiv_enable     = 1u,
     IfxEgtm_ClusterClockDiv_enableDiv2 = 2u
 } IfxEgtm_ClusterClockDiv;
 
-typedef enum {
-    IfxEgtm_IrqMode_level = 0,
-    IfxEgtm_IrqMode_pulse = 1,
+typedef enum
+{
+    IfxEgtm_IrqMode_level       = 0,
+    IfxEgtm_IrqMode_pulse       = 1,
     IfxEgtm_IrqMode_pulseNotify = 2,
     IfxEgtm_IrqMode_singlePulse = 3
 } IfxEgtm_IrqMode;
 
-typedef enum {
-    IfxEgtm_MscAltInput_low = 0,
-    IfxEgtm_MscAltInput_lowext = 1,
-    IfxEgtm_MscAltInput_high = 2,
+typedef enum
+{
+    IfxEgtm_MscAltInput_low     = 0,
+    IfxEgtm_MscAltInput_lowext  = 1,
+    IfxEgtm_MscAltInput_high    = 2,
     IfxEgtm_MscAltInput_highext = 3
 } IfxEgtm_MscAltInput;
 
-typedef enum {
+typedef enum
+{
     IfxEgtm_SuspendMode_none = 0,
     IfxEgtm_SuspendMode_hard = 1,
     IfxEgtm_SuspendMode_soft = 2
 } IfxEgtm_SuspendMode;
 
-/* Cluster index enum */
-typedef enum {
+/* Cluster enumeration used by PWM config */
+typedef enum
+{
     IfxEgtm_Cluster_0 = 0,
     IfxEgtm_Cluster_1,
     IfxEgtm_Cluster_2,
@@ -48,16 +60,36 @@ typedef enum {
     IfxEgtm_Cluster_5
 } IfxEgtm_Cluster;
 
-/* Minimal MSC Out structure used by PWM channel config */
-typedef struct {
-    uint32 mscSet;
-    uint32 mscSetSignal;
-    uint32 mscModule;
-    uint32 mscSelect;
-    IfxEgtm_MscAltInput mscAltIn;
+/* Egtm MSC output configuration (kept minimal) */
+typedef uint32 IfxEgtm_Cfg_MscSet;
+typedef uint32 IfxEgtm_Cfg_MscSetSignal;
+typedef uint32 IfxEgtm_Cfg_MscModule;
+typedef uint32 IfxEgtm_Cfg_MscSelect;
+
+typedef struct
+{
+    IfxEgtm_Cfg_MscSet       mscSet;
+    IfxEgtm_Cfg_MscSetSignal mscSetSignal;
+    IfxEgtm_Cfg_MscModule    mscModule;
+    IfxEgtm_Cfg_MscSelect    mscSelect;
+    IfxEgtm_MscAltInput      mscAltIn;
 } IfxEgtm_MscOut;
 
-/* Function declarations (only those used in DRIVERS TO MOCK) */
+/* AP configuration structs (not used by stubs) */
+typedef struct { IfxApApu_ApuConfig apuConfig; } IfxEgtm_ClApConfig;
+typedef struct { IfxApProt_ProtConfig proteConfig; IfxApApu_ApuConfig apuConfig; } IfxEgtm_CtrlApConfig;
+typedef struct { IfxApApu_ApuConfig apuConfig; } IfxEgtm_WrapApConfig;
+
+typedef struct
+{
+    IfxApProt_ProtConfig protseConfig;
+    IfxEgtm_ClApConfig   clApConfig[IFXEGTM_NUM_CCM_OBJECTS];
+    IfxEgtm_CtrlApConfig ctrlApConfig;
+    IfxEgtm_WrapApConfig wrapApConfig;
+} IfxEgtm_ApConfig;
+
+/* Core control functions used by module */
+void    IfxEgtm_disable(Ifx_EGTM *egtm); /* not used but commonly declared */
 void    IfxEgtm_enable(Ifx_EGTM *egtm);
 boolean IfxEgtm_isEnabled(Ifx_EGTM *egtm);
 
