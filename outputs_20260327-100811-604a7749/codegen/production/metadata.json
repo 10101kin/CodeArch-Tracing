@@ -1,8 +1,17 @@
 {
-  "type": "llm_response",
-  "phase": "production",
   "attempt": 3,
   "phase_attempt": 1,
-  "response_length": 12591,
-  "timestamp": "2026-03-27T18:31:28.161407"
+  "phase": "production",
+  "success": false,
+  "errors": [
+    "'IfxEgtm_ATOM0_0_TOUT0_P02_0_OUT' undeclared (first use in this function)",
+    "'IfxEgtm_ATOM0_0N_TOUT1_P02_1_OUT' undeclared (first use in this function)",
+    "'IfxEgtm_ATOM0_0N_TOUT7_P02_7_OUT' undeclared (first use in this function)",
+    "'IfxEgtm_ATOM0_0N_TOUT33_P33_11_OUT' undeclared (first use in this function)",
+    "'IfxEgtm_Pwm_Config' has no member named 'channelConfig'",
+    "'IFXEGTM_CMU_CLKEN_FXCLK' undeclared (first use in this function)",
+    "'IFXEGTM_CMU_CLKEN_ECLK0' undeclared (first use in this function)"
+  ],
+  "timestamp": "2026-03-27T18:31:34.416202",
+  "project_name": "Generate_code_to_migrate_the_TC387_GTM_TOM_IfxGtm_r_20260327_182112"
 }
