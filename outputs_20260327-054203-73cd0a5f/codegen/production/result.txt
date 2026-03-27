@@ -1,0 +1,110 @@
+Status: FAILED
+
+============================================================
+TDD CODE GENERATION - ATTEMPT STATUS
+============================================================
+Phase: production
+Attempt: 3
+Status: FAILED
+Timestamp: 2026-03-27 14:06:06
+Files generated: 2
+
+============================================================
+
+ERRORS:
+
+1. conflicting types for 'IfxGtm_Tom_ToutMap'; have 'struct <anonymous>'
+
+2. unknown type name 'sint8'; did you mean 'uint8'?
+
+3. C:\Users\extanke\AppData\Local\Temp\tdd_build_gby42oih\src\gtm_tom_3_phase_inverter_pwm.c:21:10: fatal error: IfxGtm_PinMap.h: No such file or directory
+
+4. conflicting types for 'IfxGtm_Tom_ToutMap'; have 'struct <anonymous>'
+
+5. unknown type name 'sint8'; did you mean 'uint8'?
+
+6. unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?
+
+7. unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?
+
+8. unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?
+
+9. unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?
+
+10. unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?
+
+============================================================
+BUILD RESULT:
+{
+  "success": false,
+  "errors": [
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_gby42oih\\include/IfxGtm_Tom_PwmHl.h",
+      "line": 30,
+      "category": "error",
+      "message": "conflicting types for 'IfxGtm_Tom_ToutMap'; have 'struct <anonymous>'"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_gby42oih\\include/IfxGtm_Tom_PwmHl.h",
+      "line": 40,
+      "category": "error",
+      "message": "unknown type name 'sint8'; did you mean 'uint8'?"
+    },
+    {
+      "file": "",
+      "message": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_gby42oih\\src\\gtm_tom_3_phase_inverter_pwm.c:21:10: fatal error: IfxGtm_PinMap.h: No such file or directory",
+      "category": "error"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_gby42oih\\include/IfxGtm_Tom_PwmHl.h",
+      "line": 30,
+      "category": "error",
+      "message": "conflicting types for 'IfxGtm_Tom_ToutMap'; have 'struct <anonymous>'"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_gby42oih\\include/IfxGtm_Tom_PwmHl.h",
+      "line": 40,
+      "category": "error",
+      "message": "unknown type name 'sint8'; did you mean 'uint8'?"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_gby42oih\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 168,
+      "category": "error",
+      "message": "unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_gby42oih\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 169,
+      "category": "error",
+      "message": "unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_gby42oih\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 170,
+      "category": "error",
+      "message": "unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_gby42oih\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 171,
+      "category": "error",
+      "message": "unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_gby42oih\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 172,
+      "category": "error",
+      "message": "unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_gby42oih\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 173,
+      "category": "error",
+      "message": "unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?"
+    }
+  ],
+  "warnings": [],
+  "stderr": "In file included from C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_gby42oih\\src\\gtm_tom_3_phase_inverter_pwm.c:19:\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_gby42oih\\include/IfxGtm_Tom_PwmHl.h:30:3: error: conflicting types for 'IfxGtm_Tom_ToutMap'; have 'struct <anonymous>'\n   30 | } IfxGtm_Tom_ToutMap;\n      |   ^~~~~~~~~~~~~~~~~~\nIn file included from C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_gby42oih\\src\\gtm_tom_3_phase_inverter_pwm.c:18:\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_gby42oih\\include/IfxGtm_Tom_Timer.h:51:3: note: previous declaration of 'IfxGtm_Tom_ToutMap' with type 'IfxGtm_Tom_ToutMap'\n   51 | } IfxGtm_Tom_ToutMap;\n      |   ^~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_gby42oih\\include/IfxGtm_Tom_PwmHl.h:40:5: error: unknown type name 'sint8'; did you mean 'uint8'?\n   40 |     sint8           setMode;\n      |     ^~~~~\n      |     uint8\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_gby42oih\\src\\gtm_tom_3_phase_inverter_pwm.c:21:10: fatal error: IfxGtm_PinMap.h: No such file or directory\n   21 | #include \"IfxGtm_PinMap.h\"\n      |          ^~~~~~~~~~~~~~~~~\ncompilation terminated.\n\nIn file included from C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_gby42oih\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c:6:\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_gby42oih\\include/IfxGtm_Tom_PwmHl.h:30:3: error: conflicting types for 'IfxGtm_Tom_ToutMap'; have 'struct <anonymous>'\n   30 | } IfxGtm_Tom_ToutMap;\n      |   ^~~~~~~~~~~~~~~~~~\nIn file included from C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_gby42oih\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c:5:\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_gby42oih\\include/IfxGtm_Tom_Timer.h:51:3: note: previous declaration of 'IfxGtm_Tom_ToutMap' with type 'IfxGtm_Tom_ToutMap'\n   51 | } IfxGtm_Tom_ToutMap;\n      |   ^~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_gby42oih\\include/IfxGtm_Tom_PwmHl.h:40:5: error: unknown type name 'sint8'; did you mean 'uint8'?\n   40 |     sint8           setMode;\n      |     ^~~~~\n      |     uint8\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_gby42oih\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c:168:1: error: unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?\n  168 | IfxGtm_Pwm_ToutMap IfxGtm_TOM1_1_TOUT11_P00_2_OUT = {0};\n      | ^~~~~~~~~~~~~~~~~~\n      | IfxGtm_Tom_ToutMap\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_gby42oih\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c:169:1: error: unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?\n  169 | IfxGtm_Pwm_ToutMap IfxGtm_TOM1_2_TOUT12_P00_3_OUT = {0};\n      | ^~~~~~~~~~~~~~~~~~\n      | IfxGtm_Tom_ToutMap\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_gby42oih\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c:170:1: error: unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?\n  170 | IfxGtm_Pwm_ToutMap IfxGtm_TOM1_3_TOUT13_P00_4_OUT = {0};\n      | ^~~~~~~~~~~~~~~~~~\n      | IfxGtm_Tom_ToutMap\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_gby42oih\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c:171:1: error: unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?\n  171 | IfxGtm_Pwm_ToutMap IfxGtm_TOM1_4_TOUT14_P00_5_OUT = {0};\n      | ^~~~~~~~~~~~~~~~~~\n      | IfxGtm_Tom_ToutMap\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_gby42oih\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c:172:1: error: unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?\n  172 | IfxGtm_Pwm_ToutMap IfxGtm_TOM1_5_TOUT15_P00_6_OUT = {0};\n      | ^~~~~~~~~~~~~~~~~~\n      | IfxGtm_Tom_ToutMap\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_gby42oih\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c:173:1: error: unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?\n  173 | IfxGtm_Pwm_ToutMap IfxGtm_TOM1_6_TOUT16_P00_7_OUT = {0};\n      | ^~~~~~~~~~~~~~~~~~\n      | IfxGtm_Tom_ToutMap\n",
+  "stdout": ""
+}

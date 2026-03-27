@@ -1,0 +1,19 @@
+{
+  "attempt": 3,
+  "phase": "production",
+  "success": false,
+  "errors": [
+    "conflicting types for 'IfxGtm_Tom_ToutMap'; have 'struct <anonymous>'",
+    "unknown type name 'sint8'; did you mean 'uint8'?",
+    "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_gby42oih\\src\\gtm_tom_3_phase_inverter_pwm.c:21:10: fatal error: IfxGtm_PinMap.h: No such file or directory",
+    "conflicting types for 'IfxGtm_Tom_ToutMap'; have 'struct <anonymous>'",
+    "unknown type name 'sint8'; did you mean 'uint8'?",
+    "unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?",
+    "unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?",
+    "unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?",
+    "unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?",
+    "unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?"
+  ],
+  "timestamp": "2026-03-27T14:06:06.031202",
+  "project_name": "Migrate_the_TC387_three-phase_inverter_PWM_to_the_r_20260327_135552"
+}
