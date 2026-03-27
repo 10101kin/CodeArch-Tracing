@@ -1,0 +1,184 @@
+{
+  "generation_mode": "MIGRATION",
+  "migration_info": {
+    "has_reference": true,
+    "reference_family": "TC3xx",
+    "target_family": "TC3xx",
+    "migration_required": false,
+    "driver_mappings": {
+      "IfxGtm_Pwm": "IfxGtm_Tom_Timer",
+      "IfxGtm_Tom_PwmHl": "IfxGtm_Tom_Timer"
+    },
+    "header_mappings": {
+      "IfxGtm_Pwm.h": "IfxGtm_Tom_Timer.h",
+      "IfxGtm_Tom_PwmHl.h": "IfxGtm_Tom_Timer.h"
+    },
+    "api_changes": [
+      {
+        "from": "IfxGtm_Pwm_initConfig",
+        "to": "IfxGtm_Tom_Timer_initConfig",
+        "reason": "User-requested driver change to Tom_Timer"
+      },
+      {
+        "from": "IfxGtm_Pwm_init",
+        "to": "IfxGtm_Tom_Timer_init",
+        "reason": "User-requested driver change to Tom_Timer"
+      },
+      {
+        "from": "IfxGtm_Pwm_updateChannelsDutyImmediate",
+        "to": "IfxGtm_Tom_Timer_setCompare + shadow transfer (TGC) for synchronous update",
+        "reason": "Equivalent duty update via TOM timer/compare and shadow registers"
+      },
+      {
+        "from": "IfxGtm_Tom_PwmHl_initConfig",
+        "to": "IfxGtm_Tom_Timer_initConfig + direct TOM channel/DTM setup",
+        "reason": "Consolidate PWM pair control into Tom_Timer flow"
+      },
+      {
+        "from": "IfxGtm_Tom_PwmHl_setMode",
+        "to": "Direct TOM TGC and channel control with IfxGtm_Tom_Timer",
+        "reason": "No PwmHl helper used; manual mode and TGC control"
+      },
+      {
+        "from": "IfxGtm_Tom_PwmHl_setOnTime",
+        "to": "IfxGtm_Tom_Timer_setCompare (CCX/CCXN) + shadow transfer",
+        "reason": "Replace PwmHl on-time API with timer compare updates"
+      }
+    ],
+    "function_names_to_preserve": [
+      "initGtmTom3phInv",
+      "updateGtmTom3phInvDuty"
+    ],
+    "explicit_driver_upgrade": true,
+    "target_driver": "IfxGtm_Tom_Timer"
+  },
+  "peripheral_requirement": {
+    "type": "GTM_TOM",
+    "driver_available": true,
+    "driver_name": "IfxGtm_Tom_Timer",
+    "purpose": "GTM TOM1 center-aligned complementary PWM on channels 1-6 (three pairs) at 20 kHz with 0.5 us dead-time and 1.0 us minPulse using FXCLK0; synchronous duty update helper",
+    "driver_locked": true,
+    "driver_selection_source": "user_explicit"
+  },
+  "signal_requirements": {
+    "module": "GTM.TOM1",
+    "channel_pairs": [
+      {
+        "pair": "U",
+        "high_channel": 1,
+        "low_channel": 2
+      },
+      {
+        "pair": "V",
+        "high_channel": 3,
+        "low_channel": 4
+      },
+      {
+        "pair": "W",
+        "high_channel": 5,
+        "low_channel": 6
+      }
+    ],
+    "pin_mapping": {
+      "TOM1_CH1": "P00.2",
+      "TOM1_CH2": "P00.3",
+      "TOM1_CH3": "P00.4",
+      "TOM1_CH4": "P00.5",
+      "TOM1_CH5": "P00.6",
+      "TOM1_CH6": "P00.7"
+    },
+    "output_mode": "push-pull",
+    "polarity": "active-high",
+    "pad_driver": "IfxPort_PadDriver_cmosAutomotiveSpeed1"
+  },
+  "timing_requirements": {
+    "frequency_hz": 20000,
+    "alignment": "center-aligned",
+    "dead_time_us": 0.5,
+    "min_pulse_us": 1.0,
+    "clock_source": "FXCLK0",
+    "fxclk0_frequency_mhz": 100,
+    "computed_ticks": {
+      "period_ticks": 5000,
+      "deadtime_ticks": 50,
+      "minpulse_ticks": 100
+    },
+    "initial_duty_percent": {
+      "U": 25,
+      "V": 50,
+      "W": 75
+    },
+    "update_strategy": "Use TOM1 TGC shadow transfer to synchronously latch new compare values at period boundary"
+  },
+  "device_configuration": {
+    "target_device_macro": "DEVICE_TC38X",
+    "pin_package": "IFX_PIN_PACKAGE_516",
+    "device_family": "TC3xx",
+    "clock_requirements": {
+      "requires_xtal": true,
+      "expected_system_freq_mhz": 300,
+      "gtm_fxclk0_freq_mhz": 100
+    }
+  },
+  "code_structure": {
+    "file_pattern": "reference",
+    "expected_files": [
+      "GTM_TOM_3_Phase_Inverter_PWM.c",
+      "GTM_TOM_3_Phase_Inverter_PWM.h"
+    ],
+    "has_cpu_files": true
+  },
+  "reference_context": {
+    "includes_used": [
+      "Ifx_Types.h",
+      "IfxGtm_Tom_PwmHl.h",
+      "IfxGtm_PinMap.h",
+      "IfxPort.h"
+    ],
+    "function_patterns": [
+      "initGtmTom3phInv",
+      "updateGtmTom3phInvDuty"
+    ],
+    "peripheral_usage": {
+      "GTM": "3-phase complementary PWM generation on TOM1",
+      "Port": "GPIO pad configuration"
+    }
+  },
+  "template_compatibility": {
+    "validated": true,
+    "supported_peripherals": [
+      "PWM",
+      "GTM",
+      "TIMER",
+      "GPIO"
+    ],
+    "suggested_drivers": {
+      "PWM": [
+        "IfxGtm_Tom_Timer"
+      ],
+      "GTM": [
+        "IfxGtm_Tom_Timer"
+      ],
+      "TIMER": [
+        "IfxGtm_Tom_Timer"
+      ],
+      "GPIO": [
+        "IfxPort_Io",
+        "IfxPort"
+      ],
+      "_driver_selection": {
+        "explicit_target": "IfxGtm_Tom_Timer",
+        "replaced_source": "IfxGtm_Pwm",
+        "primary_drivers": [
+          "IfxGtm_Tom_Timer"
+        ],
+        "avoid_drivers": [
+          "IfxGtm_Pwm"
+        ]
+      }
+    },
+    "warnings": []
+  },
+  "header_documentation_available": true,
+  "config_values_extracted": 16
+}

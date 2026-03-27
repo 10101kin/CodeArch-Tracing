@@ -1,0 +1,145 @@
+{
+  "user_intent_preservation": {
+    "original_goal": "Migrate 3-phase PWM motor control to KIT_A2G_TC387_5V_TFT (TC38x) using GTM TOM1 to output three complementary PWM pairs (1/2, 3/4, 5/6) at 20 kHz, center-aligned, 0.5 µs dead-time, 1.0 µs minPulse, initial duties U=25%, V=50%, W=75%, FXCLK0 clock, push-pull, active-high, exact reference pin mapping P00.2..P00.7, and a synchronous per-phase duty update helper.",
+    "functional_behavior": "Generate three complementary PWM pairs on TOM1 with hardware-enforced dead-time and minimum pulse, center-aligned at 20 kHz, start at specified phase duties, and provide a function to synchronously latch duty updates at the period boundary.",
+    "technical_approach": "Use the unified IfxGtm_Pwm API for channel configuration and duty/dead-time updates, GTM CMU FXCLK0 as time base, TOM1 TGC shadow transfer for synchronous latching, and IfxGtm_PinMap_setTomTout to configure TOUT pins with push-pull and the requested pad driver. Complementary behavior and active-high polarity are set per channel. Channel mask and shadow transfer are managed via IfxGtm_Tom_Timer TGC helpers."
+  },
+  "driver_selection": {
+    "recommended_driver": "IfxGtm_Tom_Timer",
+    "selection_rationale": "Engine recommendation and lock for PWM/TIMER on TC3xx; provides frequency/period base, channel mask and synchronized shadow transfer via TGC.",
+    "available_in_template": true,
+    "complexity_level": "advanced",
+    "alternatives_considered": [
+      "IfxGtm_Pwm",
+      "IfxGtm_Tom_Dtm_PwmHl"
+    ]
+  },
+  "driver_usage": {
+    "primary_driver": "IfxGtm_Pwm",
+    "available_in_template": true,
+    "initialization_apis": [
+      "IfxGtm_enable",
+      "IfxGtm_Cmu_enableClocks",
+      "IfxGtm_PinMap_setTomTout",
+      "IfxGtm_Pwm_initConfig",
+      "IfxGtm_Pwm_initChannelConfig",
+      "IfxGtm_Pwm_setChannelPolarity",
+      "IfxGtm_Tom_Tgc_enableChannel",
+      "IfxGtm_Tom_Tgc_enableChannelOutput",
+      "IfxGtm_Tom_Timer_addToChannelMask",
+      "IfxGtm_Tom_Timer_run"
+    ],
+    "runtime_apis": [
+      "IfxGtm_Pwm_updateChannelDutyImmediate",
+      "IfxGtm_Pwm_updateChannelDeadTimeImmediate",
+      "IfxGtm_Tom_Timer_applyUpdate"
+    ]
+  },
+  "file_structure": {
+    "module_files": [
+      "GTM_TOM_3_Phase_Inverter_PWM.c",
+      "GTM_TOM_3_Phase_Inverter_PWM.h"
+    ],
+    "cpu_files": [
+      "Cpu0_Main.c"
+    ],
+    "from_reference": true
+  },
+  "function_mapping": {
+    "init_function": {
+      "name": "initGtmTom3phInv",
+      "driver_calls": [
+        "IfxGtm_enable",
+        "IfxGtm_Cmu_enableClocks",
+        "IfxGtm_PinMap_setTomTout",
+        "IfxGtm_Tom_Timer_initConfig",
+        "IfxGtm_Tom_Timer_initChannelConfig",
+        "IfxGtm_Tom_Timer_setChannelPolarity",
+        "IfxGtm_Tom_Tgc_enableChannel",
+        "IfxGtm_Tom_Tgc_enableChannelOutput",
+        "IfxGtm_Tom_Timer_addToChannelMask",
+        "IfxGtm_Tom_Timer_run"
+      ]
+    },
+    "runtime_function": {
+      "name": "updateGtmTom3phInvDuty",
+      "driver_calls": [
+        "IfxGtm_Tom_Timer_updateChannelDutyImmediate",
+        "IfxGtm_Tom_Timer_updateChannelDeadTimeImmediate",
+        "IfxGtm_Tom_Timer_applyUpdate"
+      ],
+      "purpose": "Clamp to 1.0 µs minPulse and apply 0.5 µs dead-time, update U/V/W duties on the six TOM1 channels, then trigger TGC shadow transfer to latch all updates synchronously at the period boundary."
+    }
+  },
+  "migration_notes": {
+    "is_migration": true,
+    "driver_changes": [
+      "Primary control uses IfxGtm_Pwm per mandatory header selection; TOM1 TGC update/latch uses IfxGtm_Tom_Timer helpers for channel mask and applyUpdate."
+    ],
+    "api_changes": [
+      "Duty updates are performed with IfxGtm_Pwm_updateChannelDutyImmediate and synchronized via IfxGtm_Tom_Timer_applyUpdate (TGC).",
+      "Dead-time is applied via IfxGtm_Pwm_updateChannelDeadTimeImmediate.",
+      "Pins are configured via IfxGtm_PinMap_setTomTout with push-pull and the requested pad driver."
+    ],
+    "context_preserved": "The solution keeps TOM1 center-aligned 20 kHz complementary PWM with 0.5 µs dead-time, 1.0 µs minPulse, initial duties (U=25%, V=50%, W=75%), FXCLK0 clocking, push-pull outputs, active-high polarity, and a synchronous multi-channel duty update helper. Note: The exact reference pin mapping P00.2..P00.7 for TOM1 CH1..CH6 is flagged by the template as invalid/undefined for TC38x LFBGA-516; IfxGtm_PinMap macros for those specific channel-to-pin routes are not available. To fully preserve the physical mapping, verify the board/package variant; otherwise, select the nearest valid TOM1 TOUT mappings for channels 1–6 and keep logical channel pairing (1/2, 3/4, 5/6) unchanged."
+  },
+  "header_selection": {
+    "applied": true,
+    "peripheral_type": "PWM",
+    "recommended_header": "IfxGtm_Pwm",
+    "score": 388,
+    "required_includes": [
+      "IfxGtm_Pwm.h"
+    ],
+    "function_mapping": {
+      "IfxGtm_enable": "IfxGtm_Pwm_updateChannelDeadTimeImmediate"
+    },
+    "available_functions_count": 99
+  },
+  "driver_selection_engine": {
+    "applied": true,
+    "mcu_family": "TC3xx",
+    "requirement_analysis": {},
+    "recommendations": {
+      "PWM": {
+        "driver": "IfxGtm_Tom_Timer",
+        "score": 100,
+        "complexity": "locked",
+        "rationale": "Driver locked by refiner node (user explicit or engine-scored)",
+        "alternatives": []
+      }
+    },
+    "migration_mappings": {
+      "IfxScuWdt": {
+        "target_driver": "IfxScuWdt",
+        "api_mapping": {
+          "IfxScuWdt_init": "IfxScuWdt_init",
+          "IfxScuWdt_initConfig": "IfxScuWdt_initConfig"
+        }
+      },
+      "IfxGtm_Tom_PwmHl": {
+        "target_driver": "IfxGtm_Pwm",
+        "api_mapping": {
+          "IfxGtm_Tom_PwmHl_init": "IfxGtm_Pwm_init",
+          "IfxGtm_Tom_PwmHl_initConfig": "IfxGtm_Pwm_initConfig",
+          "IfxGtm_Tom_PwmHl_setOnTime": "IfxGtm_Pwm_setDuty",
+          "IfxGtm_Tom_PwmHl_setPeriod": "IfxGtm_Pwm_updatePeriod",
+          "IfxGtm_Tom_PwmHl_start": "IfxGtm_Pwm_start",
+          "IfxGtm_Tom_PwmHl_stop": "IfxGtm_Pwm_stop"
+        },
+        "upgrade_reason": "Known upgrade path: IfxGtm_Tom_PwmHl → IfxGtm_Pwm"
+      },
+      "IfxCpu_Irq": {
+        "target_driver": "IfxSrc",
+        "api_mapping": {
+          "IfxCpu_Irq_installInterruptHandler": "IfxSrc_init",
+          "IfxCpu_enableInterrupts": "IfxSrc_setRequest",
+          "IfxCpu_disableInterrupts": "IfxSrc_clearRequest"
+        }
+      }
+    }
+  },
+  "driver_knowledge_base": {
+    "applied": false
+  }
+}
