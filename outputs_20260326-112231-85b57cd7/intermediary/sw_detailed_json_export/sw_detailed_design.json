@@ -1,0 +1,71 @@
+{
+  "module_name": "GTM_TOM_3_Phase_Inverter_PWM",
+  "public_functions": [
+    {
+      "signature": "void initGtmTom3phInv(void)",
+      "behavior_description": "Initialize a 3-phase complementary PWM using the unified IfxGtm_Pwm driver with a synchronized TOM time base and hardware deadtime. Steps: 1) Declare all local configuration structures: main PWM config, per-channel configs (for three logical channels 0..2), deadtime config array, output config array for complementary HS/LS pairs, and one InterruptConfig for the PWM period callback. Also ensure a persistent module-state struct exists globally to hold: the IfxGtm_Pwm handle, a persistent channels[] array sized to the number of PWM channels, arrays for current dutyPercent[3], phase[3] (if needed), and deadTime[3]. 2) Call IfxGtm_Pwm_initConfig to load driver defaults. 3) Configure center-aligned operation at 20 kHz, enable syncStart and syncUpdate so all channels start and update together. Assign the cluster to TOM1 and set the base/master time base to TOM1 CH0 (not routed to a pin) for synchronous updates. 4) Set up complementary outputs (HS/LS per phase) in output[] and enable hardware deadtime of 1 µs on both rising and falling edges via the deadtime config array; set both outputs active high and push-pull mode with an automotive pad driver. 5) Configure one InterruptConfig: set mode to pulse-notify, isrProvider CPU0, priority 20, periodEvent pointer set to IfxGtm_periodEventFunction, and leave dutyEvent NULL. Assign this interrupt config to channelConfig[0].interrupt and set channelConfig[1..2].interrupt = NULL to follow the base-channel-only pattern for period interrupts. 6) Prepare three IfxGtm_Pwm_ChannelConfig entries with logical timerCh indices Ch_0, Ch_1, and Ch_2 (ordinal indices 0..2; the driver resolves physical TOM channels from the cluster and output pins). 7) After all configs are prepared, guard GTM enable and CMU setup: if GTM is not enabled, enable it; then read the GTM module frequency dynamically; configure the GTM global clock and CLK0 to this frequency and enable both FXCLK and CLK0 clocks. Keep all CMU/clock configuration inside this guard. 8) Call IfxGtm_Pwm_init using the persistent state: pass &g_state.pwm, &g_state.channels[0], and &config so the driver holds the persistent channels array. 9) Store initial percent-based duties in the state (U=25, V=50, W=75) and corresponding deadtime values. The driver applies these initial duties during init. 10) Configure the LED GPIO pin as a push-pull output and drive it initially low. 11) Configure a periodic GTM ATOM0 CH0 interrupt at 2 Hz (no pin output) that will toggle the LED: set up the ATOM channel for a 0.5 s period using CMU CLK0, install the ISR with IFX_INTERRUPT on CPU0 at priority 20, and enable its SRC. The ISR only toggles the LED to minimize interrupt latency. The PWM period callback IfxGtm_periodEventFunction is registered but has an empty body.",
+      "driver_calls": [
+        "IfxGtm_isEnabled",
+        "IfxGtm_enable",
+        "IfxGtm_Cmu_getModuleFrequency",
+        "IfxGtm_Cmu_enableClocks",
+        "IfxGtm_Pwm_initConfig",
+        "IfxGtm_Pwm_init",
+        "IfxPort_setPinModeOutput"
+      ],
+      "from_reference": true,
+      "call_context": "init"
+    },
+    {
+      "signature": "void updateGtmTom3phInvDuty(void)",
+      "behavior_description": "Implements a percent-based duty stepper for the three PWM phases. For each configured PWM channel (U, V, W), read its current duty from the persistent state, add a fixed +10% step, and apply wrap logic: if (duty + step) >= 100% then set duty to 0% and then add the step, effectively making the updated duty equal to the step value after wrap. Clamp resulting duty within [0%, 100%). Write the new dutyPercent values back into the state array. Finally, call the driver API to apply all channel duty updates immediately as a synchronized group so the new values take effect together according to the configured sync update behavior.",
+      "driver_calls": [
+        "IfxGtm_Pwm_updateChannelsDutyImmediate"
+      ],
+      "from_reference": true,
+      "call_context": "loop"
+    },
+    {
+      "signature": "void IfxGtm_periodEventFunction(void *data)",
+      "behavior_description": "Empty PWM period callback registered with the high-level PWM driver. Its presence allows the driver to route period events, but this function intentionally performs no processing.",
+      "driver_calls": [],
+      "from_reference": true,
+      "call_context": "none"
+    }
+  ],
+  "private_functions": [
+    {
+      "signature": "void interruptGtmAtom(void)",
+      "needed": true,
+      "from_reference": false
+    }
+  ],
+  "dependencies": {
+    "includes": [
+      "Ifx_Types.h",
+      "IfxGtm_Pwm.h",
+      "IfxPort.h"
+    ],
+    "driver_calls": [
+      "IfxGtm_enable",
+      "IfxGtm_Pwm_init"
+    ]
+  },
+  "cpu_main_requirements": {
+    "needs_cpu_sync": true,
+    "uses_timer_delay": true,
+    "delay_ms": 10,
+    "additional_includes": [
+      "Bsp.h"
+    ]
+  },
+  "header_selection": {
+    "applied": true,
+    "peripheral_type": "PWM",
+    "recommended_header": "IfxGtm_Pwm",
+    "template_functions_count": 1026,
+    "required_includes": [
+      "IfxGtm_Pwm.h"
+    ]
+  }
+}
