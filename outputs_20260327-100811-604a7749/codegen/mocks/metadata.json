@@ -1,9 +1,8 @@
 {
-  "attempt": 1,
-  "phase_attempt": 1,
-  "phase": "mock_generation",
-  "success": true,
-  "errors": [],
-  "timestamp": "2026-03-27T18:25:24.864366",
-  "project_name": "Generate_code_to_migrate_the_TC387_GTM_TOM_IfxGtm_r_20260327_182112"
+  "type": "llm_response",
+  "phase": "mock",
+  "attempt": 4,
+  "phase_attempt": 2,
+  "response_length": 46825,
+  "timestamp": "2026-03-27T18:35:23.440584"
 }
