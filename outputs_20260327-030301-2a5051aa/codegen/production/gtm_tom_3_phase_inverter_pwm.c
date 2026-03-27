@@ -1,19 +1,19 @@
 /*
  * gtm_tom_3_phase_inverter_pwm.c
- * Production driver: GTM TOM1 3-Phase complementary PWM (KIT_A2G_TC387_5V_TFT)
  *
- * Behavior:
- *  - Initializes GTM TOM1 for 3 complementary phase pairs using TOM timer as base and PwmHl for paired outputs
- *  - 20 kHz, center-aligned, FXCLK0 clock, 0.5 us dead-time, 1.0 us minPulse
- *  - Initial duties: U=25%%, V=50%%, W=75%%
- *  - Synchronous shadow transfer on updates via TOM TGC
+ * Production driver for GTM TOM1 3-phase complementary PWM using TOM timer base
+ * and IfxGtm_Tom_PwmHl (KIT_A2G_TC387_5V_TFT / TC3xx family).
+ *
+ * Implementation follows iLLD patterns and the specified behavior descriptions.
  *
  * Notes:
- *  - No watchdog functions here (Cpu0_Main.c only)
- *  - Uses only iLLD APIs listed in available signatures
+ * - Watchdog disable is NOT included here (must be in CpuX_Main.c only).
+ * - No STM-based timing here; scheduling belongs to the CPU main loop.
  */
 
 #include "gtm_tom_3_phase_inverter_pwm.h"
+
+/* iLLD dependencies */
 #include "Ifx_Types.h"
 #include "IfxGtm.h"
 #include "IfxGtm_Cmu.h"
@@ -21,186 +21,201 @@
 #include "IfxGtm_Tom_PwmHl.h"
 #include "IfxGtm_PinMap.h"
 #include "IfxPort.h"
-#include "IfxCpu.h"
 
-/* ====================================================================== */
-/* Macros and configuration constants (from requirements)                  */
-/* ====================================================================== */
-#define NUM_PHASES                        (3U)
+/* =========================================================================
+ * Configuration macros (from requirements)
+ * ========================================================================= */
+#define NUM_PHASES                        (3)
+#define PWM_BASE_FREQUENCY_HZ             (20000.0f)     /* 20 kHz */
+#define PWM_DEADTIME_US                   (0.5f)         /* 0.5 us */
+#define PWM_MIN_PULSE_US                  (1.0f)         /* 1.0 us */
 
-/* Timing requirements */
-#define PWM_BASE_FREQUENCY_HZ            (20000.0f)     /* 20 kHz */
-#define PWM_DEAD_TIME_US                 (0.5f)         /* 0.5 us */
-#define PWM_MIN_PULSE_US                 (1.0f)         /* 1.0 us */
+#define PHASE_U_INIT_DUTY_PCT             (25.0f)
+#define PHASE_V_INIT_DUTY_PCT             (50.0f)
+#define PHASE_W_INIT_DUTY_PCT             (75.0f)
 
-/* Computed ticks from requirements (not forced in HW; used as references) */
-#define PWM_PERIOD_TICKS_REF             (5000U)
-#define PWM_DEADTIME_TICKS_REF           (50U)
-#define PWM_MINPULSE_TICKS_REF           (100U)
+/* Duty update step as a fixed fraction of period (1/64 of period per call) */
+#define PWM_DUTY_STEP_DENOMINATOR         (64U)
 
-/* Initial duty (percent) */
-#define PHASE_U_INIT_DUTY_PERCENT        (25.0f)
-#define PHASE_V_INIT_DUTY_PERCENT        (50.0f)
-#define PHASE_W_INIT_DUTY_PERCENT        (75.0f)
+/* LED for ISR debug toggle: compound macro (port, pin) */
+#define LED                                &MODULE_P13, 0
 
-/* On-time update step: fraction of current period (1/100) */
-#define ONTIME_STEP_DIVISOR              (100U)
+/* ISR priority macro (used in IFX_INTERRUPT and any SRC config if added externally) */
+#define ISR_PRIORITY_ATOM                 (20)
 
-/* LED (debug) on P13.0 */
-#define LED                              &MODULE_P13, 0
+/* Pin routing (validated/reference symbols for TOM1 on P00.[2..7]) */
+#define PHASE_U_HS                        &IfxGtm_TOM1_2_TOUT12_P00_3_OUT  /* TOM1 CH2 -> P00.3 */
+#define PHASE_U_LS                        &IfxGtm_TOM1_1_TOUT11_P00_2_OUT  /* TOM1 CH1 -> P00.2 */
+#define PHASE_V_HS                        &IfxGtm_TOM1_4_TOUT14_P00_5_OUT  /* TOM1 CH4 -> P00.5 */
+#define PHASE_V_LS                        &IfxGtm_TOM1_3_TOUT13_P00_4_OUT  /* TOM1 CH3 -> P00.4 */
+#define PHASE_W_HS                        &IfxGtm_TOM1_6_TOUT16_P00_7_OUT  /* TOM1 CH6 -> P00.7 */
+#define PHASE_W_LS                        &IfxGtm_TOM1_5_TOUT15_P00_6_OUT  /* TOM1 CH5 -> P00.6 */
 
-/* ISR priority macro */
-#define ISR_PRIORITY_ATOM                (20)
+/* =========================================================================
+ * Module state
+ * ========================================================================= */
 
-/* Pin routing: TOM1 channels to P00.[2..7] (validated/reference symbols) */
-#define PHASE_U_LS                       (&IfxGtm_TOM1_1_TOUT11_P00_2_OUT) /* CH1 -> P00.2 (low-side) */
-#define PHASE_U_HS                       (&IfxGtm_TOM1_2_TOUT12_P00_3_OUT) /* CH2 -> P00.3 (high-side) */
-#define PHASE_V_LS                       (&IfxGtm_TOM1_3_TOUT13_P00_4_OUT) /* CH3 -> P00.4 (low-side) */
-#define PHASE_V_HS                       (&IfxGtm_TOM1_4_TOUT14_P00_5_OUT) /* CH4 -> P00.5 (high-side) */
-#define PHASE_W_LS                       (&IfxGtm_TOM1_5_TOUT15_P00_6_OUT) /* CH5 -> P00.6 (low-side) */
-#define PHASE_W_HS                       (&IfxGtm_TOM1_6_TOUT16_P00_7_OUT) /* CH6 -> P00.7 (high-side) */
-
-/* ====================================================================== */
-/* Internal state                                                          */
-/* ====================================================================== */
 typedef struct
 {
-    IfxGtm_Tom_Timer   timer;                 /* TOM timer driver (base)        */
-    IfxGtm_Tom_PwmHl   pwmhl;                 /* High/Low paired PWM driver     */
-    Ifx_TimerValue     onTime[NUM_PHASES];    /* Current on-time per phase [ticks] */
+    IfxGtm_Tom_Timer     timer;                 /* TOM timer base */
+    IfxGtm_Tom_PwmHl     pwmhl;                 /* PwmHl for complementary pairs */
+    Ifx_TimerValue       onTime[NUM_PHASES];    /* current on-time ticks for U,V,W */
 } GtmTom3phInv_State;
 
-IFX_STATIC GtmTom3phInv_State g_gtmTom3phInv;
+IFX_STATIC GtmTom3phInv_State g_gti;
 
-/* ====================================================================== */
-/* ISR and callback (declared BEFORE init per structural rules)            */
-/* ====================================================================== */
-IFX_INTERRUPT(interruptGtmAtom, 0, ISR_PRIORITY_ATOM)
+/* =========================================================================
+ * ISR and period callback (required by structural rules)
+ * ========================================================================= */
+
+/* External ISR declaration; priority macro used by system SRC config (not in this file) */
+IFX_INTERRUPT(interruptGtmAtom, 0, ISR_PRIORITY_ATOM);
+void interruptGtmAtom(void)
 {
-    /* Minimal ISR: toggle debug LED */
     IfxPort_togglePin(LED);
 }
 
+/* Period-event callback placeholder (assigned where applicable; empty body) */
 void IfxGtm_periodEventFunction(void *data)
 {
-    (void)data; /* Empty body by design */
+    (void)data;
 }
 
-/* ====================================================================== */
-/* Helper: convert percent to on-time ticks based on current period        */
-/* ====================================================================== */
-static inline Ifx_TimerValue pctToTicks(float32 percent, Ifx_TimerValue period)
+/* =========================================================================
+ * Local helpers
+ * ========================================================================= */
+
+/** Compute ticks from microseconds using current timer input frequency. */
+static IFX_INLINE Ifx_TimerValue gtm_usToTicks(IfxGtm_Tom_Timer *t, float32 us)
 {
-    float32 ticks = (percent * (float32)period) / 100.0f;
-    if (ticks < 0.0f)
+    const float32 fin = IfxGtm_Tom_Timer_getInputFrequency(t); /* Hz */
+    const float32 ticksPerUs = fin / 1.0e6f;
+    float32 ticks = (us * ticksPerUs) + 0.5f;
+    if (ticks < 1.0f)
     {
-        ticks = 0.0f;
+        ticks = 1.0f;
     }
-    return (Ifx_TimerValue)(ticks + 0.5f);
+    return (Ifx_TimerValue)((uint32)ticks);
 }
 
-/* ====================================================================== */
-/* Public API                                                              */
-/* ====================================================================== */
+/* =========================================================================
+ * Public API
+ * ========================================================================= */
+
+/**
+ * Initialize GTM for 3-phase complementary PWM on a TOM cluster using a TOM timer
+ * as the base and a PwmHl helper for paired outputs.
+ */
 void initGtmTom3phInv(void)
 {
-    /* 1) Enable GTM and FXCLK/CLK0 clocks (guarded) */
+    /* 1) Enable GTM and required CMU clocks (FXCLK and CLK0) using guard */
     if (!IfxGtm_isEnabled(&MODULE_GTM))
     {
-        float32 moduleFreq = 0.0f;
         IfxGtm_enable(&MODULE_GTM);
-        moduleFreq = IfxGtm_Cmu_getModuleFrequency(&MODULE_GTM);
-        IfxGtm_Cmu_setGclkFrequency(&MODULE_GTM, moduleFreq);
-        IfxGtm_Cmu_setClkFrequency(&MODULE_GTM, IfxGtm_Cmu_Clk_0, moduleFreq);
+        float32 freq = IfxGtm_Cmu_getModuleFrequency(&MODULE_GTM);
+        IfxGtm_Cmu_setGclkFrequency(&MODULE_GTM, freq);
+        /* Set CLK0 to module frequency; FXCLK derived inside GTM */
+        IfxGtm_Cmu_setClkFrequency(&MODULE_GTM, IfxGtm_Cmu_Clk_0, freq);
+        /* Enable FXCLK (for TOM) and CLK0 domains */
         IfxGtm_Cmu_enableClocks(&MODULE_GTM, (uint32)(IFXGTM_CMU_CLKEN_FXCLK | IFXGTM_CMU_CLKEN_CLK0));
     }
 
     /* 2) Initialize TOM timer configuration */
+    IfxGtm_Tom_Timer_Config tCfg;
+    IfxGtm_Tom_Timer_initConfig(&tCfg, &MODULE_GTM);
+    /* Select TOM1 and a base counter channel (use CH0 as base) */
+    tCfg.tom          = IfxGtm_Tom_1;
+    tCfg.timerChannel = IfxGtm_Tom_Ch_0;
+    /* Select FXCLK0 as clock source where applicable (implementation-dependent field names) */
+    tCfg.clock        = IfxGtm_Tom_Ch_ClkSrc_cmuFxclk0;
+
+    /* Initialize timer driver */
+    if (IfxGtm_Tom_Timer_init(&g_gti.timer, &tCfg) == FALSE)
     {
-        IfxGtm_Tom_Timer_Config timerCfg;
-        IfxGtm_Tom_Timer_initConfig(&timerCfg, &MODULE_GTM);
-        timerCfg.tom          = IfxGtm_Tom_1;                             /* TOM1 cluster */
-        timerCfg.timerChannel = IfxGtm_Tom_Ch_0;                          /* Base counter channel */
-        timerCfg.clock        = IfxGtm_Tom_Ch_ClkSrc_cmuFxclk0;           /* FXCLK0 */
-        timerCfg.frequency    = PWM_BASE_FREQUENCY_HZ;                    /* 20 kHz */
-        (void)IfxGtm_Tom_Timer_init(&g_gtmTom3phInv.timer, &timerCfg);    /* check boolean in production systems */
+        /* Failed to init timer; abort init early */
+        return;
     }
 
-    /* 3) Route six TOM outputs to pads (push-pull, active-high outputs) */
-    IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_U_HS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
-    IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_U_LS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
-    IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_V_HS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
-    IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_V_LS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
-    IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_W_HS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
-    IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_W_LS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
+    /* Set target PWM frequency to 20 kHz */
+    IfxGtm_Tom_Timer_setFrequency(&g_gti.timer, PWM_BASE_FREQUENCY_HZ);
 
-    /* 4) Initialize TOM PwmHl configuration (3 complementary pairs) */
+    /* 3) Route six TOM outputs (three complementary pairs) */
+    IfxGtm_PinMap_setTomTout(PHASE_U_HS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
+    IfxGtm_PinMap_setTomTout(PHASE_U_LS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
+    IfxGtm_PinMap_setTomTout(PHASE_V_HS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
+    IfxGtm_PinMap_setTomTout(PHASE_V_LS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
+    IfxGtm_PinMap_setTomTout(PHASE_W_HS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
+    IfxGtm_PinMap_setTomTout(PHASE_W_LS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
+
+    /* 4) Initialize TOM PwmHl with 3 pairs, set dead-time and min-pulse, bind to timer */
+    IfxGtm_Tom_PwmHl_Config hlCfg;
+    IfxGtm_Tom_PwmHl_initConfig(&hlCfg);
+
+    /* Bind to base timer */
+    hlCfg.timer                 = &g_gti.timer;
+    /* Three complementary pairs */
+    hlCfg.base.channelCount     = NUM_PHASES;
+    /* Dead-time and minimum pulse (seconds) */
+    hlCfg.base.deadtime         = (PWM_DEADTIME_US * 1.0e-6f);
+    hlCfg.base.minPulse         = (PWM_MIN_PULSE_US * 1.0e-6f);
+    /* Output mode and polarity (complementary: HS active HIGH, LS active LOW) */
+    hlCfg.base.outputMode       = IfxPort_OutputMode_pushPull;
+    hlCfg.base.outputOnState    = Ifx_ActiveState_high;
+    hlCfg.base.outputOffState   = Ifx_ActiveState_low;
+
+    if (IfxGtm_Tom_PwmHl_init(&g_gti.pwmhl, &hlCfg) == FALSE)
     {
-        IfxGtm_Tom_PwmHl_Config pwmhlCfg;
-        IfxGtm_Tom_PwmHl_initConfig(&pwmhlCfg);
-        pwmhlCfg.timer                 = &g_gtmTom3phInv.timer;            /* bind to TOM timer */
-        pwmhlCfg.base.channelCount     = (uint8)NUM_PHASES;                /* U, V, W */
-        pwmhlCfg.base.deadtime         = PWM_DEAD_TIME_US * 1e-6f;         /* seconds */
-        pwmhlCfg.base.minPulse         = PWM_MIN_PULSE_US * 1e-6f;         /* seconds */
-        pwmhlCfg.base.outputMode       = IfxPort_OutputMode_pushPull;      /* push-pull */
-        pwmhlCfg.base.activeStateHigh  = Ifx_ActiveState_high;             /* high-side active HIGH */
-        pwmhlCfg.base.activeStateLow   = Ifx_ActiveState_high;             /* low-side active HIGH (per design) */
-        /* Map complementary outputs for each pair */
-        pwmhlCfg.ccx[0]  = (IfxGtm_Tom_ToutMap *)PHASE_U_HS;  /* U high */
-        pwmhlCfg.ccxN[0] = (IfxGtm_Tom_ToutMap *)PHASE_U_LS;  /* U low  */
-        pwmhlCfg.ccx[1]  = (IfxGtm_Tom_ToutMap *)PHASE_V_HS;  /* V high */
-        pwmhlCfg.ccxN[1] = (IfxGtm_Tom_ToutMap *)PHASE_V_LS;  /* V low  */
-        pwmhlCfg.ccx[2]  = (IfxGtm_Tom_ToutMap *)PHASE_W_HS;  /* W high */
-        pwmhlCfg.ccxN[2] = (IfxGtm_Tom_ToutMap *)PHASE_W_LS;  /* W low  */
-        (void)IfxGtm_Tom_PwmHl_init(&g_gtmTom3phInv.pwmhl, &pwmhlCfg);     /* check boolean in production systems */
-        (void)IfxGtm_Tom_PwmHl_setMode(&g_gtmTom3phInv.pwmhl, Ifx_Pwm_Mode_centerAligned);
+        /* Failed to init PwmHl; abort init early */
+        return;
     }
+
+    /* Center-aligned PWM mode */
+    (void)IfxGtm_Tom_PwmHl_setMode(&g_gti.pwmhl, Ifx_Pwm_Mode_centerAligned);
 
     /* 5) Update timer input frequency from CMU and start timer */
-    IfxGtm_Tom_Timer_updateInputFrequency(&g_gtmTom3phInv.timer);
-    IfxGtm_Tom_Timer_run(&g_gtmTom3phInv.timer);
+    IfxGtm_Tom_Timer_updateInputFrequency(&g_gti.timer);
+    IfxGtm_Tom_Timer_run(&g_gti.timer);
 
-    /* 6) Compute initial on-times from current period (25%, 50%, 75%) */
-    {
-        Ifx_TimerValue period = IfxGtm_Tom_Timer_getPeriod(&g_gtmTom3phInv.timer);
-        g_gtmTom3phInv.onTime[0] = pctToTicks(PHASE_U_INIT_DUTY_PERCENT, period);
-        g_gtmTom3phInv.onTime[1] = pctToTicks(PHASE_V_INIT_DUTY_PERCENT, period);
-        g_gtmTom3phInv.onTime[2] = pctToTicks(PHASE_W_INIT_DUTY_PERCENT, period);
-    }
+    /* Configure LED after PWM init (debug toggle in ISR) */
+    IfxPort_setPinModeOutput(LED, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
+
+    /* 6) Compute initial on-times as 25%, 50%, 75% of period */
+    const uint32 period = IfxGtm_Tom_Timer_getPeriod(&g_gti.timer);
+    g_gti.onTime[0] = (Ifx_TimerValue)((period * PHASE_U_INIT_DUTY_PCT) * 0.01f + 0.5f);
+    g_gti.onTime[1] = (Ifx_TimerValue)((period * PHASE_V_INIT_DUTY_PCT) * 0.01f + 0.5f);
+    g_gti.onTime[2] = (Ifx_TimerValue)((period * PHASE_W_INIT_DUTY_PCT) * 0.01f + 0.5f);
 
     /* 7) Synchronous shadow transfer: disable update -> set on-times -> apply update */
-    IfxGtm_Tom_Timer_disableUpdate(&g_gtmTom3phInv.timer);
-    IfxGtm_Tom_PwmHl_setOnTime(&g_gtmTom3phInv.pwmhl, &g_gtmTom3phInv.onTime[0]);
-    IfxGtm_Tom_Timer_applyUpdate(&g_gtmTom3phInv.timer);
-
-    /* Debug LED configured after PWM init (push-pull, same pad driver) */
-    IfxPort_setPinModeOutput(LED, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
+    IfxGtm_Tom_Timer_disableUpdate(&g_gti.timer);
+    IfxGtm_Tom_PwmHl_setOnTime(&g_gti.pwmhl, &g_gti.onTime[0]);
+    IfxGtm_Tom_Timer_applyUpdate(&g_gti.timer);
 }
 
+/**
+ * Update on-times in a cyclic ramp within min/max thresholds (respecting minPulse)
+ * and synchronously apply at the PWM period boundary.
+ */
 void updateGtmTom3phInvDuty(void)
 {
-    /* 1) Read current period and compute step/min/max thresholds */
-    const Ifx_TimerValue period    = IfxGtm_Tom_Timer_getPeriod(&g_gtmTom3phInv.timer);
-    const float32        resSec    = IfxGtm_Tom_Timer_getResolution(&g_gtmTom3phInv.timer); /* s/tick */
-    const Ifx_TimerValue minTicks  = (Ifx_TimerValue)((PWM_MIN_PULSE_US * 1e-6f / resSec) + 0.5f);
-    const Ifx_TimerValue maxTicks  = (period > minTicks) ? (period - minTicks) : 0U;
-    const Ifx_TimerValue step      = (Ifx_TimerValue)((period / (Ifx_TimerValue)ONTIME_STEP_DIVISOR) > 0U ? (period / (Ifx_TimerValue)ONTIME_STEP_DIVISOR) : 1U);
+    const uint32 period = IfxGtm_Tom_Timer_getPeriod(&g_gti.timer);
 
-    /* 2) Cyclic ramp: add step; wrap to minTicks if above maxTicks */
+    /* Step is a fixed fraction of the period */
+    const Ifx_TimerValue step = (Ifx_TimerValue)(period / PWM_DUTY_STEP_DENOMINATOR);
+
+    /* Respect configured minPulse on both edges */
+    const Ifx_TimerValue minTicks = gtm_usToTicks(&g_gti.timer, PWM_MIN_PULSE_US);
+    const Ifx_TimerValue maxTicks = (period > minTicks) ? (Ifx_TimerValue)(period - minTicks) : (Ifx_TimerValue)1U;
+
+    /* Advance each phase and wrap within [min, max] */
     {
-        Ifx_TimerValue nextU = g_gtmTom3phInv.onTime[0] + step;
-        Ifx_TimerValue nextV = g_gtmTom3phInv.onTime[1] + step;
-        Ifx_TimerValue nextW = g_gtmTom3phInv.onTime[2] + step;
-        if (nextU > maxTicks) { nextU = minTicks; }
-        if (nextV > maxTicks) { nextV = minTicks; }
-        if (nextW > maxTicks) { nextW = minTicks; }
-        g_gtmTom3phInv.onTime[0] = nextU;
-        g_gtmTom3phInv.onTime[1] = nextV;
-        g_gtmTom3phInv.onTime[2] = nextW;
+        Ifx_TimerValue v;
+        v = g_gti.onTime[0] + step; g_gti.onTime[0] = (v > maxTicks) ? minTicks : v;
+        v = g_gti.onTime[1] + step; g_gti.onTime[1] = (v > maxTicks) ? minTicks : v;
+        v = g_gti.onTime[2] + step; g_gti.onTime[2] = (v > maxTicks) ? minTicks : v;
     }
 
-    /* 3) Synchronous update via TGC shadow-transfer */
-    IfxGtm_Tom_Timer_disableUpdate(&g_gtmTom3phInv.timer);
-    IfxGtm_Tom_PwmHl_setOnTime(&g_gtmTom3phInv.pwmhl, &g_gtmTom3phInv.onTime[0]);
-    IfxGtm_Tom_Timer_applyUpdate(&g_gtmTom3phInv.timer);
+    /* Synchronous update via TGC shadow transfer */
+    IfxGtm_Tom_Timer_disableUpdate(&g_gti.timer);
+    IfxGtm_Tom_PwmHl_setOnTime(&g_gti.pwmhl, &g_gti.onTime[0]);
+    IfxGtm_Tom_Timer_applyUpdate(&g_gti.timer);
 }
