@@ -1,0 +1,129 @@
+{
+  "microcontroller": {
+    "model": "TC387",
+    "family": "TC3xx",
+    "verified": true,
+    "device_macro": "DEVICE_TC38X",
+    "pin_package": "IFX_PIN_PACKAGE_516"
+  },
+  "peripheral_instance": {
+    "type": "GTM_TOM",
+    "module": "TOM1",
+    "channels": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "driver": "IfxGtm_Tom_PwmHl"
+  },
+  "pin_assignments": [
+    {
+      "signal": "U_HS",
+      "port_pin": "P00.3",
+      "function": null,
+      "pin_macro": null,
+      "is_complementary": true,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "U_LS",
+      "port_pin": "P00.2",
+      "function": "TOUT11",
+      "pin_macro": "IfxGtm_TOM1_5_TOUT11_P00_2_OUT",
+      "is_complementary": true,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "V_HS",
+      "port_pin": "P00.5",
+      "function": null,
+      "pin_macro": null,
+      "is_complementary": true,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "V_LS",
+      "port_pin": "P00.4",
+      "function": null,
+      "pin_macro": null,
+      "is_complementary": true,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "W_HS",
+      "port_pin": "P00.7",
+      "function": null,
+      "pin_macro": null,
+      "is_complementary": true,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "W_LS",
+      "port_pin": "P00.6",
+      "function": null,
+      "pin_macro": null,
+      "is_complementary": true,
+      "verified": false,
+      "source": "hardware_verified"
+    }
+  ],
+  "clock_configuration": {
+    "xtal_frequency_mhz": 20,
+    "system_frequency_mhz": 300
+  },
+  "validation": {
+    "all_verified": false,
+    "conflicts": [
+      "Requested TOM1 CH1 -> P00.2, but template PinMap shows P00.2 is TOM1 CH5 (IfxGtm_TOM1_5_TOUT11_P00_2_OUT).",
+      "Requested TOM1 CH2 -> P00.3 mapping not found in provided PinMap template context; verification pending.",
+      "Requested TOM1 CH3 -> P00.4 mapping not found in provided PinMap template context; verification pending.",
+      "Requested TOM1 CH4 -> P00.5 mapping not found in provided PinMap template context; verification pending.",
+      "Requested TOM1 CH5 -> P00.6 mapping not found in provided PinMap template context; verification pending.",
+      "Requested TOM1 CH6 -> P00.7 mapping not found in provided PinMap template context; verification pending."
+    ],
+    "reference_pins_valid": false
+  },
+  "template_validation": {
+    "supported_peripherals": [
+      "PWM",
+      "GTM",
+      "TIMER"
+    ],
+    "suggested_drivers": {
+      "PWM": [
+        "IfxGtm_Tom_PwmHl"
+      ],
+      "GTM": [
+        "IfxGtm_Tom_PwmHl"
+      ],
+      "TIMER": [
+        "IfxGtm_Tom_PwmHl"
+      ],
+      "_driver_selection": {
+        "explicit_target": "IfxGtm_Tom_PwmHl",
+        "replaced_source": "IfxGtm_Pwm",
+        "primary_drivers": [
+          "IfxGtm_Tom_PwmHl"
+        ],
+        "avoid_drivers": [
+          "IfxGtm_Pwm"
+        ]
+      }
+    },
+    "warnings": []
+  },
+  "pin_analysis": {
+    "verified_count": 6,
+    "doc_reference_count": 1,
+    "merged_total": 7
+  }
+}
