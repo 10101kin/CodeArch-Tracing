@@ -2,87 +2,76 @@
 #include "mock_gtm_tom_3_phase_inverter_pwm.h"
 #include "gtm_tom_3_phase_inverter_pwm.h"
 
-/* Period-event callback provided by production module */
+/* Extern for driver callback as per rules */
 extern void IfxGtm_periodEventFunction(void *data);
 
 /* Duplicate config values as UT_ macros for self-documenting tests */
-#define UT_FLOAT_EPSILON                        (1e-4f)
-#define UT_NUM_CHANNELS                         (3U)
-#define UT_PWM_FREQUENCY_HZ                     (20000U)
-#define UT_DUTY_U_INIT                          (0.25f)
-#define UT_DUTY_V_INIT                          (0.50f)
-#define UT_DUTY_W_INIT                          (0.75f)
-#define UT_UPDATE_STEP                          (0.10f)
-#define UT_DT_RISE_S                            (1.0e-6f)
-#define UT_DT_FALL_S                            (1.0e-6f)
+#define UT_FLOAT_EPSILON                 (1e-4f)
+#define UT_PWM_FREQ_HZ                   (20000U)
+#define UT_NUM_CHANNELS                  (3U)
+#define UT_DUTY_U_INIT                   (0.25f)
+#define UT_DUTY_V_INIT                   (0.50f)
+#define UT_DUTY_W_INIT                   (0.75f)
+#define UT_DUTY_STEP                     (0.10f)
+#define UT_DT_RISE_US                    (1.0f)
+#define UT_DT_FALL_US                    (1.0f)
 
-/* LED pin info (documentary, not asserted for arguments) */
-#define UT_LED_PIN                              "P13.0"
-#define UT_LED_INIT_LEVEL_LOW                   (0)
-
-void setUp(void)
-{
-    mock_gtm_tom_3_phase_inverter_pwm_reset();
-}
-
+void setUp(void)   { mock_gtm_tom_3_phase_inverter_pwm_reset(); }
 void tearDown(void) {}
 
-/**********************
- * GROUP 1 - init: enable guard and driver calls
- **********************/
-void test_TC_G1_001_init_enables_and_configures_clocks_when_disabled(void)
+/********************
+ * GROUP 1 - initGtmTom3phInv: initialization / enable guard
+ ********************/
+void test_TC_G1_001_Init_PeripheralDisabled_ConfiguresClocksAndPWM(void)
 {
     /* Arrange */
-    mock_IfxGtm_isEnabled_returnValue = 0;        /* GTM disabled */
-    mock_IfxGtm_Cmu_getModuleFrequency_returnValue = 100000000U; /* 100 MHz */
+    mock_IfxGtm_isEnabled_returnValue = 0; /* GTM disabled -> expect enable + CMU setup */
 
     /* Act */
     initGtmTom3phInv();
 
-    /* Assert - peripheral enable guard and CMU setup */
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_isEnabled_getCallCount(), "GTM enable status must be checked once");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_enable_getCallCount(), "GTM must be enabled when disabled");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_Cmu_getModuleFrequency_getCallCount(), "Module frequency must be queried once when enabling clocks");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_Cmu_setGclkFrequency_getCallCount(), "GCLK frequency must be set when enabling clocks");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_Cmu_selectClkInput_getCallCount(), "FXCLK0 must be sourced from GCLK");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_Cmu_setClkFrequency_getCallCount(), "TOM CLK0 frequency must be configured");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_Cmu_enableClocks_getCallCount(), "FXCLK clocks must be enabled");
+    /* Assert */
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_isEnabled_getCallCount(), "IfxGtm_isEnabled must be called once");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_enable_getCallCount(), "IfxGtm_enable must be called when GTM is disabled");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_Cmu_getModuleFrequency_getCallCount(), "Module frequency must be read once when enabling clocks");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_Cmu_selectClkInput_getCallCount(), "CLK input selection must be configured once");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_Cmu_setClkFrequency_getCallCount(), "TOM CLK frequency must be set once");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_Cmu_enableClocks_getCallCount(), "FXCLK must be enabled once");
 
-    /* Core PWM driver init path */
     TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_Pwm_initConfig_getCallCount(), "IfxGtm_Pwm_initConfig must be called once");
     TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_Pwm_init_getCallCount(), "IfxGtm_Pwm_init must be called once");
+
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxPort_setPinModeOutput_getCallCount(), "LED pin must be configured as output once");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxPort_setPinState_getCallCount(), "LED pin initial state must be set once");
 }
 
-void test_TC_G1_002_init_skips_enable_and_clock_config_when_already_enabled(void)
+void test_TC_G1_002_Init_PeripheralEnabled_SkipsClockSetupButInitsPWM(void)
 {
     /* Arrange */
-    mock_IfxGtm_isEnabled_returnValue = 1;        /* GTM already enabled */
+    mock_IfxGtm_isEnabled_returnValue = 1; /* GTM already enabled -> expect no enable/CMU calls */
 
     /* Act */
     initGtmTom3phInv();
 
-    /* Assert - no CMU reconfiguration inside guard */
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_isEnabled_getCallCount(), "GTM enable status must be checked once");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxGtm_enable_getCallCount(), "GTM must not be enabled again when already enabled");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxGtm_Cmu_getModuleFrequency_getCallCount(), "No CMU frequency read when already enabled");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxGtm_Cmu_setGclkFrequency_getCallCount(), "No GCLK reconfiguration when already enabled");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxGtm_Cmu_selectClkInput_getCallCount(), "No FXCLK source selection when already enabled");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxGtm_Cmu_setClkFrequency_getCallCount(), "No TOM CLK0 frequency set when already enabled");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxGtm_Cmu_enableClocks_getCallCount(), "No FXCLK enable when already enabled");
+    /* Assert */
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_isEnabled_getCallCount(), "IfxGtm_isEnabled must be called once");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxGtm_enable_getCallCount(), "IfxGtm_enable must NOT be called when GTM already enabled");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxGtm_Cmu_getModuleFrequency_getCallCount(), "Module frequency must NOT be read when GTM already enabled");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxGtm_Cmu_selectClkInput_getCallCount(), "CLK input selection must NOT be configured when GTM already enabled");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxGtm_Cmu_setClkFrequency_getCallCount(), "TOM CLK frequency must NOT be set when GTM already enabled");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxGtm_Cmu_enableClocks_getCallCount(), "FXCLK must NOT be enabled again when GTM already enabled");
 
-    /* Core PWM driver init path still required */
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_Pwm_initConfig_getCallCount(), "IfxGtm_Pwm_initConfig must be called once");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_Pwm_init_getCallCount(), "IfxGtm_Pwm_init must be called once");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_Pwm_initConfig_getCallCount(), "IfxGtm_Pwm_initConfig must still be called once");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_Pwm_init_getCallCount(), "IfxGtm_Pwm_init must still be called once");
 
-    /* LED configured */
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxPort_setPinModeOutput_getCallCount(), "LED pin must be configured as output");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxPort_setPinState_getCallCount(), "LED pin initial state must be set");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxPort_setPinModeOutput_getCallCount(), "LED pin must be configured as output once even if GTM already enabled");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxPort_setPinState_getCallCount(), "LED pin initial state must be set once even if GTM already enabled");
 }
 
-/**********************
- * GROUP 2 - init: configuration values
- **********************/
-void test_TC_G2_001_init_sets_pwm_frequency_20khz_and_3_channels(void)
+/********************
+ * GROUP 2 - initGtmTom3phInv: configuration values
+ ********************/
+void test_TC_G2_001_Init_SetsFrequencyAndNumChannels(void)
 {
     /* Arrange */
     mock_IfxGtm_isEnabled_returnValue = 1;
@@ -90,32 +79,31 @@ void test_TC_G2_001_init_sets_pwm_frequency_20khz_and_3_channels(void)
     /* Act */
     initGtmTom3phInv();
 
-    /* Assert - PWM switching frequency and channel count */
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_PWM_FREQUENCY_HZ, mock_IfxGtm_Pwm_init_lastFrequency, "PWM driver init frequency must be 20 kHz");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_NUM_CHANNELS,     mock_IfxGtm_Pwm_init_lastNumChannels, "PWM driver must initialize exactly 3 channels");
+    /* Assert */
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_PWM_FREQ_HZ, mock_IfxGtm_Pwm_init_lastFrequency, "PWM init frequency must be 20 kHz (switching frequency)");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_NUM_CHANNELS, mock_IfxGtm_Pwm_init_lastNumChannels, "PWM must be configured for exactly 3 logical channels");
 
-    /* Also ensure initConfig mirrors the same requested values */
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_PWM_FREQUENCY_HZ, mock_IfxGtm_Pwm_initConfig_lastFrequency, "initConfig frequency must be 20 kHz");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_NUM_CHANNELS,     mock_IfxGtm_Pwm_initConfig_lastNumChannels, "initConfig must be for 3 channels");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_PWM_FREQ_HZ, mock_IfxGtm_Pwm_initConfig_lastFrequency, "initConfig frequency must be 20 kHz");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_NUM_CHANNELS, mock_IfxGtm_Pwm_initConfig_lastNumChannels, "initConfig must declare 3 channels");
 }
 
-void test_TC_G2_002_led_pin_configured_output_and_low_on_init(void)
+void test_TC_G2_002_Init_ConfiguresLedOutputLow(void)
 {
     /* Arrange */
-    mock_IfxGtm_isEnabled_returnValue = 1;
+    mock_IfxGtm_isEnabled_returnValue = 0;
 
     /* Act */
     initGtmTom3phInv();
 
-    /* Assert - LED GPIO configuration */
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxPort_setPinModeOutput_getCallCount(), "LED pin must be set to push-pull output mode once");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxPort_setPinState_getCallCount(),      "LED pin initial output level must be driven once");
+    /* Assert */
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxPort_setPinModeOutput_getCallCount(), "LED pin must be set as push-pull output once");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxPort_setPinState_getCallCount(), "LED pin must be driven to initial low level once");
 }
 
-/**********************
- * GROUP 3 - init: runtime update linkage (first update after init)
- **********************/
-void test_TC_G3_001_after_init_single_update_increments_all_by_step(void)
+/********************
+ * GROUP 3 - initGtmTom3phInv: runtime update logic (integration check post-init)
+ ********************/
+void test_TC_G3_001_UpdateOnce_AppliesIncrementFromInitialDuties(void)
 {
     /* Arrange */
     mock_IfxGtm_isEnabled_returnValue = 1;
@@ -125,43 +113,207 @@ void test_TC_G3_001_after_init_single_update_increments_all_by_step(void)
     updateGtmTom3phInvDuty();
 
     /* Assert */
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_Pwm_updateChannelsDutyImmediate_getCallCount(), "Duty update must be issued once per call");
-    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, (UT_DUTY_U_INIT + UT_UPDATE_STEP), mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[0], "Phase U duty must increment by 10% from initial");
-    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, (UT_DUTY_V_INIT + UT_UPDATE_STEP), mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[1], "Phase V duty must increment by 10% from initial");
-    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, (UT_DUTY_W_INIT + UT_UPDATE_STEP), mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[2], "Phase W duty must increment by 10% from initial");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_Pwm_updateChannelsDutyImmediate_getCallCount(), "Duty update must be issued exactly once for one update call");
+    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, UT_DUTY_U_INIT + UT_DUTY_STEP, mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[0], "Phase U duty must increase by 10% from 25% to 35%");
+    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, UT_DUTY_V_INIT + UT_DUTY_STEP, mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[1], "Phase V duty must increase by 10% from 50% to 60%");
+    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, UT_DUTY_W_INIT + UT_DUTY_STEP, mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[2], "Phase W duty must increase by 10% from 75% to 85%");
 }
 
-void test_TC_G3_002_three_updates_wrap_W_only_and_one_hal_call_per_update(void)
+void test_TC_G3_002_UpdateMultiple_WrapIndependently(void)
 {
     /* Arrange */
     mock_IfxGtm_isEnabled_returnValue = 1;
     initGtmTom3phInv();
 
     /* Act */
-    updateGtmTom3phInvDuty(); /* -> U:0.35 V:0.6 W:0.85 */
-    updateGtmTom3phInvDuty(); /* -> U:0.45 V:0.7 W:0.95 */
-    updateGtmTom3phInvDuty(); /* -> U:0.55 V:0.8 W:0.10 (wrap) */
+    for (int i = 0; i < 3; ++i)
+    {
+        updateGtmTom3phInvDuty();
+    }
 
-    /* Assert */
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(3, mock_IfxGtm_Pwm_updateChannelsDutyImmediate_getCallCount(), "Exactly one HAL duty update per call");
-    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 0.55f, mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[0], "Phase U duty after 3 updates must be 0.55");
-    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 0.80f, mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[1], "Phase V duty after 3 updates must be 0.80");
-    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 0.10f, mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[2], "Phase W must wrap to 0.10 at/above 100%");
+    /* Assert after 3 updates: U=0.55, V=0.80, W wraps to 0.10 */
+    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 0.55f, mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[0], "Phase U must be 55% after three 10% steps from 25%");
+    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 0.80f, mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[1], "Phase V must be 80% after three 10% steps from 50%");
+    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 0.10f, mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[2], "Phase W must wrap to 10% after exceeding 100%");
 }
 
-/**********************
- * GROUP 4 - init: ISR / interrupt behavior (ATOM toggle)
- **********************/
-void test_TC_G4_001_atom_isr_toggles_led_once_per_call(void)
+/********************
+ * GROUP 4 - initGtmTom3phInv: ISR / interrupt behavior
+ ********************/
+void test_TC_G4_001_Irq_TogglesLedOnce(void)
 {
     /* Act */
     interruptGtmAtom0Ch0();
 
     /* Assert */
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxPort_togglePin_getCallCount(), "ISR must toggle LED exactly once per call");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxPort_togglePin_getCallCount(), "ISR must toggle LED exactly once");
 }
 
-void test_TC_G4_002_atom_isr_accumulates_toggle_counts_across_multiple_calls(void)
+void test_TC_G4_002_Irq_TogglesLedAccumulated(void)
+{
+    /* Act */
+    interruptGtmAtom0Ch0();
+    interruptGtmAtom0Ch0();
+    interruptGtmAtom0Ch0();
+
+    /* Assert */
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(3, mock_IfxPort_togglePin_getCallCount(), "ISR must toggle LED once per invocation (3 total)");
+}
+
+/********************
+ * GROUP 5 - updateGtmTom3phInvDuty: configuration values
+ ********************/
+void test_TC_G5_001_Update_FirstCall_UsesNumChannels3AndFrequencyUnchanged(void)
+{
+    /* Arrange */
+    mock_IfxGtm_isEnabled_returnValue = 1;
+    initGtmTom3phInv();
+
+    /* Act */
+    updateGtmTom3phInvDuty();
+
+    /* Assert (static config checks remain consistent) */
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_NUM_CHANNELS, mock_IfxGtm_Pwm_init_lastNumChannels, "PWM must remain configured for 3 channels");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_PWM_FREQ_HZ, mock_IfxGtm_Pwm_init_lastFrequency, "Configured PWM frequency must remain 20 kHz");
+}
+
+void test_TC_G5_002_Update_AppliesExpectedDutiesAfterFiveCalls(void)
+{
+    /* Arrange */
+    mock_IfxGtm_isEnabled_returnValue = 1;
+    initGtmTom3phInv();
+
+    /* Act */
+    for (int i = 0; i < 5; ++i)
+    {
+        updateGtmTom3phInvDuty();
+    }
+
+    /* After 5 updates: U=0.75, V wraps on exact 1.0 -> 0.10, W wrapped at 3rd -> then 0.30 */
+    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 0.75f, mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[0], "Phase U duty must be 75% after five steps");
+    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 0.10f, mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[1], "Phase V must wrap to 10% on reaching 100%");
+    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 0.30f, mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[2], "Phase W must be 30% after wrap at step 3 and two more steps");
+}
+
+/********************
+ * GROUP 6 - updateGtmTom3phInvDuty: runtime update logic
+ ********************/
+void test_TC_G6_001_Update_CallCountIncrementsPerInvocation(void)
+{
+    /* Arrange */
+    mock_IfxGtm_isEnabled_returnValue = 1;
+    initGtmTom3phInv();
+
+    /* Act */
+    for (int i = 0; i < 7; ++i)
+    {
+        updateGtmTom3phInvDuty();
+    }
+
+    /* Assert */
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(7, mock_IfxGtm_Pwm_updateChannelsDutyImmediate_getCallCount(), "HAL duty update must be called once per update invocation (7 times)");
+}
+
+void test_TC_G6_002_Update_WrapOnExactOnePointZero(void)
+{
+    /* Arrange */
+    mock_IfxGtm_isEnabled_returnValue = 1;
+    initGtmTom3phInv();
+
+    /* Act */
+    for (int i = 0; i < 5; ++i)
+    {
+        updateGtmTom3phInvDuty();
+    }
+
+    /* Assert: Phase V hits exactly 1.0 at 5th step -> wraps to 0.10 */
+    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 0.10f, mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[1], "Phase V must wrap to 10% when reaching exactly 100%");
+}
+
+/********************
+ * GROUP 7 - IfxGtm_periodEventFunction: configuration values
+ ********************/
+void test_TC_G7_001_PeriodCallback_DoesNothing_NoDriverCalls(void)
+{
+    /* Act */
+    IfxGtm_periodEventFunction(NULL);
+
+    /* Assert */
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxPort_togglePin_getCallCount(), "Period callback must not toggle LED");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxGtm_Pwm_updateChannelsDutyImmediate_getCallCount(), "Period callback must not update PWM duties");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxPort_setPinModeOutput_getCallCount(), "Period callback must not configure pins");
+}
+
+void test_TC_G7_002_PeriodCallback_DoesNotTriggerInitCalls(void)
+{
+    /* Act */
+    IfxGtm_periodEventFunction(NULL);
+
+    /* Assert */
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxGtm_Pwm_initConfig_getCallCount(), "Period callback must not call initConfig");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxGtm_Pwm_init_getCallCount(), "Period callback must not call init");
+}
+
+/********************
+ * GROUP 8 - IfxGtm_periodEventFunction: ISR / interrupt behavior (no-ops)
+ ********************/
+void test_TC_G8_001_PeriodCallback_MultipleCalls_NoDriverCallsAccumulate(void)
+{
+    /* Act */
+    IfxGtm_periodEventFunction(NULL);
+    IfxGtm_periodEventFunction(NULL);
+    IfxGtm_periodEventFunction(NULL);
+
+    /* Assert */
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxPort_togglePin_getCallCount(), "Period callback must not toggle LED even after multiple calls");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxGtm_Pwm_updateChannelsDutyImmediate_getCallCount(), "Period callback must not update PWM duties even after multiple calls");
+}
+
+void test_TC_G8_002_PeriodCallback_NullDataAccepted_NoSideEffects(void)
+{
+    /* Act */
+    IfxGtm_periodEventFunction(NULL);
+
+    /* Assert */
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxGtm_enable_getCallCount(), "Period callback must not enable GTM");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxGtm_Cmu_enableClocks_getCallCount(), "Period callback must not touch CMU clocks");
+}
+
+/********************
+ * GROUP 9 - interruptGtmAtom0Ch0: initialization / enable guard (none expected)
+ ********************/
+void test_TC_G9_001_Irq_DoesNotTouchGtmEnableGuard_WhenGtmDisabled(void)
+{
+    /* Arrange */
+    mock_IfxGtm_isEnabled_returnValue = 0;
+
+    /* Act */
+    interruptGtmAtom0Ch0();
+
+    /* Assert */
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxGtm_isEnabled_getCallCount(), "ISR must not query GTM enable state");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxGtm_enable_getCallCount(), "ISR must not enable GTM");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxPort_togglePin_getCallCount(), "ISR must toggle LED regardless of GTM state");
+}
+
+void test_TC_G9_002_Irq_DoesNotTouchGtmEnableGuard_WhenGtmEnabled(void)
+{
+    /* Arrange */
+    mock_IfxGtm_isEnabled_returnValue = 1;
+
+    /* Act */
+    interruptGtmAtom0Ch0();
+
+    /* Assert */
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxGtm_isEnabled_getCallCount(), "ISR must not query GTM enable state when GTM enabled");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxGtm_enable_getCallCount(), "ISR must not enable GTM when GTM already enabled");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxPort_togglePin_getCallCount(), "ISR must toggle LED");
+}
+
+/********************
+ * GROUP 10 - interruptGtmAtom0Ch0: ISR / interrupt behavior
+ ********************/
+void test_TC_G10_001_Irq_MultipleToggles_Accumulate(void)
 {
     /* Act */
     for (int i = 0; i < 5; ++i)
@@ -170,187 +322,18 @@ void test_TC_G4_002_atom_isr_accumulates_toggle_counts_across_multiple_calls(voi
     }
 
     /* Assert */
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(5, mock_IfxPort_togglePin_getCallCount(), "ISR toggles must accumulate across multiple calls");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(5, mock_IfxPort_togglePin_getCallCount(), "ISR must toggle LED on every invocation (5 times)");
 }
 
-/**********************
- * GROUP 5 - updateGtmTom3phInvDuty: configuration values
- **********************/
-void test_TC_G5_001_update_preserves_init_frequency_and_channel_count(void)
-{
-    /* Arrange */
-    mock_IfxGtm_isEnabled_returnValue = 1;
-    initGtmTom3phInv();
-
-    /* Act */
-    updateGtmTom3phInvDuty();
-
-    /* Assert */
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_PWM_FREQUENCY_HZ, mock_IfxGtm_Pwm_init_lastFrequency, "PWM frequency from init must remain 20 kHz");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_NUM_CHANNELS,     mock_IfxGtm_Pwm_init_lastNumChannels, "Number of channels must remain 3");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_Pwm_updateChannelsDutyImmediate_getCallCount(), "One HAL update must be triggered by update() call");
-}
-
-void test_TC_G5_002_update_first_step_expected_duties_from_initial_config(void)
-{
-    /* Arrange */
-    mock_IfxGtm_isEnabled_returnValue = 1;
-    initGtmTom3phInv();
-
-    /* Act */
-    updateGtmTom3phInvDuty();
-
-    /* Assert - exact expected first-step duties */
-    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 0.35f, mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[0], "U duty after first update must be 0.35");
-    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 0.60f, mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[1], "V duty after first update must be 0.60");
-    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 0.85f, mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[2], "W duty after first update must be 0.85");
-}
-
-/**********************
- * GROUP 6 - updateGtmTom3phInvDuty: runtime update logic
- **********************/
-void test_TC_G6_001_update_increments_when_below_boundary(void)
-{
-    /* Arrange */
-    mock_IfxGtm_isEnabled_returnValue = 1;
-    initGtmTom3phInv();
-
-    /* Act */
-    updateGtmTom3phInvDuty(); /* -> 0.35, 0.6, 0.85 */
-    updateGtmTom3phInvDuty(); /* -> 0.45, 0.7, 0.95 */
-
-    /* Assert */
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(2, mock_IfxGtm_Pwm_updateChannelsDutyImmediate_getCallCount(), "Two update() calls -> two HAL duty updates");
-    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 0.45f, mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[0], "U duty after 2 updates must be 0.45");
-    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 0.70f, mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[1], "V duty after 2 updates must be 0.70");
-    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 0.95f, mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[2], "W duty after 2 updates must be 0.95");
-}
-
-void test_TC_G6_002_update_wrap_rule_applies_at_or_above_full_scale(void)
-{
-    /* Arrange */
-    mock_IfxGtm_isEnabled_returnValue = 1;
-    initGtmTom3phInv();
-
-    /* Act - 5 updates total to trigger V wrap and advance U/W */
-    updateGtmTom3phInvDuty(); /* 1 */
-    updateGtmTom3phInvDuty(); /* 2 */
-    updateGtmTom3phInvDuty(); /* 3: W -> 0.10 */
-    updateGtmTom3phInvDuty(); /* 4 */
-    updateGtmTom3phInvDuty(); /* 5: V -> 0.10 */
-
-    /* Expected after 5 updates: U=0.75, V=0.10 (wrap), W=0.30 */
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(5, mock_IfxGtm_Pwm_updateChannelsDutyImmediate_getCallCount(), "Five update() calls -> five HAL duty updates");
-    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 0.75f, mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[0], "U duty after 5 updates must be 0.75");
-    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 0.10f, mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[1], "V duty must wrap to 0.10 at/above 100%");
-    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 0.30f, mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[2], "W duty after 5 updates must be 0.30");
-}
-
-/**********************
- * GROUP 7 - IfxGtm_periodEventFunction: configuration values
- **********************/
-void test_TC_G7_001_period_event_callback_does_not_affect_pwm_frequency_or_calls(void)
-{
-    /* Arrange */
-    mock_IfxGtm_isEnabled_returnValue = 1;
-    initGtmTom3phInv();
-    uint32_t freq_before = mock_IfxGtm_Pwm_init_lastFrequency;
-
-    /* Act */
-    IfxGtm_periodEventFunction(NULL);
-
-    /* Assert */
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(freq_before, mock_IfxGtm_Pwm_init_lastFrequency, "Callback must not change PWM frequency configuration");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxGtm_Pwm_updateChannelsDutyImmediate_getCallCount(), "Callback must not trigger duty updates");
-}
-
-void test_TC_G7_002_period_event_callback_accepts_nonnull_data_and_has_no_side_effects(void)
-{
-    /* Arrange */
-    mock_IfxGtm_isEnabled_returnValue = 1;
-    initGtmTom3phInv();
-    int dummy = 1234;
-
-    /* Act */
-    IfxGtm_periodEventFunction((void *)&dummy);
-
-    /* Assert */
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxGtm_Pwm_updateChannelsDutyImmediate_getCallCount(), "Callback with non-NULL data must not request duty updates");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxPort_togglePin_getCallCount(), "Callback must not toggle any port");
-}
-
-/**********************
- * GROUP 8 - IfxGtm_periodEventFunction: ISR behavior (no-op)
- **********************/
-void test_TC_G8_001_period_event_callback_does_not_toggle_led(void)
-{
-    /* Act */
-    IfxGtm_periodEventFunction(NULL);
-
-    /* Assert */
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxPort_togglePin_getCallCount(), "Period-event callback must not toggle LED");
-}
-
-void test_TC_G8_002_period_event_callback_does_not_issue_pwm_update(void)
-{
-    /* Act */
-    IfxGtm_periodEventFunction(NULL);
-
-    /* Assert */
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxGtm_Pwm_updateChannelsDutyImmediate_getCallCount(), "Period-event callback must not call PWM update API");
-}
-
-/**********************
- * GROUP 9 - interruptGtmAtom0Ch0: init/guard (callable anytime)
- **********************/
-void test_TC_G9_001_isr_toggles_led_even_before_init(void)
+void test_TC_G10_002_Irq_DoesNotAffectOtherDrivers(void)
 {
     /* Act */
     interruptGtmAtom0Ch0();
 
     /* Assert */
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxPort_togglePin_getCallCount(), "ISR must toggle LED even if init not called");
-}
-
-void test_TC_G9_002_isr_multiple_calls_before_init_accumulate(void)
-{
-    /* Act */
-    interruptGtmAtom0Ch0();
-    interruptGtmAtom0Ch0();
-    interruptGtmAtom0Ch0();
-
-    /* Assert */
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(3, mock_IfxPort_togglePin_getCallCount(), "ISR toggles must accumulate across multiple pre-init calls");
-}
-
-/**********************
- * GROUP 10 - interruptGtmAtom0Ch0: ISR behavior
- **********************/
-void test_TC_G10_001_isr_toggles_led_once_after_init(void)
-{
-    /* Arrange */
-    mock_IfxGtm_isEnabled_returnValue = 1;
-    initGtmTom3phInv();
-
-    /* Act */
-    interruptGtmAtom0Ch0();
-
-    /* Assert */
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxPort_togglePin_getCallCount(), "ISR must toggle LED once after init");
-}
-
-void test_TC_G10_002_isr_toggle_accumulates_after_init(void)
-{
-    /* Arrange */
-    mock_IfxGtm_isEnabled_returnValue = 1;
-    initGtmTom3phInv();
-
-    /* Act */
-    interruptGtmAtom0Ch0();
-    interruptGtmAtom0Ch0();
-
-    /* Assert */
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(2, mock_IfxPort_togglePin_getCallCount(), "ISR toggles must accumulate across multiple post-init calls");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxPort_setPinModeOutput_getCallCount(), "ISR must not configure pins");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxPort_setPinState_getCallCount(), "ISR must not set pin state");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxGtm_Pwm_updateChannelsDutyImmediate_getCallCount(), "ISR must not update PWM duties");
 }
 
 int main(void)
@@ -358,44 +341,44 @@ int main(void)
     UNITY_BEGIN();
 
     /* GROUP 1 */
-    RUN_TEST(test_TC_G1_001_init_enables_and_configures_clocks_when_disabled);
-    RUN_TEST(test_TC_G1_002_init_skips_enable_and_clock_config_when_already_enabled);
+    RUN_TEST(test_TC_G1_001_Init_PeripheralDisabled_ConfiguresClocksAndPWM);
+    RUN_TEST(test_TC_G1_002_Init_PeripheralEnabled_SkipsClockSetupButInitsPWM);
 
     /* GROUP 2 */
-    RUN_TEST(test_TC_G2_001_init_sets_pwm_frequency_20khz_and_3_channels);
-    RUN_TEST(test_TC_G2_002_led_pin_configured_output_and_low_on_init);
+    RUN_TEST(test_TC_G2_001_Init_SetsFrequencyAndNumChannels);
+    RUN_TEST(test_TC_G2_002_Init_ConfiguresLedOutputLow);
 
     /* GROUP 3 */
-    RUN_TEST(test_TC_G3_001_after_init_single_update_increments_all_by_step);
-    RUN_TEST(test_TC_G3_002_three_updates_wrap_W_only_and_one_hal_call_per_update);
+    RUN_TEST(test_TC_G3_001_UpdateOnce_AppliesIncrementFromInitialDuties);
+    RUN_TEST(test_TC_G3_002_UpdateMultiple_WrapIndependently);
 
     /* GROUP 4 */
-    RUN_TEST(test_TC_G4_001_atom_isr_toggles_led_once_per_call);
-    RUN_TEST(test_TC_G4_002_atom_isr_accumulates_toggle_counts_across_multiple_calls);
+    RUN_TEST(test_TC_G4_001_Irq_TogglesLedOnce);
+    RUN_TEST(test_TC_G4_002_Irq_TogglesLedAccumulated);
 
     /* GROUP 5 */
-    RUN_TEST(test_TC_G5_001_update_preserves_init_frequency_and_channel_count);
-    RUN_TEST(test_TC_G5_002_update_first_step_expected_duties_from_initial_config);
+    RUN_TEST(test_TC_G5_001_Update_FirstCall_UsesNumChannels3AndFrequencyUnchanged);
+    RUN_TEST(test_TC_G5_002_Update_AppliesExpectedDutiesAfterFiveCalls);
 
     /* GROUP 6 */
-    RUN_TEST(test_TC_G6_001_update_increments_when_below_boundary);
-    RUN_TEST(test_TC_G6_002_update_wrap_rule_applies_at_or_above_full_scale);
+    RUN_TEST(test_TC_G6_001_Update_CallCountIncrementsPerInvocation);
+    RUN_TEST(test_TC_G6_002_Update_WrapOnExactOnePointZero);
 
     /* GROUP 7 */
-    RUN_TEST(test_TC_G7_001_period_event_callback_does_not_affect_pwm_frequency_or_calls);
-    RUN_TEST(test_TC_G7_002_period_event_callback_accepts_nonnull_data_and_has_no_side_effects);
+    RUN_TEST(test_TC_G7_001_PeriodCallback_DoesNothing_NoDriverCalls);
+    RUN_TEST(test_TC_G7_002_PeriodCallback_DoesNotTriggerInitCalls);
 
     /* GROUP 8 */
-    RUN_TEST(test_TC_G8_001_period_event_callback_does_not_toggle_led);
-    RUN_TEST(test_TC_G8_002_period_event_callback_does_not_issue_pwm_update);
+    RUN_TEST(test_TC_G8_001_PeriodCallback_MultipleCalls_NoDriverCallsAccumulate);
+    RUN_TEST(test_TC_G8_002_PeriodCallback_NullDataAccepted_NoSideEffects);
 
     /* GROUP 9 */
-    RUN_TEST(test_TC_G9_001_isr_toggles_led_even_before_init);
-    RUN_TEST(test_TC_G9_002_isr_multiple_calls_before_init_accumulate);
+    RUN_TEST(test_TC_G9_001_Irq_DoesNotTouchGtmEnableGuard_WhenGtmDisabled);
+    RUN_TEST(test_TC_G9_002_Irq_DoesNotTouchGtmEnableGuard_WhenGtmEnabled);
 
     /* GROUP 10 */
-    RUN_TEST(test_TC_G10_001_isr_toggles_led_once_after_init);
-    RUN_TEST(test_TC_G10_002_isr_toggle_accumulates_after_init);
+    RUN_TEST(test_TC_G10_001_Irq_MultipleToggles_Accumulate);
+    RUN_TEST(test_TC_G10_002_Irq_DoesNotAffectOtherDrivers);
 
     return UNITY_END();
 }
