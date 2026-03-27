@@ -4,48 +4,52 @@
 #include "mock_qspi.h"
 #include "IfxPort.h"
 
-/* Driver-specific enums and types */
-typedef enum {
+/* Inferred XSPI SPI driver types */
+typedef enum
+{
     IfxXspi_Status_ok = 0,
-    IfxXspi_Status_busy,
-    IfxXspi_Status_error
+    IfxXspi_Status_notInitialized = 1,
+    IfxXspi_Status_error = 2
 } IfxXspi_Status;
 
-typedef struct {
-    Ifx_XSPI *xspi;       /* associated XSPI module */
-    uint32    isrPriority;
-    uint32    dmaChannelTx;
-    uint32    dmaChannelRx;
+typedef struct
+{
+    Ifx_XSPI *xspi;          /* associated module */
+    uint32    isInitialized;  /* internal state */
 } IfxXspi_Spi;
 
-typedef struct {
-    Ifx_XSPI *xspi;       /* target module */
-    uint32    maxBaudrate;
-    uint8     dataWidth;  /* bits per frame */
-    boolean   isMaster;   /* master=TRUE, slave=FALSE */
-    boolean   msbFirst;   /* TRUE if MSB first */
-} IfxXspi_Spi_Config;
-
-typedef struct {
-    IfxPort_Pin sclk;
-    IfxPort_Pin mosi; /* MTSR */
-    IfxPort_Pin miso; /* MRST */
-    IfxPort_Pin cs;   /* SLSO */
-} IfxXspi_Spi_GpioPins;
-
-typedef struct {
-    const uint8 *txData;  /* transmit buffer */
-    uint8       *rxData;  /* receive buffer */
-    uint32       length;  /* number of bytes */
-    boolean      endOfFrame;
-} IfxXspi_Spi_CpuJobConfig;
-
-typedef struct {
-    uint8   dataWidth;
-    boolean msbFirst;
+typedef struct
+{
+    uint32 baudrate;
+    uint32 modeFlags; /* CPOL/CPHA, etc. */
 } IfxXspi_Spi_initTransferConfig;
 
-/* API declarations (exact signatures from spec) */
+typedef struct
+{
+    const void *txBuffer;
+    void       *rxBuffer;
+    uint32      dataLength; /* in bytes */
+} IfxXspi_Spi_CpuJobConfig;
+
+typedef struct
+{
+    IfxPort_Pin sclk;
+    IfxPort_Pin mosi;
+    IfxPort_Pin miso;
+    IfxPort_Pin cs;
+} IfxXspi_Spi_GpioPins;
+
+typedef struct
+{
+    Ifx_XSPI     *xspi;
+    IfxXspi_Spi_GpioPins *pins;
+    Ifx_Priority  txPriority;
+    Ifx_Priority  rxPriority;
+    IfxSrc_Tos    tos;
+    uint32        maxBaudrate;
+} IfxXspi_Spi_Config;
+
+/* API declarations (exact signatures from mapping) */
 void    IfxXspi_Spi_transferInit(Ifx_XSPI *xspi, IfxXspi_Spi_initTransferConfig *config);
 boolean IfxXspi_Spi_exchange(IfxXspi_Spi *xspi, IfxXspi_Spi_CpuJobConfig *jobConfig);
 uint32  IfxXspi_Spi_isrDmaReceive(IfxXspi_Spi *xspi);

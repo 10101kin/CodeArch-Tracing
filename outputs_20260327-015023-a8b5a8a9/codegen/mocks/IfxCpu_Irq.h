@@ -3,7 +3,6 @@
 
 #include "mock_qspi.h"
 
-/* API declarations */
 void       IfxCpu_Irq_installInterruptHandler(void *isrFuncPointer, uint32 serviceReqPrioNumber);
 IfxSrc_Tos IfxCpu_Irq_getTos(void);
 
