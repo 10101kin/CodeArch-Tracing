@@ -1,7 +1,20 @@
 {
-  "success": true,
-  "errors": [],
+  "success": false,
+  "errors": [
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_onxpkxca\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 110,
+      "category": "error",
+      "message": "'Ifx_ActiveState_high' undeclared (first use in this function); did you mean 'Ifx_ActiveState'?"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_onxpkxca\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 111,
+      "category": "error",
+      "message": "'Ifx_ActiveState_low' undeclared (first use in this function); did you mean 'Ifx_ActiveState'?"
+    }
+  ],
   "warnings": [],
-  "stderr": "",
+  "stderr": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_onxpkxca\\src\\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTom3phInv':\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_onxpkxca\\src\\gtm_tom_3_phase_inverter_pwm.c:110:40: error: 'Ifx_ActiveState_high' undeclared (first use in this function); did you mean 'Ifx_ActiveState'?\n  110 |     output[0].polarity               = Ifx_ActiveState_high;             /* HS active high */\n      |                                        ^~~~~~~~~~~~~~~~~~~~\n      |                                        Ifx_ActiveState\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_onxpkxca\\src\\gtm_tom_3_phase_inverter_pwm.c:110:40: note: each undeclared identifier is reported only once for each function it appears in\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_onxpkxca\\src\\gtm_tom_3_phase_inverter_pwm.c:111:40: error: 'Ifx_ActiveState_low' undeclared (first use in this function); did you mean 'Ifx_ActiveState'?\n  111 |     output[0].complementaryPolarity  = Ifx_ActiveState_low;              /* LS active low  */\n      |                                        ^~~~~~~~~~~~~~~~~~~\n      |                                        Ifx_ActiveState\n",
   "stdout": ""
 }
