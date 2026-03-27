@@ -1,12 +1,13 @@
 {
-  "attempt": 6,
-  "phase_attempt": 3,
-  "phase": "production",
-  "success": false,
-  "errors": [
-    "implicit declaration of function 'mock_IfxGtm_Cmu_setGclkFrequency_getCallCount'; did you mean 'mock_IfxGtm_Cmu_getModuleFrequency_getCallCount'? [-Wimplicit-function-declaration]",
-    "implicit declaration of function 'mock_IfxGtm_Cmu_setClkFrequency_getCallCount'; did you mean 'mock_IfxGtm_Cmu_getModuleFrequency_getCallCount'? [-Wimplicit-function-declaration]"
-  ],
-  "timestamp": "2026-03-28T04:42:11.169693",
-  "project_name": "Generate_C_code_for_KIT_A2G_TC387_5V_TFT_TC3xx_t_r_20260328_042943"
+  "export_type": "node_json",
+  "export_reason": "stage_failed",
+  "node_stage": "code_generation",
+  "reviewer_name": null,
+  "reviewer_applied": false,
+  "modified_by": "system",
+  "modifier_name": null,
+  "workflow_stage": "code_generation_failed",
+  "target_board": "KIT_A2G_TC387_5V_TFT",
+  "generation_mode": "MIGRATION",
+  "timestamp": "2026-03-28T04:42:19.227118"
 }
