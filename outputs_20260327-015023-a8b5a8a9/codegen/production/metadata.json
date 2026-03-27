@@ -1,19 +1,19 @@
 {
-  "attempt": 5,
+  "attempt": 7,
   "phase": "production",
   "success": false,
   "errors": [
     "unknown type name 'Ifx_Status'",
-    "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zz2b5j62\\src\\qspi.c:13:10: fatal error: IfxXspi_PinMap.h: No such file or directory",
+    "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\src\\qspi.c:12:10: fatal error: IfxXspi_PinMap.h: No such file or directory",
     "unknown type name 'Ifx_Status'",
     "storage size of 'ctx' isn't known",
     "unknown type name 'Ifx_Status'",
     "'Ifx_Status_ok' undeclared (first use in this function)",
+    "implicit declaration of function 'mock_IfxCpu_Irq_getTos_getCallCount' [-Wimplicit-function-declaration]",
     "comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Werror=sign-compare]",
     "unused variable 'ctx' [-Werror=unused-variable]",
-    "storage size of 'ctx' isn't known",
-    "comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Werror=sign-compare]"
+    "storage size of 'ctx' isn't known"
   ],
-  "timestamp": "2026-03-27T09:59:26.933728",
+  "timestamp": "2026-03-27T10:02:52.283941",
   "project_name": "Migrate_iLLD_TC387_ADS_QSPI_TLE9180D_2_to_iLLD_TC4_r_20260327_095022"
 }

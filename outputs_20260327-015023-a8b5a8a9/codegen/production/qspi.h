@@ -1,30 +1,16 @@
-/*
- * qspi.h
- *
- * Public interface for the XSPI-based QSPI migration driver (TC4xx).
- *
- * NOTE: Header must contain prototypes only as per project rules.
- */
+/*=======================
+ * Qspi module - public API
+ *=======================*/
 #ifndef QSPI_H
 #define QSPI_H
 
-#include "Ifx_Types.h"
+/* Public function prototypes only (no includes, typedefs, or macros here) */
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-/* Forward declaration of communication context type used by the API */
+/* Opaque context type is provided by integrator's abstraction layer */
+struct QspiCommunication;
 typedef struct QspiCommunication QspiCommunication;
 
-/*
- * Initialize the SPI master using the XSPI driver and bind it to the
- * TLE9180 abstraction. See qspi.c for the detailed behavior.
- */
+/* Initialize XSPI for TLE9180 communication (TC4xx) */
 Ifx_Status Qspi_initQspi(QspiCommunication* const qspiCommunication);
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif /* QSPI_H */

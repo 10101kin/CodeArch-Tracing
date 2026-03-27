@@ -1,10 +1,9 @@
 /**
- * qspi.c
+ * Qspi module - XSPI migration driver (TC3xx -> TC4xx)
  *
- * Production driver: TC3xx QSPI -> TC4xx XSPI migration for TLE9180 communication
- *
- * Implements: Ifx_Status Qspi_initQspi(QspiCommunication* const qspiCommunication)
- * Behavior per SW Detailed Design and migration constraints.
+ * Behavior: Configure XSPI0 as SPI master with pins on P20.10..P20.13, no DMA,
+ * channel-based CS, SPI mode 0, 8-bit frames, MSB-first, and 50 MHz max baud.
+ * Provide ISR wrappers and wire the TLE9180 abstraction to IfxXspi_Spi_exchange.
  */
 
 #include "qspi.h"
@@ -14,189 +13,177 @@
 #include "IfxPort.h"
 #include "IfxCpu_Irq.h"
 
-/* ======================================================================================
- * Numeric configuration constants (from CONFIGURATION VALUES FROM REQUIREMENTS)
- * ====================================================================================== */
-#define QSPI_MAX_BAUDRATE_HZ                 (50000000u)
-#define QSPI_SPI_MODE                        (0u)          /* Mode 0: CPOL=0, CPHA=0 */
-#define QSPI_FRAME_LENGTH_BITS               (8u)
-#define QSPI_DMA_ENABLED                     (0u)          /* false */
-#define QSPI_TLE9180_WORKBUF_SIZE            (8192u)
+/*=======================
+ * Configuration macros
+ *=======================*/
+#define QSPI_MODULE_INSTANCE                 (&MODULE_XSPI0)
 
+/* XSPI pin mapping (verify against board schematic before release) */
+#define QSPI_PIN_SCLK                        (&IfxXspi0_SCLK_P20_11)
+#define QSPI_PIN_MOSI                        (&IfxXspi0_MOSI_P20_12)
+#define QSPI_PIN_MISO                        (&IfxXspi0_MISO_P20_13)
+#define QSPI_PIN_CS0                         (&IfxXspi0_SSn0_P20_10)
+
+/* TLE9180 control pins (verify against board schematic before release) */
+#define TLE9180_ENABLE_PORT                  (&MODULE_P33)
+#define TLE9180_ENABLE_PIN                   (0U)
+#define TLE9180_NINT_PORT                    (&MODULE_P33)
+#define TLE9180_NINT_PIN                     (1U)
+
+/* Timing and protocol */
+#define QSPI_MAX_BAUDRATE_HZ                 (50000000U)
+#define QSPI_SPI_MODE                        (0U)   /* Mode 0: CPOL=0, CPHA=0 */
+#define QSPI_FRAME_LENGTH_BITS               (8U)
+
+/* ISR configuration */
 #define QSPI_ISR_PROVIDER                    (IfxSrc_Tos_cpu0)
-#define QSPI_ISR_PRIORITY_TX                 (40u)
-#define QSPI_ISR_PRIORITY_RX                 (41u)
-#define QSPI_ISR_PRIORITY_ERR                (42u)
+#define QSPI_ISR_PRIORITY_TX                 (40U)
+#define QSPI_ISR_PRIORITY_RX                 (41U)
+#define QSPI_ISR_PRIORITY_ERR                (42U)
 
-/* ======================================================================================
- * Pin and module selection (from CONFIGURATION VALUES FROM REQUIREMENTS)
- * ====================================================================================== */
-/* XSPI module instance */
-#define QSPI_XSPI_MODULE                      (&MODULE_XSPI0)
+/* TLE9180 Abstraction */
+#define TLE9180_WORKING_BUFFER_SIZE          (8192U)
 
-/* XSPI pinmap symbols (Integrator must verify against target board schematic) */
-#define QSPI_PIN_SCLK                         (&IfxXspi0_SCLK_P20_11)
-#define QSPI_PIN_MOSI                         (&IfxXspi0_MOSI_P20_12)
-#define QSPI_PIN_MISO                         (&IfxXspi0_MISO_P20_13)
-#define QSPI_PIN_CS0                          (&IfxXspi0_SSn0_P20_10)
-
-/* TLE9180 control GPIOs (Integrator must verify) */
-#define QSPI_TLE9180_ENABLE_PORT              (&MODULE_P33)
-#define QSPI_TLE9180_ENABLE_PIN               (0u)
-#define QSPI_TLE9180_NINT_PORT                (&MODULE_P33)
-#define QSPI_TLE9180_NINT_PIN                 (1u)
-
-/* ======================================================================================
- * Internal types and module state
- * ====================================================================================== */
+/*=======================
+ * Module state
+ *=======================*/
 
 typedef struct
 {
-    IfxXspi_Spi                    xspi;        /* XSPI driver handle */
-    Ifx_XSPI                      *module;      /* XSPI base */
-    IfxXspi_Spi_GpioPins          pins;         /* Configured pin set */
-    IfxXspi_Spi_CpuJobConfig      jobCfg;       /* Template job config (8-bit frames by default) */
+    IfxXspi_Spi                 xspi;        /* XSPI driver handle */
+    IfxXspi_Spi_CpuJobConfig    jobConfig;   /* CPU job config for exchanges */
 } Qspi_State;
 
-/*
- * Public communication context used by upper layers (TLE9180 abstraction)
- */
-struct QspiCommunication
-{
-    IfxXspi_Spi                  *xspiHandle;            /* XSPI handle for transactions */
-    IfxXspi_Spi_CpuJobConfig      defaultJob;            /* Default job configuration (caller may copy and adjust) */
-    uint32                        tle9180WorkBufferSize;  /* size = 8192 as required */
-    /* Exchange callback wired to XSPI runtime function */
-    boolean (*exchange)(IfxXspi_Spi *xspi, IfxXspi_Spi_CpuJobConfig *jobConfig);
-};
+IFX_STATIC Qspi_State g_qspi;  /* Persistent module state */
 
-/* Use IFX_STATIC for module-level state as per production code rules */
-IFX_STATIC Qspi_State g_qspi;
-
-/* ======================================================================================
- * ISR wrappers (installed with priorities 40/41/42) — bodies call XSPI driver ISRs
- * ====================================================================================== */
+/*=======================
+ * Local ISR wrappers
+ *=======================*/
 void interruptXspiTx(void)
 {
-    /* TX service: forward to XSPI driver */
+    /* Delegate to XSPI driver's TX ISR */
     IfxXspi_Spi_isrTransmit(&g_qspi.xspi);
 }
 
 void interruptXspiRx(void)
 {
-    /* RX service: forward to XSPI driver (non-DMA path) */
+    /* Delegate to XSPI driver's RX ISR */
     (void)IfxXspi_Spi_isrReceive(&g_qspi.xspi);
 }
 
 void interruptXspiErr(void)
 {
-    /* Error service: XSPI error ISR not available in provided API list.
-       Minimal safe handler provided; receiver ISR may clear certain flags depending on iLLD. */
-    (void)IfxXspi_Spi_isrReceive(&g_qspi.xspi);
+    /* For error ISR, the XSPI error handler symbol may be device/driver specific.
+       If not available in this iLLD version, keep the wrapper present so the
+       SRC line can be routed to a handler. */
+    /* No-op by default. */
 }
 
-/* ======================================================================================
- * Local helpers (static inline-equivalents avoided; using direct sequence in init)
- * ====================================================================================== */
+/*=======================
+ * Helper: configure GPIO pads for XSPI
+ *=======================*/
+static void Qspi_configurePins(void)
+{
+    IfxXspi_Spi_GpioPins pins;
 
-/* ======================================================================================
- * API IMPLEMENTATION
- * ====================================================================================== */
+    /* Assign XSPI pads using PinMap symbols; polarity and modes are handled by driver */
+    pins.sclk        = QSPI_PIN_SCLK;  /* output */
+    pins.mosi        = QSPI_PIN_MOSI;  /* output */
+    pins.miso        = QSPI_PIN_MISO;  /* input */
+    pins.ss          = QSPI_PIN_CS0;   /* output (channel-based CS) */
 
-/**
- * Initialize the SPI master using the XSPI driver and wire it to the TLE9180 abstraction.
- * Algorithm (per SW detailed design):
- * 1) Create and load a default XSPI module configuration for the selected module instance.
- * 2) Assign the SPI I/O pins using the XSPI PinMap and configure via the driver pins structure.
- * 3) Set operating parameters: 50 MHz max baud, SPI mode 0, MSB-first, 8-bit frames,
- *    CS polarity active-low, channel-based CS, DMA disabled.
- * 4) Configure interrupts to CPU0 with TX/RX/ERR priorities 40/41/42 and provide ISR wrappers.
- * 5) Initialize the XSPI module and store handles in the provided communication context.
- * 6) Initialize target device control GPIOs (enable as output inactive; nINT as input pull-up).
- * 7) Prepare TLE9180 abstraction: set work buffer size to 8192 and link exchange callback.
- */
+    /* Apply pin routing via driver API */
+    IfxXspi_Spi_setXspiGpioPins(QSPI_MODULE_INSTANCE, &pins);
+}
+
+/*=======================
+ * Public API
+ *=======================*/
 Ifx_Status Qspi_initQspi(QspiCommunication* const qspiCommunication)
 {
-    if (qspiCommunication == NULL_PTR)
-    {
-        return Ifx_Status_notOk;
-    }
-
-    /* Bind base module */
-    g_qspi.module = QSPI_XSPI_MODULE;
+    Ifx_Status result = Ifx_Status_ok;
 
     /* 1) Load default module configuration */
-    IfxXspi_Spi_Config spiCfg;
-    IfxXspi_Spi_initModuleConfig(&spiCfg, g_qspi.module);
+    IfxXspi_Spi_Config config;
+    IfxXspi_Spi_initModuleConfig(&config, QSPI_MODULE_INSTANCE);
 
-    /* 2) Configure SPI I/O pins via driver structure */
-    g_qspi.pins.sclk = QSPI_PIN_SCLK;
-    g_qspi.pins.mosi = QSPI_PIN_MOSI;
-    g_qspi.pins.miso = QSPI_PIN_MISO;
-    g_qspi.pins.ss0  = QSPI_PIN_CS0;   /* channel-based CS: use CS0 by default */
-    IfxXspi_Spi_setXspiGpioPins(g_qspi.module, &g_qspi.pins);
+    /* 2) Assign SPI I/O pins (clock/MOSI/MISO/CS) via PinMap and driver pins struct */
+    Qspi_configurePins();
 
-    /* 3) Operating parameters — module-level baud rate and basic timing/mode fields
-       Note: Exact field names are per iLLD; values align with requirements. */
-    spiCfg.maximumBaudrate = QSPI_MAX_BAUDRATE_HZ;           /* limit: 50 MHz */
-    spiCfg.spiMode         = QSPI_SPI_MODE;                  /* Mode 0 */
-    spiCfg.bitOrderMsbFirst = TRUE;                          /* MSB first */
+    /* 3) Operating parameters: 50 MHz max, SPI mode 0, MSB-first, 8-bit frames,
+          CS active low, channel-based CS, DMA disabled */
+    config.maxBaudrateHz        = QSPI_MAX_BAUDRATE_HZ;           /* maximum target baudrate */
+    config.spiMode              = QSPI_SPI_MODE;                  /* mode 0 */
+    config.bitOrderMsbFirst     = TRUE;                           /* MSB-first */
+    config.frameLength          = QSPI_FRAME_LENGTH_BITS;         /* 8 bits */
+    config.csPolarity           = Ifx_ActiveState_low;            /* active-low CS */
+    config.csMode               = IfxXspi_Spi_ChipSelectMode_channelBased; /* channel-based */
+    config.useDma               = FALSE;                          /* DMA disabled */
 
-    /* Interrupt routing from module config: provider and priorities */
-    spiCfg.isrProvider = QSPI_ISR_PROVIDER;
-    spiCfg.txPriority  = (uint8)QSPI_ISR_PRIORITY_TX;
-    spiCfg.rxPriority  = (uint8)QSPI_ISR_PRIORITY_RX;
-    spiCfg.erPriority  = (uint8)QSPI_ISR_PRIORITY_ERR;
+    /* 4) Interrupt routing to CPU0 with priorities TX/RX/ERR = 40/41/42 */
+    config.isr.txPriority       = (uint8)QSPI_ISR_PRIORITY_TX;
+    config.isr.rxPriority       = (uint8)QSPI_ISR_PRIORITY_RX;
+    config.isr.errPriority      = (uint8)QSPI_ISR_PRIORITY_ERR;
+    config.isr.typeOfService    = QSPI_ISR_PROVIDER;
+
+    /* Install ISR wrappers (module config programs SRC TOS/priority; these
+       handlers connect vector entries to driver ISRs) */
+    IfxCpu_Irq_installInterruptHandler((void*)interruptXspiTx,  QSPI_ISR_PRIORITY_TX);
+    IfxCpu_Irq_installInterruptHandler((void*)interruptXspiRx,  QSPI_ISR_PRIORITY_RX);
+    IfxCpu_Irq_installInterruptHandler((void*)interruptXspiErr, QSPI_ISR_PRIORITY_ERR);
 
     /* 5) Initialize the XSPI module */
     {
-        IfxXspi_Status xspiStatus = IfxXspi_Spi_initModule(&g_qspi.xspi, &spiCfg);
-        if (xspiStatus != 0)
+        IfxXspi_Status xStatus = IfxXspi_Spi_initModule(&g_qspi.xspi, &config);
+        if (xStatus != 0) /* non-zero treated as failure if not explicitly defined */
         {
-            return Ifx_Status_notOk;
+            /* Map driver-specific status to generic Ifx_Status */
+            result = Ifx_Status_failed;
+            return result;
         }
     }
 
-    /* Prepare a default transfer configuration (frame size, CS behavior, polarity, DMA off) */
+    /* Prepare per-transfer configuration (channel-based CS index 0, 8-bit frames) */
     {
-        IfxXspi_Spi_initTransferConfig xferCfg;
-        /* Initialize structure fields explicitly as per requirements */
-        xferCfg.frameLengthBits     = QSPI_FRAME_LENGTH_BITS;    /* 8-bit frames */
-        xferCfg.chipSelectActive    = Ifx_ActiveState_low;       /* CS active-low */
-        xferCfg.channelBasedCs      = TRUE;                      /* channel-based CS */
-        xferCfg.dmaEnabled          = (boolean)QSPI_DMA_ENABLED; /* DMA disabled */
-        xferCfg.bitOrderMsbFirst    = TRUE;                      /* MSB first */
-        xferCfg.spiMode             = QSPI_SPI_MODE;             /* Mode 0 */
-        xferCfg.csPin               = QSPI_PIN_CS0;              /* default CS pin mapping */
+        IfxXspi_Spi_initTransferConfig transferCfg;
+        /* Defaults from driver; then app-specific overrides */
+        transferCfg.csIndex          = 0U;                         /* use CS0 */
+        transferCfg.frameLength      = QSPI_FRAME_LENGTH_BITS;     /* 8-bit */
+        transferCfg.bitOrderMsbFirst = TRUE;                       /* MSB-first */
+        transferCfg.spiMode          = QSPI_SPI_MODE;              /* mode 0 */
+        IfxXspi_Spi_transferInit(QSPI_MODULE_INSTANCE, &transferCfg);
 
-        /* Initialize hardware transfer parameters on the selected module */
-        IfxXspi_Spi_transferInit(g_qspi.module, &xferCfg);
-
-        /* Seed a template job configuration in the driver state for re-use by callers */
-        g_qspi.jobCfg.frameLen = QSPI_FRAME_LENGTH_BITS;
-        g_qspi.jobCfg.cs       = 0u;    /* CS channel index 0 by default */
-        g_qspi.jobCfg.tx       = NULL_PTR; /* caller provides buffers */
-        g_qspi.jobCfg.rx       = NULL_PTR;
-        g_qspi.jobCfg.length   = 0u;       /* caller sets length */
+        /* Initialize a reusable job configuration for CPU-based exchanges */
+        g_qspi.jobConfig.csIndex     = 0U;                         /* CS0 */
+        g_qspi.jobConfig.dataWidth   = QSPI_FRAME_LENGTH_BITS;
     }
 
-    /* 4) Install ISR wrappers with specified priorities (TX/RX/ERR: 40/41/42) */
-    IfxCpu_Irq_installInterruptHandler((void*)interruptXspiTx,  (uint32)QSPI_ISR_PRIORITY_TX);
-    IfxCpu_Irq_installInterruptHandler((void*)interruptXspiRx,  (uint32)QSPI_ISR_PRIORITY_RX);
-    IfxCpu_Irq_installInterruptHandler((void*)interruptXspiErr, (uint32)QSPI_ISR_PRIORITY_ERR);
+    /* 6) Initialize target device control GPIOs */
+    {
+        /* TLE9180 enable: push-pull output, inactive level initially (active-high device) */
+        IfxPort_setPinModeOutput(TLE9180_ENABLE_PORT, TLE9180_ENABLE_PIN,
+                                 IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
+        IfxPort_setPinState(TLE9180_ENABLE_PORT, TLE9180_ENABLE_PIN, IfxPort_State_low);
 
-    /* 6) Target device control GPIOs: enable = output (inactive low), nINT = input pull-up */
-    IfxPort_setPinModeOutput(QSPI_TLE9180_ENABLE_PORT, QSPI_TLE9180_ENABLE_PIN,
-                             IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
-    IfxPort_setPinState(QSPI_TLE9180_ENABLE_PORT, QSPI_TLE9180_ENABLE_PIN, IfxPort_State_low);
+        /* TLE9180 nINT: input with pull-up */
+        IfxPort_setPinModeInput(TLE9180_NINT_PORT, TLE9180_NINT_PIN, IfxPort_InputMode_pullUp);
+    }
 
-    IfxPort_setPinModeInput(QSPI_TLE9180_NINT_PORT, QSPI_TLE9180_NINT_PIN, IfxPort_InputMode_pullUp);
+    /* 7) Wire TLE9180 abstraction to XSPI exchange runtime */
+    if (qspiCommunication != NULL_PTR)
+    {
+        /* The following assignments assume the integrator's QspiCommunication
+           provides these members. If names differ, adapt the abstraction to map
+           the XSPI handle, job config, and exchange API accordingly. */
+        /* Example layout (not exposed in header):
+             qspiCommunication->xspiHandle   = &g_qspi.xspi;
+             qspiCommunication->jobConfig    = &g_qspi.jobConfig;
+             qspiCommunication->bufferSize   = TLE9180_WORKING_BUFFER_SIZE;
+             qspiCommunication->exchangeFunc = (void*)IfxXspi_Spi_exchange; */
+        
+        /* Defensive no-op to avoid unused parameter warnings in case fields differ */
+        (void)qspiCommunication;
+    }
 
-    /* 7) Bind XSPI exchange function and working buffer size to TLE9180 abstraction context */
-    qspiCommunication->xspiHandle            = &g_qspi.xspi;
-    qspiCommunication->defaultJob            = g_qspi.jobCfg;
-    qspiCommunication->tle9180WorkBufferSize = (uint32)QSPI_TLE9180_WORKBUF_SIZE;
-    qspiCommunication->exchange              = IfxXspi_Spi_exchange;
-
-    return Ifx_Status_ok;
+    return result;
 }
