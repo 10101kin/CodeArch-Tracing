@@ -1,0 +1,199 @@
+{
+  "success": false,
+  "errors": [
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\include/qspi.h",
+      "line": 14,
+      "category": "error",
+      "message": "unknown type name 'Ifx_Status'"
+    },
+    {
+      "file": "",
+      "message": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\src\\qspi.c:12:10: fatal error: IfxXspi_PinMap.h: No such file or directory",
+      "category": "error"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\include/qspi.h",
+      "line": 14,
+      "category": "error",
+      "message": "unknown type name 'Ifx_Status'"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c",
+      "line": 20,
+      "category": "error",
+      "message": "storage size of 'ctx' isn't known"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c",
+      "line": 22,
+      "category": "error",
+      "message": "unknown type name 'Ifx_Status'"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c",
+      "line": 23,
+      "category": "error",
+      "message": "'Ifx_Status_ok' undeclared (first use in this function)"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c",
+      "line": 33,
+      "category": "error",
+      "message": "implicit declaration of function 'mock_IfxCpu_Irq_getTos_getCallCount' [-Wimplicit-function-declaration]"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c",
+      "line": 33,
+      "category": "error",
+      "message": "comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Werror=sign-compare]"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c",
+      "line": 20,
+      "category": "error",
+      "message": "unused variable 'ctx' [-Werror=unused-variable]"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c",
+      "line": 37,
+      "category": "error",
+      "message": "storage size of 'ctx' isn't known"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c",
+      "line": 42,
+      "category": "error",
+      "message": "comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Werror=sign-compare]"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c",
+      "line": 43,
+      "category": "error",
+      "message": "comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Werror=sign-compare]"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c",
+      "line": 46,
+      "category": "error",
+      "message": "implicit declaration of function 'mock_IfxPort_setPinHigh_getCallCount'; did you mean 'mock_IfxPort_setPinState_getCallCount'? [-Wimplicit-function-declaration]"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c",
+      "line": 47,
+      "category": "error",
+      "message": "implicit declaration of function 'mock_IfxPort_setPinLow_getCallCount'; did you mean 'mock_IfxPort_setPinState_getCallCount'? [-Wimplicit-function-declaration]"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c",
+      "line": 37,
+      "category": "error",
+      "message": "unused variable 'ctx' [-Werror=unused-variable]"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c",
+      "line": 54,
+      "category": "error",
+      "message": "storage size of 'ctx' isn't known"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c",
+      "line": 58,
+      "category": "error",
+      "message": "'mock_IfxXspi_Spi_initModule_lastFrequency' undeclared (first use in this function); did you mean 'mock_IfxXspi_Spi_initModule_callCount'?"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c",
+      "line": 54,
+      "category": "error",
+      "message": "unused variable 'ctx' [-Werror=unused-variable]"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c",
+      "line": 62,
+      "category": "error",
+      "message": "storage size of 'ctx' isn't known"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c",
+      "line": 66,
+      "category": "error",
+      "message": "'mock_IfxXspi_Spi_initModule_lastNumChannels' undeclared (first use in this function); did you mean 'mock_IfxXspi_Spi_initModule_callCount'?"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c",
+      "line": 62,
+      "category": "error",
+      "message": "unused variable 'ctx' [-Werror=unused-variable]"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c",
+      "line": 71,
+      "category": "error",
+      "message": "storage size of 'ctx' isn't known"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c",
+      "line": 71,
+      "category": "error",
+      "message": "unused variable 'ctx' [-Werror=unused-variable]"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c",
+      "line": 79,
+      "category": "error",
+      "message": "storage size of 'ctx' isn't known"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c",
+      "line": 84,
+      "category": "error",
+      "message": "'mock_IfxXspi_Spi_transferInit_lastDtRising' undeclared (first use in this function); did you mean 'mock_IfxXspi_Spi_transferInit_callCount'?"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c",
+      "line": 85,
+      "category": "error",
+      "message": "'mock_IfxXspi_Spi_transferInit_lastDtFalling' undeclared (first use in this function); did you mean 'mock_IfxXspi_Spi_transferInit_getCallCount'?"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c",
+      "line": 79,
+      "category": "error",
+      "message": "unused variable 'ctx' [-Werror=unused-variable]"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c",
+      "line": 90,
+      "category": "error",
+      "message": "storage size of 'ctx' isn't known"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c",
+      "line": 95,
+      "category": "error",
+      "message": "comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Werror=sign-compare]"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c",
+      "line": 90,
+      "category": "error",
+      "message": "unused variable 'ctx' [-Werror=unused-variable]"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c",
+      "line": 99,
+      "category": "error",
+      "message": "storage size of 'ctx' isn't known"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c",
+      "line": 99,
+      "category": "error",
+      "message": "unused variable 'ctx' [-Werror=unused-variable]"
+    }
+  ],
+  "warnings": [],
+  "stderr": "In file included from C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\src\\qspi.c:9:\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\include/qspi.h:14:1: error: unknown type name 'Ifx_Status'\n   14 | Ifx_Status Qspi_initQspi(QspiCommunication* const qspiCommunication);\n      | ^~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\src\\qspi.c:12:10: fatal error: IfxXspi_PinMap.h: No such file or directory\n   12 | #include \"IfxXspi_PinMap.h\"\n      |          ^~~~~~~~~~~~~~~~~~\ncompilation terminated.\n\nIn file included from C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c:3:\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\include/qspi.h:14:1: error: unknown type name 'Ifx_Status'\n   14 | Ifx_Status Qspi_initQspi(QspiCommunication* const qspiCommunication);\n      | ^~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c: In function 'test_TC_G1_001_init_calls_xspi_and_irqs_once':\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c:20:23: error: storage size of 'ctx' isn't known\n   20 |     QspiCommunication ctx;\n      |                       ^~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c:22:5: error: unknown type name 'Ifx_Status'\n   22 |     Ifx_Status st = Qspi_initQspi(&ctx);\n      |     ^~~~~~~~~~\nIn file included from C:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity.h:22,\n                 from C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c:1:\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c:23:35: error: 'Ifx_Status_ok' undeclared (first use in this function)\n   23 |     TEST_ASSERT_EQUAL_INT_MESSAGE(Ifx_Status_ok, st, \"Qspi_initQspi should return Ifx_Status_ok on successful init\");\n      |                                   ^~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity_internals.h:897:133: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_INT'\n  897 | #define UNITY_TEST_ASSERT_EQUAL_INT(expected, actual, line, message)                             UnityAssertEqualNumber((UNITY_INT)(expected), (UNITY_INT)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_INT)\n      |                                                                                                                                     ^~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c:23:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_INT_MESSAGE'\n   23 |     TEST_ASSERT_EQUAL_INT_MESSAGE(Ifx_Status_ok, st, \"Qspi_initQspi should return Ifx_Status_ok on successful init\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c:23:35: note: each undeclared identifier is reported only once for each function it appears in\n   23 |     TEST_ASSERT_EQUAL_INT_MESSAGE(Ifx_Status_ok, st, \"Qspi_initQspi should return Ifx_Status_ok on successful init\");\n      |                                   ^~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity_internals.h:897:133: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_INT'\n  897 | #define UNITY_TEST_ASSERT_EQUAL_INT(expected, actual, line, message)                             UnityAssertEqualNumber((UNITY_INT)(expected), (UNITY_INT)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_INT)\n      |                                                                                                                                     ^~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c:23:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_INT_MESSAGE'\n   23 |     TEST_ASSERT_EQUAL_INT_MESSAGE(Ifx_Status_ok, st, \"Qspi_initQspi should return Ifx_Status_ok on successful init\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c:33:30: error: implicit declaration of function 'mock_IfxCpu_Irq_getTos_getCallCount' [-Wimplicit-function-declaration]\n   33 |     TEST_ASSERT_TRUE_MESSAGE(mock_IfxCpu_Irq_getTos_getCallCount() >= 1U, \"Type-of-service (TOS) should be queried at least once during IRQ setup\");\n      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity_internals.h:891:107: note: in definition of macro 'UNITY_TEST_ASSERT'\n  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)\n      |                                                                                                           ^~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c:33:5: note: in expansion of macro 'TEST_ASSERT_TRUE_MESSAGE'\n   33 |     TEST_ASSERT_TRUE_MESSAGE(mock_IfxCpu_Irq_getTos_getCallCount() >= 1U, \"Type-of-service (TOS) should be queried at least once during IRQ setup\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c:33:68: error: comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Werror=sign-compare]\n   33 |     TEST_ASSERT_TRUE_MESSAGE(mock_IfxCpu_Irq_getTos_getCallCount() >= 1U, \"Type-of-service (TOS) should be queried at least once during IRQ setup\");\n      |                                                                    ^~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity_internals.h:891:107: note: in definition of macro 'UNITY_TEST_ASSERT'\n  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)\n      |                                                                                                           ^~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c:33:5: note: in expansion of macro 'TEST_ASSERT_TRUE_MESSAGE'\n   33 |     TEST_ASSERT_TRUE_MESSAGE(mock_IfxCpu_Irq_getTos_getCallCount() >= 1U, \"Type-of-service (TOS) should be queried at least once during IRQ setup\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c:20:23: error: unused variable 'ctx' [-Werror=unused-variable]\n   20 |     QspiCommunication ctx;\n      |                       ^~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c: In function 'test_TC_G1_002_gpio_direction_and_initial_state_configured':\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c:37:23: error: storage size of 'ctx' isn't known\n   37 |     QspiCommunication ctx;\n      |                       ^~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c:42:75: error: comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Werror=sign-compare]\n   42 |     TEST_ASSERT_TRUE_MESSAGE(mock_IfxPort_setPinModeOutput_getCallCount() >= 1U, \"At least one output pin (enable) must be configured via IfxPort_setPinModeOutput\");\n      |                                                                           ^~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity_internals.h:891:107: note: in definition of macro 'UNITY_TEST_ASSERT'\n  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)\n      |                                                                                                           ^~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c:42:5: note: in expansion of macro 'TEST_ASSERT_TRUE_MESSAGE'\n   42 |     TEST_ASSERT_TRUE_MESSAGE(mock_IfxPort_setPinModeOutput_getCallCount() >= 1U, \"At least one output pin (enable) must be configured via IfxPort_setPinModeOutput\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c:43:74: error: comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Werror=sign-compare]\n   43 |     TEST_ASSERT_TRUE_MESSAGE(mock_IfxPort_setPinModeInput_getCallCount() >= 1U, \"At least one input pin (nINT) must be configured via IfxPort_setPinModeInput\");\n      |                                                                          ^~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity_internals.h:891:107: note: in definition of macro 'UNITY_TEST_ASSERT'\n  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)\n      |                                                                                                           ^~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c:43:5: note: in expansion of macro 'TEST_ASSERT_TRUE_MESSAGE'\n   43 |     TEST_ASSERT_TRUE_MESSAGE(mock_IfxPort_setPinModeInput_getCallCount() >= 1U, \"At least one input pin (nINT) must be configured via IfxPort_setPinModeInput\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c:46:26: error: implicit declaration of function 'mock_IfxPort_setPinHigh_getCallCount'; did you mean 'mock_IfxPort_setPinState_getCallCount'? [-Wimplicit-function-declaration]\n   46 |     uint32_t droveHigh = mock_IfxPort_setPinHigh_getCallCount();\n      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n      |                          mock_IfxPort_setPinState_getCallCount\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c:47:26: error: implicit declaration of function 'mock_IfxPort_setPinLow_getCallCount'; did you mean 'mock_IfxPort_setPinState_getCallCount'? [-Wimplicit-function-declaration]\n   47 |     uint32_t droveLow  = mock_IfxPort_setPinLow_getCallCount();\n      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n      |                          mock_IfxPort_setPinState_getCallCount\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c:37:23: error: unused variable 'ctx' [-Werror=unused-variable]\n   37 |     QspiCommunication ctx;\n      |                       ^~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c: In function 'test_TC_G2_001_baudrate_configured_to_50MHz':\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c:54:23: error: storage size of 'ctx' isn't known\n   54 |     QspiCommunication ctx;\n      |                       ^~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c:58:58: error: 'mock_IfxXspi_Spi_initModule_lastFrequency' undeclared (first use in this function); did you mean 'mock_IfxXspi_Spi_initModule_callCount'?\n   58 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_MAX_BAUDRATE_HZ, mock_IfxXspi_Spi_initModule_lastFrequency, \"XSPI module frequency must be set to 50 MHz\");\n      |                                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity_internals.h:904:184: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_UINT32'\n  904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)\n      |                                                                                                                                                                                        ^~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c:58:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'\n   58 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_MAX_BAUDRATE_HZ, mock_IfxXspi_Spi_initModule_lastFrequency, \"XSPI module frequency must be set to 50 MHz\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c:54:23: error: unused variable 'ctx' [-Werror=unused-variable]\n   54 |     QspiCommunication ctx;\n      |                       ^~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c: In function 'test_TC_G2_002_number_of_channels_is_one':\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c:62:23: error: storage size of 'ctx' isn't known\n   62 |     QspiCommunication ctx;\n      |                       ^~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c:66:42: error: 'mock_IfxXspi_Spi_initModule_lastNumChannels' undeclared (first use in this function); did you mean 'mock_IfxXspi_Spi_initModule_callCount'?\n   66 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(1U, mock_IfxXspi_Spi_initModule_lastNumChannels, \"XSPI must initialize a single channel for CS0 (channel-based CS)\");\n      |                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity_internals.h:904:184: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_UINT32'\n  904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)\n      |                                                                                                                                                                                        ^~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c:66:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'\n   66 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(1U, mock_IfxXspi_Spi_initModule_lastNumChannels, \"XSPI must initialize a single channel for CS0 (channel-based CS)\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c:62:23: error: unused variable 'ctx' [-Werror=unused-variable]\n   62 |     QspiCommunication ctx;\n      |                       ^~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c: In function 'test_TC_G3_001_exchange_not_called_during_init':\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c:71:23: error: storage size of 'ctx' isn't known\n   71 |     QspiCommunication ctx;\n      |                       ^~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c:71:23: error: unused variable 'ctx' [-Werror=unused-variable]\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c: In function 'test_TC_G3_002_transfer_init_dead_times_zero_for_mode0':\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c:79:23: error: storage size of 'ctx' isn't known\n   79 |     QspiCommunication ctx;\n      |                       ^~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c:84:42: error: 'mock_IfxXspi_Spi_transferInit_lastDtRising' undeclared (first use in this function); did you mean 'mock_IfxXspi_Spi_transferInit_callCount'?\n   84 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(0U, mock_IfxXspi_Spi_transferInit_lastDtRising[0], \"Rising-edge delay (DT rising) must be 0 for mode 0\");\n      |                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity_internals.h:904:184: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_UINT32'\n  904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)\n      |                                                                                                                                                                                        ^~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c:84:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'\n   84 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(0U, mock_IfxXspi_Spi_transferInit_lastDtRising[0], \"Rising-edge delay (DT rising) must be 0 for mode 0\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c:85:42: error: 'mock_IfxXspi_Spi_transferInit_lastDtFalling' undeclared (first use in this function); did you mean 'mock_IfxXspi_Spi_transferInit_getCallCount'?\n   85 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(0U, mock_IfxXspi_Spi_transferInit_lastDtFalling[0], \"Falling-edge delay (DT falling) must be 0 for mode 0\");\n      |                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity_internals.h:904:184: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_UINT32'\n  904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)\n      |                                                                                                                                                                                        ^~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c:85:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'\n   85 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(0U, mock_IfxXspi_Spi_transferInit_lastDtFalling[0], \"Falling-edge delay (DT falling) must be 0 for mode 0\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c:79:23: error: unused variable 'ctx' [-Werror=unused-variable]\n   79 |     QspiCommunication ctx;\n      |                       ^~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c: In function 'test_TC_G4_001_interrupt_handlers_installed_tx_rx_err':\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c:90:23: error: storage size of 'ctx' isn't known\n   90 |     QspiCommunication ctx;\n      |                       ^~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c:95:68: error: comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Werror=sign-compare]\n   95 |     TEST_ASSERT_TRUE_MESSAGE(mock_IfxCpu_Irq_getTos_getCallCount() >= 1U, \"TOS retrieval should occur during ISR configuration (IfxSrc_Tos_cpu0)\");\n      |                                                                    ^~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity_internals.h:891:107: note: in definition of macro 'UNITY_TEST_ASSERT'\n  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)\n      |                                                                                                           ^~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c:95:5: note: in expansion of macro 'TEST_ASSERT_TRUE_MESSAGE'\n   95 |     TEST_ASSERT_TRUE_MESSAGE(mock_IfxCpu_Irq_getTos_getCallCount() >= 1U, \"TOS retrieval should occur during ISR configuration (IfxSrc_Tos_cpu0)\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c:90:23: error: unused variable 'ctx' [-Werror=unused-variable]\n   90 |     QspiCommunication ctx;\n      |                       ^~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c: In function 'test_TC_G4_002_isr_driver_handlers_not_invoked_during_init':\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c:99:23: error: storage size of 'ctx' isn't known\n   99 |     QspiCommunication ctx;\n      |                       ^~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cjlcoo6e\\test\\test_qspi.c:99:23: error: unused variable 'ctx' [-Werror=unused-variable]\ncc1.exe: all warnings being treated as errors\n",
+  "stdout": ""
+}
