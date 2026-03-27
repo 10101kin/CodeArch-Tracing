@@ -1,0 +1,146 @@
+{
+  "microcontroller": {
+    "model": "TC387",
+    "family": "TC3xx",
+    "verified": true,
+    "device_macro": "DEVICE_TC38X",
+    "pin_package": "IFX_PIN_PACKAGE_516"
+  },
+  "peripheral_instance": {
+    "type": "PWM",
+    "module": "GTM.TOM1",
+    "channels": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "driver": "IfxGtm_Pwm"
+  },
+  "pin_assignments": [
+    {
+      "signal": "PhaseU_HS",
+      "port_pin": "P02.0",
+      "function": "TOUT0",
+      "pin_macro": "",
+      "is_complementary": false,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "PhaseU_LS",
+      "port_pin": "P02.7",
+      "function": "TOUT7",
+      "pin_macro": "",
+      "is_complementary": true,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "PhaseV_HS",
+      "port_pin": "P02.1",
+      "function": "TOUT1",
+      "pin_macro": "",
+      "is_complementary": false,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "PhaseV_LS",
+      "port_pin": "P02.4",
+      "function": "TOUT4",
+      "pin_macro": "",
+      "is_complementary": true,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "PhaseW_HS",
+      "port_pin": "P02.2",
+      "function": "TOUT2",
+      "pin_macro": "",
+      "is_complementary": false,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "PhaseW_LS",
+      "port_pin": "P02.5",
+      "function": "TOUT5",
+      "pin_macro": "",
+      "is_complementary": true,
+      "verified": false,
+      "source": "hardware_verified"
+    }
+  ],
+  "clock_configuration": {
+    "xtal_frequency_mhz": 20,
+    "system_frequency_mhz": 300
+  },
+  "validation": {
+    "all_verified": false,
+    "conflicts": [
+      "User-specified pins P02.0/P02.1/P02.2/P02.4/P02.5/P02.7 could not be validated against IfxGtm_PinMap_TC38x_516 for GTM TOM1 Cluster_1 (TGC1).",
+      "TOM1 Cluster_1 requires channels 8..15; the requested pins appear to be associated with TOUT0/1/2/4/5/7 which may not map to TOM1 TGC1 on this package.",
+      "No matching IfxGtm pin macros from IfxGtm_PinMap_TC38x_516 could be confirmed for these assignments."
+    ],
+    "reference_pins_valid": true
+  },
+  "template_validation": {
+    "supported_peripherals": [
+      "PWM",
+      "GTM",
+      "TIMER",
+      "STM",
+      "GPIO",
+      "ASCLIN",
+      "INTERRUPT"
+    ],
+    "suggested_drivers": {
+      "PWM": [
+        "IfxGtm_Pwm"
+      ],
+      "GTM": [
+        "IfxGtm_Pwm"
+      ],
+      "TIMER": [
+        "IfxGtm_Pwm"
+      ],
+      "STM": [
+        "IfxStm",
+        "IfxStm_Timer"
+      ],
+      "GPIO": [
+        "IfxPort_Io",
+        "IfxPort"
+      ],
+      "ASCLIN": [
+        "IfxAsclin_Asc",
+        "IfxAsclin_Lin",
+        "IfxAsclin_Spi",
+        "IfxAsclin"
+      ],
+      "INTERRUPT": [
+        "IfxCpu_Irq"
+      ],
+      "_driver_selection": {
+        "explicit_target": "IfxGtm_Pwm",
+        "replaced_source": "IfxGtm_Tom_PwmHl",
+        "primary_drivers": [
+          "IfxGtm_Pwm"
+        ],
+        "avoid_drivers": [
+          "IfxGtm_Tom_PwmHl"
+        ]
+      }
+    },
+    "warnings": []
+  },
+  "pin_analysis": {
+    "verified_count": 6,
+    "doc_reference_count": 1,
+    "merged_total": 7
+  }
+}
