@@ -1,0 +1,144 @@
+{
+  "user_intent_preservation": {
+    "original_goal": "Migrate 3-phase PWM motor control to new AURIX target",
+    "functional_behavior": "Generate 3-phase inverter PWM on GTM TOM1 Cluster_1 with center-aligned, complementary HS/LS pairs on P02.0/P02.7 (U), P02.1/P02.4 (V), P02.2/P02.5 (W) at 20 kHz with 1 µs rising/falling deadtime; synchronized start and synchronized duty updates; duty in percent with U=25, V=50, W=75 and +10% step with wrap; add empty IfxGtm_periodEventFunction(); add GTM ATOM ISR (priority 20) to toggle P13.0; main calls init, then repeatedly updates duty and waits 500 ms.",
+    "technical_approach": "Upgrade from IfxGtm_Tom_PwmHl to unified high-level IfxGtm_Pwm. Guard GTM enablement with IfxGtm_isEnabled/IfxGtm_enable; enable FXCLK via IfxGtm_Cmu_enableClocks (IFXGTM_CMU_CLKEN_FXCLK) selecting cmuFxclk0 in config; map TOM1 Cluster_1 TOUTs for P02.* using IfxGtm_PinMap_TC38x_516 and IfxGtm_PinMap_setTomTout; configure center-aligned PWM with complementary outputs and 1 µs deadtime; start channels synchronously and use non-immediate update APIs for synchronized duty changes. Configure ATOM0 CH0 SR0 interrupt source at 1 kHz using IfxGtm_Atom_Timer and IfxSrc to toggle P13.0."
+  },
+  "driver_selection": {
+    "recommended_driver": "IfxGtm_Pwm",
+    "selection_rationale": "User explicitly requested migration from IfxGtm_Tom_PwmHl to the unified high-level IfxGtm_Pwm for TOM. IfxGtm_Pwm is available in the template, supports center-aligned PWM, synchronized start/updates, complementary outputs, and deadtime control via provided APIs.",
+    "available_in_template": true,
+    "complexity_level": "moderate",
+    "alternatives_considered": [
+      "IfxGtm_Tom_PwmHl",
+      "IfxGtm_Tom_Dtm_PwmHl"
+    ]
+  },
+  "driver_usage": {
+    "primary_driver": "IfxGtm_Pwm",
+    "available_in_template": true,
+    "initialization_apis": [
+      "IfxGtm_Pwm_initConfig",
+      "IfxGtm_Pwm_initChannelConfig",
+      "IfxGtm_Pwm_init"
+    ],
+    "runtime_apis": [
+      "IfxGtm_Pwm_startSyncedChannels",
+      "IfxGtm_Pwm_updateChannelsDuty",
+      "IfxGtm_Pwm_updateChannelsDeadTimeImmediate"
+    ]
+  },
+  "file_structure": {
+    "module_files": [
+      "GTM_TOM_3_Phase_Inverter_PWM_2-Reference.c",
+      "GTM_TOM_3_Phase_Inverter_PWM.h"
+    ],
+    "cpu_files": [
+      "Cpu0_Main-Reference.c"
+    ],
+    "from_reference": true
+  },
+  "function_mapping": {
+    "init_function": {
+      "name": "initGtmTom3phInv",
+      "driver_calls": [
+        "IfxGtm_isEnabled",
+        "IfxGtm_enable",
+        "IfxGtm_Cmu_enableClocks",
+        "IfxGtm_Pwm_initConfig",
+        "IfxGtm_Pwm_initChannelConfig",
+        "IfxGtm_Pwm_init",
+        "IfxGtm_Pwm_startSyncedChannels"
+      ]
+    },
+    "runtime_function": {
+      "name": "updateGtmTom3phInvDuty",
+      "driver_calls": [
+        "IfxGtm_Pwm_updateChannelsDuty"
+      ],
+      "purpose": "Apply +10% step to U/V/W duty with wrap rule, and perform synchronized duty updates for the 3 complementary PWM pairs."
+    }
+  },
+  "migration_notes": {
+    "is_migration": true,
+    "driver_changes": [
+      "Replaced IfxGtm_Tom_PwmHl with IfxGtm_Pwm"
+    ],
+    "api_changes": [
+      {
+        "from": "IfxGtm_Tom_PwmHl_initConfig",
+        "to": "IfxGtm_Pwm_initConfig"
+      },
+      {
+        "from": "IfxGtm_Tom_PwmHl_init",
+        "to": "IfxGtm_Pwm_init"
+      },
+      {
+        "from": "IfxGtm_Tom_PwmHl_setMode",
+        "to": "Center-aligned via IfxGtm_Pwm_initConfig"
+      },
+      {
+        "from": "IfxGtm_Tom_PwmHl_setOnTime",
+        "to": "IfxGtm_Pwm_updateChannelsDuty"
+      }
+    ],
+    "context_preserved": "All user-required behavior is retained: TOM1 Cluster_1 center-aligned PWM with complementary HS/LS outputs on P02 pins, synchronized start and updates, 20 kHz frequency and 1 µs deadtime, guarded GTM enablement and FXCLK0 enablement, preserved function names (initGtmTom3phInv, updateGtmTom3phInvDuty, IfxGtm_periodEventFunction), main loop delay behavior, and ATOM ISR to toggle P13.0. Timer PinMap is handled using IfxGtm_PinMap_TC38x_516 via IfxGtm_PinMap_setTomTout. Note: Verify exact TOM1 Cluster_1 TOUT mappings for P02.[0,7], P02.[1,4], P02.[2,5] in the TC38x 516-pin PinMap and pair HS/LS to complementary TOM channels before build."
+  },
+  "header_selection": {
+    "applied": true,
+    "peripheral_type": "PWM",
+    "recommended_header": "IfxGtm_Tom_PwmHl",
+    "score": 341,
+    "required_includes": [
+      "IfxGtm_Tom_PwmHl.h"
+    ],
+    "function_mapping": {},
+    "available_functions_count": 47
+  },
+  "driver_selection_engine": {
+    "applied": true,
+    "mcu_family": "TC3xx",
+    "requirement_analysis": {},
+    "recommendations": {
+      "PWM": {
+        "driver": "IfxGtm_Pwm",
+        "score": 100,
+        "complexity": "locked",
+        "rationale": "Driver locked by refiner node (user explicit or engine-scored)",
+        "alternatives": []
+      }
+    },
+    "migration_mappings": {
+      "IfxScuWdt": {
+        "target_driver": "IfxScuWdt",
+        "api_mapping": {
+          "IfxScuWdt_init": "IfxScuWdt_init",
+          "IfxScuWdt_initConfig": "IfxScuWdt_initConfig"
+        }
+      },
+      "IfxGtm_Tom_PwmHl": {
+        "target_driver": "IfxGtm_Pwm",
+        "api_mapping": {
+          "IfxGtm_Tom_PwmHl_init": "IfxGtm_Pwm_init",
+          "IfxGtm_Tom_PwmHl_initConfig": "IfxGtm_Pwm_initConfig",
+          "IfxGtm_Tom_PwmHl_setOnTime": "IfxGtm_Pwm_setDuty",
+          "IfxGtm_Tom_PwmHl_setPeriod": "IfxGtm_Pwm_updatePeriod",
+          "IfxGtm_Tom_PwmHl_start": "IfxGtm_Pwm_start",
+          "IfxGtm_Tom_PwmHl_stop": "IfxGtm_Pwm_stop"
+        },
+        "upgrade_reason": "User explicitly requested: IfxGtm_Tom_PwmHl → IfxGtm_Pwm"
+      },
+      "IfxCpu_Irq": {
+        "target_driver": "IfxSrc",
+        "api_mapping": {
+          "IfxCpu_Irq_installInterruptHandler": "IfxSrc_init",
+          "IfxCpu_enableInterrupts": "IfxSrc_setRequest",
+          "IfxCpu_disableInterrupts": "IfxSrc_clearRequest"
+        }
+      }
+    }
+  },
+  "driver_knowledge_base": {
+    "applied": false
+  }
+}
