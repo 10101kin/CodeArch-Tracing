@@ -1,13 +1,10 @@
+/* IfxPort.h - Types + functions */
 #ifndef IFXPORT_H
 #define IFXPORT_H
 
 #include "mock_qspi.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-/* Enums (with values aligned to iLLD patterns where provided) */
+/* Enums and types (exact values per template mapping) */
 typedef enum {
     IfxPort_ControlledBy_port = 0,
     IfxPort_ControlledBy_hsct = 1
@@ -26,16 +23,16 @@ typedef enum {
 } IfxPort_LvdsMode;
 
 typedef enum {
-    IfxPort_Mode_inputNoPullDevice,
-    IfxPort_Mode_inputPullDown,
-    IfxPort_Mode_inputPullUp,
-    IfxPort_Mode_outputPushPullGeneral,
-    IfxPort_Mode_outputPushPullAlt1,
-    IfxPort_Mode_outputPushPullAlt2,
-    IfxPort_Mode_outputPushPullAlt3,
-    IfxPort_Mode_outputPushPullAlt4,
-    IfxPort_Mode_outputPushPullAlt5,
-    IfxPort_Mode_outputPushPullAlt6
+    IfxPort_Mode_inputNoPullDevice      = 0x00U,
+    IfxPort_Mode_inputPullDown          = 0x08U,
+    IfxPort_Mode_inputPullUp            = 0x10U,
+    IfxPort_Mode_outputPushPullGeneral  = 0x80U,
+    IfxPort_Mode_outputPushPullAlt1     = 0x88U,
+    IfxPort_Mode_outputPushPullAlt2     = 0x90U,
+    IfxPort_Mode_outputPushPullAlt3     = 0x98U,
+    IfxPort_Mode_outputPushPullAlt4     = 0xA0U,
+    IfxPort_Mode_outputPushPullAlt5     = 0xA8U,
+    IfxPort_Mode_outputPushPullAlt6     = 0xB0U
 } IfxPort_Mode;
 
 typedef enum {
@@ -56,16 +53,16 @@ typedef enum {
 } IfxPort_OutputMode;
 
 typedef enum {
-    IfxPort_PadDriver_cmosAutomotiveSpeed1,
-    IfxPort_PadDriver_cmosAutomotiveSpeed2,
-    IfxPort_PadDriver_cmosAutomotiveSpeed3,
-    IfxPort_PadDriver_cmosAutomotiveSpeed4,
-    IfxPort_PadDriver_ttlSpeed1,
-    IfxPort_PadDriver_ttlSpeed2,
-    IfxPort_PadDriver_ttlSpeed3,
-    IfxPort_PadDriver_ttlSpeed4,
-    IfxPort_PadDriver_ttl3v3Speed1,
-    IfxPort_PadDriver_ttl3v3Speed2
+    IfxPort_PadDriver_cmosAutomotiveSpeed1 = 0,
+    IfxPort_PadDriver_cmosAutomotiveSpeed2 = 1,
+    IfxPort_PadDriver_cmosAutomotiveSpeed3 = 2,
+    IfxPort_PadDriver_cmosAutomotiveSpeed4 = 3,
+    IfxPort_PadDriver_ttlSpeed1            = 4,
+    IfxPort_PadDriver_ttlSpeed2            = 5,
+    IfxPort_PadDriver_ttlSpeed3            = 6,
+    IfxPort_PadDriver_ttlSpeed4            = 7,
+    IfxPort_PadDriver_ttl3v3Speed1         = 8,
+    IfxPort_PadDriver_ttl3v3Speed2         = 9
 } IfxPort_PadDriver;
 
 typedef enum {
@@ -118,13 +115,13 @@ typedef struct {
 } IfxPort_Pin;
 
 typedef struct {
-    Ifx_P             *port;
-    uint8              pinIndex;
-    IfxPort_OutputIdx  mode;
-    IfxPort_PadDriver  padDriver;
+    Ifx_P            *port;
+    uint8             pinIndex;
+    IfxPort_OutputIdx mode;
+    IfxPort_PadDriver padDriver;
 } IfxPort_Pin_Config;
 
-/* API */
+/* Function declarations */
 IfxPort_State IfxPort_getPinState(Ifx_P *port, uint8 pinIndex);
 void IfxPort_setPinFunctionMode(Ifx_P *port, uint8 pinIndex, IfxPort_PinFunctionMode mode);
 void IfxPort_setPinHigh(Ifx_P *port, uint8 pinIndex);
@@ -136,9 +133,5 @@ void IfxPort_togglePin(Ifx_P *port, uint8 pinIndex);
 void IfxPort_disableEmergencyStop(Ifx_P *port, uint8 pinIndex);
 void IfxPort_enableEmergencyStop(Ifx_P *port, uint8 pinIndex);
 void IfxPort_setPinMode(Ifx_P *port, uint8 pinIndex, IfxPort_Mode mode);
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif /* IFXPORT_H */
