@@ -1,10 +1,10 @@
 {
-  "attempt": 3,
+  "attempt": 4,
   "phase": "test",
   "success": false,
   "errors": [
-    "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_5tuovebk\\test\\test_gtm_tom_3_phase_inverter_pwm.c:351:test_TC_G1_001_init_enables_gtm_and_configures_clocks_when_disabled:PASS\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_5tuovebk\\test\\test_gtm_tom_3_phase_inverter_pwm.c:352:test_TC_G1_002_init_skips_enable_and_cmu_when_already_enabled:PASS\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_5tuovebk\\test\\test_gtm_tom_3_phase_inverter_pwm.c:101:test_TC_G2_001_init_sets_frequency_and_channel_count:FAIL: E"
+    "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_jjn_sv9e\\test\\test_gtm_tom_3_phase_inverter_pwm.c:351:test_TC_G1_001_init_enables_gtm_and_configures_clocks_when_disabled:PASS\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_jjn_sv9e\\test\\test_gtm_tom_3_phase_inverter_pwm.c:352:test_TC_G1_002_init_skips_enable_and_cmu_when_already_enabled:PASS\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_jjn_sv9e\\test\\test_gtm_tom_3_phase_inverter_pwm.c:101:test_TC_G2_001_init_sets_frequency_and_channel_count:FAIL: E"
   ],
-  "timestamp": "2026-03-27T10:52:52.087647",
+  "timestamp": "2026-03-27T10:54:23.369703",
   "project_name": "Upgrade_the_TC387_3-phase_inverter_PWM_to_IfxGtm_P_r_20260327_104624"
 }
