@@ -1,0 +1,19 @@
+{
+  "attempt": 3,
+  "phase": "production",
+  "success": false,
+  "errors": [
+    "conflicting types for 'IfxStdIf_Timer_disableUpdate'; have 'void(IfxGtm_Tom_PwmHl *)'",
+    "conflicting types for 'IfxStdIf_Timer_setPeriod'; have 'void(IfxGtm_Tom_PwmHl *, float32)' {aka 'void(IfxGtm_Tom_PwmHl *, float)'}",
+    "conflicting types for 'IfxStdIf_Timer_applyUpdate'; have 'void(IfxGtm_Tom_PwmHl *)'",
+    "implicit declaration of function 'IfxPort_togglePin' [-Wimplicit-function-declaration]",
+    "'IfxGtm_Tom_Timer_Config' has no member named 'frequency'",
+    "implicit conversion from 'enum <anonymous>' to 'IfxGtm_Tom_Ch_ClkSrc' [-Werror=enum-conversion]",
+    "'IfxGtm_TOM1_1_TOUT11_P00_2_OUT' undeclared (first use in this function)",
+    "'IfxGtm_TOM1_2_TOUT12_P00_3_OUT' undeclared (first use in this function)",
+    "'IfxGtm_TOM1_3_TOUT13_P00_4_OUT' undeclared (first use in this function)",
+    "'IfxGtm_TOM1_4_TOUT14_P00_5_OUT' undeclared (first use in this function)"
+  ],
+  "timestamp": "2026-03-27T12:04:46.811921",
+  "project_name": "Generate_code_for_KIT_A2G_TC387_5V_TFT_TC38x_tha_r_20260327_115648"
+}

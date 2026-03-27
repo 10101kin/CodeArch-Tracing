@@ -1,0 +1,338 @@
+{
+  "success": false,
+  "errors": [
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\include/IfxGtm_Tom_PwmHl.h",
+      "line": 63,
+      "category": "error",
+      "message": "conflicting types for 'IfxStdIf_Timer_disableUpdate'; have 'void(IfxGtm_Tom_PwmHl *)'"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\include/IfxGtm_Tom_PwmHl.h",
+      "line": 64,
+      "category": "error",
+      "message": "conflicting types for 'IfxStdIf_Timer_setPeriod'; have 'void(IfxGtm_Tom_PwmHl *, float32)' {aka 'void(IfxGtm_Tom_PwmHl *, float)'}"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\include/IfxGtm_Tom_PwmHl.h",
+      "line": 66,
+      "category": "error",
+      "message": "conflicting types for 'IfxStdIf_Timer_applyUpdate'; have 'void(IfxGtm_Tom_PwmHl *)'"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 74,
+      "category": "error",
+      "message": "implicit declaration of function 'IfxPort_togglePin' [-Wimplicit-function-declaration]"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 112,
+      "category": "error",
+      "message": "'IfxGtm_Tom_Timer_Config' has no member named 'frequency'"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 115,
+      "category": "error",
+      "message": "implicit conversion from 'enum <anonymous>' to 'IfxGtm_Tom_Ch_ClkSrc' [-Werror=enum-conversion]"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 41,
+      "category": "error",
+      "message": "'IfxGtm_TOM1_1_TOUT11_P00_2_OUT' undeclared (first use in this function)"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 42,
+      "category": "error",
+      "message": "'IfxGtm_TOM1_2_TOUT12_P00_3_OUT' undeclared (first use in this function)"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 43,
+      "category": "error",
+      "message": "'IfxGtm_TOM1_3_TOUT13_P00_4_OUT' undeclared (first use in this function)"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 44,
+      "category": "error",
+      "message": "'IfxGtm_TOM1_4_TOUT14_P00_5_OUT' undeclared (first use in this function)"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 45,
+      "category": "error",
+      "message": "'IfxGtm_TOM1_5_TOUT15_P00_6_OUT' undeclared (first use in this function)"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 46,
+      "category": "error",
+      "message": "'IfxGtm_TOM1_6_TOUT16_P00_7_OUT' undeclared (first use in this function)"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 140,
+      "category": "error",
+      "message": "'IfxStdIf_PwmHl_Config' has no member named 'outputMode'"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 141,
+      "category": "error",
+      "message": "'IfxStdIf_PwmHl_Config' has no member named 'ccxActiveState'"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 142,
+      "category": "error",
+      "message": "'IfxStdIf_PwmHl_Config' has no member named 'coutxActiveState'"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 145,
+      "category": "error",
+      "message": "assignment of read-only location '*hlCfg.ccx'"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 145,
+      "category": "error",
+      "message": "assignment of read-only location '*hlCfg.coutx'"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 146,
+      "category": "error",
+      "message": "assignment of read-only location '*(hlCfg.ccx + 8)'"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 146,
+      "category": "error",
+      "message": "assignment of read-only location '*(hlCfg.coutx + 8)'"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 147,
+      "category": "error",
+      "message": "assignment of read-only location '*(hlCfg.ccx + 16)'"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 147,
+      "category": "error",
+      "message": "assignment of read-only location '*(hlCfg.coutx + 16)'"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 186,
+      "category": "error",
+      "message": "implicit declaration of function 'IfxPort_setPinModeOutput' [-Wimplicit-function-declaration]"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\include/IfxGtm_Tom_PwmHl.h",
+      "line": 63,
+      "category": "error",
+      "message": "conflicting types for 'IfxStdIf_Timer_disableUpdate'; have 'void(IfxGtm_Tom_PwmHl *)'"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\include/IfxGtm_Tom_PwmHl.h",
+      "line": 64,
+      "category": "error",
+      "message": "conflicting types for 'IfxStdIf_Timer_setPeriod'; have 'void(IfxGtm_Tom_PwmHl *, float32)' {aka 'void(IfxGtm_Tom_PwmHl *, float)'}"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\include/IfxGtm_Tom_PwmHl.h",
+      "line": 66,
+      "category": "error",
+      "message": "conflicting types for 'IfxStdIf_Timer_applyUpdate'; have 'void(IfxGtm_Tom_PwmHl *)'"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 306,
+      "category": "error",
+      "message": "unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 307,
+      "category": "error",
+      "message": "unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 308,
+      "category": "error",
+      "message": "unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 309,
+      "category": "error",
+      "message": "unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 310,
+      "category": "error",
+      "message": "unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 311,
+      "category": "error",
+      "message": "unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 27,
+      "category": "error",
+      "message": "conflicting types for 'mock_IfxGtm_PinMap_setTomTout_callCount'; have 'uint32' {aka 'unsigned int'}"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 28,
+      "category": "error",
+      "message": "conflicting types for 'mock_IfxGtm_enable_callCount'; have 'uint32' {aka 'unsigned int'}"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 29,
+      "category": "error",
+      "message": "conflicting types for 'mock_IfxGtm_Tom_Timer_initConfig_callCount'; have 'uint32' {aka 'unsigned int'}"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 30,
+      "category": "error",
+      "message": "conflicting types for 'mock_IfxGtm_Tom_Timer_applyUpdate_callCount'; have 'uint32' {aka 'unsigned int'}"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 31,
+      "category": "error",
+      "message": "conflicting types for 'mock_IfxGtm_Tom_Timer_run_callCount'; have 'uint32' {aka 'unsigned int'}"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 32,
+      "category": "error",
+      "message": "conflicting types for 'mock_IfxGtm_Tom_Timer_init_callCount'; have 'uint32' {aka 'unsigned int'}"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 33,
+      "category": "error",
+      "message": "conflicting types for 'mock_IfxGtm_Tom_Timer_disableUpdate_callCount'; have 'uint32' {aka 'unsigned int'}"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 34,
+      "category": "error",
+      "message": "conflicting types for 'mock_IfxGtm_Tom_Timer_updateInputFrequency_callCount'; have 'uint32' {aka 'unsigned int'}"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 36,
+      "category": "error",
+      "message": "conflicting types for 'mock_IfxGtm_Tom_PwmHl_init_callCount'; have 'uint32' {aka 'unsigned int'}"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 37,
+      "category": "error",
+      "message": "conflicting types for 'mock_IfxGtm_Tom_PwmHl_initConfig_callCount'; have 'uint32' {aka 'unsigned int'}"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 38,
+      "category": "error",
+      "message": "conflicting types for 'mock_IfxGtm_Tom_PwmHl_setMode_callCount'; have 'uint32' {aka 'unsigned int'}"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 39,
+      "category": "error",
+      "message": "conflicting types for 'mock_IfxGtm_Tom_PwmHl_setOnTime_callCount'; have 'uint32' {aka 'unsigned int'}"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 42,
+      "category": "error",
+      "message": "conflicting types for 'mock_IfxGtm_Cmu_enableClocks_callCount'; have 'uint32' {aka 'unsigned int'}"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 44,
+      "category": "error",
+      "message": "conflicting types for 'mock_IfxGtm_Tom_PwmHl_init_lastFrequency'; have 'uint32' {aka 'unsigned int'}"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 46,
+      "category": "error",
+      "message": "conflicting types for 'mock_IfxGtm_Tom_PwmHl_initConfig_lastFrequency'; have 'uint32' {aka 'unsigned int'}"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 47,
+      "category": "error",
+      "message": "conflicting types for 'mock_IfxGtm_Tom_PwmHl_setOnTime_lastDuties'; have 'uint32[]' {aka 'unsigned int[]'}"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 48,
+      "category": "error",
+      "message": "conflicting types for 'mock_IfxGtm_Tom_PwmHl_setOnTime_lastDtRising'; have 'uint32[]' {aka 'unsigned int[]'}"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 49,
+      "category": "error",
+      "message": "conflicting types for 'mock_IfxGtm_Tom_PwmHl_setOnTime_lastDtFalling'; have 'uint32[]' {aka 'unsigned int[]'}"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 242,
+      "category": "error",
+      "message": "unknown type name 'bool'"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 242,
+      "category": "error",
+      "message": "'false' undeclared (first use in this function)"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 249,
+      "category": "error",
+      "message": "'true' undeclared (first use in this function)"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 273,
+      "category": "error",
+      "message": "unknown type name 'bool'"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 273,
+      "category": "error",
+      "message": "'false' undeclared (first use in this function)"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 281,
+      "category": "error",
+      "message": "'true' undeclared (first use in this function)"
+    }
+  ],
+  "warnings": [],
+  "stderr": "In file included from C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\src\\gtm_tom_3_phase_inverter_pwm.c:18:\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\include/IfxGtm_Tom_PwmHl.h:63:9: error: conflicting types for 'IfxStdIf_Timer_disableUpdate'; have 'void(IfxGtm_Tom_PwmHl *)'\n   63 | void    IfxStdIf_Timer_disableUpdate(IfxGtm_Tom_PwmHl *driver);\n      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~\nIn file included from C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\src\\gtm_tom_3_phase_inverter_pwm.c:17:\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\include/IfxGtm_Tom_Timer.h:78:9: note: previous declaration of 'IfxStdIf_Timer_disableUpdate' with type 'void(IfxGtm_Tom_Timer *)'\n   78 | void    IfxStdIf_Timer_disableUpdate(IfxGtm_Tom_Timer *driver);\n      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\include/IfxGtm_Tom_PwmHl.h:64:9: error: conflicting types for 'IfxStdIf_Timer_setPeriod'; have 'void(IfxGtm_Tom_PwmHl *, float32)' {aka 'void(IfxGtm_Tom_PwmHl *, float)'}\n   64 | void    IfxStdIf_Timer_setPeriod(IfxGtm_Tom_PwmHl *driver, float32 period);\n      |         ^~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\include/IfxGtm_Tom_Timer.h:79:9: note: previous declaration of 'IfxStdIf_Timer_setPeriod' with type 'void(IfxGtm_Tom_Timer *, float32)' {aka 'void(IfxGtm_Tom_Timer *, float)'}\n   79 | void    IfxStdIf_Timer_setPeriod(IfxGtm_Tom_Timer *driver, float32 period);\n      |         ^~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\include/IfxGtm_Tom_PwmHl.h:66:9: error: conflicting types for 'IfxStdIf_Timer_applyUpdate'; have 'void(IfxGtm_Tom_PwmHl *)'\n   66 | void    IfxStdIf_Timer_applyUpdate(IfxGtm_Tom_PwmHl *driver);\n      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\include/IfxGtm_Tom_Timer.h:80:9: note: previous declaration of 'IfxStdIf_Timer_applyUpdate' with type 'void(IfxGtm_Tom_Timer *)'\n   80 | void    IfxStdIf_Timer_applyUpdate(IfxGtm_Tom_Timer *driver);\n      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\src\\gtm_tom_3_phase_inverter_pwm.c: In function 'interruptGtmAtom':\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\src\\gtm_tom_3_phase_inverter_pwm.c:74:5: error: implicit declaration of function 'IfxPort_togglePin' [-Wimplicit-function-declaration]\n   74 |     IfxPort_togglePin(LED);\n      |     ^~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\src\\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTom3phInv':\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\src\\gtm_tom_3_phase_inverter_pwm.c:112:13: error: 'IfxGtm_Tom_Timer_Config' has no member named 'frequency'\n  112 |     timerCfg.frequency     = PWM_BASE_FREQUENCY_HZ;   /* 20 kHz */\n      |             ^\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\src\\gtm_tom_3_phase_inverter_pwm.c:115:28: error: implicit conversion from 'enum <anonymous>' to 'IfxGtm_Tom_Ch_ClkSrc' [-Werror=enum-conversion]\n  115 |     timerCfg.clock         = IfxGtm_Cmu_Fxclk_0;      /* FXCLK0 as clock source */\n      |                            ^\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\src\\gtm_tom_3_phase_inverter_pwm.c:41:26: error: 'IfxGtm_TOM1_1_TOUT11_P00_2_OUT' undeclared (first use in this function)\n   41 | #define PHASE_U_HS     (&IfxGtm_TOM1_1_TOUT11_P00_2_OUT) /* TOM1 CH1 -> P00.2 */\n      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\src\\gtm_tom_3_phase_inverter_pwm.c:124:52: note: in expansion of macro 'PHASE_U_HS'\n  124 |     IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_U_HS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);\n      |                                                    ^~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\src\\gtm_tom_3_phase_inverter_pwm.c:41:26: note: each undeclared identifier is reported only once for each function it appears in\n   41 | #define PHASE_U_HS     (&IfxGtm_TOM1_1_TOUT11_P00_2_OUT) /* TOM1 CH1 -> P00.2 */\n      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\src\\gtm_tom_3_phase_inverter_pwm.c:124:52: note: in expansion of macro 'PHASE_U_HS'\n  124 |     IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_U_HS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);\n      |                                                    ^~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\src\\gtm_tom_3_phase_inverter_pwm.c:42:26: error: 'IfxGtm_TOM1_2_TOUT12_P00_3_OUT' undeclared (first use in this function)\n   42 | #define PHASE_U_LS     (&IfxGtm_TOM1_2_TOUT12_P00_3_OUT) /* TOM1 CH2 -> P00.3 */\n      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\src\\gtm_tom_3_phase_inverter_pwm.c:125:52: note: in expansion of macro 'PHASE_U_LS'\n  125 |     IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_U_LS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);\n      |                                                    ^~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\src\\gtm_tom_3_phase_inverter_pwm.c:43:26: error: 'IfxGtm_TOM1_3_TOUT13_P00_4_OUT' undeclared (first use in this function)\n   43 | #define PHASE_V_HS     (&IfxGtm_TOM1_3_TOUT13_P00_4_OUT) /* TOM1 CH3 -> P00.4 */\n      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\src\\gtm_tom_3_phase_inverter_pwm.c:126:52: note: in expansion of macro 'PHASE_V_HS'\n  126 |     IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_V_HS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);\n      |                                                    ^~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\src\\gtm_tom_3_phase_inverter_pwm.c:44:26: error: 'IfxGtm_TOM1_4_TOUT14_P00_5_OUT' undeclared (first use in this function)\n   44 | #define PHASE_V_LS     (&IfxGtm_TOM1_4_TOUT14_P00_5_OUT) /* TOM1 CH4 -> P00.5 */\n      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\src\\gtm_tom_3_phase_inverter_pwm.c:127:52: note: in expansion of macro 'PHASE_V_LS'\n  127 |     IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_V_LS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);\n      |                                                    ^~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\src\\gtm_tom_3_phase_inverter_pwm.c:45:26: error: 'IfxGtm_TOM1_5_TOUT15_P00_6_OUT' undeclared (first use in this function)\n   45 | #define PHASE_W_HS     (&IfxGtm_TOM1_5_TOUT15_P00_6_OUT) /* TOM1 CH5 -> P00.6 */\n      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\src\\gtm_tom_3_phase_inverter_pwm.c:128:52: note: in expansion of macro 'PHASE_W_HS'\n  128 |     IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_W_HS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);\n      |                                                    ^~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\src\\gtm_tom_3_phase_inverter_pwm.c:46:26: error: 'IfxGtm_TOM1_6_TOUT16_P00_7_OUT' undeclared (first use in this function)\n   46 | #define PHASE_W_LS     (&IfxGtm_TOM1_6_TOUT16_P00_7_OUT) /* TOM1 CH6 -> P00.7 */\n      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\src\\gtm_tom_3_phase_inverter_pwm.c:129:52: note: in expansion of macro 'PHASE_W_LS'\n  129 |     IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_W_LS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);\n      |                                                    ^~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\src\\gtm_tom_3_phase_inverter_pwm.c:140:15: error: 'IfxStdIf_PwmHl_Config' has no member named 'outputMode'\n  140 |     hlCfg.base.outputMode     = IfxPort_OutputMode_pushPull;      /* push-pull */\n      |               ^\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\src\\gtm_tom_3_phase_inverter_pwm.c:141:15: error: 'IfxStdIf_PwmHl_Config' has no member named 'ccxActiveState'\n  141 |     hlCfg.base.ccxActiveState = Ifx_ActiveState_high;             /* high-side active HIGH */\n      |               ^\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\src\\gtm_tom_3_phase_inverter_pwm.c:142:15: error: 'IfxStdIf_PwmHl_Config' has no member named 'coutxActiveState'\n  142 |     hlCfg.base.coutxActiveState = Ifx_ActiveState_high;           /* low-side  active HIGH */\n      |               ^\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\src\\gtm_tom_3_phase_inverter_pwm.c:145:18: error: assignment of read-only location '*hlCfg.ccx'\n  145 |     hlCfg.ccx[0] = IfxGtm_Tom_Ch_1; hlCfg.coutx[0] = IfxGtm_Tom_Ch_2; /* U */\n      |                  ^\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\src\\gtm_tom_3_phase_inverter_pwm.c:145:52: error: assignment of read-only location '*hlCfg.coutx'\n  145 |     hlCfg.ccx[0] = IfxGtm_Tom_Ch_1; hlCfg.coutx[0] = IfxGtm_Tom_Ch_2; /* U */\n      |                                                    ^\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\src\\gtm_tom_3_phase_inverter_pwm.c:146:18: error: assignment of read-only location '*(hlCfg.ccx + 8)'\n  146 |     hlCfg.ccx[1] = IfxGtm_Tom_Ch_3; hlCfg.coutx[1] = IfxGtm_Tom_Ch_4; /* V */\n      |                  ^\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\src\\gtm_tom_3_phase_inverter_pwm.c:146:52: error: assignment of read-only location '*(hlCfg.coutx + 8)'\n  146 |     hlCfg.ccx[1] = IfxGtm_Tom_Ch_3; hlCfg.coutx[1] = IfxGtm_Tom_Ch_4; /* V */\n      |                                                    ^\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\src\\gtm_tom_3_phase_inverter_pwm.c:147:18: error: assignment of read-only location '*(hlCfg.ccx + 16)'\n  147 |     hlCfg.ccx[2] = IfxGtm_Tom_Ch_5; hlCfg.coutx[2] = IfxGtm_Tom_Ch_6; /* W */\n      |                  ^\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\src\\gtm_tom_3_phase_inverter_pwm.c:147:52: error: assignment of read-only location '*(hlCfg.coutx + 16)'\n  147 |     hlCfg.ccx[2] = IfxGtm_Tom_Ch_5; hlCfg.coutx[2] = IfxGtm_Tom_Ch_6; /* W */\n      |                                                    ^\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\src\\gtm_tom_3_phase_inverter_pwm.c:186:5: error: implicit declaration of function 'IfxPort_setPinModeOutput' [-Wimplicit-function-declaration]\n  186 |     IfxPort_setPinModeOutput(LED, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~\ncc1.exe: all warnings being treated as errors\n\nIn file included from C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c:6:\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\include/IfxGtm_Tom_PwmHl.h:63:9: error: conflicting types for 'IfxStdIf_Timer_disableUpdate'; have 'void(IfxGtm_Tom_PwmHl *)'\n   63 | void    IfxStdIf_Timer_disableUpdate(IfxGtm_Tom_PwmHl *driver);\n      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~\nIn file included from C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c:5:\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\include/IfxGtm_Tom_Timer.h:78:9: note: previous declaration of 'IfxStdIf_Timer_disableUpdate' with type 'void(IfxGtm_Tom_Timer *)'\n   78 | void    IfxStdIf_Timer_disableUpdate(IfxGtm_Tom_Timer *driver);\n      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\include/IfxGtm_Tom_PwmHl.h:64:9: error: conflicting types for 'IfxStdIf_Timer_setPeriod'; have 'void(IfxGtm_Tom_PwmHl *, float32)' {aka 'void(IfxGtm_Tom_PwmHl *, float)'}\n   64 | void    IfxStdIf_Timer_setPeriod(IfxGtm_Tom_PwmHl *driver, float32 period);\n      |         ^~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\include/IfxGtm_Tom_Timer.h:79:9: note: previous declaration of 'IfxStdIf_Timer_setPeriod' with type 'void(IfxGtm_Tom_Timer *, float32)' {aka 'void(IfxGtm_Tom_Timer *, float)'}\n   79 | void    IfxStdIf_Timer_setPeriod(IfxGtm_Tom_Timer *driver, float32 period);\n      |         ^~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\include/IfxGtm_Tom_PwmHl.h:66:9: error: conflicting types for 'IfxStdIf_Timer_applyUpdate'; have 'void(IfxGtm_Tom_PwmHl *)'\n   66 | void    IfxStdIf_Timer_applyUpdate(IfxGtm_Tom_PwmHl *driver);\n      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\include/IfxGtm_Tom_Timer.h:80:9: note: previous declaration of 'IfxStdIf_Timer_applyUpdate' with type 'void(IfxGtm_Tom_Timer *)'\n   80 | void    IfxStdIf_Timer_applyUpdate(IfxGtm_Tom_Timer *driver);\n      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c:306:1: error: unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?\n  306 | IfxGtm_Pwm_ToutMap IfxGtm_TOM1_1_TOUT11_P00_2_OUT = {0};\n      | ^~~~~~~~~~~~~~~~~~\n      | IfxGtm_Tom_ToutMap\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c:307:1: error: unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?\n  307 | IfxGtm_Pwm_ToutMap IfxGtm_TOM1_2_TOUT12_P00_3_OUT = {0};\n      | ^~~~~~~~~~~~~~~~~~\n      | IfxGtm_Tom_ToutMap\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c:308:1: error: unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?\n  308 | IfxGtm_Pwm_ToutMap IfxGtm_TOM1_3_TOUT13_P00_4_OUT = {0};\n      | ^~~~~~~~~~~~~~~~~~\n      | IfxGtm_Tom_ToutMap\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c:309:1: error: unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?\n  309 | IfxGtm_Pwm_ToutMap IfxGtm_TOM1_4_TOUT14_P00_5_OUT = {0};\n      | ^~~~~~~~~~~~~~~~~~\n      | IfxGtm_Tom_ToutMap\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c:310:1: error: unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?\n  310 | IfxGtm_Pwm_ToutMap IfxGtm_TOM1_5_TOUT15_P00_6_OUT = {0};\n      | ^~~~~~~~~~~~~~~~~~\n      | IfxGtm_Tom_ToutMap\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c:311:1: error: unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?\n  311 | IfxGtm_Pwm_ToutMap IfxGtm_TOM1_6_TOUT16_P00_7_OUT = {0};\n      | ^~~~~~~~~~~~~~~~~~\n      | IfxGtm_Tom_ToutMap\n\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c:27:15: error: conflicting types for 'mock_IfxGtm_PinMap_setTomTout_callCount'; have 'uint32' {aka 'unsigned int'}\n   27 | extern uint32 mock_IfxGtm_PinMap_setTomTout_callCount;\n      |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nIn file included from C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c:2:\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\include/mock_gtm_tom_3_phase_inverter_pwm.h:139:12: note: previous declaration of 'mock_IfxGtm_PinMap_setTomTout_callCount' with type 'int'\n  139 | extern int mock_IfxGtm_PinMap_setTomTout_callCount;\n      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c:28:15: error: conflicting types for 'mock_IfxGtm_enable_callCount'; have 'uint32' {aka 'unsigned int'}\n   28 | extern uint32 mock_IfxGtm_enable_callCount;\n      |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\include/mock_gtm_tom_3_phase_inverter_pwm.h:143:12: note: previous declaration of 'mock_IfxGtm_enable_callCount' with type 'int'\n  143 | extern int mock_IfxGtm_enable_callCount;\n      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c:29:15: error: conflicting types for 'mock_IfxGtm_Tom_Timer_initConfig_callCount'; have 'uint32' {aka 'unsigned int'}\n   29 | extern uint32 mock_IfxGtm_Tom_Timer_initConfig_callCount;\n      |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\include/mock_gtm_tom_3_phase_inverter_pwm.h:147:12: note: previous declaration of 'mock_IfxGtm_Tom_Timer_initConfig_callCount' with type 'int'\n  147 | extern int mock_IfxGtm_Tom_Timer_initConfig_callCount;\n      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c:30:15: error: conflicting types for 'mock_IfxGtm_Tom_Timer_applyUpdate_callCount'; have 'uint32' {aka 'unsigned int'}\n   30 | extern uint32 mock_IfxGtm_Tom_Timer_applyUpdate_callCount;\n      |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\include/mock_gtm_tom_3_phase_inverter_pwm.h:148:12: note: previous declaration of 'mock_IfxGtm_Tom_Timer_applyUpdate_callCount' with type 'int'\n  148 | extern int mock_IfxGtm_Tom_Timer_applyUpdate_callCount;\n      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c:31:15: error: conflicting types for 'mock_IfxGtm_Tom_Timer_run_callCount'; have 'uint32' {aka 'unsigned int'}\n   31 | extern uint32 mock_IfxGtm_Tom_Timer_run_callCount;\n      |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\include/mock_gtm_tom_3_phase_inverter_pwm.h:149:12: note: previous declaration of 'mock_IfxGtm_Tom_Timer_run_callCount' with type 'int'\n  149 | extern int mock_IfxGtm_Tom_Timer_run_callCount;\n      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c:32:15: error: conflicting types for 'mock_IfxGtm_Tom_Timer_init_callCount'; have 'uint32' {aka 'unsigned int'}\n   32 | extern uint32 mock_IfxGtm_Tom_Timer_init_callCount;\n      |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\include/mock_gtm_tom_3_phase_inverter_pwm.h:150:12: note: previous declaration of 'mock_IfxGtm_Tom_Timer_init_callCount' with type 'int'\n  150 | extern int mock_IfxGtm_Tom_Timer_init_callCount;\n      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c:33:15: error: conflicting types for 'mock_IfxGtm_Tom_Timer_disableUpdate_callCount'; have 'uint32' {aka 'unsigned int'}\n   33 | extern uint32 mock_IfxGtm_Tom_Timer_disableUpdate_callCount;\n      |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\include/mock_gtm_tom_3_phase_inverter_pwm.h:151:12: note: previous declaration of 'mock_IfxGtm_Tom_Timer_disableUpdate_callCount' with type 'int'\n  151 | extern int mock_IfxGtm_Tom_Timer_disableUpdate_callCount;\n      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c:34:15: error: conflicting types for 'mock_IfxGtm_Tom_Timer_updateInputFrequency_callCount'; have 'uint32' {aka 'unsigned int'}\n   34 | extern uint32 mock_IfxGtm_Tom_Timer_updateInputFrequency_callCount;\n      |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\include/mock_gtm_tom_3_phase_inverter_pwm.h:152:12: note: previous declaration of 'mock_IfxGtm_Tom_Timer_updateInputFrequency_callCount' with type 'int'\n  152 | extern int mock_IfxGtm_Tom_Timer_updateInputFrequency_callCount;\n      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c:36:15: error: conflicting types for 'mock_IfxGtm_Tom_PwmHl_init_callCount'; have 'uint32' {aka 'unsigned int'}\n   36 | extern uint32 mock_IfxGtm_Tom_PwmHl_init_callCount;\n      |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\include/mock_gtm_tom_3_phase_inverter_pwm.h:162:12: note: previous declaration of 'mock_IfxGtm_Tom_PwmHl_init_callCount' with type 'int'\n  162 | extern int mock_IfxGtm_Tom_PwmHl_init_callCount;\n      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c:37:15: error: conflicting types for 'mock_IfxGtm_Tom_PwmHl_initConfig_callCount'; have 'uint32' {aka 'unsigned int'}\n   37 | extern uint32 mock_IfxGtm_Tom_PwmHl_initConfig_callCount;\n      |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\include/mock_gtm_tom_3_phase_inverter_pwm.h:163:12: note: previous declaration of 'mock_IfxGtm_Tom_PwmHl_initConfig_callCount' with type 'int'\n  163 | extern int mock_IfxGtm_Tom_PwmHl_initConfig_callCount;\n      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c:38:15: error: conflicting types for 'mock_IfxGtm_Tom_PwmHl_setMode_callCount'; have 'uint32' {aka 'unsigned int'}\n   38 | extern uint32 mock_IfxGtm_Tom_PwmHl_setMode_callCount;\n      |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\include/mock_gtm_tom_3_phase_inverter_pwm.h:164:12: note: previous declaration of 'mock_IfxGtm_Tom_PwmHl_setMode_callCount' with type 'int'\n  164 | extern int mock_IfxGtm_Tom_PwmHl_setMode_callCount;\n      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c:39:15: error: conflicting types for 'mock_IfxGtm_Tom_PwmHl_setOnTime_callCount'; have 'uint32' {aka 'unsigned int'}\n   39 | extern uint32 mock_IfxGtm_Tom_PwmHl_setOnTime_callCount;\n      |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\include/mock_gtm_tom_3_phase_inverter_pwm.h:165:12: note: previous declaration of 'mock_IfxGtm_Tom_PwmHl_setOnTime_callCount' with type 'int'\n  165 | extern int mock_IfxGtm_Tom_PwmHl_setOnTime_callCount;\n      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c:42:15: error: conflicting types for 'mock_IfxGtm_Cmu_enableClocks_callCount'; have 'uint32' {aka 'unsigned int'}\n   42 | extern uint32 mock_IfxGtm_Cmu_enableClocks_callCount;\n      |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\include/mock_gtm_tom_3_phase_inverter_pwm.h:174:12: note: previous declaration of 'mock_IfxGtm_Cmu_enableClocks_callCount' with type 'int'\n  174 | extern int mock_IfxGtm_Cmu_enableClocks_callCount;\n      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c:44:15: error: conflicting types for 'mock_IfxGtm_Tom_PwmHl_init_lastFrequency'; have 'uint32' {aka 'unsigned int'}\n   44 | extern uint32 mock_IfxGtm_Tom_PwmHl_init_lastFrequency;\n      |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\include/mock_gtm_tom_3_phase_inverter_pwm.h:179:16: note: previous declaration of 'mock_IfxGtm_Tom_PwmHl_init_lastFrequency' with type 'float32' {aka 'float'}\n  179 | extern float32 mock_IfxGtm_Tom_PwmHl_init_lastFrequency;\n      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c:46:15: error: conflicting types for 'mock_IfxGtm_Tom_PwmHl_initConfig_lastFrequency'; have 'uint32' {aka 'unsigned int'}\n   46 | extern uint32 mock_IfxGtm_Tom_PwmHl_initConfig_lastFrequency;\n      |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\include/mock_gtm_tom_3_phase_inverter_pwm.h:181:16: note: previous declaration of 'mock_IfxGtm_Tom_PwmHl_initConfig_lastFrequency' with type 'float32' {aka 'float'}\n  181 | extern float32 mock_IfxGtm_Tom_PwmHl_initConfig_lastFrequency;\n      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c:47:15: error: conflicting types for 'mock_IfxGtm_Tom_PwmHl_setOnTime_lastDuties'; have 'uint32[]' {aka 'unsigned int[]'}\n   47 | extern uint32 mock_IfxGtm_Tom_PwmHl_setOnTime_lastDuties[];\n      |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\include/mock_gtm_tom_3_phase_inverter_pwm.h:182:16: note: previous declaration of 'mock_IfxGtm_Tom_PwmHl_setOnTime_lastDuties' with type 'float32[16]' {aka 'float[16]'}\n  182 | extern float32 mock_IfxGtm_Tom_PwmHl_setOnTime_lastDuties[MOCK_MAX_CHANNELS];\n      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c:48:15: error: conflicting types for 'mock_IfxGtm_Tom_PwmHl_setOnTime_lastDtRising'; have 'uint32[]' {aka 'unsigned int[]'}\n   48 | extern uint32 mock_IfxGtm_Tom_PwmHl_setOnTime_lastDtRising[];\n      |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\include/mock_gtm_tom_3_phase_inverter_pwm.h:183:16: note: previous declaration of 'mock_IfxGtm_Tom_PwmHl_setOnTime_lastDtRising' with type 'float32[16]' {aka 'float[16]'}\n  183 | extern float32 mock_IfxGtm_Tom_PwmHl_setOnTime_lastDtRising[MOCK_MAX_CHANNELS];\n      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c:49:15: error: conflicting types for 'mock_IfxGtm_Tom_PwmHl_setOnTime_lastDtFalling'; have 'uint32[]' {aka 'unsigned int[]'}\n   49 | extern uint32 mock_IfxGtm_Tom_PwmHl_setOnTime_lastDtFalling[];\n      |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\include/mock_gtm_tom_3_phase_inverter_pwm.h:184:16: note: previous declaration of 'mock_IfxGtm_Tom_PwmHl_setOnTime_lastDtFalling' with type 'float32[16]' {aka 'float[16]'}\n  184 | extern float32 mock_IfxGtm_Tom_PwmHl_setOnTime_lastDtFalling[MOCK_MAX_CHANNELS];\n      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G6_001_update_increments_duty_when_below_boundary':\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c:242:5: error: unknown type name 'bool'\n  242 |     bool increasedU = false, increasedV = false, increasedW = false;\n      |     ^~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c:4:1: note: 'bool' is defined in header '<stdbool.h>'; this is probably fixable by adding '#include <stdbool.h>'\n    3 | #include \"gtm_tom_3_phase_inverter_pwm.h\"\n  +++ |+#include <stdbool.h>\n    4 | \nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c:242:23: error: 'false' undeclared (first use in this function)\n  242 |     bool increasedU = false, increasedV = false, increasedW = false;\n      |                       ^~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c:242:23: note: 'false' is defined in header '<stdbool.h>'; this is probably fixable by adding '#include <stdbool.h>'\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c:242:23: note: each undeclared identifier is reported only once for each function it appears in\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c:249:57: error: 'true' undeclared (first use in this function)\n  249 |         if (!increasedU && (curU > prevU)) increasedU = true;\n      |                                                         ^~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c:249:57: note: 'true' is defined in header '<stdbool.h>'; this is probably fixable by adding '#include <stdbool.h>'\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G6_002_update_wraps_duty_when_exceeding_max_and_uses_single_shadow_transfer_per_call':\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c:273:5: error: unknown type name 'bool'\n  273 |     bool wrappedW = false;\n      |     ^~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c:273:5: note: 'bool' is defined in header '<stdbool.h>'; this is probably fixable by adding '#include <stdbool.h>'\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c:273:21: error: 'false' undeclared (first use in this function)\n  273 |     bool wrappedW = false;\n      |                     ^~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c:273:21: note: 'false' is defined in header '<stdbool.h>'; this is probably fixable by adding '#include <stdbool.h>'\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c:281:24: error: 'true' undeclared (first use in this function)\n  281 |             wrappedW = true;\n      |                        ^~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_k34dmq05\\test\\test_gtm_tom_3_phase_inverter_pwm.c:281:24: note: 'true' is defined in header '<stdbool.h>'; this is probably fixable by adding '#include <stdbool.h>'\n",
+  "stdout": ""
+}
