@@ -1,0 +1,11 @@
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_8n_csyej\src\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTom3phInv':
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_8n_csyej\src\gtm_tom_3_phase_inverter_pwm.c:164:34: error: 'IfxGtm_Dtm_ClockSource_cmuClock0' undeclared (first use in this function); did you mean 'IfxGtm_Dtm_ClockSource_cmuClk0'?
+  164 |     config.dtmClockSource      = IfxGtm_Dtm_ClockSource_cmuClock0; /* DTM clock from CMU CLK0 */
+      |                                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                  IfxGtm_Dtm_ClockSource_cmuClk0
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_8n_csyej\src\gtm_tom_3_phase_inverter_pwm.c:164:34: note: each undeclared identifier is reported only once for each function it appears in
+
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_8n_csyej\test\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G4_001_Irq_TogglesLedOnce':
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_8n_csyej\test\test_gtm_tom_3_phase_inverter_pwm.c:146:5: error: implicit declaration of function 'interruptGtmAtom0Ch0' [-Wimplicit-function-declaration]
+  146 |     interruptGtmAtom0Ch0();
+      |     ^~~~~~~~~~~~~~~~~~~~
