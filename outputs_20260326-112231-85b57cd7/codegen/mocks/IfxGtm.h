@@ -1,12 +1,13 @@
+/* Mock IfxGtm.h */
 #ifndef IFXGTM_H
 #define IFXGTM_H
 
 #include "mock_gtm_tom_3_phase_inverter_pwm.h"
 
-/* Enums required by IfxGtm */
+/* Enums */
 typedef enum {
-    IfxGtm_IrqMode_level = 0,
-    IfxGtm_IrqMode_pulse = 1,
+    IfxGtm_IrqMode_level       = 0,
+    IfxGtm_IrqMode_pulse       = 1,
     IfxGtm_IrqMode_pulseNotify = 2,
     IfxGtm_IrqMode_singlePulse = 3
 } IfxGtm_IrqMode;
@@ -19,11 +20,11 @@ typedef enum {
 
 typedef enum {
     IfxGtm_Cluster_0 = 0,
-    IfxGtm_Cluster_1 = 1,
-    IfxGtm_Cluster_2 = 2,
-    IfxGtm_Cluster_3 = 3,
-    IfxGtm_Cluster_4 = 4,
-    IfxGtm_Cluster_5 = 5
+    IfxGtm_Cluster_1,
+    IfxGtm_Cluster_2,
+    IfxGtm_Cluster_3,
+    IfxGtm_Cluster_4,
+    IfxGtm_Cluster_5
 } IfxGtm_Cluster;
 
 /* Function declarations */
