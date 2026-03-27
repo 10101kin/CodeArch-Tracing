@@ -1,0 +1,85 @@
+{
+  "module_name": "GTM_TOM_3_Phase_Inverter_PWM",
+  "public_functions": [
+    {
+      "signature": "void initGtmTom3phInv(void)",
+      "behavior_description": "Initialize a 3-phase inverter PWM using the unified high-level GTM PWM driver on a TOM cluster with three complementary HS/LS pairs. Algorithm: 1) Declare all required local configuration structures: main Pwm Config, an array of ChannelConfig[3] for the three phases, an OutputConfig array for HS/LS pins, a DeadTime array (rising/falling), and an InterruptConfig for period events. 2) Initialize the main Pwm Config with defaults via the high-level initConfig API. 3) Populate output[] for three complementary pairs (U, V, W): assign the HS/LS outputs to the desired pads, set push-pull output mode and the requested pad driver, and set both HS/LS active states to active-high. 4) Configure per-channel settings using logical indices 0..2 (SubModule_Ch_0, Ch_1, Ch_2): center-aligned mode, requested PWM frequency (20 kHz), complementary outputs enabled with 1 µs dead time (rising and falling), synchronized start and synchronized updates enabled. Assign initial duty percentages to the three channels (25, 50, 75). 5) Configure the period-event interrupt using the high-level driver InterruptConfig: set provider to CPU0, priority to 20, assign the period callback pointer to IfxGtm_periodEventFunction, and leave other callbacks NULL; assign this interrupt config to channelConfig[0] and set channelConfig[1..2].interrupt to NULL to comply with single-base-channel routing. 6) Inside an enable guard: check if the GTM is enabled; if not, enable the module, read the GTM module frequency dynamically, then configure the GTM CMU clocks so that GCLK equals the module frequency and CLK0 derives from that frequency, and enable the required FXCLK mask for the PWM cluster — all inside the guard. 7) Call the high-level Pwm init with a persistent driver handle and a persistent channels array stored in the module state. The init applies the initial per-channel duties and dead times. Ensure syncStart is set so the channels start synchronously without separate start calls. 8) Store the initial dutyPercent[3], deadTime settings, and channel references into the persistent module-state structure for later updates. 9) Configure the designated ISR/debug GPIO pin as push-pull output using the IfxPort API (e.g., for LED toggle in the ISR). No STM timing or main-loop logic belongs here.",
+      "driver_calls": [
+        "IfxGtm_isEnabled",
+        "IfxGtm_enable",
+        "IfxGtm_Cmu_getModuleFrequency",
+        "IfxGtm_Cmu_enableClocks",
+        "IfxGtm_Pwm_initConfig",
+        "IfxGtm_Pwm_init",
+        "IfxPort_setPinModeOutput"
+      ],
+      "from_reference": true,
+      "call_context": "init"
+    },
+    {
+      "signature": "void updateGtmTom3phInvDuty(void)",
+      "behavior_description": "Update the three PWM duties in percentage with a +10% step and wrap rule, then apply immediately. For each channel i in {0,1,2}: if (duty[i] + 10) >= 100 then set duty[i] = 0; then add 10 so duty[i] becomes duty[i] + 10 in the [0,100) range. Store the updated duty values back into the module state. Call the high-level driver API to apply all three channel duty percentages immediately and coherently to the synchronized group.",
+      "driver_calls": [
+        "IfxGtm_Pwm_updateChannelsDutyImmediate"
+      ],
+      "from_reference": true,
+      "call_context": "loop"
+    },
+    {
+      "signature": "void IfxGtm_periodEventFunction(void *data)",
+      "behavior_description": "Empty period-event callback used by the high-level PWM driver. It performs no action by design; LED/debug pin toggling is handled in the ISR wrapper.",
+      "driver_calls": [],
+      "from_reference": true,
+      "call_context": "none"
+    }
+  ],
+  "private_functions": [
+    {
+      "signature": "void interruptGtmTomPwm(void)",
+      "needed": true,
+      "from_reference": false
+    }
+  ],
+  "dependencies": {
+    "includes": [
+      "Ifx_Types.h",
+      "IfxGtm_Pwm.h",
+      "IfxPort.h",
+      "IfxPort_Pinmap.h"
+    ],
+    "driver_calls": [
+      "IfxGtm_isEnabled",
+      "IfxGtm_enable",
+      "IfxGtm_Cmu_getModuleFrequency",
+      "IfxGtm_Cmu_enableClocks",
+      "IfxGtm_Pwm_initConfig",
+      "IfxGtm_Pwm_init",
+      "IfxGtm_Pwm_updateChannelsDutyImmediate",
+      "IfxGtm_Pwm_interruptHandler",
+      "IfxPort_setPinModeOutput"
+    ]
+  },
+  "cpu_main_requirements": {
+    "needs_cpu_sync": true,
+    "uses_timer_delay": true,
+    "delay_ms": 500,
+    "additional_includes": [
+      "Bsp.h"
+    ]
+  },
+  "header_selection": {
+    "applied": true,
+    "peripheral_type": "PWM",
+    "recommended_header": "IfxGtm_Pwm",
+    "template_functions_count": 1026,
+    "required_includes": [
+      "IfxGtm_Pwm.h"
+    ],
+    "original_recommendation": "IfxGtm_Tom_PwmHl",
+    "reconciled": true,
+    "reconciliation_reason": "LLM driver_calls use IfxGtm_Pwm_* API, not IfxGtm_Tom_PwmHl (the reference API). Updated to match actual usage.",
+    "original_required_includes": [
+      "IfxGtm_Tom_PwmHl.h"
+    ]
+  }
+}
