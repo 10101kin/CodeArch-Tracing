@@ -1,19 +1,19 @@
 {
-  "attempt": 3,
+  "attempt": 5,
   "phase": "production",
   "success": false,
   "errors": [
-    "conflicting types for 'IfxStdIf_Timer_disableUpdate'; have 'void(IfxGtm_Tom_PwmHl *)'",
-    "conflicting types for 'IfxStdIf_Timer_setPeriod'; have 'void(IfxGtm_Tom_PwmHl *, float32)' {aka 'void(IfxGtm_Tom_PwmHl *, float)'}",
-    "conflicting types for 'IfxStdIf_Timer_applyUpdate'; have 'void(IfxGtm_Tom_PwmHl *)'",
-    "implicit declaration of function 'IfxPort_togglePin' [-Wimplicit-function-declaration]",
-    "'IfxGtm_Tom_Timer_Config' has no member named 'frequency'",
-    "implicit conversion from 'enum <anonymous>' to 'IfxGtm_Tom_Ch_ClkSrc' [-Werror=enum-conversion]",
-    "'IfxGtm_TOM1_1_TOUT11_P00_2_OUT' undeclared (first use in this function)",
-    "'IfxGtm_TOM1_2_TOUT12_P00_3_OUT' undeclared (first use in this function)",
-    "'IfxGtm_TOM1_3_TOUT13_P00_4_OUT' undeclared (first use in this function)",
-    "'IfxGtm_TOM1_4_TOUT14_P00_5_OUT' undeclared (first use in this function)"
+    "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_9k76qd49\\src\\gtm_tom_3_phase_inverter_pwm.c:24:10: fatal error: IfxCpu.h: No such file or directory",
+    "unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?",
+    "conflicting types for 'mock_IfxGtm_PinMap_setTomTout_callCount'; have 'uint32' {aka 'unsigned int'}",
+    "conflicting types for 'mock_IfxGtm_enable_callCount'; have 'uint32' {aka 'unsigned int'}",
+    "conflicting types for 'mock_IfxGtm_Tom_Timer_initConfig_callCount'; have 'uint32' {aka 'unsigned int'}",
+    "conflicting types for 'mock_IfxGtm_Tom_Timer_applyUpdate_callCount'; have 'uint32' {aka 'unsigned int'}",
+    "conflicting types for 'mock_IfxGtm_Tom_Timer_run_callCount'; have 'uint32' {aka 'unsigned int'}",
+    "conflicting types for 'mock_IfxGtm_Tom_Timer_init_callCount'; have 'uint32' {aka 'unsigned int'}",
+    "conflicting types for 'mock_IfxGtm_Tom_Timer_disableUpdate_callCount'; have 'uint32' {aka 'unsigned int'}",
+    "conflicting types for 'mock_IfxGtm_Tom_Timer_updateInputFrequency_callCount'; have 'uint32' {aka 'unsigned int'}"
   ],
-  "timestamp": "2026-03-27T12:04:46.811921",
+  "timestamp": "2026-03-27T12:11:01.573383",
   "project_name": "Generate_code_for_KIT_A2G_TC387_5V_TFT_TC38x_tha_r_20260327_115648"
 }
