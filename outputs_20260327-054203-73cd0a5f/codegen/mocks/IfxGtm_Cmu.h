@@ -3,8 +3,9 @@
 
 #include "mock_gtm_tom_3_phase_inverter_pwm.h"
 
-/* Enums */
-typedef enum {
+/* Enums (complete sets) */
+typedef enum
+{
     IfxGtm_Cmu_Clk_0 = 0,
     IfxGtm_Cmu_Clk_1,
     IfxGtm_Cmu_Clk_2,
@@ -15,13 +16,15 @@ typedef enum {
     IfxGtm_Cmu_Clk_7
 } IfxGtm_Cmu_Clk;
 
-typedef enum {
+typedef enum
+{
     IfxGtm_Cmu_Eclk_0 = 0,
     IfxGtm_Cmu_Eclk_1,
     IfxGtm_Cmu_Eclk_2
 } IfxGtm_Cmu_Eclk;
 
-typedef enum {
+typedef enum
+{
     IfxGtm_Cmu_Fxclk_0 = 0,
     IfxGtm_Cmu_Fxclk_1,
     IfxGtm_Cmu_Fxclk_2,
@@ -29,17 +32,20 @@ typedef enum {
     IfxGtm_Cmu_Fxclk_4
 } IfxGtm_Cmu_Fxclk;
 
-typedef enum {
-    IfxGtm_Cmu_Tim_Filter_Clk_0 = 0,
-    IfxGtm_Cmu_Tim_Filter_Clk_1 = 1,
-    IfxGtm_Cmu_Tim_Filter_Clk_6 = 6,
-    IfxGtm_Cmu_Tim_Filter_Clk_7 = 7
+typedef enum
+{
+    IfxGtm_Cmu_Tim_Filter_Clk_0 = 0, /* CMU_CLK0 */
+    IfxGtm_Cmu_Tim_Filter_Clk_1,     /* CMU_CLK1 */
+    IfxGtm_Cmu_Tim_Filter_Clk_6,     /* CMU_CLK6 */
+    IfxGtm_Cmu_Tim_Filter_Clk_7      /* CMU_CLK7 */
 } IfxGtm_Cmu_Tim_Filter_Clk;
 
-typedef enum {
+/* DTM Clock source (required by template) */
+typedef enum
+{
     IfxGtm_Dtm_ClockSource_cmuClock0 = 0,
-    IfxGtm_Dtm_ClockSource_cmuClock1 = 1,
-    IfxGtm_Dtm_ClockSource_cmuClock2 = 2
+    IfxGtm_Dtm_ClockSource_cmuClock1,
+    IfxGtm_Dtm_ClockSource_cmuClock2
 } IfxGtm_Dtm_ClockSource;
 
 #ifndef IFXGTM_CMU_CLKEN_FXCLK
@@ -49,10 +55,19 @@ typedef enum {
 #define IFXGTM_CMU_CLKEN_CLK0   (2u << 0)
 #endif
 
-/* Functions */
+/* Function declarations */
 void    IfxGtm_Cmu_enableClocks(Ifx_GTM *gtm, uint32 clkMask);
+float32 IfxGtm_Cmu_getClkFrequency(Ifx_GTM *gtm, IfxGtm_Cmu_Clk clk);
+float32 IfxGtm_Cmu_getEclkFrequency(Ifx_GTM *gtm, IfxGtm_Cmu_Eclk eclk);
+float32 IfxGtm_Cmu_getFxClkFrequency(Ifx_GTM *gtm, IfxGtm_Cmu_Fxclk fx);
+float32 IfxGtm_Cmu_getGclkFrequency(Ifx_GTM *gtm);
 float32 IfxGtm_Cmu_getModuleFrequency(Ifx_GTM *gtm);
-void    IfxGtm_Cmu_setGclkFrequency(Ifx_GTM *gtm, float32 frequency);
+boolean IfxGtm_Cmu_isClkClockEnabled(Ifx_GTM *gtm, IfxGtm_Cmu_Clk clk);
+boolean IfxGtm_Cmu_isEclkClockEnabled(Ifx_GTM *gtm, IfxGtm_Cmu_Eclk eclk);
+boolean IfxGtm_Cmu_isFxClockEnabled(Ifx_GTM *gtm, IfxGtm_Cmu_Fxclk fx);
+void    IfxGtm_Cmu_selectClkInput(Ifx_GTM *gtm, IfxGtm_Cmu_Clk clk, uint32 input);
 void    IfxGtm_Cmu_setClkFrequency(Ifx_GTM *gtm, IfxGtm_Cmu_Clk clk, float32 freq);
+void    IfxGtm_Cmu_setEclkFrequency(Ifx_GTM *gtm, IfxGtm_Cmu_Eclk eclk, float32 freq);
+void    IfxGtm_Cmu_setGclkFrequency(Ifx_GTM *gtm, float32 frequency);
 
 #endif /* IFXGTM_CMU_H */
