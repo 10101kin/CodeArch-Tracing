@@ -1,19 +1,13 @@
 {
-  "attempt": 7,
-  "phase": "production",
-  "success": false,
-  "errors": [
-    "conflicting types for 'IfxGtm_Tom_ToutMap'; have 'struct <anonymous>'",
-    "unknown type name 'IFX_CONST'",
-    "expected ':', ',', ';', '}' or '__attribute__' before '*' token",
-    "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_r1yiep_2\\src\\gtm_tom_3_phase_inverter_pwm.c:27:10: fatal error: IfxGtm_PinMap.h: No such file or directory",
-    "conflicting types for 'IfxGtm_Tom_ToutMap'; have 'struct <anonymous>'",
-    "unknown type name 'IFX_CONST'",
-    "expected ':', ',', ';', '}' or '__attribute__' before '*' token",
-    "redefinition of 'IfxGtm_Tom_Timer_stdIfTimerInit'",
-    "unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?",
-    "unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?"
-  ],
-  "timestamp": "2026-03-27T14:21:01.584450",
-  "project_name": "Migrate_the_TC387_three-phase_inverter_PWM_to_the_r_20260327_135552"
+  "export_type": "node_json",
+  "export_reason": "stage_failed",
+  "node_stage": "code_generation",
+  "reviewer_name": null,
+  "reviewer_applied": false,
+  "modified_by": "system",
+  "modifier_name": null,
+  "workflow_stage": "code_generation_failed",
+  "target_board": "KIT_A2G_TC387_5V_TFT",
+  "generation_mode": "MIGRATION",
+  "timestamp": "2026-03-27T14:24:58.383530"
 }
