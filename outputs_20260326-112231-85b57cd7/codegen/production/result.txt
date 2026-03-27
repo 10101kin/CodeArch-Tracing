@@ -1,22 +1,11 @@
 Status: SUCCESS
 
-============================================================
-TDD CODE GENERATION - ATTEMPT STATUS
-============================================================
-Phase: production
-Attempt: 5
-Status: SUCCESS
-Timestamp: 2026-03-27 10:55:55
-Files generated: 2
-
-============================================================
-
-============================================================
-BUILD RESULT:
-{
-  "success": true,
-  "errors": [],
-  "warnings": [],
-  "stderr": "",
-  "stdout": ""
-}
+Node JSON export
+Stage: code_generation
+Reason: stage_failed
+Modified By: system
+Modifier: N/A
+Reviewer: N/A
+Attempt: 9
+Phase attempt: 3
+Timestamp: 2026-03-27T10:56:09.490023
