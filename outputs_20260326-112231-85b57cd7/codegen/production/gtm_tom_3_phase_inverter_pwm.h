@@ -1,6 +1,7 @@
 /*
  * gtm_tom_3_phase_inverter_pwm.h
- * Public interface for GTM TOM 3-Phase Inverter PWM driver (TC3xx)
+ *
+ * Public API for 3-phase complementary PWM on GTM TOM using IfxGtm_Pwm
  */
 #ifndef GTM_TOM_3_PHASE_INVERTER_PWM_H
 #define GTM_TOM_3_PHASE_INVERTER_PWM_H
@@ -9,7 +10,7 @@
 extern "C" {
 #endif
 
-/* Public API */
+/* Public functions */
 void initGtmTom3phInv(void);
 void updateGtmTom3phInvDuty(void);
 
