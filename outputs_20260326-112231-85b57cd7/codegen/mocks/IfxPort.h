@@ -3,7 +3,7 @@
 
 #include "mock_gtm_tom_3_phase_inverter_pwm.h"
 
-/* Enums (define before structs that use them) */
+/* Enums first (ordering critical) */
 typedef enum {
     IfxPort_ControlledBy_port = 0,
     IfxPort_ControlledBy_hsct = 1
@@ -22,8 +22,8 @@ typedef enum {
 } IfxPort_LvdsMode;
 
 typedef enum {
-    IfxPort_Mode_inputNoPullDevice      = 0x00u,
-    IfxPort_Mode_inputPullDown          = 0x08u,
+    IfxPort_Mode_inputNoPullDevice      = 0,
+    IfxPort_Mode_inputPullDown          = 8u,
     IfxPort_Mode_inputPullUp            = 0x10u,
     IfxPort_Mode_outputPushPullGeneral  = 0x80u,
     IfxPort_Mode_outputPushPullAlt1     = 0x88u,
@@ -44,14 +44,14 @@ typedef enum {
 } IfxPort_Mode;
 
 typedef enum {
-    IfxPort_OutputIdx_general = 0x10u << 3,
-    IfxPort_OutputIdx_alt1    = 0x11u << 3,
-    IfxPort_OutputIdx_alt2    = 0x12u << 3,
-    IfxPort_OutputIdx_alt3    = 0x13u << 3,
-    IfxPort_OutputIdx_alt4    = 0x14u << 3,
-    IfxPort_OutputIdx_alt5    = 0x15u << 3,
-    IfxPort_OutputIdx_alt6    = 0x16u << 3,
-    IfxPort_OutputIdx_alt7    = 0x17u << 3
+    IfxPort_OutputIdx_general  = 0x10u << 3,
+    IfxPort_OutputIdx_alt1     = 0x11u << 3,
+    IfxPort_OutputIdx_alt2     = 0x12u << 3,
+    IfxPort_OutputIdx_alt3     = 0x13u << 3,
+    IfxPort_OutputIdx_alt4     = 0x14u << 3,
+    IfxPort_OutputIdx_alt5     = 0x15u << 3,
+    IfxPort_OutputIdx_alt6     = 0x16u << 3,
+    IfxPort_OutputIdx_alt7     = 0x17u << 3
 } IfxPort_OutputIdx;
 
 typedef enum {
@@ -112,7 +112,7 @@ typedef enum {
     IfxPort_LvdsTerminationMode_internal = 1
 } IfxPort_LvdsTerminationMode;
 
-/* Structs */
+/* Structs using the enums (after enum definitions) */
 typedef struct {
     IfxPort_LvdsMode     lvdsMode;
     IfxPort_ControlledBy enablePortControlled;
@@ -131,21 +131,8 @@ typedef struct {
     IfxPort_PadDriver  padDriver;
 } IfxPort_Pin_Config;
 
-/* Functions (subset sufficient for module and tests) */
-IfxPort_State IfxPort_getPinState(Ifx_P *port, uint8 pinIndex);
-void IfxPort_setPinFunctionMode(Ifx_P *port, uint8 pinIndex, IfxPort_PinFunctionMode mode);
-void IfxPort_setPinHigh(Ifx_P *port, uint8 pinIndex);
-void IfxPort_setPinLow(Ifx_P *port, uint8 pinIndex);
-void IfxPort_setPinModeInput(Ifx_P *port, uint8 pinIndex, IfxPort_InputMode mode);
+/* Function declarations (only those needed by this module/tests) */
 void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
-void IfxPort_setPinState(Ifx_P *port, uint8 pinIndex, IfxPort_State state);
 void IfxPort_togglePin(Ifx_P *port, uint8 pinIndex);
-void IfxPort_disableEmergencyStop(Ifx_P *port, uint8 pinIndex);
-void IfxPort_enableEmergencyStop(Ifx_P *port, uint8 pinIndex);
-void IfxPort_setPinMode(Ifx_P *port, uint8 pinIndex, IfxPort_Mode mode);
-void IfxPort_setPinModeLVDS(Ifx_P *port, uint8 pinIndex, IfxPort_LvdsConfig *config);
-void IfxPort_setPinPadDriver(Ifx_P *port, uint8 pinIndex, IfxPort_PadDriver padDriver);
-void IfxPort_setPinControllerSelection(Ifx_P *port, uint8 pinIndex, IfxPort_ControlledBy ctrl);
-void IfxPort_resetPinControllerSelection(Ifx_P *port, uint8 pinIndex);
 
 #endif /* IFXPORT_H */
