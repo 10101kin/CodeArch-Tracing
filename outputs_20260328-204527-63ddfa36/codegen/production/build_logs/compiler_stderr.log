@@ -1,0 +1,10 @@
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_2ciwbqca\src\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTomPwm':
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_2ciwbqca\src\gtm_tom_3_phase_inverter_pwm.c:93:40: error: 'Ifx_ActiveState_high' undeclared (first use in this function); did you mean 'Ifx_ActiveState'?
+   93 |     output[0].polarity               = Ifx_ActiveState_high;
+      |                                        ^~~~~~~~~~~~~~~~~~~~
+      |                                        Ifx_ActiveState
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_2ciwbqca\src\gtm_tom_3_phase_inverter_pwm.c:93:40: note: each undeclared identifier is reported only once for each function it appears in
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_2ciwbqca\src\gtm_tom_3_phase_inverter_pwm.c:94:40: error: 'Ifx_ActiveState_low' undeclared (first use in this function); did you mean 'Ifx_ActiveState'?
+   94 |     output[0].complementaryPolarity  = Ifx_ActiveState_low;
+      |                                        ^~~~~~~~~~~~~~~~~~~
+      |                                        Ifx_ActiveState
