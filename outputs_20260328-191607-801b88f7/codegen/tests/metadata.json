@@ -1,9 +1,11 @@
 {
-  "attempt": 2,
+  "attempt": 3,
   "phase_attempt": 1,
-  "phase": "test_generation",
-  "success": true,
-  "errors": [],
-  "timestamp": "2026-03-29T03:31:11.617320",
+  "phase": "test_execution",
+  "success": false,
+  "errors": [
+    "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_qnmz6cg1\\test\\test_gtm_tom_3_phase_inverter_pwm.c:293:test_TC_G1_001_Init_WhenGtmAlreadyEnabled_SkipsEnableAndClocks_ConfigAndInitOnce:PASS\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_qnmz6cg1\\test\\test_gtm_tom_3_phase_inverter_pwm.c:294:test_TC_G1_002_Init_WhenGtmDisabled_EnablesModule_ConfiguresClocks_ThenInit:PASS\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_qnmz6cg1\\test\\test_gtm_tom_3_phase_inverter_pwm.c:296:test_TC_G2_001_Init_Configures3Ch"
+  ],
+  "timestamp": "2026-03-29T03:33:11.034817",
   "project_name": "Generate_code_for_KIT_A2G_TC387_5V_TFT_TC3xx_tha_r_20260329_032523"
 }
