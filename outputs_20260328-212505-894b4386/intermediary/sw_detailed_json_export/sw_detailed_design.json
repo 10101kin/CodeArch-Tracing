@@ -1,0 +1,81 @@
+{
+  "module_name": "EGTM_ATOM_3_Phase_Inverter_PWM",
+  "public_functions": [
+    {
+      "signature": "void initEgtmAtom3phInv(void)",
+      "behavior_description": "Initialize a 3‑phase inverter PWM using eGTM ATOM with the unified IfxEgtm_Pwm driver. The function declares all configuration structures locally (main config, per‑channel config[3], per‑channel DTM dead‑time config[3], one interrupt config, and per‑channel output pin config[3]). It calls IfxEgtm_Pwm_initConfig first to load defaults. Then it fills output[i] for three logical channels (i=0..2) with the assigned HS/LS complementary outputs from the hardware pin macros, setting HS polarity active_high, LS polarity active_low, push‑pull mode, and cmosAutomotiveSpeed1 pad driver. It sets dtmConfig[i].deadTime.rising = 1e‑6s and dtmConfig[i].deadTime.falling = 1e‑6s for all three channels. It prepares an InterruptConfig: mode = pulse notify, provider = CPU0, a defined priority for the ATOM PWM period event, assigns periodEvent = IfxEgtm_periodEventFunction and dutyEvent = NULL_PTR. It then fills channelConfig for three logical channels using ordinal timerCh indices SubModule_Ch_0, SubModule_Ch_1, SubModule_Ch_2 with phase = 0.0 for all, duty values corresponding to the required initial duties (store as percent 25, 50, 75), dtm and output pointers populated; the interrupt pointer is assigned only on channelConfig[0] (base channel), and set to NULL_PTR on the remaining channels. Next it completes the main config fields to match requirements: three channels, center alignment, complementary outputs enabled, syncStart and syncUpdate enabled, and the requested 20 kHz frequency; the submodule selection (ATOM) and cluster are chosen to match the assigned TOUT pin macros. Before touching hardware, it performs the enable guard: checks IfxEgtm_isEnabled; if not enabled, it enables the module, reads the module clock dynamically with IfxEgtm_Cmu_getModuleFrequency, configures CMU dividers so that GCLK runs 1:1 (setGclkDivider to numerator=1, denominator=1) and sets an ECLK divider as required by the platform (e.g., ECLK0 1:1), then enables the needed clocks via IfxEgtm_Cmu_enableClocks — all inside the guard. It then calls IfxEgtm_Pwm_init with the persistent PWM handle and persistent channels array from the module state; this applies the channel duties and DTM dead‑time as configured and arms syncStart so all pairs start together. After init, it copies the initial duty values (percent) and dead‑time values into the module’s persistent state arrays for later updates. Finally, it configures a debug LED GPIO as output using IfxPort_setPinModeOutput; the ISR will toggle this LED on each PWM period. No PinMap_set calls are used; the unified PWM driver routes pins via the output[] descriptors.",
+      "driver_calls": [
+        "IfxEgtm_Pwm_initConfig",
+        "IfxEgtm_isEnabled",
+        "IfxEgtm_enable",
+        "IfxEgtm_Cmu_getModuleFrequency",
+        "IfxEgtm_Cmu_setGclkDivider",
+        "IfxEgtm_Cmu_setEclkDivider",
+        "IfxEgtm_Cmu_enableClocks",
+        "IfxEgtm_Pwm_init",
+        "IfxPort_setPinModeOutput"
+      ],
+      "from_reference": true,
+      "call_context": "init"
+    },
+    {
+      "signature": "void updateEgtmAtom3phInvDuty(void)",
+      "behavior_description": "Implements a percent‑based duty ramp for the three logical PWM channels (U, V, W) stored in the module’s persistent state. For each index i=0..2: if dutyCycles[i] + PHASE_DUTY_STEP >= 100, wrap that element to 0; then increment all three dutyCycles by PHASE_DUTY_STEP. After updating the array, call the unified PWM immediate update API once, passing the state’s dutyCycles array directly (values are in percent 0..100) to atomically apply the new duties on the next driver‑defined latch event (immediate variant). No STM/timing logic is performed here; periodic scheduling and delays are handled by Cpu0_Main.",
+      "driver_calls": [
+        "IfxEgtm_Pwm_updateChannelsDutyImmediate"
+      ],
+      "from_reference": true,
+      "call_context": "loop"
+    }
+  ],
+  "private_functions": [
+    {
+      "signature": "void IfxEgtm_periodEventFunction(void *data)",
+      "needed": true,
+      "from_reference": true
+    },
+    {
+      "signature": "void interruptEgtmAtom(void)",
+      "needed": true,
+      "from_reference": false
+    }
+  ],
+  "dependencies": {
+    "includes": [
+      "Ifx_Types.h",
+      "IfxEgtm_Pwm.h",
+      "IfxPort.h",
+      "IfxPort_Pinmap.h"
+    ],
+    "driver_calls": [
+      "IfxEgtm_Pwm_initConfig",
+      "IfxEgtm_isEnabled",
+      "IfxEgtm_enable",
+      "IfxEgtm_Cmu_getModuleFrequency",
+      "IfxEgtm_Cmu_setGclkDivider",
+      "IfxEgtm_Cmu_setEclkDivider",
+      "IfxEgtm_Cmu_enableClocks",
+      "IfxEgtm_Pwm_init",
+      "IfxEgtm_Pwm_updateChannelsDutyImmediate",
+      "IfxPort_setPinModeOutput",
+      "IfxPort_togglePin"
+    ]
+  },
+  "cpu_main_requirements": {
+    "needs_cpu_sync": true,
+    "uses_timer_delay": true,
+    "delay_ms": 500,
+    "additional_includes": [
+      "Bsp.h"
+    ]
+  },
+  "header_selection": {
+    "applied": true,
+    "peripheral_type": "PWM",
+    "recommended_header": "IfxEgtm_Pwm",
+    "template_functions_count": 1461,
+    "required_includes": [
+      "IfxEgtm_Pwm.h"
+    ]
+  }
+}

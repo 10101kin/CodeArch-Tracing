@@ -1,0 +1,63 @@
+In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7j8rls1a\include/Ifx_Types.h:3,
+                 from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7j8rls1a\src\egtm_atom_3_phase_inverter_pwm.c:17:
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7j8rls1a\include/mock_egtm_atom_3_phase_inverter_pwm.h:460:8: error: unknown type name 'Ifx_PFRWB5A'; did you mean 'Ifx_PFRWB4A'?
+  460 | extern Ifx_PFRWB5A MODULE_PFRWB5A;
+      |        ^~~~~~~~~~~
+      |        Ifx_PFRWB4A
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7j8rls1a\include/mock_egtm_atom_3_phase_inverter_pwm.h:462:8: error: unknown type name 'Ifx_PFRWB5B'; did you mean 'Ifx_PFRWB4B'?
+  462 | extern Ifx_PFRWB5B MODULE_PFRWB5B;
+      |        ^~~~~~~~~~~
+      |        Ifx_PFRWB4B
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7j8rls1a\src\egtm_atom_3_phase_inverter_pwm.c: In function 'initEgtmAtom3phInv':
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7j8rls1a\src\egtm_atom_3_phase_inverter_pwm.c:141:24: error: assignment to 'IfxEgtm_Pwm_callBack' {aka 'void (*)(void)'} from incompatible pointer type 'void (*)(void *)' [-Wincompatible-pointer-types]
+  141 |     irqCfg.periodEvent = IfxEgtm_periodEventFunction;
+      |                        ^
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7j8rls1a\src\egtm_atom_3_phase_inverter_pwm.c:68:6: note: 'IfxEgtm_periodEventFunction' declared here
+   68 | void IfxEgtm_periodEventFunction(void *data)
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7j8rls1a\src\egtm_atom_3_phase_inverter_pwm.c:18:
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7j8rls1a\include/IfxEgtm_Pwm.h:28:16: note: 'IfxEgtm_Pwm_callBack' declared here
+   28 | typedef void (*IfxEgtm_Pwm_callBack)(void);
+      |                ^~~~~~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7j8rls1a\src\egtm_atom_3_phase_inverter_pwm.c:173:34: error: 'IfxEgtm_Cluster_0' undeclared (first use in this function); did you mean 'IfxEgtm_Cluster'?
+  173 |     config.cluster             = IfxEgtm_Cluster_0;                      /* Match ATOM0 */
+      |                                  ^~~~~~~~~~~~~~~~~
+      |                                  IfxEgtm_Cluster
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7j8rls1a\src\egtm_atom_3_phase_inverter_pwm.c:173:34: note: each undeclared identifier is reported only once for each function it appears in
+
+In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7j8rls1a\mocks\mock_egtm_atom_3_phase_inverter_pwm.c:2:
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7j8rls1a\include/mock_egtm_atom_3_phase_inverter_pwm.h:460:8: error: unknown type name 'Ifx_PFRWB5A'; did you mean 'Ifx_PFRWB4A'?
+  460 | extern Ifx_PFRWB5A MODULE_PFRWB5A;
+      |        ^~~~~~~~~~~
+      |        Ifx_PFRWB4A
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7j8rls1a\include/mock_egtm_atom_3_phase_inverter_pwm.h:462:8: error: unknown type name 'Ifx_PFRWB5B'; did you mean 'Ifx_PFRWB4B'?
+  462 | extern Ifx_PFRWB5B MODULE_PFRWB5B;
+      |        ^~~~~~~~~~~
+      |        Ifx_PFRWB4B
+
+In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7j8rls1a\test\test_egtm_atom_3_phase_inverter_pwm.c:2:
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7j8rls1a\include/mock_egtm_atom_3_phase_inverter_pwm.h:460:8: error: unknown type name 'Ifx_PFRWB5A'; did you mean 'Ifx_PFRWB4A'?
+  460 | extern Ifx_PFRWB5A MODULE_PFRWB5A;
+      |        ^~~~~~~~~~~
+      |        Ifx_PFRWB4A
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7j8rls1a\include/mock_egtm_atom_3_phase_inverter_pwm.h:462:8: error: unknown type name 'Ifx_PFRWB5B'; did you mean 'Ifx_PFRWB4B'?
+  462 | extern Ifx_PFRWB5B MODULE_PFRWB5B;
+      |        ^~~~~~~~~~~
+      |        Ifx_PFRWB4B
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7j8rls1a\test\test_egtm_atom_3_phase_inverter_pwm.c: In function 'test_TC_G6_002_after_wrap_post_step_value_equals_step_for_each_phase':
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7j8rls1a\test\test_egtm_atom_3_phase_inverter_pwm.c:297:5: error: unknown type name 'bool'
+  297 |     bool wrappedSeen[3] = { false, false, false };
+      |     ^~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7j8rls1a\test\test_egtm_atom_3_phase_inverter_pwm.c:4:1: note: 'bool' is defined in header '<stdbool.h>'; this is probably fixable by adding '#include <stdbool.h>'
+    3 | #include "egtm_atom_3_phase_inverter_pwm.h"
+  +++ |+#include <stdbool.h>
+    4 | 
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7j8rls1a\test\test_egtm_atom_3_phase_inverter_pwm.c:297:29: error: 'false' undeclared (first use in this function)
+  297 |     bool wrappedSeen[3] = { false, false, false };
+      |                             ^~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7j8rls1a\test\test_egtm_atom_3_phase_inverter_pwm.c:297:29: note: 'false' is defined in header '<stdbool.h>'; this is probably fixable by adding '#include <stdbool.h>'
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7j8rls1a\test\test_egtm_atom_3_phase_inverter_pwm.c:297:29: note: each undeclared identifier is reported only once for each function it appears in
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7j8rls1a\test\test_egtm_atom_3_phase_inverter_pwm.c:314:34: error: 'true' undeclared (first use in this function)
+  314 |                 wrappedSeen[i] = true;
+      |                                  ^~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7j8rls1a\test\test_egtm_atom_3_phase_inverter_pwm.c:314:34: note: 'true' is defined in header '<stdbool.h>'; this is probably fixable by adding '#include <stdbool.h>'
