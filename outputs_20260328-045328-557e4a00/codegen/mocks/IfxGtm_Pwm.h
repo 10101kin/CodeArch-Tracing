@@ -1,39 +1,43 @@
+/* Mock IfxGtm_Pwm.h */
 #ifndef IFXGTM_PWM_H
 #define IFXGTM_PWM_H
+
 #include "mock_gtm_tom_3_phase_inverter_pwm.h"
 #include "IfxGtm.h"
 #include "IfxGtm_Cmu.h"
 #include "IfxPort.h"
 
-/* Forward placeholder types for SFR clusters used by PWM */
+/* Forward/simple placeholder types used by PWM driver */
 typedef struct { uint32 reserved; } Ifx_GTM_ATOM;
 typedef struct { uint32 reserved; } Ifx_GTM_TOM;
 typedef struct { uint32 reserved; } Ifx_GTM_CDTM;
 
-/* Forward placeholder for Atom/Tom ToutMap composite types */
+typedef void (*IfxGtm_Pwm_callBack)(void *arg);
+
 typedef struct { uint32 dummy; } IfxGtm_Atom_ToutMap;
 typedef struct { uint32 dummy; } IfxGtm_Tom_ToutMap;
-
-/* Callback type */
-typedef void (*IfxGtm_Pwm_callBack)(void *);
+typedef struct { uint32 dummy; } IfxGtm_Trig_MscOut;
 
 /* Enums first */
-typedef enum {
+typedef enum
+{
     IfxGtm_Pwm_Alignment_edge   = 0,
     IfxGtm_Pwm_Alignment_center = 1
 } IfxGtm_Pwm_Alignment;
 
-typedef enum {
-    IfxGtm_Pwm_ChannelState_running = 0,
-    IfxGtm_Pwm_ChannelState_stopped = 1
+typedef enum
+{
+    IfxGtm_Pwm_ChannelState_running = 0
 } IfxGtm_Pwm_ChannelState;
 
-typedef enum {
+typedef enum
+{
     IfxGtm_Pwm_ResetEvent_onCm0     = 0,
     IfxGtm_Pwm_ResetEvent_onTrigger = 1
 } IfxGtm_Pwm_ResetEvent;
 
-typedef enum {
+typedef enum
+{
     IfxGtm_Pwm_State_unknown = -1,
     IfxGtm_Pwm_State_init    = 0,
     IfxGtm_Pwm_State_run     = 1,
@@ -41,12 +45,14 @@ typedef enum {
     IfxGtm_Pwm_State_error   = 3
 } IfxGtm_Pwm_State;
 
-typedef enum {
+typedef enum
+{
     IfxGtm_Pwm_SubModule_atom = 0,
     IfxGtm_Pwm_SubModule_tom  = 1
 } IfxGtm_Pwm_SubModule;
 
-typedef enum {
+typedef enum
+{
     IfxGtm_Pwm_SubModule_Ch_0  = 0,
     IfxGtm_Pwm_SubModule_Ch_1  = 1,
     IfxGtm_Pwm_SubModule_Ch_2  = 2,
@@ -65,7 +71,8 @@ typedef enum {
     IfxGtm_Pwm_SubModule_Ch_15 = 15
 } IfxGtm_Pwm_SubModule_Ch;
 
-typedef enum {
+typedef enum
+{
     IfxGtm_Pwm_SyncChannelIndex_0  = 0,
     IfxGtm_Pwm_SyncChannelIndex_1  = 1,
     IfxGtm_Pwm_SyncChannelIndex_2  = 2,
@@ -84,18 +91,21 @@ typedef enum {
     IfxGtm_Pwm_SyncChannelIndex_15 = 15
 } IfxGtm_Pwm_SyncChannelIndex;
 
-/* Structs/Unions */
-typedef struct {
+/* Structs and unions */
+typedef struct
+{
     float32 rising;
     float32 falling;
 } IfxGtm_Pwm_DeadTime;
 
-typedef union {
+typedef union
+{
     IfxGtm_Atom_ToutMap atom;
     IfxGtm_Tom_ToutMap  tom;
 } IfxGtm_Pwm_ToutMap;
 
-typedef struct {
+typedef struct
+{
     volatile uint32 *SR0;
     volatile uint32 *SR1;
     volatile uint32 *CM0;
@@ -107,11 +117,13 @@ typedef struct {
     volatile uint32 *DTV;
 } IfxGtm_Pwm_ChannelRegisters;
 
-typedef struct {
+typedef struct
+{
     IfxGtm_Pwm_DeadTime deadTime;
 } IfxGtm_Pwm_DtmConfig;
 
-typedef struct {
+typedef struct
+{
     IfxGtm_IrqMode      mode;
     IfxSrc_Tos          isrProvider;
     Ifx_Priority        priority;
@@ -119,7 +131,8 @@ typedef struct {
     IfxGtm_Pwm_callBack dutyEvent;
 } IfxGtm_Pwm_InterruptConfig;
 
-typedef struct {
+typedef struct
+{
     IfxGtm_Pwm_ToutMap *pin;
     IfxGtm_Pwm_ToutMap *complementaryPin;
     Ifx_ActiveState     polarity;
@@ -128,7 +141,8 @@ typedef struct {
     IfxPort_PadDriver   padDriver;
 } IfxGtm_Pwm_OutputConfig;
 
-typedef struct {
+typedef struct
+{
     IfxGtm_Pwm_ChannelRegisters registers;
     uint32                      upenMask;
     IfxGtm_Pwm_callBack         periodEvent;
@@ -138,29 +152,32 @@ typedef struct {
     uint32                      dutyTicks;
 } IfxGtm_Pwm_Channel;
 
-typedef struct {
+typedef struct
+{
     IfxGtm_Pwm_SubModule_Ch     timerCh;
     float32                     phase;
     float32                     duty;
     IfxGtm_Pwm_DtmConfig       *dtm;
     IfxGtm_Pwm_OutputConfig    *output;
-    void                       *mscOut;    /* keep as void* to avoid device-conditional types */
+    void                       *mscOut; /* keep as void* for portability */
     IfxGtm_Pwm_InterruptConfig *interrupt;
 } IfxGtm_Pwm_ChannelConfig;
 
-/* CLOCKSOURCE UNION: use uint32 fields to avoid enum-conversion warnings */
-typedef union {
-    uint32 atom;
+typedef union
+{
+    uint32 atom; /* see CLOCKSOURCE UNION rule */
     uint32 tom;
 } IfxGtm_Pwm_ClockSource;
 
-typedef struct {
+typedef struct
+{
     Ifx_GTM_ATOM *ATOM;
     Ifx_GTM_TOM  *TOM;
     Ifx_GTM_CDTM *CDTM;
 } IfxGtm_Pwm_ClusterSFR;
 
-typedef struct {
+typedef struct
+{
     volatile uint32 *reg0;
     volatile uint32 *reg1;
     uint32           upenMask0;
@@ -169,7 +186,8 @@ typedef struct {
     volatile uint32 *endisCtrlReg1;
 } IfxGtm_Pwm_GlobalControl;
 
-typedef struct {
+typedef struct
+{
     Ifx_GTM                 *gtmSFR;
     IfxGtm_Pwm_ClusterSFR    clusterSFR;
     IfxGtm_Cluster           cluster;
@@ -188,7 +206,8 @@ typedef struct {
     IfxGtm_Pwm_State         state;
 } IfxGtm_Pwm;
 
-typedef struct {
+typedef struct
+{
     Ifx_GTM                  *gtmSFR;
     IfxGtm_Cluster            cluster;
     IfxGtm_Pwm_SubModule      subModule;
@@ -202,15 +221,33 @@ typedef struct {
     boolean                   syncStart;
 } IfxGtm_Pwm_Config;
 
-typedef struct {
+typedef struct
+{
     IfxGtm_Pwm_ToutMap *outputPin;
     IfxPort_OutputMode  outputMode;
     IfxPort_PadDriver   padDriver;
 } IfxGtm_Pwm_Pin;
 
-/* Functions (from DRIVERS TO MOCK) */
+/* Function declarations (drivers to mock) */
 void IfxGtm_Pwm_initConfig(IfxGtm_Pwm_Config *config, Ifx_GTM *gtmSFR);
 void IfxGtm_Pwm_updateChannelsDutyImmediate(IfxGtm_Pwm *pwm, float32 *requestDuty);
 void IfxGtm_Pwm_init(IfxGtm_Pwm *pwm, IfxGtm_Pwm_Channel *channels, IfxGtm_Pwm_Config *config);
+
+/* Compatibility macros to fix prior build error: IfxGtm_Pwm_ClockSource_fxclk0 */
+#ifndef IfxGtm_Pwm_ClockSource_fxclk0
+#define IfxGtm_Pwm_ClockSource_fxclk0 ((uint32)IfxGtm_Cmu_Fxclk_0)
+#endif
+#ifndef IfxGtm_Pwm_ClockSource_fxclk1
+#define IfxGtm_Pwm_ClockSource_fxclk1 ((uint32)IfxGtm_Cmu_Fxclk_1)
+#endif
+#ifndef IfxGtm_Pwm_ClockSource_fxclk2
+#define IfxGtm_Pwm_ClockSource_fxclk2 ((uint32)IfxGtm_Cmu_Fxclk_2)
+#endif
+#ifndef IfxGtm_Pwm_ClockSource_fxclk3
+#define IfxGtm_Pwm_ClockSource_fxclk3 ((uint32)IfxGtm_Cmu_Fxclk_3)
+#endif
+#ifndef IfxGtm_Pwm_ClockSource_fxclk4
+#define IfxGtm_Pwm_ClockSource_fxclk4 ((uint32)IfxGtm_Cmu_Fxclk_4)
+#endif
 
 #endif /* IFXGTM_PWM_H */
