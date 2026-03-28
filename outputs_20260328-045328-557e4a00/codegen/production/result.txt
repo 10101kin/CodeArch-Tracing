@@ -1,33 +1,11 @@
-Status: FAILED
+Status: SUCCESS
 
-============================================================
-TDD CODE GENERATION - ATTEMPT STATUS
-============================================================
-Phase: production
-Attempt: 6
-Status: FAILED
-Timestamp: 2026-03-28 13:29:03
-Files generated: 2
-
-============================================================
-
-ERRORS:
-
-1. 'IfxGtm_Pwm_ClockSource_fxclk0' undeclared (first use in this function); did you mean 'IfxGtm_Pwm_ClockSource'?
-
-============================================================
-BUILD RESULT:
-{
-  "success": false,
-  "errors": [
-    {
-      "file": "C:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_du8016ht\\src\\gtm_tom_3_phase_inverter_pwm.c",
-      "line": 174,
-      "category": "error",
-      "message": "'IfxGtm_Pwm_ClockSource_fxclk0' undeclared (first use in this function); did you mean 'IfxGtm_Pwm_ClockSource'?"
-    }
-  ],
-  "warnings": [],
-  "stderr": "C:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_du8016ht\\src\\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTom3phInv':\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_du8016ht\\src\\gtm_tom_3_phase_inverter_pwm.c:174:35: error: 'IfxGtm_Pwm_ClockSource_fxclk0' undeclared (first use in this function); did you mean 'IfxGtm_Pwm_ClockSource'?\n  174 |     config.clockSource          = IfxGtm_Pwm_ClockSource_fxclk0;        /* TOM uses FXCLK0 */\n      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n      |                                   IfxGtm_Pwm_ClockSource\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_du8016ht\\src\\gtm_tom_3_phase_inverter_pwm.c:174:35: note: each undeclared identifier is reported only once for each function it appears in\n",
-  "stdout": ""
-}
+Node JSON export
+Stage: code_generation
+Reason: stage_failed
+Modified By: system
+Modifier: N/A
+Reviewer: N/A
+Attempt: 5
+Phase attempt: 1
+Timestamp: 2026-03-28T13:32:40.511522
