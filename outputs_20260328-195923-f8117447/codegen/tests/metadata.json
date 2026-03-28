@@ -1,0 +1,8 @@
+{
+  "type": "llm_response",
+  "phase": "test",
+  "attempt": 2,
+  "phase_attempt": 1,
+  "response_length": 12767,
+  "timestamp": "2026-03-29T04:18:47.052687"
+}
