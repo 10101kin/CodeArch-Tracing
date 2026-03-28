@@ -1,4 +1,4 @@
-/* Mock of IfxEgtm_Pwm.h */
+/* Mock IfxEgtm_Pwm driver */
 #ifndef IFXEGTM_PWM_H
 #define IFXEGTM_PWM_H
 
@@ -7,27 +7,28 @@
 #include "IfxEgtm_Cmu.h"
 #include "IfxPort.h"
 
-/* Additional dependent enums/types needed by PWM API */
-typedef enum {
-    IfxEgtm_Dtm_ClockSource_systemClock,
-    IfxEgtm_Dtm_ClockSource_cmuClock0,
-    IfxEgtm_Dtm_ClockSource_cmuClock1,
-    IfxEgtm_Dtm_ClockSource_cmuClock2
-} IfxEgtm_Dtm_ClockSource;
+/* Additional dependent enums used in FastShutoffConfig (minimal) */
+typedef enum { IfxEgtm_Dtm_ShutoffInput_0 = 0 } IfxEgtm_Dtm_ShutoffInput;
+typedef enum { IfxEgtm_Dtm_SignalLevel_low = 0, IfxEgtm_Dtm_SignalLevel_high = 1 } IfxEgtm_Dtm_SignalLevel;
 
-typedef enum {
-    IfxEgtm_Dtm_ShutoffInput_none = 0
-} IfxEgtm_Dtm_ShutoffInput;
-
-typedef enum {
-    IfxEgtm_Dtm_SignalLevel_low = 0,
-    IfxEgtm_Dtm_SignalLevel_high = 1
-} IfxEgtm_Dtm_SignalLevel;
-
-/* Callback type used by PWM driver */
+/* Callback type used in PWM */
 typedef void (*IfxEgtm_Pwm_callBack)(void);
 
-/* VERIFIED TYPE DEFINITIONS — emit exactly as provided */
+/* ToutMap union (as provided in template mapping) */
+typedef struct { uint32 dummy; } IfxEgtm_Atom_ToutMap;
+typedef struct { uint32 dummy; } IfxEgtm_Tom_ToutMap;
+#if 0
+typedef struct { uint32 dummy; } IfxEgtm_Hrpwm_Out;
+#endif
+
+typedef union {
+    IfxEgtm_Atom_ToutMap atom;
+    IfxEgtm_Tom_ToutMap  tom;
+    /* If high-res available, hrpwm can be added */
+} IfxEgtm_Pwm_ToutMap;
+
+/* VERIFIED TYPE DEFINITIONS — emit exactly as-is and in order */
+
 typedef enum
 {
     IfxEgtm_Pwm_Alignment_edge   = 0, 
@@ -101,6 +102,14 @@ typedef enum
     IfxEgtm_Pwm_SyncChannelIndex_15      
 } IfxEgtm_Pwm_SyncChannelIndex;
 
+typedef enum
+{
+    IfxEgtm_Dtm_ClockSource_systemClock,  
+    IfxEgtm_Dtm_ClockSource_cmuClock0,    
+    IfxEgtm_Dtm_ClockSource_cmuClock1,    
+    IfxEgtm_Dtm_ClockSource_cmuClock2     
+} IfxEgtm_Dtm_ClockSource;
+
 typedef struct
 {
     float32 rising;        
@@ -109,17 +118,11 @@ typedef struct
 
 typedef struct
 {
-    IfxEgtm_Dtm_ShutoffInput inputSignal;
-    boolean                  invertInputSignal;
-    IfxEgtm_Dtm_SignalLevel  offState;
-    IfxEgtm_Dtm_SignalLevel  complementaryOffState;
+    IfxEgtm_Dtm_ShutoffInput inputSignal;                 
+    boolean                  invertInputSignal;           
+    IfxEgtm_Dtm_SignalLevel  offState;                    
+    IfxEgtm_Dtm_SignalLevel  complementaryOffState;       
 } IfxEgtm_Pwm_FastShutoffConfig;
-
-typedef union
-{
-    uint32 atom;        
-    uint32 tom;         
-} IfxEgtm_Pwm_ToutMap;
 
 typedef struct
 {
@@ -244,7 +247,7 @@ typedef struct
     IfxPort_PadDriver    padDriver;        
 } IfxEgtm_Pwm_Pin;
 
-/* Function declarations (subset needed by module/tests) */
+/* Functions (subset used by module) */
 void IfxEgtm_Pwm_initConfig(IfxEgtm_Pwm_Config *config, Ifx_EGTM *egtmSFR);
 void IfxEgtm_Pwm_init(IfxEgtm_Pwm *pwm, IfxEgtm_Pwm_Channel *channels, IfxEgtm_Pwm_Config *config);
 void IfxEgtm_Pwm_updateChannelsDutyImmediate(IfxEgtm_Pwm *pwm, float32 *requestDuty);
