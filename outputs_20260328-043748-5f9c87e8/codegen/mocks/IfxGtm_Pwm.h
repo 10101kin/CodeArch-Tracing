@@ -6,22 +6,14 @@
 #include "IfxGtm_Cmu.h"
 #include "IfxPort.h"
 
-/* Auxiliary types used by PWM */
-typedef struct { uint32 dummy; } Ifx_GTM_ATOM;
-typedef struct { uint32 dummy; } Ifx_GTM_TOM;
-typedef struct { uint32 dummy; } Ifx_GTM_CDTM;
-typedef struct { uint32 dummy; } IfxGtm_Trig_MscOut;
-
-typedef struct { uint32 map; } IfxGtm_Atom_ToutMap;
-typedef struct { uint32 map; } IfxGtm_Tom_ToutMap;
-
-typedef union
-{
-    IfxGtm_Atom_ToutMap atom;       /* ATOM map */
-    IfxGtm_Tom_ToutMap  tom;        /* TOM map */
-} IfxGtm_Pwm_ToutMap;
-
+/* Forward/auxiliary typedefs used by verified structs */
 typedef void (*IfxGtm_Pwm_callBack)(void *data);
+
+typedef struct { uint8 dummy; } IfxGtm_Atom_ToutMap;
+typedef struct { uint8 dummy; } IfxGtm_Tom_ToutMap;
+typedef union IfxGtm_Pwm_ToutMap IfxGtm_Pwm_ToutMap;
+
+typedef struct { uint32 reserved; } IfxGtm_Trig_MscOut;
 
 /* VERIFIED TYPE DEFINITIONS — EMIT EXACTLY AS-IS IN MOCKS */
 
@@ -228,12 +220,16 @@ typedef struct
     IfxPort_PadDriver   padDriver;       
 } IfxGtm_Pwm_Pin;
 
-/* Function declarations used by module */
+/* Complete the ToutMap union definition after verified structs */
+union IfxGtm_Pwm_ToutMap
+{
+    IfxGtm_Atom_ToutMap atom;
+    IfxGtm_Tom_ToutMap  tom;
+};
+
+/* Function declarations (subset used by production/tests) */
 void IfxGtm_Pwm_initConfig(IfxGtm_Pwm_Config *config, Ifx_GTM *gtmSFR);
 void IfxGtm_Pwm_init(IfxGtm_Pwm *pwm, IfxGtm_Pwm_Channel *channels, IfxGtm_Pwm_Config *config);
 void IfxGtm_Pwm_updateChannelsDutyImmediate(IfxGtm_Pwm *pwm, float32 *requestDuty);
-
-/* Often referenced helper in templates */
-void IfxCpu_Irq_installInterruptHandler(void (*isr)(void), int priority);
 
 #endif /* IFXGTM_PWM_H */

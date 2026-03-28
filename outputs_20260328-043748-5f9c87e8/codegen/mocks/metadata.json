@@ -1,8 +1,9 @@
 {
-  "type": "llm_response",
-  "phase": "mock",
   "attempt": 6,
   "phase_attempt": 3,
-  "response_length": 35797,
-  "timestamp": "2026-03-28T13:09:15.730564"
+  "phase": "mock_generation",
+  "success": true,
+  "errors": [],
+  "timestamp": "2026-03-28T13:09:21.546009",
+  "project_name": "Upgrade_TC387_PWM_from_IfxGtm_Tom_PwmHl_to_IfxGtm_r_20260328_125220"
 }
