@@ -1,6 +1,7 @@
 /*
  * gtm_tom_3_phase_inverter_pwm.h
- * Public API for GTM TOM three-phase inverter PWM driver.
+ *
+ * Public API for GTM TOM 3-Phase Inverter PWM driver
  */
 #ifndef GTM_TOM_3_PHASE_INVERTER_PWM_H
 #define GTM_TOM_3_PHASE_INVERTER_PWM_H
@@ -9,10 +10,23 @@
 extern "C" {
 #endif
 
-/** Initialize GTM TOM PWM for a 3-phase inverter (center-aligned, complementary outputs). */
+/**
+ * Initialize the GTM TOM-based 3-phase complementary PWM (center-aligned)
+ * - Enables GTM and FXCLK domain
+ * - Configures TOM timer base (TOM1, CH0) at 20 kHz using FXCLK0
+ * - Initializes PwmHl for 3 complementary phases with configured pins
+ * - Sets dead-time and minimum pulse, push-pull, CMOS pad driver, active-high polarity
+ * - Starts the timer and applies initial duties (U=25%, V=50%, W=75%) synchronously
+ */
 void initGtmTomPwm(void);
 
-/** Periodically update the three-phase duty on-times with a fixed step and wrap. */
+/**
+ * Update duty cycles of the 3 phases with a fixed increment step.
+ * - Reads current period from persistent timer handle
+ * - Increments each phase on-time by a fixed fraction of period
+ * - Wraps to minimum pulse threshold when exceeding maximum allowable on-time
+ * - Applies updates synchronously via shadow transfer
+ */
 void updateGtmTomPwmDutyCycles(void);
 
 #ifdef __cplusplus
