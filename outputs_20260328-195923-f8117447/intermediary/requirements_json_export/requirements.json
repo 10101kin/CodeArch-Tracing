@@ -1,0 +1,241 @@
+{
+  "generation_mode": "MIGRATION",
+  "migration_info": {
+    "has_reference": true,
+    "reference_family": "TC3xx",
+    "target_family": "TC3xx",
+    "migration_required": false,
+    "driver_mappings": {
+      "IfxGtm_Tom_PwmHl": "IfxGtm_Pwm"
+    },
+    "header_mappings": {
+      "IfxGtm_Tom_PwmHl.h": "IfxGtm_Pwm.h",
+      "IfxGtm_PinMap.h": "IfxGtm_PinMap_TC38x_516.h"
+    },
+    "api_changes": [
+      {
+        "from": "IfxGtm_Tom_PwmHl_initConfig",
+        "to": "IfxGtm_Pwm_initConfig",
+        "reason": "Upgrade to high-level unified driver for PWM"
+      },
+      {
+        "from": "IfxGtm_Tom_PwmHl_init",
+        "to": "IfxGtm_Pwm_init",
+        "reason": "Unified PWM driver initialization"
+      },
+      {
+        "from": "IfxGtm_Tom_PwmHl_setOnTime",
+        "to": "IfxGtm_Pwm_updateChannelsDutyImmediate",
+        "reason": "Unified API for duty updates in percent"
+      },
+      {
+        "from": "Center/complementary mode via IfxGtm_Tom_PwmHl_setMode",
+        "to": "Configure center-aligned + complementary in IfxGtm_Pwm_Config fields",
+        "reason": "Mode is selected in the IfxGtm_Pwm configuration (no direct setMode API)"
+      },
+      {
+        "from": "Manual DTM setup in TOM",
+        "to": "Set deadtime (rising/falling) via IfxGtm_Pwm configuration for TOM1",
+        "reason": "Use unified driver to enable hardware dead-time (DTM) with TOM backend"
+      },
+      {
+        "from": "Direct CMU clock access ad-hoc",
+        "to": "Guarded enable of GTM and CMU FXCLK0, configured for 100 MHz",
+        "reason": "Ensure GTM and FXCLK0 are enabled/clocked only if not already enabled"
+      },
+      {
+        "from": "IfxGtm_periodEventFunction (implicit/none)",
+        "to": "IfxGtm_periodEventFunction (no-op stub)",
+        "reason": "Provide required user hook as no-op per specification"
+      }
+    ],
+    "function_names_to_preserve": [
+      "initGtmTom3phInv",
+      "updateGtmTom3phInvDuty"
+    ]
+  },
+  "peripheral_requirement": {
+    "type": "PWM",
+    "driver_available": true,
+    "driver_name": "IfxGtm_Pwm",
+    "purpose": "3-phase complementary center-aligned PWM on TOM1 (Cluster_1) at 20 kHz with 1 µs dead-time, synchronized start and shadow updates, percent-based duty control",
+    "driver_locked": true,
+    "driver_selection_source": "engine_scored"
+  },
+  "signal_requirements": {
+    "gtm_pwm": {
+      "module": "GTM",
+      "backend": "TOM",
+      "tom_module": "TOM1",
+      "cluster": 1,
+      "clock_source": "CMU_FXCLK0",
+      "sync_start": true,
+      "sync_shadow_updates": true,
+      "complementary": true,
+      "center_aligned": true,
+      "deadtime_us": {
+        "rising": 1.0,
+        "falling": 1.0
+      },
+      "pinmap_header": "IfxGtm_PinMap_TC38x_516.h",
+      "phases": [
+        {
+          "name": "U",
+          "pins": {
+            "high": "P02.0",
+            "low": "P02.7"
+          }
+        },
+        {
+          "name": "V",
+          "pins": {
+            "high": "P02.1",
+            "low": "P02.4"
+          }
+        },
+        {
+          "name": "W",
+          "pins": {
+            "high": "P02.2",
+            "low": "P02.5"
+          }
+        }
+      ]
+    },
+    "atom_isr": {
+      "module": "GTM_ATOM",
+      "atom": "TBD",
+      "channel": "TBD",
+      "interrupt_priority": 20,
+      "action": "Toggle P13.0 on each ISR event",
+      "rate": "TBD (user-defined)"
+    }
+  },
+  "timing_requirements": {
+    "pwm_frequency_hz": 20000,
+    "clock_source": "CMU_FXCLK0",
+    "fxclk0_frequency_mhz": 100,
+    "center_aligned": true,
+    "complementary": true,
+    "deadtime_us": {
+      "rising": 1.0,
+      "falling": 1.0
+    },
+    "duty_cycle_init_percent": [
+      25,
+      50,
+      75
+    ],
+    "duty_update_step_percent": 10,
+    "duty_wrap_behavior": "wrap_to_0_then_add_step",
+    "stm_delay_ms": 500
+  },
+  "device_configuration": {
+    "target_device_macro": "DEVICE_TC38X",
+    "pin_package": "IFX_PIN_PACKAGE_516",
+    "device_family": "TC3xx",
+    "clock_requirements": {
+      "requires_xtal": true,
+      "expected_system_freq_mhz": 300
+    }
+  },
+  "code_structure": {
+    "file_pattern": "reference",
+    "expected_files": [
+      "GTM_TOM_3_Phase_Inverter_PWM.c",
+      "GTM_TOM_3_Phase_Inverter_PWM.h",
+      "Cpu0_Main.c"
+    ],
+    "has_cpu_files": true
+  },
+  "reference_context": {
+    "includes_used": [
+      "Ifx_Types.h",
+      "IfxCpu.h",
+      "IfxScuWdt.h",
+      "Bsp.h",
+      "GTM_TOM_3_Phase_Inverter_PWM.h",
+      "IfxGtm_Tom_PwmHl.h",
+      "IfxCpu_Irq.h",
+      "IfxGtm_cfg_TC38x.h"
+    ],
+    "function_patterns": [
+      "initGtmTom3phInv",
+      "updateGtmTom3phInvDuty",
+      "IfxGtm_periodEventFunction"
+    ],
+    "peripheral_usage": {
+      "GTM": "3-phase TOM-based PWM generation with dead-time and synchronized start/shadow updates",
+      "Port": "PWM output pin configuration and P13.0 GPIO toggle in ATOM ISR",
+      "STM": "500 ms delay via IfxStm_getTicksFromMilliseconds",
+      "WATCHDOG": "Disable CPU and safety watchdogs using IfxScuWdt"
+    }
+  },
+  "template_compatibility": {
+    "validated": true,
+    "supported_peripherals": [
+      "PWM",
+      "GTM",
+      "TIMER",
+      "STM",
+      "GPIO",
+      "ASCLIN",
+      "INTERRUPT"
+    ],
+    "suggested_drivers": {
+      "PWM": [
+        "IfxCcu6_PwmBc",
+        "IfxGtm_Tom_Pwm",
+        "IfxGtm_Tom_Dtm_PwmHl",
+        "IfxGtm_Atom_Dtm_PwmHl",
+        "IfxGtm_Atom_Pwm",
+        "IfxGtm_Pwm",
+        "IfxCcu6_TPwm",
+        "IfxGtm_Tom_PwmHl",
+        "IfxCcu6_PwmHl",
+        "IfxGtm_Atom_PwmHl"
+      ],
+      "GTM": [
+        "IfxGtm_Dtm",
+        "IfxGtm_Tbu",
+        "IfxGtm",
+        "IfxGtm_Spe",
+        "IfxGtm_Pwm",
+        "IfxGtm_Psm",
+        "IfxGtm_PinMap_TC38x_LFBGA516",
+        "IfxGtm_PinMap_TC38x_LFBGA292",
+        "IfxGtm_Trig",
+        "IfxGtm_Dpll",
+        "IfxGtm_PinMap_TC38x_516"
+      ],
+      "TIMER": [
+        "IfxStm_Timer",
+        "IfxGtm_Tom_Timer",
+        "IfxGtm_Tim_Timer",
+        "IfxGtm_Atom_Timer",
+        "IfxCcu6_Timer",
+        "IfxCcu6_TimerWithTrigger"
+      ],
+      "STM": [
+        "IfxStm",
+        "IfxStm_Timer"
+      ],
+      "GPIO": [
+        "IfxPort_Io",
+        "IfxPort"
+      ],
+      "ASCLIN": [
+        "IfxAsclin_Asc",
+        "IfxAsclin_Lin",
+        "IfxAsclin_Spi",
+        "IfxAsclin"
+      ],
+      "INTERRUPT": [
+        "IfxCpu_Irq"
+      ]
+    },
+    "warnings": []
+  },
+  "header_documentation_available": true,
+  "config_values_extracted": 16
+}
