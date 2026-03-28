@@ -1,8 +1,9 @@
 {
-  "type": "llm_response",
-  "phase": "production",
   "attempt": 5,
   "phase_attempt": 3,
-  "response_length": 11353,
-  "timestamp": "2026-03-29T03:36:53.597861"
+  "phase": "production",
+  "success": true,
+  "errors": [],
+  "timestamp": "2026-03-29T03:36:59.456051",
+  "project_name": "Generate_code_for_KIT_A2G_TC387_5V_TFT_TC3xx_tha_r_20260329_032523"
 }
