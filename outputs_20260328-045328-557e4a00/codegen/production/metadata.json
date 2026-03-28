@@ -1,8 +1,15 @@
 {
-  "type": "llm_response",
-  "phase": "production",
   "attempt": 3,
   "phase_attempt": 1,
-  "response_length": 10599,
-  "timestamp": "2026-03-28T13:19:36.377453"
+  "phase": "production",
+  "success": false,
+  "errors": [
+    "unknown type name 'IfxGtm_Pwm_ChannelConfig'; did you mean 'IfxGtm_Pwm_Channel'?",
+    "assignment to 'int *' from incompatible pointer type 'IfxGtm_Pwm_ChannelConfig *' [-Wincompatible-pointer-types]",
+    "cast to union type from type not present in union",
+    "'IfxGtm_Dtm_ClockSource_cmuClock0' undeclared (first use in this function); did you mean 'IfxGtm_Dtm_ClockSource_cdtm0'?",
+    "unknown type name 'IfxGtm_Pwm_ChannelConfig'; did you mean 'IfxGtm_Pwm_Channel'?"
+  ],
+  "timestamp": "2026-03-28T13:19:44.840624",
+  "project_name": "Upgrade_TC387_3-phase_inverter_PWM_from_IfxGtm_Tom_r_20260328_130708"
 }
