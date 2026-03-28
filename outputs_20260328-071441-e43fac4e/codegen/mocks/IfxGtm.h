@@ -1,44 +1,38 @@
-/* IfxGtm base mock header */
 #ifndef IFXGTM_H
 #define IFXGTM_H
-
 #include "mock_gtm_tom_3_phase_inverter_pwm.h"
 
-/* Enums */
-typedef enum
-{
+/* Enums (must appear before usage) */
+typedef enum {
     IfxGtm_IrqMode_level       = 0,
     IfxGtm_IrqMode_pulse       = 1,
     IfxGtm_IrqMode_pulseNotify = 2,
     IfxGtm_IrqMode_singlePulse = 3
 } IfxGtm_IrqMode;
 
-typedef enum
-{
+typedef enum {
     IfxGtm_SuspendMode_none = 0,
     IfxGtm_SuspendMode_hard = 1,
     IfxGtm_SuspendMode_soft = 2
 } IfxGtm_SuspendMode;
 
-typedef enum
-{
+/* Minimal extra base types used across PWM */
+typedef enum {
     IfxGtm_Cluster_0 = 0,
     IfxGtm_Cluster_1 = 1,
     IfxGtm_Cluster_2 = 2,
-    IfxGtm_Cluster_3 = 3,
-    IfxGtm_Cluster_4 = 4,
-    IfxGtm_Cluster_5 = 5,
-    IfxGtm_Cluster_6 = 6,
-    IfxGtm_Cluster_7 = 7
+    IfxGtm_Cluster_3 = 3
 } IfxGtm_Cluster;
 
-/* Function declarations */
+/* API (subset with exact signatures when specified) */
+void    IfxGtm_enable(Ifx_GTM *gtm);
 boolean IfxGtm_isEnabled(Ifx_GTM *gtm);
+
+/* Additional common API (mocked with generic signatures) */
 boolean IfxGtm_isModuleSuspended(Ifx_GTM *gtm);
 void    IfxGtm_setSuspendMode(Ifx_GTM *gtm, IfxGtm_SuspendMode mode);
 void    IfxGtm_disable(Ifx_GTM *gtm);
-void    IfxGtm_enable(Ifx_GTM *gtm);
 float32 IfxGtm_getSysClkFrequency(Ifx_GTM *gtm);
-float32 IfxGtm_getClusterFrequency(Ifx_GTM *gtm, IfxGtm_Cluster cluster);
+float32 IfxGtm_getClusterFrequency(Ifx_GTM *gtm, uint32 cluster);
 
 #endif /* IFXGTM_H */
