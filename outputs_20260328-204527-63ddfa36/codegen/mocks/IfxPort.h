@@ -1,8 +1,10 @@
+/* Mock IfxPort.h - Port types and minimal APIs */
 #ifndef IFXPORT_H
 #define IFXPORT_H
+
 #include "mock_gtm_tom_3_phase_inverter_pwm.h"
 
-/* Types and enums */
+/* Types/Structs */
 typedef enum
 {
     IfxPort_ControlledBy_port = 0,
@@ -125,14 +127,6 @@ typedef enum
     IfxPort_LvdsTerminationMode_internal = 1
 } IfxPort_LvdsTerminationMode;
 
-/* Structs */
-typedef struct
-{
-    IfxPort_LvdsMode     lvdsMode;
-    IfxPort_ControlledBy enablePortControlled;
-    IfxPort_PadSupply    padSupply;
-} IfxPort_LvdsConfig;
-
 typedef struct
 {
     Ifx_P *port;
@@ -141,13 +135,20 @@ typedef struct
 
 typedef struct
 {
-    Ifx_P            *port;
-    uint8             pinIndex;
-    IfxPort_OutputIdx mode;
-    IfxPort_PadDriver padDriver;
+    Ifx_P              *port;
+    uint8               pinIndex;
+    IfxPort_OutputIdx   mode;
+    IfxPort_PadDriver   padDriver;
 } IfxPort_Pin_Config;
 
-/* Functions (subset required by tests) */
+typedef struct
+{
+    IfxPort_LvdsMode     lvdsMode;
+    IfxPort_ControlledBy enablePortControlled;
+    IfxPort_PadSupply    padSupply;
+} IfxPort_LvdsConfig;
+
+/* Minimal function declarations used by module */
 void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
 void IfxPort_togglePin(Ifx_P *port, uint8 pinIndex);
 
