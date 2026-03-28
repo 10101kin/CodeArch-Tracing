@@ -1,0 +1,159 @@
+{
+  "microcontroller": {
+    "model": "TC387",
+    "family": "TC3xx",
+    "verified": true,
+    "device_macro": "DEVICE_TC38X",
+    "pin_package": "IFX_PIN_PACKAGE_516"
+  },
+  "peripheral_instance": {
+    "type": "GTM_TOM",
+    "module": "GTM.TOM1.TGC1",
+    "channels": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "driver": "IfxGtm_Pwm"
+  },
+  "pin_assignments": [
+    {
+      "signal": "PHASE_U_HIGH",
+      "port_pin": "P02.0",
+      "function": "TOUT (TOM1/TGC1)",
+      "pin_macro": "TBD: IfxGtm_TOM1_x_TOUTxx_P02_0_OUT",
+      "is_complementary": false,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "PHASE_U_LOW",
+      "port_pin": "P02.7",
+      "function": "TOUT (TOM1/TGC1)",
+      "pin_macro": "TBD: IfxGtm_TOM1_x_TOUTxx_P02_7_OUT",
+      "is_complementary": true,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "PHASE_V_HIGH",
+      "port_pin": "P02.1",
+      "function": "TOUT (TOM1/TGC1)",
+      "pin_macro": "TBD: IfxGtm_TOM1_x_TOUTxx_P02_1_OUT",
+      "is_complementary": false,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "PHASE_V_LOW",
+      "port_pin": "P02.4",
+      "function": "TOUT (TOM1/TGC1)",
+      "pin_macro": "TBD: IfxGtm_TOM1_x_TOUTxx_P02_4_OUT",
+      "is_complementary": true,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "PHASE_W_HIGH",
+      "port_pin": "P02.2",
+      "function": "TOUT (TOM1/TGC1)",
+      "pin_macro": "TBD: IfxGtm_TOM1_x_TOUTxx_P02_2_OUT",
+      "is_complementary": false,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "PHASE_W_LOW",
+      "port_pin": "P02.5",
+      "function": "TOUT (TOM1/TGC1)",
+      "pin_macro": "TBD: IfxGtm_TOM1_x_TOUTxx_P02_5_OUT",
+      "is_complementary": true,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "LED_TOGGLE",
+      "port_pin": "P13.0",
+      "function": "GPIO (output push-pull)",
+      "pin_macro": "N/A",
+      "is_complementary": false,
+      "verified": true,
+      "source": "hardware_verified"
+    }
+  ],
+  "clock_configuration": {
+    "xtal_frequency_mhz": 20,
+    "system_frequency_mhz": 300
+  },
+  "validation": {
+    "all_verified": false,
+    "conflicts": [
+      "Resolve exact TOM1/TGC1 TOUT mapping macros for P02.0 in IfxGtm_PinMap_TC38x_516 or IfxGtm_PinMap_TC38x_LFBGA516",
+      "Resolve exact TOM1/TGC1 TOUT mapping macros for P02.7 in IfxGtm_PinMap_TC38x_516 or IfxGtm_PinMap_TC38x_LFBGA516",
+      "Resolve exact TOM1/TGC1 TOUT mapping macros for P02.1 in IfxGtm_PinMap_TC38x_516 or IfxGtm_PinMap_TC38x_LFBGA516",
+      "Resolve exact TOM1/TGC1 TOUT mapping macros for P02.4 in IfxGtm_PinMap_TC38x_516 or IfxGtm_PinMap_TC38x_LFBGA516",
+      "Resolve exact TOM1/TGC1 TOUT mapping macros for P02.2 in IfxGtm_PinMap_TC38x_516 or IfxGtm_PinMap_TC38x_LFBGA516",
+      "Resolve exact TOM1/TGC1 TOUT mapping macros for P02.5 in IfxGtm_PinMap_TC38x_516 or IfxGtm_PinMap_TC38x_LFBGA516",
+      "Verify that selected TOM1 channels [8..13] are available, belong to TGC1, and support complementary pairing for the chosen P02.x pins under the IFX_PIN_PACKAGE_516"
+    ],
+    "reference_pins_valid": true
+  },
+  "template_validation": {
+    "supported_peripherals": [
+      "PWM",
+      "GTM",
+      "TIMER",
+      "STM",
+      "GPIO",
+      "ASCLIN",
+      "INTERRUPT"
+    ],
+    "suggested_drivers": {
+      "PWM": [
+        "IfxGtm_Pwm"
+      ],
+      "GTM": [
+        "IfxGtm_Pwm"
+      ],
+      "TIMER": [
+        "IfxGtm_Pwm"
+      ],
+      "STM": [
+        "IfxStm",
+        "IfxStm_Timer"
+      ],
+      "GPIO": [
+        "IfxPort_Io",
+        "IfxPort"
+      ],
+      "ASCLIN": [
+        "IfxAsclin_Asc",
+        "IfxAsclin_Lin",
+        "IfxAsclin_Spi",
+        "IfxAsclin"
+      ],
+      "INTERRUPT": [
+        "IfxCpu_Irq"
+      ],
+      "_driver_selection": {
+        "explicit_target": "IfxGtm_Pwm",
+        "replaced_source": "IfxGtm_Tom_PwmHl",
+        "primary_drivers": [
+          "IfxGtm_Pwm"
+        ],
+        "avoid_drivers": [
+          "IfxGtm_Tom_PwmHl"
+        ]
+      }
+    },
+    "warnings": []
+  },
+  "pin_analysis": {
+    "verified_count": 7,
+    "doc_reference_count": 1,
+    "merged_total": 8
+  }
+}

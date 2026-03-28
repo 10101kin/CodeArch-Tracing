@@ -1,0 +1,13 @@
+{
+  "export_type": "node_json",
+  "export_reason": "stage_completed",
+  "node_stage": "requirements",
+  "reviewer_name": null,
+  "reviewer_applied": false,
+  "modified_by": "system",
+  "modifier_name": null,
+  "workflow_stage": "requirements_validation",
+  "target_board": "KIT_A2G_TC387_5V_TFT",
+  "generation_mode": "MIGRATION",
+  "timestamp": "2026-03-28T23:48:14.998313"
+}
