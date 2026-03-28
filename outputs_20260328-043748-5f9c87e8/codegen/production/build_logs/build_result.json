@@ -2,133 +2,13 @@
   "success": false,
   "errors": [
     {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxPort.h",
-      "line": 10,
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_s5uit6ix\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 171,
       "category": "error",
-      "message": "unknown type name 'IfxPort_LvdsMode'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxPort.h",
-      "line": 11,
-      "category": "error",
-      "message": "unknown type name 'IfxPort_ControlledBy'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxPort.h",
-      "line": 12,
-      "category": "error",
-      "message": "unknown type name 'IfxPort_PadSupply'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxPort.h",
-      "line": 25,
-      "category": "error",
-      "message": "unknown type name 'IfxPort_OutputIdx'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxPort.h",
-      "line": 26,
-      "category": "error",
-      "message": "unknown type name 'IfxPort_PadDriver'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxGtm_Pwm.h",
-      "line": 196,
-      "category": "error",
-      "message": "redeclaration of enumerator 'IfxGtm_Cluster_0'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxGtm_Pwm.h",
-      "line": 196,
-      "category": "error",
-      "message": "redeclaration of enumerator 'IfxGtm_Cluster_1'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxGtm_Pwm.h",
-      "line": 196,
-      "category": "error",
-      "message": "redeclaration of enumerator 'IfxGtm_Cluster_2'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxGtm_Pwm.h",
-      "line": 196,
-      "category": "error",
-      "message": "redeclaration of enumerator 'IfxGtm_Cluster_3'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxGtm_Pwm.h",
-      "line": 196,
-      "category": "error",
-      "message": "conflicting types for 'IfxGtm_Cluster'; have 'enum <anonymous>'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\src\\gtm_tom_3_phase_inverter_pwm.c",
-      "line": 202,
-      "category": "error",
-      "message": "'IfxGtm_Dtm_ClockSource_cmuClock0' undeclared (first use in this function); did you mean 'IfxGtm_Dtm_ClockSource_cmuClk0'?"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxPort.h",
-      "line": 10,
-      "category": "error",
-      "message": "unknown type name 'IfxPort_LvdsMode'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxPort.h",
-      "line": 11,
-      "category": "error",
-      "message": "unknown type name 'IfxPort_ControlledBy'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxPort.h",
-      "line": 12,
-      "category": "error",
-      "message": "unknown type name 'IfxPort_PadSupply'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxPort.h",
-      "line": 25,
-      "category": "error",
-      "message": "unknown type name 'IfxPort_OutputIdx'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxPort.h",
-      "line": 26,
-      "category": "error",
-      "message": "unknown type name 'IfxPort_PadDriver'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxGtm_Pwm.h",
-      "line": 196,
-      "category": "error",
-      "message": "redeclaration of enumerator 'IfxGtm_Cluster_0'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxGtm_Pwm.h",
-      "line": 196,
-      "category": "error",
-      "message": "redeclaration of enumerator 'IfxGtm_Cluster_1'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxGtm_Pwm.h",
-      "line": 196,
-      "category": "error",
-      "message": "redeclaration of enumerator 'IfxGtm_Cluster_2'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxGtm_Pwm.h",
-      "line": 196,
-      "category": "error",
-      "message": "redeclaration of enumerator 'IfxGtm_Cluster_3'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxGtm_Pwm.h",
-      "line": 196,
-      "category": "error",
-      "message": "conflicting types for 'IfxGtm_Cluster'; have 'enum <anonymous>'"
+      "message": "'IfxGtm_Dtm_ClockSource_cmuClock0' undeclared (first use in this function); did you mean 'IfxGtm_Dtm_ClockSource_clk0'?"
     }
   ],
   "warnings": [],
-  "stderr": "In file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxGtm_Pwm.h:7,\n                 from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\src\\gtm_tom_3_phase_inverter_pwm.c:18:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxPort.h:10:5: error: unknown type name 'IfxPort_LvdsMode'\n   10 |     IfxPort_LvdsMode     lvdsMode;\n      |     ^~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxPort.h:11:5: error: unknown type name 'IfxPort_ControlledBy'\n   11 |     IfxPort_ControlledBy enablePortControlled;\n      |     ^~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxPort.h:12:5: error: unknown type name 'IfxPort_PadSupply'\n   12 |     IfxPort_PadSupply    padSupply;\n      |     ^~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxPort.h:25:5: error: unknown type name 'IfxPort_OutputIdx'\n   25 |     IfxPort_OutputIdx mode;\n      |     ^~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxPort.h:26:5: error: unknown type name 'IfxPort_PadDriver'\n   26 |     IfxPort_PadDriver padDriver;\n      |     ^~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxGtm_Pwm.h:196:16: error: redeclaration of enumerator 'IfxGtm_Cluster_0'\n  196 | typedef enum { IfxGtm_Cluster_0 = 0, IfxGtm_Cluster_1, IfxGtm_Cluster_2, IfxGtm_Cluster_3 } IfxGtm_Cluster; /* defined here for dependency */\n      |                ^~~~~~~~~~~~~~~~\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxGtm_Pwm.h:5:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxGtm.h:23:16: note: previous definition of 'IfxGtm_Cluster_0' with type 'enum <anonymous>'\n   23 | typedef enum { IfxGtm_Cluster_0 = 0, IfxGtm_Cluster_1, IfxGtm_Cluster_2, IfxGtm_Cluster_3 } IfxGtm_Cluster;\n      |                ^~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxGtm_Pwm.h:196:38: error: redeclaration of enumerator 'IfxGtm_Cluster_1'\n  196 | typedef enum { IfxGtm_Cluster_0 = 0, IfxGtm_Cluster_1, IfxGtm_Cluster_2, IfxGtm_Cluster_3 } IfxGtm_Cluster; /* defined here for dependency */\n      |                                      ^~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxGtm.h:23:38: note: previous definition of 'IfxGtm_Cluster_1' with type 'enum <anonymous>'\n   23 | typedef enum { IfxGtm_Cluster_0 = 0, IfxGtm_Cluster_1, IfxGtm_Cluster_2, IfxGtm_Cluster_3 } IfxGtm_Cluster;\n      |                                      ^~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxGtm_Pwm.h:196:56: error: redeclaration of enumerator 'IfxGtm_Cluster_2'\n  196 | typedef enum { IfxGtm_Cluster_0 = 0, IfxGtm_Cluster_1, IfxGtm_Cluster_2, IfxGtm_Cluster_3 } IfxGtm_Cluster; /* defined here for dependency */\n      |                                                        ^~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxGtm.h:23:56: note: previous definition of 'IfxGtm_Cluster_2' with type 'enum <anonymous>'\n   23 | typedef enum { IfxGtm_Cluster_0 = 0, IfxGtm_Cluster_1, IfxGtm_Cluster_2, IfxGtm_Cluster_3 } IfxGtm_Cluster;\n      |                                                        ^~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxGtm_Pwm.h:196:74: error: redeclaration of enumerator 'IfxGtm_Cluster_3'\n  196 | typedef enum { IfxGtm_Cluster_0 = 0, IfxGtm_Cluster_1, IfxGtm_Cluster_2, IfxGtm_Cluster_3 } IfxGtm_Cluster; /* defined here for dependency */\n      |                                                                          ^~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxGtm.h:23:74: note: previous definition of 'IfxGtm_Cluster_3' with type 'enum <anonymous>'\n   23 | typedef enum { IfxGtm_Cluster_0 = 0, IfxGtm_Cluster_1, IfxGtm_Cluster_2, IfxGtm_Cluster_3 } IfxGtm_Cluster;\n      |                                                                          ^~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxGtm_Pwm.h:196:93: error: conflicting types for 'IfxGtm_Cluster'; have 'enum <anonymous>'\n  196 | typedef enum { IfxGtm_Cluster_0 = 0, IfxGtm_Cluster_1, IfxGtm_Cluster_2, IfxGtm_Cluster_3 } IfxGtm_Cluster; /* defined here for dependency */\n      |                                                                                             ^~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxGtm.h:23:93: note: previous declaration of 'IfxGtm_Cluster' with type 'IfxGtm_Cluster'\n   23 | typedef enum { IfxGtm_Cluster_0 = 0, IfxGtm_Cluster_1, IfxGtm_Cluster_2, IfxGtm_Cluster_3 } IfxGtm_Cluster;\n      |                                                                                             ^~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\src\\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTomPwm':\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\src\\gtm_tom_3_phase_inverter_pwm.c:202:35: error: 'IfxGtm_Dtm_ClockSource_cmuClock0' undeclared (first use in this function); did you mean 'IfxGtm_Dtm_ClockSource_cmuClk0'?\n  202 |     config.dtmClockSource       = IfxGtm_Dtm_ClockSource_cmuClock0;\n      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n      |                                   IfxGtm_Dtm_ClockSource_cmuClk0\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\src\\gtm_tom_3_phase_inverter_pwm.c:202:35: note: each undeclared identifier is reported only once for each function it appears in\n\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxGtm_Pwm.h:7,\n                 from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c:5:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxPort.h:10:5: error: unknown type name 'IfxPort_LvdsMode'\n   10 |     IfxPort_LvdsMode     lvdsMode;\n      |     ^~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxPort.h:11:5: error: unknown type name 'IfxPort_ControlledBy'\n   11 |     IfxPort_ControlledBy enablePortControlled;\n      |     ^~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxPort.h:12:5: error: unknown type name 'IfxPort_PadSupply'\n   12 |     IfxPort_PadSupply    padSupply;\n      |     ^~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxPort.h:25:5: error: unknown type name 'IfxPort_OutputIdx'\n   25 |     IfxPort_OutputIdx mode;\n      |     ^~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxPort.h:26:5: error: unknown type name 'IfxPort_PadDriver'\n   26 |     IfxPort_PadDriver padDriver;\n      |     ^~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxGtm_Pwm.h:196:16: error: redeclaration of enumerator 'IfxGtm_Cluster_0'\n  196 | typedef enum { IfxGtm_Cluster_0 = 0, IfxGtm_Cluster_1, IfxGtm_Cluster_2, IfxGtm_Cluster_3 } IfxGtm_Cluster; /* defined here for dependency */\n      |                ^~~~~~~~~~~~~~~~\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c:3:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxGtm.h:23:16: note: previous definition of 'IfxGtm_Cluster_0' with type 'enum <anonymous>'\n   23 | typedef enum { IfxGtm_Cluster_0 = 0, IfxGtm_Cluster_1, IfxGtm_Cluster_2, IfxGtm_Cluster_3 } IfxGtm_Cluster;\n      |                ^~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxGtm_Pwm.h:196:38: error: redeclaration of enumerator 'IfxGtm_Cluster_1'\n  196 | typedef enum { IfxGtm_Cluster_0 = 0, IfxGtm_Cluster_1, IfxGtm_Cluster_2, IfxGtm_Cluster_3 } IfxGtm_Cluster; /* defined here for dependency */\n      |                                      ^~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxGtm.h:23:38: note: previous definition of 'IfxGtm_Cluster_1' with type 'enum <anonymous>'\n   23 | typedef enum { IfxGtm_Cluster_0 = 0, IfxGtm_Cluster_1, IfxGtm_Cluster_2, IfxGtm_Cluster_3 } IfxGtm_Cluster;\n      |                                      ^~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxGtm_Pwm.h:196:56: error: redeclaration of enumerator 'IfxGtm_Cluster_2'\n  196 | typedef enum { IfxGtm_Cluster_0 = 0, IfxGtm_Cluster_1, IfxGtm_Cluster_2, IfxGtm_Cluster_3 } IfxGtm_Cluster; /* defined here for dependency */\n      |                                                        ^~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxGtm.h:23:56: note: previous definition of 'IfxGtm_Cluster_2' with type 'enum <anonymous>'\n   23 | typedef enum { IfxGtm_Cluster_0 = 0, IfxGtm_Cluster_1, IfxGtm_Cluster_2, IfxGtm_Cluster_3 } IfxGtm_Cluster;\n      |                                                        ^~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxGtm_Pwm.h:196:74: error: redeclaration of enumerator 'IfxGtm_Cluster_3'\n  196 | typedef enum { IfxGtm_Cluster_0 = 0, IfxGtm_Cluster_1, IfxGtm_Cluster_2, IfxGtm_Cluster_3 } IfxGtm_Cluster; /* defined here for dependency */\n      |                                                                          ^~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxGtm.h:23:74: note: previous definition of 'IfxGtm_Cluster_3' with type 'enum <anonymous>'\n   23 | typedef enum { IfxGtm_Cluster_0 = 0, IfxGtm_Cluster_1, IfxGtm_Cluster_2, IfxGtm_Cluster_3 } IfxGtm_Cluster;\n      |                                                                          ^~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxGtm_Pwm.h:196:93: error: conflicting types for 'IfxGtm_Cluster'; have 'enum <anonymous>'\n  196 | typedef enum { IfxGtm_Cluster_0 = 0, IfxGtm_Cluster_1, IfxGtm_Cluster_2, IfxGtm_Cluster_3 } IfxGtm_Cluster; /* defined here for dependency */\n      |                                                                                             ^~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_w9uiojs6\\include/IfxGtm.h:23:93: note: previous declaration of 'IfxGtm_Cluster' with type 'IfxGtm_Cluster'\n   23 | typedef enum { IfxGtm_Cluster_0 = 0, IfxGtm_Cluster_1, IfxGtm_Cluster_2, IfxGtm_Cluster_3 } IfxGtm_Cluster;\n      |                                                                                             ^~~~~~~~~~~~~~\n",
+  "stderr": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_s5uit6ix\\src\\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTomPwm':\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_s5uit6ix\\src\\gtm_tom_3_phase_inverter_pwm.c:171:35: error: 'IfxGtm_Dtm_ClockSource_cmuClock0' undeclared (first use in this function); did you mean 'IfxGtm_Dtm_ClockSource_clk0'?\n  171 |     config.dtmClockSource       = IfxGtm_Dtm_ClockSource_cmuClock0;\n      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n      |                                   IfxGtm_Dtm_ClockSource_clk0\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_s5uit6ix\\src\\gtm_tom_3_phase_inverter_pwm.c:171:35: note: each undeclared identifier is reported only once for each function it appears in\n",
   "stdout": ""
 }
