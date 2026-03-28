@@ -1,9 +1,13 @@
 {
-  "attempt": 7,
-  "phase_attempt": 3,
-  "phase": "production",
-  "success": true,
-  "errors": [],
-  "timestamp": "2026-03-28T13:12:20.366620",
-  "project_name": "Upgrade_TC387_PWM_from_IfxGtm_Tom_PwmHl_to_IfxGtm_r_20260328_125220"
+  "export_type": "node_json",
+  "export_reason": "stage_failed",
+  "node_stage": "code_generation",
+  "reviewer_name": null,
+  "reviewer_applied": false,
+  "modified_by": "system",
+  "modifier_name": null,
+  "workflow_stage": "code_generation_failed",
+  "target_board": "KIT_A2G_TC387_5V_TFT",
+  "generation_mode": "MIGRATION",
+  "timestamp": "2026-03-28T13:12:34.602150"
 }
