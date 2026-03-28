@@ -5,7 +5,6 @@
 extern "C" {
 #endif
 
-/* Public API */
 void initGtmTom3phInv(void);
 void updateGtmTom3phInvDuty(void);
 
