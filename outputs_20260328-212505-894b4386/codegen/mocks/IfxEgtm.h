@@ -1,20 +1,28 @@
+/* IfxEgtm.h - eGTM base mock */
 #ifndef IFXEGTM_H
 #define IFXEGTM_H
 
 #include "mock_egtm_atom_3_phase_inverter_pwm.h"
 
-/* Minimal peer types used by PWM driver */
-typedef struct { uint32 reserved; } Ifx_EGTM_CLS;
-typedef uint8 IfxEgtm_Cluster;
+/* Minimal peer types for MSC config used by structs */
+typedef uint32 IfxEgtm_Cfg_MscSet;
+typedef uint32 IfxEgtm_Cfg_MscSetSignal;
+typedef uint32 IfxEgtm_Cfg_MscModule;
+typedef uint32 IfxEgtm_Cfg_MscSelect;
 
-typedef struct { uint32 raw; } IfxApApu_ApuConfig;
-typedef struct { uint32 raw; } IfxApProt_ProtConfig;
+/* Missing AP APU/PROT types referenced by eGTM AP config */
+typedef struct { uint32 reserved; } IfxApApu_ApuConfig;
+typedef struct { uint32 reserved; } IfxApProt_ProtConfig;
 
-#ifndef IFXEGTM_NUM_CCM_OBJECTS
-#define IFXEGTM_NUM_CCM_OBJECTS 2
-#endif
+/* Cluster enum needed by PWM config/state */
+typedef enum {
+    IfxEgtm_Cluster_0 = 0,
+    IfxEgtm_Cluster_1,
+    IfxEgtm_Cluster_2,
+    IfxEgtm_Cluster_3
+} IfxEgtm_Cluster;
 
-/* Enums */
+/* IrqMode, SuspendMode and others */
 typedef enum {
     IfxEgtm_AeiBridgeOpMode_sync  = 0u,
     IfxEgtm_AeiBridgeOpMode_async = 1u
@@ -46,7 +54,7 @@ typedef enum {
     IfxEgtm_SuspendMode_soft = 2
 } IfxEgtm_SuspendMode;
 
-/* Config structs (minimal to satisfy dependencies) */
+/* AP configuration structs */
 typedef struct {
     IfxApApu_ApuConfig apuConfig;
 } IfxEgtm_ClApConfig;
@@ -62,15 +70,10 @@ typedef struct {
 
 typedef struct {
     IfxApProt_ProtConfig protseConfig;
-    IfxEgtm_ClApConfig   clApConfig[IFXEGTM_NUM_CCM_OBJECTS];
+    IfxEgtm_ClApConfig   clApConfig[1];
     IfxEgtm_CtrlApConfig ctrlApConfig;
     IfxEgtm_WrapApConfig wrapApConfig;
 } IfxEgtm_ApConfig;
-
-typedef uint32 IfxEgtm_Cfg_MscSet;
-typedef uint32 IfxEgtm_Cfg_MscSetSignal;
-typedef uint32 IfxEgtm_Cfg_MscModule;
-typedef uint32 IfxEgtm_Cfg_MscSelect;
 
 typedef struct {
     IfxEgtm_Cfg_MscSet       mscSet;
@@ -80,8 +83,8 @@ typedef struct {
     IfxEgtm_MscAltInput      mscAltIn;
 } IfxEgtm_MscOut;
 
-/* Functions (subset used by module) */
-void    IfxEgtm_enable(Ifx_EGTM *egtm);
+/* Functions (subset needed by module) */
 boolean IfxEgtm_isEnabled(Ifx_EGTM *egtm);
+void    IfxEgtm_enable(Ifx_EGTM *egtm);
 
 #endif /* IFXEGTM_H */
