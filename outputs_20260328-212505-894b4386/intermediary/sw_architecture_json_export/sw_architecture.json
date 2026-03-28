@@ -1,0 +1,165 @@
+{
+  "user_intent_preservation": {
+    "original_goal": "Migrate the TC387 GTM TOM 3‑phase inverter PWM to TC4D7 using eGTM ATOM and the IfxEgtm_Pwm unified API.",
+    "functional_behavior": "Generate six complementary, center‑aligned PWM outputs at 20 kHz with ~1 µs dead‑time (rising=1e-6, falling=1e-6) and initial duties U=25%, V=50%, W=75%, with synchronous start and synchronous duty updates; HS active high and LS active low; push‑pull outputs with cmosAutomotiveSpeed1 pad driver.",
+    "technical_approach": "Use the unified high-level IfxEgtm_Pwm driver on TC4D7 EGTM with ATOM contiguous channels for 3 complementary pairs and on-channel DTM. Configure center-aligned base channel and 5 sync channels with syncStart/syncUpdate enabled in the driver config. Use EGTM CMU GCLK=100 MHz (10 ns) to achieve 20 kHz period (5000 ticks) and ~1 µs dead-time (100 ticks). Route pins via IfxEgtm_PinMap macros to the preferred P02.x TOUT pairs on KIT_A3G_TC4D7_LITE (validated defaults point to ATOM0 CH0–5). Initial duties [0.25, 0.5, 0.75] are applied at init; runtime duty changes use synchronous update."
+  },
+  "driver_selection": {
+    "recommended_driver": "IfxEgtm_Pwm",
+    "selection_rationale": "Unified high-level PWM driver supports center alignment, complementary outputs with DTM dead-time, synchronous start/update, and batch channel updates. It directly matches the migration mapping IfxGtm_Pwm → IfxEgtm_Pwm and is available in the template.",
+    "available_in_template": true,
+    "complexity_level": "moderate",
+    "alternatives_considered": [
+      "IfxEgtm_Atom_Pwm",
+      "IfxEgtm_Tom_Pwm",
+      "IfxGtm_Pwm"
+    ]
+  },
+  "driver_usage": {
+    "primary_driver": "IfxEgtm_Pwm.h",
+    "available_in_template": true,
+    "initialization_apis": [
+      "IfxEgtm_Pwm_initConfig",
+      "IfxEgtm_Pwm_init",
+      "IfxEgtm_enable",
+      "IfxEgtm_isEnabled",
+      "IfxEgtm_Cmu_enableClocks",
+      "IfxEgtm_Cmu_getGclkFrequency"
+    ],
+    "runtime_apis": [
+      "IfxEgtm_Pwm_updateChannelsDuty",
+      "IfxEgtm_Pwm_updateChannelsDutyImmediate"
+    ],
+    "file_structure": {
+      "module_files": [
+        "EGTM_ATOM_3_Phase_Inverter_PWM.c",
+        "EGTM_ATOM_3_Phase_Inverter_PWM.h"
+      ],
+      "cpu_files": [
+        "Cpu0_Main.c"
+      ],
+      "from_reference": true
+    }
+  },
+  "function_mapping": {
+    "init_function": {
+      "name": "initEgtmAtom3phInv",
+      "driver_calls": [
+        "IfxEgtm_Pwm_initConfig",
+        "IfxEgtm_Pwm_init"
+      ]
+    },
+    "runtime_function": {
+      "name": "updateEgtmAtom3phInvDuty",
+      "driver_calls": [
+        "IfxEgtm_Pwm_updateChannelsDuty"
+      ],
+      "purpose": "Synchronous duty updates for U, V, W phases (complementary pairs) latched on the PWM period event."
+    }
+  },
+  "migration_notes": {
+    "is_migration": true,
+    "driver_changes": [
+      "IfxGtm_Pwm → IfxEgtm_Pwm (unified PWM driver)",
+      "IfxGtm_PinMap.h → IfxEgtm_PinMap.h (timer pin map header)",
+      "IfxScuWdt.h → IfxWtu.h (watchdog family migration; use available IfxWtu APIs in the template)"
+    ],
+    "api_changes": [
+      {
+        "from": "IfxGtm_Pwm_initConfig",
+        "to": "IfxEgtm_Pwm_initConfig"
+      },
+      {
+        "from": "IfxGtm_Pwm_init",
+        "to": "IfxEgtm_Pwm_init"
+      },
+      {
+        "from": "IfxGtm_Pwm_updateChannelsDutyImmediate",
+        "to": "IfxEgtm_Pwm_updateChannelsDutyImmediate"
+      },
+      {
+        "from": "initGtmTom3phInv",
+        "to": "initEgtmAtom3phInv"
+      },
+      {
+        "from": "updateGtmTom3phInvDuty",
+        "to": "updateEgtmAtom3phInvDuty"
+      }
+    ],
+    "context_preserved": "The migration keeps the original 3‑phase inverter behavior on the new TC4D7 target: six complementary, center‑aligned PWM outputs at 20 kHz, ~1 µs dead‑time, HS/LS polarity as specified, synchronous start and update, and push‑pull with cmosAutomotiveSpeed1. The unified IfxEgtm_Pwm API encapsulates ATOM channel setup, DTM dead‑time, pin routing via IfxEgtm_PinMap macros, and synchronous control to meet the user’s timing and polarity requirements. Channel allocation uses contiguous ATOM channels (ATOM0 CH0–5 on KIT_A3G_TC4D7_LITE P02.x TOUTs) per the provided hardware validation."
+  },
+  "header_selection": {
+    "applied": true,
+    "peripheral_type": "PWM",
+    "recommended_header": "IfxEgtm_Pwm",
+    "score": 411,
+    "required_includes": [
+      "IfxEgtm_Pwm.h"
+    ],
+    "function_mapping": {
+      "IfxGtm_Pwm_updateChannelsDutyImmediate": "IfxEgtm_Pwm_updateChannelsDutyImmediate",
+      "IfxGtm_enable": "IfxEgtm_Pwm_enableChannelOutput",
+      "PWM_FREQUENCY": "IfxEgtm_Pwm_updateSyncedGroupsFrequency",
+      "IFX_INTERRUPT": "IfxEgtm_Pwm_initInterrupts",
+      "IfxGtm_Pwm_initConfig": "IfxEgtm_Pwm_initConfig",
+      "IfxGtm_Pwm_init": "IfxEgtm_Pwm_initInterrupts"
+    },
+    "available_functions_count": 100
+  },
+  "driver_selection_engine": {
+    "applied": true,
+    "mcu_family": "TC4xx",
+    "requirement_analysis": {},
+    "recommendations": {
+      "PWM": {
+        "driver": "IfxEgtm_Pwm",
+        "score": 100,
+        "complexity": "locked",
+        "rationale": "Driver locked by refiner node (user explicit or engine-scored)",
+        "alternatives": []
+      }
+    },
+    "migration_mappings": {
+      "IfxScuWdt": {
+        "target_driver": "IfxWtu",
+        "api_mapping": {
+          "IfxScuWdt_disableCpuWatchdog": "IfxWtu_disableCpuWatchdog",
+          "IfxScuWdt_disableSafetyWatchdog": "IfxWtu_enableCpuWatchdog",
+          "IfxScuWdt_enableCpuWatchdog": "// No equivalent - manual mapping needed",
+          "IfxScuWdt_enableSafetyWatchdog": "// No equivalent - manual mapping needed",
+          "IfxScuWdt_serviceCpuWatchdog": "IfxWtu_serviceCpuWatchdog",
+          "IfxScuWdt_serviceSafetyWatchdog": "// No equivalent - manual mapping needed",
+          "IfxScuWdt_clearCpuEndinit": "// No equivalent - manual mapping needed",
+          "IfxScuWdt_setCpuEndinit": "// No equivalent - manual mapping needed"
+        }
+      },
+      "IfxGtm_Pwm": {
+        "target_driver": "IfxEgtm_Pwm",
+        "api_mapping": {
+          "IfxGtm_Pwm_init": "IfxEgtm_Pwm_init",
+          "IfxGtm_Pwm_initConfig": "IfxEgtm_Pwm_initConfig",
+          "IfxGtm_Pwm_start": "IfxEgtm_Pwm_start",
+          "IfxGtm_Pwm_stop": "IfxEgtm_Pwm_stop",
+          "IfxGtm_Pwm_setDuty": "IfxEgtm_Pwm_setDuty"
+        }
+      },
+      "IfxPort": {
+        "target_driver": "IfxPort_Io",
+        "api_mapping": {
+          "IfxPort_setPinMode": "IfxPort_Io_initModule",
+          "IfxPort_setPinModeOutput": "// No equivalent - manual mapping needed",
+          "IfxPort_setPinModeInput": "// No equivalent - manual mapping needed",
+          "IfxPort_setPinPadDriver": "// No equivalent - manual mapping needed",
+          "IfxPort_setPinState": "IfxPort_Io_setPinState",
+          "IfxPort_getPinState": "IfxPort_Io_getPinState",
+          "IfxPort_togglePin": "// No equivalent - manual mapping needed",
+          "IfxPort_setPinHigh": "// No equivalent - manual mapping needed",
+          "IfxPort_setPinLow": "// No equivalent - manual mapping needed"
+        }
+      }
+    }
+  },
+  "driver_knowledge_base": {
+    "applied": false
+  }
+}
