@@ -1,8 +1,20 @@
 {
-  "type": "llm_response",
-  "phase": "production",
   "attempt": 7,
   "phase_attempt": 3,
-  "response_length": 11470,
-  "timestamp": "2026-03-28T23:39:29.754625"
+  "phase": "production",
+  "success": false,
+  "errors": [
+    "'IfxEgtm_Pwm_DeadTime' has no member named 'rise'",
+    "'IfxEgtm_Pwm_DeadTime' has no member named 'fall'; did you mean 'falling'?",
+    "'IfxEgtm_Pwm_DeadTime' has no member named 'rise'",
+    "'IfxEgtm_Pwm_DeadTime' has no member named 'fall'; did you mean 'falling'?",
+    "'IfxEgtm_Pwm_DeadTime' has no member named 'rise'",
+    "'IfxEgtm_Pwm_DeadTime' has no member named 'fall'; did you mean 'falling'?",
+    "'IfxEgtm_Pwm_IrqMode_pulseNotify' undeclared (first use in this function); did you mean 'IfxEgtm_IrqMode_pulseNotify'?",
+    "'IfxEgtm_Cluster_0' undeclared (first use in this function); did you mean 'IfxEgtm_Cluster'?",
+    "'IfxEgtm_Pwm_Alignment_centerAlignedSymmetric' undeclared (first use in this function); did you mean 'IfxEgtm_Pwm_Alignment_centerAligned'?",
+    "'IfxEgtm_Dtm_ClockSource_cmuClock0' undeclared (first use in this function); did you mean 'IfxEgtm_Dtm_ClockSource_cmuClk0'?"
+  ],
+  "timestamp": "2026-03-28T23:39:36.232109",
+  "project_name": "Port_the_TC387_GTM_TOM_3-phase_inverter_PWM_exampl_r_20260328_231349"
 }
