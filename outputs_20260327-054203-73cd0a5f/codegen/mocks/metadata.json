@@ -1,8 +1,9 @@
 {
-  "type": "llm_response",
-  "phase": "mock",
   "attempt": 8,
   "phase_attempt": 4,
-  "response_length": 30991,
-  "timestamp": "2026-03-29T07:59:40.164916"
+  "phase": "mock_generation",
+  "success": true,
+  "errors": [],
+  "timestamp": "2026-03-29T07:59:45.919128",
+  "project_name": "Migrate_the_TC387_three-phase_inverter_PWM_to_the_r_20260329_073706"
 }

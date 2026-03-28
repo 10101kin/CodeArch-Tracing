@@ -1,32 +1,35 @@
 #ifndef IFXGTM_TOM_PWMHL_H
 #define IFXGTM_TOM_PWMHL_H
+
 #include "mock_gtm_tom_3_phase_inverter_pwm.h"
-#include "IfxGtm_Tom_Timer.h"
 #include "IfxGtm.h"
 #include "IfxGtm_Cmu.h"
+#include "IfxGtm_Tom_Timer.h"
 #include "IfxPort.h"
 
-/* Additional standard interface types for PWM HL (single-owner here) */
+/* Pwm mode enum */
 typedef enum {
     Ifx_Pwm_Mode_off = 0,
-    Ifx_Pwm_Mode_leftAligned,
-    Ifx_Pwm_Mode_centerAligned,
-    Ifx_Pwm_Mode_centerAlignedInverted
+    Ifx_Pwm_Mode_edgeAligned,
+    Ifx_Pwm_Mode_centerAligned
 } Ifx_Pwm_Mode;
 
+/* Standard PWM HL interface config */
 typedef struct {
-    uint32  channelCount;
-    float32 frequency;
-    boolean inverted;
+    uint8   channelCount;   /* number of PWM HL channels (top/bottom pairs) */
+    float32 frequency;      /* for spy capture convenience */
 } IfxStdIf_PwmHl_Config;
 
-/* Clock source union per rules (allows enum assignment without warnings) */
-typedef union {
-    uint32 atom;
-    uint32 tom;
-} IfxGtm_Tom_Pwm_ClockSource;
+/* ToutMap structure (pin mapping) */
+typedef struct {
+    Ifx_P            *port;     /* port module */
+    uint8             pinIndex; /* pin number */
+    IfxPort_OutputIdx outIdx;   /* output index */
+} IfxGtm_Tom_ToutMap;
 
-/* PWM HL base per iLLD */
+typedef const IfxGtm_Tom_ToutMap* IfxGtm_Tom_ToutMapP;
+
+/* PwmHl base (matches iLLD layout) */
 typedef struct {
     Ifx_TimerValue  deadtime;
     Ifx_TimerValue  minPulse;
@@ -39,43 +42,43 @@ typedef struct {
     uint8           channelCount;
 } IfxGtm_Tom_PwmHl_Base;
 
-/* PwmHl Tout map types and aliases */
-typedef IfxGtm_Tom_ToutMap IfxGtm_Tom_ToutMapP;
-typedef struct { IfxGtm_Tom_ToutMap inner; } IfxGtm_Tom_Pwm_ToutMap;
+/* PwmHl mode descriptor (callbacks omitted in mock) */
+typedef void (*IfxGtm_Tom_PwmHl_Update)(IfxGtm_Tom_PwmHl *driver, Ifx_TimerValue *tOn);
+typedef void (*IfxGtm_Tom_PwmHl_UpdateShift)(IfxGtm_Tom_PwmHl *driver, Ifx_TimerValue *tOn, Ifx_TimerValue *shift);
+typedef void (*IfxGtm_Tom_PwmHl_UpdatePulse)(IfxGtm_Tom_PwmHl *driver, Ifx_TimerValue *tOn, Ifx_TimerValue *tOff);
 
-/* PWM HL config per iLLD + required extras (numChannels, frequency, clockSource) */
+typedef struct {
+    Ifx_Pwm_Mode                 mode;
+    boolean                      inverted;
+    IfxGtm_Tom_PwmHl_Update      update;
+    IfxGtm_Tom_PwmHl_UpdateShift updateAndShift;
+    IfxGtm_Tom_PwmHl_UpdatePulse updatePulse;
+} IfxGtm_Tom_PwmHl_Mode;
+
+/* Forward declare main struct */
+typedef struct IfxGtm_Tom_PwmHl IfxGtm_Tom_PwmHl;
+
+/* Config struct (matches required layout + base) */
 typedef struct {
     IfxStdIf_PwmHl_Config          base;
     IfxGtm_Tom_Timer              *timer;
     IfxGtm_Tom                     tom;
-    IFX_CONST IfxGtm_Tom_ToutMapP *ccx;
-    IFX_CONST IfxGtm_Tom_ToutMapP *coutx;
+    IfxGtm_Tom_ToutMapP            ccx;   /* array pointer of size base.channelCount/2 */
+    IfxGtm_Tom_ToutMapP            coutx; /* array pointer of size base.channelCount/2 */
     boolean                        initPins;
-    /* Required extras for tests */
-    uint32                         numChannels;
-    float32                        frequency;
-    IfxGtm_Tom_Pwm_ClockSource     clockSource;
 } IfxGtm_Tom_PwmHl_Config;
 
 /* Driver object (minimal) */
-typedef struct {
+struct IfxGtm_Tom_PwmHl {
     IfxGtm_Tom_PwmHl_Base base;
     IfxGtm_Tom_Timer     *timer;
     IfxGtm_Tom            tom;
-} IfxGtm_Tom_PwmHl;
+};
 
-/* Functions to mock */
+/* Function declarations (subset to mock) */
 void    IfxGtm_Tom_PwmHl_setOnTime(IfxGtm_Tom_PwmHl *driver, Ifx_TimerValue *tOn);
 boolean IfxGtm_Tom_PwmHl_init(IfxGtm_Tom_PwmHl *driver, const IfxGtm_Tom_PwmHl_Config *config);
 void    IfxGtm_Tom_PwmHl_initConfig(IfxGtm_Tom_PwmHl_Config *config);
 boolean IfxGtm_Tom_PwmHl_setMode(IfxGtm_Tom_PwmHl *driver, Ifx_Pwm_Mode mode);
-
-/* Pin symbol externs required by production code */
-extern IfxGtm_Tom_Pwm_ToutMap IfxGtm_TOM1_2_TOUT12_P00_3_OUT;
-extern IfxGtm_Tom_Pwm_ToutMap IfxGtm_TOM1_4_TOUT14_P00_5_OUT;
-extern IfxGtm_Tom_Pwm_ToutMap IfxGtm_TOM1_6_TOUT16_P00_7_OUT;
-extern IfxGtm_Tom_Pwm_ToutMap IfxGtm_TOM1_1_TOUT11_P00_2_OUT;
-extern IfxGtm_Tom_Pwm_ToutMap IfxGtm_TOM1_3_TOUT13_P00_4_OUT;
-extern IfxGtm_Tom_Pwm_ToutMap IfxGtm_TOM1_5_TOUT15_P00_6_OUT;
 
 #endif /* IFXGTM_TOM_PWMHL_H */
