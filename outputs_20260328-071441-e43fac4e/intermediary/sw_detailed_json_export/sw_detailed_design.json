@@ -1,0 +1,70 @@
+{
+  "module_name": "GTM_TOM_3_Phase_Inverter_PWM",
+  "public_functions": [
+    {
+      "signature": "void initGtmTomPwm(void)",
+      "behavior_description": "Initialize the GTM PWM for a 3-phase complementary inverter using the unified IfxGtm_Pwm driver. Steps: 1) Declare all configuration structures locally, including the main IfxGtm_Pwm_Config, an array of per-channel configurations for six synchronized channels (three complementary pairs), and a persistent module-state struct that holds: the PWM handle, a persistent channels array (six entries) that the driver uses beyond init, and arrays for dutyCycles[3], phases[3] (if needed), and deadTimes[3]. 2) Call IfxGtm_Pwm_initConfig to load defaults into the main config. Configure: center-aligned operation, complementary outputs for each phase pair, active-high polarity, enforce dead-time and minimum pulse constraints, select the TOM cluster instance for all six channels, and select the PWM time base to use the FXCLK0 source. Configure synchronous start for all channels so outputs become active in phase. 3) Set up per-channel output routing by assigning the six configured output pins using the pin map (push-pull mode and the specified pad driver). Group channels into three logical pairs (phase U, V, W) using logical sync channel indices 0..5. 4) Populate the main config with: cluster selection, alignment mode, requested frequency (20 kHz), clock source (FXCLK0), and enable shadow-transfer gating for atomic synchronized updates across all six channels. 5) Inside an enable guard, check if the GTM module is enabled; if not, enable it, then read the module frequency dynamically, configure the GTM clocks internally to use that frequency for the PWM time base, and enable the fractional clock domain required by FXCLK — all within the guard. 6) Call IfxGtm_Pwm_init with the persistent handle, the persistent channels array, and the main config. 7) Store the initial duty setpoints for the three phases (U=25%, V=50%, W=75%) in the module-state dutyCycles[] array so the runtime update API can apply them atomically; the driver initialization ensures complementary generation with the configured dead-time and minimum pulse. 8) Optionally request the driver to apply the configured frequency immediately and then start the synchronized channel group so all six outputs are enabled together under shadow gating control. No timing logic or while-loop scheduling is performed here; this function only initializes the peripheral and persistent state.",
+      "driver_calls": [
+        "IfxGtm_isEnabled",
+        "IfxGtm_enable",
+        "IfxGtm_Cmu_getModuleFrequency",
+        "IfxGtm_Cmu_enableClocks",
+        "IfxGtm_Pwm_initConfig",
+        "IfxGtm_Pwm_init",
+        "IfxGtm_Pwm_updateFrequencyImmediate"
+      ],
+      "from_reference": true,
+      "call_context": "init"
+    },
+    {
+      "signature": "void updateGtmTomPwmDutyCycles(void)",
+      "behavior_description": "Atomically update all six synchronized PWM channels (three complementary pairs) under shadow-transfer gating using a fixed increment and wrap logic derived from the reference. Maintain persistent dutyCycles[3] representing the high-side duty for phases U, V, and W. On each call: 1) Compute a duty step from a fixed fraction (DUTY_STEP) of the period equivalently represented as a normalized change to the duty values. 2) For each phase index i in {0,1,2}, increment dutyCycles[i] by the step. If dutyCycles[i] rises to or above a maximum threshold (DUTY_MAX), wrap it to a minimum threshold (DUTY_MIN). This yields a repeating ramp between DUTY_MIN and DUTY_MAX. 3) Prepare a request array mapping the three phase duty values to the configured synchronized channels, relying on the complementary output configuration to generate the paired low-side waveforms with the enforced dead-time and minimum pulse. 4) Call the unified driver’s immediate bulk update API so that a single gated shadow transfer applies the new duties synchronously to all six outputs in the same update cycle. No timing or delay is performed here; higher-level code schedules how often this function is called.",
+      "driver_calls": [
+        "IfxGtm_Pwm_updateChannelsDutyImmediate"
+      ],
+      "from_reference": true,
+      "call_context": "loop"
+    }
+  ],
+  "private_functions": [
+    {
+      "signature": "static void configureGtmTomPwmPins(void)",
+      "needed": true,
+      "from_reference": false
+    }
+  ],
+  "dependencies": {
+    "includes": [
+      "Ifx_Types.h",
+      "IfxGtm_Pwm.h",
+      "IfxPort.h"
+    ],
+    "driver_calls": [
+      "IfxGtm_isEnabled",
+      "IfxGtm_enable",
+      "IfxGtm_Cmu_getModuleFrequency",
+      "IfxGtm_Cmu_enableClocks",
+      "IfxGtm_Pwm_initConfig",
+      "IfxGtm_Pwm_init",
+      "IfxGtm_Pwm_updateFrequencyImmediate",
+      "IfxGtm_Pwm_updateChannelsDutyImmediate"
+    ]
+  },
+  "cpu_main_requirements": {
+    "needs_cpu_sync": true,
+    "uses_timer_delay": true,
+    "delay_ms": 10,
+    "additional_includes": [
+      "Bsp.h"
+    ]
+  },
+  "header_selection": {
+    "applied": true,
+    "peripheral_type": "PWM",
+    "recommended_header": "IfxGtm_Pwm",
+    "template_functions_count": 1026,
+    "required_includes": [
+      "IfxGtm_Pwm.h"
+    ]
+  }
+}
