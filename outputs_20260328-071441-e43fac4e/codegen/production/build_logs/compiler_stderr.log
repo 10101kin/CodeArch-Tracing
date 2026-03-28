@@ -1,0 +1,22 @@
+C:\Users\KENNET~1\AppData\Local\Temp\tdd_build_iccxvk0t\src\gtm_tom_3_phase_inverter_pwm.c: In function 'interruptGtmAtom':
+C:\Users\KENNET~1\AppData\Local\Temp\tdd_build_iccxvk0t\src\gtm_tom_3_phase_inverter_pwm.c:80:5: error: implicit declaration of function 'IfxPort_togglePin' [-Wimplicit-function-declaration]
+   80 |     IfxPort_togglePin(LED);
+      |     ^~~~~~~~~~~~~~~~~
+C:\Users\KENNET~1\AppData\Local\Temp\tdd_build_iccxvk0t\src\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTomPwm':
+C:\Users\KENNET~1\AppData\Local\Temp\tdd_build_iccxvk0t\src\gtm_tom_3_phase_inverter_pwm.c:183:34: error: 'IfxGtm_Pwm_ClockSource_fxclk0' undeclared (first use in this function); did you mean 'IfxGtm_Pwm_ClockSource'?
+  183 |     config.clockSource         = IfxGtm_Pwm_ClockSource_fxclk0;    /* FXCLK0 time base for TOM */
+      |                                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                  IfxGtm_Pwm_ClockSource
+C:\Users\KENNET~1\AppData\Local\Temp\tdd_build_iccxvk0t\src\gtm_tom_3_phase_inverter_pwm.c:183:34: note: each undeclared identifier is reported only once for each function it appears in
+C:\Users\KENNET~1\AppData\Local\Temp\tdd_build_iccxvk0t\src\gtm_tom_3_phase_inverter_pwm.c:184:34: error: 'IfxGtm_Dtm_ClockSource_cmuClock0' undeclared (first use in this function); did you mean 'IfxGtm_Dtm_ClockSource_cdtm0'?
+  184 |     config.dtmClockSource      = IfxGtm_Dtm_ClockSource_cmuClock0; /* DTM clock source */
+      |                                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                  IfxGtm_Dtm_ClockSource_cdtm0
+C:\Users\KENNET~1\AppData\Local\Temp\tdd_build_iccxvk0t\src\gtm_tom_3_phase_inverter_pwm.c:218:5: error: implicit declaration of function 'IfxPort_setPinModeOutput' [-Wimplicit-function-declaration]
+  218 |     IfxPort_setPinModeOutput(LED, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\KENNET~1\AppData\Local\Temp\tdd_build_iccxvk0t\src\gtm_tom_3_phase_inverter_pwm.c: At top level:
+C:\Users\KENNET~1\AppData\Local\Temp\tdd_build_iccxvk0t\src\gtm_tom_3_phase_inverter_pwm.c:84:13: error: 'configureGtmTomPwmPins' defined but not used [-Werror=unused-function]
+   84 | static void configureGtmTomPwmPins(void)
+      |             ^~~~~~~~~~~~~~~~~~~~~~
+cc1.exe: all warnings being treated as errors
