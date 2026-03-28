@@ -2,13 +2,13 @@
   "success": false,
   "errors": [
     {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_z0aandov\\src\\gtm_tom_3_phase_inverter_pwm.c",
-      "line": 146,
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xwuo2kx6\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 163,
       "category": "error",
-      "message": "'IfxGtm_Cluster_1' undeclared (first use in this function); did you mean 'IfxGtm_Cluster'?"
+      "message": "assignment to 'IfxGtm_Pwm_callBack' {aka 'void (*)(void)'} from incompatible pointer type 'void (*)(void *)' [-Wincompatible-pointer-types]"
     }
   ],
   "warnings": [],
-  "stderr": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_z0aandov\\src\\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTom3phInv':\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_z0aandov\\src\\gtm_tom_3_phase_inverter_pwm.c:146:35: error: 'IfxGtm_Cluster_1' undeclared (first use in this function); did you mean 'IfxGtm_Cluster'?\n  146 |     config.cluster              = IfxGtm_Cluster_1;                    /* TOM1 cluster 1 */\n      |                                   ^~~~~~~~~~~~~~~~\n      |                                   IfxGtm_Cluster\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_z0aandov\\src\\gtm_tom_3_phase_inverter_pwm.c:146:35: note: each undeclared identifier is reported only once for each function it appears in\n",
+  "stderr": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xwuo2kx6\\src\\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTom3phInv':\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xwuo2kx6\\src\\gtm_tom_3_phase_inverter_pwm.c:163:33: error: assignment to 'IfxGtm_Pwm_callBack' {aka 'void (*)(void)'} from incompatible pointer type 'void (*)(void *)' [-Wincompatible-pointer-types]\n  163 |     interruptConfig.periodEvent = IfxGtm_periodEventFunction;  /* Callback */\n      |                                 ^\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xwuo2kx6\\src\\gtm_tom_3_phase_inverter_pwm.c:93:6: note: 'IfxGtm_periodEventFunction' declared here\n   93 | void IfxGtm_periodEventFunction(void *data)\n      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xwuo2kx6\\src\\gtm_tom_3_phase_inverter_pwm.c:17:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xwuo2kx6\\include/IfxGtm_Pwm.h:19:16: note: 'IfxGtm_Pwm_callBack' declared here\n   19 | typedef void (*IfxGtm_Pwm_callBack)(void);\n      |                ^~~~~~~~~~~~~~~~~~~\n",
   "stdout": ""
 }

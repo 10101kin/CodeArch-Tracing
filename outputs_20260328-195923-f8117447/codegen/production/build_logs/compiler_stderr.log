@@ -1,6 +1,11 @@
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_z0aandov\src\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTom3phInv':
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_z0aandov\src\gtm_tom_3_phase_inverter_pwm.c:146:35: error: 'IfxGtm_Cluster_1' undeclared (first use in this function); did you mean 'IfxGtm_Cluster'?
-  146 |     config.cluster              = IfxGtm_Cluster_1;                    /* TOM1 cluster 1 */
-      |                                   ^~~~~~~~~~~~~~~~
-      |                                   IfxGtm_Cluster
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_z0aandov\src\gtm_tom_3_phase_inverter_pwm.c:146:35: note: each undeclared identifier is reported only once for each function it appears in
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xwuo2kx6\src\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTom3phInv':
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xwuo2kx6\src\gtm_tom_3_phase_inverter_pwm.c:163:33: error: assignment to 'IfxGtm_Pwm_callBack' {aka 'void (*)(void)'} from incompatible pointer type 'void (*)(void *)' [-Wincompatible-pointer-types]
+  163 |     interruptConfig.periodEvent = IfxGtm_periodEventFunction;  /* Callback */
+      |                                 ^
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xwuo2kx6\src\gtm_tom_3_phase_inverter_pwm.c:93:6: note: 'IfxGtm_periodEventFunction' declared here
+   93 | void IfxGtm_periodEventFunction(void *data)
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xwuo2kx6\src\gtm_tom_3_phase_inverter_pwm.c:17:
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xwuo2kx6\include/IfxGtm_Pwm.h:19:16: note: 'IfxGtm_Pwm_callBack' declared here
+   19 | typedef void (*IfxGtm_Pwm_callBack)(void);
+      |                ^~~~~~~~~~~~~~~~~~~

@@ -1,3 +1,33 @@
-Status: SUCCESS
+Status: FAILED
 
-LLM response for production phase (attempt 5), 12970 chars
+============================================================
+TDD CODE GENERATION - ATTEMPT STATUS
+============================================================
+Phase: production
+Attempt: 5
+Status: FAILED
+Timestamp: 2026-03-29 04:26:26
+Files generated: 2
+
+============================================================
+
+ERRORS:
+
+1. assignment to 'IfxGtm_Pwm_callBack' {aka 'void (*)(void)'} from incompatible pointer type 'void (*)(void *)' [-Wincompatible-pointer-types]
+
+============================================================
+BUILD RESULT:
+{
+  "success": false,
+  "errors": [
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xwuo2kx6\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 163,
+      "category": "error",
+      "message": "assignment to 'IfxGtm_Pwm_callBack' {aka 'void (*)(void)'} from incompatible pointer type 'void (*)(void *)' [-Wincompatible-pointer-types]"
+    }
+  ],
+  "warnings": [],
+  "stderr": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xwuo2kx6\\src\\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTom3phInv':\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xwuo2kx6\\src\\gtm_tom_3_phase_inverter_pwm.c:163:33: error: assignment to 'IfxGtm_Pwm_callBack' {aka 'void (*)(void)'} from incompatible pointer type 'void (*)(void *)' [-Wincompatible-pointer-types]\n  163 |     interruptConfig.periodEvent = IfxGtm_periodEventFunction;  /* Callback */\n      |                                 ^\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xwuo2kx6\\src\\gtm_tom_3_phase_inverter_pwm.c:93:6: note: 'IfxGtm_periodEventFunction' declared here\n   93 | void IfxGtm_periodEventFunction(void *data)\n      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xwuo2kx6\\src\\gtm_tom_3_phase_inverter_pwm.c:17:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xwuo2kx6\\include/IfxGtm_Pwm.h:19:16: note: 'IfxGtm_Pwm_callBack' declared here\n   19 | typedef void (*IfxGtm_Pwm_callBack)(void);\n      |                ^~~~~~~~~~~~~~~~~~~\n",
+  "stdout": ""
+}
