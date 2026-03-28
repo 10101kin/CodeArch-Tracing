@@ -1,0 +1,165 @@
+{
+  "generation_mode": "MIGRATION",
+  "migration_info": {
+    "has_reference": true,
+    "reference_family": "TC3xx",
+    "target_family": "TC3xx",
+    "migration_required": false,
+    "driver_mappings": {
+      "IfxGtm_Tom_PwmHl": "IfxGtm_Pwm"
+    },
+    "header_mappings": {
+      "IfxGtm_Tom_PwmHl.h": "IfxGtm_Pwm.h"
+    },
+    "api_changes": [
+      {
+        "from": "IfxGtm_Tom_PwmHl_initConfig",
+        "to": "IfxGtm_Pwm_initConfig",
+        "reason": "Upgrade to unified GTM PWM API per user request"
+      },
+      {
+        "from": "IfxGtm_Tom_PwmHl_init",
+        "to": "IfxGtm_Pwm_init",
+        "reason": "Upgrade to unified GTM PWM API per user request"
+      },
+      {
+        "from": "IfxGtm_Tom_PwmHl_setMode",
+        "to": "Handled via IfxGtm_Pwm_init (mode in config)",
+        "reason": "Mode selection is configured in the unified driver configuration"
+      },
+      {
+        "from": "Manual TGC shadow-transfer trigger",
+        "to": "IfxGtm_Pwm_updateChannelsDutyImmediate (with shadow-transfer gating)",
+        "reason": "Use unified API’s atomic update mechanism"
+      }
+    ],
+    "function_names_to_preserve": [
+      "initGtmTomPwm",
+      "updateGtmTomPwmDutyCycles"
+    ],
+    "explicit_driver_upgrade": true,
+    "target_driver": "IfxGtm_Pwm"
+  },
+  "peripheral_requirement": {
+    "type": "PWM",
+    "driver_available": true,
+    "driver_name": "IfxGtm_Pwm",
+    "purpose": "3-phase inverter complementary PWM on GTM TOM1 with dead-time and atomic shadow-transfer updates",
+    "driver_locked": true,
+    "driver_selection_source": "user_explicit"
+  },
+  "signal_requirements": {
+    "phases": [
+      {
+        "name": "U",
+        "high_channel": "TOM1_CH2",
+        "low_channel": "TOM1_CH1",
+        "high_pin": "P00.3",
+        "low_pin": "P00.2",
+        "tout_high": "TOM1_TOUT2",
+        "tout_low": "TOM1_TOUT1"
+      },
+      {
+        "name": "V",
+        "high_channel": "TOM1_CH4",
+        "low_channel": "TOM1_CH3",
+        "high_pin": "P00.5",
+        "low_pin": "P00.4",
+        "tout_high": "TOM1_TOUT4",
+        "tout_low": "TOM1_TOUT3"
+      },
+      {
+        "name": "W",
+        "high_channel": "TOM1_CH6",
+        "low_channel": "TOM1_CH5",
+        "high_pin": "P00.7",
+        "low_pin": "P00.6",
+        "tout_high": "TOM1_TOUT6",
+        "tout_low": "TOM1_TOUT5"
+      }
+    ],
+    "polarity": "active-high",
+    "drive_mode": "push-pull",
+    "pad_driver": "IfxPort_PadDriver_cmosAutomotiveSpeed1",
+    "complementary_outputs": true,
+    "shadow_transfer_gating": {
+      "enabled": true,
+      "group": "TOM1_TGC0",
+      "atomic_update_scope": "All six channels (CH1..CH6)"
+    }
+  },
+  "timing_requirements": {
+    "frequency_hz": 20000,
+    "alignment": "center-aligned",
+    "dead_time_us": 0.5,
+    "min_pulse_us": 1.0,
+    "initial_duty_cycles": {
+      "U": 0.25,
+      "V": 0.5,
+      "W": 0.75
+    },
+    "clock_source": "Fxclk0",
+    "notes": "Fxclk0 must be configured to provide sufficient time resolution for 0.5 us dead-time and 1.0 us minimum pulse while achieving 20 kHz center-aligned PWM."
+  },
+  "device_configuration": {
+    "target_device_macro": "DEVICE_TC38X",
+    "pin_package": "IFX_PIN_PACKAGE_516",
+    "device_family": "TC3xx",
+    "clock_requirements": {
+      "requires_xtal": true,
+      "cmu_fxclk_source": "Fxclk0",
+      "expected_system_freq_mhz": 300
+    }
+  },
+  "code_structure": {
+    "file_pattern": "reference",
+    "expected_files": [
+      "GTM_TOM_3_Phase_Inverter_PWM 2.c",
+      "GTM_TOM_3_Phase_Inverter_PWM.h"
+    ],
+    "has_cpu_files": true
+  },
+  "reference_context": {
+    "includes_used": [
+      "Ifx_Types.h",
+      "IfxGtm_Tom_PwmHl.h",
+      "IfxCpu_Irq.h",
+      "IfxGtm_cfg_TC38x.h"
+    ],
+    "function_patterns": [
+      "initGtmTomPwm",
+      "updateGtmTomPwmDutyCycles"
+    ],
+    "peripheral_usage": {
+      "GTM_TOM1": "3-phase complementary PWM generation with dead-time using TOM channels 1..6 and P00.[2..7] pins"
+    }
+  },
+  "template_compatibility": {
+    "validated": true,
+    "supported_peripherals": [
+      "PWM",
+      "GTM"
+    ],
+    "suggested_drivers": {
+      "PWM": [
+        "IfxGtm_Pwm"
+      ],
+      "GTM": [
+        "IfxGtm_Pwm"
+      ],
+      "_driver_selection": {
+        "explicit_target": "IfxGtm_Pwm",
+        "replaced_source": "IfxGtm_Tom_PwmHl",
+        "primary_drivers": [
+          "IfxGtm_Pwm"
+        ],
+        "avoid_drivers": [
+          "IfxGtm_Tom_PwmHl"
+        ]
+      }
+    },
+    "warnings": []
+  },
+  "header_documentation_available": true,
+  "config_values_extracted": 16
+}
