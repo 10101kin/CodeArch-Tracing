@@ -6,23 +6,21 @@
 #include "IfxGtm_Cmu.h"
 #include "IfxPort.h"
 
-/* Auxiliary forward/placeholder types used by verified structs */
-typedef struct { uint32 reserved; } Ifx_GTM_ATOM;
-typedef struct { uint32 reserved; } Ifx_GTM_TOM;
-typedef struct { uint32 reserved; } Ifx_GTM_CDTM;
-typedef struct { uint32 reserved; } IfxGtm_Trig_MscOut;
+/* Additional PWM-related base types used by verified structs */
+typedef struct { uint32 dummy; } IfxGtm_Atom_ToutMap;
+typedef struct { uint32 dummy; } IfxGtm_Tom_ToutMap;
 
-/* Callback type used by PWM interrupt configuration */
-typedef void (*IfxGtm_Pwm_callBack)(void *arg);
-
-/* TOUT map union (simplified for mocks) */
 typedef union
 {
-    uint32 atom; /* placeholder for ATOM map */
-    uint32 tom;  /* placeholder for TOM map  */
+    IfxGtm_Atom_ToutMap atom;       /* ATOM map */
+    IfxGtm_Tom_ToutMap  tom;        /* TOM map */
 } IfxGtm_Pwm_ToutMap;
 
-/* VERIFIED TYPE DEFINITIONS — DO NOT MODIFY ORDER/CONTENT */
+typedef void (*IfxGtm_Pwm_callBack)(void);
+
+typedef struct { uint32 reserved; } IfxGtm_Trig_MscOut;
+
+/* VERIFIED TYPE DEFINITIONS — EMIT EXACTLY AS-IS IN MOCKS */
 typedef enum
 {
     IfxGtm_Pwm_Alignment_edge   = 0, 
@@ -234,8 +232,8 @@ typedef struct
 } IfxGtm_Pwm_Pin;
 
 /* Function declarations (subset used by module) */
+void IfxGtm_Pwm_updateChannelsDutyImmediate(IfxGtm_Pwm *pwm, float32 *requestDuty);
 void IfxGtm_Pwm_initConfig(IfxGtm_Pwm_Config *config, Ifx_GTM *gtmSFR);
 void IfxGtm_Pwm_init(IfxGtm_Pwm *pwm, IfxGtm_Pwm_Channel *channels, IfxGtm_Pwm_Config *config);
-void IfxGtm_Pwm_updateChannelsDutyImmediate(IfxGtm_Pwm *pwm, float32 *requestDuty);
 
 #endif /* IFXGTM_PWM_H */

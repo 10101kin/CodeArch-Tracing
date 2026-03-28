@@ -4,6 +4,12 @@
 #include "mock_gtm_tom_3_phase_inverter_pwm.h"
 
 /* Types/Structs */
+typedef struct
+{
+    Ifx_P *port;
+    uint8  pinIndex;
+} IfxPort_Pin;
+
 typedef enum
 {
     IfxPort_ControlledBy_port = 0,
@@ -126,20 +132,6 @@ typedef enum
     IfxPort_LvdsTerminationMode_internal = 1
 } IfxPort_LvdsTerminationMode;
 
-/* Structs */
-typedef struct
-{
-    IfxPort_LvdsMode     lvdsMode;
-    IfxPort_ControlledBy enablePortControlled;
-    IfxPort_PadSupply    padSupply;
-} IfxPort_LvdsConfig;
-
-typedef struct
-{
-    Ifx_P *port;
-    uint8  pinIndex;
-} IfxPort_Pin;
-
 typedef struct
 {
     Ifx_P            *port;
@@ -148,7 +140,14 @@ typedef struct
     IfxPort_PadDriver padDriver;
 } IfxPort_Pin_Config;
 
-/* Functions (subset) */
+typedef struct
+{
+    IfxPort_LvdsMode     lvdsMode;
+    IfxPort_ControlledBy enablePortControlled;
+    IfxPort_PadSupply    padSupply;
+} IfxPort_LvdsConfig;
+
+/* Function declarations (subset used by module) */
 void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
 void IfxPort_togglePin(Ifx_P *port, uint8 pinIndex);
 
