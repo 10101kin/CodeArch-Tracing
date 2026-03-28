@@ -1,0 +1,218 @@
+{
+  "generation_mode": "MIGRATION",
+  "migration_info": {
+    "has_reference": true,
+    "reference_family": "TC3xx",
+    "target_family": "TC3xx",
+    "migration_required": false,
+    "driver_mappings": {
+      "IfxGtm_Tom_PwmHl": "IfxGtm_Pwm"
+    },
+    "header_mappings": {
+      "IfxGtm_Tom_PwmHl.h": "IfxGtm_Pwm.h"
+    },
+    "api_changes": [
+      {
+        "from": "IfxGtm_Tom_PwmHl_initConfig",
+        "to": "IfxGtm_Pwm_initConfig",
+        "reason": "Upgrade to unified high-level PWM driver per explicit user request"
+      },
+      {
+        "from": "IfxGtm_Tom_PwmHl_init",
+        "to": "IfxGtm_Pwm_init",
+        "reason": "Upgrade to unified high-level PWM driver"
+      },
+      {
+        "from": "IfxGtm_Tom_PwmHl_setOnTime",
+        "to": "IfxGtm_Pwm_updateChannelsDutyImmediate",
+        "reason": "Unified API uses channel-duty update function"
+      },
+      {
+        "from": "IfxGtm_Tom_PwmHl_setMode",
+        "to": "Handled via IfxGtm_Pwm_initConfig (center-aligned complementary mode and dead-time in config)",
+        "reason": "Mode is configured in unified driver configuration rather than via a dedicated setter"
+      },
+      {
+        "from": "IfxScuWdt_disableCpuWatchdog",
+        "to": "IfxScuWdt_disableCpuWatchdog",
+        "reason": "Same-family TC3xx; watchdog API unchanged"
+      }
+    ],
+    "function_names_to_preserve": [],
+    "explicit_driver_upgrade": true,
+    "target_driver": "IfxGtm_Pwm"
+  },
+  "peripheral_requirement": {
+    "type": "PWM",
+    "driver_available": true,
+    "driver_name": "IfxGtm_Pwm",
+    "purpose": "3-phase center-aligned complementary PWM on TOM1 (Cluster_1) at 20 kHz with 1 us hardware dead-time; synchronous start and synchronous updates; STM-driven duty stepping",
+    "driver_locked": true,
+    "driver_selection_source": "user_explicit"
+  },
+  "signal_requirements": {
+    "pwm": {
+      "submodule": "TOM1 (Cluster_1)",
+      "alignment": "center-aligned",
+      "complementary_pairs": true,
+      "sync_start": true,
+      "sync_update": true,
+      "clock_source": "cmuFxclk0",
+      "frequency_hz": 20000,
+      "deadtime": {
+        "type": "hardware (DTM via unified driver config)",
+        "rising_edge_us": 1.0,
+        "falling_edge_us": 1.0
+      },
+      "channels": [
+        {
+          "phase": "U",
+          "hs_pin": "P02.0",
+          "ls_pin": "P02.7"
+        },
+        {
+          "phase": "V",
+          "hs_pin": "P02.1",
+          "ls_pin": "P02.4"
+        },
+        {
+          "phase": "W",
+          "hs_pin": "P02.2",
+          "ls_pin": "P02.5"
+        }
+      ]
+    },
+    "led_isr": {
+      "description": "GTM ATOM periodic interrupt to toggle LED P13.0",
+      "src_priority": 20,
+      "module": "ATOM0",
+      "channel": 0,
+      "trigger_rate_hz": 2,
+      "pin": "P13.0",
+      "notes": "Defaults chosen for missing fields: ATOM0 channel 0, 2 Hz toggle"
+    },
+    "gtm_enable_guard": {
+      "require_enable_check": true,
+      "actions": [
+        "IfxGtm_enable(&MODULE_GTM)",
+        "Configure CMU FXCLK0 source and enable",
+        "Verify IfxGtm_isEnabled(&MODULE_GTM) before PWM init"
+      ]
+    },
+    "callbacks": {
+      "IfxGtm_periodEventFunction": "Provide an empty stub (no-op) as requested"
+    }
+  },
+  "timing_requirements": {
+    "pwm_frequency_hz": 20000,
+    "duty_control": {
+      "unit": "percent",
+      "initial": {
+        "U": 25,
+        "V": 50,
+        "W": 75
+      },
+      "step": 10,
+      "wrap_rule": "if (duty + step) >= 100 then duty = 0; then add step"
+    },
+    "update_scheduler": {
+      "period_ms": 500,
+      "timebase": "STM0",
+      "api": "IfxStm_getTicksFromMilliseconds"
+    }
+  },
+  "device_configuration": {
+    "target_device_macro": "DEVICE_TC38X",
+    "pin_package": "IFX_PIN_PACKAGE_516",
+    "device_family": "TC3xx",
+    "clock_requirements": {
+      "requires_xtal": true,
+      "expected_system_freq_mhz": 300,
+      "gtm_clocking": {
+        "cmu_fxclk_source": "cmuFxclk0",
+        "cmu_fxclk0_frequency_hz": 100000000,
+        "notes": "Default FXCLK0 set to 100 MHz to provide fine resolution for 1 us dead-time (100 ticks)"
+      }
+    }
+  },
+  "code_structure": {
+    "file_pattern": "reference",
+    "expected_files": [
+      "Cpu0_Main-Reference.c",
+      "GTM_TOM_3_Phase_Inverter_PWM_2-Reference.c",
+      "GTM_TOM_3_Phase_Inverter_PWM.h"
+    ],
+    "has_cpu_files": true
+  },
+  "reference_context": {
+    "includes_used": [
+      "Ifx_Types.h",
+      "IfxCpu.h",
+      "IfxScuWdt.h",
+      "Bsp.h",
+      "GTM_TOM_3_Phase_Inverter_PWM.h",
+      "IfxGtm_Tom_PwmHl.h",
+      "IfxCpu_Irq.h",
+      "IfxGtm_cfg_TC38x.h"
+    ],
+    "function_patterns": [],
+    "peripheral_usage": {
+      "GTM": "3-phase PWM generation (migrating TOM_PwmHl → unified Pwm on TOM1 Cluster_1)",
+      "Port": "Pin configuration for PWM outputs and LED",
+      "Stm": "Periodic duty update scheduling (500 ms)"
+    }
+  },
+  "template_compatibility": {
+    "validated": true,
+    "supported_peripherals": [
+      "PWM",
+      "GTM",
+      "TIMER",
+      "STM",
+      "GPIO",
+      "ASCLIN",
+      "INTERRUPT"
+    ],
+    "suggested_drivers": {
+      "PWM": [
+        "IfxGtm_Pwm"
+      ],
+      "GTM": [
+        "IfxGtm_Pwm"
+      ],
+      "TIMER": [
+        "IfxGtm_Pwm"
+      ],
+      "STM": [
+        "IfxStm",
+        "IfxStm_Timer"
+      ],
+      "GPIO": [
+        "IfxPort_Io",
+        "IfxPort"
+      ],
+      "ASCLIN": [
+        "IfxAsclin_Asc",
+        "IfxAsclin_Lin",
+        "IfxAsclin_Spi",
+        "IfxAsclin"
+      ],
+      "INTERRUPT": [
+        "IfxCpu_Irq"
+      ],
+      "_driver_selection": {
+        "explicit_target": "IfxGtm_Pwm",
+        "replaced_source": "IfxGtm_Tom_PwmHl",
+        "primary_drivers": [
+          "IfxGtm_Pwm"
+        ],
+        "avoid_drivers": [
+          "IfxGtm_Tom_PwmHl"
+        ]
+      }
+    },
+    "warnings": []
+  },
+  "header_documentation_available": true,
+  "config_values_extracted": 16
+}

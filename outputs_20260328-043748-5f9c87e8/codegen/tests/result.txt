@@ -1,0 +1,29 @@
+Status: FAILED
+
+============================================================
+TDD CODE GENERATION - ATTEMPT STATUS
+============================================================
+Phase: test_execution
+Attempt: 7
+Status: FAILED
+Timestamp: 2026-03-28 13:12:27
+Files generated: 2
+
+============================================================
+
+ERRORS:
+
+1. C:\Users\extsiyv\AppData\Local\Temp\tdd_build_l_cn4f2s\test\test_gtm_tom_3_phase_inverter_pwm.c:386:test_TC_G1_001_init_enablesGtmAndConfiguresClocks_whenDisabled:PASS
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_l_cn4f2s\test\test_gtm_tom_3_phase_inverter_pwm.c:387:test_TC_G1_002_init_skipsEnable_whenAlreadyEnabled:PASS
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_l_cn4f2s\test\test_gtm_tom_3_phase_inverter_pwm.c:76:test_TC_G2_001_init_setsFrequencyAndChannels:FAIL: Expected 20000 Was 0. init
+
+============================================================
+BUILD RESULT:
+{
+  "test_result": {
+    "success": false,
+    "failures": 1,
+    "output": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_l_cn4f2s\\test\\test_gtm_tom_3_phase_inverter_pwm.c:386:test_TC_G1_001_init_enablesGtmAndConfiguresClocks_whenDisabled:PASS\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_l_cn4f2s\\test\\test_gtm_tom_3_phase_inverter_pwm.c:387:test_TC_G1_002_init_skipsEnable_whenAlreadyEnabled:PASS\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_l_cn4f2s\\test\\test_gtm_tom_3_phase_inverter_pwm.c:76:test_TC_G2_001_init_setsFrequencyAndChannels:FAIL: Expected 20000 Was 0. initConfig should carry 20 kHz frequency\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_l_cn4f2s\\test\\test_gtm_tom_3_phase_inverter_pwm.c:390:test_TC_G2_002_init_doesNotApplyDutyUpdatesDuringInit:PASS\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_l_cn4f2s\\test\\test_gtm_tom_3_phase_inverter_pwm.c:392:test_TC_G3_001_firstUpdateStepsFromInitialDuties:PASS\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_l_cn4f2s\\test\\test_gtm_tom_3_phase_inverter_pwm.c:393:test_TC_G3_002_wrapOccursOnWAtThirdUpdate:PASS\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_l_cn4f2s\\test\\test_gtm_tom_3_phase_inverter_pwm.c:395:test_TC_G4_001_isr_toggleIncrementsOnce:PASS\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_l_cn4f2s\\test\\test_gtm_tom_3_phase_inverter_pwm.c:396:test_TC_G4_002_isr_toggleAccumulatesAcrossCalls:PASS\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_l_cn4f2s\\test\\test_gtm_tom_3_phase_inverter_pwm.c:398:test_TC_G5_001_update_afterInit_doesNotReinitOrReenable_whenGtmWasEnabled:PASS\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_l_cn4f2s\\test\\test_gtm_tom_3_phase_inverter_pwm.c:399:test_TC_G5_002_update_afterInit_doesNotReenable_whenGtmWasDisabledButInitialized:PASS\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_l_cn4f2s\\test\\test_gtm_tom_3_phase_inverter_pwm.c:401:test_TC_G6_001_update_usesThreeChannelDutyArray_andStepsCorrectly:PASS\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_l_cn4f2s\\test\\test_gtm_tom_3_phase_inverter_pwm.c:402:test_TC_G6_002_twoUpdates_keepDutiesWithinPercentRange:PASS\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_l_cn4f2s\\test\\test_gtm_tom_3_phase_inverter_pwm.c:404:test_TC_G7_001_secondUpdate_showsNoWrapForUandV_but95ForW:PASS\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_l_cn4f2s\\test\\test_gtm_tom_3_phase_inverter_pwm.c:405:test_TC_G7_002_afterFiveUpdates_VWrappedTo10_UNotWrapped_WAdvancedTo30:PASS\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_l_cn4f2s\\test\\test_gtm_tom_3_phase_inverter_pwm.c:407:test_TC_G8_001_isr_withoutInit_doesNotTouchPwmOrCmu:PASS\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_l_cn4f2s\\test\\test_gtm_tom_3_phase_inverter_pwm.c:408:test_TC_G8_002_isr_afterInit_stillOnlyTogglesLed:PASS\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_l_cn4f2s\\test\\test_gtm_tom_3_phase_inverter_pwm.c:410:test_TC_G9_001_isr_doesNotChangeDutiesOrFrequency:PASS\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_l_cn4f2s\\test\\test_gtm_tom_3_phase_inverter_pwm.c:411:test_TC_G9_002_isr_callDoesNotTriggerCmuOperations:PASS\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_l_cn4f2s\\test\\test_gtm_tom_3_phase_inverter_pwm.c:413:test_TC_G10_001_multipleIsrCallsAccumulate:PASS\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_l_cn4f2s\\test\\test_gtm_tom_3_phase_inverter_pwm.c:414:test_TC_G10_002_isrNoOtherDriverCalls:PASS\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_l_cn4f2s\\test\\test_gtm_tom_3_phase_inverter_pwm.c:416:test_TC_G11_001_periodCallback_isNoOp_noDriverCalls:PASS\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_l_cn4f2s\\test\\test_gtm_tom_3_phase_inverter_pwm.c:417:test_TC_G11_002_periodCallback_afterInit_doesNotAlterPwmConfig:PASS\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_l_cn4f2s\\test\\test_gtm_tom_3_phase_inverter_pwm.c:419:test_TC_G12_001_periodCallback_noToggle:PASS\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_l_cn4f2s\\test\\test_gtm_tom_3_phase_inverter_pwm.c:420:test_TC_G12_002_periodCallback_safeOnMultipleInvocations:PASS\n\n-----------------------\n24 Tests 1 Failures 0 Ignored \nFAIL\n",
+    "return_code": 1
+  }
+}
