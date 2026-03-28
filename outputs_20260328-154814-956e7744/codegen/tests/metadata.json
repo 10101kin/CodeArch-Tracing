@@ -1,9 +1,11 @@
 {
-  "attempt": 2,
+  "attempt": 5,
   "phase_attempt": 1,
-  "phase": "test_generation",
-  "success": true,
-  "errors": [],
-  "timestamp": "2026-03-29T00:12:37.785861",
+  "phase": "test_execution",
+  "success": false,
+  "errors": [
+    "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_93f1f_vo\\test\\test_gtm_tom_3_phase_inverter_pwm.c:284:test_TC_G1_001_init_enables_and_configures_cmu_when_gtm_disabled:PASS\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_93f1f_vo\\test\\test_gtm_tom_3_phase_inverter_pwm.c:285:test_TC_G1_002_init_skips_cmu_when_gtm_already_enabled:PASS\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_93f1f_vo\\test\\test_gtm_tom_3_phase_inverter_pwm.c:83:test_TC_G2_001_init_sets_20kHz_and_six_channels_in_driver_init:FAIL: Ex"
+  ],
+  "timestamp": "2026-03-29T00:21:35.610245",
   "project_name": "Upgrade_the_TC387_3_phase_inverter_PWM_from_IfxGtm_r_20260329_000502"
 }
