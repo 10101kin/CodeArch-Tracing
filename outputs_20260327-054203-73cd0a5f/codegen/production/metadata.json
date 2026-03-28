@@ -1,8 +1,20 @@
 {
-  "type": "llm_response",
-  "phase": "production",
   "attempt": 3,
   "phase_attempt": 1,
-  "response_length": 11604,
-  "timestamp": "2026-03-29T07:46:30.435141"
+  "phase": "production",
+  "success": false,
+  "errors": [
+    "conflicting types for 'IfxGtm_Tom_Timer'; have 'struct <anonymous>'",
+    "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cbx1yw5l\\src\\gtm_tom_3_phase_inverter_pwm.c:16:10: fatal error: IfxGtm_PinMap.h: No such file or directory",
+    "conflicting types for 'IfxGtm_Tom_Timer'; have 'struct <anonymous>'",
+    "unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?",
+    "unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?",
+    "unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?",
+    "unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?",
+    "unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?",
+    "unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?",
+    "implicit declaration of function 'mock_IfxGtm_Tom_Tomer_applyUpdate_getCallCount'; did you mean 'mock_IfxGtm_Tom_Timer_applyUpdate_getCallCount'? [-Wimplicit-function-declaration]"
+  ],
+  "timestamp": "2026-03-29T07:46:39.006489",
+  "project_name": "Migrate_the_TC387_three-phase_inverter_PWM_to_the_r_20260329_073706"
 }
