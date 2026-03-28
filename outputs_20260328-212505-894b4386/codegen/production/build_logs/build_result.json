@@ -2,109 +2,37 @@
   "success": false,
   "errors": [
     {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\include/mock_egtm_atom_3_phase_inverter_pwm.h",
-      "line": 288,
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_88279qmn\\src\\egtm_atom_3_phase_inverter_pwm.c",
+      "line": 104,
       "category": "error",
-      "message": "unknown type name 'Ifx_PFRWB5A'; did you mean 'Ifx_PFRWB4A'?"
+      "message": "'Ifx_ActiveState_high' undeclared (first use in this function); did you mean 'Ifx_ActiveState'?"
     },
     {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\include/mock_egtm_atom_3_phase_inverter_pwm.h",
-      "line": 290,
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_88279qmn\\src\\egtm_atom_3_phase_inverter_pwm.c",
+      "line": 105,
       "category": "error",
-      "message": "unknown type name 'Ifx_PFRWB5B'; did you mean 'Ifx_PFRWB4B'?"
+      "message": "'Ifx_ActiveState_low' undeclared (first use in this function); did you mean 'Ifx_ActiveState'?"
     },
     {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\include/IfxPort.h",
-      "line": 72,
-      "category": "error",
-      "message": "unknown type name 'IfxPort_PadDriver'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\include/IfxPort.h",
-      "line": 75,
-      "category": "error",
-      "message": "conflicting types for 'IfxApApu_ApuConfig'; have 'struct <anonymous>'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\include/IfxPort.h",
-      "line": 87,
-      "category": "error",
-      "message": "conflicting types for 'IfxApProt_ProtConfig'; have 'struct <anonymous>'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\src\\egtm_atom_3_phase_inverter_pwm.c",
-      "line": 147,
-      "category": "error",
-      "message": "'IfxSrc_VmId_0' undeclared (first use in this function); did you mean 'IfxSrc_VmId'?"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\src\\egtm_atom_3_phase_inverter_pwm.c",
-      "line": 180,
-      "category": "error",
-      "message": "'IfxEgtm_Cluster_0' undeclared (first use in this function); did you mean 'IfxEgtm_Cluster'?"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\include/mock_egtm_atom_3_phase_inverter_pwm.h",
-      "line": 288,
-      "category": "error",
-      "message": "unknown type name 'Ifx_PFRWB5A'; did you mean 'Ifx_PFRWB4A'?"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\include/mock_egtm_atom_3_phase_inverter_pwm.h",
-      "line": 290,
-      "category": "error",
-      "message": "unknown type name 'Ifx_PFRWB5B'; did you mean 'Ifx_PFRWB4B'?"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\include/IfxPort.h",
-      "line": 72,
-      "category": "error",
-      "message": "unknown type name 'IfxPort_PadDriver'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\include/IfxPort.h",
-      "line": 75,
-      "category": "error",
-      "message": "conflicting types for 'IfxApApu_ApuConfig'; have 'struct <anonymous>'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\include/IfxPort.h",
-      "line": 87,
-      "category": "error",
-      "message": "conflicting types for 'IfxApProt_ProtConfig'; have 'struct <anonymous>'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\include/mock_egtm_atom_3_phase_inverter_pwm.h",
-      "line": 288,
-      "category": "error",
-      "message": "unknown type name 'Ifx_PFRWB5A'; did you mean 'Ifx_PFRWB4A'?"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\include/mock_egtm_atom_3_phase_inverter_pwm.h",
-      "line": 290,
-      "category": "error",
-      "message": "unknown type name 'Ifx_PFRWB5B'; did you mean 'Ifx_PFRWB4B'?"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_88279qmn\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
       "line": 297,
       "category": "error",
       "message": "unknown type name 'bool'"
     },
     {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_88279qmn\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
       "line": 297,
       "category": "error",
       "message": "'false' undeclared (first use in this function)"
     },
     {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_88279qmn\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
       "line": 314,
       "category": "error",
       "message": "'true' undeclared (first use in this function)"
     }
   ],
   "warnings": [],
-  "stderr": "In file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\include/Ifx_Types.h:3,\n                 from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\src\\egtm_atom_3_phase_inverter_pwm.c:15:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\include/mock_egtm_atom_3_phase_inverter_pwm.h:288:8: error: unknown type name 'Ifx_PFRWB5A'; did you mean 'Ifx_PFRWB4A'?\n  288 | extern Ifx_PFRWB5A MODULE_PFRWB5A;\n      |        ^~~~~~~~~~~\n      |        Ifx_PFRWB4A\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\include/mock_egtm_atom_3_phase_inverter_pwm.h:290:8: error: unknown type name 'Ifx_PFRWB5B'; did you mean 'Ifx_PFRWB4B'?\n  290 | extern Ifx_PFRWB5B MODULE_PFRWB5B;\n      |        ^~~~~~~~~~~\n      |        Ifx_PFRWB4B\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\include/IfxEgtm_Pwm.h:7,\n                 from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\src\\egtm_atom_3_phase_inverter_pwm.c:16:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\include/IfxPort.h:72:5: error: unknown type name 'IfxPort_PadDriver'\n   72 |     IfxPort_PadDriver padDriver;\n      |     ^~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\include/IfxPort.h:75:32: error: conflicting types for 'IfxApApu_ApuConfig'; have 'struct <anonymous>'\n   75 | typedef struct { uint32 raw; } IfxApApu_ApuConfig; /* minimal */\n      |                                ^~~~~~~~~~~~~~~~~~\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\include/IfxEgtm_Pwm.h:5:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\include/IfxEgtm.h:10:32: note: previous declaration of 'IfxApApu_ApuConfig' with type 'IfxApApu_ApuConfig'\n   10 | typedef struct { uint32 raw; } IfxApApu_ApuConfig;\n      |                                ^~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\include/IfxPort.h:87:32: error: conflicting types for 'IfxApProt_ProtConfig'; have 'struct <anonymous>'\n   87 | typedef struct { uint32 raw; } IfxApProt_ProtConfig; /* minimal */\n      |                                ^~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\include/IfxEgtm.h:11:32: note: previous declaration of 'IfxApProt_ProtConfig' with type 'IfxApProt_ProtConfig'\n   11 | typedef struct { uint32 raw; } IfxApProt_ProtConfig;\n      |                                ^~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\src\\egtm_atom_3_phase_inverter_pwm.c: In function 'initEgtmAtom3phInv':\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\src\\egtm_atom_3_phase_inverter_pwm.c:147:26: error: 'IfxSrc_VmId_0' undeclared (first use in this function); did you mean 'IfxSrc_VmId'?\n  147 |     irqCfg.vmId        = IfxSrc_VmId_0;\n      |                          ^~~~~~~~~~~~~\n      |                          IfxSrc_VmId\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\src\\egtm_atom_3_phase_inverter_pwm.c:147:26: note: each undeclared identifier is reported only once for each function it appears in\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\src\\egtm_atom_3_phase_inverter_pwm.c:180:33: error: 'IfxEgtm_Cluster_0' undeclared (first use in this function); did you mean 'IfxEgtm_Cluster'?\n  180 |     config.cluster            = IfxEgtm_Cluster_0;                 /* Match ATOM0 pin selection */\n      |                                 ^~~~~~~~~~~~~~~~~\n      |                                 IfxEgtm_Cluster\n\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\mocks\\mock_egtm_atom_3_phase_inverter_pwm.c:1:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\include/mock_egtm_atom_3_phase_inverter_pwm.h:288:8: error: unknown type name 'Ifx_PFRWB5A'; did you mean 'Ifx_PFRWB4A'?\n  288 | extern Ifx_PFRWB5A MODULE_PFRWB5A;\n      |        ^~~~~~~~~~~\n      |        Ifx_PFRWB4A\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\include/mock_egtm_atom_3_phase_inverter_pwm.h:290:8: error: unknown type name 'Ifx_PFRWB5B'; did you mean 'Ifx_PFRWB4B'?\n  290 | extern Ifx_PFRWB5B MODULE_PFRWB5B;\n      |        ^~~~~~~~~~~\n      |        Ifx_PFRWB4B\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\include/IfxEgtm_Pwm.h:7,\n                 from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\mocks\\mock_egtm_atom_3_phase_inverter_pwm.c:4:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\include/IfxPort.h:72:5: error: unknown type name 'IfxPort_PadDriver'\n   72 |     IfxPort_PadDriver padDriver;\n      |     ^~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\include/IfxPort.h:75:32: error: conflicting types for 'IfxApApu_ApuConfig'; have 'struct <anonymous>'\n   75 | typedef struct { uint32 raw; } IfxApApu_ApuConfig; /* minimal */\n      |                                ^~~~~~~~~~~~~~~~~~\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\mocks\\mock_egtm_atom_3_phase_inverter_pwm.c:2:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\include/IfxEgtm.h:10:32: note: previous declaration of 'IfxApApu_ApuConfig' with type 'IfxApApu_ApuConfig'\n   10 | typedef struct { uint32 raw; } IfxApApu_ApuConfig;\n      |                                ^~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\include/IfxPort.h:87:32: error: conflicting types for 'IfxApProt_ProtConfig'; have 'struct <anonymous>'\n   87 | typedef struct { uint32 raw; } IfxApProt_ProtConfig; /* minimal */\n      |                                ^~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\include/IfxEgtm.h:11:32: note: previous declaration of 'IfxApProt_ProtConfig' with type 'IfxApProt_ProtConfig'\n   11 | typedef struct { uint32 raw; } IfxApProt_ProtConfig;\n      |                                ^~~~~~~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\test\\test_egtm_atom_3_phase_inverter_pwm.c:2:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\include/mock_egtm_atom_3_phase_inverter_pwm.h:288:8: error: unknown type name 'Ifx_PFRWB5A'; did you mean 'Ifx_PFRWB4A'?\n  288 | extern Ifx_PFRWB5A MODULE_PFRWB5A;\n      |        ^~~~~~~~~~~\n      |        Ifx_PFRWB4A\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\include/mock_egtm_atom_3_phase_inverter_pwm.h:290:8: error: unknown type name 'Ifx_PFRWB5B'; did you mean 'Ifx_PFRWB4B'?\n  290 | extern Ifx_PFRWB5B MODULE_PFRWB5B;\n      |        ^~~~~~~~~~~\n      |        Ifx_PFRWB4B\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\test\\test_egtm_atom_3_phase_inverter_pwm.c: In function 'test_TC_G6_002_after_wrap_post_step_value_equals_step_for_each_phase':\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\test\\test_egtm_atom_3_phase_inverter_pwm.c:297:5: error: unknown type name 'bool'\n  297 |     bool wrappedSeen[3] = { false, false, false };\n      |     ^~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\test\\test_egtm_atom_3_phase_inverter_pwm.c:4:1: note: 'bool' is defined in header '<stdbool.h>'; this is probably fixable by adding '#include <stdbool.h>'\n    3 | #include \"egtm_atom_3_phase_inverter_pwm.h\"\n  +++ |+#include <stdbool.h>\n    4 | \nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\test\\test_egtm_atom_3_phase_inverter_pwm.c:297:29: error: 'false' undeclared (first use in this function)\n  297 |     bool wrappedSeen[3] = { false, false, false };\n      |                             ^~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\test\\test_egtm_atom_3_phase_inverter_pwm.c:297:29: note: 'false' is defined in header '<stdbool.h>'; this is probably fixable by adding '#include <stdbool.h>'\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\test\\test_egtm_atom_3_phase_inverter_pwm.c:297:29: note: each undeclared identifier is reported only once for each function it appears in\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\test\\test_egtm_atom_3_phase_inverter_pwm.c:314:34: error: 'true' undeclared (first use in this function)\n  314 |                 wrappedSeen[i] = true;\n      |                                  ^~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_e84arwxb\\test\\test_egtm_atom_3_phase_inverter_pwm.c:314:34: note: 'true' is defined in header '<stdbool.h>'; this is probably fixable by adding '#include <stdbool.h>'\n",
+  "stderr": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_88279qmn\\src\\egtm_atom_3_phase_inverter_pwm.c: In function 'initEgtmAtom3phInv':\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_88279qmn\\src\\egtm_atom_3_phase_inverter_pwm.c:104:39: error: 'Ifx_ActiveState_high' undeclared (first use in this function); did you mean 'Ifx_ActiveState'?\n  104 |     output[0].polarity              = Ifx_ActiveState_high;   /* HS active high */\n      |                                       ^~~~~~~~~~~~~~~~~~~~\n      |                                       Ifx_ActiveState\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_88279qmn\\src\\egtm_atom_3_phase_inverter_pwm.c:104:39: note: each undeclared identifier is reported only once for each function it appears in\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_88279qmn\\src\\egtm_atom_3_phase_inverter_pwm.c:105:39: error: 'Ifx_ActiveState_low' undeclared (first use in this function); did you mean 'Ifx_ActiveState'?\n  105 |     output[0].complementaryPolarity = Ifx_ActiveState_low;    /* LS active low  */\n      |                                       ^~~~~~~~~~~~~~~~~~~\n      |                                       Ifx_ActiveState\n\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_88279qmn\\test\\test_egtm_atom_3_phase_inverter_pwm.c: In function 'test_TC_G6_002_after_wrap_post_step_value_equals_step_for_each_phase':\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_88279qmn\\test\\test_egtm_atom_3_phase_inverter_pwm.c:297:5: error: unknown type name 'bool'\n  297 |     bool wrappedSeen[3] = { false, false, false };\n      |     ^~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_88279qmn\\test\\test_egtm_atom_3_phase_inverter_pwm.c:4:1: note: 'bool' is defined in header '<stdbool.h>'; this is probably fixable by adding '#include <stdbool.h>'\n    3 | #include \"egtm_atom_3_phase_inverter_pwm.h\"\n  +++ |+#include <stdbool.h>\n    4 | \nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_88279qmn\\test\\test_egtm_atom_3_phase_inverter_pwm.c:297:29: error: 'false' undeclared (first use in this function)\n  297 |     bool wrappedSeen[3] = { false, false, false };\n      |                             ^~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_88279qmn\\test\\test_egtm_atom_3_phase_inverter_pwm.c:297:29: note: 'false' is defined in header '<stdbool.h>'; this is probably fixable by adding '#include <stdbool.h>'\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_88279qmn\\test\\test_egtm_atom_3_phase_inverter_pwm.c:297:29: note: each undeclared identifier is reported only once for each function it appears in\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_88279qmn\\test\\test_egtm_atom_3_phase_inverter_pwm.c:314:34: error: 'true' undeclared (first use in this function)\n  314 |                 wrappedSeen[i] = true;\n      |                                  ^~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_88279qmn\\test\\test_egtm_atom_3_phase_inverter_pwm.c:314:34: note: 'true' is defined in header '<stdbool.h>'; this is probably fixable by adding '#include <stdbool.h>'\n",
   "stdout": ""
 }
