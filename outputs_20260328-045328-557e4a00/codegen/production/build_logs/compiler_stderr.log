@@ -1,0 +1,6 @@
+C:\Users\KENNET~1\AppData\Local\Temp\tdd_build_du8016ht\src\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTom3phInv':
+C:\Users\KENNET~1\AppData\Local\Temp\tdd_build_du8016ht\src\gtm_tom_3_phase_inverter_pwm.c:174:35: error: 'IfxGtm_Pwm_ClockSource_fxclk0' undeclared (first use in this function); did you mean 'IfxGtm_Pwm_ClockSource'?
+  174 |     config.clockSource          = IfxGtm_Pwm_ClockSource_fxclk0;        /* TOM uses FXCLK0 */
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                   IfxGtm_Pwm_ClockSource
+C:\Users\KENNET~1\AppData\Local\Temp\tdd_build_du8016ht\src\gtm_tom_3_phase_inverter_pwm.c:174:35: note: each undeclared identifier is reported only once for each function it appears in
