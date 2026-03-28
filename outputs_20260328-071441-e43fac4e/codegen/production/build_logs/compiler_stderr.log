@@ -1,31 +1,31 @@
-In file included from C:\Users\Kenneth Anioay\Downloads\infineon_POC_MVP\infineon_POC_MVP\unity/unity.h:22,
-                 from C:\Users\KENNET~1\AppData\Local\Temp\tdd_build_6v94i3d9\test\test_gtm_tom_3_phase_inverter_pwm.c:1:
-C:\Users\KENNET~1\AppData\Local\Temp\tdd_build_6v94i3d9\test\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G2_002_updateFrequencyImmediate_requested_with_pwm_frequency_after_init':
-C:\Users\KENNET~1\AppData\Local\Temp\tdd_build_6v94i3d9\test\test_gtm_tom_3_phase_inverter_pwm.c:80:69: error: 'mock_IfxGtm_Pwm_updateFrequencyImmediate_lastRequestFrequency' undeclared (first use in this function); did you mean 'mock_IfxGtm_Pwm_updateFrequencyImmediate_lastFrequency'?
-   80 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_PWM_FREQUENCY_HZ, (unsigned)mock_IfxGtm_Pwm_updateFrequencyImmediate_lastRequestFrequency, "Requested frequency must be 20 kHz");
-      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\Kenneth Anioay\Downloads\infineon_POC_MVP\infineon_POC_MVP\unity/unity_internals.h:904:184: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_UINT32'
-  904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)
-      |                                                                                                                                                                                        ^~~~~~
-C:\Users\KENNET~1\AppData\Local\Temp\tdd_build_6v94i3d9\test\test_gtm_tom_3_phase_inverter_pwm.c:80:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'
-   80 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_PWM_FREQUENCY_HZ, (unsigned)mock_IfxGtm_Pwm_updateFrequencyImmediate_lastRequestFrequency, "Requested frequency must be 20 kHz");
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\KENNET~1\AppData\Local\Temp\tdd_build_6v94i3d9\test\test_gtm_tom_3_phase_inverter_pwm.c:80:69: note: each undeclared identifier is reported only once for each function it appears in
-   80 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_PWM_FREQUENCY_HZ, (unsigned)mock_IfxGtm_Pwm_updateFrequencyImmediate_lastRequestFrequency, "Requested frequency must be 20 kHz");
-      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\Kenneth Anioay\Downloads\infineon_POC_MVP\infineon_POC_MVP\unity/unity_internals.h:904:184: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_UINT32'
-  904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)
-      |                                                                                                                                                                                        ^~~~~~
-C:\Users\KENNET~1\AppData\Local\Temp\tdd_build_6v94i3d9\test\test_gtm_tom_3_phase_inverter_pwm.c:80:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'
-   80 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_PWM_FREQUENCY_HZ, (unsigned)mock_IfxGtm_Pwm_updateFrequencyImmediate_lastRequestFrequency, "Requested frequency must be 20 kHz");
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\KENNET~1\AppData\Local\Temp\tdd_build_6v94i3d9\test\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G3_002_init_requests_frequency_apply_via_updateFrequencyImmediate':
-C:\Users\KENNET~1\AppData\Local\Temp\tdd_build_6v94i3d9\test\test_gtm_tom_3_phase_inverter_pwm.c:106:69: error: 'mock_IfxGtm_Pwm_updateFrequencyImmediate_lastRequestFrequency' undeclared (first use in this function); did you mean 'mock_IfxGtm_Pwm_updateFrequencyImmediate_lastFrequency'?
-  106 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_PWM_FREQUENCY_HZ, (unsigned)mock_IfxGtm_Pwm_updateFrequencyImmediate_lastRequestFrequency, "Applied frequency must be 20 kHz");
-      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\Kenneth Anioay\Downloads\infineon_POC_MVP\infineon_POC_MVP\unity/unity_internals.h:904:184: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_UINT32'
-  904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)
-      |                                                                                                                                                                                        ^~~~~~
-C:\Users\KENNET~1\AppData\Local\Temp\tdd_build_6v94i3d9\test\test_gtm_tom_3_phase_inverter_pwm.c:106:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'
-  106 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_PWM_FREQUENCY_HZ, (unsigned)mock_IfxGtm_Pwm_updateFrequencyImmediate_lastRequestFrequency, "Applied frequency must be 20 kHz");
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from C:\Users\KENNET~1\AppData\Local\Temp\tdd_build_gnhxxnyq\src\gtm_tom_3_phase_inverter_pwm.c:12:
+C:\Users\KENNET~1\AppData\Local\Temp\tdd_build_gnhxxnyq\include/IfxGtm_Pwm.h:212:5: error: unknown type name 'IfxGtm_Pwm_ChannelConfig'; did you mean 'IfxGtm_Pwm_Channel'?
+  212 |     IfxGtm_Pwm_ChannelConfig *channels;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxGtm_Pwm_Channel
+C:\Users\KENNET~1\AppData\Local\Temp\tdd_build_gnhxxnyq\src\gtm_tom_3_phase_inverter_pwm.c: In function 'interruptGtmAtom':
+C:\Users\KENNET~1\AppData\Local\Temp\tdd_build_gnhxxnyq\src\gtm_tom_3_phase_inverter_pwm.c:64:5: error: implicit declaration of function 'IfxPort_togglePin' [-Wimplicit-function-declaration]
+   64 |     IfxPort_togglePin(LED);
+      |     ^~~~~~~~~~~~~~~~~
+C:\Users\KENNET~1\AppData\Local\Temp\tdd_build_gnhxxnyq\src\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTomPwm':
+C:\Users\KENNET~1\AppData\Local\Temp\tdd_build_gnhxxnyq\src\gtm_tom_3_phase_inverter_pwm.c:97:33: error: 'IfxGtm_Pwm_ClockSource_fxclk0' undeclared (first use in this function); did you mean 'IfxGtm_Pwm_ClockSource'?
+   97 |     config.clockSource        = IfxGtm_Pwm_ClockSource_fxclk0;      /* FXCLK0 as PWM time base */
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                 IfxGtm_Pwm_ClockSource
+C:\Users\KENNET~1\AppData\Local\Temp\tdd_build_gnhxxnyq\src\gtm_tom_3_phase_inverter_pwm.c:97:33: note: each undeclared identifier is reported only once for each function it appears in
+C:\Users\KENNET~1\AppData\Local\Temp\tdd_build_gnhxxnyq\src\gtm_tom_3_phase_inverter_pwm.c:98:33: error: 'IfxGtm_Dtm_ClockSource_cmuClock0' undeclared (first use in this function); did you mean 'IfxGtm_Dtm_ClockSource_0'?
+   98 |     config.dtmClockSource     = IfxGtm_Dtm_ClockSource_cmuClock0;   /* DTM uses CMU CLK0 */
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                 IfxGtm_Dtm_ClockSource_0
+C:\Users\KENNET~1\AppData\Local\Temp\tdd_build_gnhxxnyq\src\gtm_tom_3_phase_inverter_pwm.c:171:33: error: assignment to 'int *' from incompatible pointer type 'IfxGtm_Pwm_ChannelConfig *' [-Wincompatible-pointer-types]
+  171 |     config.channels             = &channelConfig[0];
+      |                                 ^
+C:\Users\KENNET~1\AppData\Local\Temp\tdd_build_gnhxxnyq\src\gtm_tom_3_phase_inverter_pwm.c:203:5: error: implicit declaration of function 'IfxPort_setPinModeOutput' [-Wimplicit-function-declaration]
+  203 |     IfxPort_setPinModeOutput(LED, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+
+In file included from C:\Users\KENNET~1\AppData\Local\Temp\tdd_build_gnhxxnyq\mocks\mock_gtm_tom_3_phase_inverter_pwm.c:5:
+C:\Users\KENNET~1\AppData\Local\Temp\tdd_build_gnhxxnyq\include/IfxGtm_Pwm.h:212:5: error: unknown type name 'IfxGtm_Pwm_ChannelConfig'; did you mean 'IfxGtm_Pwm_Channel'?
+  212 |     IfxGtm_Pwm_ChannelConfig *channels;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxGtm_Pwm_Channel
