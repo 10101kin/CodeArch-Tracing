@@ -1,8 +1,14 @@
 {
-  "type": "llm_response",
-  "phase": "production",
   "attempt": 9,
   "phase_attempt": 4,
-  "response_length": 12159,
-  "timestamp": "2026-03-29T06:25:31.211107"
+  "phase": "production",
+  "success": false,
+  "errors": [
+    "'IfxSrc_VmId_0' undeclared (first use in this function); did you mean 'IfxSrc_VmId'?",
+    "unknown type name 'bool'",
+    "'false' undeclared (first use in this function)",
+    "'true' undeclared (first use in this function)"
+  ],
+  "timestamp": "2026-03-29T06:25:38.690768",
+  "project_name": "Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260329_060025"
 }

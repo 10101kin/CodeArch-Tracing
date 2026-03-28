@@ -1,7 +1,8 @@
-/**
- * @file egtm_atom_3_phase_inverter_pwm.h
- * @brief Public API for eGTM ATOM 3-phase inverter PWM driver (TC4xx, unified IfxEgtm_Pwm)
- */
+/**************************************************************************
+ * @file    egtm_atom_3_phase_inverter_pwm.h
+ * @brief   Public API for eGTM ATOM 3-phase inverter PWM driver (TC4xx)
+ * @note    This header exposes only the public initialization and update APIs.
+ **************************************************************************/
 #ifndef EGTM_ATOM_3_PHASE_INVERTER_PWM_H
 #define EGTM_ATOM_3_PHASE_INVERTER_PWM_H
 
@@ -9,10 +10,14 @@
 extern "C" {
 #endif
 
-/** Initialize eGTM ATOM 3-phase inverter PWM */
+/** Initialize the eGTM ATOM-based 3-phase inverter PWM (complementary outputs).
+ *  - 3 complementary pairs (U, V, W)
+ *  - Center-aligned, 20 kHz, ~1 us dead-time
+ *  - Sync start and sync update enabled
+ */
 void initEgtmAtom3phInv(void);
 
-/** Update duty cycles using immediate apply (percent-based ramp) */
+/** Update (ramp) duty-cycles for U, V, W phases in percent using immediate update. */
 void updateEgtmAtom3phInvDuty(void);
 
 #ifdef __cplusplus
