@@ -1,8 +1,12 @@
 {
-  "type": "llm_response",
-  "phase": "production",
   "attempt": 5,
   "phase_attempt": 2,
-  "response_length": 12377,
-  "timestamp": "2026-03-28T16:38:43.399949"
+  "phase": "production",
+  "success": false,
+  "errors": [
+    "'mock_IfxGtm_Pwm_updateFrequencyImmediate_lastRequestFrequency' undeclared (first use in this function); did you mean 'mock_IfxGtm_Pwm_updateFrequencyImmediate_lastFrequency'?",
+    "'mock_IfxGtm_Pwm_updateFrequencyImmediate_lastRequestFrequency' undeclared (first use in this function); did you mean 'mock_IfxGtm_Pwm_updateFrequencyImmediate_lastFrequency'?"
+  ],
+  "timestamp": "2026-03-28T16:38:51.356131",
+  "project_name": "Refactor_the_TC387_GTM_TOM_3_phase_inverter_PWM_fr_r_20260328_162529"
 }

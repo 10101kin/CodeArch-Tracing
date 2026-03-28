@@ -1,3 +1,41 @@
-Status: SUCCESS
+Status: FAILED
 
-LLM response for production phase (attempt 5), 12377 chars
+============================================================
+TDD CODE GENERATION - ATTEMPT STATUS
+============================================================
+Phase: production
+Attempt: 5
+Status: FAILED
+Timestamp: 2026-03-28 16:38:51
+Files generated: 2
+
+============================================================
+
+ERRORS:
+
+1. 'mock_IfxGtm_Pwm_updateFrequencyImmediate_lastRequestFrequency' undeclared (first use in this function); did you mean 'mock_IfxGtm_Pwm_updateFrequencyImmediate_lastFrequency'?
+
+2. 'mock_IfxGtm_Pwm_updateFrequencyImmediate_lastRequestFrequency' undeclared (first use in this function); did you mean 'mock_IfxGtm_Pwm_updateFrequencyImmediate_lastFrequency'?
+
+============================================================
+BUILD RESULT:
+{
+  "success": false,
+  "errors": [
+    {
+      "file": "C:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_6v94i3d9\\test\\test_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 80,
+      "category": "error",
+      "message": "'mock_IfxGtm_Pwm_updateFrequencyImmediate_lastRequestFrequency' undeclared (first use in this function); did you mean 'mock_IfxGtm_Pwm_updateFrequencyImmediate_lastFrequency'?"
+    },
+    {
+      "file": "C:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_6v94i3d9\\test\\test_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 106,
+      "category": "error",
+      "message": "'mock_IfxGtm_Pwm_updateFrequencyImmediate_lastRequestFrequency' undeclared (first use in this function); did you mean 'mock_IfxGtm_Pwm_updateFrequencyImmediate_lastFrequency'?"
+    }
+  ],
+  "warnings": [],
+  "stderr": "In file included from C:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\unity/unity.h:22,\n                 from C:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_6v94i3d9\\test\\test_gtm_tom_3_phase_inverter_pwm.c:1:\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_6v94i3d9\\test\\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G2_002_updateFrequencyImmediate_requested_with_pwm_frequency_after_init':\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_6v94i3d9\\test\\test_gtm_tom_3_phase_inverter_pwm.c:80:69: error: 'mock_IfxGtm_Pwm_updateFrequencyImmediate_lastRequestFrequency' undeclared (first use in this function); did you mean 'mock_IfxGtm_Pwm_updateFrequencyImmediate_lastFrequency'?\n   80 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_PWM_FREQUENCY_HZ, (unsigned)mock_IfxGtm_Pwm_updateFrequencyImmediate_lastRequestFrequency, \"Requested frequency must be 20 kHz\");\n      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\unity/unity_internals.h:904:184: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_UINT32'\n  904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)\n      |                                                                                                                                                                                        ^~~~~~\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_6v94i3d9\\test\\test_gtm_tom_3_phase_inverter_pwm.c:80:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'\n   80 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_PWM_FREQUENCY_HZ, (unsigned)mock_IfxGtm_Pwm_updateFrequencyImmediate_lastRequestFrequency, \"Requested frequency must be 20 kHz\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_6v94i3d9\\test\\test_gtm_tom_3_phase_inverter_pwm.c:80:69: note: each undeclared identifier is reported only once for each function it appears in\n   80 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_PWM_FREQUENCY_HZ, (unsigned)mock_IfxGtm_Pwm_updateFrequencyImmediate_lastRequestFrequency, \"Requested frequency must be 20 kHz\");\n      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\unity/unity_internals.h:904:184: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_UINT32'\n  904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)\n      |                                                                                                                                                                                        ^~~~~~\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_6v94i3d9\\test\\test_gtm_tom_3_phase_inverter_pwm.c:80:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'\n   80 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_PWM_FREQUENCY_HZ, (unsigned)mock_IfxGtm_Pwm_updateFrequencyImmediate_lastRequestFrequency, \"Requested frequency must be 20 kHz\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_6v94i3d9\\test\\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G3_002_init_requests_frequency_apply_via_updateFrequencyImmediate':\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_6v94i3d9\\test\\test_gtm_tom_3_phase_inverter_pwm.c:106:69: error: 'mock_IfxGtm_Pwm_updateFrequencyImmediate_lastRequestFrequency' undeclared (first use in this function); did you mean 'mock_IfxGtm_Pwm_updateFrequencyImmediate_lastFrequency'?\n  106 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_PWM_FREQUENCY_HZ, (unsigned)mock_IfxGtm_Pwm_updateFrequencyImmediate_lastRequestFrequency, \"Applied frequency must be 20 kHz\");\n      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\unity/unity_internals.h:904:184: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_UINT32'\n  904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)\n      |                                                                                                                                                                                        ^~~~~~\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_6v94i3d9\\test\\test_gtm_tom_3_phase_inverter_pwm.c:106:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'\n  106 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_PWM_FREQUENCY_HZ, (unsigned)mock_IfxGtm_Pwm_updateFrequencyImmediate_lastRequestFrequency, \"Applied frequency must be 20 kHz\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n",
+  "stdout": ""
+}
