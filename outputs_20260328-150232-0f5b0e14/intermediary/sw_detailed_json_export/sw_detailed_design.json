@@ -1,0 +1,74 @@
+{
+  "module_name": "EGTM_ATOM_3_Phase_Inverter_PWM",
+  "public_functions": [
+    {
+      "signature": "void initEgtmAtom3phInv(void)",
+      "behavior_description": "Initialize the eGTM-based 3-phase inverter PWM using the unified IfxEgtm_Pwm driver. Algorithm flow: 1) Declare all configuration structures as local variables: main Pwm Config, an array of per-channel configs (3 logical channels for U/V/W), an array of output configs mapping each channel to its complementary pair, and an interrupt config object (if used). Also ensure a persistent module-state struct exists (not local) holding: the IfxEgtm_Pwm handle, a persistent channels array referenced by the driver, and arrays for dutyCycles[3], phases[3], and deadTimes[3]. The persistent channels array must live in module state because the driver stores a pointer to it. 2) Call IfxEgtm_Pwm_initConfig to load defaults, then configure: center-aligned symmetric mode, frequency = 20 kHz, clock source = Fxclk0, syncStart enabled (to update all channels synchronously), complementary outputs enabled using the DTM with dead-time = 0.5 us and minimum pulse = 1.0 us, active-high polarity for both high and low outputs, and assign three logical channels (indices 0..2) as a contiguous group on the same ATOM cluster. 3) Populate output configuration for six signals (three complementary pairs) and assign the exact hardware-verified TOUT pins corresponding to the ATOM channels provided by the hardware design (one high-side and one low-side per phase). 4) Set initial duty fractions for the three logical channels in the per-channel configs: U=0.25, V=0.50, W=0.75. 5) Prepare the main config to reference the persistent channels array from the module state. 6) Within an enable-guard: check if the eGTM module is enabled; if not, enable it, then read the module frequency dynamically, configure the CMU clocks so Fxclk0 derives from GCLK (no extra prescaling by setting the GCLK divider to 1:1), select Clk_0 input from GCLK, and enable the Fxclk/Clk0 clocks — all inside the guard. No hardcoded frequency values are used; the module frequency read is used to derive clock configuration. 7) Call IfxEgtm_Pwm_init with the persistent handle, persistent channels array, and the configured main config. This applies the initial per-channel duty settings and the DTM dead-time/min-pulse constraints. 8) Store the initial duty fractions and dead-time values into the module state for later runtime updates. 9) Optionally configure a diagnostic LED GPIO as push-pull output after PWM init (port pin selection is board-specific). No separate start API is invoked because syncStart in the config handles the synchronized start across channels.",
+      "driver_calls": [
+        "IfxEgtm_isEnabled",
+        "IfxEgtm_enable",
+        "IfxEgtm_Cmu_getModuleFrequency",
+        "IfxEgtm_Cmu_setGclkDivider",
+        "IfxEgtm_Cmu_selectClkInput",
+        "IfxEgtm_Cmu_enableClocks",
+        "IfxEgtm_Pwm_initConfig",
+        "IfxEgtm_Pwm_init",
+        "IfxPort_setPinModeOutput"
+      ],
+      "from_reference": true,
+      "call_context": "init"
+    },
+    {
+      "signature": "void updateEgtmAtom3phInvDuty(void)",
+      "behavior_description": "Update the three logical phase duties (U/V/W) and apply them synchronously at the next PWM update point. Algorithm: 1) Read the current duty fractions for the three phases from the module state. 2) For each phase index 0..2: add a fixed STEP fraction (module constant) to the duty. 3) Enforce limits: clamp and wrap using thresholds derived from the configured minimum on-time (e.g., for 20 kHz, min duty fraction = 1.0 us / 50.0 us) and a maximum duty fraction (e.g., less than 1.0 to reserve margins). If a duty reaches or exceeds the max threshold, wrap it to the min threshold; otherwise keep the updated value. 4) Store the updated duty fractions back into the module state. 5) Call the driver to apply the three updated duty fractions immediately using the synchronous multi-channel update, so all channels take effect together at the next period boundary. No STM timing, delays, or scheduling logic is included here; invocation timing is controlled by the Cpu0_Main loop.",
+      "driver_calls": [
+        "IfxEgtm_Pwm_updateChannelsDutyImmediate"
+      ],
+      "from_reference": true,
+      "call_context": "loop"
+    }
+  ],
+  "private_functions": [],
+  "dependencies": {
+    "includes": [
+      "Ifx_Types.h",
+      "IfxEgtm_Pwm.h",
+      "IfxPort.h"
+    ],
+    "driver_calls": [
+      "IfxEgtm_isEnabled",
+      "IfxEgtm_enable",
+      "IfxEgtm_Cmu_getModuleFrequency",
+      "IfxEgtm_Cmu_setGclkDivider",
+      "IfxEgtm_Cmu_selectClkInput",
+      "IfxEgtm_Cmu_enableClocks",
+      "IfxEgtm_Pwm_initConfig",
+      "IfxEgtm_Pwm_init",
+      "IfxEgtm_Pwm_updateChannelsDutyImmediate",
+      "IfxPort_setPinModeOutput"
+    ]
+  },
+  "cpu_main_requirements": {
+    "needs_cpu_sync": true,
+    "uses_timer_delay": true,
+    "delay_ms": 10,
+    "additional_includes": [
+      "Bsp.h"
+    ]
+  },
+  "header_selection": {
+    "applied": true,
+    "peripheral_type": "PWM",
+    "recommended_header": "IfxEgtm_Cmu",
+    "template_functions_count": 1460,
+    "required_includes": [
+      "IfxEgtm_Cmu.h"
+    ],
+    "original_recommendation": "IfxEgtm_Atom_Pwm",
+    "reconciled": true,
+    "reconciliation_reason": "LLM driver_calls use IfxEgtm_Cmu_* API, not IfxEgtm_Atom_Pwm (the reference API). Updated to match actual usage.",
+    "original_required_includes": [
+      "IfxEgtm_Atom_Pwm.h"
+    ]
+  }
+}
