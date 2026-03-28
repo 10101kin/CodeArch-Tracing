@@ -1,20 +1,8 @@
 {
-  "attempt": 3,
-  "phase_attempt": 1,
+  "type": "llm_response",
   "phase": "production",
-  "success": false,
-  "errors": [
-    "unknown type name 'IfxPort_LvdsMode'",
-    "unknown type name 'IfxPort_ControlledBy'",
-    "unknown type name 'IfxPort_PadSupply'",
-    "unknown type name 'IfxPort_OutputIdx'",
-    "unknown type name 'IfxPort_PadDriver'",
-    "redeclaration of enumerator 'IfxGtm_Cluster_0'",
-    "redeclaration of enumerator 'IfxGtm_Cluster_1'",
-    "redeclaration of enumerator 'IfxGtm_Cluster_2'",
-    "redeclaration of enumerator 'IfxGtm_Cluster_3'",
-    "conflicting types for 'IfxGtm_Cluster'; have 'enum <anonymous>'"
-  ],
-  "timestamp": "2026-03-28T12:59:37.963175",
-  "project_name": "Upgrade_TC387_PWM_from_IfxGtm_Tom_PwmHl_to_IfxGtm_r_20260328_125220"
+  "attempt": 5,
+  "phase_attempt": 2,
+  "response_length": 10298,
+  "timestamp": "2026-03-28T13:05:06.948440"
 }
