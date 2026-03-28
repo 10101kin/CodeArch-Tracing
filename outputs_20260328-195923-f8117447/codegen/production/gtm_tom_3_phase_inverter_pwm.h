@@ -1,9 +1,9 @@
 /*
  * gtm_tom_3_phase_inverter_pwm.h
  *
- * Public API for 3-phase complementary, center-aligned PWM on GTM TOM (TC3xx).
+ * Public API for 3-phase complementary center-aligned PWM using IfxGtm_Pwm on TOM backend.
  *
- * NOTE: Do not include any iLLD headers here. Implementations and includes are in the .c file.
+ * Note: iLLD headers must only be included in the .c file.
  */
 #ifndef GTM_TOM_3_PHASE_INVERTER_PWM_H
 #define GTM_TOM_3_PHASE_INVERTER_PWM_H
@@ -12,10 +12,14 @@
 extern "C" {
 #endif
 
-/* Initialize the 3-phase complementary PWM (TOM backend) */
+/**
+ * Initialize 3-phase complementary center-aligned PWM on TOM1, Cluster 1 at 20 kHz with 1 us deadtime.
+ */
 void initGtmTom3phInv(void);
 
-/* Update the three phase duties in percent (+10% step, wrap-to-0-then-add-step) */
+/**
+ * Update duty cycles by +10% with wrap-to-0-then-add-step behavior and apply immediately.
+ */
 void updateGtmTom3phInvDuty(void);
 
 #ifdef __cplusplus
