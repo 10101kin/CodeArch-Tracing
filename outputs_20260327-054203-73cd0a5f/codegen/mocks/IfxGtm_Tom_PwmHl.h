@@ -1,135 +1,79 @@
 #ifndef IFXGTM_TOM_PWMHL_H
 #define IFXGTM_TOM_PWMHL_H
-
 #include "mock_gtm_tom_3_phase_inverter_pwm.h"
+#include "IfxGtm_Tom_Timer.h"
+#include "IfxGtm.h"
+#include "IfxPort.h"
 
-/* Forward declaration for timer type to avoid cyclic include */
-typedef struct IfxGtm_Tom_Timer IfxGtm_Tom_Timer;
-
-/* TOM/DTM SFR stub types used by both drivers */
-typedef struct { uint32 reserved; } Ifx_GTM_TOM_TGC;
-typedef struct { uint32 reserved; } Ifx_GTM_CDTM_DTM;
-
-/* Basic GTM TOM enums used in config */
+/* PWM mode enum */
 typedef enum {
-    IfxGtm_Tom_0 = 0,
-    IfxGtm_Tom_1,
-    IfxGtm_Tom_2,
-    IfxGtm_Tom_3,
-    IfxGtm_Tom_4,
-    IfxGtm_Tom_5,
-    IfxGtm_Tom_6,
-    IfxGtm_Tom_7
-} IfxGtm_Tom;
-
-typedef enum {
-    IfxGtm_Tom_Ch_0 = 0,
-    IfxGtm_Tom_Ch_1,
-    IfxGtm_Tom_Ch_2,
-    IfxGtm_Tom_Ch_3,
-    IfxGtm_Tom_Ch_4,
-    IfxGtm_Tom_Ch_5,
-    IfxGtm_Tom_Ch_6,
-    IfxGtm_Tom_Ch_7,
-    IfxGtm_Tom_Ch_8,
-    IfxGtm_Tom_Ch_9,
-    IfxGtm_Tom_Ch_10,
-    IfxGtm_Tom_Ch_11,
-    IfxGtm_Tom_Ch_12,
-    IfxGtm_Tom_Ch_13,
-    IfxGtm_Tom_Ch_14,
-    IfxGtm_Tom_Ch_15
-} IfxGtm_Tom_Ch;
-
-typedef enum {
-    IfxGtm_Tom_Ch_ClkSrc_cmuClk0 = 0,
-    IfxGtm_Tom_Ch_ClkSrc_cmuClk1,
-    IfxGtm_Tom_Ch_ClkSrc_cmuClk2,
-    IfxGtm_Tom_Ch_ClkSrc_cmuClk3,
-    IfxGtm_Tom_Ch_ClkSrc_cmuClk4,
-    IfxGtm_Tom_Ch_ClkSrc_cmuClk5,
-    IfxGtm_Tom_Ch_ClkSrc_cmuClk6,
-    IfxGtm_Tom_Ch_ClkSrc_cmuClk7,
-    IfxGtm_Tom_Ch_ClkSrc_fxclk
-} IfxGtm_Tom_Ch_ClkSrc;
-
-typedef enum {
-    IfxGtm_Dtm_Ch_0 = 0,
-    IfxGtm_Dtm_Ch_1,
-    IfxGtm_Dtm_Ch_2,
-    IfxGtm_Dtm_Ch_3
-} IfxGtm_Dtm_Ch;
-
-/* PWM HL specific basic enums/structs */
-typedef enum {
-    Ifx_Pwm_Mode_leftAligned = 0,
-    Ifx_Pwm_Mode_rightAligned,
+    Ifx_Pwm_Mode_off = 0,
+    Ifx_Pwm_Mode_edgeAligned,
     Ifx_Pwm_Mode_centerAligned
 } Ifx_Pwm_Mode;
 
-/* StdIf PwmHl config used inside driver config */
+/* Forward declare update callback types used by Mode (function pointer types) */
+typedef void (*IfxGtm_Tom_PwmHl_Update)(void *driver, Ifx_TimerValue *tOn);
+typedef void (*IfxGtm_Tom_PwmHl_UpdateShift)(void *driver, Ifx_TimerValue *tOn, Ifx_TimerValue *shift);
+typedef void (*IfxGtm_Tom_PwmHl_UpdatePulse)(void *driver, Ifx_TimerValue *tOn, Ifx_TimerValue *tOff);
+
+/* Standard interface config for PwmHl (single owner here) */
 typedef struct {
-    uint8   channelCount; /* number of channels (pairs) */
-    float32 frequency;    /* timer base frequency Hz */
+    float32 frequency;   /* Hz */
+    uint32  numChannels; /* number of PWM HL channels */
 } IfxStdIf_PwmHl_Config;
 
-/* Pin map type for TOM (simplified) */
-typedef struct {
-    void   *port; /* Ifx_P* typically */
-    uint8   pin;  /* pin index */
-} IfxGtm_Tom_ToutMap;
+/* Include Pwm ToutMap typedefs here (tests may reference IfxGtm_Pwm_ToutMap) */
+typedef struct IfxGtm_Tom_ToutMap IfxGtm_Tom_ToutMap; /* from Timer header */
 typedef const IfxGtm_Tom_ToutMap* IfxGtm_Tom_ToutMapP;
+typedef IfxGtm_Tom_ToutMap IfxGtm_Pwm_ToutMap; /* alias to satisfy references */
 
-/* IfxGtm_Tom_PwmHl_Base */
-typedef struct
-{
-    Ifx_TimerValue  deadtime;
-    Ifx_TimerValue  minPulse;
-    Ifx_TimerValue  maxPulse;
-    Ifx_Pwm_Mode    mode;
-    sint8           setMode;
-    Ifx_ActiveState ccxActiveState;
-    Ifx_ActiveState coutxActiveState;
-    boolean         inverted;
-    uint8           channelCount;
+/* Base structure (matches iLLD layout) */
+typedef struct {
+    Ifx_TimerValue  deadtime;               /* Top-Bottom dead time (ticks) */
+    Ifx_TimerValue  minPulse;               /* minimum pulse (ticks) */
+    Ifx_TimerValue  maxPulse;               /* internal parameter */
+    Ifx_Pwm_Mode    mode;                   /* actual PWM mode */
+    signed char     setMode;                /* non-zero while changing mode */
+    Ifx_ActiveState ccxActiveState;         /* Top PWM active state */
+    Ifx_ActiveState coutxActiveState;       /* Bottom PWM active state */
+    boolean         inverted;               /* center aligned inverted mode */
+    uint8           channelCount;           /* number of PWM channels (pairs) */
 } IfxGtm_Tom_PwmHl_Base;
 
-/* IfxGtm_Tom_PwmHl_Config */
-typedef struct
-{
-    IfxStdIf_PwmHl_Config          base;
-    IfxGtm_Tom_Timer              *timer;
-    IfxGtm_Tom                     tom;
-    IfxGtm_Tom_ToutMapP            ccx;   /* array base.channelCount/2 */
-    IfxGtm_Tom_ToutMapP            coutx; /* array base.channelCount/2 */
-    boolean                        initPins;
+/* Config structure (matches iLLD layout; plus mock-top fields for tests if provided) */
+typedef struct {
+    IfxStdIf_PwmHl_Config          base;           /* PWM HL standard interface configuration */
+    IfxGtm_Tom_Timer              *timer;          /* linked timer */
+    IfxGtm_Tom                     tom;            /* TOM unit used */
+    const IfxGtm_Tom_ToutMapP     *ccx;            /* array of ccx channels */
+    const IfxGtm_Tom_ToutMapP     *coutx;          /* array of coutx channels */
+    boolean                        initPins;       /* TRUE: init pins in driver */
+    /* Optional top-level fields (mock-friendly) used by tests to pass frequency/channel count */
+    float32                        frequency;      /* Hz */
+    uint32                         numChannels;    /* channels */
 } IfxGtm_Tom_PwmHl_Config;
 
-/* IfxGtm_Tom_PwmHl_Mode */
-typedef struct
-{
-    Ifx_Pwm_Mode                 mode;
-    boolean                      inverted;
-    void                        *update;        /* callback placeholders */
-    void                        *updateAndShift;
-    void                        *updatePulse;
+/* Mode description (kept for completeness) */
+typedef struct {
+    Ifx_Pwm_Mode                 mode;                 /* Pwm Mode */
+    boolean                      inverted;             /* Inverted configuration */
+    IfxGtm_Tom_PwmHl_Update      update;               /* update callback */
+    IfxGtm_Tom_PwmHl_UpdateShift updateAndShift;       /* update + shift callback */
+    IfxGtm_Tom_PwmHl_UpdatePulse updatePulse;          /* update pulse callback */
 } IfxGtm_Tom_PwmHl_Mode;
 
-/* Driver object (minimal) */
-typedef struct IfxGtm_Tom_PwmHl
-{
+/* Driver object (minimal representation) */
+typedef struct {
     IfxGtm_Tom_PwmHl_Base base;
     IfxGtm_Tom_Timer     *timer;
-    Ifx_GTM_TOM          *tom;
+    IfxGtm_Tom            tom;
 } IfxGtm_Tom_PwmHl;
 
-/* API (DRIVERS TO MOCK set) */
+/* Functions from DRIVERS TO MOCK */
 void    IfxGtm_Tom_PwmHl_setOnTime(IfxGtm_Tom_PwmHl *driver, Ifx_TimerValue *tOn);
 boolean IfxGtm_Tom_PwmHl_init(IfxGtm_Tom_PwmHl *driver, const IfxGtm_Tom_PwmHl_Config *config);
 void    IfxGtm_Tom_PwmHl_initConfig(IfxGtm_Tom_PwmHl_Config *config);
 boolean IfxGtm_Tom_PwmHl_setMode(IfxGtm_Tom_PwmHl *driver, Ifx_Pwm_Mode mode);
-
-/* StdIf helper for PwmHl */
-void IfxStdIf_PwmHl_setOnTime(void *driver, Ifx_TimerValue *tOn);
 
 #endif /* IFXGTM_TOM_PWMHL_H */

@@ -1,4 +1,5 @@
 #ifndef IFXGTM_PINMAP_H
 #define IFXGTM_PINMAP_H
-#include "IfxGtm_Pwm.h"
+/* Empty stub to satisfy includes; types come from IfxGtm_Tom_PwmHl.h */
+#include "IfxGtm_Tom_PwmHl.h"
 #endif
