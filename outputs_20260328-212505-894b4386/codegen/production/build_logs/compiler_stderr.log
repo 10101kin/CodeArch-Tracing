@@ -1,28 +1,120 @@
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_88279qmn\src\egtm_atom_3_phase_inverter_pwm.c: In function 'initEgtmAtom3phInv':
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_88279qmn\src\egtm_atom_3_phase_inverter_pwm.c:104:39: error: 'Ifx_ActiveState_high' undeclared (first use in this function); did you mean 'Ifx_ActiveState'?
-  104 |     output[0].polarity              = Ifx_ActiveState_high;   /* HS active high */
-      |                                       ^~~~~~~~~~~~~~~~~~~~
-      |                                       Ifx_ActiveState
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_88279qmn\src\egtm_atom_3_phase_inverter_pwm.c:104:39: note: each undeclared identifier is reported only once for each function it appears in
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_88279qmn\src\egtm_atom_3_phase_inverter_pwm.c:105:39: error: 'Ifx_ActiveState_low' undeclared (first use in this function); did you mean 'Ifx_ActiveState'?
-  105 |     output[0].complementaryPolarity = Ifx_ActiveState_low;    /* LS active low  */
-      |                                       ^~~~~~~~~~~~~~~~~~~
-      |                                       Ifx_ActiveState
+In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7ls5mox4\include/Ifx_Types.h:3,
+                 from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7ls5mox4\src\egtm_atom_3_phase_inverter_pwm.c:15:
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7ls5mox4\include/mock_egtm_atom_3_phase_inverter_pwm.h:95:8: error: unknown type name 'Ifx_PPU'; did you mean 'Ifx_PMS'?
+   95 | extern Ifx_PPU MODULE_PPU; extern Ifx_PPU_STUDMI MODULE_PPU_STUDMI; extern Ifx_PPU_DEBUG MODULE_PPU_DEBUG; extern Ifx_PPU_SM MODULE_PPU_SM; extern Ifx_PPU_APU MODULE_PPU_APU; extern Ifx_PPU_CSMAP MODULE_PPU_CSMAP; extern Ifx_PPU_VMEMAP MODULE_PPU_VMEMAP; typedef struct { uint32 reserved; } Ifx_PPU; typedef struct { uint32 reserved; } Ifx_PPU_STUDMI; typedef struct { uint32 reserved; } Ifx_PPU_DEBUG; typedef struct { uint32 reserved; } Ifx_PPU_SM; typedef struct { uint32 reserved; } Ifx_PPU_APU; typedef struct { uint32 reserved; } Ifx_PPU_CSMAP; typedef struct { uint32 reserved; } Ifx_PPU_VMEMAP;
+      |        ^~~~~~~
+      |        Ifx_PMS
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7ls5mox4\include/mock_egtm_atom_3_phase_inverter_pwm.h:95:35: error: unknown type name 'Ifx_PPU_STUDMI'
+   95 | extern Ifx_PPU MODULE_PPU; extern Ifx_PPU_STUDMI MODULE_PPU_STUDMI; extern Ifx_PPU_DEBUG MODULE_PPU_DEBUG; extern Ifx_PPU_SM MODULE_PPU_SM; extern Ifx_PPU_APU MODULE_PPU_APU; extern Ifx_PPU_CSMAP MODULE_PPU_CSMAP; extern Ifx_PPU_VMEMAP MODULE_PPU_VMEMAP; typedef struct { uint32 reserved; } Ifx_PPU; typedef struct { uint32 reserved; } Ifx_PPU_STUDMI; typedef struct { uint32 reserved; } Ifx_PPU_DEBUG; typedef struct { uint32 reserved; } Ifx_PPU_SM; typedef struct { uint32 reserved; } Ifx_PPU_APU; typedef struct { uint32 reserved; } Ifx_PPU_CSMAP; typedef struct { uint32 reserved; } Ifx_PPU_VMEMAP;
+      |                                   ^~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7ls5mox4\include/mock_egtm_atom_3_phase_inverter_pwm.h:95:76: error: unknown type name 'Ifx_PPU_DEBUG'
+   95 | extern Ifx_PPU MODULE_PPU; extern Ifx_PPU_STUDMI MODULE_PPU_STUDMI; extern Ifx_PPU_DEBUG MODULE_PPU_DEBUG; extern Ifx_PPU_SM MODULE_PPU_SM; extern Ifx_PPU_APU MODULE_PPU_APU; extern Ifx_PPU_CSMAP MODULE_PPU_CSMAP; extern Ifx_PPU_VMEMAP MODULE_PPU_VMEMAP; typedef struct { uint32 reserved; } Ifx_PPU; typedef struct { uint32 reserved; } Ifx_PPU_STUDMI; typedef struct { uint32 reserved; } Ifx_PPU_DEBUG; typedef struct { uint32 reserved; } Ifx_PPU_SM; typedef struct { uint32 reserved; } Ifx_PPU_APU; typedef struct { uint32 reserved; } Ifx_PPU_CSMAP; typedef struct { uint32 reserved; } Ifx_PPU_VMEMAP;
+      |                                                                            ^~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7ls5mox4\include/mock_egtm_atom_3_phase_inverter_pwm.h:95:115: error: unknown type name 'Ifx_PPU_SM'; did you mean 'Ifx_CPUCS'?
+   95 | extern Ifx_PPU MODULE_PPU; extern Ifx_PPU_STUDMI MODULE_PPU_STUDMI; extern Ifx_PPU_DEBUG MODULE_PPU_DEBUG; extern Ifx_PPU_SM MODULE_PPU_SM; extern Ifx_PPU_APU MODULE_PPU_APU; extern Ifx_PPU_CSMAP MODULE_PPU_CSMAP; extern Ifx_PPU_VMEMAP MODULE_PPU_VMEMAP; typedef struct { uint32 reserved; } Ifx_PPU; typedef struct { uint32 reserved; } Ifx_PPU_STUDMI; typedef struct { uint32 reserved; } Ifx_PPU_DEBUG; typedef struct { uint32 reserved; } Ifx_PPU_SM; typedef struct { uint32 reserved; } Ifx_PPU_APU; typedef struct { uint32 reserved; } Ifx_PPU_CSMAP; typedef struct { uint32 reserved; } Ifx_PPU_VMEMAP;
+      |                                                                                                                   ^~~~~~~~~~
+      |                                                                                                                   Ifx_CPUCS
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7ls5mox4\include/mock_egtm_atom_3_phase_inverter_pwm.h:95:148: error: unknown type name 'Ifx_PPU_APU'
+   95 | extern Ifx_PPU MODULE_PPU; extern Ifx_PPU_STUDMI MODULE_PPU_STUDMI; extern Ifx_PPU_DEBUG MODULE_PPU_DEBUG; extern Ifx_PPU_SM MODULE_PPU_SM; extern Ifx_PPU_APU MODULE_PPU_APU; extern Ifx_PPU_CSMAP MODULE_PPU_CSMAP; extern Ifx_PPU_VMEMAP MODULE_PPU_VMEMAP; typedef struct { uint32 reserved; } Ifx_PPU; typedef struct { uint32 reserved; } Ifx_PPU_STUDMI; typedef struct { uint32 reserved; } Ifx_PPU_DEBUG; typedef struct { uint32 reserved; } Ifx_PPU_SM; typedef struct { uint32 reserved; } Ifx_PPU_APU; typedef struct { uint32 reserved; } Ifx_PPU_CSMAP; typedef struct { uint32 reserved; } Ifx_PPU_VMEMAP;
+      |                                                                                                                                                    ^~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7ls5mox4\include/mock_egtm_atom_3_phase_inverter_pwm.h:95:183: error: unknown type name 'Ifx_PPU_CSMAP'; did you mean 'Ifx_CPUCS'?
+   95 | extern Ifx_PPU MODULE_PPU; extern Ifx_PPU_STUDMI MODULE_PPU_STUDMI; extern Ifx_PPU_DEBUG MODULE_PPU_DEBUG; extern Ifx_PPU_SM MODULE_PPU_SM; extern Ifx_PPU_APU MODULE_PPU_APU; extern Ifx_PPU_CSMAP MODULE_PPU_CSMAP; extern Ifx_PPU_VMEMAP MODULE_PPU_VMEMAP; typedef struct { uint32 reserved; } Ifx_PPU; typedef struct { uint32 reserved; } Ifx_PPU_STUDMI; typedef struct { uint32 reserved; } Ifx_PPU_DEBUG; typedef struct { uint32 reserved; } Ifx_PPU_SM; typedef struct { uint32 reserved; } Ifx_PPU_APU; typedef struct { uint32 reserved; } Ifx_PPU_CSMAP; typedef struct { uint32 reserved; } Ifx_PPU_VMEMAP;
+      |                                                                                                                                                                                       ^~~~~~~~~~~~~
+      |                                                                                                                                                                                       Ifx_CPUCS
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7ls5mox4\include/mock_egtm_atom_3_phase_inverter_pwm.h:95:222: error: unknown type name 'Ifx_PPU_VMEMAP'
+   95 | extern Ifx_PPU MODULE_PPU; extern Ifx_PPU_STUDMI MODULE_PPU_STUDMI; extern Ifx_PPU_DEBUG MODULE_PPU_DEBUG; extern Ifx_PPU_SM MODULE_PPU_SM; extern Ifx_PPU_APU MODULE_PPU_APU; extern Ifx_PPU_CSMAP MODULE_PPU_CSMAP; extern Ifx_PPU_VMEMAP MODULE_PPU_VMEMAP; typedef struct { uint32 reserved; } Ifx_PPU; typedef struct { uint32 reserved; } Ifx_PPU_STUDMI; typedef struct { uint32 reserved; } Ifx_PPU_DEBUG; typedef struct { uint32 reserved; } Ifx_PPU_SM; typedef struct { uint32 reserved; } Ifx_PPU_APU; typedef struct { uint32 reserved; } Ifx_PPU_CSMAP; typedef struct { uint32 reserved; } Ifx_PPU_VMEMAP;
+      |                                                                                                                                                                                                                              ^~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7ls5mox4\include/mock_egtm_atom_3_phase_inverter_pwm.h:174:8: error: unknown type name 'Ifx_PFRWB5A'; did you mean 'Ifx_PFRWB4A'?
+  174 | extern Ifx_PFRWB5A MODULE_PFRWB5A;
+      |        ^~~~~~~~~~~
+      |        Ifx_PFRWB4A
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7ls5mox4\include/mock_egtm_atom_3_phase_inverter_pwm.h:176:8: error: unknown type name 'Ifx_PFRWB5B'; did you mean 'Ifx_PFRWB4B'?
+  176 | extern Ifx_PFRWB5B MODULE_PFRWB5B;
+      |        ^~~~~~~~~~~
+      |        Ifx_PFRWB4B
+In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7ls5mox4\src\egtm_atom_3_phase_inverter_pwm.c:16:
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7ls5mox4\include/IfxEgtm_Pwm.h:88:5: error: unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'
+   88 |     IfxEgtm_Pwm_FastShutoffConfig *fastShutOff;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7ls5mox4\src\egtm_atom_3_phase_inverter_pwm.c: In function 'initEgtmAtom3phInv':
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7ls5mox4\src\egtm_atom_3_phase_inverter_pwm.c:145:26: error: 'IfxSrc_VmId_0' undeclared (first use in this function); did you mean 'IfxSrc_VmId'?
+  145 |     irqCfg.vmId        = IfxSrc_VmId_0;
+      |                          ^~~~~~~~~~~~~
+      |                          IfxSrc_VmId
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7ls5mox4\src\egtm_atom_3_phase_inverter_pwm.c:145:26: note: each undeclared identifier is reported only once for each function it appears in
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7ls5mox4\src\egtm_atom_3_phase_inverter_pwm.c:179:32: error: 'IfxEgtm_Cluster_0' undeclared (first use in this function); did you mean 'IfxEgtm_Cluster'?
+  179 |     config.cluster           = IfxEgtm_Cluster_0;                 /* ATOM0 on Cluster 0 */
+      |                                ^~~~~~~~~~~~~~~~~
+      |                                IfxEgtm_Cluster
 
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_88279qmn\test\test_egtm_atom_3_phase_inverter_pwm.c: In function 'test_TC_G6_002_after_wrap_post_step_value_equals_step_for_each_phase':
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_88279qmn\test\test_egtm_atom_3_phase_inverter_pwm.c:297:5: error: unknown type name 'bool'
-  297 |     bool wrappedSeen[3] = { false, false, false };
-      |     ^~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_88279qmn\test\test_egtm_atom_3_phase_inverter_pwm.c:4:1: note: 'bool' is defined in header '<stdbool.h>'; this is probably fixable by adding '#include <stdbool.h>'
-    3 | #include "egtm_atom_3_phase_inverter_pwm.h"
-  +++ |+#include <stdbool.h>
-    4 | 
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_88279qmn\test\test_egtm_atom_3_phase_inverter_pwm.c:297:29: error: 'false' undeclared (first use in this function)
-  297 |     bool wrappedSeen[3] = { false, false, false };
-      |                             ^~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_88279qmn\test\test_egtm_atom_3_phase_inverter_pwm.c:297:29: note: 'false' is defined in header '<stdbool.h>'; this is probably fixable by adding '#include <stdbool.h>'
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_88279qmn\test\test_egtm_atom_3_phase_inverter_pwm.c:297:29: note: each undeclared identifier is reported only once for each function it appears in
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_88279qmn\test\test_egtm_atom_3_phase_inverter_pwm.c:314:34: error: 'true' undeclared (first use in this function)
-  314 |                 wrappedSeen[i] = true;
-      |                                  ^~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_88279qmn\test\test_egtm_atom_3_phase_inverter_pwm.c:314:34: note: 'true' is defined in header '<stdbool.h>'; this is probably fixable by adding '#include <stdbool.h>'
+In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7ls5mox4\mocks\mock_egtm_atom_3_phase_inverter_pwm.c:1:
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7ls5mox4\include/mock_egtm_atom_3_phase_inverter_pwm.h:95:8: error: unknown type name 'Ifx_PPU'; did you mean 'Ifx_PMS'?
+   95 | extern Ifx_PPU MODULE_PPU; extern Ifx_PPU_STUDMI MODULE_PPU_STUDMI; extern Ifx_PPU_DEBUG MODULE_PPU_DEBUG; extern Ifx_PPU_SM MODULE_PPU_SM; extern Ifx_PPU_APU MODULE_PPU_APU; extern Ifx_PPU_CSMAP MODULE_PPU_CSMAP; extern Ifx_PPU_VMEMAP MODULE_PPU_VMEMAP; typedef struct { uint32 reserved; } Ifx_PPU; typedef struct { uint32 reserved; } Ifx_PPU_STUDMI; typedef struct { uint32 reserved; } Ifx_PPU_DEBUG; typedef struct { uint32 reserved; } Ifx_PPU_SM; typedef struct { uint32 reserved; } Ifx_PPU_APU; typedef struct { uint32 reserved; } Ifx_PPU_CSMAP; typedef struct { uint32 reserved; } Ifx_PPU_VMEMAP;
+      |        ^~~~~~~
+      |        Ifx_PMS
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7ls5mox4\include/mock_egtm_atom_3_phase_inverter_pwm.h:95:35: error: unknown type name 'Ifx_PPU_STUDMI'
+   95 | extern Ifx_PPU MODULE_PPU; extern Ifx_PPU_STUDMI MODULE_PPU_STUDMI; extern Ifx_PPU_DEBUG MODULE_PPU_DEBUG; extern Ifx_PPU_SM MODULE_PPU_SM; extern Ifx_PPU_APU MODULE_PPU_APU; extern Ifx_PPU_CSMAP MODULE_PPU_CSMAP; extern Ifx_PPU_VMEMAP MODULE_PPU_VMEMAP; typedef struct { uint32 reserved; } Ifx_PPU; typedef struct { uint32 reserved; } Ifx_PPU_STUDMI; typedef struct { uint32 reserved; } Ifx_PPU_DEBUG; typedef struct { uint32 reserved; } Ifx_PPU_SM; typedef struct { uint32 reserved; } Ifx_PPU_APU; typedef struct { uint32 reserved; } Ifx_PPU_CSMAP; typedef struct { uint32 reserved; } Ifx_PPU_VMEMAP;
+      |                                   ^~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7ls5mox4\include/mock_egtm_atom_3_phase_inverter_pwm.h:95:76: error: unknown type name 'Ifx_PPU_DEBUG'
+   95 | extern Ifx_PPU MODULE_PPU; extern Ifx_PPU_STUDMI MODULE_PPU_STUDMI; extern Ifx_PPU_DEBUG MODULE_PPU_DEBUG; extern Ifx_PPU_SM MODULE_PPU_SM; extern Ifx_PPU_APU MODULE_PPU_APU; extern Ifx_PPU_CSMAP MODULE_PPU_CSMAP; extern Ifx_PPU_VMEMAP MODULE_PPU_VMEMAP; typedef struct { uint32 reserved; } Ifx_PPU; typedef struct { uint32 reserved; } Ifx_PPU_STUDMI; typedef struct { uint32 reserved; } Ifx_PPU_DEBUG; typedef struct { uint32 reserved; } Ifx_PPU_SM; typedef struct { uint32 reserved; } Ifx_PPU_APU; typedef struct { uint32 reserved; } Ifx_PPU_CSMAP; typedef struct { uint32 reserved; } Ifx_PPU_VMEMAP;
+      |                                                                            ^~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7ls5mox4\include/mock_egtm_atom_3_phase_inverter_pwm.h:95:115: error: unknown type name 'Ifx_PPU_SM'; did you mean 'Ifx_CPUCS'?
+   95 | extern Ifx_PPU MODULE_PPU; extern Ifx_PPU_STUDMI MODULE_PPU_STUDMI; extern Ifx_PPU_DEBUG MODULE_PPU_DEBUG; extern Ifx_PPU_SM MODULE_PPU_SM; extern Ifx_PPU_APU MODULE_PPU_APU; extern Ifx_PPU_CSMAP MODULE_PPU_CSMAP; extern Ifx_PPU_VMEMAP MODULE_PPU_VMEMAP; typedef struct { uint32 reserved; } Ifx_PPU; typedef struct { uint32 reserved; } Ifx_PPU_STUDMI; typedef struct { uint32 reserved; } Ifx_PPU_DEBUG; typedef struct { uint32 reserved; } Ifx_PPU_SM; typedef struct { uint32 reserved; } Ifx_PPU_APU; typedef struct { uint32 reserved; } Ifx_PPU_CSMAP; typedef struct { uint32 reserved; } Ifx_PPU_VMEMAP;
+      |                                                                                                                   ^~~~~~~~~~
+      |                                                                                                                   Ifx_CPUCS
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7ls5mox4\include/mock_egtm_atom_3_phase_inverter_pwm.h:95:148: error: unknown type name 'Ifx_PPU_APU'
+   95 | extern Ifx_PPU MODULE_PPU; extern Ifx_PPU_STUDMI MODULE_PPU_STUDMI; extern Ifx_PPU_DEBUG MODULE_PPU_DEBUG; extern Ifx_PPU_SM MODULE_PPU_SM; extern Ifx_PPU_APU MODULE_PPU_APU; extern Ifx_PPU_CSMAP MODULE_PPU_CSMAP; extern Ifx_PPU_VMEMAP MODULE_PPU_VMEMAP; typedef struct { uint32 reserved; } Ifx_PPU; typedef struct { uint32 reserved; } Ifx_PPU_STUDMI; typedef struct { uint32 reserved; } Ifx_PPU_DEBUG; typedef struct { uint32 reserved; } Ifx_PPU_SM; typedef struct { uint32 reserved; } Ifx_PPU_APU; typedef struct { uint32 reserved; } Ifx_PPU_CSMAP; typedef struct { uint32 reserved; } Ifx_PPU_VMEMAP;
+      |                                                                                                                                                    ^~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7ls5mox4\include/mock_egtm_atom_3_phase_inverter_pwm.h:95:183: error: unknown type name 'Ifx_PPU_CSMAP'; did you mean 'Ifx_CPUCS'?
+   95 | extern Ifx_PPU MODULE_PPU; extern Ifx_PPU_STUDMI MODULE_PPU_STUDMI; extern Ifx_PPU_DEBUG MODULE_PPU_DEBUG; extern Ifx_PPU_SM MODULE_PPU_SM; extern Ifx_PPU_APU MODULE_PPU_APU; extern Ifx_PPU_CSMAP MODULE_PPU_CSMAP; extern Ifx_PPU_VMEMAP MODULE_PPU_VMEMAP; typedef struct { uint32 reserved; } Ifx_PPU; typedef struct { uint32 reserved; } Ifx_PPU_STUDMI; typedef struct { uint32 reserved; } Ifx_PPU_DEBUG; typedef struct { uint32 reserved; } Ifx_PPU_SM; typedef struct { uint32 reserved; } Ifx_PPU_APU; typedef struct { uint32 reserved; } Ifx_PPU_CSMAP; typedef struct { uint32 reserved; } Ifx_PPU_VMEMAP;
+      |                                                                                                                                                                                       ^~~~~~~~~~~~~
+      |                                                                                                                                                                                       Ifx_CPUCS
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7ls5mox4\include/mock_egtm_atom_3_phase_inverter_pwm.h:95:222: error: unknown type name 'Ifx_PPU_VMEMAP'
+   95 | extern Ifx_PPU MODULE_PPU; extern Ifx_PPU_STUDMI MODULE_PPU_STUDMI; extern Ifx_PPU_DEBUG MODULE_PPU_DEBUG; extern Ifx_PPU_SM MODULE_PPU_SM; extern Ifx_PPU_APU MODULE_PPU_APU; extern Ifx_PPU_CSMAP MODULE_PPU_CSMAP; extern Ifx_PPU_VMEMAP MODULE_PPU_VMEMAP; typedef struct { uint32 reserved; } Ifx_PPU; typedef struct { uint32 reserved; } Ifx_PPU_STUDMI; typedef struct { uint32 reserved; } Ifx_PPU_DEBUG; typedef struct { uint32 reserved; } Ifx_PPU_SM; typedef struct { uint32 reserved; } Ifx_PPU_APU; typedef struct { uint32 reserved; } Ifx_PPU_CSMAP; typedef struct { uint32 reserved; } Ifx_PPU_VMEMAP;
+      |                                                                                                                                                                                                                              ^~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7ls5mox4\include/mock_egtm_atom_3_phase_inverter_pwm.h:174:8: error: unknown type name 'Ifx_PFRWB5A'; did you mean 'Ifx_PFRWB4A'?
+  174 | extern Ifx_PFRWB5A MODULE_PFRWB5A;
+      |        ^~~~~~~~~~~
+      |        Ifx_PFRWB4A
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7ls5mox4\include/mock_egtm_atom_3_phase_inverter_pwm.h:176:8: error: unknown type name 'Ifx_PFRWB5B'; did you mean 'Ifx_PFRWB4B'?
+  176 | extern Ifx_PFRWB5B MODULE_PFRWB5B;
+      |        ^~~~~~~~~~~
+      |        Ifx_PFRWB4B
+In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7ls5mox4\mocks\mock_egtm_atom_3_phase_inverter_pwm.c:4:
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7ls5mox4\include/IfxEgtm_Pwm.h:88:5: error: unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'
+   88 |     IfxEgtm_Pwm_FastShutoffConfig *fastShutOff;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7ls5mox4\test\test_egtm_atom_3_phase_inverter_pwm.c:2:
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7ls5mox4\include/mock_egtm_atom_3_phase_inverter_pwm.h:95:8: error: unknown type name 'Ifx_PPU'; did you mean 'Ifx_PMS'?
+   95 | extern Ifx_PPU MODULE_PPU; extern Ifx_PPU_STUDMI MODULE_PPU_STUDMI; extern Ifx_PPU_DEBUG MODULE_PPU_DEBUG; extern Ifx_PPU_SM MODULE_PPU_SM; extern Ifx_PPU_APU MODULE_PPU_APU; extern Ifx_PPU_CSMAP MODULE_PPU_CSMAP; extern Ifx_PPU_VMEMAP MODULE_PPU_VMEMAP; typedef struct { uint32 reserved; } Ifx_PPU; typedef struct { uint32 reserved; } Ifx_PPU_STUDMI; typedef struct { uint32 reserved; } Ifx_PPU_DEBUG; typedef struct { uint32 reserved; } Ifx_PPU_SM; typedef struct { uint32 reserved; } Ifx_PPU_APU; typedef struct { uint32 reserved; } Ifx_PPU_CSMAP; typedef struct { uint32 reserved; } Ifx_PPU_VMEMAP;
+      |        ^~~~~~~
+      |        Ifx_PMS
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7ls5mox4\include/mock_egtm_atom_3_phase_inverter_pwm.h:95:35: error: unknown type name 'Ifx_PPU_STUDMI'
+   95 | extern Ifx_PPU MODULE_PPU; extern Ifx_PPU_STUDMI MODULE_PPU_STUDMI; extern Ifx_PPU_DEBUG MODULE_PPU_DEBUG; extern Ifx_PPU_SM MODULE_PPU_SM; extern Ifx_PPU_APU MODULE_PPU_APU; extern Ifx_PPU_CSMAP MODULE_PPU_CSMAP; extern Ifx_PPU_VMEMAP MODULE_PPU_VMEMAP; typedef struct { uint32 reserved; } Ifx_PPU; typedef struct { uint32 reserved; } Ifx_PPU_STUDMI; typedef struct { uint32 reserved; } Ifx_PPU_DEBUG; typedef struct { uint32 reserved; } Ifx_PPU_SM; typedef struct { uint32 reserved; } Ifx_PPU_APU; typedef struct { uint32 reserved; } Ifx_PPU_CSMAP; typedef struct { uint32 reserved; } Ifx_PPU_VMEMAP;
+      |                                   ^~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7ls5mox4\include/mock_egtm_atom_3_phase_inverter_pwm.h:95:76: error: unknown type name 'Ifx_PPU_DEBUG'
+   95 | extern Ifx_PPU MODULE_PPU; extern Ifx_PPU_STUDMI MODULE_PPU_STUDMI; extern Ifx_PPU_DEBUG MODULE_PPU_DEBUG; extern Ifx_PPU_SM MODULE_PPU_SM; extern Ifx_PPU_APU MODULE_PPU_APU; extern Ifx_PPU_CSMAP MODULE_PPU_CSMAP; extern Ifx_PPU_VMEMAP MODULE_PPU_VMEMAP; typedef struct { uint32 reserved; } Ifx_PPU; typedef struct { uint32 reserved; } Ifx_PPU_STUDMI; typedef struct { uint32 reserved; } Ifx_PPU_DEBUG; typedef struct { uint32 reserved; } Ifx_PPU_SM; typedef struct { uint32 reserved; } Ifx_PPU_APU; typedef struct { uint32 reserved; } Ifx_PPU_CSMAP; typedef struct { uint32 reserved; } Ifx_PPU_VMEMAP;
+      |                                                                            ^~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7ls5mox4\include/mock_egtm_atom_3_phase_inverter_pwm.h:95:115: error: unknown type name 'Ifx_PPU_SM'; did you mean 'Ifx_CPUCS'?
+   95 | extern Ifx_PPU MODULE_PPU; extern Ifx_PPU_STUDMI MODULE_PPU_STUDMI; extern Ifx_PPU_DEBUG MODULE_PPU_DEBUG; extern Ifx_PPU_SM MODULE_PPU_SM; extern Ifx_PPU_APU MODULE_PPU_APU; extern Ifx_PPU_CSMAP MODULE_PPU_CSMAP; extern Ifx_PPU_VMEMAP MODULE_PPU_VMEMAP; typedef struct { uint32 reserved; } Ifx_PPU; typedef struct { uint32 reserved; } Ifx_PPU_STUDMI; typedef struct { uint32 reserved; } Ifx_PPU_DEBUG; typedef struct { uint32 reserved; } Ifx_PPU_SM; typedef struct { uint32 reserved; } Ifx_PPU_APU; typedef struct { uint32 reserved; } Ifx_PPU_CSMAP; typedef struct { uint32 reserved; } Ifx_PPU_VMEMAP;
+      |                                                                                                                   ^~~~~~~~~~
+      |                                                                                                                   Ifx_CPUCS
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7ls5mox4\include/mock_egtm_atom_3_phase_inverter_pwm.h:95:148: error: unknown type name 'Ifx_PPU_APU'
+   95 | extern Ifx_PPU MODULE_PPU; extern Ifx_PPU_STUDMI MODULE_PPU_STUDMI; extern Ifx_PPU_DEBUG MODULE_PPU_DEBUG; extern Ifx_PPU_SM MODULE_PPU_SM; extern Ifx_PPU_APU MODULE_PPU_APU; extern Ifx_PPU_CSMAP MODULE_PPU_CSMAP; extern Ifx_PPU_VMEMAP MODULE_PPU_VMEMAP; typedef struct { uint32 reserved; } Ifx_PPU; typedef struct { uint32 reserved; } Ifx_PPU_STUDMI; typedef struct { uint32 reserved; } Ifx_PPU_DEBUG; typedef struct { uint32 reserved; } Ifx_PPU_SM; typedef struct { uint32 reserved; } Ifx_PPU_APU; typedef struct { uint32 reserved; } Ifx_PPU_CSMAP; typedef struct { uint32 reserved; } Ifx_PPU_VMEMAP;
+      |                                                                                                                                                    ^~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7ls5mox4\include/mock_egtm_atom_3_phase_inverter_pwm.h:95:183: error: unknown type name 'Ifx_PPU_CSMAP'; did you mean 'Ifx_CPUCS'?
+   95 | extern Ifx_PPU MODULE_PPU; extern Ifx_PPU_STUDMI MODULE_PPU_STUDMI; extern Ifx_PPU_DEBUG MODULE_PPU_DEBUG; extern Ifx_PPU_SM MODULE_PPU_SM; extern Ifx_PPU_APU MODULE_PPU_APU; extern Ifx_PPU_CSMAP MODULE_PPU_CSMAP; extern Ifx_PPU_VMEMAP MODULE_PPU_VMEMAP; typedef struct { uint32 reserved; } Ifx_PPU; typedef struct { uint32 reserved; } Ifx_PPU_STUDMI; typedef struct { uint32 reserved; } Ifx_PPU_DEBUG; typedef struct { uint32 reserved; } Ifx_PPU_SM; typedef struct { uint32 reserved; } Ifx_PPU_APU; typedef struct { uint32 reserved; } Ifx_PPU_CSMAP; typedef struct { uint32 reserved; } Ifx_PPU_VMEMAP;
+      |                                                                                                                                                                                       ^~~~~~~~~~~~~
+      |                                                                                                                                                                                       Ifx_CPUCS
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7ls5mox4\include/mock_egtm_atom_3_phase_inverter_pwm.h:95:222: error: unknown type name 'Ifx_PPU_VMEMAP'
+   95 | extern Ifx_PPU MODULE_PPU; extern Ifx_PPU_STUDMI MODULE_PPU_STUDMI; extern Ifx_PPU_DEBUG MODULE_PPU_DEBUG; extern Ifx_PPU_SM MODULE_PPU_SM; extern Ifx_PPU_APU MODULE_PPU_APU; extern Ifx_PPU_CSMAP MODULE_PPU_CSMAP; extern Ifx_PPU_VMEMAP MODULE_PPU_VMEMAP; typedef struct { uint32 reserved; } Ifx_PPU; typedef struct { uint32 reserved; } Ifx_PPU_STUDMI; typedef struct { uint32 reserved; } Ifx_PPU_DEBUG; typedef struct { uint32 reserved; } Ifx_PPU_SM; typedef struct { uint32 reserved; } Ifx_PPU_APU; typedef struct { uint32 reserved; } Ifx_PPU_CSMAP; typedef struct { uint32 reserved; } Ifx_PPU_VMEMAP;
+      |                                                                                                                                                                                                                              ^~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7ls5mox4\include/mock_egtm_atom_3_phase_inverter_pwm.h:174:8: error: unknown type name 'Ifx_PFRWB5A'; did you mean 'Ifx_PFRWB4A'?
+  174 | extern Ifx_PFRWB5A MODULE_PFRWB5A;
+      |        ^~~~~~~~~~~
+      |        Ifx_PFRWB4A
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_7ls5mox4\include/mock_egtm_atom_3_phase_inverter_pwm.h:176:8: error: unknown type name 'Ifx_PFRWB5B'; did you mean 'Ifx_PFRWB4B'?
+  176 | extern Ifx_PFRWB5B MODULE_PFRWB5B;
+      |        ^~~~~~~~~~~
+      |        Ifx_PFRWB4B

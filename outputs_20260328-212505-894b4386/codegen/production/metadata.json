@@ -1,8 +1,20 @@
 {
-  "type": "llm_response",
-  "phase": "production",
   "attempt": 7,
   "phase_attempt": 3,
-  "response_length": 12301,
-  "timestamp": "2026-03-29T06:19:59.280576"
+  "phase": "production",
+  "success": false,
+  "errors": [
+    "unknown type name 'Ifx_PPU'; did you mean 'Ifx_PMS'?",
+    "unknown type name 'Ifx_PPU_STUDMI'",
+    "unknown type name 'Ifx_PPU_DEBUG'",
+    "unknown type name 'Ifx_PPU_SM'; did you mean 'Ifx_CPUCS'?",
+    "unknown type name 'Ifx_PPU_APU'",
+    "unknown type name 'Ifx_PPU_CSMAP'; did you mean 'Ifx_CPUCS'?",
+    "unknown type name 'Ifx_PPU_VMEMAP'",
+    "unknown type name 'Ifx_PFRWB5A'; did you mean 'Ifx_PFRWB4A'?",
+    "unknown type name 'Ifx_PFRWB5B'; did you mean 'Ifx_PFRWB4B'?",
+    "unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'"
+  ],
+  "timestamp": "2026-03-29T06:20:06.241461",
+  "project_name": "Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260329_060025"
 }
