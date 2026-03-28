@@ -1,0 +1,149 @@
+{
+  "microcontroller": {
+    "model": "TC387",
+    "family": "TC3xx",
+    "verified": true,
+    "device_macro": "DEVICE_TC38X",
+    "pin_package": "IFX_PIN_PACKAGE_516"
+  },
+  "peripheral_instance": {
+    "type": "PWM",
+    "module": "GTM.TOM1 Cluster_1",
+    "channels": [
+      0,
+      7,
+      1,
+      4,
+      2,
+      5
+    ],
+    "driver": "IfxGtm_Pwm"
+  },
+  "pin_assignments": [
+    {
+      "signal": "U_HS",
+      "port_pin": "P02.0",
+      "function": "TOUT0",
+      "pin_macro": "IfxGtm_TOM1_0_TOUT0_P02_0_OUT",
+      "is_complementary": false,
+      "verified": true,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "U_LS",
+      "port_pin": "P02.7",
+      "function": "TOUT7",
+      "pin_macro": "IfxGtm_TOM1_0N_TOUT7_P02_7_OUT",
+      "is_complementary": true,
+      "verified": true,
+      "source": "hardware_verified",
+      "_original_pin_macro": "IfxGtm_TOM1_7_TOUT7_P02_7_OUT"
+    },
+    {
+      "signal": "V_HS",
+      "port_pin": "P02.1",
+      "function": "TOUT1",
+      "pin_macro": "IfxGtm_TOM1_1_TOUT1_P02_1_OUT",
+      "is_complementary": false,
+      "verified": true,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "V_LS",
+      "port_pin": "P02.4",
+      "function": "TOUT4",
+      "pin_macro": "IfxGtm_TOM1_12_TOUT4_P02_4_OUT",
+      "is_complementary": true,
+      "verified": true,
+      "source": "hardware_verified",
+      "_original_pin_macro": "IfxGtm_TOM1_4_TOUT4_P02_4_OUT"
+    },
+    {
+      "signal": "W_HS",
+      "port_pin": "P02.2",
+      "function": "TOUT2",
+      "pin_macro": "IfxGtm_TOM1_2_TOUT2_P02_2_OUT",
+      "is_complementary": false,
+      "verified": true,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "W_LS",
+      "port_pin": "P02.5",
+      "function": "TOUT5",
+      "pin_macro": "IfxGtm_TOM1_13_TOUT5_P02_5_OUT",
+      "is_complementary": true,
+      "verified": true,
+      "source": "hardware_verified",
+      "_original_pin_macro": "IfxGtm_TOM1_5_TOUT5_P02_5_OUT"
+    }
+  ],
+  "clock_configuration": {
+    "xtal_frequency_mhz": 20,
+    "system_frequency_mhz": 300
+  },
+  "validation": {
+    "all_verified": true,
+    "conflicts": [],
+    "reference_pins_valid": true
+  },
+  "template_validation": {
+    "supported_peripherals": [
+      "PWM",
+      "GTM",
+      "TIMER",
+      "STM",
+      "GPIO",
+      "ASCLIN",
+      "INTERRUPT",
+      "CPU"
+    ],
+    "suggested_drivers": {
+      "PWM": [
+        "IfxGtm_Pwm"
+      ],
+      "GTM": [
+        "IfxGtm_Pwm"
+      ],
+      "TIMER": [
+        "IfxGtm_Pwm"
+      ],
+      "STM": [
+        "IfxStm",
+        "IfxStm_Timer"
+      ],
+      "GPIO": [
+        "IfxPort_Io",
+        "IfxPort"
+      ],
+      "ASCLIN": [
+        "IfxAsclin_Asc",
+        "IfxAsclin_Lin",
+        "IfxAsclin_Spi",
+        "IfxAsclin"
+      ],
+      "INTERRUPT": [
+        "IfxCpu_Irq"
+      ],
+      "CPU": [
+        "IfxCpu"
+      ],
+      "_driver_selection": {
+        "explicit_target": "IfxGtm_Pwm",
+        "replaced_source": "IfxGtm_Tom_PwmHl",
+        "primary_drivers": [
+          "IfxGtm_Pwm"
+        ],
+        "avoid_drivers": [
+          "IfxGtm_Tom_PwmHl"
+        ]
+      }
+    },
+    "warnings": []
+  },
+  "pin_analysis": {
+    "verified_count": 6,
+    "doc_reference_count": 1,
+    "merged_total": 7
+  }
+}
