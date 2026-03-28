@@ -3,7 +3,7 @@
 
 #include "mock_gtm_tom_3_phase_inverter_pwm.h"
 
-/* Irq and Suspend enums */
+/* Base GTM enums */
 typedef enum
 {
     IfxGtm_IrqMode_level       = 0,
@@ -19,8 +19,23 @@ typedef enum
     IfxGtm_SuspendMode_soft = 2
 } IfxGtm_SuspendMode;
 
-/* Base GTM control API */
+/* GTM cluster and SFR helper types used by PWM driver */
+typedef enum
+{
+    IfxGtm_Cluster_0 = 0,
+    IfxGtm_Cluster_1 = 1,
+    IfxGtm_Cluster_2 = 2,
+    IfxGtm_Cluster_3 = 3
+} IfxGtm_Cluster;
+
+typedef struct { uint32 reserved; } Ifx_GTM_ATOM;
+typedef struct { uint32 reserved; } Ifx_GTM_TOM;
+typedef struct { uint32 reserved; } Ifx_GTM_CDTM;
+
+typedef struct { uint32 dummy; } IfxGtm_Trig_MscOut;
+
+/* Functions used */
 boolean IfxGtm_isEnabled(Ifx_GTM *gtm);
-void    IfxGtm_enable(Ifx_GTM *gtm);
+void IfxGtm_enable(Ifx_GTM *gtm);
 
 #endif /* IFXGTM_H */

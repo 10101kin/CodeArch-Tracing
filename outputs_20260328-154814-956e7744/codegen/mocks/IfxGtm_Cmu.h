@@ -3,7 +3,7 @@
 
 #include "mock_gtm_tom_3_phase_inverter_pwm.h"
 
-/* CMU Clocks enums */
+/* CMU enums */
 typedef enum
 {
     IfxGtm_Cmu_Clk_0 = 0,
@@ -47,10 +47,8 @@ typedef enum
 #define IFXGTM_CMU_CLKEN_CLK0  (0x2u)
 #endif
 
-/* Function declarations needed by production */
-void    IfxGtm_Cmu_enableClocks(Ifx_GTM *gtm, uint32 clkMask);
+/* Functions used */
+void IfxGtm_Cmu_enableClocks(Ifx_GTM *gtm, uint32 clkMask);
 float32 IfxGtm_Cmu_getModuleFrequency(Ifx_GTM *gtm);
-void    IfxGtm_Cmu_setGclkFrequency(Ifx_GTM *gtm, float32 frequency);
-void    IfxGtm_Cmu_setClkFrequency(Ifx_GTM *gtm, IfxGtm_Cmu_Clk clkIndex, float32 frequency);
 
 #endif /* IFXGTM_CMU_H */

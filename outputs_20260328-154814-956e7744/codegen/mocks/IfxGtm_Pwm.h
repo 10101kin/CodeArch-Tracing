@@ -6,15 +6,9 @@
 #include "IfxGtm_Cmu.h"
 #include "IfxPort.h"
 
-/* Auxiliary forward SFR and types used by PWM API */
-typedef struct { uint32 reserved; } Ifx_GTM_ATOM;
-typedef struct { uint32 reserved; } Ifx_GTM_TOM;
-typedef struct { uint32 reserved; } Ifx_GTM_CDTM;
-typedef struct { uint32 reserved; } IfxGtm_Trig_MscOut;
-typedef uint32 IfxGtm_Cluster;
-
-typedef struct { uint32 id; } IfxGtm_Atom_ToutMap;
-typedef struct { uint32 id; } IfxGtm_Tom_ToutMap;
+/* Additional dependency types used by PWM */
+typedef struct { uint8 dummy; } IfxGtm_Atom_ToutMap;
+typedef struct { uint8 dummy; } IfxGtm_Tom_ToutMap;
 
 typedef union
 {
@@ -24,7 +18,7 @@ typedef union
 
 typedef void (*IfxGtm_Pwm_callBack)(void *);
 
-/* VERIFIED TYPE DEFINITIONS — copied verbatim in required order */
+/* VERIFIED TYPE DEFINITIONS — emit exactly as-is (order preserved) */
 typedef enum
 {
     IfxGtm_Pwm_Alignment_edge   = 0, 
@@ -235,9 +229,9 @@ typedef struct
     IfxPort_PadDriver   padDriver;       
 } IfxGtm_Pwm_Pin;
 
-/* Function declarations (subset used by module) */
-void IfxGtm_Pwm_initConfig(IfxGtm_Pwm_Config *config, Ifx_GTM *gtmSFR);
+/* Functions used by module/tests */
 void IfxGtm_Pwm_init(IfxGtm_Pwm *pwm, IfxGtm_Pwm_Channel *channels, IfxGtm_Pwm_Config *config);
 void IfxGtm_Pwm_updateChannelsDutyImmediate(IfxGtm_Pwm *pwm, float32 *requestDuty);
+void IfxGtm_Pwm_initConfig(IfxGtm_Pwm_Config *config, Ifx_GTM *gtmSFR);
 
 #endif /* IFXGTM_PWM_H */

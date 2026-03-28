@@ -3,7 +3,12 @@
 
 #include "mock_gtm_tom_3_phase_inverter_pwm.h"
 
-/* Types and enums (from iLLD template mapping) */
+/* Types/Structs and Enums per template */
+typedef struct
+{
+    Ifx_P *port;
+    uint8  pinIndex;
+} IfxPort_Pin;
 
 typedef enum
 {
@@ -136,46 +141,15 @@ typedef struct
 
 typedef struct
 {
-    Ifx_P *port;
-    uint8  pinIndex;
-} IfxPort_Pin;
-
-typedef struct
-{
     Ifx_P            *port;
     uint8             pinIndex;
     IfxPort_OutputIdx mode;
     IfxPort_PadDriver padDriver;
 } IfxPort_Pin_Config;
 
-/* Function declarations (subset per requirements; includes requested list items) */
-IfxPort_State IfxPort_getPinState(Ifx_P *port, uint8 pinIndex);
-void IfxPort_setPinFunctionMode(Ifx_P *port, uint8 pinIndex, IfxPort_PinFunctionMode mode);
-void IfxPort_setPinHigh(Ifx_P *port, uint8 pinIndex);
-void IfxPort_setPinLow(Ifx_P *port, uint8 pinIndex);
-void IfxPort_setPinModeInput(Ifx_P *port, uint8 pinIndex, IfxPort_InputMode mode);
+/* Function declarations (subset used by module/tests) */
 void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
-void IfxPort_setPinState(Ifx_P *port, uint8 pinIndex, IfxPort_State state);
+void IfxPort_setPinLow(Ifx_P *port, uint8 pinIndex);
 void IfxPort_togglePin(Ifx_P *port, uint8 pinIndex);
-void IfxPort_disableEmergencyStop(Ifx_P *port, uint8 pinIndex);
-void IfxPort_enableEmergencyStop(Ifx_P *port, uint8 pinIndex);
-void IfxPort_setPinMode(Ifx_P *port, uint8 pinIndex, IfxPort_Mode mode);
-void IfxPort_setPinModeLVDS(Ifx_P *port, uint8 pinIndex, IfxPort_LvdsConfig *config);
-void IfxPort_setPinPadDriver(Ifx_P *port, uint8 pinIndex, IfxPort_PadDriver padDriver);
-void IfxPort_setPinControllerSelection(Ifx_P *port, uint8 pinIndex, IfxPort_ControlledBy selection);
-void IfxPort_resetPinControllerSelection(Ifx_P *port, uint8 pinIndex);
-uint16 IfxPort_getGroupState(Ifx_P *port, uint16 mask);
-void IfxPort_setGroupModeOutput(Ifx_P *port, uint16 mask, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
-void IfxPort_setGroupState(Ifx_P *port, uint16 mask, uint16 data);
-uint8 IfxPort_getIndex(Ifx_P *port);
-void IfxPort_setGroupModeInput(Ifx_P *port, uint16 mask, IfxPort_InputMode mode);
-void IfxPort_setGroupPadDriver(Ifx_P *port, uint16 mask, IfxPort_PadDriver padDriver);
-void IfxPort_resetESR(Ifx_P *port, uint8 pinIndex);
-void IfxPort_setESR(Ifx_P *port, uint8 pinIndex);
-void IfxPort_modifyPinControllerSelection(Ifx_P *port, uint8 pinIndex, IfxPort_ControlledBy selection, boolean enable);
-
-/* Watchdog helpers (declared here as in template list) */
-void IfxScuWdt_clearCpuEndinit(uint16 password);
-void IfxScuWdt_setCpuEndinit(uint16 password);
 
 #endif /* IFXPORT_H */
