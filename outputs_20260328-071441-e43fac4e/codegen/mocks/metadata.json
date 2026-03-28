@@ -1,9 +1,8 @@
 {
-  "attempt": 4,
-  "phase_attempt": 2,
-  "phase": "mock_generation",
-  "success": true,
-  "errors": [],
-  "timestamp": "2026-03-28T16:36:50.347197",
-  "project_name": "Refactor_the_TC387_GTM_TOM_3_phase_inverter_PWM_fr_r_20260328_162529"
+  "type": "llm_response",
+  "phase": "mock",
+  "attempt": 6,
+  "phase_attempt": 3,
+  "response_length": 38577,
+  "timestamp": "2026-03-28T16:42:01.553042"
 }
