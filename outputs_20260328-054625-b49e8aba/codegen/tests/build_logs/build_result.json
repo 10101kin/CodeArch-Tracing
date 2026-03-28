@@ -1,24 +1,3 @@
-Status: FAILED
-
-============================================================
-TDD CODE GENERATION - ATTEMPT STATUS
-============================================================
-Phase: test_execution
-Attempt: 3
-Status: FAILED
-Timestamp: 2026-03-28 14:51:36
-Files generated: 2
-
-============================================================
-
-ERRORS:
-
-1. C:\Users\extsiyv\AppData\Local\Temp\tdd_build_rob7lroa\test\test_gtm_tom_3_phase_inverter_pwm.c:230:test_TC_G1_001_Init_Disabled_Peripheral_Enables_GTM_and_Clocks:PASS
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_rob7lroa\test\test_gtm_tom_3_phase_inverter_pwm.c:231:test_TC_G1_002_Init_AlreadyEnabled_Skips_Enable_And_Clock:PASS
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_rob7lroa\test\test_gtm_tom_3_phase_inverter_pwm.c:67:test_TC_G2_001_Init_Sets_Frequency_And_ChannelCount_Correctly:FAIL: Ex
-
-============================================================
-BUILD RESULT:
 {
   "test_result": {
     "success": false,
