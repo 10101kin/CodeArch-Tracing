@@ -1,10 +1,11 @@
-/* IfxPort.h - Port mock */
 #ifndef IFXPORT_H
 #define IFXPORT_H
 
 #include "mock_egtm_atom_3_phase_inverter_pwm.h"
 
-/* Enums (complete sets as required) */
+/* Types/Structs and Enums */
+typedef struct { uint8 pinIndex; uint8 grpNum; } IfxPort_Pin_ApuConfig;
+
 typedef enum { IfxPort_ControlledBy_port = 0, IfxPort_ControlledBy_hsct = 1 } IfxPort_ControlledBy;
 
 typedef enum {
@@ -114,12 +115,7 @@ typedef enum {
     IfxPort_BandgapTrimConfig_1P215V = 15
 } IfxPort_BandgapTrimConfig;
 
-typedef enum {
-    IfxPort_BlankingTimerConfig_0ms = 0,
-    IfxPort_BlankingTimerConfig_2ms = 1,
-    IfxPort_BlankingTimerConfig_4ms = 2,
-    IfxPort_BlankingTimerConfig_7ms = 3
-} IfxPort_BlankingTimerConfig;
+typedef enum { IfxPort_BlankingTimerConfig_0ms = 0, IfxPort_BlankingTimerConfig_2ms = 1, IfxPort_BlankingTimerConfig_4ms = 2, IfxPort_BlankingTimerConfig_7ms = 3 } IfxPort_BlankingTimerConfig;
 
 typedef enum { IfxPort_EsrLevel_0 = 0, IfxPort_EsrLevel_1 } IfxPort_EsrLevel;
 
@@ -156,15 +152,7 @@ typedef enum {
     IfxPort_PadDriver_ttl3v3Speed3         = (3 << 3) | (2 << 0)
 } IfxPort_PadDriver;
 
-/* Structs */
-typedef struct { uint8 pinIndex; uint8 grpNum; } IfxPort_Pin_ApuConfig;
-
-typedef struct {
-    IfxPort_LvdsMode     lvdsMode;
-    IfxPort_ControlledBy enablePortControlled;
-    IfxPort_PadSupply    padSupply;
-    IfxPort_LvdsTerm     lvdsTerm;
-} IfxPort_LvdsConfig;
+typedef struct { IfxPort_LvdsMode lvdsMode; IfxPort_ControlledBy enablePortControlled; IfxPort_PadSupply padSupply; IfxPort_LvdsTerm lvdsTerm; } IfxPort_LvdsConfig;
 
 typedef struct { Ifx_P *port; uint8 pinIndex; } IfxPort_Pin;
 
@@ -176,7 +164,7 @@ typedef struct { IfxApApu_ApuConfig apuConfig[1]; IfxPort_Pin_ApuConfig pinConfi
 
 typedef struct { IfxApProt_ProtConfig protseConfig; } IfxPort_ProtConfig;
 
-/* Functions (subset required by module) */
+/* Functions required by this module */
 void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
 void IfxPort_togglePin(Ifx_P *port, uint8 pinIndex);
 
