@@ -1,0 +1,123 @@
+{
+  "user_intent_preservation": {
+    "original_goal": "Migrate 3-phase PWM motor control to new AURIX target",
+    "functional_behavior": "On TC387 KIT_A2G_TC387_5V_TFT, generate 3-phase complementary, center-aligned PWM on GTM TOM1, Cluster_1 at 20 kHz with 1 µs rising/falling dead-time, using CMU FXCLK0, synchronized start and synchronized shadow updates; map outputs to P02.0/P02.7 (U), P02.1/P02.4 (V), P02.2/P02.5 (W); initialize duties to 25/50/75%; update duties in percent with +10% steps and wrap-to-0-then-add-step behavior; provide a no-op IfxGtm_periodEventFunction; guard GTM enable/clocks if not already enabled; expose initGtmTom3phInv() and updateGtmTom3phInvDuty(); main loop waits 500 ms between updates; include a GTM ATOM ISR (priority 20) that toggles P13.0 (ATOM instance/channel and rate to be finalized).",
+    "technical_approach": "Use the unified high-level PWM driver IfxGtm_Pwm with TOM backend on Cluster_1. Configure FXCLK0 as the source (100 MHz), frequency 20 kHz, center-aligned mode, complementary outputs with 1 µs dead-time for high/low legs, synchronized start and synchronized shadow updates. Route TOM1 TOUT pins per IfxGtm_PinMap_TC38x_516 mapping for P02.0/P02.7, P02.1/P02.4, P02.2/P02.5. Guard GTM enable and FXCLK0 using IfxGtm_isEnabled/IfxGtm_enable and IfxGtm_Cmu_enableClocks. Initialize U/V/W duty to 25/50/75%. Provide updateGtmTom3phInvDuty() to compute wrap-to-0-then-add-step and push new percents using IfxGtm_Pwm_updateChannelsDutyImmediate. Provide a no-op IfxGtm_periodEventFunction hook. Implement the 500 ms delay with available STM APIs. Provide a basic ATOM interrupt stub at priority 20 that toggles P13.0, to be bound to the user-selected ATOM channel and rate."
+  },
+  "driver_selection": {
+    "recommended_driver": "IfxGtm_Pwm",
+    "selection_rationale": "Unified high-level PWM driver covers TOM backend, complementary pairs, center-aligned mode, dead-time insertion, synchronized start and shadow updates in a single configuration, minimizing code and matching the migration goal from IfxGtm_Tom_PwmHl.",
+    "available_in_template": true,
+    "complexity_level": "moderate",
+    "alternatives_considered": [
+      "IfxGtm_Tom_Dtm_PwmHl",
+      "IfxGtm_Tom_PwmHl",
+      "IfxGtm_Tom_Pwm"
+    ]
+  },
+  "driver_usage": {
+    "primary_driver": "IfxGtm_Pwm.h",
+    "available_in_template": true,
+    "initialization_apis": [
+      "IfxGtm_isEnabled",
+      "IfxGtm_enable",
+      "IfxGtm_Cmu_enableClocks",
+      "IfxGtm_Pwm_initConfig",
+      "IfxGtm_Pwm_init"
+    ],
+    "runtime_apis": [
+      "IfxGtm_Pwm_updateChannelsDutyImmediate",
+      "IfxPort_togglePin"
+    ]
+  },
+  "file_structure": {
+    "module_files": [
+      "GTM_TOM_3_Phase_Inverter_PWM.c",
+      "GTM_TOM_3_Phase_Inverter_PWM.h"
+    ],
+    "cpu_files": [
+      "Cpu0_Main.c"
+    ],
+    "from_reference": true
+  },
+  "function_mapping": {
+    "init_function": {
+      "name": "initGtmTom3phInv",
+      "driver_calls": [
+        "IfxGtm_Pwm_initConfig",
+        "IfxGtm_Pwm_init"
+      ]
+    },
+    "runtime_function": {
+      "name": "updateGtmTom3phInvDuty",
+      "driver_calls": [
+        "IfxGtm_Pwm_updateChannelsDutyImmediate"
+      ],
+      "purpose": "Compute 3-phase duty updates in percent with +10% step and wrap-to-0-then-add-step behavior, and apply them atomically using synchronized shadow updates."
+    }
+  },
+  "migration_notes": {
+    "is_migration": true,
+    "driver_changes": [
+      "IfxGtm_Tom_PwmHl → IfxGtm_Pwm (unified high-level driver with TOM backend)"
+    ],
+    "api_changes": [
+      "IfxGtm_Tom_PwmHl_initConfig → IfxGtm_Pwm_initConfig",
+      "IfxGtm_Tom_PwmHl_init → IfxGtm_Pwm_init",
+      "IfxGtm_Tom_PwmHl_setOnTime → IfxGtm_Pwm_updateChannelsDutyImmediate",
+      "Explicit mode setup via setMode → Configure center-aligned + complementary + dead-time in IfxGtm_Pwm configuration fields",
+      "Manual CMU/TOM setup → Guarded GTM enable and FXCLK0 enable via IfxGtm_isEnabled/IfxGtm_enable and IfxGtm_Cmu_enableClocks",
+      "Provide IfxGtm_periodEventFunction → Add stubbed no-op function"
+    ],
+    "context_preserved": "The unified IfxGtm_Pwm configuration targets TOM1 on Cluster_1, FXCLK0 at 100 MHz, 20 kHz center-aligned complementary PWM with 1 µs dead-time and synchronized start/shadow updates. Duty initialization (25/50/75%) and runtime percent updates using +10% step with wrap-to-0-then-add-step are maintained. Output pins map to P02.[0/7,1/4,2/5] via the TC38x_516 pin map. A GTM ATOM ISR stub (prio 20) is provided to toggle P13.0, pending user selection of ATOM channel/rate. GTM enable and clock activation are guarded to avoid double-init. Note: For the 500 ms delay in the main loop, use available STM timing APIs from IfxStm (e.g., compute ticks using IfxStm_getFrequency and IfxStm_get), since the explicit IfxStm_getTicksFromMilliseconds symbol is not listed in this template."
+  },
+  "header_selection": {
+    "applied": false
+  },
+  "driver_selection_engine": {
+    "applied": true,
+    "mcu_family": "TC3xx",
+    "requirement_analysis": {},
+    "recommendations": {
+      "PWM": {
+        "driver": "IfxGtm_Pwm",
+        "score": 100,
+        "complexity": "locked",
+        "rationale": "Driver locked by refiner node (user explicit or engine-scored)",
+        "alternatives": []
+      }
+    },
+    "migration_mappings": {
+      "IfxScuWdt": {
+        "target_driver": "IfxScuWdt",
+        "api_mapping": {
+          "IfxScuWdt_init": "IfxScuWdt_init",
+          "IfxScuWdt_initConfig": "IfxScuWdt_initConfig"
+        }
+      },
+      "IfxGtm_Tom_PwmHl": {
+        "target_driver": "IfxGtm_Pwm",
+        "api_mapping": {
+          "IfxGtm_Tom_PwmHl_init": "IfxGtm_Pwm_init",
+          "IfxGtm_Tom_PwmHl_initConfig": "IfxGtm_Pwm_initConfig",
+          "IfxGtm_Tom_PwmHl_setOnTime": "IfxGtm_Pwm_setDuty",
+          "IfxGtm_Tom_PwmHl_setPeriod": "IfxGtm_Pwm_updatePeriod",
+          "IfxGtm_Tom_PwmHl_start": "IfxGtm_Pwm_start",
+          "IfxGtm_Tom_PwmHl_stop": "IfxGtm_Pwm_stop"
+        },
+        "upgrade_reason": "Known upgrade path: IfxGtm_Tom_PwmHl → IfxGtm_Pwm"
+      },
+      "IfxCpu_Irq": {
+        "target_driver": "IfxSrc",
+        "api_mapping": {
+          "IfxCpu_Irq_installInterruptHandler": "IfxSrc_init",
+          "IfxCpu_enableInterrupts": "IfxSrc_setRequest",
+          "IfxCpu_disableInterrupts": "IfxSrc_clearRequest"
+        }
+      }
+    }
+  },
+  "driver_knowledge_base": {
+    "applied": false
+  }
+}
