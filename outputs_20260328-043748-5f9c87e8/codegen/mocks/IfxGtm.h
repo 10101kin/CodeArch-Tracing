@@ -3,7 +3,7 @@
 
 #include "mock_gtm_tom_3_phase_inverter_pwm.h"
 
-/* IRQ and Suspend enums */
+/* Enums required by GTM */
 typedef enum
 {
     IfxGtm_IrqMode_level       = 0,
@@ -19,11 +19,28 @@ typedef enum
     IfxGtm_SuspendMode_soft = 2
 } IfxGtm_SuspendMode;
 
-/* Cluster enum used by PWM (declared here to be shared) */
-typedef enum { IfxGtm_Cluster_0 = 0, IfxGtm_Cluster_1, IfxGtm_Cluster_2, IfxGtm_Cluster_3 } IfxGtm_Cluster;
+/* Cluster and related enums used by PWM driver */
+typedef enum
+{
+    IfxGtm_Cluster_0 = 0,
+    IfxGtm_Cluster_1 = 1,
+    IfxGtm_Cluster_2 = 2,
+    IfxGtm_Cluster_3 = 3
+} IfxGtm_Cluster;
 
-/* Functions used by production */
+typedef enum
+{
+    IfxGtm_Dtm_ClockSource_clk0 = 0,
+    IfxGtm_Dtm_ClockSource_clk1 = 1
+} IfxGtm_Dtm_ClockSource;
+
+/* Functions */
 boolean IfxGtm_isEnabled(Ifx_GTM *gtm);
+boolean IfxGtm_isModuleSuspended(Ifx_GTM *gtm);
+void    IfxGtm_setSuspendMode(Ifx_GTM *gtm, IfxGtm_SuspendMode mode);
+void    IfxGtm_disable(Ifx_GTM *gtm);
 void    IfxGtm_enable(Ifx_GTM *gtm);
+float32 IfxGtm_getSysClkFrequency(Ifx_GTM *gtm);
+float32 IfxGtm_getClusterFrequency(Ifx_GTM *gtm, IfxGtm_Cluster cluster);
 
 #endif /* IFXGTM_H */

@@ -6,29 +6,24 @@
 #include "IfxGtm_Cmu.h"
 #include "IfxPort.h"
 
-/* Additional dependent SFR and helper types used in PWM driver */
-typedef struct { uint32 reserved; } Ifx_GTM_ATOM;
-typedef struct { uint32 reserved; } Ifx_GTM_TOM;
-typedef struct { uint32 reserved; } Ifx_GTM_CDTM;
+/* Auxiliary types used by PWM */
+typedef struct { uint32 dummy; } Ifx_GTM_ATOM;
+typedef struct { uint32 dummy; } Ifx_GTM_TOM;
+typedef struct { uint32 dummy; } Ifx_GTM_CDTM;
+typedef struct { uint32 dummy; } IfxGtm_Trig_MscOut;
 
-/* Trigger MSC out placeholder type */
-typedef struct { uint32 reserved; } IfxGtm_Trig_MscOut;
+typedef struct { uint32 map; } IfxGtm_Atom_ToutMap;
+typedef struct { uint32 map; } IfxGtm_Tom_ToutMap;
 
-/* PWM callback: real iLLD uses a callback signature; minimal mock */
-typedef void (*IfxGtm_Pwm_callBack)(void *); 
-
-/* Pin map container types used by IfxGtm_Pwm_ToutMap */
-typedef struct { Ifx_P *port; uint8 pinIndex; } IfxGtm_Atom_ToutMap;
-typedef struct { Ifx_P *port; uint8 pinIndex; } IfxGtm_Tom_ToutMap;
-
-/* ToutMap union (as per template mapping) */
 typedef union
 {
     IfxGtm_Atom_ToutMap atom;       /* ATOM map */
     IfxGtm_Tom_ToutMap  tom;        /* TOM map */
 } IfxGtm_Pwm_ToutMap;
 
-/* ================= VERIFIED TYPE DEFINITIONS (DO NOT MODIFY ORDER) ================= */
+typedef void (*IfxGtm_Pwm_callBack)(void *data);
+
+/* VERIFIED TYPE DEFINITIONS — EMIT EXACTLY AS-IS IN MOCKS */
 
 typedef enum
 {
@@ -181,7 +176,8 @@ typedef struct
     volatile uint32 *reg1;                
     uint32           upenMask0;           
     uint32           upenMask1;           
-    volatile uint32 *endisCtrlReg0;       
+    volatile uint32 *endisCtrlReg0;       /**< \brief ATOM: points to AGC_ENDIS_CTRL.
+                                             * TOM: If channels span 2 TGCs then points to TGC0_ENDIS_CTRL else to the TGC being used TGCx_GLB_CTRL */
     volatile uint32 *endisCtrlReg1;       
 } IfxGtm_Pwm_GlobalControl;
 
@@ -189,8 +185,6 @@ typedef union {
     uint32 atom;
     uint32 tom;
 } IfxGtm_Pwm_ClockSource;
-
-typedef enum { IfxGtm_Cluster_0 = 0, IfxGtm_Cluster_1, IfxGtm_Cluster_2, IfxGtm_Cluster_3 } IfxGtm_Cluster; /* defined here for dependency */
 
 typedef struct
 {
@@ -234,15 +228,12 @@ typedef struct
     IfxPort_PadDriver   padDriver;       
 } IfxGtm_Pwm_Pin;
 
-/* ================= End VERIFIED TYPE DEFINITIONS ================= */
-
-/* Function declarations (subset used by production/tests) */
+/* Function declarations used by module */
 void IfxGtm_Pwm_initConfig(IfxGtm_Pwm_Config *config, Ifx_GTM *gtmSFR);
 void IfxGtm_Pwm_init(IfxGtm_Pwm *pwm, IfxGtm_Pwm_Channel *channels, IfxGtm_Pwm_Config *config);
 void IfxGtm_Pwm_updateChannelsDutyImmediate(IfxGtm_Pwm *pwm, float32 *requestDuty);
 
-/* Cross-driver CMU helpers referenced by PWM init sequences */
-void IfxGtm_Cmu_setGclkFrequency(Ifx_GTM *gtm, float32 frequency);
-void IfxGtm_Cmu_enableClocks(Ifx_GTM *gtm, uint32 clkMask);
+/* Often referenced helper in templates */
+void IfxCpu_Irq_installInterruptHandler(void (*isr)(void), int priority);
 
 #endif /* IFXGTM_PWM_H */
