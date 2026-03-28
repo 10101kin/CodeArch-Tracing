@@ -1,20 +1,8 @@
 {
-  "attempt": 3,
-  "phase_attempt": 1,
+  "type": "llm_response",
   "phase": "production",
-  "success": false,
-  "errors": [
-    "unknown type name 'Ifx_PFRWB5A'; did you mean 'Ifx_PFRWB4A'?",
-    "unknown type name 'Ifx_PFRWB5B'; did you mean 'Ifx_PFRWB4B'?",
-    "unknown type name 'IfxPort_PadDriver'",
-    "conflicting types for 'IfxApApu_ApuConfig'; have 'struct <anonymous>'",
-    "conflicting types for 'IfxApProt_ProtConfig'; have 'struct <anonymous>'",
-    "'IfxSrc_VmId_0' undeclared (first use in this function); did you mean 'IfxSrc_VmId'?",
-    "'IfxEgtm_Cluster_0' undeclared (first use in this function); did you mean 'IfxEgtm_Cluster'?",
-    "unknown type name 'Ifx_PFRWB5A'; did you mean 'Ifx_PFRWB4A'?",
-    "unknown type name 'Ifx_PFRWB5B'; did you mean 'Ifx_PFRWB4B'?",
-    "unknown type name 'IfxPort_PadDriver'"
-  ],
-  "timestamp": "2026-03-29T06:08:21.930045",
-  "project_name": "Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260329_060025"
+  "attempt": 5,
+  "phase_attempt": 2,
+  "response_length": 12144,
+  "timestamp": "2026-03-29T06:14:05.795319"
 }
