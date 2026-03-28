@@ -1,8 +1,9 @@
 {
-  "type": "llm_response",
-  "phase": "mock",
   "attempt": 1,
   "phase_attempt": 1,
-  "response_length": 47349,
-  "timestamp": "2026-03-29T03:29:19.605180"
+  "phase": "mock_generation",
+  "success": true,
+  "errors": [],
+  "timestamp": "2026-03-29T03:29:27.409156",
+  "project_name": "Generate_code_for_KIT_A2G_TC387_5V_TFT_TC3xx_tha_r_20260329_032523"
 }
