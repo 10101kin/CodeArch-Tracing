@@ -1,15 +1,14 @@
-/* IfxPort.h - Port types + functions */
+/* IfxPort mock header */
 #ifndef IFXPORT_H
 #define IFXPORT_H
 
 #include "mock_egtm_atom_3_phase_inverter_pwm.h"
-#include "IfxEgtm.h" /* for IfxApApu_ApuConfig and IfxApProt_ProtConfig used in APU/PROT configs */
 
-/* Enums (as per mapping) */
+/* Enums first */
 typedef enum { IfxPort_ControlledBy_port = 0, IfxPort_ControlledBy_hsct = 1 } IfxPort_ControlledBy;
 
 typedef enum {
-    IfxPort_InputMode_undefined    = -1,
+    IfxPort_InputMode_undefined = -1,
     IfxPort_InputMode_noPullDevice = ((0U << 4U) | (0U << 1U) | 0U),
     IfxPort_InputMode_pullDown     = ((1U << 4U) | (0U << 1U) | 0U),
     IfxPort_InputMode_pullUp       = ((2U << 4U) | (0U << 1U) | 0U)
@@ -115,12 +114,7 @@ typedef enum {
     IfxPort_BandgapTrimConfig_1P215V = 15
 } IfxPort_BandgapTrimConfig;
 
-typedef enum {
-    IfxPort_BlankingTimerConfig_0ms = 0,
-    IfxPort_BlankingTimerConfig_2ms = 1,
-    IfxPort_BlankingTimerConfig_4ms = 2,
-    IfxPort_BlankingTimerConfig_7ms = 3
-} IfxPort_BlankingTimerConfig;
+typedef enum { IfxPort_BlankingTimerConfig_0ms = 0, IfxPort_BlankingTimerConfig_2ms = 1, IfxPort_BlankingTimerConfig_4ms = 2, IfxPort_BlankingTimerConfig_7ms = 3 } IfxPort_BlankingTimerConfig;
 
 typedef enum { IfxPort_EsrLevel_0 = 0 } IfxPort_EsrLevel;
 
@@ -169,17 +163,9 @@ typedef struct {
 
 typedef struct { Ifx_P *port; uint8 pinIndex; } IfxPort_Pin;
 
-typedef struct {
-    Ifx_P            *port;
-    uint8             pinIndex;
-    IfxPort_OutputIdx mode;
-    IfxPort_PadDriver padDriver;
-} IfxPort_Pin_Config;
+typedef struct { Ifx_P *port; uint8 pinIndex; IfxPort_OutputIdx mode; IfxPort_PadDriver padDriver; } IfxPort_Pin_Config;
 
-typedef struct {
-    IfxApApu_ApuConfig apuConfig;
-    uint8              grpNum;
-} IfxPort_ApuConfig;
+typedef struct { IfxApApu_ApuConfig apuConfig; uint8 grpNum; } IfxPort_ApuConfig;
 
 typedef struct {
     IfxApApu_ApuConfig    apuConfig[1];
@@ -188,7 +174,7 @@ typedef struct {
 
 typedef struct { IfxApProt_ProtConfig protseConfig; } IfxPort_ProtConfig;
 
-/* Function declarations (subset used by module/tests) */
+/* Function declarations (subset needed) */
 void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
 void IfxPort_togglePin(Ifx_P *port, uint8 pinIndex);
 
