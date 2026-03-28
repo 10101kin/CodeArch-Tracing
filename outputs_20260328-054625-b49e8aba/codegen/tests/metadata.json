@@ -1,0 +1,11 @@
+{
+  "attempt": 4,
+  "phase_attempt": 1,
+  "phase": "test_execution",
+  "success": false,
+  "errors": [
+    "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_z5e2yglp\\test\\test_gtm_tom_3_phase_inverter_pwm.c:230:test_TC_G1_001_Init_Disabled_Peripheral_Enables_GTM_and_Clocks:PASS\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_z5e2yglp\\test\\test_gtm_tom_3_phase_inverter_pwm.c:231:test_TC_G1_002_Init_AlreadyEnabled_Skips_Enable_And_Clock:PASS\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_z5e2yglp\\test\\test_gtm_tom_3_phase_inverter_pwm.c:67:test_TC_G2_001_Init_Sets_Frequency_And_ChannelCount_Correctly:FAIL: Ex"
+  ],
+  "timestamp": "2026-03-28T14:54:00.888886",
+  "project_name": "Upgrade_KIT_A2G_TC387_5V_TFT_TC387_TC3xx_3-phas_r_20260328_144229"
+}
