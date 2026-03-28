@@ -1,8 +1,20 @@
 {
-  "type": "llm_response",
-  "phase": "production",
   "attempt": 5,
   "phase_attempt": 2,
-  "response_length": 10694,
-  "timestamp": "2026-03-28T23:30:28.922481"
+  "phase": "production",
+  "success": false,
+  "errors": [
+    "unknown type name 'Ifx_PFRWB5A'; did you mean 'Ifx_PFRWB4A'?",
+    "unknown type name 'Ifx_PFRWB5B'; did you mean 'Ifx_PFRWB4B'?",
+    "'IfxEgtm_Pwm_DtmConfig' has no member named 'minPulse'",
+    "'IfxEgtm_Pwm_Alignment_centerAligned' undeclared (first use in this function); did you mean 'IfxEgtm_Pwm_Alignment_center'?",
+    "'IfxEgtm_Pwm_ClockSource_cmuFxclk0' undeclared (first use in this function); did you mean 'IfxEgtm_Dtm_ClockSource_cmuClk0'?",
+    "unknown type name 'Ifx_PFRWB5A'; did you mean 'Ifx_PFRWB4A'?",
+    "unknown type name 'Ifx_PFRWB5B'; did you mean 'Ifx_PFRWB4B'?",
+    "unknown type name 'Ifx_PFRWB5A'; did you mean 'Ifx_PFRWB4A'?",
+    "unknown type name 'Ifx_PFRWB5B'; did you mean 'Ifx_PFRWB4B'?",
+    "comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Werror=sign-compare]"
+  ],
+  "timestamp": "2026-03-28T23:30:34.847219",
+  "project_name": "Port_the_TC387_GTM_TOM_3-phase_inverter_PWM_exampl_r_20260328_231349"
 }

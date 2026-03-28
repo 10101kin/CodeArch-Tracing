@@ -2,127 +2,109 @@
   "success": false,
   "errors": [
     {
-      "file": "C:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\src\\egtm_atom_3_phase_inverter_pwm.c",
-      "line": 124,
+      "file": "C:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\include/mock_egtm_atom_3_phase_inverter_pwm.h",
+      "line": 466,
       "category": "error",
-      "message": "'IfxEgtm_Pwm_DeadTime' has no member named 'risingEdge'; did you mean 'rising'?"
+      "message": "unknown type name 'Ifx_PFRWB5A'; did you mean 'Ifx_PFRWB4A'?"
     },
     {
-      "file": "C:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\src\\egtm_atom_3_phase_inverter_pwm.c",
-      "line": 125,
+      "file": "C:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\include/mock_egtm_atom_3_phase_inverter_pwm.h",
+      "line": 468,
       "category": "error",
-      "message": "'IfxEgtm_Pwm_DeadTime' has no member named 'fallingEdge'; did you mean 'falling'?"
+      "message": "unknown type name 'Ifx_PFRWB5B'; did you mean 'Ifx_PFRWB4B'?"
     },
     {
-      "file": "C:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\src\\egtm_atom_3_phase_inverter_pwm.c",
-      "line": 126,
+      "file": "C:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\src\\egtm_atom_3_phase_inverter_pwm.c",
+      "line": 122,
       "category": "error",
       "message": "'IfxEgtm_Pwm_DtmConfig' has no member named 'minPulse'"
     },
     {
-      "file": "C:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\src\\egtm_atom_3_phase_inverter_pwm.c",
-      "line": 131,
+      "file": "C:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\src\\egtm_atom_3_phase_inverter_pwm.c",
+      "line": 165,
       "category": "error",
-      "message": "'IfxEgtm_Pwm_IrqMode_pulseNotify' undeclared (first use in this function); did you mean 'IfxEgtm_IrqMode_pulseNotify'?"
+      "message": "'IfxEgtm_Pwm_Alignment_centerAligned' undeclared (first use in this function); did you mean 'IfxEgtm_Pwm_Alignment_center'?"
     },
     {
-      "file": "C:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\src\\egtm_atom_3_phase_inverter_pwm.c",
-      "line": 167,
-      "category": "error",
-      "message": "'IfxEgtm_Cluster_0' undeclared (first use in this function); did you mean 'IfxEgtm_Cluster'?"
-    },
-    {
-      "file": "C:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\src\\egtm_atom_3_phase_inverter_pwm.c",
+      "file": "C:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\src\\egtm_atom_3_phase_inverter_pwm.c",
       "line": 169,
       "category": "error",
-      "message": "'IfxEgtm_Pwm_Alignment_centerAlignedSymmetric' undeclared (first use in this function)"
+      "message": "'IfxEgtm_Pwm_ClockSource_cmuFxclk0' undeclared (first use in this function); did you mean 'IfxEgtm_Dtm_ClockSource_cmuClk0'?"
     },
     {
-      "file": "C:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\src\\egtm_atom_3_phase_inverter_pwm.c",
-      "line": 174,
+      "file": "C:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\include/mock_egtm_atom_3_phase_inverter_pwm.h",
+      "line": 466,
       "category": "error",
-      "message": "'IfxEgtm_Dtm_ClockSource_cmuClock0' undeclared (first use in this function); did you mean 'IfxEgtm_Dtm_ClockSource_cmuClk0'?"
+      "message": "unknown type name 'Ifx_PFRWB5A'; did you mean 'Ifx_PFRWB4A'?"
     },
     {
-      "file": "C:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\src\\egtm_atom_3_phase_inverter_pwm.c",
-      "line": 199,
+      "file": "C:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\include/mock_egtm_atom_3_phase_inverter_pwm.h",
+      "line": 468,
       "category": "error",
-      "message": "'IfxEgtm_Pwm_DeadTime' has no member named 'risingEdge'; did you mean 'rising'?"
+      "message": "unknown type name 'Ifx_PFRWB5B'; did you mean 'Ifx_PFRWB4B'?"
     },
     {
-      "file": "C:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\src\\egtm_atom_3_phase_inverter_pwm.c",
-      "line": 199,
+      "file": "C:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\include/mock_egtm_atom_3_phase_inverter_pwm.h",
+      "line": 466,
       "category": "error",
-      "message": "'IfxEgtm_Pwm_DeadTime' has no member named 'fallingEdge'; did you mean 'falling'?"
+      "message": "unknown type name 'Ifx_PFRWB5A'; did you mean 'Ifx_PFRWB4A'?"
     },
     {
-      "file": "C:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\src\\egtm_atom_3_phase_inverter_pwm.c",
-      "line": 200,
+      "file": "C:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\include/mock_egtm_atom_3_phase_inverter_pwm.h",
+      "line": 468,
       "category": "error",
-      "message": "'IfxEgtm_Pwm_DeadTime' has no member named 'risingEdge'; did you mean 'rising'?"
+      "message": "unknown type name 'Ifx_PFRWB5B'; did you mean 'Ifx_PFRWB4B'?"
     },
     {
-      "file": "C:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\src\\egtm_atom_3_phase_inverter_pwm.c",
-      "line": 200,
-      "category": "error",
-      "message": "'IfxEgtm_Pwm_DeadTime' has no member named 'fallingEdge'; did you mean 'falling'?"
-    },
-    {
-      "file": "C:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\src\\egtm_atom_3_phase_inverter_pwm.c",
-      "line": 201,
-      "category": "error",
-      "message": "'IfxEgtm_Pwm_DeadTime' has no member named 'risingEdge'; did you mean 'rising'?"
-    },
-    {
-      "file": "C:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\src\\egtm_atom_3_phase_inverter_pwm.c",
-      "line": 201,
-      "category": "error",
-      "message": "'IfxEgtm_Pwm_DeadTime' has no member named 'fallingEdge'; did you mean 'falling'?"
-    },
-    {
-      "file": "C:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+      "file": "C:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
       "line": 93,
       "category": "error",
       "message": "comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Werror=sign-compare]"
     },
     {
-      "file": "C:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+      "file": "C:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
       "line": 125,
       "category": "error",
       "message": "unknown type name 'bool'"
     },
     {
-      "file": "C:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+      "file": "C:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
       "line": 125,
       "category": "error",
       "message": "'false' undeclared (first use in this function)"
     },
     {
-      "file": "C:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+      "file": "C:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
       "line": 132,
       "category": "error",
       "message": "'true' undeclared (first use in this function)"
     },
     {
-      "file": "C:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+      "file": "C:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+      "line": 149,
+      "category": "error",
+      "message": "implicit declaration of function 'mock_IfxPort_togglePin_getCallCount'; did you mean 'mock_togglePin_getCallCount'? [-Wimplicit-function-declaration]"
+    },
+    {
+      "file": "C:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
       "line": 288,
       "category": "error",
       "message": "unknown type name 'bool'"
     },
     {
-      "file": "C:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+      "file": "C:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
       "line": 288,
       "category": "error",
       "message": "'false' undeclared (first use in this function)"
     },
     {
-      "file": "C:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+      "file": "C:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
       "line": 293,
       "category": "error",
       "message": "'true' undeclared (first use in this function)"
     }
   ],
   "warnings": [],
-  "stderr": "C:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\src\\egtm_atom_3_phase_inverter_pwm.c: In function 'initEgtmAtom3phInv':\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\src\\egtm_atom_3_phase_inverter_pwm.c:124:31: error: 'IfxEgtm_Pwm_DeadTime' has no member named 'risingEdge'; did you mean 'rising'?\n  124 |         dtmConfig[i].deadTime.risingEdge = PWM_DEADTIME_S;\n      |                               ^~~~~~~~~~\n      |                               rising\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\src\\egtm_atom_3_phase_inverter_pwm.c:125:31: error: 'IfxEgtm_Pwm_DeadTime' has no member named 'fallingEdge'; did you mean 'falling'?\n  125 |         dtmConfig[i].deadTime.fallingEdge = PWM_DEADTIME_S;\n      |                               ^~~~~~~~~~~\n      |                               falling\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\src\\egtm_atom_3_phase_inverter_pwm.c:126:21: error: 'IfxEgtm_Pwm_DtmConfig' has no member named 'minPulse'\n  126 |         dtmConfig[i].minPulse             = PWM_MIN_PULSE_S;\n      |                     ^\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\src\\egtm_atom_3_phase_inverter_pwm.c:131:26: error: 'IfxEgtm_Pwm_IrqMode_pulseNotify' undeclared (first use in this function); did you mean 'IfxEgtm_IrqMode_pulseNotify'?\n  131 |     irqCfg.mode        = IfxEgtm_Pwm_IrqMode_pulseNotify;\n      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n      |                          IfxEgtm_IrqMode_pulseNotify\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\src\\egtm_atom_3_phase_inverter_pwm.c:131:26: note: each undeclared identifier is reported only once for each function it appears in\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\src\\egtm_atom_3_phase_inverter_pwm.c:167:33: error: 'IfxEgtm_Cluster_0' undeclared (first use in this function); did you mean 'IfxEgtm_Cluster'?\n  167 |     config.cluster            = IfxEgtm_Cluster_0;                        /* ATOM cluster 0 */\n      |                                 ^~~~~~~~~~~~~~~~~\n      |                                 IfxEgtm_Cluster\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\src\\egtm_atom_3_phase_inverter_pwm.c:169:33: error: 'IfxEgtm_Pwm_Alignment_centerAlignedSymmetric' undeclared (first use in this function)\n  169 |     config.alignment          = IfxEgtm_Pwm_Alignment_centerAlignedSymmetric;\n      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\src\\egtm_atom_3_phase_inverter_pwm.c:174:33: error: 'IfxEgtm_Dtm_ClockSource_cmuClock0' undeclared (first use in this function); did you mean 'IfxEgtm_Dtm_ClockSource_cmuClk0'?\n  174 |     config.dtmClockSource     = IfxEgtm_Dtm_ClockSource_cmuClock0;        /* DTM clock 0 */\n      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n      |                                 IfxEgtm_Dtm_ClockSource_cmuClk0\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\src\\egtm_atom_3_phase_inverter_pwm.c:199:37: error: 'IfxEgtm_Pwm_DeadTime' has no member named 'risingEdge'; did you mean 'rising'?\n  199 |     g_egtmAtom3phState.deadTimes[0].risingEdge = PWM_DEADTIME_S; g_egtmAtom3phState.deadTimes[0].fallingEdge = PWM_DEADTIME_S;\n      |                                     ^~~~~~~~~~\n      |                                     rising\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\src\\egtm_atom_3_phase_inverter_pwm.c:199:98: error: 'IfxEgtm_Pwm_DeadTime' has no member named 'fallingEdge'; did you mean 'falling'?\n  199 |     g_egtmAtom3phState.deadTimes[0].risingEdge = PWM_DEADTIME_S; g_egtmAtom3phState.deadTimes[0].fallingEdge = PWM_DEADTIME_S;\n      |                                                                                                  ^~~~~~~~~~~\n      |                                                                                                  falling\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\src\\egtm_atom_3_phase_inverter_pwm.c:200:37: error: 'IfxEgtm_Pwm_DeadTime' has no member named 'risingEdge'; did you mean 'rising'?\n  200 |     g_egtmAtom3phState.deadTimes[1].risingEdge = PWM_DEADTIME_S; g_egtmAtom3phState.deadTimes[1].fallingEdge = PWM_DEADTIME_S;\n      |                                     ^~~~~~~~~~\n      |                                     rising\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\src\\egtm_atom_3_phase_inverter_pwm.c:200:98: error: 'IfxEgtm_Pwm_DeadTime' has no member named 'fallingEdge'; did you mean 'falling'?\n  200 |     g_egtmAtom3phState.deadTimes[1].risingEdge = PWM_DEADTIME_S; g_egtmAtom3phState.deadTimes[1].fallingEdge = PWM_DEADTIME_S;\n      |                                                                                                  ^~~~~~~~~~~\n      |                                                                                                  falling\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\src\\egtm_atom_3_phase_inverter_pwm.c:201:37: error: 'IfxEgtm_Pwm_DeadTime' has no member named 'risingEdge'; did you mean 'rising'?\n  201 |     g_egtmAtom3phState.deadTimes[2].risingEdge = PWM_DEADTIME_S; g_egtmAtom3phState.deadTimes[2].fallingEdge = PWM_DEADTIME_S;\n      |                                     ^~~~~~~~~~\n      |                                     rising\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\src\\egtm_atom_3_phase_inverter_pwm.c:201:98: error: 'IfxEgtm_Pwm_DeadTime' has no member named 'fallingEdge'; did you mean 'falling'?\n  201 |     g_egtmAtom3phState.deadTimes[2].risingEdge = PWM_DEADTIME_S; g_egtmAtom3phState.deadTimes[2].fallingEdge = PWM_DEADTIME_S;\n      |                                                                                                  ^~~~~~~~~~~\n      |                                                                                                  falling\n\nIn file included from C:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\unity/unity.h:22,\n                 from C:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\test\\test_egtm_atom_3_phase_inverter_pwm.c:1:\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\test\\test_egtm_atom_3_phase_inverter_pwm.c: In function 'test_TC_02_002_init_config_sets_frequency_and_num_channels_in_init_call_and_led_gpio_configured':\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\test\\test_egtm_atom_3_phase_inverter_pwm.c:93:76: error: comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Werror=sign-compare]\n   93 |     TEST_ASSERT_TRUE_MESSAGE((mock_IfxPort_setPinModeOutput_getCallCount() >= 1U), \"Diagnostic LED GPIO should be configured as output at least once after PWM init\");\n      |                                                                            ^~\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\unity/unity_internals.h:891:107: note: in definition of macro 'UNITY_TEST_ASSERT'\n  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)\n      |                                                                                                           ^~~~~~~~~\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\test\\test_egtm_atom_3_phase_inverter_pwm.c:93:5: note: in expansion of macro 'TEST_ASSERT_TRUE_MESSAGE'\n   93 |     TEST_ASSERT_TRUE_MESSAGE((mock_IfxPort_setPinModeOutput_getCallCount() >= 1U), \"Diagnostic LED GPIO should be configured as output at least once after PWM init\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\test\\test_egtm_atom_3_phase_inverter_pwm.c: In function 'test_TC_03_002_repeated_updates_eventually_wrap_a_channel':\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\test\\test_egtm_atom_3_phase_inverter_pwm.c:125:5: error: unknown type name 'bool'\n  125 |     bool wrapObserved = false;\n      |     ^~~~\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\test\\test_egtm_atom_3_phase_inverter_pwm.c:4:1: note: 'bool' is defined in header '<stdbool.h>'; this is probably fixable by adding '#include <stdbool.h>'\n    3 | #include \"egtm_atom_3_phase_inverter_pwm.h\"\n  +++ |+#include <stdbool.h>\n    4 | \nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\test\\test_egtm_atom_3_phase_inverter_pwm.c:125:25: error: 'false' undeclared (first use in this function)\n  125 |     bool wrapObserved = false;\n      |                         ^~~~~\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\test\\test_egtm_atom_3_phase_inverter_pwm.c:125:25: note: 'false' is defined in header '<stdbool.h>'; this is probably fixable by adding '#include <stdbool.h>'\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\test\\test_egtm_atom_3_phase_inverter_pwm.c:125:25: note: each undeclared identifier is reported only once for each function it appears in\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\test\\test_egtm_atom_3_phase_inverter_pwm.c:132:28: error: 'true' undeclared (first use in this function)\n  132 |             wrapObserved = true;\n      |                            ^~~~\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\test\\test_egtm_atom_3_phase_inverter_pwm.c:132:28: note: 'true' is defined in header '<stdbool.h>'; this is probably fixable by adding '#include <stdbool.h>'\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\test\\test_egtm_atom_3_phase_inverter_pwm.c: In function 'test_TC_07_002_each_channel_wraps_independently_and_hal_called_once_per_update':\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\test\\test_egtm_atom_3_phase_inverter_pwm.c:288:5: error: unknown type name 'bool'\n  288 |     bool atLeastTwoDifferent = false;\n      |     ^~~~\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\test\\test_egtm_atom_3_phase_inverter_pwm.c:288:5: note: 'bool' is defined in header '<stdbool.h>'; this is probably fixable by adding '#include <stdbool.h>'\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\test\\test_egtm_atom_3_phase_inverter_pwm.c:288:32: error: 'false' undeclared (first use in this function)\n  288 |     bool atLeastTwoDifferent = false;\n      |                                ^~~~~\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\test\\test_egtm_atom_3_phase_inverter_pwm.c:288:32: note: 'false' is defined in header '<stdbool.h>'; this is probably fixable by adding '#include <stdbool.h>'\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\test\\test_egtm_atom_3_phase_inverter_pwm.c:293:31: error: 'true' undeclared (first use in this function)\n  293 |         atLeastTwoDifferent = true;\n      |                               ^~~~\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_l52_6dt5\\test\\test_egtm_atom_3_phase_inverter_pwm.c:293:31: note: 'true' is defined in header '<stdbool.h>'; this is probably fixable by adding '#include <stdbool.h>'\ncc1.exe: all warnings being treated as errors\n",
+  "stderr": "In file included from C:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\include/Ifx_Types.h:3,\n                 from C:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\src\\egtm_atom_3_phase_inverter_pwm.c:15:\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\include/mock_egtm_atom_3_phase_inverter_pwm.h:466:8: error: unknown type name 'Ifx_PFRWB5A'; did you mean 'Ifx_PFRWB4A'?\n  466 | extern Ifx_PFRWB5A MODULE_PFRWB5A;\n      |        ^~~~~~~~~~~\n      |        Ifx_PFRWB4A\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\include/mock_egtm_atom_3_phase_inverter_pwm.h:468:8: error: unknown type name 'Ifx_PFRWB5B'; did you mean 'Ifx_PFRWB4B'?\n  468 | extern Ifx_PFRWB5B MODULE_PFRWB5B;\n      |        ^~~~~~~~~~~\n      |        Ifx_PFRWB4B\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\src\\egtm_atom_3_phase_inverter_pwm.c: In function 'initEgtmAtom3phInv':\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\src\\egtm_atom_3_phase_inverter_pwm.c:122:21: error: 'IfxEgtm_Pwm_DtmConfig' has no member named 'minPulse'\n  122 |         dtmConfig[i].minPulse         = PWM_MIN_PULSE_S;\n      |                     ^\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\src\\egtm_atom_3_phase_inverter_pwm.c:165:33: error: 'IfxEgtm_Pwm_Alignment_centerAligned' undeclared (first use in this function); did you mean 'IfxEgtm_Pwm_Alignment_center'?\n  165 |     config.alignment          = IfxEgtm_Pwm_Alignment_centerAligned; /* symmetric center-aligned */\n      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n      |                                 IfxEgtm_Pwm_Alignment_center\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\src\\egtm_atom_3_phase_inverter_pwm.c:165:33: note: each undeclared identifier is reported only once for each function it appears in\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\src\\egtm_atom_3_phase_inverter_pwm.c:169:33: error: 'IfxEgtm_Pwm_ClockSource_cmuFxclk0' undeclared (first use in this function); did you mean 'IfxEgtm_Dtm_ClockSource_cmuClk0'?\n  169 |     config.clockSource        = IfxEgtm_Pwm_ClockSource_cmuFxclk0;   /* ATOM clock source */\n      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n      |                                 IfxEgtm_Dtm_ClockSource_cmuClk0\n\nIn file included from C:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\mocks\\mock_egtm_atom_3_phase_inverter_pwm.c:2:\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\include/mock_egtm_atom_3_phase_inverter_pwm.h:466:8: error: unknown type name 'Ifx_PFRWB5A'; did you mean 'Ifx_PFRWB4A'?\n  466 | extern Ifx_PFRWB5A MODULE_PFRWB5A;\n      |        ^~~~~~~~~~~\n      |        Ifx_PFRWB4A\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\include/mock_egtm_atom_3_phase_inverter_pwm.h:468:8: error: unknown type name 'Ifx_PFRWB5B'; did you mean 'Ifx_PFRWB4B'?\n  468 | extern Ifx_PFRWB5B MODULE_PFRWB5B;\n      |        ^~~~~~~~~~~\n      |        Ifx_PFRWB4B\n\nIn file included from C:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\test\\test_egtm_atom_3_phase_inverter_pwm.c:2:\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\include/mock_egtm_atom_3_phase_inverter_pwm.h:466:8: error: unknown type name 'Ifx_PFRWB5A'; did you mean 'Ifx_PFRWB4A'?\n  466 | extern Ifx_PFRWB5A MODULE_PFRWB5A;\n      |        ^~~~~~~~~~~\n      |        Ifx_PFRWB4A\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\include/mock_egtm_atom_3_phase_inverter_pwm.h:468:8: error: unknown type name 'Ifx_PFRWB5B'; did you mean 'Ifx_PFRWB4B'?\n  468 | extern Ifx_PFRWB5B MODULE_PFRWB5B;\n      |        ^~~~~~~~~~~\n      |        Ifx_PFRWB4B\nIn file included from C:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\unity/unity.h:22,\n                 from C:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\test\\test_egtm_atom_3_phase_inverter_pwm.c:1:\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\test\\test_egtm_atom_3_phase_inverter_pwm.c: In function 'test_TC_02_002_init_config_sets_frequency_and_num_channels_in_init_call_and_led_gpio_configured':\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\test\\test_egtm_atom_3_phase_inverter_pwm.c:93:76: error: comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Werror=sign-compare]\n   93 |     TEST_ASSERT_TRUE_MESSAGE((mock_IfxPort_setPinModeOutput_getCallCount() >= 1U), \"Diagnostic LED GPIO should be configured as output at least once after PWM init\");\n      |                                                                            ^~\nC:\\Users\\Kenneth Anioay\\Downloads\\infineon_POC_MVP\\infineon_POC_MVP\\unity/unity_internals.h:891:107: note: in definition of macro 'UNITY_TEST_ASSERT'\n  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)\n      |                                                                                                           ^~~~~~~~~\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\test\\test_egtm_atom_3_phase_inverter_pwm.c:93:5: note: in expansion of macro 'TEST_ASSERT_TRUE_MESSAGE'\n   93 |     TEST_ASSERT_TRUE_MESSAGE((mock_IfxPort_setPinModeOutput_getCallCount() >= 1U), \"Diagnostic LED GPIO should be configured as output at least once after PWM init\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\test\\test_egtm_atom_3_phase_inverter_pwm.c: In function 'test_TC_03_002_repeated_updates_eventually_wrap_a_channel':\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\test\\test_egtm_atom_3_phase_inverter_pwm.c:125:5: error: unknown type name 'bool'\n  125 |     bool wrapObserved = false;\n      |     ^~~~\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\test\\test_egtm_atom_3_phase_inverter_pwm.c:4:1: note: 'bool' is defined in header '<stdbool.h>'; this is probably fixable by adding '#include <stdbool.h>'\n    3 | #include \"egtm_atom_3_phase_inverter_pwm.h\"\n  +++ |+#include <stdbool.h>\n    4 | \nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\test\\test_egtm_atom_3_phase_inverter_pwm.c:125:25: error: 'false' undeclared (first use in this function)\n  125 |     bool wrapObserved = false;\n      |                         ^~~~~\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\test\\test_egtm_atom_3_phase_inverter_pwm.c:125:25: note: 'false' is defined in header '<stdbool.h>'; this is probably fixable by adding '#include <stdbool.h>'\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\test\\test_egtm_atom_3_phase_inverter_pwm.c:125:25: note: each undeclared identifier is reported only once for each function it appears in\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\test\\test_egtm_atom_3_phase_inverter_pwm.c:132:28: error: 'true' undeclared (first use in this function)\n  132 |             wrapObserved = true;\n      |                            ^~~~\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\test\\test_egtm_atom_3_phase_inverter_pwm.c:132:28: note: 'true' is defined in header '<stdbool.h>'; this is probably fixable by adding '#include <stdbool.h>'\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\test\\test_egtm_atom_3_phase_inverter_pwm.c: In function 'test_TC_04_001_isr_toggle_increments_once':\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\test\\test_egtm_atom_3_phase_inverter_pwm.c:149:21: error: implicit declaration of function 'mock_IfxPort_togglePin_getCallCount'; did you mean 'mock_togglePin_getCallCount'? [-Wimplicit-function-declaration]\n  149 |     uint32 before = mock_IfxPort_togglePin_getCallCount();\n      |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n      |                     mock_togglePin_getCallCount\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\test\\test_egtm_atom_3_phase_inverter_pwm.c: In function 'test_TC_07_002_each_channel_wraps_independently_and_hal_called_once_per_update':\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\test\\test_egtm_atom_3_phase_inverter_pwm.c:288:5: error: unknown type name 'bool'\n  288 |     bool atLeastTwoDifferent = false;\n      |     ^~~~\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\test\\test_egtm_atom_3_phase_inverter_pwm.c:288:5: note: 'bool' is defined in header '<stdbool.h>'; this is probably fixable by adding '#include <stdbool.h>'\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\test\\test_egtm_atom_3_phase_inverter_pwm.c:288:32: error: 'false' undeclared (first use in this function)\n  288 |     bool atLeastTwoDifferent = false;\n      |                                ^~~~~\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\test\\test_egtm_atom_3_phase_inverter_pwm.c:288:32: note: 'false' is defined in header '<stdbool.h>'; this is probably fixable by adding '#include <stdbool.h>'\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\test\\test_egtm_atom_3_phase_inverter_pwm.c:293:31: error: 'true' undeclared (first use in this function)\n  293 |         atLeastTwoDifferent = true;\n      |                               ^~~~\nC:\\Users\\KENNET~1\\AppData\\Local\\Temp\\tdd_build_9iskiqqh\\test\\test_egtm_atom_3_phase_inverter_pwm.c:293:31: note: 'true' is defined in header '<stdbool.h>'; this is probably fixable by adding '#include <stdbool.h>'\ncc1.exe: all warnings being treated as errors\n",
   "stdout": ""
 }
