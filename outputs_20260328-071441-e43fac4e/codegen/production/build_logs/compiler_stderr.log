@@ -1,0 +1,31 @@
+In file included from C:\Users\KENNET~1\AppData\Local\Temp\tdd_build_gnhxxnyq\src\gtm_tom_3_phase_inverter_pwm.c:12:
+C:\Users\KENNET~1\AppData\Local\Temp\tdd_build_gnhxxnyq\include/IfxGtm_Pwm.h:212:5: error: unknown type name 'IfxGtm_Pwm_ChannelConfig'; did you mean 'IfxGtm_Pwm_Channel'?
+  212 |     IfxGtm_Pwm_ChannelConfig *channels;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxGtm_Pwm_Channel
+C:\Users\KENNET~1\AppData\Local\Temp\tdd_build_gnhxxnyq\src\gtm_tom_3_phase_inverter_pwm.c: In function 'interruptGtmAtom':
+C:\Users\KENNET~1\AppData\Local\Temp\tdd_build_gnhxxnyq\src\gtm_tom_3_phase_inverter_pwm.c:64:5: error: implicit declaration of function 'IfxPort_togglePin' [-Wimplicit-function-declaration]
+   64 |     IfxPort_togglePin(LED);
+      |     ^~~~~~~~~~~~~~~~~
+C:\Users\KENNET~1\AppData\Local\Temp\tdd_build_gnhxxnyq\src\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTomPwm':
+C:\Users\KENNET~1\AppData\Local\Temp\tdd_build_gnhxxnyq\src\gtm_tom_3_phase_inverter_pwm.c:97:33: error: 'IfxGtm_Pwm_ClockSource_fxclk0' undeclared (first use in this function); did you mean 'IfxGtm_Pwm_ClockSource'?
+   97 |     config.clockSource        = IfxGtm_Pwm_ClockSource_fxclk0;      /* FXCLK0 as PWM time base */
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                 IfxGtm_Pwm_ClockSource
+C:\Users\KENNET~1\AppData\Local\Temp\tdd_build_gnhxxnyq\src\gtm_tom_3_phase_inverter_pwm.c:97:33: note: each undeclared identifier is reported only once for each function it appears in
+C:\Users\KENNET~1\AppData\Local\Temp\tdd_build_gnhxxnyq\src\gtm_tom_3_phase_inverter_pwm.c:98:33: error: 'IfxGtm_Dtm_ClockSource_cmuClock0' undeclared (first use in this function); did you mean 'IfxGtm_Dtm_ClockSource_0'?
+   98 |     config.dtmClockSource     = IfxGtm_Dtm_ClockSource_cmuClock0;   /* DTM uses CMU CLK0 */
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                 IfxGtm_Dtm_ClockSource_0
+C:\Users\KENNET~1\AppData\Local\Temp\tdd_build_gnhxxnyq\src\gtm_tom_3_phase_inverter_pwm.c:171:33: error: assignment to 'int *' from incompatible pointer type 'IfxGtm_Pwm_ChannelConfig *' [-Wincompatible-pointer-types]
+  171 |     config.channels             = &channelConfig[0];
+      |                                 ^
+C:\Users\KENNET~1\AppData\Local\Temp\tdd_build_gnhxxnyq\src\gtm_tom_3_phase_inverter_pwm.c:203:5: error: implicit declaration of function 'IfxPort_setPinModeOutput' [-Wimplicit-function-declaration]
+  203 |     IfxPort_setPinModeOutput(LED, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+
+In file included from C:\Users\KENNET~1\AppData\Local\Temp\tdd_build_gnhxxnyq\mocks\mock_gtm_tom_3_phase_inverter_pwm.c:5:
+C:\Users\KENNET~1\AppData\Local\Temp\tdd_build_gnhxxnyq\include/IfxGtm_Pwm.h:212:5: error: unknown type name 'IfxGtm_Pwm_ChannelConfig'; did you mean 'IfxGtm_Pwm_Channel'?
+  212 |     IfxGtm_Pwm_ChannelConfig *channels;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxGtm_Pwm_Channel
