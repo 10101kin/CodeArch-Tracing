@@ -1,23 +1,4 @@
-In file included from C:\Users\KENNET~1\AppData\Local\Temp\tdd_build__2xcbskm\src\gtm_tom_3_phase_inverter_pwm.c:13:
-C:\Users\KENNET~1\AppData\Local\Temp\tdd_build__2xcbskm\include/IfxGtm_Pwm.h:211:5: error: unknown type name 'IfxGtm_Pwm_ChannelConfig'; did you mean 'IfxGtm_Pwm_Channel'?
-  211 |     IfxGtm_Pwm_ChannelConfig *channels; /* forward reference below */
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~
-      |     IfxGtm_Pwm_Channel
-C:\Users\KENNET~1\AppData\Local\Temp\tdd_build__2xcbskm\src\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTom3phInv':
-C:\Users\KENNET~1\AppData\Local\Temp\tdd_build__2xcbskm\src\gtm_tom_3_phase_inverter_pwm.c:161:31: error: assignment to 'int *' from incompatible pointer type 'IfxGtm_Pwm_ChannelConfig *' [-Wincompatible-pointer-types]
-  161 |     config.channels           = &channelConfig[0];
-      |                               ^
-C:\Users\KENNET~1\AppData\Local\Temp\tdd_build__2xcbskm\src\gtm_tom_3_phase_inverter_pwm.c:164:33: error: cast to union type from type not present in union
-  164 |     config.clockSource        = (IfxGtm_Pwm_ClockSource)IfxGtm_Cmu_Clk_0;
-      |                                 ^
-C:\Users\KENNET~1\AppData\Local\Temp\tdd_build__2xcbskm\src\gtm_tom_3_phase_inverter_pwm.c:166:33: error: 'IfxGtm_Dtm_ClockSource_cmuClock0' undeclared (first use in this function); did you mean 'IfxGtm_Dtm_ClockSource_cdtm0'?
-  166 |     config.dtmClockSource     = IfxGtm_Dtm_ClockSource_cmuClock0;
-      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      |                                 IfxGtm_Dtm_ClockSource_cdtm0
-C:\Users\KENNET~1\AppData\Local\Temp\tdd_build__2xcbskm\src\gtm_tom_3_phase_inverter_pwm.c:166:33: note: each undeclared identifier is reported only once for each function it appears in
-
-In file included from C:\Users\KENNET~1\AppData\Local\Temp\tdd_build__2xcbskm\mocks\mock_gtm_tom_3_phase_inverter_pwm.c:8:
-C:\Users\KENNET~1\AppData\Local\Temp\tdd_build__2xcbskm\include/IfxGtm_Pwm.h:211:5: error: unknown type name 'IfxGtm_Pwm_ChannelConfig'; did you mean 'IfxGtm_Pwm_Channel'?
-  211 |     IfxGtm_Pwm_ChannelConfig *channels; /* forward reference below */
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~
-      |     IfxGtm_Pwm_Channel
+C:\Users\KENNET~1\AppData\Local\Temp\tdd_build_u1xd8abs\src\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTom3phInv':
+C:\Users\KENNET~1\AppData\Local\Temp\tdd_build_u1xd8abs\src\gtm_tom_3_phase_inverter_pwm.c:187:33: error: incompatible types when assigning to type 'IfxGtm_Pwm_ClockSource' from type 'int'
+  187 |     config.clockSource        = IfxGtm_Cmu_Clk_0;                 /* Use first FXCLK (CLK0) */
+      |                                 ^~~~~~~~~~~~~~~~
