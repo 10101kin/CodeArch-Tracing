@@ -1,0 +1,6 @@
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_1xtvklk7\src\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTom3phInv':
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_1xtvklk7\src\gtm_tom_3_phase_inverter_pwm.c:161:33: error: 'IfxGtm_Cluster_1' undeclared (first use in this function); did you mean 'IfxGtm_Cluster'?
+  161 |     config.cluster            = IfxGtm_Cluster_1;                   /* TGC1 / Cluster_1 */
+      |                                 ^~~~~~~~~~~~~~~~
+      |                                 IfxGtm_Cluster
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_1xtvklk7\src\gtm_tom_3_phase_inverter_pwm.c:161:33: note: each undeclared identifier is reported only once for each function it appears in
