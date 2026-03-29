@@ -1,0 +1,13 @@
+C:\Users\extanke\AppData\Local\Temp\tdd_build_ykgxbjfj\src\gtm_tom_3_phase_inverter_pwm.c: In function 'interruptGtmAtom':
+C:\Users\extanke\AppData\Local\Temp\tdd_build_ykgxbjfj\src\gtm_tom_3_phase_inverter_pwm.c:62:5: error: implicit declaration of function 'IfxPort_togglePin' [-Wimplicit-function-declaration]
+   62 |     IfxPort_togglePin(LED);
+      |     ^~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_ykgxbjfj\src\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTomPwm':
+C:\Users\extanke\AppData\Local\Temp\tdd_build_ykgxbjfj\src\gtm_tom_3_phase_inverter_pwm.c:186:35: error: 'IfxGtm_Dtm_ClockSource_cmuClock0' undeclared (first use in this function); did you mean 'IfxGtm_Dtm_ClockSource_0'?
+  186 |     config.dtmClockSource       = IfxGtm_Dtm_ClockSource_cmuClock0;  /* DTM clock */
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                   IfxGtm_Dtm_ClockSource_0
+C:\Users\extanke\AppData\Local\Temp\tdd_build_ykgxbjfj\src\gtm_tom_3_phase_inverter_pwm.c:186:35: note: each undeclared identifier is reported only once for each function it appears in
+C:\Users\extanke\AppData\Local\Temp\tdd_build_ykgxbjfj\src\gtm_tom_3_phase_inverter_pwm.c:214:5: error: implicit declaration of function 'IfxPort_setPinModeOutput' [-Wimplicit-function-declaration]
+  214 |     IfxPort_setPinModeOutput(LED, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
