@@ -1,0 +1,101 @@
+{
+  "module_name": "EGTM_ATOM_3_Phase_Inverter_PWM",
+  "public_functions": [
+    {
+      "signature": "void initEgtmAtom3phInv(void)",
+      "behavior_description": "Initialize a 3‑phase inverter PWM on eGTM Cluster 1 ATOM1 with complementary, center‑aligned outputs, 20 kHz switching, 1.0 µs dead‑time, synchronous start/update, and a period ISR on CPU0 with priority 20. Implementation steps: 1) Declare all configuration structures as local variables: main IfxEgtm_Pwm_Config, per‑channel IfxEgtm_Pwm_ChannelConfig[3], DTM IfxEgtm_Pwm_DtmConfig[3], a single IfxEgtm_Pwm_InterruptConfig, and IfxEgtm_Pwm_OutputConfig[3]. 2) Call IfxEgtm_Pwm_initConfig to load default values into the main config. 3) Populate output[0..2] for three logical channels (one per phase) with: pin = the high‑side TOUT map macro for that phase, complementaryPin = the low‑side _N TOUT map macro for that phase, polarity = active‑high, complementaryPolarity = active‑low, outputMode = push‑pull, padDriver = a standard CMOS automotive pad setting. 4) Set dead‑time for each channel via dtmConfig[i].deadTime.rising = 1e‑6 and dtmConfig[i].deadTime.falling = 1e‑6. 5) Fill interruptConfig for a period event on the base channel: mode = pulse‑notify, isrProvider = CPU0, priority = 20, periodEvent = IfxEgtm_periodEventFunction, dutyEvent = NULL. 6) Configure channelConfig for exactly three logical channels using ordinal submodule channels: channelConfig[0].timerCh = SubModule_Ch_0, channelConfig[1].timerCh = SubModule_Ch_1, channelConfig[2].timerCh = SubModule_Ch_2; set phase = 0.0f for each; set initial duty as percent values U=25.0, V=50.0, W=75.0 (percent, not fractions); assign dtm = &dtmConfig[i], output = &output[i], mscOut = NULL; assign interrupt = &interruptConfig only on channelConfig[0] and NULL on the remaining channels. 7) Configure the main config: select eGTM cluster index 1 and ATOM1 submodule, center‑aligned mode, frequency = 20000 Hz, enable syncStart and syncUpdate, assign the ATOM clock source to FXCLK_0 and the DTM clock source to CLK0. 8) Inside an enable guard, check if the eGTM module is enabled; if not, enable it, then dynamically read the module frequency via IfxEgtm_Cmu_getModuleFrequency, configure GCLK to run at the module frequency (e.g., 1:1 divider using IfxEgtm_Cmu_setGclkDivider), set CLK0 to derive from GCLK with a 1:1 count via IfxEgtm_Cmu_setClkCount, and enable the required clocks (at minimum GCLK, FXCLK_0, and CLK0) using IfxEgtm_Cmu_enableClocks. All of these CMU steps occur strictly inside the isEnabled guard. 9) Call IfxEgtm_Pwm_init with the persistent channels array pointer to apply the configuration; this performs pin routing and DTM pairing internally and binds the interrupt callback. 10) Store the resulting driver handle, the persistent channels array, and initial arrays (dutyCycles[3], phases[3], deadTimes[3]) into a persistent module‑state struct so they remain valid after init. 11) Configure a board LED GPIO as push‑pull output using IfxPort_setPinModeOutput so the ISR can toggle it; do not force its state here. Notes: a) Only three logical channels are used (one per complementary pair). b) Interrupt is bound via InterruptConfig to the base channel; the periodEvent callback has an empty body, while the ISR function toggles a LED. c) No PinMap_set* calls are required; pin routing is handled by the output[] entries.",
+      "driver_calls": [
+        "IfxEgtm_Pwm_initConfig",
+        "IfxEgtm_isEnabled",
+        "IfxEgtm_enable",
+        "IfxEgtm_Cmu_getModuleFrequency",
+        "IfxEgtm_Cmu_setGclkDivider",
+        "IfxEgtm_Cmu_setClkCount",
+        "IfxEgtm_Cmu_enableClocks",
+        "IfxEgtm_Pwm_init",
+        "IfxPort_setPinModeOutput"
+      ],
+      "from_reference": true,
+      "call_context": "init"
+    },
+    {
+      "signature": "void updateEgtmAtom3phInvDuty(void)",
+      "behavior_description": "Update the three phase duty cycles by a fixed percent increment and apply immediately. For each of the three logical channels: if (current_duty + STEP) >= 100 then set current_duty = 0; then add STEP to current_duty. Store updated percent values in the module state and pass the dutyCycles array directly to the immediate multi‑channel update API so the change takes effect with synchronous update semantics preserved.",
+      "driver_calls": [
+        "IfxEgtm_Pwm_updateChannelsDutyImmediate"
+      ],
+      "from_reference": true,
+      "call_context": "loop"
+    }
+  ],
+  "private_functions": [
+    {
+      "signature": "void EgtmAtomPeriodIsr(void)",
+      "needed": true,
+      "from_reference": true
+    },
+    {
+      "signature": "void IfxEgtm_periodEventFunction(void *data)",
+      "needed": true,
+      "from_reference": true
+    }
+  ],
+  "dependencies": {
+    "includes": [
+      "Ifx_Types.h",
+      "IfxEgtm_Pwm.h",
+      "IfxPort.h",
+      "IfxPort_Pinmap.h"
+    ],
+    "driver_calls": [
+      "IfxEgtm_Pwm_initConfig",
+      "IfxEgtm_isEnabled",
+      "IfxEgtm_enable",
+      "IfxEgtm_Cmu_getModuleFrequency",
+      "IfxEgtm_Cmu_setGclkDivider",
+      "IfxEgtm_Cmu_setClkCount",
+      "IfxEgtm_Cmu_enableClocks",
+      "IfxEgtm_Pwm_init",
+      "IfxEgtm_Pwm_updateChannelsDutyImmediate",
+      "IfxPort_setPinModeOutput",
+      "IfxPort_togglePin"
+    ]
+  },
+  "cpu_main_requirements": {
+    "needs_cpu_sync": true,
+    "uses_timer_delay": true,
+    "delay_ms": 500,
+    "additional_includes": [
+      "Bsp.h"
+    ]
+  },
+  "hardware_bindings": {
+    "egtm_instance": "EGTM1.ATOM1",
+    "channels": [
+      "Ch_0",
+      "Ch_1",
+      "Ch_2"
+    ],
+    "pin_macros_used": [
+      "IfxEgtm_ATOM1_0_TOUT0_P02_0_OUT",
+      "IfxEgtm_ATOM1_0N_TOUT7_P02_7_OUT",
+      "IfxEgtm_ATOM1_1_TOUT1_P02_1_OUT",
+      "IfxEgtm_ATOM1_1N_TOUT4_P02_4_OUT",
+      "IfxEgtm_ATOM1_2_TOUT2_P02_2_OUT",
+      "IfxEgtm_ATOM1_2N_TOUT5_P02_5_OUT"
+    ],
+    "clocking": {
+      "atom_fxclk": "FXCLK_0",
+      "dtm_clk": "CLK0"
+    }
+  },
+  "header_selection": {
+    "applied": true,
+    "peripheral_type": "PWM",
+    "recommended_header": "IfxEgtm_Pwm",
+    "template_functions_count": 1461,
+    "required_includes": [
+      "IfxEgtm_Pwm.h"
+    ]
+  }
+}
