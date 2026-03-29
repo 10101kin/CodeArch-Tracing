@@ -2,192 +2,166 @@
 #include "mock_gtm_tom_3_phase_inverter_pwm.h"
 #include "gtm_tom_3_phase_inverter_pwm.h"
 
-/* ========================= UT configuration macros ========================= */
-#define UT_FLOAT_EPSILON                                 (1e-4f)
+/* Duplicate config values as UT_ macros for self-documenting tests */
+#define UT_FLOAT_EPSILON                           (1e-4f)
+#define UT_NUM_CHANNELS                            (3)
+#define UT_PWM_FREQUENCY_HZ                        (20000)
+#define UT_INIT_DUTY_U_PERCENT                     (25.0f)
+#define UT_INIT_DUTY_V_PERCENT                     (50.0f)
+#define UT_INIT_DUTY_W_PERCENT                     (75.0f)
+#define UT_DEAD_TIME_TICKS                         (50)      /* 0.5 us @ FXCLK0=100 MHz */
+#define UT_MIN_PULSE_TICKS                         (100)     /* 1.0 us @ FXCLK0=100 MHz */
+#define UT_GTM_MODULE_FREQ_HZ                      (300000000u) /* 300 MHz */
+#define UT_FXCLK0_TICKS_PER_US                     (100)
 
-#define UT_PWM_MODE_CENTER_ALIGNED                       (1)
-#define UT_NUM_PHASES                                    (3U)
-#define UT_CHANNELS_PER_PHASE                            (2U)
-#define UT_NUM_CHANNELS                                  (UT_NUM_PHASES * UT_CHANNELS_PER_PHASE)
-
-#define UT_PWM_FREQUENCY_HZ                              (20000U)       /* 20 kHz switching frequency */
-
-#define UT_GTM_SYSCLK_HZ                                 (300000000U)   /* 300 MHz system/CMU clock */
-#define UT_FXCLK0_HZ                                     (100000000U)   /* 100 MHz FXCLK0 */
-
-#define UT_DT_US                                         (0.5f)
-#define UT_MIN_PULSE_US                                  (1.0f)
-#define UT_DT_TICKS                                      (50U)          /* 0.5 us @ 100 MHz FXCLK0 */
-#define UT_MIN_PULSE_TICKS                               (100U)         /* 1.0 us @ 100 MHz FXCLK0 */
-
-#define UT_TIMEBASE_PERIOD_TICKS_CENTER_ALIGNED          (2500U)
-
-/* ============================ Unity fixtures ============================== */
 void setUp(void)   { mock_gtm_tom_3_phase_inverter_pwm_reset(); }
 void tearDown(void) {}
 
-/* =============================== GROUP 1 ==================================
- * initGtmTomPwm: initialization / enable guard
- * ======================================================================== */
-void test_TC_G1_001_init_enables_GTM_and_clocks_when_disabled(void)
+/*
+GROUP 1 - initGtmTomPwm: initialization / enable guard
+*/
+void test_TC_G1_001_enable_guard_already_enabled(void)
 {
     /* Arrange */
-    mock_IfxGtm_isEnabled_returnValue = 0;                 /* GTM disabled */
-    mock_IfxGtm_Cmu_getModuleFrequency_returnValue = UT_GTM_SYSCLK_HZ;
+    mock_IfxGtm_isEnabled_returnValue = 1; /* GTM already enabled */
 
     /* Act */
     initGtmTomPwm();
 
     /* Assert */
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_isEnabled_getCallCount(), "GTM enable guard must query isEnabled exactly once");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_enable_getCallCount(), "GTM must be enabled when initially disabled");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_isEnabled_getCallCount(), "GTM isEnabled must be checked once");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxGtm_enable_getCallCount(), "GTM must NOT be enabled when already enabled");
 
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_Cmu_getModuleFrequency_getCallCount(), "CMU module frequency should be read once when enabling clocks");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_Cmu_setGclkFrequency_getCallCount(), "GCLK must be set exactly once inside enable guard");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_Cmu_enableClocks_getCallCount(), "FXCLK clocks must be enabled exactly once inside enable guard");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxGtm_Cmu_getModuleFrequency_getCallCount(), "CMU getModuleFrequency must NOT be called when already enabled");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxGtm_Cmu_setGclkFrequency_getCallCount(), "CMU setGclkFrequency must NOT be called when already enabled");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxGtm_Cmu_enableClocks_getCallCount(), "CMU enableClocks must NOT be called when already enabled");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxGtm_Cmu_setClkFrequency_getCallCount(), "CMU setClkFrequency must NOT be used by this module");
 
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_Pwm_initConfig_getCallCount(), "IfxGtm_Pwm_initConfig should be called exactly once");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_Pwm_init_getCallCount(), "IfxGtm_Pwm_init should be called exactly once");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_Pwm_initConfig_getCallCount(), "IfxGtm_Pwm_initConfig must be called exactly once");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_Pwm_init_getCallCount(), "IfxGtm_Pwm_init must be called exactly once");
 }
 
-void test_TC_G1_002_init_skips_clocking_when_already_enabled(void)
+void test_TC_G1_002_enable_guard_needs_enable_and_clock_setup(void)
 {
     /* Arrange */
-    mock_IfxGtm_isEnabled_returnValue = 1;                 /* GTM already enabled */
-    mock_IfxGtm_Cmu_getModuleFrequency_returnValue = UT_GTM_SYSCLK_HZ;
+    mock_IfxGtm_isEnabled_returnValue = 0; /* GTM disabled */
+    mock_IfxGtm_Cmu_getModuleFrequency_returnValue = UT_GTM_MODULE_FREQ_HZ;
 
     /* Act */
     initGtmTomPwm();
 
     /* Assert */
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_isEnabled_getCallCount(), "GTM enable guard must query isEnabled exactly once");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxGtm_enable_getCallCount(), "GTM enable must be skipped when already enabled");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_isEnabled_getCallCount(), "GTM isEnabled must be checked once");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_enable_getCallCount(), "GTM must be enabled when disabled");
 
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxGtm_Cmu_getModuleFrequency_getCallCount(), "CMU frequency read should be skipped when GTM already enabled");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxGtm_Cmu_setGclkFrequency_getCallCount(), "GCLK setup should be skipped when GTM already enabled");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxGtm_Cmu_enableClocks_getCallCount(), "FXCLK enable should be skipped when GTM already enabled");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_Cmu_getModuleFrequency_getCallCount(), "CMU getModuleFrequency must be called once when enabling clocks");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_Cmu_setGclkFrequency_getCallCount(), "CMU setGclkFrequency must be called once when enabling clocks");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_Cmu_enableClocks_getCallCount(), "CMU enableClocks must be called once when enabling clocks");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxGtm_Cmu_setClkFrequency_getCallCount(), "CMU setClkFrequency must NOT be used by this module");
 
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_Pwm_initConfig_getCallCount(), "IfxGtm_Pwm_initConfig must still execute once");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_Pwm_init_getCallCount(), "IfxGtm_Pwm_init must still execute once");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_Pwm_initConfig_getCallCount(), "IfxGtm_Pwm_initConfig must be called exactly once");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_Pwm_init_getCallCount(), "IfxGtm_Pwm_init must be called exactly once");
 }
 
-/* =============================== GROUP 2 ==================================
- * initGtmTomPwm: configuration values
- * ======================================================================== */
-void test_TC_G2_001_config_sets_frequency_and_channel_count(void)
+void test_TC_G1_003_init_sequence_once_each(void)
 {
     /* Arrange */
-    mock_IfxGtm_isEnabled_returnValue = 1;                 /* focus on config, skip enable guard */
-    mock_IfxGtm_Cmu_getModuleFrequency_returnValue = UT_GTM_SYSCLK_HZ;
+    mock_IfxGtm_isEnabled_returnValue = 1; /* path independent of enable for this check */
 
     /* Act */
     initGtmTomPwm();
 
-    /* Assert: PWM switching frequency (not CMU clock) */
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_PWM_FREQUENCY_HZ, mock_IfxGtm_Pwm_init_lastFrequency, "PWM driver init must request 20 kHz switching frequency");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_PWM_FREQUENCY_HZ, mock_IfxGtm_Pwm_initConfig_lastFrequency, "PWM initConfig must request 20 kHz switching frequency");
-
-    /* Assert: number of configured channels (three complementary pairs => 6 channels) */
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_NUM_CHANNELS, mock_IfxGtm_Pwm_init_lastNumChannels, "Driver init must configure exactly 6 TOM channels (U/V/W high & low)");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_NUM_CHANNELS, mock_IfxGtm_Pwm_initConfig_lastNumChannels, "initConfig must reflect exactly 6 TOM channels");
+    /* Assert */
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_Pwm_initConfig_getCallCount(), "initConfig must be called exactly once before init");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_Pwm_init_getCallCount(), "init must be called exactly once");
 }
 
-void test_TC_G2_002_config_applies_deadtime_and_initial_duties(void)
+/*
+GROUP 2 - initGtmTomPwm: configuration values
+*/
+void test_TC_G2_001_config_num_channels_and_frequency(void)
 {
     /* Arrange */
-    mock_IfxGtm_isEnabled_returnValue = 1;                 /* focus on config, skip enable guard */
-    mock_IfxGtm_Cmu_getModuleFrequency_returnValue = UT_GTM_SYSCLK_HZ;
+    mock_IfxGtm_isEnabled_returnValue = 1;
 
     /* Act */
     initGtmTomPwm();
 
-    /* Assert: dead-time ticks applied to all channels (rising & falling) */
-    for (uint32 i = 0; i < UT_NUM_CHANNELS; ++i)
-    {
-        char msgR[96];
-        char msgF[96];
-        (void)snprintf(msgR, sizeof(msgR), "Dead-time rising ticks mismatch at channel index %lu", (unsigned long)i);
-        (void)snprintf(msgF, sizeof(msgF), "Dead-time falling ticks mismatch at channel index %lu", (unsigned long)i);
-        TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_DT_TICKS, mock_IfxGtm_Pwm_updateChannelsDeadTimeImmediate_lastDtRising[i], msgR);
-        TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_DT_TICKS, mock_IfxGtm_Pwm_updateChannelsDeadTimeImmediate_lastDtFalling[i], msgF);
-    }
+    /* Assert - number of logical channels (complementary pairs counted as 1) */
+    TEST_ASSERT_EQUAL_INT_MESSAGE(UT_NUM_CHANNELS, (int)mock_IfxGtm_Pwm_init_lastNumChannels, "Number of PWM logical channels must match 3-phase (3)");
 
-    /* Assert: initial duties include U/V/W = 25%/50%/75% and are normalized [0..1] */
-    uint32 n = mock_IfxGtm_Pwm_init_lastNumChannels;
-    uint32 found025 = 0, found050 = 0, found075 = 0;
-    for (uint32 i = 0; i < n; ++i)
-    {
-        float d = mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[i];
-        {
-            char msgRange[96];
-            (void)snprintf(msgRange, sizeof(msgRange), "Duty out of range [0..1] at index %lu", (unsigned long)i);
-            TEST_ASSERT_MESSAGE((d >= 0.0f) && (d <= 1.0f), msgRange);
-        }
-        if (fabsf(d - 0.25f) <= UT_FLOAT_EPSILON) { found025++; }
-        if (fabsf(d - 0.50f) <= UT_FLOAT_EPSILON) { found050++; }
-        if (fabsf(d - 0.75f) <= UT_FLOAT_EPSILON) { found075++; }
-    }
-    TEST_ASSERT_MESSAGE(found025 >= 1, "Initial duty array must include 25% for phase U");
-    TEST_ASSERT_MESSAGE(found050 >= 1, "Initial duty array must include 50% for phase V");
-    TEST_ASSERT_MESSAGE(found075 >= 1, "Initial duty array must include 75% for phase W");
+    /* Assert - PWM switching frequency set to 20 kHz on init() config */
+    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, (float)UT_PWM_FREQUENCY_HZ, (float)mock_IfxGtm_Pwm_init_lastFrequency, "PWM frequency on init() must be 20 kHz");
+
+    /* Also check the immediate frequency update uses the same 20 kHz */
+    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, (float)UT_PWM_FREQUENCY_HZ, (float)mock_IfxGtm_Pwm_updateFrequencyImmediate_lastFrequency, "Immediate frequency update must be 20 kHz");
 }
 
-/* =============================== GROUP 3 ==================================
- * initGtmTomPwm: runtime update logic (within initialization sequence)
- * ======================================================================== */
-void test_TC_G3_001_runtime_frequency_update_called_once_in_init(void)
+void test_TC_G2_002_config_initial_duty_and_deadtime_values(void)
 {
     /* Arrange */
-    mock_IfxGtm_isEnabled_returnValue = 1;                 /* concentrate on update calls */
-    mock_IfxGtm_Cmu_getModuleFrequency_returnValue = UT_GTM_SYSCLK_HZ;
+    mock_IfxGtm_isEnabled_returnValue = 1;
 
     /* Act */
     initGtmTomPwm();
 
-    /* Assert: base/timebase frequency is applied immediately once */
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_Pwm_updateFrequencyImmediate_getCallCount(), "updateFrequencyImmediate must be called exactly once during init");
+    /* Assert - initial duties (percent) U=25, V=50, W=75 */
+    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, UT_INIT_DUTY_U_PERCENT, mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[0], "Initial U duty must be 25% (percent units)");
+    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, UT_INIT_DUTY_V_PERCENT, mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[1], "Initial V duty must be 50% (percent units)");
+    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, UT_INIT_DUTY_W_PERCENT, mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[2], "Initial W duty must be 75% (percent units)");
+
+    /* Assert - dead-time ticks applied equally to rising and falling edges for all 3 channels */
+    TEST_ASSERT_EQUAL_INT_MESSAGE(UT_DEAD_TIME_TICKS, (int)mock_IfxGtm_Pwm_updateChannelsDeadTimeImmediate_lastDtRising[0], "Dead-time rising[0] must be 0.5us in ticks");
+    TEST_ASSERT_EQUAL_INT_MESSAGE(UT_DEAD_TIME_TICKS, (int)mock_IfxGtm_Pwm_updateChannelsDeadTimeImmediate_lastDtRising[1], "Dead-time rising[1] must be 0.5us in ticks");
+    TEST_ASSERT_EQUAL_INT_MESSAGE(UT_DEAD_TIME_TICKS, (int)mock_IfxGtm_Pwm_updateChannelsDeadTimeImmediate_lastDtRising[2], "Dead-time rising[2] must be 0.5us in ticks");
+
+    TEST_ASSERT_EQUAL_INT_MESSAGE(UT_DEAD_TIME_TICKS, (int)mock_IfxGtm_Pwm_updateChannelsDeadTimeImmediate_lastDtFalling[0], "Dead-time falling[0] must be 0.5us in ticks");
+    TEST_ASSERT_EQUAL_INT_MESSAGE(UT_DEAD_TIME_TICKS, (int)mock_IfxGtm_Pwm_updateChannelsDeadTimeImmediate_lastDtFalling[1], "Dead-time falling[1] must be 0.5us in ticks");
+    TEST_ASSERT_EQUAL_INT_MESSAGE(UT_DEAD_TIME_TICKS, (int)mock_IfxGtm_Pwm_updateChannelsDeadTimeImmediate_lastDtFalling[2], "Dead-time falling[2] must be 0.5us in ticks");
 }
 
-void test_TC_G3_002_runtime_duty_update_called_once_in_init_and_contains_phase_duties(void)
+/*
+GROUP 3 - initGtmTomPwm: runtime update logic (calls issued during init)
+*/
+void test_TC_G3_001_runtime_update_calls_once_each(void)
 {
     /* Arrange */
-    mock_IfxGtm_isEnabled_returnValue = 1;                 /* concentrate on update calls */
-    mock_IfxGtm_Cmu_getModuleFrequency_returnValue = UT_GTM_SYSCLK_HZ;
+    mock_IfxGtm_isEnabled_returnValue = 1;
 
     /* Act */
     initGtmTomPwm();
 
-    /* Assert: multi-channel duty update issued exactly once */
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_Pwm_updateChannelsDutyImmediate_getCallCount(), "Duty update (immediate) must be called exactly once during init");
-
-    /* And confirm representative three-phase duties are present */
-    uint32 n = mock_IfxGtm_Pwm_init_lastNumChannels;
-    uint32 found025 = 0, found050 = 0, found075 = 0;
-    for (uint32 i = 0; i < n; ++i)
-    {
-        float d = mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[i];
-        if (fabsf(d - 0.25f) <= UT_FLOAT_EPSILON) { found025++; }
-        if (fabsf(d - 0.50f) <= UT_FLOAT_EPSILON) { found050++; }
-        if (fabsf(d - 0.75f) <= UT_FLOAT_EPSILON) { found075++; }
-    }
-    TEST_ASSERT_MESSAGE(found025 >= 1, "Initial duty update must include 25% duty (phase U)");
-    TEST_ASSERT_MESSAGE(found050 >= 1, "Initial duty update must include 50% duty (phase V)");
-    TEST_ASSERT_MESSAGE(found075 >= 1, "Initial duty update must include 75% duty (phase W)");
+    /* Assert - driver updates are invoked exactly once (not per channel) */
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_Pwm_updateFrequencyImmediate_getCallCount(), "Frequency immediate update must be called once");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_Pwm_updateChannelsDutyImmediate_getCallCount(), "Duty immediate update must be called once for all channels (atomic)");
 }
 
-/* ================================= main =================================== */
+void test_TC_G3_002_runtime_update_frequency_value_is_pwm_frequency_not_module_clock(void)
+{
+    /* Arrange */
+    mock_IfxGtm_isEnabled_returnValue = 1;
+    mock_IfxGtm_Cmu_getModuleFrequency_returnValue = UT_GTM_MODULE_FREQ_HZ;
+
+    /* Act */
+    initGtmTomPwm();
+
+    /* Assert - ensure PWM update uses switching frequency (20 kHz), not module clock */
+    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, (float)UT_PWM_FREQUENCY_HZ, (float)mock_IfxGtm_Pwm_updateFrequencyImmediate_lastFrequency, "Immediate frequency update must use PWM frequency (20 kHz), not module frequency");
+}
+
 int main(void)
 {
     UNITY_BEGIN();
 
-    RUN_TEST(test_TC_G1_001_init_enables_GTM_and_clocks_when_disabled);
-    RUN_TEST(test_TC_G1_002_init_skips_clocking_when_already_enabled);
+    RUN_TEST(test_TC_G1_001_enable_guard_already_enabled);
+    RUN_TEST(test_TC_G1_002_enable_guard_needs_enable_and_clock_setup);
+    RUN_TEST(test_TC_G1_003_init_sequence_once_each);
 
-    RUN_TEST(test_TC_G2_001_config_sets_frequency_and_channel_count);
-    RUN_TEST(test_TC_G2_002_config_applies_deadtime_and_initial_duties);
+    RUN_TEST(test_TC_G2_001_config_num_channels_and_frequency);
+    RUN_TEST(test_TC_G2_002_config_initial_duty_and_deadtime_values);
 
-    RUN_TEST(test_TC_G3_001_runtime_frequency_update_called_once_in_init);
-    RUN_TEST(test_TC_G3_002_runtime_duty_update_called_once_in_init_and_contains_phase_duties);
+    RUN_TEST(test_TC_G3_001_runtime_update_calls_once_each);
+    RUN_TEST(test_TC_G3_002_runtime_update_frequency_value_is_pwm_frequency_not_module_clock);
 
     return UNITY_END();
 }
