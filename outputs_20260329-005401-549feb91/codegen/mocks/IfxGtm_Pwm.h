@@ -1,23 +1,20 @@
+/* IfxGtm_Pwm mock header */
 #ifndef IFXGTM_PWM_H
 #define IFXGTM_PWM_H
-
 #include "mock_gtm_tom_3_phase_inverter_pwm.h"
 #include "IfxGtm.h"
 #include "IfxGtm_Cmu.h"
 #include "IfxPort.h"
 
-/* Auxiliary types referenced by PWM types */
+/* Forward decls for cross-driver types used by PWM config */
+typedef struct IfxGtm_Trig_MscOut IfxGtm_Trig_MscOut; /* pointer-only usage */
+
+typedef struct { uint32 id; } IfxGtm_Atom_ToutMap;
+typedef struct { uint32 id; } IfxGtm_Tom_ToutMap;
+
 typedef void (*IfxGtm_Pwm_callBack)(void *arg);
 
-typedef struct { uint32 dummy; } IfxGtm_Atom_ToutMap;
-typedef struct { uint32 dummy; } IfxGtm_Tom_ToutMap;
-
-typedef union {
-    IfxGtm_Atom_ToutMap atom;       /* ATOM map */
-    IfxGtm_Tom_ToutMap  tom;        /* TOM map */
-} IfxGtm_Pwm_ToutMap;
-
-/* ===== VERIFIED TYPE DEFINITIONS (emit verbatim) ===== */
+/* Enum and struct definitions (verified order and content) */
 
 typedef enum
 {
@@ -100,6 +97,14 @@ typedef enum
     IfxGtm_Dtm_ClockSource_cmuClock2     
 } IfxGtm_Dtm_ClockSource;
 
+/* Additional union needed by OutputConfig/Pin */
+typedef union
+{
+    IfxGtm_Atom_ToutMap atom;       
+    IfxGtm_Tom_ToutMap  tom;        
+} IfxGtm_Pwm_ToutMap;
+
+/* Verified structs */
 typedef struct
 {
     float32 rising;        
@@ -165,9 +170,6 @@ typedef struct
     IfxGtm_Pwm_InterruptConfig *interrupt;       
 } IfxGtm_Pwm_ChannelConfig;
 
-/* Placeholder for MSC out config type */
-typedef struct { uint32 dummy; } IfxGtm_Trig_MscOut;
-
 typedef struct
 {
     Ifx_GTM_ATOM *ATOM;       
@@ -181,8 +183,7 @@ typedef struct
     volatile uint32 *reg1;                
     uint32           upenMask0;           
     uint32           upenMask1;           
-    volatile uint32 *endisCtrlReg0;       /** ATOM: points to AGC_ENDIS_CTRL.
-                                           * TOM: If channels span 2 TGCs then points to TGC0_ENDIS_CTRL else to the TGC being used TGCx_GLB_CTRL */
+    volatile uint32 *endisCtrlReg0;       
     volatile uint32 *endisCtrlReg1;       
 } IfxGtm_Pwm_GlobalControl;
 
@@ -238,8 +239,5 @@ void IfxGtm_Pwm_initConfig(IfxGtm_Pwm_Config *config, Ifx_GTM *gtmSFR);
 void IfxGtm_Pwm_updateChannelsDutyImmediate(IfxGtm_Pwm *pwm, float32 *requestDuty);
 void IfxGtm_Pwm_updateFrequencyImmediate(IfxGtm_Pwm *pwm, float32 requestFrequency);
 void IfxGtm_Pwm_init(IfxGtm_Pwm *pwm, IfxGtm_Pwm_Channel *channels, IfxGtm_Pwm_Config *config);
-
-/* Also exposed via this header in some templates */
-void IfxCpu_Irq_installInterruptHandler(void (*isr)(void), int vectabNum, int priority);
 
 #endif /* IFXGTM_PWM_H */

@@ -1,9 +1,8 @@
+/* IfxPort mock */
 #ifndef IFXPORT_H
 #define IFXPORT_H
-
 #include "mock_gtm_tom_3_phase_inverter_pwm.h"
 
-/* IfxPort enums and types */
 typedef enum {
     IfxPort_OutputMode_pushPull = 0,
     IfxPort_OutputMode_openDrain = 1
@@ -21,12 +20,8 @@ typedef enum {
 } IfxPort_OutputIdx;
 
 typedef enum {
-    IfxPort_State_low = 0,
+    IfxPort_State_low  = 0,
     IfxPort_State_high = 1
 } IfxPort_State;
-
-/* API used by production/tests */
-void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_PadDriver padDriver);
-void IfxPort_togglePin(Ifx_P *port, uint8 pinIndex);
 
 #endif /* IFXPORT_H */
