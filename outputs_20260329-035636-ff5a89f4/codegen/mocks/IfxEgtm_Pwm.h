@@ -1,16 +1,25 @@
-#ifndef IFXEGTM_PWM_H
-#define IFXEGTM_PWM_H
-
 #include "mock_egtm_atom_3_phase_inverter_pwm.h"
 #include "IfxEgtm.h"
 #include "IfxEgtm_Cmu.h"
 #include "IfxPort.h"
+#ifndef IFXEGTM_PWM_IS_HIGH_RES_AVAILABLE
+#define IFXEGTM_PWM_IS_HIGH_RES_AVAILABLE 0
+#endif
 
-/* Additional support types referenced by verified definitions but not provided */
+/* Support types not owned elsewhere but required here */
+typedef uint32 Ifx_UReg_32Bit;
+typedef uint32 IfxEgtm_Cluster; /* cluster index placeholder */
+typedef uint32 IfxSrc_VmId;     /* VM id placeholder */
+typedef void (*IfxEgtm_Pwm_callBack)(void *arg);
+
+typedef enum { IfxEgtm_Dtm_ShutoffInput_0 = 0 } IfxEgtm_Dtm_ShutoffInput;
+typedef enum { IfxEgtm_Dtm_SignalLevel_low = 0, IfxEgtm_Dtm_SignalLevel_high = 1 } IfxEgtm_Dtm_SignalLevel;
+
 typedef struct { uint32 dummy; } IfxEgtm_Atom_ToutMap;
 typedef struct { uint32 dummy; } IfxEgtm_Tom_ToutMap;
+typedef struct { uint32 dummy; } IfxEgtm_Hrpwm_Out;
 
-typedef void (*IfxEgtm_Pwm_callBack)(void);
+/* VERIFIED TYPE DEFINITIONS — EMIT EXACTLY AS-IS IN MOCKS (adapted with required support types) */
 
 typedef enum
 {
@@ -99,15 +108,22 @@ typedef struct
     float32 falling;       
 } IfxEgtm_Pwm_DeadTime;
 
-typedef struct IfxEgtm_Pwm_FastShutoffConfig
+typedef struct
 {
-    uint32 dummy; /* placeholder for real fields */
+    /* Fast shutoff config from template mapping */
+    IfxEgtm_Dtm_ShutoffInput inputSignal;                 
+    boolean                  invertInputSignal;           
+    IfxEgtm_Dtm_SignalLevel  offState;                    
+    IfxEgtm_Dtm_SignalLevel  complementaryOffState;       
 } IfxEgtm_Pwm_FastShutoffConfig;
 
 typedef union
 {
     IfxEgtm_Atom_ToutMap atom;        
     IfxEgtm_Tom_ToutMap  tom;         
+#if IFXEGTM_PWM_IS_HIGH_RES_AVAILABLE 
+    IfxEgtm_Hrpwm_Out    hrpwm;       
+#endif 
 } IfxEgtm_Pwm_ToutMap;
 
 typedef struct
@@ -115,8 +131,6 @@ typedef struct
     IfxEgtm_Pwm_DeadTime           deadTime;          
     IfxEgtm_Pwm_FastShutoffConfig *fastShutOff;       
 } IfxEgtm_Pwm_DtmConfig;
-
-typedef enum { IfxSrc_VmId_0 = 0, IfxSrc_VmId_1 = 1 } IfxSrc_VmId;
 
 typedef struct
 {
@@ -220,7 +234,7 @@ typedef struct
     float32                    frequency;              
     IfxEgtm_Pwm_ClockSource    clockSource;            
     IfxEgtm_Dtm_ClockSource    dtmClockSource;         
-#if IFXEGTM_PWM_IS_HIGH_RES_AVAILABLE
+#if IFXEGTM_PWM_IS_HIGH_RES_AVAILABLE 
     boolean                    highResEnable;          
     boolean                    dtmHighResEnable;       
 #endif
@@ -235,12 +249,11 @@ typedef struct
     IfxPort_PadDriver    padDriver;        
 } IfxEgtm_Pwm_Pin;
 
-/* Function declarations (subset required by tests) */
-void IfxCpu_Irq_installInterruptHandler(void (*isr)(void), int vectabNum, int priority);
-void IfxCpu_enableInterrupts(void);
-
+/* Function declarations (subset needed by module/tests) */
 void IfxEgtm_Pwm_updateChannelsDutyImmediate(IfxEgtm_Pwm *pwm, float32 *requestDuty);
 void IfxEgtm_Pwm_initConfig(IfxEgtm_Pwm_Config *config, Ifx_EGTM *egtmSFR);
 void IfxEgtm_Pwm_init(IfxEgtm_Pwm *pwm, IfxEgtm_Pwm_Channel *channels, IfxEgtm_Pwm_Config *config);
 
-#endif /* IFXEGTM_PWM_H */
+/* CPU helper APIs sometimes referenced by templates */
+void IfxCpu_enableInterrupts(void);
+void IfxCpu_Irq_installInterruptHandler(void (*handler)(void), int vectabNum, int priority);
