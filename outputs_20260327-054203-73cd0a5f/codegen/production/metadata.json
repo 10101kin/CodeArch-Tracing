@@ -1,20 +1,13 @@
 {
-  "attempt": 7,
-  "phase_attempt": 3,
-  "phase": "production",
-  "success": false,
-  "errors": [
-    "conflicting types for 'Ifx_GTM_TOM'; have 'struct <anonymous>'",
-    "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_j49b7kcv\\src\\gtm_tom_3_phase_inverter_pwm.c:21:10: fatal error: IfxGtm_PinMap.h: No such file or directory",
-    "conflicting types for 'Ifx_GTM_TOM'; have 'struct <anonymous>'",
-    "conflicting types for 'MODULE_GTM_TOM'; have 'Ifx_GTM_TOM'",
-    "'mock_IfxGtm_Tom_PwmHl_lastDtRising' undeclared (first use in this function); did you mean 'mock_IfxGtm_Tom_PwmHl_setDeadtime_lastDtRising'?",
-    "'mock_IfxGtm_Tom_PwmHl_lastDtFalling' undeclared (first use in this function); did you mean 'mock_IfxGtm_Tom_PwmHl_init_callCount'?",
-    "implicit declaration of function 'mock_IfxGtm_Tom_Tomer_applyUpdate_getCallCount'; did you mean 'mock_IfxGtm_Tom_Timer_applyUpdate_getCallCount'? [-Wimplicit-function-declaration]",
-    "unused variable 'pre_apply' [-Werror=unused-variable]",
-    "unused variable 'pre_set' [-Werror=unused-variable]",
-    "unused variable 'pre_disable' [-Werror=unused-variable]"
-  ],
-  "timestamp": "2026-03-29T07:57:08.668863",
-  "project_name": "Migrate_the_TC387_three-phase_inverter_PWM_to_the_r_20260329_073706"
+  "export_type": "node_json",
+  "export_reason": "stage_failed",
+  "node_stage": "code_generation",
+  "reviewer_name": null,
+  "reviewer_applied": false,
+  "modified_by": "system",
+  "modifier_name": null,
+  "workflow_stage": "code_generation_failed",
+  "target_board": "KIT_A2G_TC387_5V_TFT",
+  "generation_mode": "MIGRATION",
+  "timestamp": "2026-03-29T07:59:57.965170"
 }
