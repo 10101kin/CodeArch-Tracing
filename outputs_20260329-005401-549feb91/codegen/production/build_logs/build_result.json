@@ -2,19 +2,91 @@
   "success": false,
   "errors": [
     {
-      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_eqeob4ss\\src\\gtm_tom_3_phase_inverter_pwm.c",
-      "line": 75,
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_w7_q4gh4\\include/IfxGtm_Pwm.h",
+      "line": 79,
       "category": "error",
-      "message": "implicit declaration of function 'IfxPort_togglePin' [-Wimplicit-function-declaration]"
+      "message": "redeclaration of enumerator 'IfxGtm_Dtm_ClockSource_systemClock'"
     },
     {
-      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_eqeob4ss\\src\\gtm_tom_3_phase_inverter_pwm.c",
-      "line": 217,
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_w7_q4gh4\\include/IfxGtm_Pwm.h",
+      "line": 80,
       "category": "error",
-      "message": "implicit declaration of function 'IfxPort_setPinModeOutput' [-Wimplicit-function-declaration]"
+      "message": "redeclaration of enumerator 'IfxGtm_Dtm_ClockSource_cmuClock0'"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_w7_q4gh4\\include/IfxGtm_Pwm.h",
+      "line": 81,
+      "category": "error",
+      "message": "redeclaration of enumerator 'IfxGtm_Dtm_ClockSource_cmuClock1'"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_w7_q4gh4\\include/IfxGtm_Pwm.h",
+      "line": 82,
+      "category": "error",
+      "message": "redeclaration of enumerator 'IfxGtm_Dtm_ClockSource_cmuClock2'"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_w7_q4gh4\\include/IfxGtm_Pwm.h",
+      "line": 83,
+      "category": "error",
+      "message": "conflicting types for 'IfxGtm_Dtm_ClockSource'; have 'enum <anonymous>'"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_w7_q4gh4\\include/IfxGtm_Pwm.h",
+      "line": 167,
+      "category": "error",
+      "message": "unknown type name 'IfxGtm_Trig_MscOut'"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_w7_q4gh4\\include/IfxGtm_Pwm.h",
+      "line": 79,
+      "category": "error",
+      "message": "redeclaration of enumerator 'IfxGtm_Dtm_ClockSource_systemClock'"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_w7_q4gh4\\include/IfxGtm_Pwm.h",
+      "line": 80,
+      "category": "error",
+      "message": "redeclaration of enumerator 'IfxGtm_Dtm_ClockSource_cmuClock0'"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_w7_q4gh4\\include/IfxGtm_Pwm.h",
+      "line": 81,
+      "category": "error",
+      "message": "redeclaration of enumerator 'IfxGtm_Dtm_ClockSource_cmuClock1'"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_w7_q4gh4\\include/IfxGtm_Pwm.h",
+      "line": 82,
+      "category": "error",
+      "message": "redeclaration of enumerator 'IfxGtm_Dtm_ClockSource_cmuClock2'"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_w7_q4gh4\\include/IfxGtm_Pwm.h",
+      "line": 83,
+      "category": "error",
+      "message": "conflicting types for 'IfxGtm_Dtm_ClockSource'; have 'enum <anonymous>'"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_w7_q4gh4\\include/IfxGtm_Pwm.h",
+      "line": 167,
+      "category": "error",
+      "message": "unknown type name 'IfxGtm_Trig_MscOut'"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_w7_q4gh4\\test\\test_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 97,
+      "category": "error",
+      "message": "'mock_IfxGtm_Pwm_updateFrequencyImmediate_lastFrequency' undeclared (first use in this function); did you mean 'mock_IfxGtm_Pwm_updateFrequencyImmediate_callCount'?"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_w7_q4gh4\\test\\test_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 149,
+      "category": "error",
+      "message": "'mock_IfxGtm_Pwm_updateFrequencyImmediate_lastFrequency' undeclared (first use in this function); did you mean 'mock_IfxGtm_Pwm_updateFrequencyImmediate_callCount'?"
     }
   ],
   "warnings": [],
-  "stderr": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_eqeob4ss\\src\\gtm_tom_3_phase_inverter_pwm.c: In function 'interruptGtmAtom':\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_eqeob4ss\\src\\gtm_tom_3_phase_inverter_pwm.c:75:5: error: implicit declaration of function 'IfxPort_togglePin' [-Wimplicit-function-declaration]\n   75 |     IfxPort_togglePin(LED);\n      |     ^~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_eqeob4ss\\src\\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTomPwm':\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_eqeob4ss\\src\\gtm_tom_3_phase_inverter_pwm.c:217:5: error: implicit declaration of function 'IfxPort_setPinModeOutput' [-Wimplicit-function-declaration]\n  217 |     IfxPort_setPinModeOutput(LED, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~\n",
+  "stderr": "In file included from C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_w7_q4gh4\\src\\gtm_tom_3_phase_inverter_pwm.c:21:\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_w7_q4gh4\\include/IfxGtm_Pwm.h:79:5: error: redeclaration of enumerator 'IfxGtm_Dtm_ClockSource_systemClock'\n   79 |     IfxGtm_Dtm_ClockSource_systemClock,\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nIn file included from C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_w7_q4gh4\\include/IfxGtm_Pwm.h:6:\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_w7_q4gh4\\include/IfxGtm_Cmu.h:41:5: note: previous definition of 'IfxGtm_Dtm_ClockSource_systemClock' with type 'enum <anonymous>'\n   41 |     IfxGtm_Dtm_ClockSource_systemClock,\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_w7_q4gh4\\include/IfxGtm_Pwm.h:80:5: error: redeclaration of enumerator 'IfxGtm_Dtm_ClockSource_cmuClock0'\n   80 |     IfxGtm_Dtm_ClockSource_cmuClock0,\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_w7_q4gh4\\include/IfxGtm_Cmu.h:42:5: note: previous definition of 'IfxGtm_Dtm_ClockSource_cmuClock0' with type 'enum <anonymous>'\n   42 |     IfxGtm_Dtm_ClockSource_cmuClock0,\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_w7_q4gh4\\include/IfxGtm_Pwm.h:81:5: error: redeclaration of enumerator 'IfxGtm_Dtm_ClockSource_cmuClock1'\n   81 |     IfxGtm_Dtm_ClockSource_cmuClock1,\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_w7_q4gh4\\include/IfxGtm_Cmu.h:43:5: note: previous definition of 'IfxGtm_Dtm_ClockSource_cmuClock1' with type 'enum <anonymous>'\n   43 |     IfxGtm_Dtm_ClockSource_cmuClock1,\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_w7_q4gh4\\include/IfxGtm_Pwm.h:82:5: error: redeclaration of enumerator 'IfxGtm_Dtm_ClockSource_cmuClock2'\n   82 |     IfxGtm_Dtm_ClockSource_cmuClock2\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_w7_q4gh4\\include/IfxGtm_Cmu.h:44:5: note: previous definition of 'IfxGtm_Dtm_ClockSource_cmuClock2' with type 'enum <anonymous>'\n   44 |     IfxGtm_Dtm_ClockSource_cmuClock2\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_w7_q4gh4\\include/IfxGtm_Pwm.h:83:3: error: conflicting types for 'IfxGtm_Dtm_ClockSource'; have 'enum <anonymous>'\n   83 | } IfxGtm_Dtm_ClockSource;\n      |   ^~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_w7_q4gh4\\include/IfxGtm_Cmu.h:45:3: note: previous declaration of 'IfxGtm_Dtm_ClockSource' with type 'IfxGtm_Dtm_ClockSource'\n   45 | } IfxGtm_Dtm_ClockSource;\n      |   ^~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_w7_q4gh4\\include/IfxGtm_Pwm.h:167:5: error: unknown type name 'IfxGtm_Trig_MscOut'\n  167 |     IfxGtm_Trig_MscOut         *mscOut;\n      |     ^~~~~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_w7_q4gh4\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c:4:\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_w7_q4gh4\\include/IfxGtm_Pwm.h:79:5: error: redeclaration of enumerator 'IfxGtm_Dtm_ClockSource_systemClock'\n   79 |     IfxGtm_Dtm_ClockSource_systemClock,\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nIn file included from C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_w7_q4gh4\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c:3:\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_w7_q4gh4\\include/IfxGtm_Cmu.h:41:5: note: previous definition of 'IfxGtm_Dtm_ClockSource_systemClock' with type 'enum <anonymous>'\n   41 |     IfxGtm_Dtm_ClockSource_systemClock,\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_w7_q4gh4\\include/IfxGtm_Pwm.h:80:5: error: redeclaration of enumerator 'IfxGtm_Dtm_ClockSource_cmuClock0'\n   80 |     IfxGtm_Dtm_ClockSource_cmuClock0,\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_w7_q4gh4\\include/IfxGtm_Cmu.h:42:5: note: previous definition of 'IfxGtm_Dtm_ClockSource_cmuClock0' with type 'enum <anonymous>'\n   42 |     IfxGtm_Dtm_ClockSource_cmuClock0,\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_w7_q4gh4\\include/IfxGtm_Pwm.h:81:5: error: redeclaration of enumerator 'IfxGtm_Dtm_ClockSource_cmuClock1'\n   81 |     IfxGtm_Dtm_ClockSource_cmuClock1,\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_w7_q4gh4\\include/IfxGtm_Cmu.h:43:5: note: previous definition of 'IfxGtm_Dtm_ClockSource_cmuClock1' with type 'enum <anonymous>'\n   43 |     IfxGtm_Dtm_ClockSource_cmuClock1,\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_w7_q4gh4\\include/IfxGtm_Pwm.h:82:5: error: redeclaration of enumerator 'IfxGtm_Dtm_ClockSource_cmuClock2'\n   82 |     IfxGtm_Dtm_ClockSource_cmuClock2\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_w7_q4gh4\\include/IfxGtm_Cmu.h:44:5: note: previous definition of 'IfxGtm_Dtm_ClockSource_cmuClock2' with type 'enum <anonymous>'\n   44 |     IfxGtm_Dtm_ClockSource_cmuClock2\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_w7_q4gh4\\include/IfxGtm_Pwm.h:83:3: error: conflicting types for 'IfxGtm_Dtm_ClockSource'; have 'enum <anonymous>'\n   83 | } IfxGtm_Dtm_ClockSource;\n      |   ^~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_w7_q4gh4\\include/IfxGtm_Cmu.h:45:3: note: previous declaration of 'IfxGtm_Dtm_ClockSource' with type 'IfxGtm_Dtm_ClockSource'\n   45 | } IfxGtm_Dtm_ClockSource;\n      |   ^~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_w7_q4gh4\\include/IfxGtm_Pwm.h:167:5: error: unknown type name 'IfxGtm_Trig_MscOut'\n  167 |     IfxGtm_Trig_MscOut         *mscOut;\n      |     ^~~~~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity.h:22,\n                 from C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_w7_q4gh4\\test\\test_gtm_tom_3_phase_inverter_pwm.c:1:\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_w7_q4gh4\\test\\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G2_001_config_num_channels_and_frequency':\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_w7_q4gh4\\test\\test_gtm_tom_3_phase_inverter_pwm.c:97:91: error: 'mock_IfxGtm_Pwm_updateFrequencyImmediate_lastFrequency' undeclared (first use in this function); did you mean 'mock_IfxGtm_Pwm_updateFrequencyImmediate_callCount'?\n   97 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, (float)UT_PWM_FREQUENCY_HZ, (float)mock_IfxGtm_Pwm_updateFrequencyImmediate_lastFrequency, \"Immediate frequency update must be 20 kHz\");\n      |                                                                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity_internals.h:1119:183: note: in definition of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'\n 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))\n      |                                                                                                                                                                                       ^~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_w7_q4gh4\\test\\test_gtm_tom_3_phase_inverter_pwm.c:97:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN_MESSAGE'\n   97 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, (float)UT_PWM_FREQUENCY_HZ, (float)mock_IfxGtm_Pwm_updateFrequencyImmediate_lastFrequency, \"Immediate frequency update must be 20 kHz\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_w7_q4gh4\\test\\test_gtm_tom_3_phase_inverter_pwm.c:97:91: note: each undeclared identifier is reported only once for each function it appears in\n   97 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, (float)UT_PWM_FREQUENCY_HZ, (float)mock_IfxGtm_Pwm_updateFrequencyImmediate_lastFrequency, \"Immediate frequency update must be 20 kHz\");\n      |                                                                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity_internals.h:1119:183: note: in definition of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'\n 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))\n      |                                                                                                                                                                                       ^~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_w7_q4gh4\\test\\test_gtm_tom_3_phase_inverter_pwm.c:97:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN_MESSAGE'\n   97 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, (float)UT_PWM_FREQUENCY_HZ, (float)mock_IfxGtm_Pwm_updateFrequencyImmediate_lastFrequency, \"Immediate frequency update must be 20 kHz\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_w7_q4gh4\\test\\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G3_002_runtime_update_frequency_value_is_pwm_frequency_not_module_clock':\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_w7_q4gh4\\test\\test_gtm_tom_3_phase_inverter_pwm.c:149:91: error: 'mock_IfxGtm_Pwm_updateFrequencyImmediate_lastFrequency' undeclared (first use in this function); did you mean 'mock_IfxGtm_Pwm_updateFrequencyImmediate_callCount'?\n  149 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, (float)UT_PWM_FREQUENCY_HZ, (float)mock_IfxGtm_Pwm_updateFrequencyImmediate_lastFrequency, \"Immediate frequency update must use PWM frequency (20 kHz), not module frequency\");\n      |                                                                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity_internals.h:1119:183: note: in definition of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'\n 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))\n      |                                                                                                                                                                                       ^~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_w7_q4gh4\\test\\test_gtm_tom_3_phase_inverter_pwm.c:149:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN_MESSAGE'\n  149 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, (float)UT_PWM_FREQUENCY_HZ, (float)mock_IfxGtm_Pwm_updateFrequencyImmediate_lastFrequency, \"Immediate frequency update must use PWM frequency (20 kHz), not module frequency\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n",
   "stdout": ""
 }
