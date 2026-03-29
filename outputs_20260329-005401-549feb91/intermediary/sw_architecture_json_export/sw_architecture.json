@@ -1,0 +1,154 @@
+{
+  "user_intent_preservation": {
+    "original_goal": "Migrate the TC387 3‑phase motor PWM to the unified IfxGtm_Pwm API while keeping TOM1, center‑aligned complementary PWM with 0.5 µs dead‑time, exact U/V/W channel-to-pin mapping, pad driver and output mode, and initial duties U=25%, V=50%, W=75%.",
+    "functional_behavior": "Generate six complementary, center‑aligned PWM outputs on TOM1 with a 20 kHz timebase (CH0 clocked from cmuFxclk0), enforce 0.5 µs dead‑time and 1.0 µs minimum pulse, configure pins as push‑pull with IfxPort_PadDriver_cmosAutomotiveSpeed1, active-high polarity, support atomic shadow updates, and apply initial U/V/W duties of 25/50/75%.",
+    "technical_approach": "Use the unified high-level IfxGtm_Pwm driver to configure TOM1 channels 1..6 as three complementary pairs, enable GTM, map pins via IfxGtm_PinMap_setTomTout for the requested TOUT pins, set center‑aligned operation and 20 kHz via IfxGtm_Pwm_updateFrequencyImmediate, program 0.5 µs dead‑time via IfxGtm_Pwm_updateChannelsDeadTimeImmediate, set active-high polarity via IfxGtm_Pwm_setChannelPolarity, and load initial duties using the non‑immediate batch API IfxGtm_Pwm_updateChannelsDuty to preserve atomic shadow transfer semantics at the period boundary."
+  },
+  "driver_selection": {
+    "recommended_driver": "IfxGtm_Pwm",
+    "selection_rationale": "Unified GTM PWM API supports multi‑channel synchronized updates, center‑aligned operation, per‑channel polarity, dead‑time updates, and group start/stop. It replaces IfxGtm_Tom_PwmHl as requested while remaining available for TC3xx.",
+    "available_in_template": true,
+    "complexity_level": "advanced",
+    "alternatives_considered": [
+      "IfxGtm_Tom_Dtm_PwmHl",
+      "IfxGtm_Tom_PwmHl",
+      "IfxGtm_Tom_Pwm"
+    ]
+  },
+  "driver_usage": {
+    "primary_driver": "IfxGtm_Pwm",
+    "available_in_template": true,
+    "initialization_apis": [
+      "IfxGtm_enable",
+      "IfxGtm_Pwm_initConfig",
+      "IfxGtm_Pwm_initChannelConfig",
+      "IfxGtm_Pwm_init",
+      "IfxGtm_PinMap_setTomTout"
+    ],
+    "runtime_apis": [
+      "IfxGtm_Pwm_setChannelPolarity",
+      "IfxGtm_Pwm_updateChannelsDeadTimeImmediate",
+      "IfxGtm_Pwm_updateFrequencyImmediate",
+      "IfxGtm_Pwm_updateChannelsDuty",
+      "IfxGtm_Pwm_startSyncedChannels",
+      "IfxGtm_Pwm_stopSyncedChannels"
+    ]
+  },
+  "file_structure": {
+    "module_files": [
+      "GTM_TOM_3_Phase_Inverter_PWM.c",
+      "GTM_TOM_3_Phase_Inverter_PWM.h"
+    ],
+    "cpu_files": [
+      "Cpu0_Main.c"
+    ],
+    "from_reference": true
+  },
+  "function_mapping": {
+    "init_function": {
+      "name": "GTM_TOM_3_Phase_Inverter_PWM_init",
+      "driver_calls": [
+        "IfxGtm_enable",
+        "IfxGtm_Pwm_initConfig",
+        "IfxGtm_Pwm_initChannelConfig",
+        "IfxGtm_PinMap_setTomTout",
+        "IfxGtm_Pwm_init",
+        "IfxGtm_Pwm_setChannelPolarity",
+        "IfxGtm_Pwm_updateChannelsDeadTimeImmediate",
+        "IfxGtm_Pwm_updateFrequencyImmediate",
+        "IfxGtm_Pwm_startSyncedChannels"
+      ]
+    },
+    "runtime_function": {
+      "name": "GTM_TOM_3_Phase_Inverter_PWM_setDutyUVW",
+      "driver_calls": [
+        "IfxGtm_Pwm_updateChannelsDuty"
+      ],
+      "purpose": "Atomically schedule new U/V/W complementary duties using non‑immediate batch update so changes take effect together at the next PWM period (shadow transfer semantics preserved)."
+    }
+  },
+  "migration_notes": {
+    "is_migration": true,
+    "driver_changes": [
+      "PWM high-level driver updated: IfxGtm_Tom_PwmHl -> IfxGtm_Pwm",
+      "Header updated: IfxGtm_Tom_PwmHl.h -> IfxGtm_Pwm.h"
+    ],
+    "api_changes": [
+      {
+        "from": "IfxGtm_Tom_PwmHl_initConfig",
+        "to": "IfxGtm_Pwm_initConfig",
+        "reason": "Unified GTM PWM configuration."
+      },
+      {
+        "from": "IfxGtm_Tom_PwmHl_init",
+        "to": "IfxGtm_Pwm_init",
+        "reason": "Unified GTM PWM initialization."
+      },
+      {
+        "from": "IfxGtm_Tom_PwmHl_setOnTime",
+        "to": "IfxGtm_Pwm_updateChannelsDuty",
+        "reason": "Batch duty update with shadowed application at the period boundary."
+      }
+    ],
+    "context_preserved": "The unified IfxGtm_Pwm is used as requested on TC387/TC3xx. TOM1 remains the timebase with a 20 kHz center‑aligned PWM, channel/pin mapping is applied to TOUT11..16 on P00.x via IfxGtm_PinMap_setTomTout with push‑pull and IfxPort_PadDriver_cmosAutomotiveSpeed1. Complementary, active‑high outputs with 0.5 µs dead‑time and 1.0 µs min pulse are configured. Atomic update semantics are maintained by using the non‑immediate multi‑channel API (updateChannelsDuty) which defers application to the next period. Note: IfxGtm_Pwm does not provide explicit disableUpdate/applyUpdate APIs; the shadow transfer behavior is inherent to the non‑immediate update functions. Verify TOM1 channel-to-TOUT mapping macros in IfxGtm_PinMap_TC38x_LFBGA516 for the exact requested pins; select the correct TOM1 CHx ↔ TOUTy macros accordingly."
+  },
+  "header_selection": {
+    "applied": true,
+    "peripheral_type": "PWM",
+    "recommended_header": "IfxGtm_Pwm",
+    "score": 348,
+    "required_includes": [
+      "IfxGtm_Pwm.h"
+    ],
+    "function_mapping": {
+      "IfxGtm_enable": "IfxGtm_Pwm_enableChannel"
+    },
+    "available_functions_count": 99
+  },
+  "driver_selection_engine": {
+    "applied": true,
+    "mcu_family": "TC3xx",
+    "requirement_analysis": {},
+    "recommendations": {
+      "PWM": {
+        "driver": "IfxGtm_Pwm",
+        "score": 100,
+        "complexity": "locked",
+        "rationale": "Driver locked by refiner node (user explicit or engine-scored)",
+        "alternatives": []
+      }
+    },
+    "migration_mappings": {
+      "IfxScuWdt": {
+        "target_driver": "IfxScuWdt",
+        "api_mapping": {
+          "IfxScuWdt_init": "IfxScuWdt_init",
+          "IfxScuWdt_initConfig": "IfxScuWdt_initConfig"
+        }
+      },
+      "IfxGtm_Tom_PwmHl": {
+        "target_driver": "IfxGtm_Pwm",
+        "api_mapping": {
+          "IfxGtm_Tom_PwmHl_init": "IfxGtm_Pwm_init",
+          "IfxGtm_Tom_PwmHl_initConfig": "IfxGtm_Pwm_initConfig",
+          "IfxGtm_Tom_PwmHl_setOnTime": "IfxGtm_Pwm_setDuty",
+          "IfxGtm_Tom_PwmHl_setPeriod": "IfxGtm_Pwm_updatePeriod",
+          "IfxGtm_Tom_PwmHl_start": "IfxGtm_Pwm_start",
+          "IfxGtm_Tom_PwmHl_stop": "IfxGtm_Pwm_stop"
+        },
+        "upgrade_reason": "Known upgrade path: IfxGtm_Tom_PwmHl → IfxGtm_Pwm"
+      },
+      "IfxCpu_Irq": {
+        "target_driver": "IfxSrc",
+        "api_mapping": {
+          "IfxCpu_Irq_installInterruptHandler": "IfxSrc_init",
+          "IfxCpu_enableInterrupts": "IfxSrc_setRequest",
+          "IfxCpu_disableInterrupts": "IfxSrc_clearRequest"
+        }
+      }
+    }
+  },
+  "driver_knowledge_base": {
+    "applied": false
+  }
+}
