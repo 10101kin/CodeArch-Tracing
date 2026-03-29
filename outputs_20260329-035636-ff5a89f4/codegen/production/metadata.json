@@ -1,8 +1,20 @@
 {
-  "type": "llm_response",
-  "phase": "production",
   "attempt": 3,
   "phase_attempt": 1,
-  "response_length": 10113,
-  "timestamp": "2026-03-29T12:22:54.982256"
+  "phase": "production",
+  "success": false,
+  "errors": [
+    "unknown type name 'IfxPort_PadSupply'",
+    "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_9bps3aey\\src\\egtm_atom_3_phase_inverter_pwm.c:34:10: fatal error: Compilers.h: No such file or directory",
+    "unknown type name 'IfxPort_PadSupply'",
+    "conflicting types for 'mock_IfxEgtm_Cmu_getModuleFrequency_returnValue'; have 'uint32' {aka 'long unsigned int'}",
+    "conflicting types for 'mock_IfxEgtm_Cmu_getGclkFrequency_returnValue'; have 'uint32' {aka 'long unsigned int'}",
+    "conflicting types for 'mock_IfxEgtm_Cmu_getClkFrequency_returnValue'; have 'uint32' {aka 'long unsigned int'}",
+    "conflicting types for 'mock_IfxEgtm_Pwm_init_lastFrequency'; have 'uint32' {aka 'long unsigned int'}",
+    "conflicting types for 'mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_getCallCount'; have 'uint32(void)' {aka 'long unsigned int(void)'}",
+    "conflicting types for 'mock_IfxEgtm_Pwm_initConfig_getCallCount'; have 'uint32(void)' {aka 'long unsigned int(void)'}",
+    "conflicting types for 'mock_IfxEgtm_Pwm_init_getCallCount'; have 'uint32(void)' {aka 'long unsigned int(void)'}"
+  ],
+  "timestamp": "2026-03-29T12:23:02.680869",
+  "project_name": "Migrate_the_TC387_GTM_TOM_three-phase_inverter_PWM_r_20260329_121516"
 }

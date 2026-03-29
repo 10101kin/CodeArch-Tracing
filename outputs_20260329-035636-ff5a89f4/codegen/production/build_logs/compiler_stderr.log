@@ -1,0 +1,106 @@
+In file included from C:\Users\extanke\AppData\Local\Temp\tdd_build_9bps3aey\include/IfxEgtm_Pwm.h:5,
+                 from C:\Users\extanke\AppData\Local\Temp\tdd_build_9bps3aey\src\egtm_atom_3_phase_inverter_pwm.c:8:
+C:\Users\extanke\AppData\Local\Temp\tdd_build_9bps3aey\include/IfxPort.h:43:5: error: unknown type name 'IfxPort_PadSupply'
+   43 |     IfxPort_PadSupply    padSupply;
+      |     ^~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_9bps3aey\src\egtm_atom_3_phase_inverter_pwm.c:34:10: fatal error: Compilers.h: No such file or directory
+   34 | #include "Compilers.h"  /* for IFX_STATIC */
+      |          ^~~~~~~~~~~~~
+compilation terminated.
+
+In file included from C:\Users\extanke\AppData\Local\Temp\tdd_build_9bps3aey\mocks\mock_egtm_atom_3_phase_inverter_pwm.c:5:
+C:\Users\extanke\AppData\Local\Temp\tdd_build_9bps3aey\include/IfxPort.h:43:5: error: unknown type name 'IfxPort_PadSupply'
+   43 |     IfxPort_PadSupply    padSupply;
+      |     ^~~~~~~~~~~~~~~~~
+
+C:\Users\extanke\AppData\Local\Temp\tdd_build_9bps3aey\test\test_egtm_atom_3_phase_inverter_pwm.c:21:15: error: conflicting types for 'mock_IfxEgtm_Cmu_getModuleFrequency_returnValue'; have 'uint32' {aka 'long unsigned int'}
+   21 | extern uint32 mock_IfxEgtm_Cmu_getModuleFrequency_returnValue;
+      |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from C:\Users\extanke\AppData\Local\Temp\tdd_build_9bps3aey\test\test_egtm_atom_3_phase_inverter_pwm.c:2:
+C:\Users\extanke\AppData\Local\Temp\tdd_build_9bps3aey\include/mock_egtm_atom_3_phase_inverter_pwm.h:440:16: note: previous declaration of 'mock_IfxEgtm_Cmu_getModuleFrequency_returnValue' with type 'float32' {aka 'float'}
+  440 | extern float32 mock_IfxEgtm_Cmu_getModuleFrequency_returnValue;
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_9bps3aey\test\test_egtm_atom_3_phase_inverter_pwm.c:22:15: error: conflicting types for 'mock_IfxEgtm_Cmu_getGclkFrequency_returnValue'; have 'uint32' {aka 'long unsigned int'}
+   22 | extern uint32 mock_IfxEgtm_Cmu_getGclkFrequency_returnValue;
+      |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_9bps3aey\include/mock_egtm_atom_3_phase_inverter_pwm.h:441:16: note: previous declaration of 'mock_IfxEgtm_Cmu_getGclkFrequency_returnValue' with type 'float32' {aka 'float'}
+  441 | extern float32 mock_IfxEgtm_Cmu_getGclkFrequency_returnValue;
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_9bps3aey\test\test_egtm_atom_3_phase_inverter_pwm.c:23:15: error: conflicting types for 'mock_IfxEgtm_Cmu_getClkFrequency_returnValue'; have 'uint32' {aka 'long unsigned int'}
+   23 | extern uint32 mock_IfxEgtm_Cmu_getClkFrequency_returnValue;
+      |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_9bps3aey\include/mock_egtm_atom_3_phase_inverter_pwm.h:442:16: note: previous declaration of 'mock_IfxEgtm_Cmu_getClkFrequency_returnValue' with type 'float32' {aka 'float'}
+  442 | extern float32 mock_IfxEgtm_Cmu_getClkFrequency_returnValue;
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_9bps3aey\test\test_egtm_atom_3_phase_inverter_pwm.c:28:15: error: conflicting types for 'mock_IfxEgtm_Pwm_init_lastFrequency'; have 'uint32' {aka 'long unsigned int'}
+   28 | extern uint32 mock_IfxEgtm_Pwm_init_lastFrequency;
+      |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_9bps3aey\include/mock_egtm_atom_3_phase_inverter_pwm.h:447:16: note: previous declaration of 'mock_IfxEgtm_Pwm_init_lastFrequency' with type 'float32' {aka 'float'}
+  447 | extern float32 mock_IfxEgtm_Pwm_init_lastFrequency;
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_9bps3aey\test\test_egtm_atom_3_phase_inverter_pwm.c:35:15: error: conflicting types for 'mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_getCallCount'; have 'uint32(void)' {aka 'long unsigned int(void)'}
+   35 | extern uint32 mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_getCallCount(void);
+      |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_9bps3aey\include/mock_egtm_atom_3_phase_inverter_pwm.h:459:5: note: previous declaration of 'mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_getCallCount' with type 'int(void)'
+  459 | int mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_getCallCount(void);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_9bps3aey\test\test_egtm_atom_3_phase_inverter_pwm.c:36:15: error: conflicting types for 'mock_IfxEgtm_Pwm_initConfig_getCallCount'; have 'uint32(void)' {aka 'long unsigned int(void)'}
+   36 | extern uint32 mock_IfxEgtm_Pwm_initConfig_getCallCount(void);
+      |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_9bps3aey\include/mock_egtm_atom_3_phase_inverter_pwm.h:460:5: note: previous declaration of 'mock_IfxEgtm_Pwm_initConfig_getCallCount' with type 'int(void)'
+  460 | int mock_IfxEgtm_Pwm_initConfig_getCallCount(void);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_9bps3aey\test\test_egtm_atom_3_phase_inverter_pwm.c:37:15: error: conflicting types for 'mock_IfxEgtm_Pwm_init_getCallCount'; have 'uint32(void)' {aka 'long unsigned int(void)'}
+   37 | extern uint32 mock_IfxEgtm_Pwm_init_getCallCount(void);
+      |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_9bps3aey\include/mock_egtm_atom_3_phase_inverter_pwm.h:461:5: note: previous declaration of 'mock_IfxEgtm_Pwm_init_getCallCount' with type 'int(void)'
+  461 | int mock_IfxEgtm_Pwm_init_getCallCount(void);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_9bps3aey\test\test_egtm_atom_3_phase_inverter_pwm.c:38:15: error: conflicting types for 'mock_IfxPort_togglePin_getCallCount'; have 'uint32(void)' {aka 'long unsigned int(void)'}
+   38 | extern uint32 mock_IfxPort_togglePin_getCallCount(void);
+      |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_9bps3aey\include/mock_egtm_atom_3_phase_inverter_pwm.h:462:5: note: previous declaration of 'mock_IfxPort_togglePin_getCallCount' with type 'int(void)'
+  462 | int mock_IfxPort_togglePin_getCallCount(void);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_9bps3aey\test\test_egtm_atom_3_phase_inverter_pwm.c:39:15: error: conflicting types for 'mock_IfxPort_setPinModeOutput_getCallCount'; have 'uint32(void)' {aka 'long unsigned int(void)'}
+   39 | extern uint32 mock_IfxPort_setPinModeOutput_getCallCount(void);
+      |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_9bps3aey\include/mock_egtm_atom_3_phase_inverter_pwm.h:463:5: note: previous declaration of 'mock_IfxPort_setPinModeOutput_getCallCount' with type 'int(void)'
+  463 | int mock_IfxPort_setPinModeOutput_getCallCount(void);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_9bps3aey\test\test_egtm_atom_3_phase_inverter_pwm.c:40:15: error: conflicting types for 'mock_IfxEgtm_Cmu_enableClocks_getCallCount'; have 'uint32(void)' {aka 'long unsigned int(void)'}
+   40 | extern uint32 mock_IfxEgtm_Cmu_enableClocks_getCallCount(void);
+      |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_9bps3aey\include/mock_egtm_atom_3_phase_inverter_pwm.h:464:5: note: previous declaration of 'mock_IfxEgtm_Cmu_enableClocks_getCallCount' with type 'int(void)'
+  464 | int mock_IfxEgtm_Cmu_enableClocks_getCallCount(void);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_9bps3aey\test\test_egtm_atom_3_phase_inverter_pwm.c:41:15: error: conflicting types for 'mock_IfxEgtm_Cmu_getModuleFrequency_getCallCount'; have 'uint32(void)' {aka 'long unsigned int(void)'}
+   41 | extern uint32 mock_IfxEgtm_Cmu_getModuleFrequency_getCallCount(void);
+      |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_9bps3aey\include/mock_egtm_atom_3_phase_inverter_pwm.h:465:5: note: previous declaration of 'mock_IfxEgtm_Cmu_getModuleFrequency_getCallCount' with type 'int(void)'
+  465 | int mock_IfxEgtm_Cmu_getModuleFrequency_getCallCount(void);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_9bps3aey\test\test_egtm_atom_3_phase_inverter_pwm.c:42:15: error: conflicting types for 'mock_IfxEgtm_Cmu_setGclkDivider_getCallCount'; have 'uint32(void)' {aka 'long unsigned int(void)'}
+   42 | extern uint32 mock_IfxEgtm_Cmu_setGclkDivider_getCallCount(void);
+      |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_9bps3aey\include/mock_egtm_atom_3_phase_inverter_pwm.h:466:5: note: previous declaration of 'mock_IfxEgtm_Cmu_setGclkDivider_getCallCount' with type 'int(void)'
+  466 | int mock_IfxEgtm_Cmu_setGclkDivider_getCallCount(void);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_9bps3aey\test\test_egtm_atom_3_phase_inverter_pwm.c:43:15: error: conflicting types for 'mock_IfxEgtm_Cmu_setClkCount_getCallCount'; have 'uint32(void)' {aka 'long unsigned int(void)'}
+   43 | extern uint32 mock_IfxEgtm_Cmu_setClkCount_getCallCount(void);
+      |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_9bps3aey\include/mock_egtm_atom_3_phase_inverter_pwm.h:467:5: note: previous declaration of 'mock_IfxEgtm_Cmu_setClkCount_getCallCount' with type 'int(void)'
+  467 | int mock_IfxEgtm_Cmu_setClkCount_getCallCount(void);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_9bps3aey\test\test_egtm_atom_3_phase_inverter_pwm.c:44:15: error: conflicting types for 'mock_IfxEgtm_isEnabled_getCallCount'; have 'uint32(void)' {aka 'long unsigned int(void)'}
+   44 | extern uint32 mock_IfxEgtm_isEnabled_getCallCount(void);
+      |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_9bps3aey\include/mock_egtm_atom_3_phase_inverter_pwm.h:468:5: note: previous declaration of 'mock_IfxEgtm_isEnabled_getCallCount' with type 'int(void)'
+  468 | int mock_IfxEgtm_isEnabled_getCallCount(void);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_9bps3aey\test\test_egtm_atom_3_phase_inverter_pwm.c:45:15: error: conflicting types for 'mock_IfxEgtm_enable_getCallCount'; have 'uint32(void)' {aka 'long unsigned int(void)'}
+   45 | extern uint32 mock_IfxEgtm_enable_getCallCount(void);
+      |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_9bps3aey\include/mock_egtm_atom_3_phase_inverter_pwm.h:469:5: note: previous declaration of 'mock_IfxEgtm_enable_getCallCount' with type 'int(void)'
+  469 | int mock_IfxEgtm_enable_getCallCount(void);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
