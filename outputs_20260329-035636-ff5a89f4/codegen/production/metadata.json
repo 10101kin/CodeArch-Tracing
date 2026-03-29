@@ -1,20 +1,13 @@
 {
-  "attempt": 11,
-  "phase_attempt": 5,
-  "phase": "production",
-  "success": false,
-  "errors": [
-    "assignment to 'IfxEgtm_Pwm_callBack' {aka 'void (*)(void)'} from incompatible pointer type 'void (*)(void *)' [-Wincompatible-pointer-types]",
-    "conflicting types for 'mock_IfxEgtm_Cmu_getModuleFrequency_returnValue'; have 'uint32' {aka 'unsigned int'}",
-    "conflicting types for 'mock_IfxEgtm_Cmu_getGclkFrequency_returnValue'; have 'uint32' {aka 'unsigned int'}",
-    "conflicting types for 'mock_IfxEgtm_Cmu_getClkFrequency_returnValue'; have 'uint32' {aka 'unsigned int'}",
-    "conflicting types for 'mock_IfxEgtm_Pwm_init_lastFrequency'; have 'uint32' {aka 'unsigned int'}",
-    "conflicting types for 'mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_getCallCount'; have 'uint32(void)' {aka 'unsigned int(void)'}",
-    "conflicting types for 'mock_IfxEgtm_Pwm_initConfig_getCallCount'; have 'uint32(void)' {aka 'unsigned int(void)'}",
-    "conflicting types for 'mock_IfxEgtm_Pwm_init_getCallCount'; have 'uint32(void)' {aka 'unsigned int(void)'}",
-    "conflicting types for 'mock_IfxPort_togglePin_getCallCount'; have 'uint32(void)' {aka 'unsigned int(void)'}",
-    "conflicting types for 'mock_IfxPort_setPinModeOutput_getCallCount'; have 'uint32(void)' {aka 'unsigned int(void)'}"
-  ],
-  "timestamp": "2026-03-29T12:46:09.818996",
-  "project_name": "Migrate_the_TC387_GTM_TOM_three-phase_inverter_PWM_r_20260329_121516"
+  "export_type": "node_json",
+  "export_reason": "stage_failed",
+  "node_stage": "code_generation",
+  "reviewer_name": null,
+  "reviewer_applied": false,
+  "modified_by": "system",
+  "modifier_name": null,
+  "workflow_stage": "code_generation_failed",
+  "target_board": "KIT_A3G_TC4D7_LITE",
+  "generation_mode": "MIGRATION",
+  "timestamp": "2026-03-29T12:50:46.051432"
 }
