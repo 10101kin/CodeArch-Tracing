@@ -1,9 +1,8 @@
 {
-  "attempt": 6,
-  "phase_attempt": 3,
-  "phase": "mock_generation",
-  "success": true,
-  "errors": [],
-  "timestamp": "2026-03-29T10:20:01.452952",
-  "project_name": "Upgrade_the_TC387_project_to_use_the_unified_IfxGt_r_20260329_100512"
+  "type": "llm_response",
+  "phase": "mock",
+  "attempt": 8,
+  "phase_attempt": 4,
+  "response_length": 41218,
+  "timestamp": "2026-03-29T10:25:25.080106"
 }
