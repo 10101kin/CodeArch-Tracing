@@ -1,69 +1,12 @@
-C:\Users\extanke\AppData\Local\Temp\tdd_build_2c4qap08\src\gtm_tom_3_phase_inverter_pwm.c: In function 'interruptGtmAtom':
-C:\Users\extanke\AppData\Local\Temp\tdd_build_2c4qap08\src\gtm_tom_3_phase_inverter_pwm.c:83:5: error: implicit declaration of function 'IfxPort_togglePin' [-Wimplicit-function-declaration]
-   83 |     IfxPort_togglePin(LED);
-      |     ^~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_2c4qap08\src\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTomPwm':
-C:\Users\extanke\AppData\Local\Temp\tdd_build_2c4qap08\src\gtm_tom_3_phase_inverter_pwm.c:221:5: error: implicit declaration of function 'IfxPort_setPinModeOutput' [-Wimplicit-function-declaration]
-  221 |     IfxPort_setPinModeOutput(LED, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~
-
 In file included from C:\Users\extanke\Downloads\merge\infineon_POC_MVP\unity/unity.h:22,
-                 from C:\Users\extanke\AppData\Local\Temp\tdd_build_2c4qap08\test\test_gtm_tom_3_phase_inverter_pwm.c:1:
-C:\Users\extanke\AppData\Local\Temp\tdd_build_2c4qap08\test\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G1_001_enable_guard_already_enabled':
-C:\Users\extanke\AppData\Local\Temp\tdd_build_2c4qap08\test\test_gtm_tom_3_phase_inverter_pwm.c:38:41: error: implicit declaration of function 'mock_IfxGtm_Cmu_setClkFrequency_getCallCount'; did you mean 'mock_IfxGtm_Cmu_setGclkFrequency_getCallCount'? [-Wimplicit-function-declaration]
+                 from C:\Users\extanke\AppData\Local\Temp\tdd_build_piyv7p_6\test\test_gtm_tom_3_phase_inverter_pwm.c:1:
+C:\Users\extanke\AppData\Local\Temp\tdd_build_piyv7p_6\test\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G1_001_enable_guard_already_enabled':
+C:\Users\extanke\AppData\Local\Temp\tdd_build_piyv7p_6\test\test_gtm_tom_3_phase_inverter_pwm.c:38:41: error: implicit declaration of function 'mock_IfxGtm_Cmu_setClkFrequency_getCallCount'; did you mean 'mock_IfxGtm_Cmu_setGclkFrequency_getCallCount'? [-Wimplicit-function-declaration]
    38 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxGtm_Cmu_setClkFrequency_getCallCount(), "CMU setClkFrequency must NOT be used by this module");
       |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 C:\Users\extanke\Downloads\merge\infineon_POC_MVP\unity/unity_internals.h:904:184: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_UINT32'
   904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)
       |                                                                                                                                                                                        ^~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_2c4qap08\test\test_gtm_tom_3_phase_inverter_pwm.c:38:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'
+C:\Users\extanke\AppData\Local\Temp\tdd_build_piyv7p_6\test\test_gtm_tom_3_phase_inverter_pwm.c:38:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'
    38 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxGtm_Cmu_setClkFrequency_getCallCount(), "CMU setClkFrequency must NOT be used by this module");
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_2c4qap08\test\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G2_001_config_num_channels_and_frequency':
-C:\Users\extanke\AppData\Local\Temp\tdd_build_2c4qap08\test\test_gtm_tom_3_phase_inverter_pwm.c:97:91: error: 'mock_IfxGtm_Pwm_updateFrequencyImmediate_lastFrequency' undeclared (first use in this function); did you mean 'mock_IfxGtm_Pwm_updateFrequencyImmediate_callCount'?
-   97 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, (float)UT_PWM_FREQUENCY_HZ, (float)mock_IfxGtm_Pwm_updateFrequencyImmediate_lastFrequency, "Immediate frequency update must be 20 kHz");
-      |                                                                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\Downloads\merge\infineon_POC_MVP\unity/unity_internals.h:1119:183: note: in definition of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'
- 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))
-      |                                                                                                                                                                                       ^~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_2c4qap08\test\test_gtm_tom_3_phase_inverter_pwm.c:97:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN_MESSAGE'
-   97 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, (float)UT_PWM_FREQUENCY_HZ, (float)mock_IfxGtm_Pwm_updateFrequencyImmediate_lastFrequency, "Immediate frequency update must be 20 kHz");
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_2c4qap08\test\test_gtm_tom_3_phase_inverter_pwm.c:97:91: note: each undeclared identifier is reported only once for each function it appears in
-   97 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, (float)UT_PWM_FREQUENCY_HZ, (float)mock_IfxGtm_Pwm_updateFrequencyImmediate_lastFrequency, "Immediate frequency update must be 20 kHz");
-      |                                                                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\Downloads\merge\infineon_POC_MVP\unity/unity_internals.h:1119:183: note: in definition of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'
- 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))
-      |                                                                                                                                                                                       ^~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_2c4qap08\test\test_gtm_tom_3_phase_inverter_pwm.c:97:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN_MESSAGE'
-   97 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, (float)UT_PWM_FREQUENCY_HZ, (float)mock_IfxGtm_Pwm_updateFrequencyImmediate_lastFrequency, "Immediate frequency update must be 20 kHz");
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_2c4qap08\test\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G2_002_config_initial_duty_and_deadtime_values':
-C:\Users\extanke\AppData\Local\Temp\tdd_build_2c4qap08\test\test_gtm_tom_3_phase_inverter_pwm.c:114:60: error: 'mock_IfxGtm_Pwm_updateChannelsDeadTimeImmediate_lastDtRising' undeclared (first use in this function); did you mean 'mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties'?
-  114 |     TEST_ASSERT_EQUAL_INT_MESSAGE(UT_DEAD_TIME_TICKS, (int)mock_IfxGtm_Pwm_updateChannelsDeadTimeImmediate_lastDtRising[0], "Dead-time rising[0] must be 0.5us in ticks");
-      |                                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\Downloads\merge\infineon_POC_MVP\unity/unity_internals.h:897:156: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_INT'
-  897 | #define UNITY_TEST_ASSERT_EQUAL_INT(expected, actual, line, message)                             UnityAssertEqualNumber((UNITY_INT)(expected), (UNITY_INT)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_INT)
-      |                                                                                                                                                            ^~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_2c4qap08\test\test_gtm_tom_3_phase_inverter_pwm.c:114:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_INT_MESSAGE'
-  114 |     TEST_ASSERT_EQUAL_INT_MESSAGE(UT_DEAD_TIME_TICKS, (int)mock_IfxGtm_Pwm_updateChannelsDeadTimeImmediate_lastDtRising[0], "Dead-time rising[0] must be 0.5us in ticks");
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_2c4qap08\test\test_gtm_tom_3_phase_inverter_pwm.c:118:60: error: 'mock_IfxGtm_Pwm_updateChannelsDeadTimeImmediate_lastDtFalling' undeclared (first use in this function); did you mean 'mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties'?
-  118 |     TEST_ASSERT_EQUAL_INT_MESSAGE(UT_DEAD_TIME_TICKS, (int)mock_IfxGtm_Pwm_updateChannelsDeadTimeImmediate_lastDtFalling[0], "Dead-time falling[0] must be 0.5us in ticks");
-      |                                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\Downloads\merge\infineon_POC_MVP\unity/unity_internals.h:897:156: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_INT'
-  897 | #define UNITY_TEST_ASSERT_EQUAL_INT(expected, actual, line, message)                             UnityAssertEqualNumber((UNITY_INT)(expected), (UNITY_INT)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_INT)
-      |                                                                                                                                                            ^~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_2c4qap08\test\test_gtm_tom_3_phase_inverter_pwm.c:118:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_INT_MESSAGE'
-  118 |     TEST_ASSERT_EQUAL_INT_MESSAGE(UT_DEAD_TIME_TICKS, (int)mock_IfxGtm_Pwm_updateChannelsDeadTimeImmediate_lastDtFalling[0], "Dead-time falling[0] must be 0.5us in ticks");
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_2c4qap08\test\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G3_002_runtime_update_frequency_value_is_pwm_frequency_not_module_clock':
-C:\Users\extanke\AppData\Local\Temp\tdd_build_2c4qap08\test\test_gtm_tom_3_phase_inverter_pwm.c:149:91: error: 'mock_IfxGtm_Pwm_updateFrequencyImmediate_lastFrequency' undeclared (first use in this function); did you mean 'mock_IfxGtm_Pwm_updateFrequencyImmediate_callCount'?
-  149 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, (float)UT_PWM_FREQUENCY_HZ, (float)mock_IfxGtm_Pwm_updateFrequencyImmediate_lastFrequency, "Immediate frequency update must use PWM frequency (20 kHz), not module frequency");
-      |                                                                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\Downloads\merge\infineon_POC_MVP\unity/unity_internals.h:1119:183: note: in definition of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'
- 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))
-      |                                                                                                                                                                                       ^~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_2c4qap08\test\test_gtm_tom_3_phase_inverter_pwm.c:149:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN_MESSAGE'
-  149 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, (float)UT_PWM_FREQUENCY_HZ, (float)mock_IfxGtm_Pwm_updateFrequencyImmediate_lastFrequency, "Immediate frequency update must use PWM frequency (20 kHz), not module frequency");
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
