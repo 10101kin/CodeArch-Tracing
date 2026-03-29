@@ -1,8 +1,9 @@
 {
-  "type": "llm_response",
-  "phase": "mock",
   "attempt": 10,
   "phase_attempt": 5,
-  "response_length": 49688,
-  "timestamp": "2026-03-29T12:44:08.684596"
+  "phase": "mock_generation",
+  "success": true,
+  "errors": [],
+  "timestamp": "2026-03-29T12:44:15.599192",
+  "project_name": "Migrate_the_TC387_GTM_TOM_three-phase_inverter_PWM_r_20260329_121516"
 }

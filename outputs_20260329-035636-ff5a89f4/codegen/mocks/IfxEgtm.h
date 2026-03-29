@@ -1,24 +1,10 @@
-/*
- * IfxEgtm.h - EGTM peripheral base mock
- */
 #ifndef IFXEGTM_H
 #define IFXEGTM_H
 
 #include "mock_egtm_atom_3_phase_inverter_pwm.h"
+#include "IfxPort.h"
 
-/* Shared base types used in PWM driver */
-typedef uint32 Ifx_UReg_32Bit;
-typedef uint32 IfxSrc_VmId;
-
-/* Minimal AP config types (single-owner here to avoid conflicts) */
-typedef struct { uint32 dummy; } IfxApApu_ApuConfig;
-typedef struct { uint32 dummy; } IfxApProt_ProtConfig;
-
-/* Forward/auxiliary SFR placeholders */
-typedef struct { uint32 reserved; } Ifx_EGTM_CLS;
-typedef uint32 IfxEgtm_Cluster; /* cluster index */
-
-/* EGTM enums (verified) */
+/* EGTM base enums */
 typedef enum
 {
     IfxEgtm_AeiBridgeOpMode_sync  = 0u,
@@ -55,36 +41,13 @@ typedef enum
     IfxEgtm_SuspendMode_soft = 2
 } IfxEgtm_SuspendMode;
 
-/* EGTM AP config structs */
-typedef struct
-{
-    IfxApApu_ApuConfig apuConfig;
-} IfxEgtm_ClApConfig;
+/* Minimal EGTM config-related types used by PWM driver */
+typedef enum { IfxEgtm_Cluster_0 = 0, IfxEgtm_Cluster_1 = 1 } IfxEgtm_Cluster;
 
-typedef struct
-{
-    IfxApProt_ProtConfig proteConfig;
-    IfxApApu_ApuConfig   apuConfig;
-} IfxEgtm_CtrlApConfig;
-
-typedef struct
-{
-    IfxApApu_ApuConfig apuConfig;
-} IfxEgtm_WrapApConfig;
-
-typedef struct
-{
-    IfxApProt_ProtConfig protseConfig;
-    IfxEgtm_ClApConfig   clApConfig[2];
-    IfxEgtm_CtrlApConfig ctrlApConfig;
-    IfxEgtm_WrapApConfig wrapApConfig;
-} IfxEgtm_ApConfig;
-
-/* MSC out related placeholders */
-typedef uint32 IfxEgtm_Cfg_MscSet;
-typedef uint32 IfxEgtm_Cfg_MscSetSignal;
-typedef uint32 IfxEgtm_Cfg_MscModule;
-typedef uint32 IfxEgtm_Cfg_MscSelect;
+typedef struct { uint32 dummy; } IfxEgtm_Cfg_MscSet;
+typedef struct { uint32 dummy; } IfxEgtm_Cfg_MscSetSignal;
+typedef struct { uint32 dummy; } IfxEgtm_Cfg_MscModule;
+typedef struct { uint32 dummy; } IfxEgtm_Cfg_MscSelect;
 
 typedef struct
 {
@@ -95,8 +58,8 @@ typedef struct
     IfxEgtm_MscAltInput      mscAltIn;
 } IfxEgtm_MscOut;
 
-/* Functions to mock from IfxEgtm */
-boolean IfxEgtm_isEnabled(Ifx_EGTM *egtm);
+/* Functions used in production */
 void    IfxEgtm_enable(Ifx_EGTM *egtm);
+boolean IfxEgtm_isEnabled(Ifx_EGTM *egtm);
 
 #endif /* IFXEGTM_H */
