@@ -1,14 +1,11 @@
-/* IfxEgtm_Cmu.h - EGTM CMU driver mock */
-#include "mock_egtm_atom_3_phase_inverter_pwm.h"
+/* IfxEgtm_Cmu.h - Mock */
 #ifndef IFXEGTM_CMU_H
 #define IFXEGTM_CMU_H
 
-/* CMU enable macros */
-#ifndef IFXEGTM_CMU_CLKEN_FXCLK
-#define IFXEGTM_CMU_CLKEN_FXCLK (1u << 0)
-#endif
-#ifndef IFXEGTM_CMU_CLKEN_CLK0
-#define IFXEGTM_CMU_CLKEN_CLK0  (1u << 1)
+#include "mock_egtm_atom_3_phase_inverter_pwm.h"
+
+#ifdef __cplusplus
+extern "C" {
 #endif
 
 /* Enums */
@@ -44,16 +41,25 @@ typedef enum {
     IfxEgtm_Cmu_Tim_Filter_Clk_7
 } IfxEgtm_Cmu_Tim_Filter_Clk;
 
-/* Function declarations */
+#ifndef IFXEGTM_CMU_CLKEN_FXCLK
+#define IFXEGTM_CMU_CLKEN_FXCLK (1u << 0)
+#endif
+#ifndef IFXEGTM_CMU_CLKEN_CLK0
+#define IFXEGTM_CMU_CLKEN_CLK0  (1u << 1)
+#endif
+
+/* Functions (subset required + extras from previous build issues) */
 void    IfxEgtm_Cmu_enableClocks(Ifx_EGTM *egtm, uint32 clkMask);
 float32 IfxEgtm_Cmu_getModuleFrequency(Ifx_EGTM *egtm);
 void    IfxEgtm_Cmu_setGclkDivider(Ifx_EGTM *egtm, uint32 numerator, uint32 denominator);
 void    IfxEgtm_Cmu_setClkCount(Ifx_EGTM *egtm, IfxEgtm_Cmu_Clk clkIndex, uint32 count);
-
-/* Additional helpers used in enable-guard pattern */
 float32 IfxEgtm_Cmu_getGclkFrequency(Ifx_EGTM *egtm);
 float32 IfxEgtm_Cmu_getClkFrequency(Ifx_EGTM *egtm, IfxEgtm_Cmu_Clk clkIndex, boolean assumeEnabled);
 void    IfxEgtm_Cmu_setGclkFrequency(Ifx_EGTM *egtm, float32 frequency);
 void    IfxEgtm_Cmu_setClkFrequency(Ifx_EGTM *egtm, IfxEgtm_Cmu_Clk clkIndex, float32 frequency);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* IFXEGTM_CMU_H */

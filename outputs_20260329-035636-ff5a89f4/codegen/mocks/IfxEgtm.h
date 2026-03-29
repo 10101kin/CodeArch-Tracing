@@ -1,16 +1,16 @@
-/* IfxEgtm.h - EGTM base driver mock */
-#include "mock_egtm_atom_3_phase_inverter_pwm.h"
+/* IfxEgtm.h - Mock */
 #ifndef IFXEGTM_H
 #define IFXEGTM_H
 
-/* Provide missing dependent types used by EGTM AP config structures */
-typedef struct { uint32 dummy; } IfxApApu_ApuConfig;
-typedef struct { uint32 dummy; } IfxApProt_ProtConfig;
+#include "mock_egtm_atom_3_phase_inverter_pwm.h"
 
-/* Cluster-related helper */
-#ifndef IFXEGTM_NUM_CCM_OBJECTS
-#define IFXEGTM_NUM_CCM_OBJECTS 1
+#ifdef __cplusplus
+extern "C" {
 #endif
+
+/* Additional EGTM-related base types */
+typedef struct { uint32 reserved; } Ifx_EGTM_CLS;
+typedef uint8 IfxEgtm_Cluster; /* simplified cluster index */
 
 typedef enum {
     IfxEgtm_AeiBridgeOpMode_sync  = 0u,
@@ -43,31 +43,11 @@ typedef enum {
     IfxEgtm_SuspendMode_soft = 2
 } IfxEgtm_SuspendMode;
 
-/* EGTM cluster identifier (placeholder) */
-typedef enum {
-    IfxEgtm_Cluster_0 = 0,
-    IfxEgtm_Cluster_1 = 1
-} IfxEgtm_Cluster;
-
-/* AP config structures */
-typedef struct { IfxApApu_ApuConfig apuConfig; } IfxEgtm_ClApConfig;
-
-typedef struct { IfxApProt_ProtConfig proteConfig; IfxApApu_ApuConfig apuConfig; } IfxEgtm_CtrlApConfig;
-
-typedef struct { IfxApApu_ApuConfig apuConfig; } IfxEgtm_WrapApConfig;
-
-typedef struct {
-    IfxApProt_ProtConfig protseConfig;
-    IfxEgtm_ClApConfig   clApConfig[IFXEGTM_NUM_CCM_OBJECTS];
-    IfxEgtm_CtrlApConfig ctrlApConfig;
-    IfxEgtm_WrapApConfig wrapApConfig;
-} IfxEgtm_ApConfig;
-
-/* MSC out structure (placeholder types) */
-typedef uint32 IfxEgtm_Cfg_MscSet;
-typedef uint32 IfxEgtm_Cfg_MscSetSignal;
-typedef uint32 IfxEgtm_Cfg_MscModule;
-typedef uint32 IfxEgtm_Cfg_MscSelect;
+/* MSC related config placeholders */
+typedef uint8 IfxEgtm_Cfg_MscSet;
+typedef uint8 IfxEgtm_Cfg_MscSetSignal;
+typedef uint8 IfxEgtm_Cfg_MscModule;
+typedef uint8 IfxEgtm_Cfg_MscSelect;
 
 typedef struct {
     IfxEgtm_Cfg_MscSet       mscSet;
@@ -77,8 +57,12 @@ typedef struct {
     IfxEgtm_MscAltInput      mscAltIn;
 } IfxEgtm_MscOut;
 
-/* Functions (subset used) */
+/* Functions from DRIVERS TO MOCK */
 boolean IfxEgtm_isEnabled(Ifx_EGTM *egtm);
 void    IfxEgtm_enable(Ifx_EGTM *egtm);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* IFXEGTM_H */
