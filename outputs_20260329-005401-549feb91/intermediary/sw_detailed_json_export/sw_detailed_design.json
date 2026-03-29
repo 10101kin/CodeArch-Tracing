@@ -1,0 +1,29 @@
+{
+  "module_name": "GTM_TOM_3_Phase_Inverter_PWM",
+  "public_functions": [
+    {
+      "signature": "void initGtmTomPwm(void)",
+      "behavior_description": "Initialize the GTM unified PWM for three complementary pairs on the selected TOM submodule with a 20 kHz center-aligned timebase and enforce 0.5 us dead-time and 1.0 us minimum pulse. Algorithmic steps: 1) Declare persistent module state: a PWM driver handle, a persistent channels array for all configured outputs, arrays to hold current duty cycles (per synchronized channel index) and dead-time values. 2) Declare local configuration structures for the unified PWM driver and initialize defaults using the driver's initConfig. 3) Configure the unified PWM main config fields to: a) use the designated TOM submodule with a base/timebase channel logically indexed as SubModule_Ch_0 for 20 kHz operation, b) center-aligned operation, c) clock source derived from FXCLK0 (first FXCLK option), d) enable synchronized start of all configured channels, e) set requested PWM frequency to 20 kHz. 4) Configure output routing by mapping each requested TOUT pin for the six complementary outputs using the TOM pin-map API with push-pull output mode and IfxPort_PadDriver_cmosAutomotiveSpeed1. 5) Populate dead-time settings to match 0.5 us for all complementary pairs and a minimum on-time of 1.0 us, storing these values in the module state and preparing a per-channel dead-time array for the driver. 6) Inside an enable guard: if the GTM module is not enabled, enable it; read the module frequency dynamically; set GCLK to that frequency; and enable FXCLK clocks. All CMU/clock configuration remains inside this guard. 7) Call the unified PWM init with the persistent handle, persistent channels array, and the configured main config; this applies pin mux, alignment, timebase, and prepares shadow registers. 8) Immediately program dead-time for all channels using the driver's dead-time immediate update API, ensuring complementary path timing is enforced before outputs are started; set/update the base frequency immediately if needed to guarantee 20 kHz on the timebase. 9) Program the initial U/V/W duties (25%, 50%, 75%) using the non-immediate multi-channel duty update API to preserve atomic shadow transfer semantics — values are queued and will take effect at the next period boundary. 10) Start the synchronized PWM outputs so all channels run in lockstep on the configured timebase. The duty arrays and dead-time values remain stored in the persistent state for later runtime updates.",
+      "driver_calls": [
+        "IfxGtm_isEnabled",
+        "IfxGtm_enable",
+        "IfxGtm_Cmu_getModuleFrequency",
+        "IfxGtm_Cmu_setGclkFrequency",
+        "IfxGtm_Cmu_enableClocks",
+        "IfxGtm_Pwm_initConfig",
+        "IfxGtm_Pwm_init",
+        "IfxGtm_Pwm_updateFrequencyImmediate",
+        "IfxGtm_Pwm_updateChannelsDutyImmediate"
+      ]
+    }
+  ],
+  "header_selection": {
+    "applied": true,
+    "peripheral_type": "PWM",
+    "recommended_header": "IfxGtm_Pwm",
+    "template_functions_count": 1026,
+    "required_includes": [
+      "IfxGtm_Pwm.h"
+    ]
+  }
+}
