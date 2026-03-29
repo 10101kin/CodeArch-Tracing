@@ -1,13 +1,42 @@
-C:\Users\extanke\AppData\Local\Temp\tdd_build_ykgxbjfj\src\gtm_tom_3_phase_inverter_pwm.c: In function 'interruptGtmAtom':
-C:\Users\extanke\AppData\Local\Temp\tdd_build_ykgxbjfj\src\gtm_tom_3_phase_inverter_pwm.c:62:5: error: implicit declaration of function 'IfxPort_togglePin' [-Wimplicit-function-declaration]
-   62 |     IfxPort_togglePin(LED);
-      |     ^~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_ykgxbjfj\src\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTomPwm':
-C:\Users\extanke\AppData\Local\Temp\tdd_build_ykgxbjfj\src\gtm_tom_3_phase_inverter_pwm.c:186:35: error: 'IfxGtm_Dtm_ClockSource_cmuClock0' undeclared (first use in this function); did you mean 'IfxGtm_Dtm_ClockSource_0'?
-  186 |     config.dtmClockSource       = IfxGtm_Dtm_ClockSource_cmuClock0;  /* DTM clock */
-      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      |                                   IfxGtm_Dtm_ClockSource_0
-C:\Users\extanke\AppData\Local\Temp\tdd_build_ykgxbjfj\src\gtm_tom_3_phase_inverter_pwm.c:186:35: note: each undeclared identifier is reported only once for each function it appears in
-C:\Users\extanke\AppData\Local\Temp\tdd_build_ykgxbjfj\src\gtm_tom_3_phase_inverter_pwm.c:214:5: error: implicit declaration of function 'IfxPort_setPinModeOutput' [-Wimplicit-function-declaration]
-  214 |     IfxPort_setPinModeOutput(LED, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_0d90lo3y\src\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTomPwm':
+C:\Users\extanke\AppData\Local\Temp\tdd_build_0d90lo3y\src\gtm_tom_3_phase_inverter_pwm.c:146:24: error: assignment to 'IfxGtm_Pwm_callBack' {aka 'void (*)(void)'} from incompatible pointer type 'void (*)(void *)' [-Wincompatible-pointer-types]
+  146 |     irqCfg.periodEvent = IfxGtm_periodEventFunction;
+      |                        ^
+C:\Users\extanke\AppData\Local\Temp\tdd_build_0d90lo3y\src\gtm_tom_3_phase_inverter_pwm.c:73:6: note: 'IfxGtm_periodEventFunction' declared here
+   73 | void IfxGtm_periodEventFunction(void *data)
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from C:\Users\extanke\AppData\Local\Temp\tdd_build_0d90lo3y\src\gtm_tom_3_phase_inverter_pwm.c:23:
+C:\Users\extanke\AppData\Local\Temp\tdd_build_0d90lo3y\include/IfxGtm_Pwm.h:69:16: note: 'IfxGtm_Pwm_callBack' declared here
+   69 | typedef void (*IfxGtm_Pwm_callBack)(void);
+      |                ^~~~~~~~~~~~~~~~~~~
+
+In file included from C:\Users\extanke\Downloads\merge\infineon_POC_MVP\unity/unity.h:22,
+                 from C:\Users\extanke\AppData\Local\Temp\tdd_build_0d90lo3y\test\test_gtm_tom_3_phase_inverter_pwm.c:1:
+C:\Users\extanke\AppData\Local\Temp\tdd_build_0d90lo3y\test\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G2_002_config_applies_deadtime_and_initial_duties':
+C:\Users\extanke\AppData\Local\Temp\tdd_build_0d90lo3y\test\test_gtm_tom_3_phase_inverter_pwm.c:111:55: error: 'mock_IfxGtm_Pwm_updateChannelsDeadTimeImmediate_lastDtRising' undeclared (first use in this function); did you mean 'mock_IfxGtm_Pwm_updateChannelDeadTimeImmediate_lastDtRising'?
+  111 |         TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_DT_TICKS, mock_IfxGtm_Pwm_updateChannelsDeadTimeImmediate_lastDtRising[i], msgR);
+      |                                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\Downloads\merge\infineon_POC_MVP\unity/unity_internals.h:904:184: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_UINT32'
+  904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)
+      |                                                                                                                                                                                        ^~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_0d90lo3y\test\test_gtm_tom_3_phase_inverter_pwm.c:111:9: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'
+  111 |         TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_DT_TICKS, mock_IfxGtm_Pwm_updateChannelsDeadTimeImmediate_lastDtRising[i], msgR);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_0d90lo3y\test\test_gtm_tom_3_phase_inverter_pwm.c:111:55: note: each undeclared identifier is reported only once for each function it appears in
+  111 |         TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_DT_TICKS, mock_IfxGtm_Pwm_updateChannelsDeadTimeImmediate_lastDtRising[i], msgR);
+      |                                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\Downloads\merge\infineon_POC_MVP\unity/unity_internals.h:904:184: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_UINT32'
+  904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)
+      |                                                                                                                                                                                        ^~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_0d90lo3y\test\test_gtm_tom_3_phase_inverter_pwm.c:111:9: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'
+  111 |         TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_DT_TICKS, mock_IfxGtm_Pwm_updateChannelsDeadTimeImmediate_lastDtRising[i], msgR);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_0d90lo3y\test\test_gtm_tom_3_phase_inverter_pwm.c:112:55: error: 'mock_IfxGtm_Pwm_updateChannelsDeadTimeImmediate_lastDtFalling' undeclared (first use in this function); did you mean 'mock_IfxGtm_Pwm_updateChannelDeadTimeImmediate_lastDtFalling'?
+  112 |         TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_DT_TICKS, mock_IfxGtm_Pwm_updateChannelsDeadTimeImmediate_lastDtFalling[i], msgF);
+      |                                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\Downloads\merge\infineon_POC_MVP\unity/unity_internals.h:904:184: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_UINT32'
+  904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)
+      |                                                                                                                                                                                        ^~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_0d90lo3y\test\test_gtm_tom_3_phase_inverter_pwm.c:112:9: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'
+  112 |         TEST_ASSERT_EQUAL_UINT32_MESSAGE(UT_DT_TICKS, mock_IfxGtm_Pwm_updateChannelsDeadTimeImmediate_lastDtFalling[i], msgF);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
