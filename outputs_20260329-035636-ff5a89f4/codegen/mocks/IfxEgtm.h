@@ -1,32 +1,24 @@
 /*
- * IfxEgtm.h - mock header
+ * IfxEgtm.h - EGTM peripheral base mock
  */
 #ifndef IFXEGTM_H
 #define IFXEGTM_H
 
 #include "mock_egtm_atom_3_phase_inverter_pwm.h"
 
-/* Additional shared base types used by structs */
-typedef struct { uint32 dummy; } Ifx_EGTM_CLS; /* Cluster SFR stub */
+/* Shared base types used in PWM driver */
+typedef uint32 Ifx_UReg_32Bit;
+typedef uint32 IfxSrc_VmId;
 
-typedef struct { uint32 dummy; } IfxApApu_ApuConfig;    /* shared placeholder */
-typedef struct { uint32 dummy; } IfxApProt_ProtConfig;  /* shared placeholder */
+/* Minimal AP config types (single-owner here to avoid conflicts) */
+typedef struct { uint32 dummy; } IfxApApu_ApuConfig;
+typedef struct { uint32 dummy; } IfxApProt_ProtConfig;
 
-typedef uint32 IfxEgtm_Cfg_MscSet;       /* placeholder */
-typedef uint32 IfxEgtm_Cfg_MscSetSignal; /* placeholder */
-typedef uint32 IfxEgtm_Cfg_MscModule;    /* placeholder */
-typedef uint32 IfxEgtm_Cfg_MscSelect;    /* placeholder */
+/* Forward/auxiliary SFR placeholders */
+typedef struct { uint32 reserved; } Ifx_EGTM_CLS;
+typedef uint32 IfxEgtm_Cluster; /* cluster index */
 
-/* Cluster index enum (tests referenced IfxEgtm_Cluster_1) */
-typedef enum
-{
-    IfxEgtm_Cluster_0 = 0,
-    IfxEgtm_Cluster_1 = 1,
-    IfxEgtm_Cluster_2 = 2,
-    IfxEgtm_Cluster_3 = 3
-} IfxEgtm_Cluster;
-
-/* Enums per template */
+/* EGTM enums (verified) */
 typedef enum
 {
     IfxEgtm_AeiBridgeOpMode_sync  = 0u,
@@ -63,11 +55,7 @@ typedef enum
     IfxEgtm_SuspendMode_soft = 2
 } IfxEgtm_SuspendMode;
 
-/* DTM supplemental enums referenced by PWM FastShutoffConfig */
-typedef enum { IfxEgtm_Dtm_ShutoffInput_0 = 0 } IfxEgtm_Dtm_ShutoffInput;
-typedef enum { IfxEgtm_Dtm_SignalLevel_low = 0, IfxEgtm_Dtm_SignalLevel_high = 1 } IfxEgtm_Dtm_SignalLevel;
-
-/* Structs per template */
+/* EGTM AP config structs */
 typedef struct
 {
     IfxApApu_ApuConfig apuConfig;
@@ -87,11 +75,16 @@ typedef struct
 typedef struct
 {
     IfxApProt_ProtConfig protseConfig;
-    /* in real iLLD: IfxEgtm_ClApConfig clApConfig[IFXEGTM_NUM_CCM_OBJECTS]; Omitted array size in mock */
-    IfxEgtm_ClApConfig   clApConfig[1];
+    IfxEgtm_ClApConfig   clApConfig[2];
     IfxEgtm_CtrlApConfig ctrlApConfig;
     IfxEgtm_WrapApConfig wrapApConfig;
 } IfxEgtm_ApConfig;
+
+/* MSC out related placeholders */
+typedef uint32 IfxEgtm_Cfg_MscSet;
+typedef uint32 IfxEgtm_Cfg_MscSetSignal;
+typedef uint32 IfxEgtm_Cfg_MscModule;
+typedef uint32 IfxEgtm_Cfg_MscSelect;
 
 typedef struct
 {
@@ -102,19 +95,8 @@ typedef struct
     IfxEgtm_MscAltInput      mscAltIn;
 } IfxEgtm_MscOut;
 
-/* Function declarations */
-void    IfxEgtm_disable(Ifx_EGTM *egtm);
-void    IfxEgtm_enable(Ifx_EGTM *egtm);
+/* Functions to mock from IfxEgtm */
 boolean IfxEgtm_isEnabled(Ifx_EGTM *egtm);
-boolean IfxEgtm_isModuleSuspended(Ifx_EGTM *egtm);
-void    IfxEgtm_setSuspendMode(Ifx_EGTM *egtm, IfxEgtm_SuspendMode mode);
-float32 IfxEgtm_getSysClkFrequency(void);
-float32 IfxEgtm_getClusterFrequency(Ifx_EGTM *egtm, uint32 clusterIndex);
-float32 IfxEgtm_tickToS(float32 freq, uint32 ticks);
-uint32  IfxEgtm_sToTick(float32 freq, float32 seconds);
-void    IfxEgtm_enableAeiBridgeWriteBuffer(Ifx_EGTM *egtm);
-void    IfxEgtm_setClusterClockDiv(Ifx_EGTM *egtm, uint32 clusterIndex, IfxEgtm_ClusterClockDiv div);
-void    IfxEgtm_clearClusterClockDiv(Ifx_EGTM *egtm, uint32 clusterIndex);
-float32 IfxClock_geteGtmFrequency(void);
+void    IfxEgtm_enable(Ifx_EGTM *egtm);
 
 #endif /* IFXEGTM_H */
