@@ -1,0 +1,81 @@
+{
+  "module_name": "GTM_TOM_3_Phase_Inverter_PWM",
+  "public_functions": [
+    {
+      "signature": "void initGtmTomPwm(void)",
+      "behavior_description": "Enable the GTM and its FXCLK domain, then configure a TOM timer on the selected TOM instance using a dedicated base channel as the time base. Initialize the timer configuration with defaults, set the target PWM frequency to 20 kHz, select the FXCLK0 clock source, assign the TOM instance and base channel, and initialize the timer driver. Prepare the high/low complementary PWM configuration for three phases by creating two parallel arrays of TOUT pin mappings (one array for the high-side outputs and one for the low-side outputs). Initialize the PwmHl configuration with defaults, then set: channelCount=3, deadtime=0.5 µs, minPulse=1.0 µs, push-pull output mode, cmosAutomotiveSpeed1 pad driver, and active-high polarity for both high- and low-side outputs. Link the timer handle and the TOM instance to the PwmHl configuration and initialize the PwmHl driver. Set center-aligned PWM mode. Start the TOM timer. Compute initial on-time ticks from the current timer period for the three phases using the required initial duty ratios (25%, 50%, 75%). Apply these initial on-times using a shadow-update sequence: disable update, set the on-time array on the PwmHl driver, then apply the update so all complementary outputs update synchronously at the next period event. Store the timer handle, PwmHl handle, and the on-time array in a persistent module state structure for later runtime updates.",
+      "driver_calls": [
+        "IfxGtm_enable",
+        "IfxGtm_Cmu_enableClocks",
+        "IfxGtm_Tom_Timer_initConfig",
+        "IfxGtm_Tom_Timer_init",
+        "IfxGtm_Tom_PwmHl_initConfig",
+        "IfxGtm_Tom_PwmHl_init",
+        "IfxGtm_Tom_PwmHl_setMode",
+        "IfxGtm_Tom_Timer_run",
+        "IfxGtm_Tom_Timer_disableUpdate",
+        "IfxGtm_Tom_PwmHl_setOnTime",
+        "IfxGtm_Tom_Timer_applyUpdate"
+      ],
+      "from_reference": true,
+      "call_context": "init"
+    },
+    {
+      "signature": "void updateGtmTomPwmDutyCycles(void)",
+      "behavior_description": "Read the current timer period from the persistent timer handle. Compute a duty increment step as a fixed fraction of the period and calculate minimum and maximum allowable on-time thresholds based on required min pulse and upper bound limits. For each of the three phases: add the step to the stored on-time; if the on-time exceeds the maximum threshold, wrap it back to the minimum threshold. After updating all three on-times, apply them synchronously using a shadow-update sequence (disable update, set the on-time array on the PwmHl driver, apply the update). The PwmHl driver maintains complementary behavior, center alignment, and enforces configured dead-time and minimum pulse constraints on the outputs.",
+      "driver_calls": [
+        "IfxGtm_Tom_Timer_disableUpdate",
+        "IfxGtm_Tom_PwmHl_setOnTime",
+        "IfxGtm_Tom_Timer_applyUpdate"
+      ],
+      "from_reference": true,
+      "call_context": "loop"
+    }
+  ],
+  "private_functions": [],
+  "dependencies": {
+    "includes": [
+      "Ifx_Types.h",
+      "IfxGtm_Tom_PwmHl.h",
+      "IfxGtm_Tom_Timer.h",
+      "IfxGtm_PinMap.h",
+      "IfxPort.h"
+    ],
+    "driver_calls": [
+      "IfxGtm_enable",
+      "IfxGtm_Cmu_enableClocks",
+      "IfxGtm_Tom_Timer_initConfig",
+      "IfxGtm_Tom_Timer_init",
+      "IfxGtm_Tom_PwmHl_initConfig",
+      "IfxGtm_Tom_PwmHl_init",
+      "IfxGtm_Tom_PwmHl_setMode",
+      "IfxGtm_Tom_Timer_run",
+      "IfxGtm_Tom_Timer_disableUpdate",
+      "IfxGtm_Tom_PwmHl_setOnTime",
+      "IfxGtm_Tom_Timer_applyUpdate"
+    ]
+  },
+  "cpu_main_requirements": {
+    "needs_cpu_sync": true,
+    "uses_timer_delay": true,
+    "delay_ms": 10,
+    "additional_includes": [
+      "Bsp.h"
+    ]
+  },
+  "header_selection": {
+    "applied": true,
+    "peripheral_type": "PWM",
+    "recommended_header": "IfxGtm_Tom",
+    "template_functions_count": 1026,
+    "required_includes": [
+      "IfxGtm_Tom.h"
+    ],
+    "original_recommendation": "IfxGtm_Pwm",
+    "reconciled": true,
+    "reconciliation_reason": "LLM driver_calls use IfxGtm_Tom_* API, not IfxGtm_Pwm (the reference API). Updated to match actual usage.",
+    "original_required_includes": [
+      "IfxGtm_Pwm.h"
+    ]
+  }
+}
