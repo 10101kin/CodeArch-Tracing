@@ -1,14 +1,8 @@
 {
-  "attempt": 7,
-  "phase_attempt": 3,
+  "type": "llm_response",
   "phase": "production",
-  "success": false,
-  "errors": [
-    "unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'",
-    "unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'",
-    "'mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtRising' undeclared (first use in this function); did you mean 'mock_IfxEgtm_Pwm_updateChannelsDeadTimeImmediate_lastDtRising'?",
-    "'mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtFalling' undeclared (first use in this function); did you mean 'mock_IfxEgtm_Pwm_updateChannelsDeadTimeImmediate_lastDtFalling'?"
-  ],
-  "timestamp": "2026-03-30T10:45:35.645891",
-  "project_name": "Generate_TC4D7_eGTM_ATOM_migration_code_using_IfxE_r_20260330_101800"
+  "attempt": 9,
+  "phase_attempt": 4,
+  "response_length": 12496,
+  "timestamp": "2026-03-30T10:54:01.160194"
 }
