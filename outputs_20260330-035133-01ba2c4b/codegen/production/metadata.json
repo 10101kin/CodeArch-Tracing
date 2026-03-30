@@ -1,8 +1,14 @@
 {
-  "type": "llm_response",
-  "phase": "production",
   "attempt": 3,
   "phase_attempt": 1,
-  "response_length": 11802,
-  "timestamp": "2026-03-30T12:12:59.864123"
+  "phase": "production",
+  "success": false,
+  "errors": [
+    "unknown type name 'IfxPort_PadDriver'",
+    "'IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT' undeclared (first use in this function)",
+    "'IfxSrc_VmId_0' undeclared (first use in this function); did you mean 'IfxSrc_VmId'?",
+    "unknown type name 'IfxPort_PadDriver'"
+  ],
+  "timestamp": "2026-03-30T12:13:05.403979",
+  "project_name": "Generate_TC4D7_KIT_A3G_TC4D7_LITE_code_that_migr_r_20260330_120525"
 }
