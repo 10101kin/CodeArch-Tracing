@@ -2,10 +2,10 @@ Status: SUCCESS
 
 Node JSON export
 Stage: sw_detailed
-Reason: stage_completed
+Reason: reviewer_patch_applied
 Modified By: system
 Modifier: N/A
 Reviewer: N/A
-Attempt: 4
-Phase attempt: 1
-Timestamp: 2026-03-30T15:49:50.753833
+Attempt: 5
+Phase attempt: 2
+Timestamp: 2026-03-30T15:51:59.624068

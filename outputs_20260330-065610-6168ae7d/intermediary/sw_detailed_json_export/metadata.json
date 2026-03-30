@@ -1,6 +1,6 @@
 {
   "export_type": "node_json",
-  "export_reason": "stage_completed",
+  "export_reason": "reviewer_patch_applied",
   "node_stage": "sw_detailed",
   "reviewer_name": null,
   "reviewer_applied": false,
@@ -9,5 +9,5 @@
   "workflow_stage": "sw_detailed_validation",
   "target_board": "KIT_A2G_TC387_5V_TFT",
   "generation_mode": "MIGRATION",
-  "timestamp": "2026-03-30T15:49:50.753823"
+  "timestamp": "2026-03-30T15:51:59.624051"
 }
