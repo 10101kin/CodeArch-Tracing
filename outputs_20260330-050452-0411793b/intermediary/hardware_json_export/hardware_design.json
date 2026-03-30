@@ -1,0 +1,139 @@
+{
+  "microcontroller": {
+    "model": "TC387",
+    "family": "TC3xx",
+    "verified": true,
+    "device_macro": "DEVICE_TC38X",
+    "pin_package": "IFX_PIN_PACKAGE_516"
+  },
+  "peripheral_instance": {
+    "type": "PWM",
+    "module": "GTM.TOM1.Cluster1",
+    "channels": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "driver": "IfxGtm_Pwm"
+  },
+  "pin_assignments": [
+    {
+      "signal": "TOM1_CH0_UH",
+      "port_pin": "P02.0",
+      "function": "TOUT",
+      "pin_macro": "",
+      "is_complementary": false,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "TOM1_CH1_UL",
+      "port_pin": "P02.7",
+      "function": "TOUT",
+      "pin_macro": "",
+      "is_complementary": true,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "TOM1_CH2_VH",
+      "port_pin": "P02.1",
+      "function": "TOUT",
+      "pin_macro": "",
+      "is_complementary": false,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "TOM1_CH3_VL",
+      "port_pin": "P02.4",
+      "function": "TOUT",
+      "pin_macro": "",
+      "is_complementary": true,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "TOM1_CH4_WH",
+      "port_pin": "P02.2",
+      "function": "TOUT",
+      "pin_macro": "",
+      "is_complementary": false,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "TOM1_CH5_WL",
+      "port_pin": "P02.5",
+      "function": "TOUT",
+      "pin_macro": "",
+      "is_complementary": true,
+      "verified": false,
+      "source": "hardware_verified"
+    }
+  ],
+  "clock_configuration": {
+    "xtal_frequency_mhz": 20,
+    "system_frequency_mhz": 300
+  },
+  "validation": {
+    "all_verified": false,
+    "conflicts": [
+      "Pin macros for TOM1 channels on P02.[0,7,1,4,2,5] not resolved from IfxGtm_PinMap_TC38x_LFBGA516 at generation time.",
+      "OSEL index for each TOM1->TOUT route not confirmed; user default OSEL=0 pending verification.",
+      "Alternate-function (TOUTxx) numbers for each pin not confirmed against target package."
+    ],
+    "reference_pins_valid": true
+  },
+  "template_validation": {
+    "supported_peripherals": [
+      "PWM",
+      "GTM",
+      "TIMER",
+      "STM",
+      "GPIO",
+      "INTERRUPT"
+    ],
+    "suggested_drivers": {
+      "PWM": [
+        "IfxGtm_Pwm"
+      ],
+      "GTM": [
+        "IfxGtm_Pwm"
+      ],
+      "TIMER": [
+        "IfxGtm_Pwm"
+      ],
+      "STM": [
+        "IfxStm",
+        "IfxStm_Timer"
+      ],
+      "GPIO": [
+        "IfxPort_Io",
+        "IfxPort"
+      ],
+      "INTERRUPT": [
+        "IfxCpu_Irq"
+      ],
+      "_driver_selection": {
+        "explicit_target": "IfxGtm_Pwm",
+        "replaced_source": "IfxGtm_Tom_PwmHl",
+        "primary_drivers": [
+          "IfxGtm_Pwm"
+        ],
+        "avoid_drivers": [
+          "IfxGtm_Tom_PwmHl"
+        ]
+      }
+    },
+    "warnings": []
+  },
+  "pin_analysis": {
+    "verified_count": 6,
+    "doc_reference_count": 1,
+    "merged_total": 7
+  }
+}
