@@ -1,0 +1,201 @@
+{
+  "microcontroller": {
+    "model": "TC387",
+    "family": "TC3xx",
+    "verified": true,
+    "device_macro": "DEVICE_TC38X",
+    "pin_package": "IFX_PIN_PACKAGE_516"
+  },
+  "peripheral_instance": {
+    "type": "PWM",
+    "module": "GTM.TOM1",
+    "channels": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "driver": "IfxGtm_Pwm"
+  },
+  "pin_assignments": [
+    {
+      "signal": "U_HS",
+      "port_pin": "P02.0",
+      "function": "TOUT",
+      "pin_macro": "",
+      "is_complementary": false,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "U_LS",
+      "port_pin": "P02.7",
+      "function": "TOUT",
+      "pin_macro": "",
+      "is_complementary": true,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "V_HS",
+      "port_pin": "P02.1",
+      "function": "TOUT",
+      "pin_macro": "",
+      "is_complementary": false,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "V_LS",
+      "port_pin": "P02.4",
+      "function": "TOUT",
+      "pin_macro": "",
+      "is_complementary": true,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "W_HS",
+      "port_pin": "P02.2",
+      "function": "TOUT",
+      "pin_macro": "",
+      "is_complementary": false,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "W_LS",
+      "port_pin": "P02.5",
+      "function": "TOUT",
+      "pin_macro": "",
+      "is_complementary": true,
+      "verified": false,
+      "source": "hardware_verified"
+    }
+  ],
+  "clock_configuration": {
+    "xtal_frequency_mhz": 20,
+    "system_frequency_mhz": 200
+  },
+  "validation": {
+    "all_verified": false,
+    "conflicts": [
+      "P02.0: No matching IfxGtm_TOM1_*_TOUT*_P02_0_OUT macro found in IfxGtm_PinMap_TC38x_LFBGA516",
+      "P02.7: No matching IfxGtm_TOM1_*_TOUT*_P02_7_OUT macro found in IfxGtm_PinMap_TC38x_LFBGA516",
+      "P02.1: No matching IfxGtm_TOM1_*_TOUT*_P02_1_OUT macro found in IfxGtm_PinMap_TC38x_LFBGA516",
+      "P02.4: No matching IfxGtm_TOM1_*_TOUT*_P02_4_OUT macro found in IfxGtm_PinMap_TC38x_LFBGA516",
+      "P02.2: No matching IfxGtm_TOM1_*_TOUT*_P02_2_OUT macro found in IfxGtm_PinMap_TC38x_LFBGA516",
+      "P02.5: No matching IfxGtm_TOM1_*_TOUT*_P02_5_OUT macro found in IfxGtm_PinMap_TC38x_LFBGA516"
+    ],
+    "reference_pins_valid": false
+  },
+  "template_validation": {
+    "supported_peripherals": [
+      "PWM",
+      "GTM",
+      "TIMER",
+      "STM",
+      "GPIO",
+      "ASCLIN",
+      "INTERRUPT",
+      "CPU"
+    ],
+    "suggested_drivers": {
+      "PWM": [
+        "IfxGtm_Atom_Pwm",
+        "IfxGtm_Atom_PwmHl",
+        "IfxGtm_Tom_Pwm",
+        "IfxCcu6_PwmBc",
+        "IfxCcu6_TPwm",
+        "IfxCcu6_PwmHl",
+        "IfxGtm_Tom_PwmHl",
+        "IfxGtm_Atom_Dtm_PwmHl",
+        "IfxGtm_Tom_Dtm_PwmHl",
+        "IfxGtm_Pwm"
+      ],
+      "GTM": [
+        "IfxGtm_cfg_TC37x",
+        "IfxGtm_cfg_TC39xB",
+        "IfxGtm_Psm",
+        "IfxGtm_PinMap_TC38x_516",
+        "IfxGtm_cfg_TC38x",
+        "IfxGtm_Trig",
+        "IfxGtm_Tbu",
+        "IfxGtm_cfg_TC38EVOx",
+        "IfxGtm_Dpll",
+        "IfxGtm_cfg_TC37xED",
+        "IfxGtm_PinMap_TC38x_LFBGA292",
+        "IfxGtm",
+        "IfxGtm_cfg_TC36x",
+        "IfxGtm_cfg_TC33x",
+        "IfxGtm_Dtm",
+        "IfxGtm_Spe",
+        "IfxGtm_PinMap_TC38x_LFBGA516",
+        "IfxGtm_Pwm"
+      ],
+      "TIMER": [
+        "IfxStm_Timer",
+        "IfxGtm_Tom_Timer",
+        "IfxGtm_Tim_Timer",
+        "IfxGtm_Atom_Timer",
+        "IfxCcu6_Timer",
+        "IfxCcu6_TimerWithTrigger"
+      ],
+      "STM": [
+        "IfxStm_cfg_TC33x",
+        "IfxStm_cfg_TC33xED",
+        "IfxStm_cfg_TC35x",
+        "IfxStm_cfg_TC36x",
+        "IfxStm_cfg_TC37x",
+        "IfxStm_cfg_TC37xED",
+        "IfxStm_cfg_TC38EVOx",
+        "IfxStm_cfg_TC38x",
+        "IfxStm_cfg_TC39xB",
+        "IfxStm",
+        "IfxStm_Timer"
+      ],
+      "GPIO": [
+        "IfxPort_cfg_TC38x",
+        "IfxPort_cfg_TC33x",
+        "IfxPort_cfg_TC38EVOx",
+        "IfxPort",
+        "IfxPort_cfg_TC33xED",
+        "IfxPort_cfg_TC37xED",
+        "IfxPort_cfg_TC36x",
+        "IfxPort_cfg_TC35x",
+        "IfxPort_cfg_TC39xB",
+        "IfxPort_cfg_TC37x",
+        "IfxPort_Io"
+      ],
+      "ASCLIN": [
+        "IfxAsclin_cfg_TC33x",
+        "IfxAsclin_cfg_TC33xED",
+        "IfxAsclin_cfg_TC35x",
+        "IfxAsclin_cfg_TC36x",
+        "IfxAsclin_cfg_TC37x",
+        "IfxAsclin_cfg_TC37xED",
+        "IfxAsclin_cfg_TC38EVOx",
+        "IfxAsclin_cfg_TC38x",
+        "IfxAsclin_cfg_TC39xB",
+        "IfxAsclin_Asc",
+        "IfxAsclin_Lin",
+        "IfxAsclin_Spi",
+        "IfxAsclin"
+      ],
+      "INTERRUPT": [
+        "IfxCpu_Irq"
+      ],
+      "CPU": [
+        "IfxCpu"
+      ]
+    },
+    "warnings": []
+  },
+  "pin_analysis": {
+    "verified_count": 6,
+    "doc_reference_count": 1,
+    "merged_total": 7
+  }
+}
