@@ -1,149 +1,79 @@
-In file included from C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\src\gtm_tom_3_phase_inverter_pwm.c:13:
-C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\include/IfxGtm_Pwm.h:69:5: error: redeclaration of enumerator 'IfxGtm_Dtm_ClockSource_systemClock'
-   69 |     IfxGtm_Dtm_ClockSource_systemClock,
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-In file included from C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\include/IfxGtm_Pwm.h:7:
-C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\include/IfxGtm_Cmu.h:47:5: note: previous definition of 'IfxGtm_Dtm_ClockSource_systemClock' with type 'enum <anonymous>'
-   47 |     IfxGtm_Dtm_ClockSource_systemClock,
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\include/IfxGtm_Pwm.h:70:5: error: redeclaration of enumerator 'IfxGtm_Dtm_ClockSource_cmuClock0'
-   70 |     IfxGtm_Dtm_ClockSource_cmuClock0,
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\include/IfxGtm_Cmu.h:48:5: note: previous definition of 'IfxGtm_Dtm_ClockSource_cmuClock0' with type 'enum <anonymous>'
-   48 |     IfxGtm_Dtm_ClockSource_cmuClock0,
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\include/IfxGtm_Pwm.h:71:5: error: redeclaration of enumerator 'IfxGtm_Dtm_ClockSource_cmuClock1'
-   71 |     IfxGtm_Dtm_ClockSource_cmuClock1,
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\include/IfxGtm_Cmu.h:49:5: note: previous definition of 'IfxGtm_Dtm_ClockSource_cmuClock1' with type 'enum <anonymous>'
-   49 |     IfxGtm_Dtm_ClockSource_cmuClock1,
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\include/IfxGtm_Pwm.h:72:5: error: redeclaration of enumerator 'IfxGtm_Dtm_ClockSource_cmuClock2'
-   72 |     IfxGtm_Dtm_ClockSource_cmuClock2
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\include/IfxGtm_Cmu.h:50:5: note: previous definition of 'IfxGtm_Dtm_ClockSource_cmuClock2' with type 'enum <anonymous>'
-   50 |     IfxGtm_Dtm_ClockSource_cmuClock2
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\include/IfxGtm_Pwm.h:73:3: error: conflicting types for 'IfxGtm_Dtm_ClockSource'; have 'enum <anonymous>'
-   73 | } IfxGtm_Dtm_ClockSource;
-      |   ^~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\include/IfxGtm_Cmu.h:51:3: note: previous declaration of 'IfxGtm_Dtm_ClockSource' with type 'IfxGtm_Dtm_ClockSource'
-   51 | } IfxGtm_Dtm_ClockSource;
-      |   ^~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\src\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTom3phInv':
-C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\src\gtm_tom_3_phase_inverter_pwm.c:114:40: error: 'Ifx_ActiveState_high' undeclared (first use in this function); did you mean 'Ifx_ActiveState'?
-  114 |     output[0].polarity               = Ifx_ActiveState_high;      /* HS active high */
-      |                                        ^~~~~~~~~~~~~~~~~~~~
-      |                                        Ifx_ActiveState
-C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\src\gtm_tom_3_phase_inverter_pwm.c:114:40: note: each undeclared identifier is reported only once for each function it appears in
-C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\src\gtm_tom_3_phase_inverter_pwm.c:115:40: error: 'Ifx_ActiveState_low' undeclared (first use in this function); did you mean 'Ifx_ActiveState'?
-  115 |     output[0].complementaryPolarity  = Ifx_ActiveState_low;       /* LS active low  */
-      |                                        ^~~~~~~~~~~~~~~~~~~
-      |                                        Ifx_ActiveState
+In file included from C:\Users\extanke\AppData\Local\Temp\tdd_build_t2ub3yhb\src\gtm_tom_3_phase_inverter_pwm.c:16:
+C:\Users\extanke\AppData\Local\Temp\tdd_build_t2ub3yhb\include/IfxGtm_Pwm.h:94:5: error: unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?
+   94 |     IfxGtm_Pwm_ToutMap *pin; /* self-ref placeholder to avoid unused type warnings */
+      |     ^~~~~~~~~~~~~~~~~~
+      |     IfxGtm_Tom_ToutMap
 
-In file included from C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\mocks\mock_gtm_tom_3_phase_inverter_pwm.c:6:
-C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\include/IfxGtm_Pwm.h:69:5: error: redeclaration of enumerator 'IfxGtm_Dtm_ClockSource_systemClock'
-   69 |     IfxGtm_Dtm_ClockSource_systemClock,
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-In file included from C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\mocks\mock_gtm_tom_3_phase_inverter_pwm.c:4:
-C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\include/IfxGtm_Cmu.h:47:5: note: previous definition of 'IfxGtm_Dtm_ClockSource_systemClock' with type 'enum <anonymous>'
-   47 |     IfxGtm_Dtm_ClockSource_systemClock,
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\include/IfxGtm_Pwm.h:70:5: error: redeclaration of enumerator 'IfxGtm_Dtm_ClockSource_cmuClock0'
-   70 |     IfxGtm_Dtm_ClockSource_cmuClock0,
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\include/IfxGtm_Cmu.h:48:5: note: previous definition of 'IfxGtm_Dtm_ClockSource_cmuClock0' with type 'enum <anonymous>'
-   48 |     IfxGtm_Dtm_ClockSource_cmuClock0,
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\include/IfxGtm_Pwm.h:71:5: error: redeclaration of enumerator 'IfxGtm_Dtm_ClockSource_cmuClock1'
-   71 |     IfxGtm_Dtm_ClockSource_cmuClock1,
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\include/IfxGtm_Cmu.h:49:5: note: previous definition of 'IfxGtm_Dtm_ClockSource_cmuClock1' with type 'enum <anonymous>'
-   49 |     IfxGtm_Dtm_ClockSource_cmuClock1,
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\include/IfxGtm_Pwm.h:72:5: error: redeclaration of enumerator 'IfxGtm_Dtm_ClockSource_cmuClock2'
-   72 |     IfxGtm_Dtm_ClockSource_cmuClock2
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\include/IfxGtm_Cmu.h:50:5: note: previous definition of 'IfxGtm_Dtm_ClockSource_cmuClock2' with type 'enum <anonymous>'
-   50 |     IfxGtm_Dtm_ClockSource_cmuClock2
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\include/IfxGtm_Pwm.h:73:3: error: conflicting types for 'IfxGtm_Dtm_ClockSource'; have 'enum <anonymous>'
-   73 | } IfxGtm_Dtm_ClockSource;
-      |   ^~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\include/IfxGtm_Cmu.h:51:3: note: previous declaration of 'IfxGtm_Dtm_ClockSource' with type 'IfxGtm_Dtm_ClockSource'
-   51 | } IfxGtm_Dtm_ClockSource;
-      |   ^~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\mocks\mock_gtm_tom_3_phase_inverter_pwm.c:174:6: error: redefinition of 'IfxGtm_Cmu_setGclkFrequency'
-  174 | void IfxGtm_Cmu_setGclkFrequency(Ifx_GTM *gtm, float32 frequency) { (void)gtm; (void)frequency; }
-      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\mocks\mock_gtm_tom_3_phase_inverter_pwm.c:133:6: note: previous definition of 'IfxGtm_Cmu_setGclkFrequency' with type 'void(Ifx_GTM *, float32)' {aka 'void(Ifx_GTM *, float)'}
-  133 | void IfxGtm_Cmu_setGclkFrequency(Ifx_GTM *gtm, float32 frequency) { (void)gtm; (void)frequency; }
-      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from C:\Users\extanke\AppData\Local\Temp\tdd_build_t2ub3yhb\mocks\mock_gtm_tom_3_phase_inverter_pwm.c:5:
+C:\Users\extanke\AppData\Local\Temp\tdd_build_t2ub3yhb\include/IfxGtm_Pwm.h:94:5: error: unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?
+   94 |     IfxGtm_Pwm_ToutMap *pin; /* self-ref placeholder to avoid unused type warnings */
+      |     ^~~~~~~~~~~~~~~~~~
+      |     IfxGtm_Tom_ToutMap
 
-C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\test\test_gtm_tom_3_phase_inverter_pwm.c:6:21: error: conflicting types for 'mock_IfxGtm_Pwm_init_callCount'; have 'unsigned int'
+C:\Users\extanke\AppData\Local\Temp\tdd_build_t2ub3yhb\test\test_gtm_tom_3_phase_inverter_pwm.c:6:21: error: conflicting types for 'mock_IfxGtm_Pwm_init_callCount'; have 'unsigned int'
     6 | extern unsigned int mock_IfxGtm_Pwm_init_callCount;
       |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-In file included from C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\test\test_gtm_tom_3_phase_inverter_pwm.c:2:
-C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\include/mock_gtm_tom_3_phase_inverter_pwm.h:145:12: note: previous declaration of 'mock_IfxGtm_Pwm_init_callCount' with type 'int'
-  145 | extern int mock_IfxGtm_Pwm_init_callCount;
-      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\test\test_gtm_tom_3_phase_inverter_pwm.c:7:21: error: conflicting types for 'mock_IfxGtm_Pwm_initConfig_callCount'; have 'unsigned int'
+In file included from C:\Users\extanke\AppData\Local\Temp\tdd_build_t2ub3yhb\test\test_gtm_tom_3_phase_inverter_pwm.c:2:
+C:\Users\extanke\AppData\Local\Temp\tdd_build_t2ub3yhb\include/mock_gtm_tom_3_phase_inverter_pwm.h:240:16: note: previous declaration of 'mock_IfxGtm_Pwm_init_callCount' with type 'int'
+  240 | extern int     mock_IfxGtm_Pwm_init_callCount;
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_t2ub3yhb\test\test_gtm_tom_3_phase_inverter_pwm.c:7:21: error: conflicting types for 'mock_IfxGtm_Pwm_initConfig_callCount'; have 'unsigned int'
     7 | extern unsigned int mock_IfxGtm_Pwm_initConfig_callCount;
       |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\include/mock_gtm_tom_3_phase_inverter_pwm.h:146:12: note: previous declaration of 'mock_IfxGtm_Pwm_initConfig_callCount' with type 'int'
-  146 | extern int mock_IfxGtm_Pwm_initConfig_callCount;
-      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\test\test_gtm_tom_3_phase_inverter_pwm.c:8:21: error: conflicting types for 'mock_IfxGtm_Pwm_updateChannelsDutyImmediate_callCount'; have 'unsigned int'
+C:\Users\extanke\AppData\Local\Temp\tdd_build_t2ub3yhb\include/mock_gtm_tom_3_phase_inverter_pwm.h:241:16: note: previous declaration of 'mock_IfxGtm_Pwm_initConfig_callCount' with type 'int'
+  241 | extern int     mock_IfxGtm_Pwm_initConfig_callCount;
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_t2ub3yhb\test\test_gtm_tom_3_phase_inverter_pwm.c:8:21: error: conflicting types for 'mock_IfxGtm_Pwm_updateChannelsDutyImmediate_callCount'; have 'unsigned int'
     8 | extern unsigned int mock_IfxGtm_Pwm_updateChannelsDutyImmediate_callCount;
       |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\include/mock_gtm_tom_3_phase_inverter_pwm.h:147:12: note: previous declaration of 'mock_IfxGtm_Pwm_updateChannelsDutyImmediate_callCount' with type 'int'
-  147 | extern int mock_IfxGtm_Pwm_updateChannelsDutyImmediate_callCount;
-      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\test\test_gtm_tom_3_phase_inverter_pwm.c:9:21: error: conflicting types for 'mock_IfxGtm_isEnabled_callCount'; have 'unsigned int'
+C:\Users\extanke\AppData\Local\Temp\tdd_build_t2ub3yhb\include/mock_gtm_tom_3_phase_inverter_pwm.h:242:16: note: previous declaration of 'mock_IfxGtm_Pwm_updateChannelsDutyImmediate_callCount' with type 'int'
+  242 | extern int     mock_IfxGtm_Pwm_updateChannelsDutyImmediate_callCount;
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_t2ub3yhb\test\test_gtm_tom_3_phase_inverter_pwm.c:9:21: error: conflicting types for 'mock_IfxGtm_isEnabled_callCount'; have 'unsigned int'
     9 | extern unsigned int mock_IfxGtm_isEnabled_callCount;
       |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\include/mock_gtm_tom_3_phase_inverter_pwm.h:148:12: note: previous declaration of 'mock_IfxGtm_isEnabled_callCount' with type 'int'
-  148 | extern int mock_IfxGtm_isEnabled_callCount;
-      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\test\test_gtm_tom_3_phase_inverter_pwm.c:10:21: error: conflicting types for 'mock_IfxGtm_enable_callCount'; have 'unsigned int'
+C:\Users\extanke\AppData\Local\Temp\tdd_build_t2ub3yhb\include/mock_gtm_tom_3_phase_inverter_pwm.h:244:16: note: previous declaration of 'mock_IfxGtm_isEnabled_callCount' with type 'int'
+  244 | extern int     mock_IfxGtm_isEnabled_callCount;
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_t2ub3yhb\test\test_gtm_tom_3_phase_inverter_pwm.c:10:21: error: conflicting types for 'mock_IfxGtm_enable_callCount'; have 'unsigned int'
    10 | extern unsigned int mock_IfxGtm_enable_callCount;
       |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\include/mock_gtm_tom_3_phase_inverter_pwm.h:149:12: note: previous declaration of 'mock_IfxGtm_enable_callCount' with type 'int'
-  149 | extern int mock_IfxGtm_enable_callCount;
-      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\test\test_gtm_tom_3_phase_inverter_pwm.c:11:21: error: conflicting types for 'mock_IfxGtm_Cmu_getModuleFrequency_callCount'; have 'unsigned int'
+C:\Users\extanke\AppData\Local\Temp\tdd_build_t2ub3yhb\include/mock_gtm_tom_3_phase_inverter_pwm.h:247:16: note: previous declaration of 'mock_IfxGtm_enable_callCount' with type 'int'
+  247 | extern int     mock_IfxGtm_enable_callCount;
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_t2ub3yhb\test\test_gtm_tom_3_phase_inverter_pwm.c:11:21: error: conflicting types for 'mock_IfxGtm_Cmu_getModuleFrequency_callCount'; have 'unsigned int'
    11 | extern unsigned int mock_IfxGtm_Cmu_getModuleFrequency_callCount;
       |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\include/mock_gtm_tom_3_phase_inverter_pwm.h:150:12: note: previous declaration of 'mock_IfxGtm_Cmu_getModuleFrequency_callCount' with type 'int'
-  150 | extern int mock_IfxGtm_Cmu_getModuleFrequency_callCount;
-      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\test\test_gtm_tom_3_phase_inverter_pwm.c:12:21: error: conflicting types for 'mock_IfxGtm_Cmu_enableClocks_callCount'; have 'unsigned int'
+C:\Users\extanke\AppData\Local\Temp\tdd_build_t2ub3yhb\include/mock_gtm_tom_3_phase_inverter_pwm.h:249:16: note: previous declaration of 'mock_IfxGtm_Cmu_getModuleFrequency_callCount' with type 'int'
+  249 | extern int     mock_IfxGtm_Cmu_getModuleFrequency_callCount;
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_t2ub3yhb\test\test_gtm_tom_3_phase_inverter_pwm.c:12:21: error: conflicting types for 'mock_IfxGtm_Cmu_enableClocks_callCount'; have 'unsigned int'
    12 | extern unsigned int mock_IfxGtm_Cmu_enableClocks_callCount;
       |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\include/mock_gtm_tom_3_phase_inverter_pwm.h:151:12: note: previous declaration of 'mock_IfxGtm_Cmu_enableClocks_callCount' with type 'int'
-  151 | extern int mock_IfxGtm_Cmu_enableClocks_callCount;
-      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\test\test_gtm_tom_3_phase_inverter_pwm.c:13:21: error: conflicting types for 'mock_IfxPort_togglePin_callCount'; have 'unsigned int'
+C:\Users\extanke\AppData\Local\Temp\tdd_build_t2ub3yhb\include/mock_gtm_tom_3_phase_inverter_pwm.h:252:16: note: previous declaration of 'mock_IfxGtm_Cmu_enableClocks_callCount' with type 'int'
+  252 | extern int     mock_IfxGtm_Cmu_enableClocks_callCount;
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_t2ub3yhb\test\test_gtm_tom_3_phase_inverter_pwm.c:13:21: error: conflicting types for 'mock_IfxPort_togglePin_callCount'; have 'unsigned int'
    13 | extern unsigned int mock_IfxPort_togglePin_callCount;
       |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\include/mock_gtm_tom_3_phase_inverter_pwm.h:152:12: note: previous declaration of 'mock_IfxPort_togglePin_callCount' with type 'int'
-  152 | extern int mock_IfxPort_togglePin_callCount;
-      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\test\test_gtm_tom_3_phase_inverter_pwm.c:15:21: error: conflicting types for 'mock_IfxPort_setPinModeOutput_callCount'; have 'unsigned int'
+C:\Users\extanke\AppData\Local\Temp\tdd_build_t2ub3yhb\include/mock_gtm_tom_3_phase_inverter_pwm.h:254:16: note: previous declaration of 'mock_IfxPort_togglePin_callCount' with type 'int'
+  254 | extern int     mock_IfxPort_togglePin_callCount;
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_t2ub3yhb\test\test_gtm_tom_3_phase_inverter_pwm.c:15:21: error: conflicting types for 'mock_IfxPort_setPinModeOutput_callCount'; have 'unsigned int'
    15 | extern unsigned int mock_IfxPort_setPinModeOutput_callCount;
       |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\include/mock_gtm_tom_3_phase_inverter_pwm.h:153:12: note: previous declaration of 'mock_IfxPort_setPinModeOutput_callCount' with type 'int'
-  153 | extern int mock_IfxPort_setPinModeOutput_callCount;
-      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\test\test_gtm_tom_3_phase_inverter_pwm.c:16:12: error: conflicting types for 'mock_IfxGtm_isEnabled_returnValue'; have 'int'
+C:\Users\extanke\AppData\Local\Temp\tdd_build_t2ub3yhb\include/mock_gtm_tom_3_phase_inverter_pwm.h:257:16: note: previous declaration of 'mock_IfxPort_setPinModeOutput_callCount' with type 'int'
+  257 | extern int     mock_IfxPort_setPinModeOutput_callCount;
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_t2ub3yhb\test\test_gtm_tom_3_phase_inverter_pwm.c:16:12: error: conflicting types for 'mock_IfxGtm_isEnabled_returnValue'; have 'int'
    16 | extern int mock_IfxGtm_isEnabled_returnValue;
       |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\include/mock_gtm_tom_3_phase_inverter_pwm.h:158:16: note: previous declaration of 'mock_IfxGtm_isEnabled_returnValue' with type 'boolean' {aka 'unsigned char'}
-  158 | extern boolean mock_IfxGtm_isEnabled_returnValue;
+C:\Users\extanke\AppData\Local\Temp\tdd_build_t2ub3yhb\include/mock_gtm_tom_3_phase_inverter_pwm.h:245:16: note: previous declaration of 'mock_IfxGtm_isEnabled_returnValue' with type 'boolean' {aka 'unsigned char'}
+  245 | extern boolean mock_IfxGtm_isEnabled_returnValue;
       |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\test\test_gtm_tom_3_phase_inverter_pwm.c:17:21: error: conflicting types for 'mock_IfxGtm_Cmu_getModuleFrequency_returnValue'; have 'unsigned int'
+C:\Users\extanke\AppData\Local\Temp\tdd_build_t2ub3yhb\test\test_gtm_tom_3_phase_inverter_pwm.c:17:21: error: conflicting types for 'mock_IfxGtm_Cmu_getModuleFrequency_returnValue'; have 'unsigned int'
    17 | extern unsigned int mock_IfxGtm_Cmu_getModuleFrequency_returnValue;
       |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_vf_yw_i9\include/mock_gtm_tom_3_phase_inverter_pwm.h:159:16: note: previous declaration of 'mock_IfxGtm_Cmu_getModuleFrequency_returnValue' with type 'float32' {aka 'float'}
-  159 | extern float32 mock_IfxGtm_Cmu_getModuleFrequency_returnValue;
+C:\Users\extanke\AppData\Local\Temp\tdd_build_t2ub3yhb\include/mock_gtm_tom_3_phase_inverter_pwm.h:250:16: note: previous declaration of 'mock_IfxGtm_Cmu_getModuleFrequency_returnValue' with type 'float32' {aka 'float'}
+  250 | extern float32 mock_IfxGtm_Cmu_getModuleFrequency_returnValue;
       |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
