@@ -1,0 +1,81 @@
+{
+  "module_name": "EGTM_ATOM_3_Phase_Inverter_PWM",
+  "public_functions": [
+    {
+      "signature": "void initEgtmAtom3phInv(void)",
+      "behavior_description": "Initialize a 3-phase complementary PWM on the eGTM ATOM submodule using the unified IfxEgtm_Pwm driver. The function performs these steps in order: 1) Declare all configuration structures as local variables: a main Pwm config, an array of three per-channel configs, an array of three dead-time configs, one interrupt config, and an array of three output pin configs. 2) Initialize the main Pwm config with defaults using the driver's initConfig. 3) Configure the output[] array for three logical channels (phases) with complementary outputs: assign each channel's main output pin and its complementary pin, set the high-side polarity active-high and the low-side polarity active-low, and set output mode to push-pull with the required pad driver. 4) Configure the DTM dead-time for each channel with 1 µs rising and 1 µs falling delays. 5) Configure the period-event interrupt via InterruptConfig: set mode to pulse-notify, set provider to CPU0, set priority per requirements, assign periodEvent to a non-static callback taking void *data, leave dutyEvent as NULL; then assign this interrupt config only to channelConfig[0] (the base channel) and set NULL for the remaining channels. 6) Fill channelConfig[0..2] with logical timer channel indices SubModule_Ch_0, _Ch_1, and _Ch_2 respectively, set initial phase to 0.0 for all, assign initial duty values in percent for the three phases (25, 50, 75), attach the corresponding dtmConfig[i], set output[i], and leave any optional MSC outputs as NULL. 7) Complete the main config fields: select the eGTM module instance, select the ATOM submodule and its indices (ATOM0, Cluster 0), set alignment to center-aligned, frequency to 20 kHz, enable synchronized start and synchronized updates, and select FXCLK0 as the channel clock source and DTM clock 0 for dead-time generation. 8) Inside an enable guard: check if the eGTM module is enabled; if not, enable it, read the current module frequency dynamically, configure the eGTM CMU to use that frequency by setting the GCLK divider (pass-through) and an appropriate ECLK divider for the sub-clocks used by the PWM, then enable the required eGTM clocks via the CMU clock enable mask. All of these CMU actions remain inside the isEnabled guard. 9) Call the unified PWM init API with the handle, a persistent channels array (owned by the module state), and the prepared config. This applies the initial duties, alignment, pins, dead-time, and interrupt routing internally. 10) Persist the driver handle, channels array pointer, initial duty values, and dead-time settings into a global module-state struct so they are available for runtime updates. 11) Configure the LED GPIO as a push-pull output using the port driver after the PWM has been initialized. Do not drive the LED high or low here; just set the mode. Note: The channels array must be a persistent member of the module state because the driver stores references to it.",
+      "driver_calls": [
+        "IfxEgtm_isEnabled",
+        "IfxEgtm_enable",
+        "IfxEgtm_Cmu_getModuleFrequency",
+        "IfxEgtm_Cmu_setGclkDivider",
+        "IfxEgtm_Cmu_setEclkDivider",
+        "IfxEgtm_Cmu_enableClocks",
+        "IfxEgtm_Pwm_initConfig",
+        "IfxEgtm_Pwm_init",
+        "IfxPort_setPinModeOutput"
+      ],
+      "from_reference": true,
+      "call_context": "init"
+    },
+    {
+      "signature": "void updateEgtmAtom3phInvDuty(void)",
+      "behavior_description": "Update the duty cycles of the three logical PWM channels in percent with a step of 10% each time it is called. For each of the three entries in the state's dutyCycles array: if (current duty + step) is greater than or equal to 100, wrap that channel's duty to 0; then add the 10% step to each channel. After updating the array in state, pass the dutyCycles array directly to the unified driver's immediate multi-channel duty update API to apply all three duties atomically with synchronized behavior enabled.",
+      "driver_calls": [
+        "IfxEgtm_Pwm_updateChannelsDutyImmediate"
+      ],
+      "from_reference": true,
+      "call_context": "loop"
+    }
+  ],
+  "private_functions": [
+    {
+      "signature": "void interruptEgtmAtom(void)",
+      "needed": true,
+      "from_reference": true
+    },
+    {
+      "signature": "void IfxEgtm_periodEventFunction(void *data)",
+      "needed": true,
+      "from_reference": true
+    }
+  ],
+  "dependencies": {
+    "includes": [
+      "Ifx_Types.h",
+      "IfxEgtm_Pwm.h",
+      "IfxPort.h",
+      "IfxPort_Pinmap.h"
+    ],
+    "driver_calls": [
+      "IfxEgtm_isEnabled",
+      "IfxEgtm_enable",
+      "IfxEgtm_Cmu_getModuleFrequency",
+      "IfxEgtm_Cmu_setGclkDivider",
+      "IfxEgtm_Cmu_setEclkDivider",
+      "IfxEgtm_Cmu_enableClocks",
+      "IfxEgtm_Pwm_initConfig",
+      "IfxEgtm_Pwm_init",
+      "IfxEgtm_Pwm_updateChannelsDutyImmediate",
+      "IfxPort_setPinModeOutput",
+      "IfxPort_togglePin"
+    ]
+  },
+  "cpu_main_requirements": {
+    "needs_cpu_sync": true,
+    "uses_timer_delay": true,
+    "delay_ms": 500,
+    "additional_includes": [
+      "Bsp.h"
+    ]
+  },
+  "header_selection": {
+    "applied": true,
+    "peripheral_type": "PWM",
+    "recommended_header": "IfxEgtm_Pwm",
+    "template_functions_count": 1461,
+    "required_includes": [
+      "IfxEgtm_Pwm.h"
+    ]
+  }
+}

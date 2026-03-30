@@ -1,0 +1,16 @@
+{
+  "attempt": 9,
+  "phase_attempt": 4,
+  "phase": "production",
+  "success": false,
+  "errors": [
+    "'IfxEgtm_ATOM0_0_TOUT64_P20_8_OUT' undeclared (first use in this function)",
+    "'IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT' undeclared (first use in this function)",
+    "'IfxEgtm_ATOM0_1_TOUT55_P21_4_OUT' undeclared (first use in this function)",
+    "'IfxEgtm_ATOM0_1N_TOUT67_P20_11_OUT' undeclared (first use in this function)",
+    "'IfxEgtm_ATOM0_2_TOUT68_P20_12_OUT' undeclared (first use in this function)",
+    "'IfxEgtm_ATOM0_2N_TOUT69_P20_13_OUT' undeclared (first use in this function)"
+  ],
+  "timestamp": "2026-03-30T12:28:16.419446",
+  "project_name": "Generate_TC4D7_KIT_A3G_TC4D7_LITE_code_that_migr_r_20260330_120525"
+}
