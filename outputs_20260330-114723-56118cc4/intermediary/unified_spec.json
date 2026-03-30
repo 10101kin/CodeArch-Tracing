@@ -1,11 +1,12 @@
 {
   "meta": {
     "schema_version": "1.0",
-    "last_updated_by": "hardware",
-    "last_updated_at": "2026-03-30T19:48:58.893864",
+    "last_updated_by": "sw_architecture",
+    "last_updated_at": "2026-03-30T19:57:00.524723",
     "build_sequence": [
       "requirements",
-      "hardware"
+      "hardware",
+      "sw_architecture"
     ],
     "corrections_log": []
   },
@@ -268,6 +269,117 @@
       "verified_count": 3,
       "doc_reference_count": 1,
       "merged_total": 4
+    }
+  },
+  "sw_architecture": {
+    "user_intent_preservation": {
+      "original_goal": "Implement a 3-phase, center-aligned PWM motor control for the TC387 reference inverter using the unified GTM high-level PWM driver, migrating from the TOM PWMHL driver while preserving original TOM/timer mapping and pin mappings.",
+      "functional_behavior": "Initialize the three PWM channels (U,V,W) with duties U=25%, V=50%, W=75%; run center-aligned PWM at PWM_FREQ_HZ = 20000 Hz with dead time = 0.5e-6 s and min pulse = 1.0e-6 s; on each periodic update (WAIT_TIME = 500 ms) increase each channel duty by +10% of period and wrap to 0% when exceeding 100%; preserve existing TOM/timer mapping and pin mappings (no pin remap).",
+      "technical_approach": "Use the unified IfxGtm_Pwm high-level API (IfxGtm_Pwm_initConfig + IfxGtm_Pwm_init) to configure the GTM PWM cluster in center-aligned mode and preserve TOM/timer mapping and pin mapping from the reference. Use IfxGtm_Pwm_updateChannelDutyImmediate to apply runtime duty changes (mapped from the reference setOnTime semantics). Guard GTM module enablement with IfxGtm_isEnabled / IfxGtm_enable and use IfxPort_* for any pin function setup. Keep the reference function names (initGtmTom3phInv, updateGtmTom3phInvDuty) to preserve the external API."
+    },
+    "driver_selection": {
+      "recommended_driver": "IfxGtm_Pwm",
+      "selection_rationale": "Header selection was mandated and the IfxGtm_Pwm unified high-level driver provides the required GTM PWM configuration and duty update APIs available in the template. It is the correct high-level replacement for the reference IfxGtm_Tom_PwmHl and is locked by the migration specification. It also supports center-aligned PWM semantics and runtime duty updates (updateChannelDutyImmediate) which map to the reference on-time updates.",
+      "available_in_template": true,
+      "complexity_level": "moderate",
+      "alternatives_considered": [
+        "IfxGtm_Tom_PwmHl (legacy - replaced by unified GTM PWM)",
+        "IfxGtm_Tom_Dtm_PwmHl (legacy with DTM)"
+      ]
+    },
+    "driver_usage": {
+      "initialization_apis": [
+        "IfxGtm_Pwm_initConfig",
+        "IfxGtm_Pwm_init",
+        "IfxGtm_isEnabled",
+        "IfxGtm_enable",
+        "IfxPort_setPinFunctionMode"
+      ],
+      "runtime_apis": [
+        "IfxGtm_Pwm_updateChannelDutyImmediate",
+        "IfxGtm_Pwm_updateChannelDuty",
+        "IfxPort_setPinHigh",
+        "IfxPort_setPinLow"
+      ]
+    },
+    "file_structure": {
+      "module_files": [
+        "GTM_TOM_3_Phase_Inverter_PWM.c",
+        "GTM_TOM_3_Phase_Inverter_PWM.h"
+      ],
+      "cpu_files": [
+        "Cpu0_Main.c"
+      ],
+      "from_reference": true
+    },
+    "function_mapping": {
+      "init_function": {
+        "name": "initGtmTom3phInv",
+        "purpose": "Reference-preserved initialization that calls IfxGtm_Pwm_initConfig + IfxGtm_Pwm_init, configures center-aligned mode, sets PWM frequency (20 kHz), dead time (0.5e-6 s) and initial duties (25%,50%,75%), and configures pins using existing pin mappings."
+      },
+      "runtime_function": {
+        "name": "updateGtmTom3phInvDuty",
+        "purpose": "Called periodically (WAIT_TIME = 500 ms from Cpu0_Main.c). For each channel (U,V,W) compute new duty = duty + 10%; if new duty > 100% set duty = 0%; apply new duty immediately using IfxGtm_Pwm_updateChannelDutyImmediate (maps to requested setOnTime semantics)."
+      }
+    },
+    "header_selection": {
+      "applied": true,
+      "peripheral_type": "PWM",
+      "recommended_header": "IfxGtm_Pwm",
+      "score": 609,
+      "required_includes": [
+        "IfxGtm_Pwm.h"
+      ],
+      "function_mapping": {
+        "IfxGtm_enable": "IfxGtm_Pwm_updateChannelsPulse"
+      },
+      "available_functions_count": 99
+    },
+    "driver_selection_engine": {
+      "applied": true,
+      "mcu_family": "TC3xx",
+      "requirement_analysis": {},
+      "recommendations": {
+        "PWM": {
+          "driver": "IfxGtm_Pwm_Config",
+          "score": 100,
+          "complexity": "locked",
+          "rationale": "Driver locked by refiner node (user explicit or engine-scored)",
+          "alternatives": []
+        }
+      },
+      "migration_mappings": {
+        "IfxScuWdt": {
+          "target_driver": "IfxScuWdt",
+          "api_mapping": {
+            "IfxScuWdt_init": "IfxScuWdt_init",
+            "IfxScuWdt_initConfig": "IfxScuWdt_initConfig"
+          }
+        },
+        "IfxGtm_Tom_PwmHl": {
+          "target_driver": "IfxGtm_Pwm_Config",
+          "api_mapping": {
+            "IfxGtm_Tom_PwmHl_init": "IfxGtm_Pwm_init",
+            "IfxGtm_Tom_PwmHl_initConfig": "IfxGtm_Pwm_initConfig",
+            "IfxGtm_Tom_PwmHl_setOnTime": "IfxGtm_Pwm_setDuty",
+            "IfxGtm_Tom_PwmHl_setPeriod": "IfxGtm_Pwm_updatePeriod",
+            "IfxGtm_Tom_PwmHl_start": "IfxGtm_Pwm_start",
+            "IfxGtm_Tom_PwmHl_stop": "IfxGtm_Pwm_stop"
+          },
+          "upgrade_reason": "User explicitly requested: IfxGtm_Tom_PwmHl → IfxGtm_Pwm_Config"
+        },
+        "IfxCpu_Irq": {
+          "target_driver": "IfxSrc",
+          "api_mapping": {
+            "IfxCpu_Irq_installInterruptHandler": "IfxSrc_init",
+            "IfxCpu_enableInterrupts": "IfxSrc_setRequest",
+            "IfxCpu_disableInterrupts": "IfxSrc_clearRequest"
+          }
+        }
+      }
+    },
+    "driver_knowledge_base": {
+      "applied": false
     }
   }
 }
