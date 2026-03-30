@@ -1,0 +1,14 @@
+In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_u7qiqx17\src\egtm_atom_3_phase_inverter_pwm.c:26:
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_u7qiqx17\include/IfxEgtm_Pwm.h:109:5: error: unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'
+  109 |     IfxEgtm_Pwm_FastShutoffConfig *fastShutOff;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_u7qiqx17\mocks\mock_egtm_atom_3_phase_inverter_pwm.c:5:
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_u7qiqx17\include/IfxEgtm_Pwm.h:109:5: error: unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'
+  109 |     IfxEgtm_Pwm_FastShutoffConfig *fastShutOff;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_u7qiqx17\test\test_egtm_atom_3_phase_inverter_pwm.c: In function 'test_TC_G4_001_isr_toggle_once':
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_u7qiqx17\test\test_egtm_atom_3_phase_inverter_pwm.c:144:5: error: implicit declaration of function 'interruptEgtmAtomPeriod' [-Wimplicit-function-declaration]
+  144 |     interruptEgtmAtomPeriod();
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
