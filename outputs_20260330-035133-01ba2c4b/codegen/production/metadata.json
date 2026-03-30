@@ -1,11 +1,8 @@
 {
-  "attempt": 7,
-  "phase_attempt": 3,
+  "type": "llm_response",
   "phase": "production",
-  "success": false,
-  "errors": [
-    "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_acld48q7\\src\\egtm_atom_3_phase_inverter_pwm.c:21:10: fatal error: IfxPort_Pinmap.h: No such file or directory"
-  ],
-  "timestamp": "2026-03-30T12:23:45.410022",
-  "project_name": "Generate_TC4D7_KIT_A3G_TC4D7_LITE_code_that_migr_r_20260330_120525"
+  "attempt": 9,
+  "phase_attempt": 4,
+  "response_length": 10770,
+  "timestamp": "2026-03-30T12:28:10.191109"
 }
