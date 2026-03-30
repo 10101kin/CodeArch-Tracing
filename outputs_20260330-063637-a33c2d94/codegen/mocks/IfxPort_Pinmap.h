@@ -1,8 +1,8 @@
 #ifndef IFXPORT_PINMAP_H
 #define IFXPORT_PINMAP_H
 
-#include "IfxGtm_Tom_PwmHl.h"
 #include "IfxPort.h"
+#include "IfxGtm_Tom_PwmHl.h"
 
 /* Required pin symbol externs */
 extern IfxGtm_Pwm_ToutMap IfxGtm_TOM1_0N_TOUT7_P02_7_OUT;
