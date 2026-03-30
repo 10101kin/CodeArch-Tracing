@@ -1,15 +1,18 @@
-/* Mock IfxPort.h */
+/* IfxPort mock */
 #ifndef IFXPORT_H
 #define IFXPORT_H
 
 #include "mock_egtm_atom_3_phase_inverter_pwm.h"
 
-/* Types/Structs */
-typedef struct { uint8 pinIndex; uint8 grpNum; } IfxPort_Pin_ApuConfig;
-
+/* Enums */
 typedef enum { IfxPort_ControlledBy_port = 0, IfxPort_ControlledBy_hsct = 1 } IfxPort_ControlledBy;
 
-typedef enum { IfxPort_InputMode_undefined = -1, IfxPort_InputMode_noPullDevice = ((0U << 4U) | (0U << 1U) | 0U), IfxPort_InputMode_pullDown = ((1U << 4U) | (0U << 1U) | 0U), IfxPort_InputMode_pullUp = ((2U << 4U) | (0U << 1U) | 0U) } IfxPort_InputMode;
+typedef enum {
+    IfxPort_InputMode_undefined    = -1,
+    IfxPort_InputMode_noPullDevice = ((0U << 4U) | (0U << 1U) | 0U),
+    IfxPort_InputMode_pullDown     = ((1U << 4U) | (0U << 1U) | 0U),
+    IfxPort_InputMode_pullUp       = ((2U << 4U) | (0U << 1U) | 0U)
+} IfxPort_InputMode;
 
 typedef enum { IfxPort_LvdsMode_high = 0, IfxPort_LvdsMode_medium = 1 } IfxPort_LvdsMode;
 
@@ -53,7 +56,12 @@ typedef enum {
     IfxPort_Mode_outputOpenDrainAlt15   = ((15U << 4U) | (1U << 1U) | 1U)
 } IfxPort_Mode;
 
-typedef enum { IfxPort_Modex_differentialXspiGpio = (0 << 16), IfxPort_Modex_singleEndedXspiGpio = (1 << 16), IfxPort_Modex_gpioMode = (2 << 16), IfxPort_Modex_xspiRgmiiMode = (3 << 16) } IfxPort_Modex;
+typedef enum {
+    IfxPort_Modex_differentialXspiGpio = (0 << 16),
+    IfxPort_Modex_singleEndedXspiGpio  = (1 << 16),
+    IfxPort_Modex_gpioMode             = (2 << 16),
+    IfxPort_Modex_xspiRgmiiMode        = (3 << 16)
+} IfxPort_Modex;
 
 typedef enum {
     IfxPort_OutputIdx_general = ((0U << 4U) | 1U),
@@ -80,7 +88,12 @@ typedef enum { IfxPort_PadSupply_3v = 0, IfxPort_PadSupply_5v = 1 } IfxPort_PadS
 
 typedef enum { IfxPort_PinFunctionMode_digital = 0, IfxPort_PinFunctionMode_analog = 1 } IfxPort_PinFunctionMode;
 
-typedef enum { IfxPort_State_notChanged = (0 << 16) | (0 << 0), IfxPort_State_high = (0 << 16) | (1U << 0), IfxPort_State_low = (1U << 16) | (0 << 0), IfxPort_State_toggled = (1U << 16) | (1U << 0) } IfxPort_State;
+typedef enum {
+    IfxPort_State_notChanged = (0 << 16) | (0 << 0),
+    IfxPort_State_high       = (0 << 16) | (1U << 0),
+    IfxPort_State_low        = (1U << 16) | (0 << 0),
+    IfxPort_State_toggled    = (1U << 16) | (1U << 0)
+} IfxPort_State;
 
 typedef enum {
     IfxPort_BandgapTrimConfig_1P199V = 0,
@@ -138,8 +151,18 @@ typedef enum {
     IfxPort_PadDriver_ttl3v3Speed3         = (3 << 3) | (2 << 0)
 } IfxPort_PadDriver;
 
-/* Additional helper types */
-typedef struct { IfxPort_LvdsMode lvdsMode; IfxPort_ControlledBy enablePortControlled; IfxPort_PadSupply padSupply; IfxPort_LvdsTerm lvdsTerm; } IfxPort_LvdsConfig;
+/* Additional types used by APIs */
+typedef enum { IfxPort_Index_0 = 0 } IfxPort_Index;
+
+typedef struct { uint8 pinIndex; uint8 grpNum; } IfxPort_Pin_ApuConfig;
+
+typedef struct
+{
+    IfxPort_LvdsMode     lvdsMode;
+    IfxPort_ControlledBy enablePortControlled;
+    IfxPort_PadSupply    padSupply;
+    IfxPort_LvdsTerm     lvdsTerm;
+} IfxPort_LvdsConfig;
 
 typedef struct { Ifx_P *port; uint8 pinIndex; } IfxPort_Pin;
 
@@ -147,14 +170,21 @@ typedef struct { Ifx_P *port; uint8 pinIndex; IfxPort_OutputIdx mode; IfxPort_Pa
 
 typedef struct { IfxApApu_ApuConfig apuConfig; uint8 grpNum; } IfxPort_ApuConfig;
 
-typedef struct { IfxApApu_ApuConfig apuConfig[IFXPORT_NUM_APU]; IfxPort_Pin_ApuConfig pinConfig[IFXPORT_NUM_PINS]; } IfxPort_ApuGroupConfig;
+#ifndef IFXPORT_NUM_APU
+#define IFXPORT_NUM_APU 2
+#endif
+#ifndef IFXPORT_NUM_PINS
+#define IFXPORT_NUM_PINS 64
+#endif
+
+typedef struct {
+    IfxApApu_ApuConfig    apuConfig[IFXPORT_NUM_APU];
+    IfxPort_Pin_ApuConfig pinConfig[IFXPORT_NUM_PINS];
+} IfxPort_ApuGroupConfig;
 
 typedef struct { IfxApProt_ProtConfig protseConfig; } IfxPort_ProtConfig;
 
-/* Index type */
-typedef enum { IfxPort_Index_0 = 0 } IfxPort_Index;
-
-/* Function declarations (mandatory non-inline API for mocks) */
+/* Function declarations (mandatory non-inline set) */
 boolean IfxPort_getPinState(Ifx_P *port, uint8 pinIndex);
 void IfxPort_setPinFunctionMode(Ifx_P *port, uint8 pinIndex, IfxPort_PinFunctionMode mode);
 void IfxPort_setPinHigh(Ifx_P *port, uint8 pinIndex);
