@@ -1,3 +1,80 @@
-Status: SUCCESS
+Status: FAILED
 
-LLM response for production phase (attempt 7), 12072 chars
+============================================================
+TDD CODE GENERATION - ATTEMPT STATUS
+============================================================
+Phase: production
+Attempt: 7
+Status: FAILED
+Timestamp: 2026-03-30 17:35:08
+Files generated: 2
+
+============================================================
+
+ERRORS:
+
+1. C:\Users\extsiyv\AppData\Local\Temp\tdd_build_g4di7jn1\src\egtm_atom_3_phase_inverter_pwm.c:15:10: fatal error: IfxPort_Pinmap.h: No such file or directory
+
+2. subscripted value is neither array nor pointer nor vector
+
+3. subscripted value is neither array nor pointer nor vector
+
+4. subscripted value is neither array nor pointer nor vector
+
+5. subscripted value is neither array nor pointer nor vector
+
+6. subscripted value is neither array nor pointer nor vector
+
+7. subscripted value is neither array nor pointer nor vector
+
+============================================================
+BUILD RESULT:
+{
+  "success": false,
+  "errors": [
+    {
+      "file": "",
+      "message": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_g4di7jn1\\src\\egtm_atom_3_phase_inverter_pwm.c:15:10: fatal error: IfxPort_Pinmap.h: No such file or directory",
+      "category": "error"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_g4di7jn1\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+      "line": 94,
+      "category": "error",
+      "message": "subscripted value is neither array nor pointer nor vector"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_g4di7jn1\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+      "line": 95,
+      "category": "error",
+      "message": "subscripted value is neither array nor pointer nor vector"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_g4di7jn1\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+      "line": 96,
+      "category": "error",
+      "message": "subscripted value is neither array nor pointer nor vector"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_g4di7jn1\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+      "line": 98,
+      "category": "error",
+      "message": "subscripted value is neither array nor pointer nor vector"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_g4di7jn1\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+      "line": 99,
+      "category": "error",
+      "message": "subscripted value is neither array nor pointer nor vector"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_g4di7jn1\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+      "line": 100,
+      "category": "error",
+      "message": "subscripted value is neither array nor pointer nor vector"
+    }
+  ],
+  "warnings": [],
+  "stderr": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_g4di7jn1\\src\\egtm_atom_3_phase_inverter_pwm.c:15:10: fatal error: IfxPort_Pinmap.h: No such file or directory\n   15 | #include \"IfxPort_Pinmap.h\"\n      |          ^~~~~~~~~~~~~~~~~~\ncompilation terminated.\n\nIn file included from C:\\Users\\extsiyv\\Desktop\\Infineon\\Workstream_3\\agentic_workflow_Infineon\\unity/unity.h:22,\n                 from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_g4di7jn1\\test\\test_egtm_atom_3_phase_inverter_pwm.c:1:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_g4di7jn1\\test\\test_egtm_atom_3_phase_inverter_pwm.c: In function 'test_TC_G2_002_init_sets_initial_duty_and_deadtime':\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_g4di7jn1\\test\\test_egtm_atom_3_phase_inverter_pwm.c:94:140: error: subscripted value is neither array nor pointer nor vector\n   94 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, UT_DEADTIME_RISING_US,  mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtRising[0], \"Rising dead-time for channel 0 must be 1.0 us\");\n      |                                                                                                                                            ^\nC:\\Users\\extsiyv\\Desktop\\Infineon\\Workstream_3\\agentic_workflow_Infineon\\unity/unity_internals.h:1119:183: note: in definition of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'\n 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))\n      |                                                                                                                                                                                       ^~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_g4di7jn1\\test\\test_egtm_atom_3_phase_inverter_pwm.c:94:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN_MESSAGE'\n   94 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, UT_DEADTIME_RISING_US,  mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtRising[0], \"Rising dead-time for channel 0 must be 1.0 us\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_g4di7jn1\\test\\test_egtm_atom_3_phase_inverter_pwm.c:95:140: error: subscripted value is neither array nor pointer nor vector\n   95 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, UT_DEADTIME_RISING_US,  mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtRising[1], \"Rising dead-time for channel 1 must be 1.0 us\");\n      |                                                                                                                                            ^\nC:\\Users\\extsiyv\\Desktop\\Infineon\\Workstream_3\\agentic_workflow_Infineon\\unity/unity_internals.h:1119:183: note: in definition of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'\n 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))\n      |                                                                                                                                                                                       ^~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_g4di7jn1\\test\\test_egtm_atom_3_phase_inverter_pwm.c:95:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN_MESSAGE'\n   95 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, UT_DEADTIME_RISING_US,  mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtRising[1], \"Rising dead-time for channel 1 must be 1.0 us\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_g4di7jn1\\test\\test_egtm_atom_3_phase_inverter_pwm.c:96:140: error: subscripted value is neither array nor pointer nor vector\n   96 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, UT_DEADTIME_RISING_US,  mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtRising[2], \"Rising dead-time for channel 2 must be 1.0 us\");\n      |                                                                                                                                            ^\nC:\\Users\\extsiyv\\Desktop\\Infineon\\Workstream_3\\agentic_workflow_Infineon\\unity/unity_internals.h:1119:183: note: in definition of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'\n 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))\n      |                                                                                                                                                                                       ^~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_g4di7jn1\\test\\test_egtm_atom_3_phase_inverter_pwm.c:96:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN_MESSAGE'\n   96 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, UT_DEADTIME_RISING_US,  mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtRising[2], \"Rising dead-time for channel 2 must be 1.0 us\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_g4di7jn1\\test\\test_egtm_atom_3_phase_inverter_pwm.c:98:141: error: subscripted value is neither array nor pointer nor vector\n   98 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, UT_DEADTIME_FALLING_US, mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtFalling[0], \"Falling dead-time for channel 0 must be 1.0 us\");\n      |                                                                                                                                             ^\nC:\\Users\\extsiyv\\Desktop\\Infineon\\Workstream_3\\agentic_workflow_Infineon\\unity/unity_internals.h:1119:183: note: in definition of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'\n 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))\n      |                                                                                                                                                                                       ^~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_g4di7jn1\\test\\test_egtm_atom_3_phase_inverter_pwm.c:98:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN_MESSAGE'\n   98 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, UT_DEADTIME_FALLING_US, mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtFalling[0], \"Falling dead-time for channel 0 must be 1.0 us\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_g4di7jn1\\test\\test_egtm_atom_3_phase_inverter_pwm.c:99:141: error: subscripted value is neither array nor pointer nor vector\n   99 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, UT_DEADTIME_FALLING_US, mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtFalling[1], \"Falling dead-time for channel 1 must be 1.0 us\");\n      |                                                                                                                                             ^\nC:\\Users\\extsiyv\\Desktop\\Infineon\\Workstream_3\\agentic_workflow_Infineon\\unity/unity_internals.h:1119:183: note: in definition of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'\n 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))\n      |                                                                                                                                                                                       ^~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_g4di7jn1\\test\\test_egtm_atom_3_phase_inverter_pwm.c:99:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN_MESSAGE'\n   99 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, UT_DEADTIME_FALLING_US, mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtFalling[1], \"Falling dead-time for channel 1 must be 1.0 us\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_g4di7jn1\\test\\test_egtm_atom_3_phase_inverter_pwm.c:100:141: error: subscripted value is neither array nor pointer nor vector\n  100 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, UT_DEADTIME_FALLING_US, mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtFalling[2], \"Falling dead-time for channel 2 must be 1.0 us\");\n      |                                                                                                                                             ^\nC:\\Users\\extsiyv\\Desktop\\Infineon\\Workstream_3\\agentic_workflow_Infineon\\unity/unity_internals.h:1119:183: note: in definition of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'\n 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))\n      |                                                                                                                                                                                       ^~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_g4di7jn1\\test\\test_egtm_atom_3_phase_inverter_pwm.c:100:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN_MESSAGE'\n  100 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, UT_DEADTIME_FALLING_US, mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtFalling[2], \"Falling dead-time for channel 2 must be 1.0 us\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n",
+  "stdout": ""
+}
