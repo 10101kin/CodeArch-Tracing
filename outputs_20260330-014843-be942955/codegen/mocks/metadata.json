@@ -1,9 +1,8 @@
 {
-  "attempt": 1,
-  "phase_attempt": 1,
-  "phase": "mock_generation",
-  "success": true,
-  "errors": [],
-  "timestamp": "2026-03-30T10:22:07.062930",
-  "project_name": "Generate_TC4D7_eGTM_ATOM_migration_code_using_IfxE_r_20260330_101800"
+  "type": "llm_response",
+  "phase": "mock",
+  "attempt": 4,
+  "phase_attempt": 2,
+  "response_length": 35416,
+  "timestamp": "2026-03-30T10:31:25.960839"
 }
