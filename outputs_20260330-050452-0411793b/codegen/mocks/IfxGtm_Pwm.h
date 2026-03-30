@@ -1,4 +1,3 @@
-/* IfxGtm_Pwm mock header */
 #ifndef IFXGTM_PWM_H
 #define IFXGTM_PWM_H
 
@@ -7,7 +6,7 @@
 #include "IfxGtm_Cmu.h"
 #include "IfxPort.h"
 
-/* VERIFIED TYPE DEFINITIONS (emit verbatim and in order) */
+/* VERIFIED TYPE DEFINITIONS — emit exactly as-is and in order */
 
 typedef enum
 {
@@ -90,23 +89,6 @@ typedef enum
     IfxGtm_Dtm_ClockSource_cmuClock2     
 } IfxGtm_Dtm_ClockSource;
 
-/* Additional dependent stub types used by PWM driver */
-typedef struct { uint32 reserved; } Ifx_GTM_ATOM;
-typedef struct { uint32 reserved; } Ifx_GTM_TOM;
-typedef struct { uint32 reserved; } Ifx_GTM_CDTM;
-typedef struct { uint32 reserved; } IfxGtm_Trig_MscOut;
-
-typedef struct { uint32 dummy; } IfxGtm_Atom_ToutMap;
-typedef struct { uint32 dummy; } IfxGtm_Tom_ToutMap;
-
-typedef union
-{
-    IfxGtm_Atom_ToutMap atom;       
-    IfxGtm_Tom_ToutMap  tom;        
-} IfxGtm_Pwm_ToutMap;
-
-typedef void (*IfxGtm_Pwm_callBack)(void *);
-
 typedef struct
 {
     float32 rising;        
@@ -117,6 +99,20 @@ typedef struct
 {
     IfxGtm_Pwm_DeadTime deadTime;       
 } IfxGtm_Pwm_DtmConfig;
+
+/* Callback type used in Pwm APIs */
+typedef void (*IfxGtm_Pwm_callBack)(void *arg);
+
+/* Provide Tout map types (placeholders) and union wrapper */
+typedef struct { uint32 dummy; } IfxGtm_Atom_ToutMap;
+typedef struct { uint32 dummy; } IfxGtm_Tom_ToutMap;
+
+typedef union
+{
+    IfxGtm_Pwm_ToutMap *pin; /* self-ref placeholder to avoid unused type warnings */
+    IfxGtm_Atom_ToutMap atom;       
+    IfxGtm_Tom_ToutMap  tom;        
+} IfxGtm_Pwm_ToutMap;
 
 typedef struct
 {
@@ -189,7 +185,6 @@ typedef struct
     volatile uint32 *endisCtrlReg1;       
 } IfxGtm_Pwm_GlobalControl;
 
-/* CLOCKSOURCE UNION: fields as uint32 to avoid -Werror enum-conversion */
 typedef union {
     uint32 atom;
     uint32 tom;
@@ -237,38 +232,12 @@ typedef struct
     IfxPort_PadDriver   padDriver;       
 } IfxGtm_Pwm_Pin;
 
-/* Function declarations (subset required by DRIVERS TO MOCK) */
-void IfxCpu_Irq_installInterruptHandler(void (*isr)(void), int priority);
-void IfxGtm_Cmu_setGclkFrequency(Ifx_GTM *gtm, float32 frequency);
-void IfxGtm_Pwm_initConfig(IfxGtm_Pwm_Config *config, Ifx_GTM *gtmSFR);
-void IfxGtm_Pwm_init(IfxGtm_Pwm *pwm, IfxGtm_Pwm_Channel *channels, IfxGtm_Pwm_Config *config);
-void IfxGtm_Pwm_updateChannelsDutyImmediate(IfxGtm_Pwm *pwm, float32 *requestDuty);
-
-/* Additional PWM API stubs (commonly present, provide no-op prototypes) */
-void IfxGtm_Pwm_updateFrequency(IfxGtm_Pwm *pwm, float32 frequency);
-void IfxGtm_Pwm_updateChannelsDuty(IfxGtm_Pwm *pwm, float32 *requestDuty);
-void IfxGtm_Pwm_setChannelPolarity(IfxGtm_Pwm *pwm, uint8 channel, Ifx_ActiveState active);
-void IfxGtm_Pwm_updateChannelPhase(IfxGtm_Pwm *pwm, uint8 channel, float32 radians);
-void IfxGtm_Pwm_updateChannelPhaseImmediate(IfxGtm_Pwm *pwm, uint8 channel, float32 radians);
-void IfxGtm_Pwm_updateChannelDuty(IfxGtm_Pwm *pwm, uint8 channel, float32 duty);
-void IfxGtm_Pwm_updateChannelDutyImmediate(IfxGtm_Pwm *pwm, uint8 channel, float32 duty);
-void IfxGtm_Pwm_updateChannelDeadTimeImmediate(IfxGtm_Pwm *pwm, uint8 channel, float32 rising, float32 falling);
-void IfxGtm_Pwm_initChannelConfig(IfxGtm_Pwm_ChannelConfig *chCfg);
-void IfxGtm_Pwm_startSyncedChannels(IfxGtm_Pwm *pwm, uint32 mask);
-void IfxGtm_Pwm_stopSyncedChannels(IfxGtm_Pwm *pwm, uint32 mask);
-void IfxGtm_Pwm_startSyncedGroups(IfxGtm_Pwm *pwm, uint32 groupMask);
-void IfxGtm_Pwm_stopSyncedGroups(IfxGtm_Pwm *pwm, uint32 groupMask);
-void IfxGtm_Pwm_updateSyncedGroupsFrequency(IfxGtm_Pwm *pwm, uint32 groupMask, float32 freq);
-void IfxGtm_Pwm_updateFrequencyImmediate(IfxGtm_Pwm *pwm, float32 frequency);
-void IfxGtm_Pwm_updateChannelPulse(IfxGtm_Pwm *pwm, uint8 channel, float32 pulse);
-void IfxGtm_Pwm_updateChannelPulseImmediate(IfxGtm_Pwm *pwm, uint8 channel, float32 pulse);
-void IfxGtm_Pwm_updateChannelsPhase(IfxGtm_Pwm *pwm, float32 *radians);
-void IfxGtm_Pwm_updateChannelsPulse(IfxGtm_Pwm *pwm, float32 *pulse);
-void IfxGtm_Pwm_updateChannelsDeadTimeImmediate(IfxGtm_Pwm *pwm, float32 *rising, float32 *falling);
-void IfxGtm_Pwm_updateChannelsPhaseImmediate(IfxGtm_Pwm *pwm, float32 *radians);
-void IfxGtm_Pwm_interruptHandler(IfxGtm_Pwm *pwm);
-IfxGtm_Pwm_ChannelState IfxGtm_Pwm_getChannelState(IfxGtm_Pwm *pwm, uint8 channel);
-void IfxGtm_Pwm_stopChannelOutputs(IfxGtm_Pwm *pwm, uint32 mask);
-void IfxGtm_Pwm_startChannelOutputs(IfxGtm_Pwm *pwm, uint32 mask);
+/* Function declarations (subset needed and common linkage helpers) */
+void    IfxCpu_Irq_installInterruptHandler(void (*isr)(void), int priority);
+void    IfxGtm_Cmu_setGclkFrequency(Ifx_GTM *gtm, float32 frequency);
+void    IfxGtm_Cmu_enableClocks(Ifx_GTM *gtm, uint32 clkMask);
+void    IfxGtm_Pwm_initConfig(IfxGtm_Pwm_Config *config, Ifx_GTM *gtmSFR);
+void    IfxGtm_Pwm_init(IfxGtm_Pwm *pwm, IfxGtm_Pwm_Channel *channels, IfxGtm_Pwm_Config *config);
+void    IfxGtm_Pwm_updateChannelsDutyImmediate(IfxGtm_Pwm *pwm, float32 *requestDuty);
 
 #endif /* IFXGTM_PWM_H */
