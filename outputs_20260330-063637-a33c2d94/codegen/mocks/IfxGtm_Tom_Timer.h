@@ -5,7 +5,9 @@
 #include "IfxGtm_Cmu.h"
 #include "IfxPort.h"
 
-/* StdIf Timer dependencies */
+/* Basic timer-related typedefs/enums needed by structs */
+typedef uint32 Ifx_TimerValue;
+
 typedef enum {
     IfxStdIf_Timer_CountDir_up = 0,
     IfxStdIf_Timer_CountDir_down = 1
@@ -13,115 +15,61 @@ typedef enum {
 
 typedef struct {
     float32 frequency;
-    uint32  isrPriority;
 } IfxStdIf_Timer_Config;
 
-/* TOM specific enums and stubs used by Timer/PwmHl */
-typedef enum {
-    IfxGtm_Tom_0 = 0,
-    IfxGtm_Tom_1 = 1,
-    IfxGtm_Tom_2 = 2,
-    IfxGtm_Tom_3 = 3,
-    IfxGtm_Tom_4 = 4,
-    IfxGtm_Tom_5 = 5,
-    IfxGtm_Tom_6 = 6
-} IfxGtm_Tom;
+/* TOM-related minimal enums/typedefs */
+typedef uint8 IfxGtm_Tom;
+typedef uint8 IfxGtm_Tom_Ch;
+typedef uint8 IfxGtm_Tom_Ch_ClkSrc;
+typedef uint8 IfxGtm_Dtm_Ch;
 
-typedef enum {
-    IfxGtm_Tom_Ch_0 = 0,
-    IfxGtm_Tom_Ch_1,
-    IfxGtm_Tom_Ch_2,
-    IfxGtm_Tom_Ch_3,
-    IfxGtm_Tom_Ch_4,
-    IfxGtm_Tom_Ch_5,
-    IfxGtm_Tom_Ch_6,
-    IfxGtm_Tom_Ch_7,
-    IfxGtm_Tom_Ch_8,
-    IfxGtm_Tom_Ch_9,
-    IfxGtm_Tom_Ch_10,
-    IfxGtm_Tom_Ch_11,
-    IfxGtm_Tom_Ch_12,
-    IfxGtm_Tom_Ch_13,
-    IfxGtm_Tom_Ch_14,
-    IfxGtm_Tom_Ch_15
-} IfxGtm_Tom_Ch;
+typedef struct IfxGtm_Tom_ToutMap IfxGtm_Tom_ToutMap; /* forward for pointer usage */
 
-typedef enum {
-    IfxGtm_Tom_Ch_ClkSrc_cmuClock_0 = 0,
-    IfxGtm_Tom_Ch_ClkSrc_cmuClock_1 = 1,
-    IfxGtm_Tom_Ch_ClkSrc_cmuClock_2 = 2,
-    IfxGtm_Tom_Ch_ClkSrc_cmuClock_3 = 3,
-    IfxGtm_Tom_Ch_ClkSrc_cmuClock_4 = 4,
-    IfxGtm_Tom_Ch_ClkSrc_cmuClock_5 = 5,
-    IfxGtm_Tom_Ch_ClkSrc_cmuClock_6 = 6,
-    IfxGtm_Tom_Ch_ClkSrc_cmuClock_7 = 7
-} IfxGtm_Tom_Ch_ClkSrc;
-
-typedef enum {
-    IfxGtm_Dtm_Ch_0 = 0,
-    IfxGtm_Dtm_Ch_1,
-    IfxGtm_Dtm_Ch_2,
-    IfxGtm_Dtm_Ch_3
-} IfxGtm_Dtm_Ch;
-
-/* Additional SFR sub-block stubs referenced by Timer */
-typedef struct { uint32 reserved; } Ifx_GTM_TOM_TGC;
-typedef struct { uint32 reserved; } Ifx_GTM_CDTM_DTM;
-
-/* PWM/Pin mapping support: define Pwm/Tout map types here */
-typedef struct {
-    Ifx_P *port;
-    uint8  pinIndex;
-} IfxGtm_Pwm_ToutMap;
-
-typedef IfxGtm_Pwm_ToutMap IfxGtm_Tom_ToutMap; /* alias for TOM Tout map */
-typedef IfxGtm_Tom_ToutMap* IfxGtm_Tom_ToutMapP;
-
-/* VERIFIED TYPE DEFINITIONS — copy verbatim */
+/* Structures from iLLD mapping */
 typedef struct
 {
-    Ifx_TimerValue          period;               /**< Timer period in ticks (cached value) */
-    boolean                 triggerEnabled;       /**< If TRUE, the trigger functionality is Initialised */
-    float32                 clockFreq;            /**< Timer input clock frequency (cached value) */
-    IfxStdIf_Timer_CountDir countDir;             /**< Timer counting mode */
+    Ifx_TimerValue          period;
+    boolean                 triggerEnabled;
+    float32                 clockFreq;
+    IfxStdIf_Timer_CountDir countDir;
 } IfxGtm_Tom_Timer_Base;
 
 typedef struct
 {
-    IfxGtm_Tom_Timer_Base base;                                   /**< Timer base structure */
-    Ifx_GTM              *gtm;                                    /**< Pointer to GTM module */
-    Ifx_GTM_TOM          *tom;                                    /**< Pointer to the TOM object */
-    Ifx_GTM_TOM_TGC      *tgc[2];                                 /**< Pointer to the TGC object */
-    IfxGtm_Tom            tomIndex;                               /**< Enum for TOM objects */
-    IfxGtm_Tom_Ch         timerChannel;                           /**< TOM channel used for the timer */
-    IfxGtm_Tom_Ch         triggerChannel;                         /**< TOM channel used for the trigger, can be identical to the timer channel */
-    uint16                channelsMask[2];                        /**< Mask for channels to be modified together */
-    Ifx_TimerValue        offset;                                 /**< Timer initial offset in ticks */
-    uint32                tgcGlobalControlDisableUpdate[2];       /**< Cached value for TGC GLOB_CTR */
-    uint32                tgcGlobalControlApplyUpdate[2];         /**< Cached value for TGC GLOB_CTR */
-    Ifx_GTM_CDTM_DTM     *dtm;                                    /**< Pointer to DTM object used by TOM */
-    IfxGtm_Dtm_Ch         dtmChannel;                             /**< DTM Channel */
+    IfxGtm_Tom_Timer_Base base;
+    Ifx_GTM              *gtm;
+    Ifx_GTM_TOM          *tom;
+    Ifx_GTM_TOM_TGC      *tgc[2];
+    IfxGtm_Tom            tomIndex;
+    IfxGtm_Tom_Ch         timerChannel;
+    IfxGtm_Tom_Ch         triggerChannel;
+    uint16                channelsMask[2];
+    Ifx_TimerValue        offset;
+    uint32                tgcGlobalControlDisableUpdate[2];
+    uint32                tgcGlobalControlApplyUpdate[2];
+    Ifx_GTM_CDTM_DTM     *dtm;
+    IfxGtm_Dtm_Ch         dtmChannel;
 } IfxGtm_Tom_Timer;
 
 typedef struct
 {
-    IfxStdIf_Timer_Config  base;                 /**< Standard interface timer configuration */
-    Ifx_GTM               *gtm;                  /**< Pointer to GTM module */
-    IfxGtm_Tom             tom;                  /**< Index of the TOM object used */
-    IfxGtm_Tom_Ch          timerChannel;         /**< TOM channel used for the timer */
-    IfxGtm_Tom_ToutMap    *triggerOut;           /**< TOM channel used for the trigger output */
-    IfxGtm_Tom_Ch_ClkSrc   clock;                /**< Timer input clock */
-    IfxGtm_IrqMode         irqModeTimer;         /**< Interrupt mode for the timer */
-    IfxGtm_IrqMode         irqModeTrigger;       /**< Interrupt mode for the trigger */
-    IfxGtm_Dtm_ClockSource dtmClockSource;       /**< DTM clock source */
-    boolean                initPins;             /**< TRUE : Initialize pins in driver. */
+    IfxStdIf_Timer_Config  base;
+    Ifx_GTM               *gtm;
+    IfxGtm_Tom             tom;
+    IfxGtm_Tom_Ch          timerChannel;
+    IfxGtm_Tom_ToutMap    *triggerOut;
+    IfxGtm_Tom_Ch_ClkSrc   clock;
+    IfxGtm_IrqMode         irqModeTimer;
+    IfxGtm_IrqMode         irqModeTrigger;
+    IfxGtm_Dtm_ClockSource dtmClockSource;
+    boolean                initPins;
 } IfxGtm_Tom_Timer_Config;
 
-/* Functions from DRIVERS TO MOCK */
-void           IfxGtm_Tom_Timer_applyUpdate(IfxGtm_Tom_Timer *driver);
+/* Functions to mock (subset) */
+void     IfxGtm_Tom_Timer_applyUpdate(IfxGtm_Tom_Timer *driver);
 Ifx_TimerValue IfxGtm_Tom_Timer_getPeriod(IfxGtm_Tom_Timer *driver);
-boolean        IfxGtm_Tom_Timer_init(IfxGtm_Tom_Timer *driver, const IfxGtm_Tom_Timer_Config *config);
-void           IfxGtm_Tom_Timer_initConfig(IfxGtm_Tom_Timer_Config *config, Ifx_GTM *gtm);
-void           IfxGtm_Tom_Timer_disableUpdate(IfxGtm_Tom_Timer *driver);
+boolean  IfxGtm_Tom_Timer_init(IfxGtm_Tom_Timer *driver, const IfxGtm_Tom_Timer_Config *config);
+void     IfxGtm_Tom_Timer_initConfig(IfxGtm_Tom_Timer_Config *config, Ifx_GTM *gtm);
+void     IfxGtm_Tom_Timer_disableUpdate(IfxGtm_Tom_Timer *driver);
 
 #endif /* IFXGTM_TOM_TIMER_H */
