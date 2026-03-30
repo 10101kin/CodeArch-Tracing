@@ -1,8 +1,8 @@
 {
   "user_intent_preservation": {
     "original_goal": "Implement 3-phase PWM motor control on TC387",
-    "functional_behavior": "Generate 3-phase PWM on GTM TOM1 in center-aligned complementary mode at 20 kHz with 1 µs rising/falling dead time, with synchronous start and synchronous update enabled. Map phases (subject to TOUT verification) U=HS P02.0/LS P02.7, V=HS P02.1/LS P02.4, W=HS P02.2/LS P02.5; use complementary pairing (0/1, 2/3, 4/5) with low-side inverted and hardware dead-time via TOM1 DTM. Implement percentage duty (0..100) with initial U=25, V=50, W=75 and update step=10 using wrap rule. Provide initGtmTom3phInv() and updateGtmTom3phInvDuty(); add GTM enable/CMU clocks guard; add empty IfxGtm_periodEventFunction. Configure GTM ATOM0 CH0 ISR on CPU0 with priority 20 to toggle LED P13.0 at 2 Hz; main loop calls updateGtmTom3phInvDuty() then delays ~500 ms with STM ticks. TODO: Before deployment, verify and document final TOUT pin mapping and TOM1 channel indices against the official TC38x pin map and update the configuration accordingly.",
-    "technical_approach": "Use unified high-level IfxGtm_Pwm on TOM1 Cluster_1 with complementary channel pairs and DTM-configured dead time handled via the driver config. Guard GTM enable and CMU CLK enable before init. Enable synchronous start/update in the IfxGtm_Pwm configuration and update all three phases using IfxGtm_Pwm_updateChannelsDuty for percentage-based duty steps. Route TOUT pins using the TC38x LFBGA292/516 pin map after verifying P02.x mappings and adjust TOM1 channel indices accordingly. Drive a 2 Hz LED toggle using IfxGtm_Atom_Timer with an interrupt on ATOM0 CH0 (CPU0, prio 20), and use IfxStm to realize a ~500 ms delay in the main loop. For ISR testability, provide a weakly-linked ATOM0 CH0 handler and an overridable hook/callback to allow mocking in unit tests; isolate LED toggle logic behind this hook."
+    "functional_behavior": "Generate 3-phase PWM on GTM TOM1 in center-aligned complementary mode at 20 kHz with 1 µs rising/falling dead time, with synchronous start and synchronous update enabled. Map phases (subject to TOUT verification) U=HS P02.0/LS P02.7, V=HS P02.1/LS P02.4, W=HS P02.2/LS P02.5; use complementary pairing (0/1, 2/3, 4/5) with low-side inverted and hardware dead-time via TOM1 DTM. Implement percentage duty (0..100) with initial U=25, V=50, W=75 and update step=10 using wrap rule. Provide initGtmTom3phInv() and updateGtmTom3phInvDuty(); add GTM enable/CMU clocks guard; add empty IfxGtm_periodEventFunction. Configure GTM ATOM0 CH0 ISR on CPU0 with priority 20 to toggle LED P13.0 at 2 Hz; main loop calls updateGtmTom3phInvDuty() then delays ~500 ms with STM ticks.",
+    "technical_approach": "Use unified high-level IfxGtm_Pwm on TOM1 Cluster_1 with complementary channel pairs and DTM-configured dead time handled via the driver config. Guard GTM enable and CMU CLK enable before init. Enable synchronous start/update in the IfxGtm_Pwm configuration and update all three phases using IfxGtm_Pwm_updateChannelsDuty for percentage-based duty steps. Route TOUT pins using the TC38x LFBGA292/516 pin map after verifying P02.x mappings and adjust TOM1 channel indices accordingly. Drive a 2 Hz LED toggle using IfxGtm_Atom_Timer with an interrupt on ATOM0 CH0 (CPU0, prio 20), and use IfxStm to realize a ~500 ms delay in the main loop."
   },
   "driver_selection": {
     "recommended_driver": "IfxGtm_Pwm",
@@ -19,14 +19,14 @@
     "primary_driver": "IfxGtm_Pwm",
     "available_in_template": true,
     "initialization_apis": [
-      "IfxGtm_Pwm_initConfig",
-      "IfxGtm_Pwm_init",
+      "IfxGtm_Tom_Pwm_initConfig",
+      "IfxGtm_Tom_Pwm_init",
       "IfxGtm_isEnabled",
       "IfxGtm_enable",
       "IfxGtm_Cmu_enableClocks"
     ],
     "runtime_apis": [
-      "IfxGtm_Pwm_updateChannelsDuty",
+      "IfxGtm_Tom_Pwm_setOnTime",
       "IfxPort_togglePin"
     ],
     "file_structure": {
@@ -44,8 +44,8 @@
     "init_function": {
       "name": "initGtmTom3phInv",
       "driver_calls": [
-        "IfxGtm_Pwm_initConfig",
-        "IfxGtm_Pwm_init",
+        "IfxGtm_Tom_Pwm_initConfig",
+        "IfxGtm_Tom_Pwm_init",
         "IfxGtm_isEnabled",
         "IfxGtm_enable",
         "IfxGtm_Cmu_enableClocks"
@@ -54,23 +54,9 @@
     "runtime_function": {
       "name": "updateGtmTom3phInvDuty",
       "driver_calls": [
-        "IfxGtm_Pwm_updateChannelsDuty"
+        "IfxGtm_Tom_Pwm_setOnTime"
       ],
       "purpose": "Apply percentage-based duty updates to U, V, W with synchronous update enabled, using wrap rule and 10% step increments."
-    },
-    "api_contract": {
-      "initGtmTom3phInv": {
-        "reentrancy": "Non-reentrant; call exactly once during system initialization.",
-        "thread_safety": "Not thread-safe; invoke before enabling interrupts and from a single core/context.",
-        "error_handling": "Returns a success/failure status; on failure the PWM remains disabled and no partial activation persists. Implementation should record a diagnostic error for retrieval by higher layers.",
-        "usage_notes": "Idempotency is not guaranteed; do not call concurrently with any other GTM configuration routines."
-      },
-      "updateGtmTom3phInvDuty": {
-        "reentrancy": "Non-reentrant; if callable from multiple contexts (e.g., task and ISR), guard with a critical section or lock.",
-        "thread_safety": "Single-writer model recommended. If updates may occur from ISR and task, protect access (disable local interrupts or use a lightweight lock) to avoid concurrent GTM register updates.",
-        "error_handling": "Validates input range 0..100% per phase. On invalid input or uninitialized module, returns failure and performs no update; a diagnostic error should be recorded.",
-        "usage_notes": "Uses synchronous shadow transfer; updates are applied atomically across the three phases on the next trigger."
-      }
     }
   },
   "migration_notes": {
@@ -82,17 +68,17 @@
     "api_changes": [
       {
         "from": "IfxGtm_Tom_PwmHl_initConfig",
-        "to": "IfxGtm_Pwm_initConfig",
+        "to": "IfxGtm_Tom_Pwm_initConfig",
         "reason": "Use unified high-level PWM configuration"
       },
       {
         "from": "IfxGtm_Tom_PwmHl_init",
-        "to": "IfxGtm_Pwm_init",
+        "to": "IfxGtm_Tom_Pwm_init",
         "reason": "Unified driver handles multi-channel complementary setup and sync start"
       },
       {
         "from": "IfxGtm_Tom_PwmHl_setOnTime",
-        "to": "IfxGtm_Pwm_updateChannelsDuty",
+        "to": "IfxGtm_Tom_Pwm_setOnTime",
         "reason": "Unified driver percentage duty update with synchronous shadow transfer"
       },
       {
@@ -106,13 +92,13 @@
   "header_selection": {
     "applied": true,
     "peripheral_type": "PWM",
-    "recommended_header": "IfxGtm_Pwm",
+    "recommended_header": "IfxGtm_Tom_Pwm",
     "score": 329,
     "required_includes": [
-      "IfxGtm_Pwm.h"
+      "IfxGtm_Tom_Pwm.h"
     ],
     "function_mapping": {
-      "IfxGtm_enable": "IfxGtm_Pwm_enableChannelOutput"
+      "IfxGtm_enable": "IfxGtm_Tom_Pwm_enableChannelOutput"
     },
     "available_functions_count": 99
   },
@@ -140,12 +126,12 @@
       "IfxGtm_Tom_PwmHl": {
         "target_driver": "IfxGtm_Pwm",
         "api_mapping": {
-          "IfxGtm_Tom_PwmHl_init": "IfxGtm_Pwm_init",
-          "IfxGtm_Tom_PwmHl_initConfig": "IfxGtm_Pwm_initConfig",
-          "IfxGtm_Tom_PwmHl_setOnTime": "IfxGtm_Pwm_setDuty",
-          "IfxGtm_Tom_PwmHl_setPeriod": "IfxGtm_Pwm_updatePeriod",
-          "IfxGtm_Tom_PwmHl_start": "IfxGtm_Pwm_start",
-          "IfxGtm_Tom_PwmHl_stop": "IfxGtm_Pwm_stop"
+          "IfxGtm_Tom_PwmHl_init": "IfxGtm_Tom_Pwm_init",
+          "IfxGtm_Tom_PwmHl_initConfig": "IfxGtm_Tom_Pwm_initConfig",
+          "IfxGtm_Tom_PwmHl_setOnTime": "IfxGtm_Tom_Pwm_setOnTime",
+          "IfxGtm_Tom_PwmHl_setPeriod": "IfxGtm_Tom_Pwm_setPeriod",
+          "IfxGtm_Tom_PwmHl_start": "IfxGtm_Tom_Pwm_start",
+          "IfxGtm_Tom_PwmHl_stop": "IfxGtm_Tom_Pwm_stop"
         },
         "upgrade_reason": "Known upgrade path: IfxGtm_Tom_PwmHl → IfxGtm_Pwm"
       },
