@@ -1,3 +1,65 @@
-Status: SUCCESS
+Status: FAILED
 
-LLM response for production phase (attempt 5), 12306 chars
+============================================================
+TDD CODE GENERATION - ATTEMPT STATUS
+============================================================
+Phase: production
+Attempt: 5
+Status: FAILED
+Timestamp: 2026-03-30 19:16:26
+Files generated: 2
+
+============================================================
+
+ERRORS:
+
+1. conflicting types for 'IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT'; have 'IfxEgtm_Pwm_ToutMap'
+
+2. conflicting types for 'IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT'; have 'IfxEgtm_Pwm_ToutMap'
+
+3. 'mock_IfxEgtm_Cmu_isEnabled_returnValue' undeclared (first use in this function); did you mean 'mock_IfxEgtm_isEnabled_returnValue'?
+
+4. implicit declaration of function 'mock_IfxPort_setPinModeOutput_getCallCount'; did you mean 'mock_IfxPort_togglePin_getCallCount'? [-Wimplicit-function-declaration]
+
+5. 'mock_IfxEgtm_Cmu_isEnabled_returnValue' undeclared (first use in this function); did you mean 'mock_IfxEgtm_isEnabled_returnValue'?
+
+============================================================
+BUILD RESULT:
+{
+  "success": false,
+  "errors": [
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_aeeehetm\\include/IfxEgtm_Pwm.h",
+      "line": 203,
+      "category": "error",
+      "message": "conflicting types for 'IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT'; have 'IfxEgtm_Pwm_ToutMap'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_aeeehetm\\include/IfxEgtm_Pwm.h",
+      "line": 203,
+      "category": "error",
+      "message": "conflicting types for 'IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT'; have 'IfxEgtm_Pwm_ToutMap'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_aeeehetm\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+      "line": 38,
+      "category": "error",
+      "message": "'mock_IfxEgtm_Cmu_isEnabled_returnValue' undeclared (first use in this function); did you mean 'mock_IfxEgtm_isEnabled_returnValue'?"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_aeeehetm\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+      "line": 51,
+      "category": "error",
+      "message": "implicit declaration of function 'mock_IfxPort_setPinModeOutput_getCallCount'; did you mean 'mock_IfxPort_togglePin_getCallCount'? [-Wimplicit-function-declaration]"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_aeeehetm\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+      "line": 58,
+      "category": "error",
+      "message": "'mock_IfxEgtm_Cmu_isEnabled_returnValue' undeclared (first use in this function); did you mean 'mock_IfxEgtm_isEnabled_returnValue'?"
+    }
+  ],
+  "warnings": [],
+  "stderr": "In file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_aeeehetm\\src\\egtm_atom_3_phase_inverter_pwm.c:15:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_aeeehetm\\include/IfxEgtm_Pwm.h:203:28: error: conflicting types for 'IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT'; have 'IfxEgtm_Pwm_ToutMap'\n  203 | extern IfxEgtm_Pwm_ToutMap IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT;\n      |                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_aeeehetm\\include/Ifx_Types.h:3,\n                 from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_aeeehetm\\src\\egtm_atom_3_phase_inverter_pwm.c:14:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_aeeehetm\\include/mock_egtm_atom_3_phase_inverter_pwm.h:171:39: note: previous declaration of 'IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT' with type 'struct IfxEgtm_Pwm_ToutMap_tag'\n  171 | extern struct IfxEgtm_Pwm_ToutMap_tag IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT;\n      |                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_aeeehetm\\mocks\\mock_egtm_atom_3_phase_inverter_pwm.c:7:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_aeeehetm\\include/IfxEgtm_Pwm.h:203:28: error: conflicting types for 'IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT'; have 'IfxEgtm_Pwm_ToutMap'\n  203 | extern IfxEgtm_Pwm_ToutMap IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT;\n      |                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_aeeehetm\\mocks\\mock_egtm_atom_3_phase_inverter_pwm.c:4:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_aeeehetm\\include/mock_egtm_atom_3_phase_inverter_pwm.h:171:39: note: previous declaration of 'IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT' with type 'struct IfxEgtm_Pwm_ToutMap_tag'\n  171 | extern struct IfxEgtm_Pwm_ToutMap_tag IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT;\n      |                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_aeeehetm\\test\\test_egtm_atom_3_phase_inverter_pwm.c: In function 'test_TC_G1_001_init_calls_target_APIs_and_init_once_disabled':\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_aeeehetm\\test\\test_egtm_atom_3_phase_inverter_pwm.c:38:5: error: 'mock_IfxEgtm_Cmu_isEnabled_returnValue' undeclared (first use in this function); did you mean 'mock_IfxEgtm_isEnabled_returnValue'?\n   38 |     mock_IfxEgtm_Cmu_isEnabled_returnValue = FALSE;\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n      |     mock_IfxEgtm_isEnabled_returnValue\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_aeeehetm\\test\\test_egtm_atom_3_phase_inverter_pwm.c:38:5: note: each undeclared identifier is reported only once for each function it appears in\nIn file included from C:\\Users\\extsiyv\\Desktop\\Infineon\\Workstream_3\\agentic_workflow_Infineon\\unity/unity.h:22,\n                 from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_aeeehetm\\test\\test_egtm_atom_3_phase_inverter_pwm.c:1:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_aeeehetm\\test\\test_egtm_atom_3_phase_inverter_pwm.c:51:41: error: implicit declaration of function 'mock_IfxPort_setPinModeOutput_getCallCount'; did you mean 'mock_IfxPort_togglePin_getCallCount'? [-Wimplicit-function-declaration]\n   51 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxPort_setPinModeOutput_getCallCount(), \"LED pin should be configured as output once after PWM init\");\n      |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\Desktop\\Infineon\\Workstream_3\\agentic_workflow_Infineon\\unity/unity_internals.h:904:184: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_UINT32'\n  904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)\n      |                                                                                                                                                                                        ^~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_aeeehetm\\test\\test_egtm_atom_3_phase_inverter_pwm.c:51:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'\n   51 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxPort_setPinModeOutput_getCallCount(), \"LED pin should be configured as output once after PWM init\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_aeeehetm\\test\\test_egtm_atom_3_phase_inverter_pwm.c: In function 'test_TC_G1_002_init_when_already_enabled_does_not_enable_again':\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_aeeehetm\\test\\test_egtm_atom_3_phase_inverter_pwm.c:58:5: error: 'mock_IfxEgtm_Cmu_isEnabled_returnValue' undeclared (first use in this function); did you mean 'mock_IfxEgtm_isEnabled_returnValue'?\n   58 |     mock_IfxEgtm_Cmu_isEnabled_returnValue = TRUE;\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n      |     mock_IfxEgtm_isEnabled_returnValue\n",
+  "stdout": ""
+}

@@ -1,8 +1,15 @@
 {
-  "type": "llm_response",
-  "phase": "production",
   "attempt": 5,
   "phase_attempt": 2,
-  "response_length": 12306,
-  "timestamp": "2026-03-30T19:16:20.135915"
+  "phase": "production",
+  "success": false,
+  "errors": [
+    "conflicting types for 'IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT'; have 'IfxEgtm_Pwm_ToutMap'",
+    "conflicting types for 'IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT'; have 'IfxEgtm_Pwm_ToutMap'",
+    "'mock_IfxEgtm_Cmu_isEnabled_returnValue' undeclared (first use in this function); did you mean 'mock_IfxEgtm_isEnabled_returnValue'?",
+    "implicit declaration of function 'mock_IfxPort_setPinModeOutput_getCallCount'; did you mean 'mock_IfxPort_togglePin_getCallCount'? [-Wimplicit-function-declaration]",
+    "'mock_IfxEgtm_Cmu_isEnabled_returnValue' undeclared (first use in this function); did you mean 'mock_IfxEgtm_isEnabled_returnValue'?"
+  ],
+  "timestamp": "2026-03-30T19:16:26.445454",
+  "project_name": "Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260330_190037"
 }
