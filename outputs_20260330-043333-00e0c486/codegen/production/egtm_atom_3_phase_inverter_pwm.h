@@ -1,6 +1,6 @@
-/*
- * egtm_atom_3_phase_inverter_pwm.h
- * Public API for EGTM ATOM 3-Phase Inverter PWM driver
+/**
+ * @file egtm_atom_3_phase_inverter_pwm.h
+ * @brief EGTM ATOM 3-Phase Inverter PWM public API
  */
 #ifndef EGTM_ATOM_3_PHASE_INVERTER_PWM_H
 #define EGTM_ATOM_3_PHASE_INVERTER_PWM_H
@@ -9,13 +9,11 @@
 extern "C" {
 #endif
 
-/** Initialize 3-channel complementary, center-aligned PWM on eGTM ATOM0 Cluster 0 */
+/** Initialize eGTM ATOM0 Cluster 0 complementary, center-aligned 3-phase PWM */
 void initEgtmAtom3phInv(void);
 
-/** Update three phase duties in 10% steps with wrap-around and apply immediately */
+/** Update 3-phase duties in 10% steps with wrap-around and apply immediately */
 void updateEgtmAtom3phInvDuty(void);
-
-/* Note: period-event callback is internal and not declared in the public header */
 
 #ifdef __cplusplus
 }
