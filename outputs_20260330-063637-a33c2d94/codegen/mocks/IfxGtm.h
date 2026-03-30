@@ -16,7 +16,7 @@ typedef enum {
     IfxGtm_SuspendMode_soft = 2
 } IfxGtm_SuspendMode;
 
-/* API */
+/* Functions (subset mocked) */
 boolean IfxGtm_isEnabled(Ifx_GTM *gtm);
 void    IfxGtm_enable(Ifx_GTM *gtm);
 
