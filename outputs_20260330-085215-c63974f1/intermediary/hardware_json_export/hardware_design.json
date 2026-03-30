@@ -1,0 +1,180 @@
+{
+  "microcontroller": {
+    "model": "TC4D7",
+    "family": "TC4xx",
+    "verified": true,
+    "device_macro": "DEVICE_TC4DX",
+    "pin_package": "IFX_PIN_PACKAGE_BGA436_COM"
+  },
+  "peripheral_instance": {
+    "type": "EGTM_ATOM",
+    "module": "EGTM0_ATOM0_CLS0",
+    "channels": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "driver": "IfxEgtm_Pwm"
+  },
+  "pin_assignments": [
+    {
+      "signal": "PWM_U_HS",
+      "port_pin": "P20.8",
+      "function": "TOUT64",
+      "pin_macro": null,
+      "is_complementary": false,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "PWM_U_LS",
+      "port_pin": "P20.9",
+      "function": "TOUT65",
+      "pin_macro": null,
+      "is_complementary": true,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "PWM_V_HS",
+      "port_pin": "P21.4",
+      "function": "TOUT55",
+      "pin_macro": null,
+      "is_complementary": false,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "PWM_V_LS",
+      "port_pin": "P20.11",
+      "function": "TOUT67",
+      "pin_macro": null,
+      "is_complementary": true,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "PWM_W_HS",
+      "port_pin": "P20.12",
+      "function": "TOUT68",
+      "pin_macro": null,
+      "is_complementary": false,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "PWM_W_LS",
+      "port_pin": "P20.13",
+      "function": "TOUT69",
+      "pin_macro": null,
+      "is_complementary": true,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "LED_TOGGLE",
+      "port_pin": "P03.9",
+      "function": "GPIO",
+      "pin_macro": null,
+      "is_complementary": false,
+      "verified": false,
+      "source": "hardware_verified"
+    }
+  ],
+  "clock_configuration": {
+    "xtal_frequency_mhz": 25,
+    "system_frequency_mhz": 500
+  },
+  "validation": {
+    "all_verified": false,
+    "conflicts": [
+      "Requested TOUT-to-pin mappings (P20.8/TOUT64, P20.9/TOUT65, P21.4/TOUT55, P20.11/TOUT67, P20.12/TOUT68, P20.13/TOUT69) not found in provided IfxEgtm_PinMap.h template context for TC4D7; macros could not be validated.",
+      "Exact ATOM0 channel indices for Cluster 0 to drive the specified TOUT lines are not confirmed in the provided template; channels [0..5] are tentative.",
+      "GPIO pin macro for LED P03.9 not validated against IfxPort_PinMap in the provided template context."
+    ],
+    "reference_pins_valid": false
+  },
+  "template_validation": {
+    "supported_peripherals": [
+      "PWM",
+      "GTM",
+      "EGTM",
+      "GPIO",
+      "ASCLIN",
+      "INTERRUPT",
+      "CPU"
+    ],
+    "suggested_drivers": {
+      "PWM": [
+        "IfxEgtm_Pwm",
+        "IfxGtm_Atom_Pwm",
+        "IfxEgtm_Tom_Pwm",
+        "IfxGtm_Tom_Pwm",
+        "IfxGtm_Pwm",
+        "IfxEgtm_Atom_Pwm"
+      ],
+      "GTM": [
+        "IfxGtm_PinMap",
+        "IfxGtm_Tbu",
+        "IfxGtm",
+        "IfxGtm_Psm",
+        "IfxGtm_Dtm",
+        "IfxGtm_Spe",
+        "IfxGtm_Pwm",
+        "IfxGtm_Trigger",
+        "IfxGtm_Input"
+      ],
+      "EGTM": [
+        "IfxEgtm_PinMap",
+        "IfxEgtm_cfg_TC4Dx",
+        "IfxEgtm_Input",
+        "IfxEgtm_Pwm",
+        "IfxEgtm",
+        "IfxEgtm_Atom",
+        "IfxEgtm_Cmu",
+        "IfxEgtm_Dtm",
+        "IfxEgtm_Spe",
+        "IfxEgtm_Tbu",
+        "IfxEgtm_Tim",
+        "IfxEgtm_Tom",
+        "IfxEgtm_Trigger",
+        "IfxEgtm_Tom_Pwm",
+        "IfxEgtm_Tom_Timer",
+        "IfxEgtm_Tim_In",
+        "IfxEgtm_Tim_Timer",
+        "IfxEgtm_Atom_Pwm",
+        "IfxEgtm_Atom_Timer"
+      ],
+      "GPIO": [
+        "IfxPort",
+        "IfxPort_PinMap",
+        "IfxScrPort",
+        "IfxPort_Io",
+        "IfxPort_cfg_TC4Dx"
+      ],
+      "ASCLIN": [
+        "IfxAsclin_cfg_TC4Dx",
+        "IfxAsclin_Asc",
+        "IfxAsclin_Lin",
+        "IfxAsclin_Spi",
+        "IfxAsclin"
+      ],
+      "INTERRUPT": [
+        "IfxCpu_Irq",
+        "IfxScrCpuIrq"
+      ],
+      "CPU": [
+        "IfxCpu"
+      ]
+    },
+    "warnings": []
+  },
+  "pin_analysis": {
+    "verified_count": 7,
+    "doc_reference_count": 4,
+    "merged_total": 11
+  }
+}
