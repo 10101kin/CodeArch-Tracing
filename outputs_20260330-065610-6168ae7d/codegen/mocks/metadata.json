@@ -1,8 +1,9 @@
 {
-  "type": "llm_response",
-  "phase": "mock",
   "attempt": 1,
   "phase_attempt": 1,
-  "response_length": 34892,
-  "timestamp": "2026-03-30T16:07:51.553997"
+  "phase": "mock_generation",
+  "success": true,
+  "errors": [],
+  "timestamp": "2026-03-30T16:07:59.916804",
+  "project_name": "Refactor_the_TC387_3_phase_inverter_PWM_to_use_Ifx_r_20260330_160400"
 }
