@@ -1,9 +1,8 @@
 {
-  "attempt": 3,
-  "phase_attempt": 1,
+  "type": "llm_response",
   "phase": "production",
-  "success": true,
-  "errors": [],
-  "timestamp": "2026-03-30T16:12:13.356942",
-  "project_name": "Refactor_the_TC387_3_phase_inverter_PWM_to_use_Ifx_r_20260330_160400"
+  "attempt": 4,
+  "phase_attempt": 2,
+  "response_length": 11099,
+  "timestamp": "2026-03-30T16:14:20.735793"
 }
