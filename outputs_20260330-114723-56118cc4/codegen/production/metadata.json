@@ -1,8 +1,20 @@
 {
-  "type": "llm_response",
-  "phase": "production",
   "attempt": 3,
   "phase_attempt": 1,
-  "response_length": 13035,
-  "timestamp": "2026-03-30T21:12:08.663169"
+  "phase": "production",
+  "success": false,
+  "errors": [
+    "unknown type name 'nvoid'; did you mean 'void'?",
+    "unknown type name 'IfxGtm_IrqMode'",
+    "unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?",
+    "unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?",
+    "unknown type name 'IfxGtm_Trig_MscOut'",
+    "unknown type name 'Ifx_GTM_ATOM'",
+    "unknown type name 'Ifx_GTM_TOM'; did you mean 'Ifx_GTM'?",
+    "unknown type name 'Ifx_GTM_CDTM'",
+    "unknown type name 'IfxGtm_Cluster'",
+    "unknown type name 'IfxGtm_Cluster'"
+  ],
+  "timestamp": "2026-03-30T21:12:17.290790",
+  "project_name": "Upgrade_the_TC387_reference_3-phase_inverter_PWM_d_r_20260330_210321"
 }
