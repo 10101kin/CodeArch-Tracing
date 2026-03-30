@@ -2,7 +2,7 @@
   "meta": {
     "schema_version": "1.0",
     "last_updated_by": "sw_detailed",
-    "last_updated_at": "2026-03-30T20:33:10.549539",
+    "last_updated_at": "2026-03-30T20:33:40.720035",
     "build_sequence": [
       "requirements",
       "hardware",
@@ -389,17 +389,17 @@
       {
         "signature": "static void configurePwmChannels(uint8_t channelCount)",
         "parameters": [],
-        "behavior_description": "UNVERIFIED_STRUCT_FIELDS: Initialize and configure a 3-channel, center-aligned GTM PWM cluster for a 3-phase inverter and store persistent module state for runtime updates. Implementation steps (in order): 1) Declare all local configuration structures (IfxGtm_Pwm_Config, IfxGtm_Pwm_ChannelConfig[channelCount], any output/deadtime arrays) as local variables. 2) Call IfxGtm_Pwm_initConfig(&config, &MODULE_GTM) to populate defaults. 3) Set config fields: set channelCount = 3 (one logical channel per phase), set frequency = PWM_FREQ_HZ (20 000 Hz), set center-aligned/counter mode via the config counter mode field, set deadtime = PWM_DEAD_TIME (0.5e-6 s), set minPulse = PWM_MIN_PULSE_TIME (1.0e-6 s), set output mode and pad driver (push-pull / automotive pad driver) and set each channel's polarity/active state as required. 4) Initialize per-channel defaults by calling IfxGtm_Pwm_initChannelConfig for each channelConfig[i] and assign any channel-specific parameters (phases/duty placeholders). 5) Prepare initial dutyPercent array in module state with U=25.0, V=50.0, W=75.0 (store these percent values directly in the persistent dutyCycles array in the module-state). 6) Enable guard: check IfxGtm_isEnabled(&MODULE_GTM). If the GTM is not enabled, then enable it and configure CMU clocks all inside the guard: a) call IfxGtm_enable(&MODULE_GTM); b) read the module frequency dynamically using IfxGtm_Cmu_getModuleFrequency(&MODULE_GTM); c) configure the GCLK frequency using IfxGtm_Cmu_setGclkFrequency(&MODULE_GTM, moduleFrequency); d) configure CLK0 frequency using IfxGtm_Cmu_setClkFrequency(&MODULE_GTM, IfxGtm_Cmu_Clk_0, moduleFrequency); e) enable the required clocks via IfxGtm_Cmu_enableClocks(&MODULE_GTM, appropriate clock mask). 7) Call IfxGtm_Pwm_initConfig already done earlier; then call IfxGtm_Pwm_init(&g_pwmHandle, &channelsArray[0], &config) to initialize and reserve internal driver state. 8) After initialization, apply the initial duty values stored in the persistent state by calling IfxGtm_Pwm_updateChannelsDutyImmediate(&g_pwmHandle, dutyArray) — pass the percent duty values (0..100) directly (no conversion). 9) Store persistent runtime state: keep the pwm handle, the channels array, the dutyCycles[] array and deadTimes[] array inside a module-state struct so update function can modify them later. 10) Configure any status/LED GPIO: call IfxPort_setPinModeOutput(...) to set the LED pin(s) as outputs AFTER the PWM init sequence. Notes: - All CMU/clock configuration is performed inside the enable-guard block and uses the dynamically read module frequency (no hardcoded frequency). - Duties are stored in percent (0..100) and passed directly to the runtime update API. - The initialization config and defaults are created before hardware enablement per the mandated ordering. - The function preserves original TOM/timer and pin mappings via the channel/IO assignments stored in the config (pin macros are assigned to the output config fields but are not named here).",
+        "behavior_description": "Initialize and configure a 3-channel, center-aligned GTM PWM cluster for a 3-phase inverter and store persistent module state for runtime updates. Implementation steps (in order): 1) Declare all local configuration structures (IfxGtm_Pwm_Config, IfxGtm_Pwm_ChannelConfig[channelCount], any output/deadtime arrays) as local variables. 2) Call IfxGtm_Pwm_initConfig(&config, &MODULE_GTM) to populate defaults. 3) Set config fields: set channelCount = 3 (one logical channel per phase), set frequency = PWM_FREQ_HZ (20 000 Hz), set center-aligned/counter mode via the config counter mode field, set deadtime = PWM_DEAD_TIME (0.5e-6 s), set minPulse = PWM_MIN_PULSE_TIME (1.0e-6 s), set output mode and pad driver (push-pull / automotive pad driver) and set each channel's polarity/active state as required. 4) Initialize per-channel defaults by calling IfxGtm_Pwm_initChannelConfig for each channelConfig[i] and assign any channel-specific parameters (phases/duty placeholders). 5) Prepare initial dutyPercent array in module state with U=25.0, V=50.0, W=75.0 (store these percent values directly in the persistent dutyCycles array in the module-state). 6) Enable guard: check IfxGtm_isEnabled(&MODULE_GTM). If the GTM is not enabled, then enable it and configure CMU clocks all inside the guard: a) call IfxGtm_enable(&MODULE_GTM); b) read the module frequency dynamically using IfxGtm_Cmu_getModuleFrequency(&MODULE_GTM); c) configure the GCLK frequency using IfxGtm_Cmu_setGclkFrequency(&MODULE_GTM, moduleFrequency); d) configure CLK0 frequency using IfxGtm_Cmu_setClkFrequency(&MODULE_GTM, IfxGtm_Cmu_Clk_0, moduleFrequency); e) enable the required clocks via IfxGtm_Cmu_enableClocks(&MODULE_GTM, appropriate clock mask). 7) Call IfxGtm_Pwm_initConfig already done earlier; then call IfxGtm_Pwm_init(&g_pwmHandle, &channelsArray[0], &config) to initialize and reserve internal driver state. 8) After initialization, apply the initial duty values stored in the persistent state by calling IfxGtm_Pwm_updateChannelsDutyImmediate(&g_pwmHandle, dutyArray) — pass the percent duty values (0..100) directly (no conversion). 9) Store persistent runtime state: keep the pwm handle, the channels array, the dutyCycles[] array and deadTimes[] array inside a module-state struct so update function can modify them later. 10) Configure any status/LED GPIO: call IfxPort_setPinModeOutput(...) to set the LED pin(s) as outputs AFTER the PWM init sequence. Notes: - All CMU/clock configuration is performed inside the enable-guard block and uses the dynamically read module frequency (no hardcoded frequency). - Duties are stored in percent (0..100) and passed directly to the runtime update API. - The initialization config and defaults are created before hardware enablement per the mandated ordering. - The function preserves original TOM/timer and pin mappings via the channel/IO assignments stored in the config (pin macros are assigned to the output config fields but are not named here).",
         "driver_calls": [
-          "UNVERIFIED: IfxGtm_Pwm_initConfig",
-          "UNVERIFIED: IfxGtm_isEnabled",
-          "UNVERIFIED: IfxGtm_enable",
-          "UNVERIFIED: IfxGtm_Cmu_getModuleFrequency",
-          "UNVERIFIED: IfxGtm_Cmu_setGclkFrequency",
-          "UNVERIFIED: IfxGtm_Cmu_setClkFrequency",
-          "UNVERIFIED: IfxGtm_Cmu_enableClocks",
-          "UNVERIFIED: IfxGtm_Pwm_init",
-          "UNVERIFIED: IfxGtm_Pwm_updateChannelsDutyImmediate",
+          "IfxGtm_Pwm_initConfig",
+          "IfxGtm_isEnabled",
+          "IfxGtm_enable",
+          "IfxGtm_Cmu_getModuleFrequency",
+          "IfxGtm_Cmu_setGclkFrequency",
+          "IfxGtm_Cmu_setClkFrequency",
+          "IfxGtm_Cmu_enableClocks",
+          "IfxGtm_Pwm_init",
+          "IfxGtm_Pwm_updateChannelsDutyImmediate",
           "IfxPort_setPinModeOutput"
         ],
         "from_reference": false,
@@ -418,7 +418,7 @@
     ],
     "private_functions": [
       {
-        "signature": "UNVERIFIED_SIGNATURE: static void configurePwmChannels(uint8_t channelCount)",
+        "signature": "static void configurePwmChannels(uint8_t channelCount)",
         "parameters": [
           {
             "type": "uint8_t",
@@ -431,9 +431,9 @@
     ],
     "dependencies": {
       "includes": [
-        "UNVERIFIED_HEADER: Ifx_Types.h",
-        "UNVERIFIED_HEADER: IfxGtm_Pwm.h",
-        "UNVERIFIED_HEADER: IfxPort.h"
+        "Ifx_Types.h",
+        "IfxGtm_Pwm.h",
+        "IfxPort.h"
       ]
     },
     "cpu_main_requirements": {
