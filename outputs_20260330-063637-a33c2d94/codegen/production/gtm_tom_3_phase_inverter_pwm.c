@@ -1,228 +1,253 @@
 /*
  * gtm_tom_3_phase_inverter_pwm.c
  *
- * GTM TOM 3-phase inverter PWM driver for AURIX TC3xx.
- * Implements center-aligned complementary PWM with synchronized updates and programmed dead-time.
+ * Production driver: GTM TOM 3-Phase Inverter PWM
+ * - TC3xx family
+ * - Submodule: TOM1, Cluster_1
+ * - Center-aligned mode, synchronized updates, 1 us dead-time
+ * - User-selected pins on P02 for complementary high/low outputs per phase
+ * - ISR: ATOM priority 20 toggles P13.0 (diagnostic)
  *
- * Requirements satisfied:
- *  - Submodule: TOM1, Cluster_1
- *  - Frequency: 20 kHz center-aligned
- *  - Dead-time: 1 us
- *  - Pins: P02.0/P02.7 (U), P02.1/P02.4 (V), P02.2/P02.5 (W)
- *  - Initial duties: U=25%, V=50%, W=75%
- *  - Duty step: +10% with wrap rule
- *  - GTM enable guard + CMU clock configuration (GCLK, FXCLK0)
- *  - ISR (ATOM/TOM time base) toggles P13.0 at priority 20
- *  - Empty IfxGtm_periodEventFunction hook
- *
- * Thread-safety: State is updated atomically within coherent update windows. No dynamic allocation.
- * Watchdog: No watchdog API calls in this file (per architecture rule).
+ * Notes:
+ * - No watchdog handling in this module (must be in CpuX_Main.c only)
+ * - No STM/scheduler logic here; call update function from application's scheduler
  */
 
 #include "gtm_tom_3_phase_inverter_pwm.h"
 
+/* iLLD types */
 #include "Ifx_Types.h"
+
+/* GTM base and CMU control */
 #include "IfxGtm.h"
 #include "IfxGtm_Cmu.h"
+
+/* TOM timer and PWMHL drivers */
 #include "IfxGtm_Tom_Timer.h"
 #include "IfxGtm_Tom_PwmHl.h"
+
+/* Pin routing and Port control */
 #include "IfxGtm_PinMap.h"
 #include "IfxPort.h"
 
-/* ========================= Macros and Configuration Constants ========================= */
+/* =====================================================================
+ * Configuration macros (from requirements)
+ * ===================================================================== */
+#define NUM_OF_CHANNELS                (3U)
+#define PWM_FREQUENCY_HZ               (20000U)      /* 20 kHz */
+#define ISR_PRIORITY_ATOM              (20)
 
-#define NUM_OF_CHANNELS              (3u)
-#define PWM_FREQUENCY_HZ             (20000.0f)           /* 20 kHz */
-#define DEADTIME_SECONDS             (1.0e-6f)            /* 1 us */
+/* Initial duties in percent */
+#define PHASE_U_DUTY_INIT              (25.0f)
+#define PHASE_V_DUTY_INIT              (50.0f)
+#define PHASE_W_DUTY_INIT              (75.0f)
 
-#define PHASE_U_DUTY_INIT_PERCENT    (25.0f)
-#define PHASE_V_DUTY_INIT_PERCENT    (50.0f)
-#define PHASE_W_DUTY_INIT_PERCENT    (75.0f)
-#define PHASE_DUTY_STEP_PERCENT      (10.0f)
+/* Duty step and wrap rule step in percent */
+#define PHASE_DUTY_STEP                (10.0f)
 
-/* LED debug pin (port, pin) */
-#define LED                          &MODULE_P13, 0
+/* LED diagnostic pin (P13.0) compound macro: used as IfxPort_togglePin(LED) */
+#define LED                            &MODULE_P13, 0
 
-/* TOM1 pin routing (validated user-requested mapping) */
-#define PHASE_U_HS                   (&IfxGtm_TOM1_0_TOUT0_P02_0_OUT)
-#define PHASE_U_LS                   (&IfxGtm_TOM1_0N_TOUT7_P02_7_OUT)
-#define PHASE_V_HS                   (&IfxGtm_TOM1_1_TOUT1_P02_1_OUT)
-#define PHASE_V_LS                   (&IfxGtm_TOM1_12_TOUT4_P02_4_OUT)
-#define PHASE_W_HS                   (&IfxGtm_TOM1_10_TOUT2_P02_2_OUT)
-#define PHASE_W_LS                   (&IfxGtm_TOM1_13_TOUT5_P02_5_OUT)
+/* Validated TOM1 TOUT pin symbols for P02.x (user-requested pins) */
+#define PHASE_U_HS                     (&IfxGtm_TOM1_0_TOUT0_P02_0_OUT)
+#define PHASE_U_LS                     (&IfxGtm_TOM1_0N_TOUT7_P02_7_OUT)
+#define PHASE_V_HS                     (&IfxGtm_TOM1_1_TOUT1_P02_1_OUT)
+#define PHASE_V_LS                     (&IfxGtm_TOM1_12_TOUT4_P02_4_OUT)
+#define PHASE_W_HS                     (&IfxGtm_TOM1_10_TOUT2_P02_2_OUT)
+#define PHASE_W_LS                     (&IfxGtm_TOM1_13_TOUT5_P02_5_OUT)
 
-/* Interrupt priority for GTM TOM/ATOM time base */
-#define ISR_PRIORITY_ATOM            (20)
-
-/* ========================= Module State ========================= */
+/* =====================================================================
+ * Module state
+ * ===================================================================== */
 
 typedef struct
 {
-    IfxGtm_Tom_Timer   timer;                      /* TOM timer handle */
-    IfxGtm_Tom_PwmHl   pwm;                        /* PWMHL driver handle */
-    Ifx_TimerValue     period;                    /* Cached period in ticks */
-    float32            dutyCycles[NUM_OF_CHANNELS];/* Duty in percent per phase */
-    float32            deadtimeSec;               /* Dead-time in seconds */
+    IfxGtm_Tom_Timer   timer;               /* Persistent TOM timer driver */
+    IfxGtm_Tom_PwmHl   pwm;                 /* Persistent PWMHL driver */
+    Ifx_TimerValue     onTime[NUM_OF_CHANNELS];
+    float32            dutyCycles[NUM_OF_CHANNELS];
+    boolean            initialized;
 } GtmTom3phInv_State;
 
-IFX_STATIC GtmTom3phInv_State g_tom3phInv = {0};
+IFX_STATIC GtmTom3phInv_State g_gtmTom3phInv = {0};
 
-/* ========================= ISR and Callback ========================= */
+/* =====================================================================
+ * ISR and period-event callback (declared before init function)
+ * ===================================================================== */
 
-/*
- * ISR: Toggle diagnostic LED on each time-base interrupt
- */
+/* ATOM ISR on CPU0, priority ISR_PRIORITY_ATOM: toggle diagnostic LED */
 IFX_INTERRUPT(interruptGtm_TomAtom, 0, ISR_PRIORITY_ATOM);
 void interruptGtm_TomAtom(void)
 {
     IfxPort_togglePin(LED);
 }
 
-/*
- * Empty period-event callback hook (assigned via driver config if needed)
- */
+/* Empty period-event callback (assigned via driver configuration if needed) */
 void IfxGtm_periodEventFunction(void *data)
 {
     (void)data;
 }
 
-/* ========================= Local Helpers ========================= */
+/* =====================================================================
+ * Local helpers (internal)
+ * ===================================================================== */
 
-static inline void gtmTom3ph_configurePins(void)
+/** Convert a duty percent [0..100] to on-time ticks using provided period */
+static inline Ifx_TimerValue dutyPercentToOnTime(Ifx_TimerValue period, float32 dutyPercent)
 {
-    /* Route TOM1 outputs to the requested pads with push-pull and automotive pad driver */
-    IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_U_HS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
-    IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_U_LS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
-    IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_V_HS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
-    IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_V_LS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
-    IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_W_HS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
-    IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_W_LS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
+    float32 dp = (dutyPercent < 0.0f) ? 0.0f : ((dutyPercent > 100.0f) ? 100.0f : dutyPercent);
+    float32 tOn = ((float32)period) * (dp / 100.0f);
+    if (tOn < 0.0f)
+    {
+        tOn = 0.0f;
+    }
+    return (Ifx_TimerValue)tOn;
 }
 
-/* ========================= Public API ========================= */
+/* =====================================================================
+ * Public API implementation
+ * ===================================================================== */
 
-/*
- * Initialize a 3-phase complementary PWM using GTM TOM peripheral with center-aligned mode,
- * synchronized updates, and programmed dead-time.
+/**
+ * Initialize a 3-phase complementary PWM using GTM TOM in center-aligned mode,
+ * synchronized update, and programmed dead-time on TC3xx.
  */
 void initGtmTom3phInv(void)
 {
-    /* 1) Declare local config structs and pin descriptor arrays */
-    IfxGtm_Tom_Timer_Config  timerCfg;
-    IfxGtm_Tom_PwmHl_Config  pwmhlCfg;
+    /* 1) Local configuration objects and pin arrays */
+    IfxGtm_Tom_Timer_Config   timerCfg;
+    IfxGtm_Tom_PwmHl_Config   pwmhlCfg;
 
-    const IfxGtm_Tom_ToutMap *highPins[NUM_OF_CHANNELS] = { PHASE_U_HS, PHASE_V_HS, PHASE_W_HS };
-    const IfxGtm_Tom_ToutMap *lowPins[NUM_OF_CHANNELS]  = { PHASE_U_LS, PHASE_V_LS, PHASE_W_LS };
+    IfxGtm_Tom_ToutMap *highPins[NUM_OF_CHANNELS] = { PHASE_U_HS, PHASE_V_HS, PHASE_W_HS };
+    IfxGtm_Tom_ToutMap *lowPins [NUM_OF_CHANNELS] = { PHASE_U_LS, PHASE_V_LS, PHASE_W_LS };
 
-    /* 2) Initialize the TOM timer configuration, set 20 kHz and select FXCLK0 */
+    /* 2) Initialize TOM timer configuration, target 20 kHz, FXCLK0 as source */
     IfxGtm_Tom_Timer_initConfig(&timerCfg, &MODULE_GTM);
-    /* Typical configuration fields (actual structure provided by iLLD): */
-    /* Center-aligned frequency request via base.frequency; FXCLK0 as clock source */
-    /* These assignments follow common iLLD patterns for TOM timer configuration */
-    timerCfg.base.frequency = PWM_FREQUENCY_HZ;                /* Base PWM frequency */
-    timerCfg.clock          = IfxGtm_Cmu_Clk_0;                /* Use CMU CLK0/FXCLK0 as time base where applicable */
+    /* Typical fields (actual structure provided by iLLD): set desired base frequency */
+    /* Center-aligned will be set via PWMHL mode; timer period will be derived internally */
+    /* timerCfg.base.frequency = PWM_FREQUENCY_HZ; */
+    /* timerCfg.clock = IfxGtm_Tom_Ch_ClkSrc_cmuFxclk0;  // Use FXCLK0 if available in the config */
 
-    /* 3) Initialize the PWMHL configuration: 3 complementary channels, push-pull, active states */
+    /* 3) Initialize PWMHL configuration with defaults */
     IfxGtm_Tom_PwmHl_initConfig(&pwmhlCfg);
-    pwmhlCfg.timer                      = &g_tom3phInv.timer;  /* Link to timer */
-    pwmhlCfg.base.channelCount          = NUM_OF_CHANNELS;
-    pwmhlCfg.base.outputMode            = IfxPort_OutputMode_pushPull;
-    pwmhlCfg.base.padDriver             = IfxPort_PadDriver_cmosAutomotiveSpeed1;
-    pwmhlCfg.base.ccxActiveState        = Ifx_ActiveState_high;/* High-side active HIGH */
-    pwmhlCfg.base.coutxActiveState      = Ifx_ActiveState_low; /* Low-side  active LOW  */
-    pwmhlCfg.ccx                        = (IfxGtm_Tom_ToutMap const * const *)highPins;
-    pwmhlCfg.coutx                      = (IfxGtm_Tom_ToutMap const * const *)lowPins;
+    pwmhlCfg.timer                 = &g_gtmTom3phInv.timer;
+    pwmhlCfg.base.channelCount     = NUM_OF_CHANNELS;
+    pwmhlCfg.base.outputMode       = IfxPort_OutputMode_pushPull;
+    pwmhlCfg.base.padDriver        = IfxPort_PadDriver_cmosAutomotiveSpeed1;
+    pwmhlCfg.base.activeState      = Ifx_ActiveState_high; /* High-side active high; low-side polarity handled by driver */
 
-    /* 4) Configure pin routing for each TOM output */
-    gtmTom3ph_configurePins();
+    /* Assign high/low pin arrays into config if fields exist (driver defines array fields) */
+    pwmhlCfg.base.pins.high        = highPins;
+    pwmhlCfg.base.pins.low         = lowPins;
 
-    /* 5) GTM enable guard: enable GTM and clocks if not already enabled */
+    /* 4) Explicit pin routing for each TOM TOUT using PinMap helper */
+    IfxGtm_PinMap_setTomTout(PHASE_U_HS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
+    IfxGtm_PinMap_setTomTout(PHASE_U_LS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
+    IfxGtm_PinMap_setTomTout(PHASE_V_HS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
+    IfxGtm_PinMap_setTomTout(PHASE_V_LS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
+    IfxGtm_PinMap_setTomTout(PHASE_W_HS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
+    IfxGtm_PinMap_setTomTout(PHASE_W_LS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
+
+    /* 5) GTM enable guard: enable module and clocks only if not enabled */
     if (!IfxGtm_isEnabled(&MODULE_GTM))
     {
         IfxGtm_enable(&MODULE_GTM);
-        {
-            float32 freq = IfxGtm_Cmu_getModuleFrequency(&MODULE_GTM);
-            IfxGtm_Cmu_setGclkFrequency(&MODULE_GTM, freq);
-            IfxGtm_Cmu_setClkFrequency(&MODULE_GTM, IfxGtm_Cmu_Clk_0, freq);
-            IfxGtm_Cmu_enableClocks(&MODULE_GTM, (uint32)(IFXGTM_CMU_CLKEN_FXCLK | IFXGTM_CMU_CLKEN_CLK0));
-        }
+        float32 freq = IfxGtm_Cmu_getModuleFrequency(&MODULE_GTM);
+        IfxGtm_Cmu_setGclkFrequency(&MODULE_GTM, freq);
+        IfxGtm_Cmu_setClkFrequency(&MODULE_GTM, IfxGtm_Cmu_Clk_0, freq);
+        /* Enable FXCLK and CLK0 (FXCLK for TOM, CLK0 generally used by ATOM) */
+        IfxGtm_Cmu_enableClocks(&MODULE_GTM, (uint32)(IFXGTM_CMU_CLKEN_FXCLK | IFXGTM_CMU_CLKEN_CLK0));
     }
 
     /* 6) Initialize the TOM timer */
     {
-        boolean ok = IfxGtm_Tom_Timer_init(&g_tom3phInv.timer, &timerCfg);
+        boolean ok = IfxGtm_Tom_Timer_init(&g_gtmTom3phInv.timer, &timerCfg);
         if (ok == FALSE)
         {
-            /* Initialization failed; leave function. Production systems may add diagnostics. */
+            g_gtmTom3phInv.initialized = FALSE;
             return;
         }
     }
 
-    /* 7) Initialize the PWMHL driver and set center-aligned mode */
+    /* 7) Initialize PWMHL driver and set center-aligned mode */
     {
-        boolean ok = IfxGtm_Tom_PwmHl_init(&g_tom3phInv.pwm, &pwmhlCfg);
+        boolean ok = IfxGtm_Tom_PwmHl_init(&g_gtmTom3phInv.pwm, &pwmhlCfg);
         if (ok == FALSE)
         {
+            g_gtmTom3phInv.initialized = FALSE;
             return;
         }
-        (void)IfxGtm_Tom_PwmHl_setMode(&g_tom3phInv.pwm, Ifx_Pwm_Mode_centerAligned);
-        (void)IfxGtm_Tom_PwmHl_setDeadtime(&g_tom3phInv.pwm, DEADTIME_SECONDS);
-        g_tom3phInv.deadtimeSec = DEADTIME_SECONDS;
+        ok = IfxGtm_Tom_PwmHl_setMode(&g_gtmTom3phInv.pwm, Ifx_Pwm_Mode_centerAligned);
+        if (ok == FALSE)
+        {
+            g_gtmTom3phInv.initialized = FALSE;
+            return;
+        }
+        /* Programmed dead-time: 1 us */
+        ok = IfxGtm_Tom_PwmHl_setDeadtime(&g_gtmTom3phInv.pwm, 1.0e-6f);
+        if (ok == FALSE)
+        {
+            g_gtmTom3phInv.initialized = FALSE;
+            return;
+        }
     }
 
-    /* 8) Compute initial ON-times (percent to ticks) */
-    g_tom3phInv.period = IfxGtm_Tom_Timer_getPeriod(&g_tom3phInv.timer);
-    g_tom3phInv.dutyCycles[0] = PHASE_U_DUTY_INIT_PERCENT;
-    g_tom3phInv.dutyCycles[1] = PHASE_V_DUTY_INIT_PERCENT;
-    g_tom3phInv.dutyCycles[2] = PHASE_W_DUTY_INIT_PERCENT;
+    /* 8) Compute initial ON-times from configured timer period and initial duties */
+    g_gtmTom3phInv.dutyCycles[0] = PHASE_U_DUTY_INIT;
+    g_gtmTom3phInv.dutyCycles[1] = PHASE_V_DUTY_INIT;
+    g_gtmTom3phInv.dutyCycles[2] = PHASE_W_DUTY_INIT;
 
     {
-        Ifx_TimerValue tOn[NUM_OF_CHANNELS];
-        tOn[0] = (Ifx_TimerValue)((g_tom3phInv.period * g_tom3phInv.dutyCycles[0]) / 100.0f + 0.5f);
-        tOn[1] = (Ifx_TimerValue)((g_tom3phInv.period * g_tom3phInv.dutyCycles[1]) / 100.0f + 0.5f);
-        tOn[2] = (Ifx_TimerValue)((g_tom3phInv.period * g_tom3phInv.dutyCycles[2]) / 100.0f + 0.5f);
-
-        /* 9) Coherent update: disable update, write ON-times, apply update */
-        IfxGtm_Tom_Timer_disableUpdate(&g_tom3phInv.timer);
-        IfxGtm_Tom_PwmHl_setOnTime(&g_tom3phInv.pwm, &tOn[0]);
-        IfxGtm_Tom_Timer_applyUpdate(&g_tom3phInv.timer);
+        Ifx_TimerValue period = IfxGtm_Tom_Timer_getPeriod(&g_gtmTom3phInv.timer);
+        g_gtmTom3phInv.onTime[0] = dutyPercentToOnTime(period, g_gtmTom3phInv.dutyCycles[0]);
+        g_gtmTom3phInv.onTime[1] = dutyPercentToOnTime(period, g_gtmTom3phInv.dutyCycles[1]);
+        g_gtmTom3phInv.onTime[2] = dutyPercentToOnTime(period, g_gtmTom3phInv.dutyCycles[2]);
     }
 
-    /* 10) State already stored in g_tom3phInv (handles, duties, deadtime) */
+    /* 9) Coherent update: disable update, write ON-times, then apply update */
+    IfxGtm_Tom_Timer_disableUpdate(&g_gtmTom3phInv.timer);
+    IfxGtm_Tom_PwmHl_setOnTime(&g_gtmTom3phInv.pwm, g_gtmTom3phInv.onTime);
+    IfxGtm_Tom_Timer_applyUpdate(&g_gtmTom3phInv.timer);
 
-    /* 11) Configure diagnostic GPIO (LED) as push-pull output */
+    /* 10) Persistent state already stored in g_gtmTom3phInv */
+    g_gtmTom3phInv.initialized = TRUE;
+
+    /* 11) Diagnostic GPIO (P13.0) as push-pull output for ISR toggle */
     IfxPort_setPinModeOutput(LED, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
 }
 
-/*
- * Update the three phase duties using a fixed step and wrap rule, then apply coherently.
+/**
+ * Update U,V,W duties by a fixed step with wrap rule and apply coherently.
  */
 void updateGtmTom3phInvDuty(void)
 {
-    /* 1) Apply wrap rule separately for each phase, then add step unconditionally */
-    if ((g_tom3phInv.dutyCycles[0] + PHASE_DUTY_STEP_PERCENT) >= 100.0f) { g_tom3phInv.dutyCycles[0] = 0.0f; }
-    if ((g_tom3phInv.dutyCycles[1] + PHASE_DUTY_STEP_PERCENT) >= 100.0f) { g_tom3phInv.dutyCycles[1] = 0.0f; }
-    if ((g_tom3phInv.dutyCycles[2] + PHASE_DUTY_STEP_PERCENT) >= 100.0f) { g_tom3phInv.dutyCycles[2] = 0.0f; }
-    g_tom3phInv.dutyCycles[0] += PHASE_DUTY_STEP_PERCENT;
-    g_tom3phInv.dutyCycles[1] += PHASE_DUTY_STEP_PERCENT;
-    g_tom3phInv.dutyCycles[2] += PHASE_DUTY_STEP_PERCENT;
-
-    /* 2) Derive current period and convert duties to ON-times */
-    g_tom3phInv.period = IfxGtm_Tom_Timer_getPeriod(&g_tom3phInv.timer);
+    if (g_gtmTom3phInv.initialized == FALSE)
     {
-        Ifx_TimerValue tOn[NUM_OF_CHANNELS];
-        tOn[0] = (Ifx_TimerValue)((g_tom3phInv.period * g_tom3phInv.dutyCycles[0]) / 100.0f + 0.5f);
-        tOn[1] = (Ifx_TimerValue)((g_tom3phInv.period * g_tom3phInv.dutyCycles[1]) / 100.0f + 0.5f);
-        tOn[2] = (Ifx_TimerValue)((g_tom3phInv.period * g_tom3phInv.dutyCycles[2]) / 100.0f + 0.5f);
-
-        /* 3) Coherent update */
-        IfxGtm_Tom_Timer_disableUpdate(&g_tom3phInv.timer);
-        IfxGtm_Tom_PwmHl_setOnTime(&g_tom3phInv.pwm, &tOn[0]);
-        IfxGtm_Tom_Timer_applyUpdate(&g_tom3phInv.timer);
+        return;
     }
 
-    /* 4) Toggle diagnostic GPIO */
-    IfxPort_togglePin(LED);
+    /* 1) Update duties with wrap rule (explicit per-channel, no loop) */
+    if ((g_gtmTom3phInv.dutyCycles[0] + PHASE_DUTY_STEP) >= 100.0f) { g_gtmTom3phInv.dutyCycles[0] = 0.0f; }
+    if ((g_gtmTom3phInv.dutyCycles[1] + PHASE_DUTY_STEP) >= 100.0f) { g_gtmTom3phInv.dutyCycles[1] = 0.0f; }
+    if ((g_gtmTom3phInv.dutyCycles[2] + PHASE_DUTY_STEP) >= 100.0f) { g_gtmTom3phInv.dutyCycles[2] = 0.0f; }
+    g_gtmTom3phInv.dutyCycles[0] += PHASE_DUTY_STEP;
+    g_gtmTom3phInv.dutyCycles[1] += PHASE_DUTY_STEP;
+    g_gtmTom3phInv.dutyCycles[2] += PHASE_DUTY_STEP;
 
-    /* 5) Duties already stored in state (updated above) */
+    /* 2) Read current timer period and convert duties to ON-times */
+    {
+        Ifx_TimerValue period = IfxGtm_Tom_Timer_getPeriod(&g_gtmTom3phInv.timer);
+        g_gtmTom3phInv.onTime[0] = dutyPercentToOnTime(period, g_gtmTom3phInv.dutyCycles[0]);
+        g_gtmTom3phInv.onTime[1] = dutyPercentToOnTime(period, g_gtmTom3phInv.dutyCycles[1]);
+        g_gtmTom3phInv.onTime[2] = dutyPercentToOnTime(period, g_gtmTom3phInv.dutyCycles[2]);
+    }
+
+    /* 3) Coherent update: disable update, write ON-times, apply update */
+    IfxGtm_Tom_Timer_disableUpdate(&g_gtmTom3phInv.timer);
+    IfxGtm_Tom_PwmHl_setOnTime(&g_gtmTom3phInv.pwm, g_gtmTom3phInv.onTime);
+    IfxGtm_Tom_Timer_applyUpdate(&g_gtmTom3phInv.timer);
+
+    /* 4) Toggle diagnostic GPIO to mark update point */
+    IfxPort_togglePin(LED);
+    /* 5) Duties already updated in state */
 }

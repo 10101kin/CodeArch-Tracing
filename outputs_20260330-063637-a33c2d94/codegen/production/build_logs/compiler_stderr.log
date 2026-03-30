@@ -1,142 +1,98 @@
-C:\Users\extanke\AppData\Local\Temp\tdd_build_zh1r60ct\src\gtm_tom_3_phase_inverter_pwm.c: In function 'gtmTom3ph_configurePins':
-C:\Users\extanke\AppData\Local\Temp\tdd_build_zh1r60ct\src\gtm_tom_3_phase_inverter_pwm.c:47:40: error: 'IfxGtm_TOM1_0_TOUT0_P02_0_OUT' undeclared (first use in this function)
-   47 | #define PHASE_U_HS                   (&IfxGtm_TOM1_0_TOUT0_P02_0_OUT)
-      |                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_zh1r60ct\src\gtm_tom_3_phase_inverter_pwm.c:94:52: note: in expansion of macro 'PHASE_U_HS'
-   94 |     IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_U_HS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
-      |                                                    ^~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_zh1r60ct\src\gtm_tom_3_phase_inverter_pwm.c:47:40: note: each undeclared identifier is reported only once for each function it appears in
-   47 | #define PHASE_U_HS                   (&IfxGtm_TOM1_0_TOUT0_P02_0_OUT)
-      |                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_zh1r60ct\src\gtm_tom_3_phase_inverter_pwm.c:94:52: note: in expansion of macro 'PHASE_U_HS'
-   94 |     IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_U_HS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
-      |                                                    ^~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_zh1r60ct\src\gtm_tom_3_phase_inverter_pwm.c:48:40: error: 'IfxGtm_TOM1_0N_TOUT7_P02_7_OUT' undeclared (first use in this function)
-   48 | #define PHASE_U_LS                   (&IfxGtm_TOM1_0N_TOUT7_P02_7_OUT)
-      |                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_zh1r60ct\src\gtm_tom_3_phase_inverter_pwm.c:95:52: note: in expansion of macro 'PHASE_U_LS'
-   95 |     IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_U_LS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
-      |                                                    ^~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_zh1r60ct\src\gtm_tom_3_phase_inverter_pwm.c:49:40: error: 'IfxGtm_TOM1_1_TOUT1_P02_1_OUT' undeclared (first use in this function)
-   49 | #define PHASE_V_HS                   (&IfxGtm_TOM1_1_TOUT1_P02_1_OUT)
-      |                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_zh1r60ct\src\gtm_tom_3_phase_inverter_pwm.c:96:52: note: in expansion of macro 'PHASE_V_HS'
-   96 |     IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_V_HS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
-      |                                                    ^~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_zh1r60ct\src\gtm_tom_3_phase_inverter_pwm.c:50:40: error: 'IfxGtm_TOM1_12_TOUT4_P02_4_OUT' undeclared (first use in this function)
-   50 | #define PHASE_V_LS                   (&IfxGtm_TOM1_12_TOUT4_P02_4_OUT)
-      |                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_zh1r60ct\src\gtm_tom_3_phase_inverter_pwm.c:97:52: note: in expansion of macro 'PHASE_V_LS'
-   97 |     IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_V_LS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
-      |                                                    ^~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_zh1r60ct\src\gtm_tom_3_phase_inverter_pwm.c:51:40: error: 'IfxGtm_TOM1_10_TOUT2_P02_2_OUT' undeclared (first use in this function)
-   51 | #define PHASE_W_HS                   (&IfxGtm_TOM1_10_TOUT2_P02_2_OUT)
-      |                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_zh1r60ct\src\gtm_tom_3_phase_inverter_pwm.c:98:52: note: in expansion of macro 'PHASE_W_HS'
-   98 |     IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_W_HS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
-      |                                                    ^~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_zh1r60ct\src\gtm_tom_3_phase_inverter_pwm.c:52:40: error: 'IfxGtm_TOM1_13_TOUT5_P02_5_OUT' undeclared (first use in this function)
-   52 | #define PHASE_W_LS                   (&IfxGtm_TOM1_13_TOUT5_P02_5_OUT)
-      |                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_zh1r60ct\src\gtm_tom_3_phase_inverter_pwm.c:99:52: note: in expansion of macro 'PHASE_W_LS'
-   99 |     IfxGtm_PinMap_setTomTout((IfxGtm_Tom_ToutMap *)PHASE_W_LS, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
-      |                                                    ^~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_zh1r60ct\src\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTom3phInv':
-C:\Users\extanke\AppData\Local\Temp\tdd_build_zh1r60ct\src\gtm_tom_3_phase_inverter_pwm.c:47:40: error: 'IfxGtm_TOM1_0_TOUT0_P02_0_OUT' undeclared (first use in this function)
-   47 | #define PHASE_U_HS                   (&IfxGtm_TOM1_0_TOUT0_P02_0_OUT)
-      |                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_zh1r60ct\src\gtm_tom_3_phase_inverter_pwm.c:114:61: note: in expansion of macro 'PHASE_U_HS'
-  114 |     const IfxGtm_Tom_ToutMap *highPins[NUM_OF_CHANNELS] = { PHASE_U_HS, PHASE_V_HS, PHASE_W_HS };
-      |                                                             ^~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_zh1r60ct\src\gtm_tom_3_phase_inverter_pwm.c:49:40: error: 'IfxGtm_TOM1_1_TOUT1_P02_1_OUT' undeclared (first use in this function)
-   49 | #define PHASE_V_HS                   (&IfxGtm_TOM1_1_TOUT1_P02_1_OUT)
-      |                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_zh1r60ct\src\gtm_tom_3_phase_inverter_pwm.c:114:73: note: in expansion of macro 'PHASE_V_HS'
-  114 |     const IfxGtm_Tom_ToutMap *highPins[NUM_OF_CHANNELS] = { PHASE_U_HS, PHASE_V_HS, PHASE_W_HS };
-      |                                                                         ^~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_zh1r60ct\src\gtm_tom_3_phase_inverter_pwm.c:51:40: error: 'IfxGtm_TOM1_10_TOUT2_P02_2_OUT' undeclared (first use in this function)
-   51 | #define PHASE_W_HS                   (&IfxGtm_TOM1_10_TOUT2_P02_2_OUT)
-      |                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_zh1r60ct\src\gtm_tom_3_phase_inverter_pwm.c:114:85: note: in expansion of macro 'PHASE_W_HS'
-  114 |     const IfxGtm_Tom_ToutMap *highPins[NUM_OF_CHANNELS] = { PHASE_U_HS, PHASE_V_HS, PHASE_W_HS };
-      |                                                                                     ^~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_zh1r60ct\src\gtm_tom_3_phase_inverter_pwm.c:48:40: error: 'IfxGtm_TOM1_0N_TOUT7_P02_7_OUT' undeclared (first use in this function)
-   48 | #define PHASE_U_LS                   (&IfxGtm_TOM1_0N_TOUT7_P02_7_OUT)
-      |                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_zh1r60ct\src\gtm_tom_3_phase_inverter_pwm.c:115:61: note: in expansion of macro 'PHASE_U_LS'
-  115 |     const IfxGtm_Tom_ToutMap *lowPins[NUM_OF_CHANNELS]  = { PHASE_U_LS, PHASE_V_LS, PHASE_W_LS };
-      |                                                             ^~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_zh1r60ct\src\gtm_tom_3_phase_inverter_pwm.c:50:40: error: 'IfxGtm_TOM1_12_TOUT4_P02_4_OUT' undeclared (first use in this function)
-   50 | #define PHASE_V_LS                   (&IfxGtm_TOM1_12_TOUT4_P02_4_OUT)
-      |                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_zh1r60ct\src\gtm_tom_3_phase_inverter_pwm.c:115:73: note: in expansion of macro 'PHASE_V_LS'
-  115 |     const IfxGtm_Tom_ToutMap *lowPins[NUM_OF_CHANNELS]  = { PHASE_U_LS, PHASE_V_LS, PHASE_W_LS };
-      |                                                                         ^~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_zh1r60ct\src\gtm_tom_3_phase_inverter_pwm.c:52:40: error: 'IfxGtm_TOM1_13_TOUT5_P02_5_OUT' undeclared (first use in this function)
-   52 | #define PHASE_W_LS                   (&IfxGtm_TOM1_13_TOUT5_P02_5_OUT)
-      |                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_zh1r60ct\src\gtm_tom_3_phase_inverter_pwm.c:115:85: note: in expansion of macro 'PHASE_W_LS'
-  115 |     const IfxGtm_Tom_ToutMap *lowPins[NUM_OF_CHANNELS]  = { PHASE_U_LS, PHASE_V_LS, PHASE_W_LS };
-      |                                                                                     ^~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_zh1r60ct\src\gtm_tom_3_phase_inverter_pwm.c:123:29: error: implicit conversion from 'enum <anonymous>' to 'IfxGtm_Tom_Ch_ClkSrc' [-Werror=enum-conversion]
-  123 |     timerCfg.clock          = IfxGtm_Cmu_Clk_0;                /* Use CMU CLK0/FXCLK0 as time base where applicable */
-      |                             ^
-C:\Users\extanke\AppData\Local\Temp\tdd_build_zh1r60ct\src\gtm_tom_3_phase_inverter_pwm.c:129:18: error: 'IfxStdIf_PwmHl_Config' has no member named 'outputMode'
-  129 |     pwmhlCfg.base.outputMode            = IfxPort_OutputMode_pushPull;
+C:\Users\extanke\AppData\Local\Temp\tdd_build_nxwqkt0n\src\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTom3phInv':
+C:\Users\extanke\AppData\Local\Temp\tdd_build_nxwqkt0n\src\gtm_tom_3_phase_inverter_pwm.c:52:42: error: 'IfxGtm_TOM1_0_TOUT0_P02_0_OUT' undeclared (first use in this function)
+   52 | #define PHASE_U_HS                     (&IfxGtm_TOM1_0_TOUT0_P02_0_OUT)
+      |                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_nxwqkt0n\src\gtm_tom_3_phase_inverter_pwm.c:121:55: note: in expansion of macro 'PHASE_U_HS'
+  121 |     IfxGtm_Tom_ToutMap *highPins[NUM_OF_CHANNELS] = { PHASE_U_HS, PHASE_V_HS, PHASE_W_HS };
+      |                                                       ^~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_nxwqkt0n\src\gtm_tom_3_phase_inverter_pwm.c:52:42: note: each undeclared identifier is reported only once for each function it appears in
+   52 | #define PHASE_U_HS                     (&IfxGtm_TOM1_0_TOUT0_P02_0_OUT)
+      |                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_nxwqkt0n\src\gtm_tom_3_phase_inverter_pwm.c:121:55: note: in expansion of macro 'PHASE_U_HS'
+  121 |     IfxGtm_Tom_ToutMap *highPins[NUM_OF_CHANNELS] = { PHASE_U_HS, PHASE_V_HS, PHASE_W_HS };
+      |                                                       ^~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_nxwqkt0n\src\gtm_tom_3_phase_inverter_pwm.c:54:42: error: 'IfxGtm_TOM1_1_TOUT1_P02_1_OUT' undeclared (first use in this function)
+   54 | #define PHASE_V_HS                     (&IfxGtm_TOM1_1_TOUT1_P02_1_OUT)
+      |                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_nxwqkt0n\src\gtm_tom_3_phase_inverter_pwm.c:121:67: note: in expansion of macro 'PHASE_V_HS'
+  121 |     IfxGtm_Tom_ToutMap *highPins[NUM_OF_CHANNELS] = { PHASE_U_HS, PHASE_V_HS, PHASE_W_HS };
+      |                                                                   ^~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_nxwqkt0n\src\gtm_tom_3_phase_inverter_pwm.c:56:42: error: 'IfxGtm_TOM1_10_TOUT2_P02_2_OUT' undeclared (first use in this function)
+   56 | #define PHASE_W_HS                     (&IfxGtm_TOM1_10_TOUT2_P02_2_OUT)
+      |                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_nxwqkt0n\src\gtm_tom_3_phase_inverter_pwm.c:121:79: note: in expansion of macro 'PHASE_W_HS'
+  121 |     IfxGtm_Tom_ToutMap *highPins[NUM_OF_CHANNELS] = { PHASE_U_HS, PHASE_V_HS, PHASE_W_HS };
+      |                                                                               ^~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_nxwqkt0n\src\gtm_tom_3_phase_inverter_pwm.c:53:42: error: 'IfxGtm_TOM1_0N_TOUT7_P02_7_OUT' undeclared (first use in this function)
+   53 | #define PHASE_U_LS                     (&IfxGtm_TOM1_0N_TOUT7_P02_7_OUT)
+      |                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_nxwqkt0n\src\gtm_tom_3_phase_inverter_pwm.c:122:55: note: in expansion of macro 'PHASE_U_LS'
+  122 |     IfxGtm_Tom_ToutMap *lowPins [NUM_OF_CHANNELS] = { PHASE_U_LS, PHASE_V_LS, PHASE_W_LS };
+      |                                                       ^~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_nxwqkt0n\src\gtm_tom_3_phase_inverter_pwm.c:55:42: error: 'IfxGtm_TOM1_12_TOUT4_P02_4_OUT' undeclared (first use in this function)
+   55 | #define PHASE_V_LS                     (&IfxGtm_TOM1_12_TOUT4_P02_4_OUT)
+      |                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_nxwqkt0n\src\gtm_tom_3_phase_inverter_pwm.c:122:67: note: in expansion of macro 'PHASE_V_LS'
+  122 |     IfxGtm_Tom_ToutMap *lowPins [NUM_OF_CHANNELS] = { PHASE_U_LS, PHASE_V_LS, PHASE_W_LS };
+      |                                                                   ^~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_nxwqkt0n\src\gtm_tom_3_phase_inverter_pwm.c:57:42: error: 'IfxGtm_TOM1_13_TOUT5_P02_5_OUT' undeclared (first use in this function)
+   57 | #define PHASE_W_LS                     (&IfxGtm_TOM1_13_TOUT5_P02_5_OUT)
+      |                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_nxwqkt0n\src\gtm_tom_3_phase_inverter_pwm.c:122:79: note: in expansion of macro 'PHASE_W_LS'
+  122 |     IfxGtm_Tom_ToutMap *lowPins [NUM_OF_CHANNELS] = { PHASE_U_LS, PHASE_V_LS, PHASE_W_LS };
+      |                                                                               ^~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_nxwqkt0n\src\gtm_tom_3_phase_inverter_pwm.c:135:18: error: 'IfxStdIf_PwmHl_Config' has no member named 'outputMode'
+  135 |     pwmhlCfg.base.outputMode       = IfxPort_OutputMode_pushPull;
       |                  ^
-C:\Users\extanke\AppData\Local\Temp\tdd_build_zh1r60ct\src\gtm_tom_3_phase_inverter_pwm.c:130:18: error: 'IfxStdIf_PwmHl_Config' has no member named 'padDriver'
-  130 |     pwmhlCfg.base.padDriver             = IfxPort_PadDriver_cmosAutomotiveSpeed1;
+C:\Users\extanke\AppData\Local\Temp\tdd_build_nxwqkt0n\src\gtm_tom_3_phase_inverter_pwm.c:136:18: error: 'IfxStdIf_PwmHl_Config' has no member named 'padDriver'
+  136 |     pwmhlCfg.base.padDriver        = IfxPort_PadDriver_cmosAutomotiveSpeed1;
       |                  ^
-C:\Users\extanke\AppData\Local\Temp\tdd_build_zh1r60ct\src\gtm_tom_3_phase_inverter_pwm.c:131:18: error: 'IfxStdIf_PwmHl_Config' has no member named 'ccxActiveState'
-  131 |     pwmhlCfg.base.ccxActiveState        = Ifx_ActiveState_high;/* High-side active HIGH */
+C:\Users\extanke\AppData\Local\Temp\tdd_build_nxwqkt0n\src\gtm_tom_3_phase_inverter_pwm.c:137:18: error: 'IfxStdIf_PwmHl_Config' has no member named 'activeState'
+  137 |     pwmhlCfg.base.activeState      = Ifx_ActiveState_high; /* High-side active high; low-side polarity handled by driver */
       |                  ^
-C:\Users\extanke\AppData\Local\Temp\tdd_build_zh1r60ct\src\gtm_tom_3_phase_inverter_pwm.c:132:18: error: 'IfxStdIf_PwmHl_Config' has no member named 'coutxActiveState'
-  132 |     pwmhlCfg.base.coutxActiveState      = Ifx_ActiveState_low; /* Low-side  active LOW  */
+C:\Users\extanke\AppData\Local\Temp\tdd_build_nxwqkt0n\src\gtm_tom_3_phase_inverter_pwm.c:140:18: error: 'IfxStdIf_PwmHl_Config' has no member named 'pins'
+  140 |     pwmhlCfg.base.pins.high        = highPins;
       |                  ^
-C:\Users\extanke\AppData\Local\Temp\tdd_build_zh1r60ct\src\gtm_tom_3_phase_inverter_pwm.c:133:41: error: assignment to 'IfxGtm_Tom_ToutMap * const*' {aka 'IfxGtm_Pwm_ToutMap * const*'} from incompatible pointer type 'const IfxGtm_Tom_ToutMap * const*' {aka 'const IfxGtm_Pwm_ToutMap * const*'} [-Wincompatible-pointer-types]
-  133 |     pwmhlCfg.ccx                        = (IfxGtm_Tom_ToutMap const * const *)highPins;
-      |                                         ^
-C:\Users\extanke\AppData\Local\Temp\tdd_build_zh1r60ct\src\gtm_tom_3_phase_inverter_pwm.c:134:41: error: assignment to 'IfxGtm_Tom_ToutMap * const*' {aka 'IfxGtm_Pwm_ToutMap * const*'} from incompatible pointer type 'const IfxGtm_Tom_ToutMap * const*' {aka 'const IfxGtm_Pwm_ToutMap * const*'} [-Wincompatible-pointer-types]
-  134 |     pwmhlCfg.coutx                      = (IfxGtm_Tom_ToutMap const * const *)lowPins;
-      |                                         ^
-C:\Users\extanke\AppData\Local\Temp\tdd_build_zh1r60ct\src\gtm_tom_3_phase_inverter_pwm.c:147:59: error: 'IFXGTM_CMU_CLKEN_FXCLK' undeclared (first use in this function); did you mean 'IFXGTM_TOM_CMU_CLKEN_FXCLK'?
-  147 |             IfxGtm_Cmu_enableClocks(&MODULE_GTM, (uint32)(IFXGTM_CMU_CLKEN_FXCLK | IFXGTM_CMU_CLKEN_CLK0));
-      |                                                           ^~~~~~~~~~~~~~~~~~~~~~
-      |                                                           IFXGTM_TOM_CMU_CLKEN_FXCLK
-C:\Users\extanke\AppData\Local\Temp\tdd_build_zh1r60ct\src\gtm_tom_3_phase_inverter_pwm.c:147:84: error: 'IFXGTM_CMU_CLKEN_CLK0' undeclared (first use in this function); did you mean 'IFXGTM_TOM_CMU_CLKEN_CLK0'?
-  147 |             IfxGtm_Cmu_enableClocks(&MODULE_GTM, (uint32)(IFXGTM_CMU_CLKEN_FXCLK | IFXGTM_CMU_CLKEN_CLK0));
-      |                                                                                    ^~~~~~~~~~~~~~~~~~~~~
-      |                                                                                    IFXGTM_TOM_CMU_CLKEN_CLK0
-cc1.exe: all warnings being treated as errors
+C:\Users\extanke\AppData\Local\Temp\tdd_build_nxwqkt0n\src\gtm_tom_3_phase_inverter_pwm.c:141:18: error: 'IfxStdIf_PwmHl_Config' has no member named 'pins'
+  141 |     pwmhlCfg.base.pins.low         = lowPins;
+      |                  ^
+C:\Users\extanke\AppData\Local\Temp\tdd_build_nxwqkt0n\src\gtm_tom_3_phase_inverter_pwm.c:159:55: error: 'IFXGTM_CMU_CLKEN_FXCLK' undeclared (first use in this function); did you mean 'IFXGTM_TOM_CMU_CLKEN_FXCLK'?
+  159 |         IfxGtm_Cmu_enableClocks(&MODULE_GTM, (uint32)(IFXGTM_CMU_CLKEN_FXCLK | IFXGTM_CMU_CLKEN_CLK0));
+      |                                                       ^~~~~~~~~~~~~~~~~~~~~~
+      |                                                       IFXGTM_TOM_CMU_CLKEN_FXCLK
+C:\Users\extanke\AppData\Local\Temp\tdd_build_nxwqkt0n\src\gtm_tom_3_phase_inverter_pwm.c:159:80: error: 'IFXGTM_CMU_CLKEN_CLK0' undeclared (first use in this function); did you mean 'IFXGTM_TOM_CMU_CLKEN_CLK0'?
+  159 |         IfxGtm_Cmu_enableClocks(&MODULE_GTM, (uint32)(IFXGTM_CMU_CLKEN_FXCLK | IFXGTM_CMU_CLKEN_CLK0));
+      |                                                                                ^~~~~~~~~~~~~~~~~~~~~
+      |                                                                                IFXGTM_TOM_CMU_CLKEN_CLK0
 
 In file included from C:\Users\extanke\Downloads\merge\infineon_POC_MVP\unity/unity.h:22,
-                 from C:\Users\extanke\AppData\Local\Temp\tdd_build_zh1r60ct\test\test_gtm_tom_3_phase_inverter_pwm.c:1:
-C:\Users\extanke\AppData\Local\Temp\tdd_build_zh1r60ct\test\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G6_001_update_increments_duty_below_boundary':
-C:\Users\extanke\AppData\Local\Temp\tdd_build_zh1r60ct\test\test_gtm_tom_3_phase_inverter_pwm.c:201:42: error: implicit declaration of function 'mock_IfxGtm_Tom_Tom_Timer_disableUpdate_getCallCount'; did you mean 'mock_IfxGtm_Tom_Timer_disableUpdate_getCallCount'? [-Wimplicit-function-declaration]
+                 from C:\Users\extanke\AppData\Local\Temp\tdd_build_nxwqkt0n\test\test_gtm_tom_3_phase_inverter_pwm.c:1:
+C:\Users\extanke\AppData\Local\Temp\tdd_build_nxwqkt0n\test\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G6_001_update_increments_duty_below_boundary':
+C:\Users\extanke\AppData\Local\Temp\tdd_build_nxwqkt0n\test\test_gtm_tom_3_phase_inverter_pwm.c:201:42: error: implicit declaration of function 'mock_IfxGtm_Tom_Tom_Timer_disableUpdate_getCallCount'; did you mean 'mock_IfxGtm_Tom_Timer_disableUpdate_getCallCount'? [-Wimplicit-function-declaration]
   201 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(2U, mock_IfxGtm_Tom_Tom_Timer_disableUpdate_getCallCount(), "DisableUpdate called once in init and once in update");
       |                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 C:\Users\extanke\Downloads\merge\infineon_POC_MVP\unity/unity_internals.h:904:184: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_UINT32'
   904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)
       |                                                                                                                                                                                        ^~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_zh1r60ct\test\test_gtm_tom_3_phase_inverter_pwm.c:201:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'
+C:\Users\extanke\AppData\Local\Temp\tdd_build_nxwqkt0n\test\test_gtm_tom_3_phase_inverter_pwm.c:201:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'
   201 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(2U, mock_IfxGtm_Tom_Tom_Timer_disableUpdate_getCallCount(), "DisableUpdate called once in init and once in update");
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_zh1r60ct\test\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G6_002_update_wrap_rule_applies_independently':
-C:\Users\extanke\AppData\Local\Temp\tdd_build_zh1r60ct\test\test_gtm_tom_3_phase_inverter_pwm.c:221:42: error: implicit declaration of function 'mock_IfxGtm_Tom_Tom_Timer_getPeriod_getCallCount'; did you mean 'mock_IfxGtm_Tom_Timer_getPeriod_getCallCount'? [-Wimplicit-function-declaration]
+C:\Users\extanke\AppData\Local\Temp\tdd_build_nxwqkt0n\test\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G6_002_update_wrap_rule_applies_independently':
+C:\Users\extanke\AppData\Local\Temp\tdd_build_nxwqkt0n\test\test_gtm_tom_3_phase_inverter_pwm.c:221:42: error: implicit declaration of function 'mock_IfxGtm_Tom_Tom_Timer_getPeriod_getCallCount'; did you mean 'mock_IfxGtm_Tom_Timer_getPeriod_getCallCount'? [-Wimplicit-function-declaration]
   221 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(3U, mock_IfxGtm_Tom_Tom_Timer_getPeriod_getCallCount(), "Timer period read once per update (3 updates)");
       |                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 C:\Users\extanke\Downloads\merge\infineon_POC_MVP\unity/unity_internals.h:904:184: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_UINT32'
   904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)
       |                                                                                                                                                                                        ^~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_zh1r60ct\test\test_gtm_tom_3_phase_inverter_pwm.c:221:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'
+C:\Users\extanke\AppData\Local\Temp\tdd_build_nxwqkt0n\test\test_gtm_tom_3_phase_inverter_pwm.c:221:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'
   221 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(3U, mock_IfxGtm_Tom_Tom_Timer_getPeriod_getCallCount(), "Timer period read once per update (3 updates)");
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_zh1r60ct\test\test_gtm_tom_3_phase_inverter_pwm.c:224:42: error: implicit declaration of function 'mock_IfxGtm_Tom_Tom_Timer_applyUpdate_getCallCount'; did you mean 'mock_IfxGtm_Tom_Timer_applyUpdate_getCallCount'? [-Wimplicit-function-declaration]
+C:\Users\extanke\AppData\Local\Temp\tdd_build_nxwqkt0n\test\test_gtm_tom_3_phase_inverter_pwm.c:224:42: error: implicit declaration of function 'mock_IfxGtm_Tom_Tom_Timer_applyUpdate_getCallCount'; did you mean 'mock_IfxGtm_Tom_Timer_applyUpdate_getCallCount'? [-Wimplicit-function-declaration]
   224 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(4U, mock_IfxGtm_Tom_Tom_Timer_applyUpdate_getCallCount(), "ApplyUpdate called once in init + once per update (total 4)");
       |                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 C:\Users\extanke\Downloads\merge\infineon_POC_MVP\unity/unity_internals.h:904:184: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_UINT32'
   904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)
       |                                                                                                                                                                                        ^~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_zh1r60ct\test\test_gtm_tom_3_phase_inverter_pwm.c:224:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'
+C:\Users\extanke\AppData\Local\Temp\tdd_build_nxwqkt0n\test\test_gtm_tom_3_phase_inverter_pwm.c:224:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'
   224 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(4U, mock_IfxGtm_Tom_Tom_Timer_applyUpdate_getCallCount(), "ApplyUpdate called once in init + once per update (total 4)");
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
