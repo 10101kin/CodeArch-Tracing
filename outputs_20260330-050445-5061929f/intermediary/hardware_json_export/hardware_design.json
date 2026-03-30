@@ -12,6 +12,10 @@
       8,
       9,
       10
+    ],
+    "documentation_required": [
+      "Provide the TC38x datasheet tables for Port 00 functions and GTM TOM-to-TOUT mapping for the TC387 LFBGA-292 package.",
+      "Provide the relevant TC387 datasheet or user manual pages listing available GTM TOM1 channels."
     ]
   },
   "pin_assignments": [
@@ -22,17 +26,19 @@
       "pin_macro": "IfxGtm_TOM1_5_TOUT11_P00_2_OUT",
       "is_complementary": false,
       "verified": true,
-      "source": "hardware_verified"
+      "source": "hardware_verified",
+      "documentation_required": "Provide IfxGtm_PinMap.h for TC38x/TC387 or the datasheet pages listing Port 0 alternate functions for the LFBGA-292 package."
     },
     {
       "signal": "U_L",
       "port_pin": "P00.3",
       "function": "TOUT12",
       "pin_macro": "IfxGtm_TOM1_2_TOUT12_P00_3_OUT",
-      "is_complementary": true,
+      "is_complementary": false,
       "verified": true,
       "source": "hardware_verified",
-      "_original_pin_macro": "IfxGtm_TOM1_6_TOUT12_P00_3_OUT"
+      "_original_pin_macro": "IfxGtm_TOM1_6_TOUT12_P00_3_OUT",
+      "documentation_required": "Provide IfxGtm_PinMap.h for TC38x/TC387 or the datasheet pages listing Port 0 alternate functions for the LFBGA-292 package."
     },
     {
       "signal": "V_H",
@@ -42,17 +48,19 @@
       "is_complementary": false,
       "verified": true,
       "source": "hardware_verified",
-      "_original_pin_macro": "IfxGtm_TOM1_7_TOUT13_P00_4_OUT"
+      "_original_pin_macro": "IfxGtm_TOM1_7_TOUT13_P00_4_OUT",
+      "documentation_required": "Provide IfxGtm_PinMap.h for TC38x/TC387 or the datasheet pages listing Port 0 alternate functions for the LFBGA-292 package."
     },
     {
       "signal": "V_L",
       "port_pin": "P00.5",
       "function": "TOUT14",
       "pin_macro": "IfxGtm_TOM1_1N_TOUT14_P00_5_OUT",
-      "is_complementary": true,
+      "is_complementary": false,
       "verified": true,
       "source": "hardware_verified",
-      "_original_pin_macro": "IfxGtm_TOM1_8_TOUT14_P00_5_OUT"
+      "_original_pin_macro": "IfxGtm_TOM1_8_TOUT14_P00_5_OUT",
+      "documentation_required": "Provide IfxGtm_PinMap.h for TC38x/TC387 or the datasheet pages listing Port 0 alternate functions for the LFBGA-292 package."
     },
     {
       "signal": "W_H",
@@ -62,27 +70,30 @@
       "is_complementary": false,
       "verified": true,
       "source": "hardware_verified",
-      "_original_pin_macro": "IfxGtm_TOM1_9_TOUT15_P00_6_OUT"
+      "_original_pin_macro": "IfxGtm_TOM1_9_TOUT15_P00_6_OUT",
+      "documentation_required": "Provide IfxGtm_PinMap.h for TC38x/TC387 or the datasheet pages listing Port 0 alternate functions for the LFBGA-292 package."
     },
     {
       "signal": "W_L",
       "port_pin": "P00.7",
       "function": "TOUT16",
       "pin_macro": "IfxGtm_TOM1_3N_TOUT16_P00_7_OUT",
-      "is_complementary": true,
+      "is_complementary": false,
       "verified": true,
       "source": "hardware_verified",
-      "_original_pin_macro": "IfxGtm_TOM1_10_TOUT16_P00_7_OUT"
+      "_original_pin_macro": "IfxGtm_TOM1_10_TOUT16_P00_7_OUT",
+      "documentation_required": "Provide IfxGtm_PinMap.h for TC38x/TC387 or the datasheet pages listing Port 0 alternate functions for the LFBGA-292 package."
     }
   ],
   "clock_configuration": {
     "xtal_frequency_mhz": 20,
-    "system_frequency_mhz": 300
+    "system_frequency_mhz": 300,
+    "documentation_required": "Provide the KIT_A2G_TC387_5V_TFT board manual or datasheet page specifying the 20 MHz crystal and the 300 MHz system frequency."
   },
   "validation": {
     "all_verified": true,
     "conflicts": [
-      "Requested TOM1 CH1..6 on P00.2–P00.7 is not available on TC38x LFBGA-516; mapped to TOM1 CH5..10 per IfxGtm_PinMap_TC38x_LFBGA516 to keep the requested pins and complementary adjacency. Driver/initialization impact: no change in driver selection—GTM TOM-based PWM drivers (e.g., IfxGtm_Tom_PwmHl, IfxGtm_Tom_Pwm) remain applicable. Ensure initialization targets TOM1 channels 5–10 and the corresponding TOUT pins (TOUT11..TOUT16); update channel indices and pin macros accordingly. No additional special configuration is required beyond using the remapped channels."
+      "Package alignment required: KIT_A2G_TC387_5V_TFT uses TC38x LFBGA-292. Pin mapping and validation must be aligned to LFBGA-292; do not rely on LFBGA-516 mappings. Provide Port 0 function tables for LFBGA-292 to confirm P00.2–P00.7 (TOUT11–TOUT16) assignments and TOM1 CH5–10 availability."
     ],
     "reference_pins_valid": true
   },
@@ -123,9 +134,6 @@
   "pin_analysis": {
     "verified_count": 6,
     "doc_reference_count": 1,
-    "merged_total": 6
-  },
-  "documentation": {
-    "pin_assignment_note": "On TC387 (TC38x family) LFBGA-516, GTM TOM1 channels 1..6 are not routed to P00.2–P00.7. Per Infineon mapping table IfxGtm_PinMap_TC38x_LFBGA516, the functions available on these pins are TOUT11..TOUT16, which correspond to TOM1 channels 5..10. The design therefore uses TOM1 CH5..10 to preserve the requested P00.2–P00.7 locations and maintain complementary adjacency."
+    "merged_total": 7
   }
 }
