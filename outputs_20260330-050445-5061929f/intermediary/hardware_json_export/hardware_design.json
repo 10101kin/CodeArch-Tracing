@@ -82,7 +82,7 @@
   "validation": {
     "all_verified": true,
     "conflicts": [
-      "Requested TOM1 CH1..6 on P00.2–P00.7 is not available on TC38x LFBGA-516; mapped to TOM1 CH5..10 per IfxGtm_PinMap_TC38x_LFBGA516 to keep the requested pins and complementary adjacency."
+      "Requested TOM1 CH1..6 on P00.2–P00.7 is not available on TC38x LFBGA-516; mapped to TOM1 CH5..10 per IfxGtm_PinMap_TC38x_LFBGA516 to keep the requested pins and complementary adjacency. Driver/initialization impact: no change in driver selection—GTM TOM-based PWM drivers (e.g., IfxGtm_Tom_PwmHl, IfxGtm_Tom_Pwm) remain applicable. Ensure initialization targets TOM1 channels 5–10 and the corresponding TOUT pins (TOUT11..TOUT16); update channel indices and pin macros accordingly. No additional special configuration is required beyond using the remapped channels."
     ],
     "reference_pins_valid": true
   },
@@ -123,6 +123,9 @@
   "pin_analysis": {
     "verified_count": 6,
     "doc_reference_count": 1,
-    "merged_total": 7
+    "merged_total": 6
+  },
+  "documentation": {
+    "pin_assignment_note": "On TC387 (TC38x family) LFBGA-516, GTM TOM1 channels 1..6 are not routed to P00.2–P00.7. Per Infineon mapping table IfxGtm_PinMap_TC38x_LFBGA516, the functions available on these pins are TOUT11..TOUT16, which correspond to TOM1 channels 5..10. The design therefore uses TOM1 CH5..10 to preserve the requested P00.2–P00.7 locations and maintain complementary adjacency."
   }
 }
