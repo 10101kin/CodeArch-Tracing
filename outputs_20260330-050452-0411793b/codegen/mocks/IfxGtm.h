@@ -1,5 +1,6 @@
 #ifndef IFXGTM_H
 #define IFXGTM_H
+
 #include "mock_gtm_tom_3_phase_inverter_pwm.h"
 
 /* Enums */
@@ -18,10 +19,16 @@ typedef enum
     IfxGtm_SuspendMode_soft = 2
 } IfxGtm_SuspendMode;
 
-/* Cluster type (base peripheral concept) */
-typedef uint32 IfxGtm_Cluster;
+/* Cluster enum (fix for previous build error: IfxGtm_Cluster_1 undeclared) */
+typedef enum
+{
+    IfxGtm_Cluster_0 = 0,
+    IfxGtm_Cluster_1 = 1,
+    IfxGtm_Cluster_2 = 2,
+    IfxGtm_Cluster_3 = 3
+} IfxGtm_Cluster;
 
-/* Function declarations (subset used by module/tests) */
+/* Function declarations (subset used by production) */
 boolean IfxGtm_isEnabled(Ifx_GTM *gtm);
 void    IfxGtm_enable(Ifx_GTM *gtm);
 

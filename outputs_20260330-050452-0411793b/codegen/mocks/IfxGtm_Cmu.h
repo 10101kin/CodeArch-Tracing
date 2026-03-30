@@ -1,5 +1,6 @@
 #ifndef IFXGTM_CMU_H
 #define IFXGTM_CMU_H
+
 #include "mock_gtm_tom_3_phase_inverter_pwm.h"
 
 /* Enums */
@@ -33,21 +34,30 @@ typedef enum
 
 typedef enum
 {
-    IfxGtm_Cmu_Tim_Filter_Clk_0,  /* FLT_CNT counts with CMU_CLK0 */
-    IfxGtm_Cmu_Tim_Filter_Clk_1,  /* FLT_CNT counts with CMU_CLK1 */
-    IfxGtm_Cmu_Tim_Filter_Clk_6,  /* FLT_CNT counts with CMU_CLK6 */
-    IfxGtm_Cmu_Tim_Filter_Clk_7   /* FLT_CNT counts with CMU_CLK7 */
+    IfxGtm_Cmu_Tim_Filter_Clk_0 = 0,
+    IfxGtm_Cmu_Tim_Filter_Clk_1 = 1,
+    IfxGtm_Cmu_Tim_Filter_Clk_6 = 6,
+    IfxGtm_Cmu_Tim_Filter_Clk_7 = 7
 } IfxGtm_Cmu_Tim_Filter_Clk;
 
-/* Enable macros used by enable guard */
+/* DTM clock source enum (verified block) */
+typedef enum
+{
+    IfxGtm_Dtm_ClockSource_systemClock,
+    IfxGtm_Dtm_ClockSource_cmuClock0,
+    IfxGtm_Dtm_ClockSource_cmuClock1,
+    IfxGtm_Dtm_ClockSource_cmuClock2
+} IfxGtm_Dtm_ClockSource;
+
+/* CMU enable macros */
 #ifndef IFXGTM_CMU_CLKEN_FXCLK
-#define IFXGTM_CMU_CLKEN_FXCLK (1u << 0)
+#define IFXGTM_CMU_CLKEN_FXCLK (1U << 0)
 #endif
 #ifndef IFXGTM_CMU_CLKEN_CLK0
-#define IFXGTM_CMU_CLKEN_CLK0  (1u << 1)
+#define IFXGTM_CMU_CLKEN_CLK0  (1U << 1)
 #endif
 
-/* Function declarations (subset used by module/tests) */
+/* Function declarations (subset used) */
 void    IfxGtm_Cmu_enableClocks(Ifx_GTM *gtm, uint32 clkMask);
 float32 IfxGtm_Cmu_getModuleFrequency(Ifx_GTM *gtm);
 void    IfxGtm_Cmu_setGclkFrequency(Ifx_GTM *gtm, float32 frequency);
