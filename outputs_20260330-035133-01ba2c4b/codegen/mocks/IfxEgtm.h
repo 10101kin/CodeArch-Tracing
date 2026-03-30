@@ -1,40 +1,12 @@
+/* IfxEgtm.h - EGTM base mock header */
 #ifndef IFXEGTM_H
 #define IFXEGTM_H
 
 #include "mock_egtm_atom_3_phase_inverter_pwm.h"
 
-/* Provide SFR cluster stub used by PWM driver */
-typedef struct { uint32 reserved; } Ifx_EGTM_CLS;
-
-/* Ensure dependent macro exists for array sizes in config structs */
-#ifndef IFXEGTM_NUM_CCM_OBJECTS
-#define IFXEGTM_NUM_CCM_OBJECTS 1
-#endif
-
-/* Types required by IfxEgtm interface */
-typedef struct
-{
-    IfxApApu_ApuConfig apuConfig;
-} IfxEgtm_ClApConfig;
-
-typedef struct
-{
-    IfxApProt_ProtConfig proteConfig;
-    IfxApApu_ApuConfig   apuConfig;
-} IfxEgtm_CtrlApConfig;
-
-typedef struct
-{
-    IfxApApu_ApuConfig apuConfig;
-} IfxEgtm_WrapApConfig;
-
-typedef struct
-{
-    IfxApProt_ProtConfig protseConfig;
-    IfxEgtm_ClApConfig   clApConfig[IFXEGTM_NUM_CCM_OBJECTS];
-    IfxEgtm_CtrlApConfig ctrlApConfig;
-    IfxEgtm_WrapApConfig wrapApConfig;
-} IfxEgtm_ApConfig;
+/* Placeholder types used by AP config structs */
+typedef struct { uint32 dummy; } IfxApApu_ApuConfig;
+typedef struct { uint32 dummy; } IfxApProt_ProtConfig;
 
 typedef enum
 {
@@ -72,17 +44,50 @@ typedef enum
     IfxEgtm_SuspendMode_soft = 2
 } IfxEgtm_SuspendMode;
 
-/* MSC OUT config referenced by PWM driver */
+/* Placeholder MSC config enums */
+typedef uint32 IfxEgtm_Cfg_MscSet;
+typedef uint32 IfxEgtm_Cfg_MscSetSignal;
+typedef uint32 IfxEgtm_Cfg_MscModule;
+typedef uint32 IfxEgtm_Cfg_MscSelect;
+
 typedef struct
 {
-    uint32               mscSet;       /* placeholder field */
-    uint32               mscSetSignal; /* placeholder field */
-    uint32               mscModule;    /* placeholder field */
-    uint32               mscSelect;    /* placeholder field */
-    IfxEgtm_MscAltInput  mscAltIn;     /* actual alt input selection */
+    IfxEgtm_Cfg_MscSet       mscSet;
+    IfxEgtm_Cfg_MscSetSignal mscSetSignal;
+    IfxEgtm_Cfg_MscModule    mscModule;
+    IfxEgtm_Cfg_MscSelect    mscSelect;
+    IfxEgtm_MscAltInput      mscAltIn;
 } IfxEgtm_MscOut;
 
-/* Minimal API needed by production */
+typedef struct
+{
+    IfxApApu_ApuConfig apuConfig;
+} IfxEgtm_ClApConfig;
+
+typedef struct
+{
+    IfxApProt_ProtConfig proteConfig;
+    IfxApApu_ApuConfig   apuConfig;
+} IfxEgtm_CtrlApConfig;
+
+typedef struct
+{
+    IfxApApu_ApuConfig apuConfig;
+} IfxEgtm_WrapApConfig;
+
+#ifndef IFXEGTM_NUM_CCM_OBJECTS
+#define IFXEGTM_NUM_CCM_OBJECTS 3
+#endif
+
+typedef struct
+{
+    IfxApProt_ProtConfig protseConfig;
+    IfxEgtm_ClApConfig   clApConfig[IFXEGTM_NUM_CCM_OBJECTS];
+    IfxEgtm_CtrlApConfig ctrlApConfig;
+    IfxEgtm_WrapApConfig wrapApConfig;
+} IfxEgtm_ApConfig;
+
+/* Functions (subset used in production/tests) */
 void    IfxEgtm_enable(Ifx_EGTM *egtm);
 boolean IfxEgtm_isEnabled(Ifx_EGTM *egtm);
 
