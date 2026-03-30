@@ -4,7 +4,7 @@
     "family": "TC3xx",
     "verified": true,
     "device_macro": "DEVICE_TC38X",
-    "pin_package": "IFX_PIN_PACKAGE_292"
+    "pin_package": "IFX_PIN_PACKAGE_516"
   },
   "peripheral_instance": {
     "type": "PWM",
