@@ -1,0 +1,95 @@
+{
+  "module_name": "EGTM_ATOM_3_Phase_Inverter_PWM",
+  "public_functions": [
+    {
+      "signature": "void initEgtmAtom3phInv(void)",
+      "behavior_description": "Initialize a 3-channel complementary, center-aligned PWM for a three-phase inverter on eGTM ATOM0, Cluster 0 using the unified high-level driver. Algorithmic steps: 1) Declare all configuration structures as local variables: main Pwm Config, per-channel ChannelConfig[3], DtmConfig[3] for dead-time, InterruptConfig, and OutputConfig[3] for pins and polarity. 2) Call IfxEgtm_Pwm_initConfig(&config, &MODULE_EGTM) to load driver defaults. 3) Configure the three OutputConfig entries: for each logical channel i=0..2 assign the high-side pin and its complementary low-side pin via the driver's tout map pointers, set active polarity for the high-side, complementary polarity for the low-side, and set outputMode to pushPull with cmosAutomotiveSpeed1 pad driver. 4) Configure DTM dead-time for each channel: set rising=1 microsecond and falling=1 microsecond. 5) Configure the interrupt: set mode to pulseNotify, isrProvider to CPU0, vmId to 0, priority to 20, assign periodEvent = IfxEgtm_periodEventFunction (the void *data callback), and dutyEvent = NULL. 6) Fill ChannelConfig[0..2] using logical timer channels SubModule_Ch_0, SubModule_Ch_1, SubModule_Ch_2, respectively. For each entry set: phase=0.0f, duty in percent (initialize to 50, 25, 75 for channels matching V, U, W respectively to preserve the default CH0→V, CH1→U, CH2→W order), dtm=&dtmConfig[i], output=&output[i], mscOut=NULL. Assign the interrupt pointer only for the base channel: channelConfig[0].interrupt=&interruptConfig and channelConfig[1].interrupt=channelConfig[2].interrupt=NULL. 7) Complete main Config fields: select Cluster 0 and ATOM submodule, mode center-aligned, enable syncStart and syncUpdate, set frequency=20000 Hz, select the ATOM clock source as FXCLK0, and select an appropriate DTM clock source. 8) Inside an enable guard: if the eGTM module is not enabled, enable it; read the module frequency dynamically for reference; enable the required clocks (FXCLK0 for ATOM and CLK0 for the module) using the CMU enableClocks mask. Keep all clock configuration actions inside this guard. 9) Call IfxEgtm_Pwm_init(&state.pwm, state.channels, &config) to initialize the PWM hardware and apply the channel configuration (including duties, phases, dead-times, and pin routing). 10) Persist runtime state in a module-scoped state structure: store the Pwm handle, the channels array (must be persistent, not local), and copy the initial dutyCycles[3] and deadTimes[3] for later updates. 11) Configure the LED GPIO as output after PWM init (used by the ISR): set the LED pin to push-pull output via IfxPort_setPinModeOutput. No pin state set is required at init. The PWM outputs themselves are configured by the driver via the OutputConfig entries and do not require manual GPIO mode calls.",
+      "driver_calls": [
+        "IfxEgtm_Pwm_initConfig",
+        "IfxEgtm_isEnabled",
+        "IfxEgtm_enable",
+        "IfxEgtm_Cmu_getModuleFrequency",
+        "IfxEgtm_Cmu_enableClocks",
+        "IfxEgtm_Pwm_init",
+        "IfxPort_setPinModeOutput"
+      ],
+      "from_reference": true,
+      "call_context": "init"
+    },
+    {
+      "signature": "void updateEgtmAtom3phInvDuty(void)",
+      "behavior_description": "Implement a periodic duty-cycle stepper for all three logical PWM channels (U, V, W). For each channel i in 0..2: check if (duty[i] + STEP) >= 100; if true, set duty[i] = 0, then add STEP to each duty (wrap-at-100 behavior). STEP equals 10 percent. Store updated values back into the module state. Finally, pass the state's dutyCycles array (percent values, not normalized) directly to the driver's immediate multi-channel duty update API to apply the change synchronously to all complementary pairs.",
+      "driver_calls": [
+        "IfxEgtm_Pwm_updateChannelsDutyImmediate"
+      ],
+      "from_reference": true,
+      "call_context": "loop"
+    },
+    {
+      "signature": "void interruptEgtmAtom(void)",
+      "behavior_description": "ISR for the PWM period event routed internally by the high-level PWM driver. Perform minimal processing: toggle the LED pin to indicate PWM period timing. Do not call any driver interrupt handler here and do not perform any heavy computation.",
+      "driver_calls": [
+        "IfxPort_togglePin"
+      ],
+      "from_reference": true,
+      "call_context": "none"
+    },
+    {
+      "signature": "void IfxEgtm_periodEventFunction(void *data)",
+      "behavior_description": "Empty period-event callback required by the high-level PWM driver interrupt configuration. Accepts a void *data parameter, which is unused. Its presence satisfies the driver's callback signature requirements. All observable action on period events is performed in the ISR function.",
+      "driver_calls": [],
+      "from_reference": true,
+      "call_context": "none"
+    },
+    {
+      "name": "initEgtmAtom3phInv",
+      "signature": "void initEgtmAtom3phInv(void)",
+      "behavior_description": "",
+      "call_context": "",
+      "driver_calls": [
+        "IfxEgtm_Pwm_initConfig",
+        "IfxEgtm_Pwm_init"
+      ]
+    },
+    {
+      "name": "updateEgtmAtom3phInvDuty",
+      "signature": "void updateEgtmAtom3phInvDuty(void)",
+      "behavior_description": "",
+      "call_context": "",
+      "driver_calls": [
+        "IfxEgtm_Pwm_updateChannelsDutyImmediate"
+      ]
+    }
+  ],
+  "private_functions": [],
+  "dependencies": {
+    "includes": [
+      "Ifx_Types.h",
+      "IfxEgtm_Pwm.h",
+      "IfxPort.h",
+      "IfxPort_Pinmap.h"
+    ],
+    "driver_calls": [
+      "IfxEgtm_Pwm_initConfig",
+      "IfxEgtm_Pwm_init",
+      "IfxEgtm_Pwm_updateChannelsDutyImmediate",
+      "IfxEgtm_isEnabled",
+      "IfxEgtm_enable",
+      "IfxEgtm_Cmu_getModuleFrequency",
+      "IfxEgtm_Cmu_enableClocks",
+      "IfxPort_setPinModeOutput",
+      "IfxPort_togglePin"
+    ]
+  },
+  "cpu_main_requirements": {
+    "needs_cpu_sync": true,
+    "uses_timer_delay": true,
+    "delay_ms": 500,
+    "additional_includes": [
+      "Bsp.h"
+    ]
+  },
+  "header_selection": {
+    "applied": false
+  }
+}

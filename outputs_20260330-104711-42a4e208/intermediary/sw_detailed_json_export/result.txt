@@ -1,0 +1,11 @@
+Status: SUCCESS
+
+Node JSON export
+Stage: sw_detailed
+Reason: stage_completed
+Modified By: system
+Modifier: N/A
+Reviewer: N/A
+Attempt: 4
+Phase attempt: 1
+Timestamp: 2026-03-30T18:58:54.108445
