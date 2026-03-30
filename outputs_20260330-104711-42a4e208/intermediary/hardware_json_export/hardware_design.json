@@ -1,0 +1,168 @@
+{
+  "microcontroller": {
+    "model": "TC4D7",
+    "family": "TC4xx",
+    "verified": true,
+    "device_macro": "DEVICE_TC4DX",
+    "pin_package": "IFX_PIN_PACKAGE_BGA436_COM"
+  },
+  "peripheral_instance": {
+    "type": "PWM",
+    "module": "EGTM.ATOM0 (Cluster 0)",
+    "channels": [
+      0,
+      1,
+      2
+    ],
+    "driver": "IfxEgtm_Pwm"
+  },
+  "pin_assignments": [
+    {
+      "signal": "Phase U HS",
+      "port_pin": "P20.8",
+      "function": "TOUT64",
+      "pin_macro": "",
+      "is_complementary": false,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "Phase U LS",
+      "port_pin": "P20.9",
+      "function": "TOUT65",
+      "pin_macro": "",
+      "is_complementary": true,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "Phase V HS",
+      "port_pin": "P21.4",
+      "function": "TOUT55",
+      "pin_macro": "",
+      "is_complementary": false,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "Phase V LS",
+      "port_pin": "P20.11",
+      "function": "TOUT67",
+      "pin_macro": "",
+      "is_complementary": true,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "Phase W HS",
+      "port_pin": "P20.12",
+      "function": "TOUT68",
+      "pin_macro": "",
+      "is_complementary": false,
+      "verified": false,
+      "source": "hardware_verified"
+    },
+    {
+      "signal": "Phase W LS",
+      "port_pin": "P20.13",
+      "function": "TOUT69",
+      "pin_macro": "",
+      "is_complementary": true,
+      "verified": false,
+      "source": "hardware_verified"
+    }
+  ],
+  "clock_configuration": {
+    "xtal_frequency_mhz": 25,
+    "system_frequency_mhz": 500
+  },
+  "validation": {
+    "all_verified": false,
+    "conflicts": [
+      "Provided Port/TOUT combinations could not be verified against IfxEgtm_PinMap for TC4D7 in the available template context",
+      "Phase V pins (TOUT55 and TOUT67) do not form a complementary pair on the same ATOM channel based on template documentation patterns",
+      "No matching pin macros were found in template headers for the specified P20.x/P21.4 TOUT mappings"
+    ],
+    "reference_pins_valid": false
+  },
+  "template_validation": {
+    "supported_peripherals": [
+      "PWM",
+      "GTM",
+      "EGTM",
+      "GPIO",
+      "ASCLIN",
+      "INTERRUPT",
+      "CPU"
+    ],
+    "suggested_drivers": {
+      "PWM": [
+        "IfxEgtm_Pwm",
+        "IfxGtm_Atom_Pwm",
+        "IfxEgtm_Tom_Pwm",
+        "IfxGtm_Tom_Pwm",
+        "IfxGtm_Pwm",
+        "IfxEgtm_Atom_Pwm"
+      ],
+      "GTM": [
+        "IfxGtm_PinMap",
+        "IfxGtm_Tbu",
+        "IfxGtm",
+        "IfxGtm_Psm",
+        "IfxGtm_Dtm",
+        "IfxGtm_Spe",
+        "IfxGtm_Pwm",
+        "IfxGtm_Trigger",
+        "IfxGtm_Input"
+      ],
+      "EGTM": [
+        "IfxEgtm_PinMap",
+        "IfxEgtm_cfg_TC4Dx",
+        "IfxEgtm_Input",
+        "IfxEgtm_Pwm",
+        "IfxEgtm",
+        "IfxEgtm_Atom",
+        "IfxEgtm_Cmu",
+        "IfxEgtm_Dtm",
+        "IfxEgtm_Spe",
+        "IfxEgtm_Tbu",
+        "IfxEgtm_Tim",
+        "IfxEgtm_Tom",
+        "IfxEgtm_Trigger",
+        "IfxEgtm_Tom_Pwm",
+        "IfxEgtm_Tom_Timer",
+        "IfxEgtm_Tim_In",
+        "IfxEgtm_Tim_Timer",
+        "IfxEgtm_Atom_Pwm",
+        "IfxEgtm_Atom_Timer"
+      ],
+      "GPIO": [
+        "IfxPort",
+        "IfxPort_PinMap",
+        "IfxScrPort",
+        "IfxPort_Io",
+        "IfxPort_cfg_TC4Dx"
+      ],
+      "ASCLIN": [
+        "IfxAsclin_cfg_TC4Dx",
+        "IfxAsclin_Asc",
+        "IfxAsclin_Lin",
+        "IfxAsclin_Spi",
+        "IfxAsclin"
+      ],
+      "INTERRUPT": [
+        "IfxCpu_Irq",
+        "IfxScrCpuIrq"
+      ],
+      "CPU": [
+        "IfxCpu"
+      ]
+    },
+    "warnings": []
+  },
+  "pin_analysis": {
+    "verified_count": 6,
+    "doc_reference_count": 4,
+    "merged_total": 10
+  }
+}
