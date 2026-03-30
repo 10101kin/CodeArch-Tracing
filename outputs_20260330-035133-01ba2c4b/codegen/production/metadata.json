@@ -1,8 +1,19 @@
 {
-  "type": "llm_response",
-  "phase": "production",
   "attempt": 5,
   "phase_attempt": 2,
-  "response_length": 10595,
-  "timestamp": "2026-03-30T12:19:22.241930"
+  "phase": "production",
+  "success": false,
+  "errors": [
+    "conflicting types for 'IfxApApu_ApuConfig'; have 'struct <anonymous>'",
+    "conflicting types for 'IfxApProt_ProtConfig'; have 'struct <anonymous>'",
+    "'IfxEgtm_ATOM0_0_TOUT64_P20_8_OUT' undeclared (first use in this function); did you mean 'IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT'?",
+    "'IfxEgtm_ATOM0_1_TOUT55_P21_4_OUT' undeclared (first use in this function); did you mean 'IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT'?",
+    "'IfxEgtm_ATOM0_1N_TOUT67_P20_11_OUT' undeclared (first use in this function); did you mean 'IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT'?",
+    "'IfxEgtm_ATOM0_2_TOUT68_P20_12_OUT' undeclared (first use in this function); did you mean 'IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT'?",
+    "'IfxEgtm_ATOM0_2N_TOUT69_P20_13_OUT' undeclared (first use in this function); did you mean 'IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT'?",
+    "conflicting types for 'IfxApApu_ApuConfig'; have 'struct <anonymous>'",
+    "conflicting types for 'IfxApProt_ProtConfig'; have 'struct <anonymous>'"
+  ],
+  "timestamp": "2026-03-30T12:19:27.870811",
+  "project_name": "Generate_TC4D7_KIT_A3G_TC4D7_LITE_code_that_migr_r_20260330_120525"
 }
