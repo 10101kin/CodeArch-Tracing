@@ -1,11 +1,8 @@
 {
-  "attempt": 9,
-  "phase_attempt": 4,
+  "type": "llm_response",
   "phase": "production",
-  "success": false,
-  "errors": [
-    "'IfxSrc_VmId_0' undeclared (first use in this function); did you mean 'IfxSrc_VmId'?"
-  ],
-  "timestamp": "2026-03-30T10:54:07.786514",
-  "project_name": "Generate_TC4D7_eGTM_ATOM_migration_code_using_IfxE_r_20260330_101800"
+  "attempt": 11,
+  "phase_attempt": 5,
+  "response_length": 11215,
+  "timestamp": "2026-03-30T10:59:20.091521"
 }
