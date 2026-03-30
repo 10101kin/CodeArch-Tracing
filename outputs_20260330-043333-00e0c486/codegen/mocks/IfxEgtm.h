@@ -1,27 +1,17 @@
-/* IfxEgtm.h - Base eGTM driver types + minimal enable/status API */
 #ifndef IFXEGTM_H
 #define IFXEGTM_H
 
 #include "mock_egtm_atom_3_phase_inverter_pwm.h"
 
-/* Auxiliary placeholder types to satisfy struct fields */
-typedef uint32 IfxEgtm_Cfg_MscSet;
-typedef uint32 IfxEgtm_Cfg_MscSetSignal;
-typedef uint32 IfxEgtm_Cfg_MscModule;
-typedef uint32 IfxEgtm_Cfg_MscSelect;
-
+/* Minimal external dependencies used in structs */
 typedef struct { uint32 dummy; } IfxApApu_ApuConfig;
 typedef struct { uint32 dummy; } IfxApProt_ProtConfig;
 
-/* eGTM cluster index */
-typedef enum
-{
-    IfxEgtm_Cluster_0 = 0,
-    IfxEgtm_Cluster_1 = 1,
-    IfxEgtm_Cluster_2 = 2
-} IfxEgtm_Cluster;
+#ifndef IFXEGTM_NUM_CCM_OBJECTS
+# define IFXEGTM_NUM_CCM_OBJECTS 1
+#endif
 
-/* Irq/MSC/Suspend enums */
+/* Enums required */
 typedef enum
 {
     IfxEgtm_AeiBridgeOpMode_sync  = 0u,
@@ -58,35 +48,33 @@ typedef enum
     IfxEgtm_SuspendMode_soft = 2
 } IfxEgtm_SuspendMode;
 
-/* APU/PROT configuration wrappers (minimal) */
-typedef struct { IfxApApu_ApuConfig apuConfig; } IfxEgtm_ClApConfig;
+/* Structs required by docs (placeholders sufficing for mocks) */
+typedef struct
+{
+    IfxApApu_ApuConfig apuConfig;
+} IfxEgtm_ClApConfig;
 
-typedef struct {
+typedef struct
+{
     IfxApProt_ProtConfig proteConfig;
     IfxApApu_ApuConfig   apuConfig;
 } IfxEgtm_CtrlApConfig;
 
-typedef struct { IfxApApu_ApuConfig apuConfig; } IfxEgtm_WrapApConfig;
+typedef struct
+{
+    IfxApApu_ApuConfig apuConfig;
+} IfxEgtm_WrapApConfig;
 
-typedef struct {
+typedef struct
+{
     IfxApProt_ProtConfig protseConfig;
-    IfxEgtm_ClApConfig   clApConfig[3];
+    IfxEgtm_ClApConfig   clApConfig[IFXEGTM_NUM_CCM_OBJECTS];
     IfxEgtm_CtrlApConfig ctrlApConfig;
     IfxEgtm_WrapApConfig wrapApConfig;
 } IfxEgtm_ApConfig;
 
-/* MSC OUT configuration (minimal) */
-typedef struct
-{
-    IfxEgtm_Cfg_MscSet       mscSet;
-    IfxEgtm_Cfg_MscSetSignal mscSetSignal;
-    IfxEgtm_Cfg_MscModule    mscModule;
-    IfxEgtm_Cfg_MscSelect    mscSelect;
-    IfxEgtm_MscAltInput      mscAltIn;
-} IfxEgtm_MscOut;
-
-/* Minimal enable/status API used by production */
+/* Control functions */
+void    IfxEgtm_enable(Ifx_EGTM *egtm);
 boolean IfxEgtm_isEnabled(Ifx_EGTM *egtm);
-void    IfxEgtm_enable   (Ifx_EGTM *egtm);
 
 #endif /* IFXEGTM_H */

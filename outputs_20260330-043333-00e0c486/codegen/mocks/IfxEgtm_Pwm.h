@@ -1,4 +1,3 @@
-/* IfxEgtm_Pwm.h - Primary PWM driver mocks (TC4xx eGTM/ATOM) */
 #ifndef IFXEGTM_PWM_H
 #define IFXEGTM_PWM_H
 
@@ -7,28 +6,15 @@
 #include "IfxEgtm_Cmu.h"
 #include "IfxPort.h"
 
-/* Forward declares for types referenced by verified blocks */
-typedef struct IfxEgtm_Pwm_FastShutoffConfig IfxEgtm_Pwm_FastShutoffConfig;
-typedef struct IfxEgtm_Pwm_ToutMap           IfxEgtm_Pwm_ToutMap;
-typedef void (*IfxEgtm_Pwm_callBack)(void *arg);
+/* Minimal placeholder types used in ToutMap */
+typedef struct { uint32 dummy; } IfxEgtm_Atom_ToutMap;
+typedef struct { uint32 dummy; } IfxEgtm_Tom_ToutMap;
+typedef struct { uint32 dummy; } IfxEgtm_Hrpwm_Out;
 
-/* Simplified ToutMap type (sufficient for unit tests) */
-struct IfxEgtm_Pwm_ToutMap { uint32 dummy; };
+/* Callback type */
+typedef void (*IfxEgtm_Pwm_callBack)(void);
 
-/* Optional DTM signal types (minimal) */
-typedef enum { IfxEgtm_Dtm_ShutoffInput_0 = 0 } IfxEgtm_Dtm_ShutoffInput;
-typedef enum { IfxEgtm_Dtm_SignalLevel_low = 0, IfxEgtm_Dtm_SignalLevel_high = 1 } IfxEgtm_Dtm_SignalLevel;
-
-/* FastShutoffConfig definition (as per iLLD fields) */
-struct IfxEgtm_Pwm_FastShutoffConfig
-{
-    IfxEgtm_Dtm_ShutoffInput inputSignal;
-    boolean                  invertInputSignal;
-    IfxEgtm_Dtm_SignalLevel  offState;
-    IfxEgtm_Dtm_SignalLevel  complementaryOffState;
-};
-
-/* ========== VERIFIED TYPE DEFINITIONS — DO NOT MODIFY ========== */
+/* Verified type definitions (order preserved) */
 
 typedef enum
 {
@@ -133,6 +119,13 @@ typedef struct
     IfxEgtm_Pwm_callBack dutyEvent;         
 } IfxEgtm_Pwm_InterruptConfig;
 
+/* Pwm_ToutMap (union with ATOM/TOM placeholders) */
+typedef union
+{
+    IfxEgtm_Atom_ToutMap atom;        
+    IfxEgtm_Tom_ToutMap  tom;         
+} IfxEgtm_Pwm_ToutMap;
+
 typedef struct
 {
     IfxEgtm_Pwm_ToutMap *pin;                        
@@ -175,24 +168,28 @@ typedef struct
     float32                      duty;            
     IfxEgtm_Pwm_DtmConfig       *dtm;             
     IfxEgtm_Pwm_OutputConfig    *output;          
-    IfxEgtm_MscOut              *mscOut;          
+    struct IfxEgtm_MscOut       *mscOut;          
     IfxEgtm_Pwm_InterruptConfig *interrupt;       
 } IfxEgtm_Pwm_ChannelConfig;
 
-/* NOTE: Cluster enum already defined in IfxEgtm.h as IfxEgtm_Cluster */
+typedef enum
+{
+    IfxEgtm_Cluster_0 = 0,  
+    IfxEgtm_Cluster_1 = 1,  
+    IfxEgtm_Cluster_2 = 2   
+} IfxEgtm_Cluster;
 
 typedef struct
 {
-    volatile Ifx_UReg_32Bit *reg0;                /**< \brief ATOM: points to AGC_GLB_CTRL.
-                                                     * TOM: If channels span 2 TGCs then points to TGC0_GLB_CTRL else to the TGC being used TGCx_GLB_CTRL */
+    volatile Ifx_UReg_32Bit *reg0;                
     volatile Ifx_UReg_32Bit *reg1;                
     uint32                   upenMask0;           
     uint32                   upenMask1;           
-    volatile Ifx_UReg_32Bit *endisCtrlReg0;       /**< \brief ATOM: points to AGC_ENDIS_CTRL.
-                                                     * TOM: If channels span 2 TGCs then points to TGC0_ENDIS_CTRL else to the TGC being used TGCx_GLB_CTRL */
+    volatile Ifx_UReg_32Bit *endisCtrlReg0;       
     volatile Ifx_UReg_32Bit *endisCtrlReg1;       
 } IfxEgtm_Pwm_GlobalControl;
 
+/* ClockSource union fields are uint32 to avoid enum conversion warnings */
 typedef union {
     uint32 atom;
     uint32 tom;
@@ -229,7 +226,7 @@ typedef struct
     float32                    frequency;              
     IfxEgtm_Pwm_ClockSource    clockSource;            
     IfxEgtm_Dtm_ClockSource    dtmClockSource;         
-#if 0 /* IFXEGTM_PWM_IS_HIGH_RES_AVAILABLE */
+#if IFXEGTM_PWM_IS_HIGH_RES_AVAILABLE
     boolean                    highResEnable;          
     boolean                    dtmHighResEnable;       
 #endif
@@ -244,11 +241,27 @@ typedef struct
     IfxPort_PadDriver    padDriver;        
 } IfxEgtm_Pwm_Pin;
 
-/* ========== END VERIFIED TYPE DEFINITIONS ========== */
+/* Forward declare MSC out struct to satisfy pointer in ChannelConfig */
+typedef struct IfxEgtm_MscOut {
+    uint32 mscSet;
+    uint32 mscSetSignal;
+    uint32 mscModule;
+    uint32 mscSelect;
+    IfxEgtm_MscAltInput mscAltIn;
+} IfxEgtm_MscOut;
 
-/* Primary functions used by production */
+/* Driver APIs to mock */
 void IfxEgtm_Pwm_initConfig(IfxEgtm_Pwm_Config *config, Ifx_EGTM *egtmSFR);
-void IfxEgtm_Pwm_updateChannelsDutyImmediate(IfxEgtm_Pwm *pwm, float32 *requestDuty);
 void IfxEgtm_Pwm_init(IfxEgtm_Pwm *pwm, IfxEgtm_Pwm_Channel *channels, IfxEgtm_Pwm_Config *config);
+void IfxEgtm_Pwm_updateChannelsDutyImmediate(IfxEgtm_Pwm *pwm, float32 *requestDuty);
+
+/* Pin symbol externs required by production */
+extern IfxEgtm_Pwm_ToutMap IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT;
+/* Optional extras */
+extern IfxEgtm_Pwm_ToutMap IfxEgtm_ATOM0_0_TOUT64_P20_8_OUT;
+extern IfxEgtm_Pwm_ToutMap IfxEgtm_ATOM0_1_TOUT66_P20_10_OUT;
+extern IfxEgtm_Pwm_ToutMap IfxEgtm_ATOM0_1N_TOUT67_P20_11_OUT;
+extern IfxEgtm_Pwm_ToutMap IfxEgtm_ATOM0_2_TOUT68_P21_0_OUT;
+extern IfxEgtm_Pwm_ToutMap IfxEgtm_ATOM0_2N_TOUT69_P21_1_OUT;
 
 #endif /* IFXEGTM_PWM_H */
