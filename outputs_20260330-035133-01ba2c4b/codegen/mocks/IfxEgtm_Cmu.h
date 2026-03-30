@@ -1,10 +1,10 @@
-/* IfxEgtm_Cmu.h - Mock */
+/* IfxEgtm_Cmu.h - EGTM CMU mock */
 #ifndef IFXEGTM_CMU_H
 #define IFXEGTM_CMU_H
 
 #include "mock_egtm_atom_3_phase_inverter_pwm.h"
 
-/* ===== Enums ===== */
+/* CMU enums */
 typedef enum {
     IfxEgtm_Cmu_Clk_0 = 0,
     IfxEgtm_Cmu_Clk_1,
@@ -37,7 +37,15 @@ typedef enum {
     IfxEgtm_Cmu_Tim_Filter_Clk_7
 } IfxEgtm_Cmu_Tim_Filter_Clk;
 
-/* ===== Enable mask macros ===== */
+/* DTM clock source for PWM (shared by EGTM drivers) */
+typedef enum {
+    IfxEgtm_Dtm_ClockSource_systemClock = 0,
+    IfxEgtm_Dtm_ClockSource_cmuClock0   = 1,
+    IfxEgtm_Dtm_ClockSource_cmuClock1   = 2,
+    IfxEgtm_Dtm_ClockSource_cmuClock2   = 3
+} IfxEgtm_Dtm_ClockSource;
+
+/* CMU enable macros */
 #ifndef IFXEGTM_CMU_CLKEN_FXCLK
 # define IFXEGTM_CMU_CLKEN_FXCLK (0x1u << 0)
 #endif
@@ -45,14 +53,12 @@ typedef enum {
 # define IFXEGTM_CMU_CLKEN_CLK0  (0x1u << 1)
 #endif
 
-/* ===== Functions used by this module/tests ===== */
+/* Functions (subset used by module/tests) */
 void    IfxEgtm_Cmu_enableClocks(Ifx_EGTM *egtm, uint32 clkMask);
+float32 IfxEgtm_Cmu_getGclkFrequency(Ifx_EGTM *egtm);
 float32 IfxEgtm_Cmu_getModuleFrequency(Ifx_EGTM *egtm);
-void    IfxEgtm_Cmu_setGclkFrequency(Ifx_EGTM *egtm, float32 frequency);
+float32 IfxEgtm_Cmu_getClkFrequency(Ifx_EGTM *egtm, IfxEgtm_Cmu_Clk clkIndex, boolean assumeEnabled);
 void    IfxEgtm_Cmu_setClkFrequency(Ifx_EGTM *egtm, IfxEgtm_Cmu_Clk clkIndex, float32 frequency);
-
-/* Additional mandatory API for tests */
-void    IfxEgtm_Cmu_enable(Ifx_EGTM *egtm);
-boolean IfxEgtm_Cmu_isEnabled(Ifx_EGTM *egtm);
+void    IfxEgtm_Cmu_setGclkFrequency(Ifx_EGTM *egtm, float32 frequency);
 
 #endif /* IFXEGTM_CMU_H */

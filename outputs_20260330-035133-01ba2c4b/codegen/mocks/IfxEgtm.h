@@ -1,38 +1,13 @@
-/* IfxEgtm.h - Mock */
+/* IfxEgtm.h - EGTM base mock */
 #ifndef IFXEGTM_H
 #define IFXEGTM_H
 
 #include "mock_egtm_atom_3_phase_inverter_pwm.h"
 
-/* Provide cluster SFR type (not a MODULE_*) */
-typedef struct { uint32 reserved; } Ifx_EGTM_CLS;
+/* Placeholder types referenced by AP config structures */
+typedef struct { uint32 dummy; } IfxApApu_ApuConfig;
+typedef struct { uint32 dummy; } IfxApProt_ProtConfig;
 
-/* ===== Types/structs ===== */
-typedef struct {
-    IfxApApu_ApuConfig apuConfig;
-} IfxEgtm_ClApConfig;
-
-typedef struct {
-    IfxApProt_ProtConfig proteConfig;
-    IfxApApu_ApuConfig   apuConfig;
-} IfxEgtm_CtrlApConfig;
-
-typedef struct {
-    IfxApApu_ApuConfig apuConfig;
-} IfxEgtm_WrapApConfig;
-
-typedef struct {
-    IfxApProt_ProtConfig protseConfig;
-    IfxEgtm_ClApConfig   clApConfig[1];
-    IfxEgtm_CtrlApConfig ctrlApConfig;
-    IfxEgtm_WrapApConfig wrapApConfig;
-} IfxEgtm_ApConfig;
-
-typedef struct {
-    uint32 dummy;
-} IfxEgtm_MscOut;
-
-/* ===== Enums ===== */
 typedef enum {
     IfxEgtm_AeiBridgeOpMode_sync  = 0u,
     IfxEgtm_AeiBridgeOpMode_async = 1u
@@ -64,8 +39,36 @@ typedef enum {
     IfxEgtm_SuspendMode_soft = 2
 } IfxEgtm_SuspendMode;
 
-/* ===== Functions used by this module/tests ===== */
-void    IfxEgtm_enable(Ifx_EGTM *egtm);
+typedef enum {
+    IfxEgtm_Cluster_0 = 0,
+    IfxEgtm_Cluster_1 = 1,
+    IfxEgtm_Cluster_2 = 2
+} IfxEgtm_Cluster;
+
+/* SRC VmId placeholder */
+typedef enum {
+    IfxSrc_VmId_0 = 0,
+    IfxSrc_VmId_1 = 1
+} IfxSrc_VmId;
+
+/* EGTM AP configuration structs (placeholders) */
+typedef struct { IfxApApu_ApuConfig apuConfig; } IfxEgtm_ClApConfig;
+typedef struct { IfxApProt_ProtConfig proteConfig; IfxApApu_ApuConfig apuConfig; } IfxEgtm_CtrlApConfig;
+typedef struct { IfxApApu_ApuConfig apuConfig; } IfxEgtm_WrapApConfig;
+
+typedef struct {
+    IfxApProt_ProtConfig protseConfig;
+    IfxEgtm_ClApConfig   clApConfig[3];
+    IfxEgtm_CtrlApConfig ctrlApConfig;
+    IfxEgtm_WrapApConfig wrapApConfig;
+} IfxEgtm_ApConfig;
+
+typedef struct {
+    uint32 mscSet; uint32 mscSetSignal; uint32 mscModule; uint32 mscSelect; IfxEgtm_MscAltInput mscAltIn;
+} IfxEgtm_MscOut;
+
+/* Minimal function set used by module */
 boolean IfxEgtm_isEnabled(Ifx_EGTM *egtm);
+void    IfxEgtm_enable(Ifx_EGTM *egtm);
 
 #endif /* IFXEGTM_H */
