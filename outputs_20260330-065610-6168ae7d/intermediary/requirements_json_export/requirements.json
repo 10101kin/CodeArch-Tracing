@@ -77,13 +77,7 @@
           "low": "IfxGtm_TOM1_1_TOUTy_P02_7_OUT (assumed)"
         },
         "assumed": true,
-        "note": "Verify TOUT mapping against IfxGtm_PinMap_TC38x_LFBGA516; target Cluster_1 routing if available",
-        "pinmap_verification": {
-          "status": "pending",
-          "reference": "IfxGtm_PinMap_TC38x_LFBGA516",
-          "action_item": "Confirm TOUT mapping: TOM1 CH0 -> P02.0 and TOM1 CH1 -> P02.7. Replace '(assumed)' pinmap_enums with exact IfxGtm_TOM1_x_TOUTz_P02_n_OUT identifiers once verified.",
-          "fallback_behavior": "If mapping is not available on IFX_PIN_PACKAGE_516, reassign U-phase to valid TOM1 TOUT pins for this package or keep U-phase outputs disabled in initialization until remapped."
-        }
+        "note": "Verify TOUT mapping against IfxGtm_PinMap_TC38x_LFBGA516; target Cluster_1 routing if available"
       },
       {
         "phase": "V",
@@ -101,13 +95,7 @@
           "low": "IfxGtm_TOM1_3_TOUTy_P02_4_OUT (assumed)"
         },
         "assumed": true,
-        "note": "Verify TOUT mapping against IfxGtm_PinMap_TC38x_LFBGA516",
-        "pinmap_verification": {
-          "status": "pending",
-          "reference": "IfxGtm_PinMap_TC38x_LFBGA516",
-          "action_item": "Confirm TOUT mapping: TOM1 CH2 -> P02.1 and TOM1 CH3 -> P02.4. Replace '(assumed)' pinmap_enums with exact IfxGtm_TOM1_x_TOUTz_P02_n_OUT identifiers once verified.",
-          "fallback_behavior": "If mapping is not available on IFX_PIN_PACKAGE_516, reassign V-phase to valid TOM1 TOUT pins for this package or keep V-phase outputs disabled in initialization until remapped."
-        }
+        "note": "Verify TOUT mapping against IfxGtm_PinMap_TC38x_LFBGA516"
       },
       {
         "phase": "W",
@@ -125,13 +113,7 @@
           "low": "IfxGtm_TOM1_5_TOUTy_P02_5_OUT (assumed)"
         },
         "assumed": true,
-        "note": "Verify TOUT mapping against IfxGtm_PinMap_TC38x_LFBGA516",
-        "pinmap_verification": {
-          "status": "pending",
-          "reference": "IfxGtm_PinMap_TC38x_LFBGA516",
-          "action_item": "Confirm TOUT mapping: TOM1 CH4 -> P02.2 and TOM1 CH5 -> P02.5. Replace '(assumed)' pinmap_enums with exact IfxGtm_TOM1_x_TOUTz_P02_n_OUT identifiers once verified.",
-          "fallback_behavior": "If mapping is not available on IFX_PIN_PACKAGE_516, reassign W-phase to valid TOM1 TOUT pins for this package or keep W-phase outputs disabled in initialization until remapped."
-        }
+        "note": "Verify TOUT mapping against IfxGtm_PinMap_TC38x_LFBGA516"
       }
     ],
     "complementary_pairing": {
@@ -220,7 +202,7 @@
   },
   "device_configuration": {
     "target_device_macro": "DEVICE_TC38X",
-    "pin_package": "IFX_PIN_PACKAGE_516",
+    "pin_package": "IFX_PIN_PACKAGE_292",
     "device_family": "TC3xx",
     "clock_requirements": {
       "requires_xtal": true,
