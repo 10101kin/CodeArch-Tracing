@@ -6,25 +6,19 @@
 #include "IfxGtm_Cmu.h"
 #include "IfxPort.h"
 
-/* Auxiliary SFR sub-block stubs used by structs below */
-typedef struct { uint32 reserved; } Ifx_GTM_ATOM;
-typedef struct { uint32 reserved; } Ifx_GTM_TOM;
-typedef struct { uint32 reserved; } Ifx_GTM_CDTM;
-
+/* Helper forward typedefs used by PWM driver interfaces */
 typedef struct { uint32 dummy; } IfxGtm_Trig_MscOut;
+typedef struct { uint32 pin; } IfxGtm_Atom_ToutMap;
+typedef struct { uint32 pin; } IfxGtm_Tom_ToutMap;
 
-typedef void (*IfxGtm_Pwm_callBack)(void *);
+typedef void (*IfxGtm_Pwm_callBack)(void *arg);
 
-typedef struct { uint32 dummy; } IfxGtm_Atom_ToutMap;
-typedef struct { uint32 dummy; } IfxGtm_Tom_ToutMap;
-
-typedef union
-{
+typedef union {
     IfxGtm_Atom_ToutMap atom;
     IfxGtm_Tom_ToutMap  tom;
 } IfxGtm_Pwm_ToutMap;
 
-/* VERIFIED TYPE DEFINITIONS — DO NOT MODIFY ORDER OR CONTENT */
+/* VERIFIED TYPE DEFINITIONS — EMIT EXACTLY AS-IS IN MOCKS */
 typedef enum
 {
     IfxGtm_Pwm_Alignment_edge   = 0, 
@@ -235,7 +229,7 @@ typedef struct
     IfxPort_PadDriver   padDriver;       
 } IfxGtm_Pwm_Pin;
 
-/* Functions to mock */
+/* Functions from DRIVERS TO MOCK (exact signatures) */
 void IfxGtm_Pwm_init(IfxGtm_Pwm *pwm, IfxGtm_Pwm_Channel *channels, IfxGtm_Pwm_Config *config);
 void IfxGtm_Pwm_initConfig(IfxGtm_Pwm_Config *config, Ifx_GTM *gtmSFR);
 void IfxGtm_Pwm_updateChannelsDutyImmediate(IfxGtm_Pwm *pwm, float32 *requestDuty);
