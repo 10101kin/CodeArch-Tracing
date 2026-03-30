@@ -1,11 +1,13 @@
 {
-  "attempt": 7,
-  "phase_attempt": 5,
-  "phase": "production",
-  "success": false,
-  "errors": [
-    "C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_cx1zjvgh\\src\\gtm_tom_3_phase_inverter_pwm.c:22:10: fatal error: IfxPort_PinMap.h: No such file or directory"
-  ],
-  "timestamp": "2026-03-30T16:22:24.035902",
-  "project_name": "Refactor_the_TC387_3_phase_inverter_PWM_to_use_Ifx_r_20260330_160400"
+  "export_type": "node_json",
+  "export_reason": "stage_failed",
+  "node_stage": "code_generation",
+  "reviewer_name": null,
+  "reviewer_applied": false,
+  "modified_by": "system",
+  "modifier_name": null,
+  "workflow_stage": "code_generation_failed",
+  "target_board": "KIT_A2G_TC387_5V_TFT",
+  "generation_mode": "MIGRATION",
+  "timestamp": "2026-03-30T16:25:46.721299"
 }
