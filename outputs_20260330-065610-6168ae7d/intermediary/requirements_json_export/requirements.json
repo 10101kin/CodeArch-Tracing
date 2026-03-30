@@ -202,7 +202,7 @@
   },
   "device_configuration": {
     "target_device_macro": "DEVICE_TC38X",
-    "pin_package": "IFX_PIN_PACKAGE_292",
+    "pin_package": "IFX_PIN_PACKAGE_516",
     "device_family": "TC3xx",
     "clock_requirements": {
       "requires_xtal": true,
