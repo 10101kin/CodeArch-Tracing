@@ -1,0 +1,13 @@
+{
+  "export_type": "node_json",
+  "export_reason": "stage_completed",
+  "node_stage": "sw_architecture",
+  "reviewer_name": null,
+  "reviewer_applied": false,
+  "modified_by": "system",
+  "modifier_name": null,
+  "workflow_stage": "sw_architecture_validation",
+  "target_board": "KIT_A2G_TC387_5V_TFT",
+  "generation_mode": "MIGRATION",
+  "timestamp": "2026-03-30T15:36:27.781924"
+}
