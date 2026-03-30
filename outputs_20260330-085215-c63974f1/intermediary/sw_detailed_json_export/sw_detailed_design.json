@@ -1,0 +1,31 @@
+{
+  "module_name": "EGTM_ATOM_3_Phase_Inverter_PWM",
+  "public_functions": [
+    {
+      "signature": "void initEgtmAtom3phInv(void)",
+      "behavior_description": "Initialize a 3-phase complementary PWM using the unified eGTM PWM driver on ATOM in cluster 0. Steps: 1) Declare persistent module state (driver handle, persistent channels array, dutyCycles[3], deadTimes[3], phases[3]). 2) Declare local config structures: IfxEgtm_Pwm_Config, IfxEgtm_Pwm_ChannelConfig channelConfig[3], IfxEgtm_Pwm_DtmConfig dtmConfig[3], IfxEgtm_Pwm_InterruptConfig interruptConfig, IfxEgtm_Pwm_OutputConfig output[3]. 3) Call IfxEgtm_Pwm_initConfig(&config, &MODULE_EGTM) to load defaults. 4) Configure three logical channels (index 0..2) as complementary pairs: set each output[i] with a main pin and complementary pin, set HS active-high and LS active-low, push-pull pad. Assign output[i] to channelConfig[i]. 5) Configure dead-time for each pair: rising = 1 microsecond, falling = 1 microsecond via dtmConfig[i] and assign channelConfig[i].dtm = &dtmConfig[i]. 6) Set interruptConfig: mode pulse notify, isrProvider CPU0, priority 20, assign periodEvent = IfxEgtm_periodEventFunction and dutyEvent = NULL; assign channelConfig[0].interrupt = &interruptConfig (base channel only), and NULL for others. 7) Configure channelConfig logical indices: channelConfig[0].timerCh = SubModule_Ch_0; channelConfig[1].timerCh = SubModule_Ch_1; channelConfig[2].timerCh = SubModule_Ch_2; set phases = 0.0 for all. Set initial duties in percent: [25, 50, 75]. 8) Set main config fields: select the eGTM cluster 0 ATOM submodule, center-aligned mode, frequency = 20000 Hz, enable syncStart and syncUpdate, select ATOM clock source as FXCLK0, and select DTM clock index 0. 9) Inside an enable guard: if the eGTM module is not enabled, enable it and configure CMU clocks dynamically: read the module frequency at runtime, configure the global clock to run at the module frequency using a unity divider, configure the sub-clock (CLK0) for the PWM to the same frequency (unity setting), then enable the relevant clocks (include FXCLK0 and CLK0) via the CMU enable call. 10) Call IfxEgtm_Pwm_init to apply the configuration; it programs the base and sync channels, routes pins, and applies duties/phases/dead-times. 11) Store the handle and channel array pointer in the persistent module state; also cache the initial dutyCycles and deadTimes. 12) Configure the LED GPIO pin (used by the ISR) as a push-pull output after PWM init. Note: Pin routing is handled by the driver using the output[] configuration. The ISR installed by the driver routes to the IFX_INTERRUPT handler; the periodEvent callback is a separate application function with signature void IfxEgtm_periodEventFunction(void *data) and must not toggle the LED.",
+      "driver_calls": [
+        "IfxEgtm_Pwm_initConfig",
+        "IfxEgtm_isEnabled",
+        "IfxEgtm_enable",
+        "IfxEgtm_Cmu_getModuleFrequency",
+        "IfxEgtm_Cmu_setGclkDivider",
+        "IfxEgtm_Pwm_init"
+      ]
+    }
+  ],
+  "dependencies": {
+    "driver_calls": [
+      "IfxEgtm_Pwm_init"
+    ]
+  },
+  "header_selection": {
+    "applied": true,
+    "peripheral_type": "PWM",
+    "recommended_header": "IfxEgtm_Pwm",
+    "template_functions_count": 1461,
+    "required_includes": [
+      "IfxEgtm_Pwm.h"
+    ]
+  }
+}

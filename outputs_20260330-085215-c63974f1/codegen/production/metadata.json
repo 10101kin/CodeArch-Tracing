@@ -1,0 +1,17 @@
+{
+  "attempt": 7,
+  "phase_attempt": 3,
+  "phase": "production",
+  "success": false,
+  "errors": [
+    "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_g4di7jn1\\src\\egtm_atom_3_phase_inverter_pwm.c:15:10: fatal error: IfxPort_Pinmap.h: No such file or directory",
+    "subscripted value is neither array nor pointer nor vector",
+    "subscripted value is neither array nor pointer nor vector",
+    "subscripted value is neither array nor pointer nor vector",
+    "subscripted value is neither array nor pointer nor vector",
+    "subscripted value is neither array nor pointer nor vector",
+    "subscripted value is neither array nor pointer nor vector"
+  ],
+  "timestamp": "2026-03-30T17:35:08.487124",
+  "project_name": "Migrate_TC387_GTM_TOM_PWM_to_TC4D7_eGTM_ATOM_using_r_20260330_171505"
+}
