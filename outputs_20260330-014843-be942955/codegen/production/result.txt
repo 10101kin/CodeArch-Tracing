@@ -1,3 +1,57 @@
-Status: SUCCESS
+Status: FAILED
 
-LLM response for production phase (attempt 11), 11215 chars
+============================================================
+TDD CODE GENERATION - ATTEMPT STATUS
+============================================================
+Phase: production
+Attempt: 11
+Status: FAILED
+Timestamp: 2026-03-30 10:59:26
+Files generated: 2
+
+============================================================
+
+ERRORS:
+
+1. unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'
+
+2. unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'
+
+3. 'mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtRising' undeclared (first use in this function); did you mean 'mock_IfxEgtm_Pwm_updateChannelsDeadTimeImmediate_lastDtRising'?
+
+4. 'mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtFalling' undeclared (first use in this function); did you mean 'mock_IfxEgtm_Pwm_updateChannelsDeadTimeImmediate_lastDtFalling'?
+
+============================================================
+BUILD RESULT:
+{
+  "success": false,
+  "errors": [
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_uygdu6kn\\include/IfxEgtm_Pwm.h",
+      "line": 103,
+      "category": "error",
+      "message": "unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_uygdu6kn\\include/IfxEgtm_Pwm.h",
+      "line": 103,
+      "category": "error",
+      "message": "unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_uygdu6kn\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+      "line": 99,
+      "category": "error",
+      "message": "'mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtRising' undeclared (first use in this function); did you mean 'mock_IfxEgtm_Pwm_updateChannelsDeadTimeImmediate_lastDtRising'?"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_uygdu6kn\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+      "line": 103,
+      "category": "error",
+      "message": "'mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtFalling' undeclared (first use in this function); did you mean 'mock_IfxEgtm_Pwm_updateChannelsDeadTimeImmediate_lastDtFalling'?"
+    }
+  ],
+  "warnings": [],
+  "stderr": "In file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_uygdu6kn\\src\\egtm_atom_3_phase_inverter_pwm.c:11:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_uygdu6kn\\include/IfxEgtm_Pwm.h:103:5: error: unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'\n  103 |     IfxEgtm_Pwm_FastShutoffConfig *fastShutOff;\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_uygdu6kn\\mocks\\mock_egtm_atom_3_phase_inverter_pwm.c:5:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_uygdu6kn\\include/IfxEgtm_Pwm.h:103:5: error: unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'\n  103 |     IfxEgtm_Pwm_FastShutoffConfig *fastShutOff;\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\extsiyv\\Desktop\\Infineon\\Workstream_3\\agentic_workflow_Infineon\\unity/unity.h:22,\n                 from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_uygdu6kn\\test\\test_egtm_atom_3_phase_inverter_pwm.c:1:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_uygdu6kn\\test\\test_egtm_atom_3_phase_inverter_pwm.c: In function 'test_TC_G2_002_init_applies_1us_deadtime_per_channel':\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_uygdu6kn\\test\\test_egtm_atom_3_phase_inverter_pwm.c:99:80: error: 'mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtRising' undeclared (first use in this function); did you mean 'mock_IfxEgtm_Pwm_updateChannelsDeadTimeImmediate_lastDtRising'?\n   99 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, UT_DEAD_TIME_RISING_US, mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtRising[0], \"DT rising[0] must be 1.0 us\");\n      |                                                                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\Desktop\\Infineon\\Workstream_3\\agentic_workflow_Infineon\\unity/unity_internals.h:1119:183: note: in definition of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'\n 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))\n      |                                                                                                                                                                                       ^~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_uygdu6kn\\test\\test_egtm_atom_3_phase_inverter_pwm.c:99:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN_MESSAGE'\n   99 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, UT_DEAD_TIME_RISING_US, mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtRising[0], \"DT rising[0] must be 1.0 us\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_uygdu6kn\\test\\test_egtm_atom_3_phase_inverter_pwm.c:99:80: note: each undeclared identifier is reported only once for each function it appears in\n   99 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, UT_DEAD_TIME_RISING_US, mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtRising[0], \"DT rising[0] must be 1.0 us\");\n      |                                                                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\Desktop\\Infineon\\Workstream_3\\agentic_workflow_Infineon\\unity/unity_internals.h:1119:183: note: in definition of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'\n 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))\n      |                                                                                                                                                                                       ^~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_uygdu6kn\\test\\test_egtm_atom_3_phase_inverter_pwm.c:99:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN_MESSAGE'\n   99 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, UT_DEAD_TIME_RISING_US, mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtRising[0], \"DT rising[0] must be 1.0 us\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_uygdu6kn\\test\\test_egtm_atom_3_phase_inverter_pwm.c:103:81: error: 'mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtFalling' undeclared (first use in this function); did you mean 'mock_IfxEgtm_Pwm_updateChannelsDeadTimeImmediate_lastDtFalling'?\n  103 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, UT_DEAD_TIME_FALLING_US, mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtFalling[0], \"DT falling[0] must be 1.0 us\");\n      |                                                                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\Desktop\\Infineon\\Workstream_3\\agentic_workflow_Infineon\\unity/unity_internals.h:1119:183: note: in definition of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'\n 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))\n      |                                                                                                                                                                                       ^~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_uygdu6kn\\test\\test_egtm_atom_3_phase_inverter_pwm.c:103:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN_MESSAGE'\n  103 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, UT_DEAD_TIME_FALLING_US, mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtFalling[0], \"DT falling[0] must be 1.0 us\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n",
+  "stdout": ""
+}
