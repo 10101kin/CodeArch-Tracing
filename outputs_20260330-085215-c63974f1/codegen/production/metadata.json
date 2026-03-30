@@ -1,8 +1,13 @@
 {
-  "type": "llm_response",
-  "phase": "production",
   "attempt": 5,
   "phase_attempt": 2,
-  "response_length": 10250,
-  "timestamp": "2026-03-30T17:29:05.644796"
+  "phase": "production",
+  "success": false,
+  "errors": [
+    "assignment to 'IfxEgtm_Pwm_callBack' {aka 'void (*)(void)'} from incompatible pointer type 'void (*)(void *)' [-Wincompatible-pointer-types]",
+    "'mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtRising' undeclared (first use in this function); did you mean 'mock_IfxEgtm_Pwm_updateChannelsDeadTimeImmediate_lastDtRising'?",
+    "'mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtFalling' undeclared (first use in this function); did you mean 'mock_IfxEgtm_Pwm_updateChannelsDeadTimeImmediate_lastDtFalling'?"
+  ],
+  "timestamp": "2026-03-30T17:29:11.739129",
+  "project_name": "Migrate_TC387_GTM_TOM_PWM_to_TC4D7_eGTM_ATOM_using_r_20260330_171505"
 }
