@@ -1,8 +1,20 @@
 {
-  "type": "llm_response",
-  "phase": "production",
   "attempt": 9,
   "phase_attempt": 4,
-  "response_length": 12345,
-  "timestamp": "2026-03-30T14:03:26.224407"
+  "phase": "production",
+  "success": false,
+  "errors": [
+    "redeclaration of enumerator 'IfxGtm_Dtm_ClockSource_systemClock'",
+    "redeclaration of enumerator 'IfxGtm_Dtm_ClockSource_cmuClock0'",
+    "redeclaration of enumerator 'IfxGtm_Dtm_ClockSource_cmuClock1'",
+    "redeclaration of enumerator 'IfxGtm_Dtm_ClockSource_cmuClock2'",
+    "conflicting types for 'IfxGtm_Dtm_ClockSource'; have 'enum <anonymous>'",
+    "'Ifx_ActiveState_high' undeclared (first use in this function); did you mean 'Ifx_ActiveState'?",
+    "'Ifx_ActiveState_low' undeclared (first use in this function); did you mean 'Ifx_ActiveState'?",
+    "redeclaration of enumerator 'IfxGtm_Dtm_ClockSource_systemClock'",
+    "redeclaration of enumerator 'IfxGtm_Dtm_ClockSource_cmuClock0'",
+    "redeclaration of enumerator 'IfxGtm_Dtm_ClockSource_cmuClock1'"
+  ],
+  "timestamp": "2026-03-30T14:03:34.505553",
+  "project_name": "Upgrade_KIT_A2G_TC387_5V_TFT_TC3xx_3_phase_inver_r_20260330_133050"
 }
