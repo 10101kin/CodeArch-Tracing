@@ -1,17 +1,10 @@
+/* IfxGtm base mock header */
 #ifndef IFXGTM_H
 #define IFXGTM_H
 
 #include "mock_gtm_tom_3_phase_inverter_pwm.h"
 
-/* Additional GTM SFR sub-struct stubs referenced by PWM driver */
-typedef struct { uint32 reserved; } Ifx_GTM_ATOM;
-typedef struct { uint32 reserved; } Ifx_GTM_TOM;
-typedef struct { uint32 reserved; } Ifx_GTM_CDTM;
-
-/* Cluster type used by PWM driver */
-typedef uint32 IfxGtm_Cluster;
-
-/* Enums as per iLLD */
+/* Enums */
 typedef enum
 {
     IfxGtm_IrqMode_level       = 0,
@@ -27,8 +20,24 @@ typedef enum
     IfxGtm_SuspendMode_soft = 2
 } IfxGtm_SuspendMode;
 
-/* Functions from DRIVERS TO MOCK */
+/* Cluster enum (ensure presence of IfxGtm_Cluster_1 to fix previous build error) */
+typedef enum
+{
+    IfxGtm_Cluster_0 = 0,
+    IfxGtm_Cluster_1 = 1,
+    IfxGtm_Cluster_2 = 2,
+    IfxGtm_Cluster_3 = 3,
+    IfxGtm_Cluster_4 = 4,
+    IfxGtm_Cluster_5 = 5
+} IfxGtm_Cluster;
+
+/* Function declarations */
 boolean IfxGtm_isEnabled(Ifx_GTM *gtm);
 void    IfxGtm_enable(Ifx_GTM *gtm);
+boolean IfxGtm_isModuleSuspended(Ifx_GTM *gtm);
+void    IfxGtm_setSuspendMode(Ifx_GTM *gtm, IfxGtm_SuspendMode mode);
+void    IfxGtm_disable(Ifx_GTM *gtm);
+float32 IfxGtm_getSysClkFrequency(Ifx_GTM *gtm);
+float32 IfxGtm_getClusterFrequency(Ifx_GTM *gtm, IfxGtm_Cluster cluster);
 
 #endif /* IFXGTM_H */
