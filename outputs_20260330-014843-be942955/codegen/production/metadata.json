@@ -1,14 +1,13 @@
 {
-  "attempt": 11,
-  "phase_attempt": 5,
-  "phase": "production",
-  "success": false,
-  "errors": [
-    "unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'",
-    "unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'",
-    "'mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtRising' undeclared (first use in this function); did you mean 'mock_IfxEgtm_Pwm_updateChannelsDeadTimeImmediate_lastDtRising'?",
-    "'mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtFalling' undeclared (first use in this function); did you mean 'mock_IfxEgtm_Pwm_updateChannelsDeadTimeImmediate_lastDtFalling'?"
-  ],
-  "timestamp": "2026-03-30T10:59:26.460264",
-  "project_name": "Generate_TC4D7_eGTM_ATOM_migration_code_using_IfxE_r_20260330_101800"
+  "export_type": "node_json",
+  "export_reason": "stage_failed",
+  "node_stage": "code_generation",
+  "reviewer_name": null,
+  "reviewer_applied": false,
+  "modified_by": "system",
+  "modifier_name": null,
+  "workflow_stage": "code_generation_failed",
+  "target_board": "KIT_A3G_TC4D7_LITE",
+  "generation_mode": "MIGRATION",
+  "timestamp": "2026-03-30T11:03:20.577995"
 }
