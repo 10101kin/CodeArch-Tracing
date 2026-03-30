@@ -1,8 +1,20 @@
 {
-  "type": "llm_response",
-  "phase": "production",
   "attempt": 5,
   "phase_attempt": 2,
-  "response_length": 13762,
-  "timestamp": "2026-03-30T10:35:25.043293"
+  "phase": "production",
+  "success": false,
+  "errors": [
+    "redeclaration of enumerator 'IfxEgtm_Dtm_ClockSource_systemClock'",
+    "redeclaration of enumerator 'IfxEgtm_Dtm_ClockSource_cmuClock0'",
+    "redeclaration of enumerator 'IfxEgtm_Dtm_ClockSource_cmuClock1'",
+    "redeclaration of enumerator 'IfxEgtm_Dtm_ClockSource_cmuClock2'",
+    "redeclaration of enumerator 'IfxEgtm_Cluster_0'",
+    "redeclaration of enumerator 'IfxEgtm_Cluster_1'",
+    "redeclaration of enumerator 'IfxEgtm_Cluster_2'",
+    "conflicting types for 'IfxEgtm_Cluster'; have 'enum <anonymous>'",
+    "'IfxSrc_VmId_0' undeclared (first use in this function)",
+    "implicit conversion from 'enum <anonymous>' to 'IfxEgtm_Dtm_ClockSource' [-Werror=enum-conversion]"
+  ],
+  "timestamp": "2026-03-30T10:35:31.408159",
+  "project_name": "Generate_TC4D7_eGTM_ATOM_migration_code_using_IfxE_r_20260330_101800"
 }

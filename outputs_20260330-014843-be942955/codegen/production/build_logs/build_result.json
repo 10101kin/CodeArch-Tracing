@@ -2,12 +2,127 @@
   "success": false,
   "errors": [
     {
-      "file": "",
-      "message": "collect2.exe: error: ld returned 1 exit status",
-      "category": "error"
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\include/IfxEgtm_Pwm.h",
+      "line": 98,
+      "category": "error",
+      "message": "redeclaration of enumerator 'IfxEgtm_Dtm_ClockSource_systemClock'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\include/IfxEgtm_Pwm.h",
+      "line": 99,
+      "category": "error",
+      "message": "redeclaration of enumerator 'IfxEgtm_Dtm_ClockSource_cmuClock0'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\include/IfxEgtm_Pwm.h",
+      "line": 100,
+      "category": "error",
+      "message": "redeclaration of enumerator 'IfxEgtm_Dtm_ClockSource_cmuClock1'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\include/IfxEgtm_Pwm.h",
+      "line": 101,
+      "category": "error",
+      "message": "redeclaration of enumerator 'IfxEgtm_Dtm_ClockSource_cmuClock2'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\include/IfxEgtm_Pwm.h",
+      "line": 189,
+      "category": "error",
+      "message": "redeclaration of enumerator 'IfxEgtm_Cluster_0'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\include/IfxEgtm_Pwm.h",
+      "line": 190,
+      "category": "error",
+      "message": "redeclaration of enumerator 'IfxEgtm_Cluster_1'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\include/IfxEgtm_Pwm.h",
+      "line": 191,
+      "category": "error",
+      "message": "redeclaration of enumerator 'IfxEgtm_Cluster_2'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\include/IfxEgtm_Pwm.h",
+      "line": 192,
+      "category": "error",
+      "message": "conflicting types for 'IfxEgtm_Cluster'; have 'enum <anonymous>'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\src\\egtm_atom_3_phase_inverter_pwm.c",
+      "line": 160,
+      "category": "error",
+      "message": "'IfxSrc_VmId_0' undeclared (first use in this function)"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\src\\egtm_atom_3_phase_inverter_pwm.c",
+      "line": 200,
+      "category": "error",
+      "message": "implicit conversion from 'enum <anonymous>' to 'IfxEgtm_Dtm_ClockSource' [-Werror=enum-conversion]"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\include/IfxEgtm_Pwm.h",
+      "line": 98,
+      "category": "error",
+      "message": "redeclaration of enumerator 'IfxEgtm_Dtm_ClockSource_systemClock'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\include/IfxEgtm_Pwm.h",
+      "line": 99,
+      "category": "error",
+      "message": "redeclaration of enumerator 'IfxEgtm_Dtm_ClockSource_cmuClock0'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\include/IfxEgtm_Pwm.h",
+      "line": 100,
+      "category": "error",
+      "message": "redeclaration of enumerator 'IfxEgtm_Dtm_ClockSource_cmuClock1'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\include/IfxEgtm_Pwm.h",
+      "line": 101,
+      "category": "error",
+      "message": "redeclaration of enumerator 'IfxEgtm_Dtm_ClockSource_cmuClock2'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\include/IfxEgtm_Pwm.h",
+      "line": 189,
+      "category": "error",
+      "message": "redeclaration of enumerator 'IfxEgtm_Cluster_0'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\include/IfxEgtm_Pwm.h",
+      "line": 190,
+      "category": "error",
+      "message": "redeclaration of enumerator 'IfxEgtm_Cluster_1'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\include/IfxEgtm_Pwm.h",
+      "line": 191,
+      "category": "error",
+      "message": "redeclaration of enumerator 'IfxEgtm_Cluster_2'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\include/IfxEgtm_Pwm.h",
+      "line": 192,
+      "category": "error",
+      "message": "conflicting types for 'IfxEgtm_Cluster'; have 'enum <anonymous>'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+      "line": 99,
+      "category": "error",
+      "message": "'mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtRising' undeclared (first use in this function); did you mean 'mock_IfxEgtm_Pwm_updateChannelsDeadTimeImmediate_lastDtRising'?"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+      "line": 103,
+      "category": "error",
+      "message": "'mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtFalling' undeclared (first use in this function); did you mean 'mock_IfxEgtm_Pwm_updateChannelsDeadTimeImmediate_lastDtFalling'?"
     }
   ],
   "warnings": [],
-  "stderr": "C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe: C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_ye0znxyv\\obj\\src_egtm_atom_3_phase_inverter_pwm.o:egtm_atom_3_phase_inverter_pwm.c:(.rdata$.refptr.MODULE_P03[.refptr.MODULE_P03]+0x0): undefined reference to `MODULE_P03'\ncollect2.exe: error: ld returned 1 exit status\n",
+  "stderr": "In file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\src\\egtm_atom_3_phase_inverter_pwm.c:23:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\include/IfxEgtm_Pwm.h:98:5: error: redeclaration of enumerator 'IfxEgtm_Dtm_ClockSource_systemClock'\n   98 |     IfxEgtm_Dtm_ClockSource_systemClock,\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\include/IfxEgtm_Pwm.h:14:5: note: previous definition of 'IfxEgtm_Dtm_ClockSource_systemClock' with type 'enum <anonymous>'\n   14 |     IfxEgtm_Dtm_ClockSource_systemClock = 0,\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\include/IfxEgtm_Pwm.h:99:5: error: redeclaration of enumerator 'IfxEgtm_Dtm_ClockSource_cmuClock0'\n   99 |     IfxEgtm_Dtm_ClockSource_cmuClock0,\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\include/IfxEgtm_Pwm.h:15:5: note: previous definition of 'IfxEgtm_Dtm_ClockSource_cmuClock0' with type 'enum <anonymous>'\n   15 |     IfxEgtm_Dtm_ClockSource_cmuClock0   = 1,\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\include/IfxEgtm_Pwm.h:100:5: error: redeclaration of enumerator 'IfxEgtm_Dtm_ClockSource_cmuClock1'\n  100 |     IfxEgtm_Dtm_ClockSource_cmuClock1,\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\include/IfxEgtm_Pwm.h:16:5: note: previous definition of 'IfxEgtm_Dtm_ClockSource_cmuClock1' with type 'enum <anonymous>'\n   16 |     IfxEgtm_Dtm_ClockSource_cmuClock1   = 2,\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\include/IfxEgtm_Pwm.h:101:5: error: redeclaration of enumerator 'IfxEgtm_Dtm_ClockSource_cmuClock2'\n  101 |     IfxEgtm_Dtm_ClockSource_cmuClock2\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\include/IfxEgtm_Pwm.h:17:5: note: previous definition of 'IfxEgtm_Dtm_ClockSource_cmuClock2' with type 'enum <anonymous>'\n   17 |     IfxEgtm_Dtm_ClockSource_cmuClock2   = 3\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\include/IfxEgtm_Pwm.h:189:5: error: redeclaration of enumerator 'IfxEgtm_Cluster_0'\n  189 |     IfxEgtm_Cluster_0 = 0,\n      |     ^~~~~~~~~~~~~~~~~\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\include/IfxEgtm_Pwm.h:8:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\include/IfxEgtm.h:83:5: note: previous definition of 'IfxEgtm_Cluster_0' with type 'enum <anonymous>'\n   83 |     IfxEgtm_Cluster_0 = 0,\n      |     ^~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\include/IfxEgtm_Pwm.h:190:5: error: redeclaration of enumerator 'IfxEgtm_Cluster_1'\n  190 |     IfxEgtm_Cluster_1 = 1,\n      |     ^~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\include/IfxEgtm.h:84:5: note: previous definition of 'IfxEgtm_Cluster_1' with type 'enum <anonymous>'\n   84 |     IfxEgtm_Cluster_1 = 1,\n      |     ^~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\include/IfxEgtm_Pwm.h:191:5: error: redeclaration of enumerator 'IfxEgtm_Cluster_2'\n  191 |     IfxEgtm_Cluster_2 = 2\n      |     ^~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\include/IfxEgtm.h:85:5: note: previous definition of 'IfxEgtm_Cluster_2' with type 'enum <anonymous>'\n   85 |     IfxEgtm_Cluster_2 = 2\n      |     ^~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\include/IfxEgtm_Pwm.h:192:3: error: conflicting types for 'IfxEgtm_Cluster'; have 'enum <anonymous>'\n  192 | } IfxEgtm_Cluster;\n      |   ^~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\include/IfxEgtm.h:86:3: note: previous declaration of 'IfxEgtm_Cluster' with type 'IfxEgtm_Cluster'\n   86 | } IfxEgtm_Cluster;\n      |   ^~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\src\\egtm_atom_3_phase_inverter_pwm.c: In function 'initEgtmAtom3phInv':\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\src\\egtm_atom_3_phase_inverter_pwm.c:160:35: error: 'IfxSrc_VmId_0' undeclared (first use in this function)\n  160 |     interruptConfig.vmId        = IfxSrc_VmId_0;\n      |                                   ^~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\src\\egtm_atom_3_phase_inverter_pwm.c:160:35: note: each undeclared identifier is reported only once for each function it appears in\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\src\\egtm_atom_3_phase_inverter_pwm.c:200:31: error: implicit conversion from 'enum <anonymous>' to 'IfxEgtm_Dtm_ClockSource' [-Werror=enum-conversion]\n  200 |     config.dtmClockSource     = IfxEgtm_Dtm_ClockSource_cmuClock0;    /* DTM from CMU.CLK0 */\n      |                               ^\ncc1.exe: all warnings being treated as errors\n\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\mocks\\mock_egtm_atom_3_phase_inverter_pwm.c:9:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\include/IfxEgtm_Pwm.h:98:5: error: redeclaration of enumerator 'IfxEgtm_Dtm_ClockSource_systemClock'\n   98 |     IfxEgtm_Dtm_ClockSource_systemClock,\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\include/IfxEgtm_Pwm.h:14:5: note: previous definition of 'IfxEgtm_Dtm_ClockSource_systemClock' with type 'enum <anonymous>'\n   14 |     IfxEgtm_Dtm_ClockSource_systemClock = 0,\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\include/IfxEgtm_Pwm.h:99:5: error: redeclaration of enumerator 'IfxEgtm_Dtm_ClockSource_cmuClock0'\n   99 |     IfxEgtm_Dtm_ClockSource_cmuClock0,\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\include/IfxEgtm_Pwm.h:15:5: note: previous definition of 'IfxEgtm_Dtm_ClockSource_cmuClock0' with type 'enum <anonymous>'\n   15 |     IfxEgtm_Dtm_ClockSource_cmuClock0   = 1,\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\include/IfxEgtm_Pwm.h:100:5: error: redeclaration of enumerator 'IfxEgtm_Dtm_ClockSource_cmuClock1'\n  100 |     IfxEgtm_Dtm_ClockSource_cmuClock1,\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\include/IfxEgtm_Pwm.h:16:5: note: previous definition of 'IfxEgtm_Dtm_ClockSource_cmuClock1' with type 'enum <anonymous>'\n   16 |     IfxEgtm_Dtm_ClockSource_cmuClock1   = 2,\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\include/IfxEgtm_Pwm.h:101:5: error: redeclaration of enumerator 'IfxEgtm_Dtm_ClockSource_cmuClock2'\n  101 |     IfxEgtm_Dtm_ClockSource_cmuClock2\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\include/IfxEgtm_Pwm.h:17:5: note: previous definition of 'IfxEgtm_Dtm_ClockSource_cmuClock2' with type 'enum <anonymous>'\n   17 |     IfxEgtm_Dtm_ClockSource_cmuClock2   = 3\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\include/IfxEgtm_Pwm.h:189:5: error: redeclaration of enumerator 'IfxEgtm_Cluster_0'\n  189 |     IfxEgtm_Cluster_0 = 0,\n      |     ^~~~~~~~~~~~~~~~~\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\mocks\\mock_egtm_atom_3_phase_inverter_pwm.c:7:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\include/IfxEgtm.h:83:5: note: previous definition of 'IfxEgtm_Cluster_0' with type 'enum <anonymous>'\n   83 |     IfxEgtm_Cluster_0 = 0,\n      |     ^~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\include/IfxEgtm_Pwm.h:190:5: error: redeclaration of enumerator 'IfxEgtm_Cluster_1'\n  190 |     IfxEgtm_Cluster_1 = 1,\n      |     ^~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\include/IfxEgtm.h:84:5: note: previous definition of 'IfxEgtm_Cluster_1' with type 'enum <anonymous>'\n   84 |     IfxEgtm_Cluster_1 = 1,\n      |     ^~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\include/IfxEgtm_Pwm.h:191:5: error: redeclaration of enumerator 'IfxEgtm_Cluster_2'\n  191 |     IfxEgtm_Cluster_2 = 2\n      |     ^~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\include/IfxEgtm.h:85:5: note: previous definition of 'IfxEgtm_Cluster_2' with type 'enum <anonymous>'\n   85 |     IfxEgtm_Cluster_2 = 2\n      |     ^~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\include/IfxEgtm_Pwm.h:192:3: error: conflicting types for 'IfxEgtm_Cluster'; have 'enum <anonymous>'\n  192 | } IfxEgtm_Cluster;\n      |   ^~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\include/IfxEgtm.h:86:3: note: previous declaration of 'IfxEgtm_Cluster' with type 'IfxEgtm_Cluster'\n   86 | } IfxEgtm_Cluster;\n      |   ^~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\extsiyv\\Desktop\\Infineon\\Workstream_3\\agentic_workflow_Infineon\\unity/unity.h:22,\n                 from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\test\\test_egtm_atom_3_phase_inverter_pwm.c:1:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\test\\test_egtm_atom_3_phase_inverter_pwm.c: In function 'test_TC_G2_002_init_applies_1us_deadtime_per_channel':\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\test\\test_egtm_atom_3_phase_inverter_pwm.c:99:80: error: 'mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtRising' undeclared (first use in this function); did you mean 'mock_IfxEgtm_Pwm_updateChannelsDeadTimeImmediate_lastDtRising'?\n   99 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, UT_DEAD_TIME_RISING_US, mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtRising[0], \"DT rising[0] must be 1.0 us\");\n      |                                                                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\Desktop\\Infineon\\Workstream_3\\agentic_workflow_Infineon\\unity/unity_internals.h:1119:183: note: in definition of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'\n 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))\n      |                                                                                                                                                                                       ^~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\test\\test_egtm_atom_3_phase_inverter_pwm.c:99:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN_MESSAGE'\n   99 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, UT_DEAD_TIME_RISING_US, mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtRising[0], \"DT rising[0] must be 1.0 us\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\test\\test_egtm_atom_3_phase_inverter_pwm.c:99:80: note: each undeclared identifier is reported only once for each function it appears in\n   99 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, UT_DEAD_TIME_RISING_US, mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtRising[0], \"DT rising[0] must be 1.0 us\");\n      |                                                                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\Desktop\\Infineon\\Workstream_3\\agentic_workflow_Infineon\\unity/unity_internals.h:1119:183: note: in definition of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'\n 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))\n      |                                                                                                                                                                                       ^~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\test\\test_egtm_atom_3_phase_inverter_pwm.c:99:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN_MESSAGE'\n   99 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, UT_DEAD_TIME_RISING_US, mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtRising[0], \"DT rising[0] must be 1.0 us\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\test\\test_egtm_atom_3_phase_inverter_pwm.c:103:81: error: 'mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtFalling' undeclared (first use in this function); did you mean 'mock_IfxEgtm_Pwm_updateChannelsDeadTimeImmediate_lastDtFalling'?\n  103 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, UT_DEAD_TIME_FALLING_US, mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtFalling[0], \"DT falling[0] must be 1.0 us\");\n      |                                                                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\Desktop\\Infineon\\Workstream_3\\agentic_workflow_Infineon\\unity/unity_internals.h:1119:183: note: in definition of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'\n 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))\n      |                                                                                                                                                                                       ^~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_juk4ktze\\test\\test_egtm_atom_3_phase_inverter_pwm.c:103:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN_MESSAGE'\n  103 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, UT_DEAD_TIME_FALLING_US, mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtFalling[0], \"DT falling[0] must be 1.0 us\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n",
   "stdout": ""
 }
