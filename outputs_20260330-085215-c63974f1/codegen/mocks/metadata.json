@@ -1,8 +1,9 @@
 {
-  "type": "llm_response",
-  "phase": "mock",
   "attempt": 6,
   "phase_attempt": 3,
-  "response_length": 28480,
-  "timestamp": "2026-03-30T17:32:51.451240"
+  "phase": "mock_generation",
+  "success": true,
+  "errors": [],
+  "timestamp": "2026-03-30T17:32:57.463161",
+  "project_name": "Migrate_TC387_GTM_TOM_PWM_to_TC4D7_eGTM_ATOM_using_r_20260330_171505"
 }

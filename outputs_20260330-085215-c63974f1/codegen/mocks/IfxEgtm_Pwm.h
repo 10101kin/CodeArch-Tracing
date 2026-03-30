@@ -1,18 +1,20 @@
 #ifndef IFXEGTM_PWM_H
 #define IFXEGTM_PWM_H
-
 #include "mock_egtm_atom_3_phase_inverter_pwm.h"
 #include "IfxEgtm.h"
 #include "IfxEgtm_Cmu.h"
 #include "IfxPort.h"
 
-/* Local forward/aux types used by PWM */
-typedef struct IfxEgtm_Pwm_ToutMap { uint32 dummy; } IfxEgtm_Pwm_ToutMap;
-typedef struct { uint32 dummy; } IfxEgtm_Pwm_FastShutoffConfig;
-typedef struct { uint32 reserved; } Ifx_EGTM_CLS; /* cluster SFR placeholder */
+/* Callback type used in PWM driver */
 typedef void (*IfxEgtm_Pwm_callBack)(void);
 
-/* VERIFIED TYPE DEFINITIONS — DO NOT MODIFY ORDER OR CONTENT */
+/* Provide ToutMap used by OutputConfig/Pin (union form) */
+typedef union {
+    uint32 atom; /* placeholder compatible field */
+    uint32 tom;  /* placeholder compatible field */
+} IfxEgtm_Pwm_ToutMap;
+
+/* VERIFIED TYPE DEFINITIONS — emit exactly as provided */
 typedef enum
 {
     IfxEgtm_Pwm_Alignment_edge   = 0, 
@@ -99,6 +101,9 @@ typedef struct
     float32 rising;        
     float32 falling;       
 } IfxEgtm_Pwm_DeadTime;
+
+/* Forward declare to satisfy pointer usage */
+typedef struct IfxEgtm_Pwm_FastShutoffConfig IfxEgtm_Pwm_FastShutoffConfig;
 
 typedef struct
 {
@@ -218,9 +223,10 @@ typedef struct
 #if IFXEGTM_PWM_IS_HIGH_RES_AVAILABLE 
     boolean                    highResEnable;          
     boolean                    dtmHighResEnable;       
-#endif /* IFXEGTM_PWM_IS_HIGH_RES_AVAILABLE */ 
+/* #if IFXEGTM_PWM_IS_HIGH_RES_AVAILABLE */ 
     boolean                    syncUpdateEnabled;      
     boolean                    syncStart;              
+#endif
 } IfxEgtm_Pwm_Config;
 
 typedef struct
@@ -230,18 +236,14 @@ typedef struct
     IfxPort_PadDriver    padDriver;        
 } IfxEgtm_Pwm_Pin;
 
-/* Function declarations used by this module/tests */
-void IfxCpu_Irq_installInterruptHandler(void (*isr)(void), int vectabNum, int priority);
+/* Minimal function declarations needed by this module/tests */
+void IfxCpu_Irq_installInterruptHandler(void (*isr)(void), int vectabNum, Ifx_Priority priority);
 void IfxCpu_enableInterrupts(void);
 
 void IfxEgtm_Pwm_initConfig(IfxEgtm_Pwm_Config *config, Ifx_EGTM *egtmSFR);
 void IfxEgtm_Pwm_init(IfxEgtm_Pwm *pwm, IfxEgtm_Pwm_Channel *channels, IfxEgtm_Pwm_Config *config);
 
-/* Commonly used update helpers (stubs provided) */
-void IfxEgtm_Pwm_updateChannelsDutyImmediate(IfxEgtm_Pwm *pwm, const float32 *duties);
-void IfxEgtm_Pwm_updateChannelsDeadTimeImmediate(IfxEgtm_Pwm *pwm, const float32 *dtRising, const float32 *dtFalling);
-
-/* Pin symbol externs must appear here with the correct type */
-extern IfxEgtm_Pwm_ToutMap IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT;
+/* Optional helper to allow tests to feed duty arrays and trigger bounded copy spy */
+void IfxEgtm_Pwm_updateChannelsDutyImmediate(IfxEgtm_Pwm *pwm, IfxEgtm_Pwm_Channel *channels, const float32 *duties);
 
 #endif /* IFXEGTM_PWM_H */

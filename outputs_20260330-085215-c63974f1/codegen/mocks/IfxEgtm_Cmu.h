@@ -1,6 +1,5 @@
 #ifndef IFXEGTM_CMU_H
 #define IFXEGTM_CMU_H
-
 #include "mock_egtm_atom_3_phase_inverter_pwm.h"
 
 /* CMU enums */
@@ -30,40 +29,27 @@ typedef enum {
 } IfxEgtm_Cmu_Fxclk;
 
 typedef enum {
-    IfxEgtm_Cmu_Tim_Filter_Clk_0 = 0,  /* FLT_CNT counts with CMU_CLK0 */
-    IfxEgtm_Cmu_Tim_Filter_Clk_1,      /* FLT_CNT counts with CMU_CLK1 */
-    IfxEgtm_Cmu_Tim_Filter_Clk_6,      /* FLT_CNT counts with CMU_CLK6 */
-    IfxEgtm_Cmu_Tim_Filter_Clk_7       /* FLT_CNT counts with CMU_CLK7 */
+    IfxEgtm_Cmu_Tim_Filter_Clk_0 = 0,
+    IfxEgtm_Cmu_Tim_Filter_Clk_1,
+    IfxEgtm_Cmu_Tim_Filter_Clk_6,
+    IfxEgtm_Cmu_Tim_Filter_Clk_7
 } IfxEgtm_Cmu_Tim_Filter_Clk;
 
-/* CMU CLKEN macros */
 #ifndef IFXEGTM_CMU_CLKEN_FXCLK
-#define IFXEGTM_CMU_CLKEN_FXCLK (0x1u)
+#define IFXEGTM_CMU_CLKEN_FXCLK (1u << 0)
 #endif
 #ifndef IFXEGTM_CMU_CLKEN_CLK0
-#define IFXEGTM_CMU_CLKEN_CLK0  (0x2u)
+#define IFXEGTM_CMU_CLKEN_CLK0 (1u << 1)
 #endif
 
-/* Mandatory function declarations */
+/* Mandatory CMU functions */
 void    IfxEgtm_Cmu_enable(Ifx_EGTM *module);
 boolean IfxEgtm_Cmu_isEnabled(Ifx_EGTM *module);
-float32 IfxEgtm_Cmu_getModuleFrequency(Ifx_EGTM *egtm);
-void    IfxEgtm_Cmu_setGclkFrequency(Ifx_EGTM *egtm, float32 frequency);
-void    IfxEgtm_Cmu_setClkFrequency(Ifx_EGTM *egtm, IfxEgtm_Cmu_Clk clkIndex, float32 frequency);
-void    IfxEgtm_Cmu_enableClocks(Ifx_EGTM *egtm, uint32 clkMask);
-
-/* Additional commonly-used clock helpers (stubs provided) */
-float32 IfxEgtm_Cmu_getGclkFrequency(Ifx_EGTM *egtm);
-float32 IfxEgtm_Cmu_getClkFrequency(Ifx_EGTM *egtm, IfxEgtm_Cmu_Clk clkIndex, boolean assumeEnabled);
-void    IfxEgtm_Cmu_setEclkDivider(Ifx_EGTM *egtm, uint32 div);
-void    IfxEgtm_Cmu_setGclkDivider(Ifx_EGTM *egtm, uint32 div);
-float32 IfxEgtm_Cmu_getEclkFrequency(Ifx_EGTM *egtm);
-float32 IfxEgtm_Cmu_getFxClkFrequency(Ifx_EGTM *egtm);
-boolean IfxEgtm_Cmu_isClkClockEnabled(Ifx_EGTM *egtm, IfxEgtm_Cmu_Clk clk);
-boolean IfxEgtm_Cmu_isEclkClockEnabled(Ifx_EGTM *egtm);
-boolean IfxEgtm_Cmu_isFxClockEnabled(Ifx_EGTM *egtm);
-void    IfxEgtm_Cmu_selectClkInput(Ifx_EGTM *egtm, IfxEgtm_Cmu_Clk clk, uint32 input);
-void    IfxEgtm_Cmu_setClkCount(Ifx_EGTM *egtm, IfxEgtm_Cmu_Clk clk, uint32 count);
-void    IfxEgtm_Cmu_setClkFrequency_ex(Ifx_EGTM *egtm, IfxEgtm_Cmu_Clk clk, float32 frequency);
+void    IfxEgtm_Cmu_enableClocks(Ifx_EGTM *module, uint32 mask);
+float32 IfxEgtm_Cmu_getModuleFrequency(Ifx_EGTM *module);
+float32 IfxEgtm_Cmu_getGclkFrequency(Ifx_EGTM *module);
+float32 IfxEgtm_Cmu_getClkFrequency(Ifx_EGTM *module, IfxEgtm_Cmu_Clk clk, boolean assumeEnabled);
+void    IfxEgtm_Cmu_setGclkFrequency(Ifx_EGTM *module, float32 frequency);
+void    IfxEgtm_Cmu_setClkFrequency(Ifx_EGTM *module, IfxEgtm_Cmu_Clk clk, float32 frequency);
 
 #endif /* IFXEGTM_CMU_H */
