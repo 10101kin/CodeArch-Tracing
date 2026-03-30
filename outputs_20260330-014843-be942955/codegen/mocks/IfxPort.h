@@ -2,17 +2,19 @@
 #define IFXPORT_H
 
 #include "mock_egtm_atom_3_phase_inverter_pwm.h"
-#include "IfxEgtm.h" /* For IfxApApu_ApuConfig, IfxApProt_ProtConfig used in some structs */
 
-/* Macros used by this header */
+/* Local helper types used by port/AP modules (single-owner in this header) */
+typedef struct { uint32 dummy; } IfxApApu_ApuConfig;
+typedef struct { uint32 dummy; } IfxApProt_ProtConfig;
+
 #ifndef IFXPORT_NUM_APU
-#define IFXPORT_NUM_APU 1
+#define IFXPORT_NUM_APU   (2)
 #endif
 #ifndef IFXPORT_NUM_PINS
-#define IFXPORT_NUM_PINS 1
+#define IFXPORT_NUM_PINS  (64)
 #endif
 
-/* Enums first */
+/* Enums (order: all enums before structs) */
 typedef enum { IfxPort_ControlledBy_port = 0, IfxPort_ControlledBy_hsct = 1 } IfxPort_ControlledBy;
 
 typedef enum
@@ -104,8 +106,8 @@ typedef enum
 {
     IfxPort_State_notChanged = (0 << 16) | (0 << 0),
     IfxPort_State_high       = (0 << 16) | (1U << 0),
-    IfxPort_State_low        = (1U << 16) | (0 << 0),
-    IfxPort_State_toggled    = (1U << 16) | (1U << 0)
+    IfxPort_State_low        = (1 << 16) | (0 << 0),
+    IfxPort_State_toggled    = (1 << 16) | (1 << 0)
 } IfxPort_State;
 
 typedef enum
@@ -136,7 +138,7 @@ typedef enum
     IfxPort_BlankingTimerConfig_7ms = 3
 } IfxPort_BlankingTimerConfig;
 
-typedef enum { IfxPort_EsrLevel_0 = 0, IfxPort_EsrLevel_1 = 1 } IfxPort_EsrLevel;
+typedef enum { IfxPort_EsrLevel_0 = 0 } IfxPort_EsrLevel;
 
 typedef enum { IfxPort_EsrPadCfg_PP = 0, IfxPort_EsrPadCfg_TPU = 1, IfxPort_EsrPadCfg_TPD = 2 } IfxPort_EsrPadCfg;
 
@@ -194,16 +196,22 @@ typedef struct
     IfxPort_PadDriver padDriver;
 } IfxPort_Pin_Config;
 
-typedef struct { /* APU Configurations */ IfxApApu_ApuConfig apuConfig; uint8 grpNum; } IfxPort_ApuConfig;
+typedef struct
+{
+    IfxApApu_ApuConfig apuConfig;
+    uint8              grpNum;
+} IfxPort_ApuConfig;
 
-typedef struct { IfxApApu_ApuConfig apuConfig[IFXPORT_NUM_APU]; IfxPort_Pin_ApuConfig pinConfig[IFXPORT_NUM_PINS]; } IfxPort_ApuGroupConfig;
+typedef struct
+{
+    IfxApApu_ApuConfig    apuConfig[IFXPORT_NUM_APU];
+    IfxPort_Pin_ApuConfig pinConfig[IFXPORT_NUM_PINS];
+} IfxPort_ApuGroupConfig;
 
 typedef struct { IfxApProt_ProtConfig protseConfig; } IfxPort_ProtConfig;
 
-/* Function declarations (subset used by module/tests) */
+/* Functions to mock */
 void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
 void IfxPort_togglePin(Ifx_P *port, uint8 pinIndex);
-
-/* The full iLLD has many more APIs; tests may declare/use others. Keep minimal here per DRIVERS TO MOCK. */
 
 #endif /* IFXPORT_H */
