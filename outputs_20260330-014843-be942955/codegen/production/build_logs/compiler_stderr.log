@@ -1,0 +1,2 @@
+C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe: C:\Users\extsiyv\AppData\Local\Temp\tdd_build_ye0znxyv\obj\src_egtm_atom_3_phase_inverter_pwm.o:egtm_atom_3_phase_inverter_pwm.c:(.rdata$.refptr.MODULE_P03[.refptr.MODULE_P03]+0x0): undefined reference to `MODULE_P03'
+collect2.exe: error: ld returned 1 exit status
