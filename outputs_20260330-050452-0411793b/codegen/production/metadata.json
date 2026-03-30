@@ -1,20 +1,13 @@
 {
-  "attempt": 11,
-  "phase_attempt": 5,
-  "phase": "production",
-  "success": false,
-  "errors": [
-    "unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?",
-    "unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Tom_ToutMap'?",
-    "conflicting types for 'mock_IfxGtm_Pwm_init_callCount'; have 'unsigned int'",
-    "conflicting types for 'mock_IfxGtm_Pwm_initConfig_callCount'; have 'unsigned int'",
-    "conflicting types for 'mock_IfxGtm_Pwm_updateChannelsDutyImmediate_callCount'; have 'unsigned int'",
-    "conflicting types for 'mock_IfxGtm_isEnabled_callCount'; have 'unsigned int'",
-    "conflicting types for 'mock_IfxGtm_enable_callCount'; have 'unsigned int'",
-    "conflicting types for 'mock_IfxGtm_Cmu_getModuleFrequency_callCount'; have 'unsigned int'",
-    "conflicting types for 'mock_IfxGtm_Cmu_enableClocks_callCount'; have 'unsigned int'",
-    "conflicting types for 'mock_IfxPort_togglePin_callCount'; have 'unsigned int'"
-  ],
-  "timestamp": "2026-03-30T14:09:19.002221",
-  "project_name": "Upgrade_KIT_A2G_TC387_5V_TFT_TC3xx_3_phase_inver_r_20260330_133050"
+  "export_type": "node_json",
+  "export_reason": "stage_failed",
+  "node_stage": "code_generation",
+  "reviewer_name": null,
+  "reviewer_applied": false,
+  "modified_by": "system",
+  "modifier_name": null,
+  "workflow_stage": "code_generation_failed",
+  "target_board": "KIT_A2G_TC387_5V_TFT",
+  "generation_mode": "MIGRATION",
+  "timestamp": "2026-03-30T14:13:37.959959"
 }
