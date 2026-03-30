@@ -19,14 +19,14 @@
     "primary_driver": "IfxGtm_Pwm",
     "available_in_template": true,
     "initialization_apis": [
-      "IfxGtm_Tom_Pwm_initConfig",
-      "IfxGtm_Tom_Pwm_init",
+      "IfxGtm_Pwm_initConfig",
+      "IfxGtm_Pwm_init",
       "IfxGtm_isEnabled",
       "IfxGtm_enable",
       "IfxGtm_Cmu_enableClocks"
     ],
     "runtime_apis": [
-      "IfxGtm_Tom_Pwm_setOnTime",
+      "IfxGtm_Pwm_updateChannelsDuty",
       "IfxPort_togglePin"
     ],
     "file_structure": {
@@ -44,8 +44,8 @@
     "init_function": {
       "name": "initGtmTom3phInv",
       "driver_calls": [
-        "IfxGtm_Tom_Pwm_initConfig",
-        "IfxGtm_Tom_Pwm_init",
+        "IfxGtm_Pwm_initConfig",
+        "IfxGtm_Pwm_init",
         "IfxGtm_isEnabled",
         "IfxGtm_enable",
         "IfxGtm_Cmu_enableClocks"
@@ -54,7 +54,7 @@
     "runtime_function": {
       "name": "updateGtmTom3phInvDuty",
       "driver_calls": [
-        "IfxGtm_Tom_Pwm_setOnTime"
+        "IfxGtm_Pwm_updateChannelsDuty"
       ],
       "purpose": "Apply percentage-based duty updates to U, V, W with synchronous update enabled, using wrap rule and 10% step increments."
     }
@@ -68,17 +68,17 @@
     "api_changes": [
       {
         "from": "IfxGtm_Tom_PwmHl_initConfig",
-        "to": "IfxGtm_Tom_Pwm_initConfig",
+        "to": "IfxGtm_Pwm_initConfig",
         "reason": "Use unified high-level PWM configuration"
       },
       {
         "from": "IfxGtm_Tom_PwmHl_init",
-        "to": "IfxGtm_Tom_Pwm_init",
+        "to": "IfxGtm_Pwm_init",
         "reason": "Unified driver handles multi-channel complementary setup and sync start"
       },
       {
         "from": "IfxGtm_Tom_PwmHl_setOnTime",
-        "to": "IfxGtm_Tom_Pwm_setOnTime",
+        "to": "IfxGtm_Pwm_updateChannelsDuty",
         "reason": "Unified driver percentage duty update with synchronous shadow transfer"
       },
       {
@@ -92,13 +92,13 @@
   "header_selection": {
     "applied": true,
     "peripheral_type": "PWM",
-    "recommended_header": "IfxGtm_Tom_Pwm",
+    "recommended_header": "IfxGtm_Pwm",
     "score": 329,
     "required_includes": [
-      "IfxGtm_Tom_Pwm.h"
+      "IfxGtm_Pwm.h"
     ],
     "function_mapping": {
-      "IfxGtm_enable": "IfxGtm_Tom_Pwm_enableChannelOutput"
+      "IfxGtm_enable": "IfxGtm_Pwm_enableChannelOutput"
     },
     "available_functions_count": 99
   },
@@ -126,12 +126,12 @@
       "IfxGtm_Tom_PwmHl": {
         "target_driver": "IfxGtm_Pwm",
         "api_mapping": {
-          "IfxGtm_Tom_PwmHl_init": "IfxGtm_Tom_Pwm_init",
-          "IfxGtm_Tom_PwmHl_initConfig": "IfxGtm_Tom_Pwm_initConfig",
-          "IfxGtm_Tom_PwmHl_setOnTime": "IfxGtm_Tom_Pwm_setOnTime",
-          "IfxGtm_Tom_PwmHl_setPeriod": "IfxGtm_Tom_Pwm_setPeriod",
-          "IfxGtm_Tom_PwmHl_start": "IfxGtm_Tom_Pwm_start",
-          "IfxGtm_Tom_PwmHl_stop": "IfxGtm_Tom_Pwm_stop"
+          "IfxGtm_Tom_PwmHl_init": "IfxGtm_Pwm_init",
+          "IfxGtm_Tom_PwmHl_initConfig": "IfxGtm_Pwm_initConfig",
+          "IfxGtm_Tom_PwmHl_setOnTime": "IfxGtm_Pwm_setDuty",
+          "IfxGtm_Tom_PwmHl_setPeriod": "IfxGtm_Pwm_updatePeriod",
+          "IfxGtm_Tom_PwmHl_start": "IfxGtm_Pwm_start",
+          "IfxGtm_Tom_PwmHl_stop": "IfxGtm_Pwm_stop"
         },
         "upgrade_reason": "Known upgrade path: IfxGtm_Tom_PwmHl → IfxGtm_Pwm"
       },
