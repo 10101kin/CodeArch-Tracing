@@ -1,0 +1,225 @@
+{
+  "generation_mode": "MIGRATION",
+  "migration_info": {
+    "has_reference": true,
+    "reference_family": "TC3xx",
+    "target_family": "TC3xx",
+    "migration_required": false,
+    "driver_mappings": {
+      "IfxGtm_Tom_PwmHl": "IfxGtm_Pwm"
+    },
+    "header_mappings": {
+      "IfxGtm_Tom_PwmHl.h": "IfxGtm_Pwm.h"
+    },
+    "api_changes": [
+      {
+        "from": "IfxGtm_Tom_PwmHl_initConfig",
+        "to": "IfxGtm_Pwm_initConfig",
+        "reason": "Upgrade to high-level unified PWM driver on GTM"
+      },
+      {
+        "from": "IfxGtm_Tom_PwmHl_init",
+        "to": "IfxGtm_Pwm_init",
+        "reason": "Upgrade to high-level unified PWM driver on GTM"
+      },
+      {
+        "from": "IfxGtm_Tom_PwmHl_setOnTime",
+        "to": "IfxGtm_Pwm_updateChannelsDutyImmediate",
+        "reason": "Unified duty update API in IfxGtm_Pwm"
+      },
+      {
+        "from": "IfxGtm_Tom_PwmHl_setMode (center-aligned)",
+        "to": "Configure center-aligned mode in IfxGtm_Pwm initConfig",
+        "reason": "Mode handled via IfxGtm_Pwm configuration"
+      }
+    ],
+    "function_names_to_preserve": [
+      "initGtmTom3phInv",
+      "updateGtmTom3phInvDuty"
+    ],
+    "explicit_driver_upgrade": true,
+    "target_driver": "IfxGtm_Pwm"
+  },
+  "peripheral_requirement": {
+    "type": "PWM",
+    "driver_available": true,
+    "driver_name": "IfxGtm_Pwm",
+    "purpose": "3-phase inverter PWM on GTM TOM1, cluster_1, center-aligned, complementary pairs with 1 us deadtime at 20 kHz; synchronized start/update; percent duty (0..100)",
+    "driver_locked": true,
+    "driver_selection_source": "user_explicit"
+  },
+  "signal_requirements": {
+    "gtm_unit": "GTM",
+    "tom_index": 1,
+    "cluster_index": 1,
+    "pairs": 3,
+    "channel_pairs_order": [
+      {
+        "phase": "U",
+        "tom_channels": [
+          0,
+          1
+        ],
+        "pins": [
+          "P02.0",
+          "P02.7"
+        ],
+        "osel_indices": [
+          0,
+          0
+        ]
+      },
+      {
+        "phase": "V",
+        "tom_channels": [
+          2,
+          3
+        ],
+        "pins": [
+          "P02.1",
+          "P02.4"
+        ],
+        "osel_indices": [
+          0,
+          0
+        ]
+      },
+      {
+        "phase": "W",
+        "tom_channels": [
+          4,
+          5
+        ],
+        "pins": [
+          "P02.2",
+          "P02.5"
+        ],
+        "osel_indices": [
+          0,
+          0
+        ]
+      }
+    ],
+    "pinmap_variant": "IfxGtm_PinMap_TC38x_LFBGA516",
+    "pin_binding_resolution": "Auto-resolve TOM1 channel to P02.x using IfxGtm_PinMap for TC38x LFBGA516; if multiple OSEL exist, prefer OSEL=0. Verify actual TOUT mappings on KIT_A2G_TC387_5V_TFT.",
+    "output_polarity": "complementary",
+    "duty_interface": "percent_0_100",
+    "initial_duty_percent": {
+      "U": 25,
+      "V": 50,
+      "W": 75
+    },
+    "duty_step_percent": 10,
+    "wrap_behavior": "wrap_to_0_then_add_step",
+    "sync_start": true,
+    "sync_update": true,
+    "period_callback": "IfxGtm_periodEventFunction (empty user hook)",
+    "notes": "Channel numbers and OSEL indices are provided as a sensible default (0/1, 2/3, 4/5). Validate exact TOM1-TOUT routing for P02.[0,7,1,4,2,5] with IfxGtm_PinMap_TC38x_LFBGA516."
+  },
+  "timing_requirements": {
+    "pwm_frequency_hz": 20000,
+    "center_aligned": true,
+    "deadtime_ns_rising": 1000,
+    "deadtime_ns_falling": 1000,
+    "update_period_ms": 500,
+    "enable_guard": {
+      "gtm_enable_only_if_disabled": true,
+      "set_gclk_if_not_set": true,
+      "set_fxclk0_if_not_set": true
+    },
+    "atom_isr": {
+      "source": "GTM_ATOM0_CH0",
+      "priority": 20,
+      "frequency_hz": 1000,
+      "action": "toggle_pin",
+      "pin": "P13.0",
+      "cpu_target": "cpu0"
+    }
+  },
+  "device_configuration": {
+    "target_device_macro": "DEVICE_TC38X",
+    "pin_package": "IFX_PIN_PACKAGE_516",
+    "device_family": "TC3xx",
+    "clock_requirements": {
+      "requires_xtal": true,
+      "expected_system_freq_mhz": 300,
+      "gtm_clock": {
+        "gclk_hz": 100000000,
+        "fxclk0_hz": 100000000
+      }
+    }
+  },
+  "code_structure": {
+    "file_pattern": "reference",
+    "expected_files": [
+      "GTM_TOM_3_Phase_Inverter_PWM.c",
+      "GTM_TOM_3_Phase_Inverter_PWM.h"
+    ],
+    "has_cpu_files": true
+  },
+  "reference_context": {
+    "includes_used": [
+      "Ifx_Types.h",
+      "IfxCpu.h",
+      "IfxScuWdt.h",
+      "Bsp.h",
+      "IfxGtm_Tom_PwmHl.h"
+    ],
+    "function_patterns": [
+      "initGtmTom3phInv",
+      "updateGtmTom3phInvDuty"
+    ],
+    "peripheral_usage": {
+      "GTM": "PWM generation for 3-phase inverter using TOM",
+      "Port": "Pin configuration and GPIO toggle on P13.0",
+      "Stm": "Delay 500 ms via IfxStm_getTicksFromMilliseconds",
+      "Src": "ATOM0 CH0 ISR routing with priority 20"
+    }
+  },
+  "template_compatibility": {
+    "validated": true,
+    "supported_peripherals": [
+      "PWM",
+      "GTM",
+      "TIMER",
+      "STM",
+      "GPIO",
+      "INTERRUPT"
+    ],
+    "suggested_drivers": {
+      "PWM": [
+        "IfxGtm_Pwm"
+      ],
+      "GTM": [
+        "IfxGtm_Pwm"
+      ],
+      "TIMER": [
+        "IfxGtm_Pwm"
+      ],
+      "STM": [
+        "IfxStm",
+        "IfxStm_Timer"
+      ],
+      "GPIO": [
+        "IfxPort_Io",
+        "IfxPort"
+      ],
+      "INTERRUPT": [
+        "IfxCpu_Irq"
+      ],
+      "_driver_selection": {
+        "explicit_target": "IfxGtm_Pwm",
+        "replaced_source": "IfxGtm_Tom_PwmHl",
+        "primary_drivers": [
+          "IfxGtm_Pwm"
+        ],
+        "avoid_drivers": [
+          "IfxGtm_Tom_PwmHl"
+        ]
+      }
+    },
+    "warnings": []
+  },
+  "header_documentation_available": true,
+  "config_values_extracted": 16
+}
