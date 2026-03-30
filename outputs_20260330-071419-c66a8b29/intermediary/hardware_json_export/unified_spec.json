@@ -2,7 +2,7 @@
   "meta": {
     "schema_version": "1.0",
     "last_updated_by": "hardware",
-    "last_updated_at": "2026-03-30T15:19:33.027400",
+    "last_updated_at": "2026-03-30T15:20:25.882758",
     "build_sequence": [
       "requirements",
       "hardware"
@@ -233,56 +233,62 @@
       {
         "signal": "U_high (TOM1_CH1)",
         "port_pin": "P00.2",
-        "function": "TBD",
-        "pin_macro": "TBD",
+        "function": "unverified",
+        "pin_macro": "unverified",
         "is_complementary": false,
         "verified": false,
-        "source": "hardware_verified"
+        "source": "hardware_verified",
+        "note": "Complementary + deadtime support for TOM1 with IfxGtm_Pwm is pending confirmation. Fallback plan: if not supported, evaluate IfxGtm_Tom_PwmHl or migrate to ATOM (e.g., IfxGtm_Atom_Pwm) for complementary outputs with deadtime."
       },
       {
         "signal": "U_low (TOM1_CH2)",
         "port_pin": "P00.3",
-        "function": "TBD",
-        "pin_macro": "TBD",
+        "function": "unverified",
+        "pin_macro": "unverified",
         "is_complementary": true,
         "verified": false,
-        "source": "hardware_verified"
+        "source": "hardware_verified",
+        "note": "Complementary + deadtime support for TOM1 with IfxGtm_Pwm is pending confirmation. Fallback plan: if not supported, evaluate IfxGtm_Tom_PwmHl or migrate to ATOM (e.g., IfxGtm_Atom_Pwm) for complementary outputs with deadtime."
       },
       {
         "signal": "V_high (TOM1_CH3)",
         "port_pin": "P00.4",
-        "function": "TBD",
-        "pin_macro": "TBD",
+        "function": "unverified",
+        "pin_macro": "unverified",
         "is_complementary": false,
         "verified": false,
-        "source": "hardware_verified"
+        "source": "hardware_verified",
+        "note": "Complementary + deadtime support for TOM1 with IfxGtm_Pwm is pending confirmation. Fallback plan: if not supported, evaluate IfxGtm_Tom_PwmHl or migrate to ATOM (e.g., IfxGtm_Atom_Pwm) for complementary outputs with deadtime."
       },
       {
         "signal": "V_low (TOM1_CH4)",
         "port_pin": "P00.5",
-        "function": "TBD",
-        "pin_macro": "TBD",
+        "function": "unverified",
+        "pin_macro": "unverified",
         "is_complementary": true,
         "verified": false,
-        "source": "hardware_verified"
+        "source": "hardware_verified",
+        "note": "Complementary + deadtime support for TOM1 with IfxGtm_Pwm is pending confirmation. Fallback plan: if not supported, evaluate IfxGtm_Tom_PwmHl or migrate to ATOM (e.g., IfxGtm_Atom_Pwm) for complementary outputs with deadtime."
       },
       {
         "signal": "W_high (TOM1_CH5)",
         "port_pin": "P00.6",
-        "function": "TBD",
-        "pin_macro": "TBD",
+        "function": "unverified",
+        "pin_macro": "unverified",
         "is_complementary": false,
         "verified": false,
-        "source": "hardware_verified"
+        "source": "hardware_verified",
+        "note": "Complementary + deadtime support for TOM1 with IfxGtm_Pwm is pending confirmation. Fallback plan: if not supported, evaluate IfxGtm_Tom_PwmHl or migrate to ATOM (e.g., IfxGtm_Atom_Pwm) for complementary outputs with deadtime."
       },
       {
         "signal": "W_low (TOM1_CH6)",
         "port_pin": "P00.7",
-        "function": "TBD",
-        "pin_macro": "TBD",
+        "function": "unverified",
+        "pin_macro": "unverified",
         "is_complementary": true,
         "verified": false,
-        "source": "hardware_verified"
+        "source": "hardware_verified",
+        "note": "Complementary + deadtime support for TOM1 with IfxGtm_Pwm is pending confirmation. Fallback plan: if not supported, evaluate IfxGtm_Tom_PwmHl or migrate to ATOM (e.g., IfxGtm_Atom_Pwm) for complementary outputs with deadtime."
       }
     ],
     "clock_configuration": {
@@ -292,12 +298,12 @@
     "validation": {
       "all_verified": false,
       "conflicts": [
-        "P00.2 requested for TOM1_CH1 cannot be verified for IFX_PIN_PACKAGE_516; template documentation shows IfxGtm_TOM1_5_TOUT11_P00_2_OUT, indicating TOM1_CH5 is mapped to P00.2.",
-        "No template PinMap macro found to verify TOM1_CH2 on P00.3 for IFX_PIN_PACKAGE_516.",
-        "No template PinMap macro found to verify TOM1_CH3 on P00.4 for IFX_PIN_PACKAGE_516.",
-        "No template PinMap macro found to verify TOM1_CH4 on P00.5 for IFX_PIN_PACKAGE_516.",
-        "No template PinMap macro found to verify TOM1_CH5 on P00.6 for IFX_PIN_PACKAGE_516.",
-        "No template PinMap macro found to verify TOM1_CH6 on P00.7 for IFX_PIN_PACKAGE_516."
+        "Unverified mapping: Requested TOM1_CH1 -> P00.2 for QFP-144 (IFX_PIN_PACKAGE_516) conflicts with documentation; example macro IfxGtm_TOM1_5_TOUT11_P00_2_OUT indicates TOM1_CH5 maps to P00.2. Refer to AURIX TC3xx User Manual (GTM TOM TOUT mapping tables) and the TC387 device datasheet pin assignment (QFP-144). Consider alternative pin assignments or confirm the package used.",
+        "Unverified mapping: No PinMap macro found for TOM1_CH2 -> P00.3 on QFP-144 (IFX_PIN_PACKAGE_516). Refer to AURIX TC3xx User Manual (GTM TOM TOUT mapping tables) and the TC387 device datasheet pin assignment (QFP-144). Consider alternative pin assignments or confirm the package used.",
+        "Unverified mapping: No PinMap macro found for TOM1_CH3 -> P00.4 on QFP-144 (IFX_PIN_PACKAGE_516). Refer to AURIX TC3xx User Manual (GTM TOM TOUT mapping tables) and the TC387 device datasheet pin assignment (QFP-144). Consider alternative pin assignments or confirm the package used.",
+        "Unverified mapping: No PinMap macro found for TOM1_CH4 -> P00.5 on QFP-144 (IFX_PIN_PACKAGE_516). Refer to AURIX TC3xx User Manual (GTM TOM TOUT mapping tables) and the TC387 device datasheet pin assignment (QFP-144). Consider alternative pin assignments or confirm the package used.",
+        "Unverified mapping: No PinMap macro found for TOM1_CH5 -> P00.6 on QFP-144 (IFX_PIN_PACKAGE_516). Refer to AURIX TC3xx User Manual (GTM TOM TOUT mapping tables) and the TC387 device datasheet pin assignment (QFP-144). Consider alternative pin assignments or confirm the package used.",
+        "Unverified mapping: No PinMap macro found for TOM1_CH6 -> P00.7 on QFP-144 (IFX_PIN_PACKAGE_516). Refer to AURIX TC3xx User Manual (GTM TOM TOUT mapping tables) and the TC387 device datasheet pin assignment (QFP-144). Consider alternative pin assignments or confirm the package used."
       ],
       "reference_pins_valid": true
     },
