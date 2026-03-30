@@ -1,9 +1,8 @@
 {
-  "attempt": 8,
-  "phase_attempt": 4,
-  "phase": "mock_generation",
-  "success": true,
-  "errors": [],
-  "timestamp": "2026-03-30T16:48:31.420418",
-  "project_name": "Implement_TC387_3-phase_inverter_PWM_on_GTM_TOM1_C_r_20260330_161645"
+  "type": "llm_response",
+  "phase": "mock",
+  "attempt": 10,
+  "phase_attempt": 5,
+  "response_length": 34305,
+  "timestamp": "2026-03-30T16:54:54.296417"
 }
