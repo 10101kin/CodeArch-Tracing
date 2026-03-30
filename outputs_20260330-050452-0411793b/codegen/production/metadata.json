@@ -1,8 +1,20 @@
 {
-  "type": "llm_response",
-  "phase": "production",
   "attempt": 3,
   "phase_attempt": 1,
-  "response_length": 11248,
-  "timestamp": "2026-03-30T13:39:57.455821"
+  "phase": "production",
+  "success": false,
+  "errors": [
+    "'IfxGtm_Cluster_1' undeclared (first use in this function); did you mean 'IfxGtm_Cluster'?",
+    "conflicting types for 'mock_IfxGtm_Pwm_init_callCount'; have 'unsigned int'",
+    "conflicting types for 'mock_IfxGtm_Pwm_initConfig_callCount'; have 'unsigned int'",
+    "conflicting types for 'mock_IfxGtm_Pwm_updateChannelsDutyImmediate_callCount'; have 'unsigned int'",
+    "conflicting types for 'mock_IfxGtm_isEnabled_callCount'; have 'unsigned int'",
+    "conflicting types for 'mock_IfxGtm_enable_callCount'; have 'unsigned int'",
+    "conflicting types for 'mock_IfxGtm_Cmu_getModuleFrequency_callCount'; have 'unsigned int'",
+    "conflicting types for 'mock_IfxGtm_Cmu_enableClocks_callCount'; have 'unsigned int'",
+    "conflicting types for 'mock_IfxPort_togglePin_callCount'; have 'unsigned int'",
+    "conflicting types for 'mock_IfxPort_setPinModeOutput_callCount'; have 'unsigned int'"
+  ],
+  "timestamp": "2026-03-30T13:40:05.905630",
+  "project_name": "Upgrade_KIT_A2G_TC387_5V_TFT_TC3xx_3_phase_inver_r_20260330_133050"
 }
