@@ -1,20 +1,8 @@
 {
-  "attempt": 3,
-  "phase_attempt": 1,
+  "type": "llm_response",
   "phase": "production",
-  "success": false,
-  "errors": [
-    "'IfxGtm_TOM1_0_TOUT0_P02_0_OUT' undeclared (first use in this function)",
-    "'IfxGtm_TOM1_0N_TOUT7_P02_7_OUT' undeclared (first use in this function)",
-    "'IfxGtm_TOM1_1_TOUT1_P02_1_OUT' undeclared (first use in this function)",
-    "'IfxGtm_TOM1_12_TOUT4_P02_4_OUT' undeclared (first use in this function)",
-    "'IfxGtm_TOM1_10_TOUT2_P02_2_OUT' undeclared (first use in this function)",
-    "'IfxGtm_TOM1_13_TOUT5_P02_5_OUT' undeclared (first use in this function)",
-    "'IfxGtm_TOM1_0_TOUT0_P02_0_OUT' undeclared (first use in this function)",
-    "'IfxGtm_TOM1_1_TOUT1_P02_1_OUT' undeclared (first use in this function)",
-    "'IfxGtm_TOM1_10_TOUT2_P02_2_OUT' undeclared (first use in this function)",
-    "'IfxGtm_TOM1_0N_TOUT7_P02_7_OUT' undeclared (first use in this function)"
-  ],
-  "timestamp": "2026-03-30T16:25:35.414611",
-  "project_name": "Implement_TC387_3-phase_inverter_PWM_on_GTM_TOM1_C_r_20260330_161645"
+  "attempt": 5,
+  "phase_attempt": 2,
+  "response_length": 11379,
+  "timestamp": "2026-03-30T16:31:47.744431"
 }
