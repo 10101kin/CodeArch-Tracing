@@ -6,17 +6,24 @@
 #include "IfxGtm_Cmu.h"
 #include "IfxPort.h"
 
-/* Driver-specific forward typedefs for dependencies used in verified blocks */
+/* Auxiliary driver-specific types used by verified structs */
+typedef struct { uint32 reserved; } Ifx_GTM_ATOM;
+typedef struct { uint32 reserved; } Ifx_GTM_TOM;
+typedef struct { uint32 reserved; } Ifx_GTM_CDTM;
+typedef struct { uint32 reserved; } IfxGtm_Trig_MscOut;
+
+typedef struct { uint32 id; } IfxGtm_Atom_ToutMap;
+typedef struct { uint32 id; } IfxGtm_Tom_ToutMap;
+
+typedef union
+{
+    IfxGtm_Atom_ToutMap atom;       /* ATOM map */
+    IfxGtm_Tom_ToutMap  tom;        /* TOM map  */
+} IfxGtm_Pwm_ToutMap;
+
 typedef void (*IfxGtm_Pwm_callBack)(void *data);
 
-typedef struct { uint32 dummy; } IfxGtm_Trig_MscOut;
-typedef struct { uint32 dummy; } IfxGtm_Atom_ToutMap;
-typedef struct { uint32 dummy; } IfxGtm_Tom_ToutMap;
-typedef struct { uint32 dummy; } Ifx_GTM_ATOM;
-typedef struct { uint32 dummy; } Ifx_GTM_TOM;
-typedef struct { uint32 dummy; } Ifx_GTM_CDTM;
-
-/* VERIFIED TYPE DEFINITIONS — EMITTED VERBATIM (dependency order preserved) */
+/* VERIFIED TYPE DEFINITIONS — DO NOT MODIFY ORDER/CONTENT */
 typedef enum
 {
     IfxGtm_Pwm_Alignment_edge   = 0, 
@@ -117,12 +124,6 @@ typedef struct
     IfxGtm_Pwm_callBack periodEvent;       
     IfxGtm_Pwm_callBack dutyEvent;         
 } IfxGtm_Pwm_InterruptConfig;
-
-typedef union
-{
-    IfxGtm_Atom_ToutMap atom;       
-    IfxGtm_Tom_ToutMap  tom;        
-} IfxGtm_Pwm_ToutMap;
 
 typedef struct
 {
@@ -241,7 +242,7 @@ typedef struct
     IfxPort_PadDriver   padDriver;       
 } IfxGtm_Pwm_Pin;
 
-/* API declarations */
+/* Function declarations required by the module */
 void IfxGtm_Pwm_initConfig(IfxGtm_Pwm_Config *config, Ifx_GTM *gtmSFR);
 void IfxGtm_Pwm_init(IfxGtm_Pwm *pwm, IfxGtm_Pwm_Channel *channels, IfxGtm_Pwm_Config *config);
 void IfxGtm_Pwm_updateChannelsDutyImmediate(IfxGtm_Pwm *pwm, float32 *requestDuty);

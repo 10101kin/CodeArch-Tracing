@@ -19,7 +19,7 @@ typedef enum
     IfxGtm_SuspendMode_soft = 2
 } IfxGtm_SuspendMode;
 
-/* API declarations */
+/* Functions used by module */
 boolean IfxGtm_isEnabled(Ifx_GTM *gtm);
 void    IfxGtm_enable(Ifx_GTM *gtm);
 

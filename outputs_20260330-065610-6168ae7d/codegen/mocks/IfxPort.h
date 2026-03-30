@@ -3,7 +3,7 @@
 
 #include "mock_gtm_tom_3_phase_inverter_pwm.h"
 
-/* Enums and types */
+/* Enums */
 typedef enum
 {
     IfxPort_ControlledBy_port = 0,
@@ -148,7 +148,7 @@ typedef struct
     IfxPort_PadDriver padDriver;
 } IfxPort_Pin_Config;
 
-/* API declarations */
+/* Function declarations needed by module */
 void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
 void IfxPort_setPinMode(Ifx_P *port, uint8 pinIndex, IfxPort_Mode mode);
 void IfxPort_togglePin(Ifx_P *port, uint8 pinIndex);
