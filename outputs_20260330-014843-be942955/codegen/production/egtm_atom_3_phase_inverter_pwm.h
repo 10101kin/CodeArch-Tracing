@@ -10,7 +10,6 @@
 extern "C" {
 #endif
 
-/* Public API */
 void initEgtmAtom3phInv(void);
 void updateEgtmAtom3phInvDuty(void);
 
