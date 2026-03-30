@@ -1,33 +1,45 @@
 #ifndef IFXEGTM_PWM_H
 #define IFXEGTM_PWM_H
+
 #include "mock_egtm_atom_3_phase_inverter_pwm.h"
 #include "IfxEgtm.h"
 #include "IfxEgtm_Cmu.h"
 #include "IfxPort.h"
 
-/* Missing SRC VM ID enum (fixes prior build error: 'IfxSrc_VmId_0' undeclared) */
-typedef enum {
-    IfxSrc_VmId_0 = 0,
-    IfxSrc_VmId_1 = 1,
-    IfxSrc_VmId_2 = 2,
-    IfxSrc_VmId_3 = 3
-} IfxSrc_VmId;
+/* Peer/aux types required by this header */
+typedef void (*IfxEgtm_Pwm_callBack)(void*);
 
-/* Callback type used in verified structures */
-typedef void (*IfxEgtm_Pwm_callBack)(void *arg);
+typedef enum { IfxSrc_VmId_none = 0 } IfxSrc_VmId;
 
-/* DTM helper enums used in FastShutoffConfig */
+/* DTM-related minimal enums used by FastShutoffConfig */
 typedef enum { IfxEgtm_Dtm_ShutoffInput_0 = 0 } IfxEgtm_Dtm_ShutoffInput;
 typedef enum { IfxEgtm_Dtm_SignalLevel_low = 0, IfxEgtm_Dtm_SignalLevel_high = 1 } IfxEgtm_Dtm_SignalLevel;
 
-/* TOUT map union (provided in PWM driver header) */
-typedef union {
-    uint32 atom;
-    uint32 tom;
-    uint32 hrpwm;
+/* Placeholder ToutMap element types */
+typedef uint32 IfxEgtm_Atom_ToutMap;
+typedef uint32 IfxEgtm_Tom_ToutMap;
+
+/* IfxEgtm_Pwm_ToutMap as per mapping */
+typedef union
+{
+    IfxEgtm_Atom_ToutMap atom;
+    IfxEgtm_Tom_ToutMap  tom;
+#if 1 /* IFXEGTM_PWM_IS_HIGH_RES_AVAILABLE mock */
+    uint32               hrpwm;
+#endif
 } IfxEgtm_Pwm_ToutMap;
 
-/* VERIFIED TYPE DEFINITIONS (emit verbatim, with included union/aux types above) */
+/* Define FastShutoffConfig to fix unknown type errors */
+typedef struct
+{
+    IfxEgtm_Dtm_ShutoffInput inputSignal;
+    boolean                  invertInputSignal;
+    IfxEgtm_Dtm_SignalLevel  offState;
+    IfxEgtm_Dtm_SignalLevel  complementaryOffState;
+} IfxEgtm_Pwm_FastShutoffConfig;
+
+/* -------- VERIFIED TYPE DEFINITIONS (emit exactly as-is) -------- */
+
 typedef enum
 {
     IfxEgtm_Pwm_Alignment_edge   = 0, 
@@ -186,11 +198,13 @@ typedef enum
 
 typedef struct
 {
-    volatile Ifx_UReg_32Bit *reg0;                
+    volatile Ifx_UReg_32Bit *reg0;                /**< \brief ATOM: points to AGC_GLB_CTRL.
+                                                     * TOM: If channels span 2 TGCs then points to TGC0_GLB_CTRL else to the TGC being used TGCx_GLB_CTRL */
     volatile Ifx_UReg_32Bit *reg1;                
     uint32                   upenMask0;           
     uint32                   upenMask1;           
-    volatile Ifx_UReg_32Bit *endisCtrlReg0;       
+    volatile Ifx_UReg_32Bit *endisCtrlReg0;       /**< \brief ATOM: points to AGC_ENDIS_CTRL.
+                                                     * TOM: If channels span 2 TGCs then points to TGC0_ENDIS_CTRL else to the TGC being used TGCx_GLB_CTRL */
     volatile Ifx_UReg_32Bit *endisCtrlReg1;       
 } IfxEgtm_Pwm_GlobalControl;
 
@@ -230,10 +244,10 @@ typedef struct
     float32                    frequency;              
     IfxEgtm_Pwm_ClockSource    clockSource;            
     IfxEgtm_Dtm_ClockSource    dtmClockSource;         
-#if 0 
+#if 1 /* IFXEGTM_PWM_IS_HIGH_RES_AVAILABLE mock */ 
     boolean                    highResEnable;          
     boolean                    dtmHighResEnable;       
-#endif
+#endif /* mock */ 
     boolean                    syncUpdateEnabled;      
     boolean                    syncStart;              
 } IfxEgtm_Pwm_Config;
@@ -245,7 +259,7 @@ typedef struct
     IfxPort_PadDriver    padDriver;        
 } IfxEgtm_Pwm_Pin;
 
-/* Functions to mock */
+/* -------- Function declarations (subset needed) -------- */
 void IfxEgtm_Pwm_initConfig(IfxEgtm_Pwm_Config *config, Ifx_EGTM *egtmSFR);
 void IfxEgtm_Pwm_init(IfxEgtm_Pwm *pwm, IfxEgtm_Pwm_Channel *channels, IfxEgtm_Pwm_Config *config);
 void IfxEgtm_Pwm_updateChannelsDutyImmediate(IfxEgtm_Pwm *pwm, float32 *requestDuty);
