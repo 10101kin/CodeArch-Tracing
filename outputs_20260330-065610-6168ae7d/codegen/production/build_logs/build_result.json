@@ -1,0 +1,13 @@
+{
+  "success": false,
+  "errors": [
+    {
+      "file": "",
+      "message": "C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_cx1zjvgh\\src\\gtm_tom_3_phase_inverter_pwm.c:22:10: fatal error: IfxPort_PinMap.h: No such file or directory",
+      "category": "error"
+    }
+  ],
+  "warnings": [],
+  "stderr": "C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_cx1zjvgh\\src\\gtm_tom_3_phase_inverter_pwm.c:22:10: fatal error: IfxPort_PinMap.h: No such file or directory\n   22 | #include \"IfxPort_PinMap.h\"\n      |          ^~~~~~~~~~~~~~~~~~\ncompilation terminated.\n",
+  "stdout": ""
+}
