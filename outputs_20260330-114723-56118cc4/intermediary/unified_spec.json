@@ -1,10 +1,11 @@
 {
   "meta": {
     "schema_version": "1.0",
-    "last_updated_by": "requirements",
-    "last_updated_at": "2026-03-30T19:47:23.373601",
+    "last_updated_by": "hardware",
+    "last_updated_at": "2026-03-30T19:48:58.893864",
     "build_sequence": [
-      "requirements"
+      "requirements",
+      "hardware"
     ],
     "corrections_log": []
   },
@@ -176,5 +177,97 @@
     },
     "header_documentation_available": true,
     "config_values_extracted": 16
+  },
+  "hardware": {
+    "microcontroller": {
+      "model": "TC387",
+      "verified": true
+    },
+    "peripheral_instance": {
+      "module": "GTM.TOM1_5",
+      "channels": [
+        11,
+        12,
+        13
+      ]
+    },
+    "pin_assignments": [
+      {
+        "signal": "U",
+        "port_pin": "P00.2",
+        "function": "TOM1_5_TOUT11",
+        "pin_macro": "IfxGtm_TOM1_5_TOUT11_P00_2_OUT",
+        "is_complementary": false,
+        "verified": true,
+        "source": "hardware_verified"
+      },
+      {
+        "signal": "V",
+        "port_pin": "P00.3",
+        "function": "TOM1_5_TOUT12",
+        "pin_macro": "IfxGtm_TOM1_2_TOUT12_P00_3_OUT",
+        "is_complementary": false,
+        "verified": true,
+        "source": "hardware_verified",
+        "_original_pin_macro": "IfxGtm_TOM1_5_TOUT12_P00_3_OUT"
+      },
+      {
+        "signal": "W",
+        "port_pin": "P00.4",
+        "function": "TOM1_5_TOUT13",
+        "pin_macro": "IfxGtm_TOM1_3_TOUT13_P00_4_OUT",
+        "is_complementary": false,
+        "verified": true,
+        "source": "hardware_verified",
+        "_original_pin_macro": "IfxGtm_TOM1_5_TOUT13_P00_4_OUT"
+      }
+    ],
+    "clock_configuration": {
+      "xtal_frequency_mhz": 20,
+      "system_frequency_mhz": 300
+    },
+    "validation": {
+      "all_verified": true,
+      "conflicts": [],
+      "reference_pins_valid": true
+    },
+    "template_validation": {
+      "supported_peripherals": [
+        "PWM",
+        "GTM",
+        "TIMER",
+        "CPU"
+      ],
+      "suggested_drivers": {
+        "PWM": [
+          "IfxGtm_Pwm_Config"
+        ],
+        "GTM": [
+          "IfxGtm_Pwm_Config"
+        ],
+        "TIMER": [
+          "IfxGtm_Pwm_Config"
+        ],
+        "CPU": [
+          "IfxCpu"
+        ],
+        "_driver_selection": {
+          "explicit_target": "IfxGtm_Pwm_Config",
+          "replaced_source": "IfxGtm_Tom_PwmHl",
+          "primary_drivers": [
+            "IfxGtm_Pwm_Config"
+          ],
+          "avoid_drivers": [
+            "IfxGtm_Tom_PwmHl"
+          ]
+        }
+      },
+      "warnings": []
+    },
+    "pin_analysis": {
+      "verified_count": 3,
+      "doc_reference_count": 1,
+      "merged_total": 4
+    }
   }
 }
