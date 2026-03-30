@@ -1,11 +1,8 @@
 {
-  "attempt": 3,
-  "phase_attempt": 1,
+  "type": "llm_response",
   "phase": "production",
-  "success": false,
-  "errors": [
-    "collect2.exe: error: ld returned 1 exit status"
-  ],
-  "timestamp": "2026-03-30T10:26:10.043304",
-  "project_name": "Generate_TC4D7_eGTM_ATOM_migration_code_using_IfxE_r_20260330_101800"
+  "attempt": 5,
+  "phase_attempt": 2,
+  "response_length": 13762,
+  "timestamp": "2026-03-30T10:35:25.043293"
 }
