@@ -4,7 +4,7 @@
     "family": "TC3xx",
     "verified": true,
     "device_macro": "DEVICE_TC38X",
-    "pin_package": "IFX_PIN_PACKAGE_516"
+    "pin_package": "IFX_PIN_PACKAGE_292"
   },
   "peripheral_instance": {
     "type": "PWM",
@@ -17,101 +17,61 @@
       4,
       5
     ],
-    "driver": "IfxGtm_Pwm",
-    "channel_to_tout": [
-      {
-        "channel": 0,
-        "tout": "TOUT0",
-        "port_pin": "P00.0",
-        "signal": "U_HS"
-      },
-      {
-        "channel": 1,
-        "tout": "TOUT1",
-        "port_pin": "P00.1",
-        "signal": "U_LS"
-      },
-      {
-        "channel": 2,
-        "tout": "TOUT2",
-        "port_pin": "P00.2",
-        "signal": "V_HS"
-      },
-      {
-        "channel": 3,
-        "tout": "TOUT3",
-        "port_pin": "P00.3",
-        "signal": "V_LS"
-      },
-      {
-        "channel": 4,
-        "tout": "TOUT4",
-        "port_pin": "P00.4",
-        "signal": "W_HS"
-      },
-      {
-        "channel": 5,
-        "tout": "TOUT5",
-        "port_pin": "P00.5",
-        "signal": "W_LS"
-      }
-    ],
-    "routing_cluster": "Cluster_1",
-    "cluster_1_routing_confirmed": true
+    "driver": "IfxGtm_Pwm"
   },
   "pin_assignments": [
     {
       "signal": "U_HS",
-      "port_pin": "P00.0",
+      "port_pin": "P02.0",
       "function": "TOUT",
-      "pin_macro": "IfxGtm_TOM1_TOUT0_P00_0_OUT",
+      "pin_macro": "",
       "is_complementary": false,
-      "verified": true,
+      "verified": false,
       "source": "hardware_verified"
     },
     {
       "signal": "U_LS",
-      "port_pin": "P00.1",
+      "port_pin": "P02.7",
       "function": "TOUT",
-      "pin_macro": "IfxGtm_TOM1_TOUT1_P00_1_OUT",
+      "pin_macro": "",
       "is_complementary": true,
-      "verified": true,
+      "verified": false,
       "source": "hardware_verified"
     },
     {
       "signal": "V_HS",
-      "port_pin": "P00.2",
+      "port_pin": "P02.1",
       "function": "TOUT",
-      "pin_macro": "IfxGtm_TOM1_TOUT2_P00_2_OUT",
+      "pin_macro": "",
       "is_complementary": false,
-      "verified": true,
+      "verified": false,
       "source": "hardware_verified"
     },
     {
       "signal": "V_LS",
-      "port_pin": "P00.3",
+      "port_pin": "P02.4",
       "function": "TOUT",
-      "pin_macro": "IfxGtm_TOM1_TOUT3_P00_3_OUT",
+      "pin_macro": "",
       "is_complementary": true,
-      "verified": true,
+      "verified": false,
       "source": "hardware_verified"
     },
     {
       "signal": "W_HS",
-      "port_pin": "P00.4",
+      "port_pin": "P02.2",
       "function": "TOUT",
-      "pin_macro": "IfxGtm_TOM1_TOUT4_P00_4_OUT",
+      "pin_macro": "",
       "is_complementary": false,
-      "verified": true,
+      "verified": false,
       "source": "hardware_verified"
     },
     {
       "signal": "W_LS",
-      "port_pin": "P00.5",
+      "port_pin": "P02.5",
       "function": "TOUT",
-      "pin_macro": "IfxGtm_TOM1_TOUT5_P00_5_OUT",
+      "pin_macro": "",
       "is_complementary": true,
-      "verified": true,
+      "verified": false,
       "source": "hardware_verified"
     }
   ],
@@ -121,7 +81,14 @@
   },
   "validation": {
     "all_verified": false,
-    "conflicts": [],
+    "conflicts": [
+      "P02.0: No matching IfxGtm_TOM1_*_TOUT*_P02_0_OUT macro found in IfxGtm_PinMap_TC38x_LFBGA516",
+      "P02.7: No matching IfxGtm_TOM1_*_TOUT*_P02_7_OUT macro found in IfxGtm_PinMap_TC38x_LFBGA516",
+      "P02.1: No matching IfxGtm_TOM1_*_TOUT*_P02_1_OUT macro found in IfxGtm_PinMap_TC38x_LFBGA516",
+      "P02.4: No matching IfxGtm_TOM1_*_TOUT*_P02_4_OUT macro found in IfxGtm_PinMap_TC38x_LFBGA516",
+      "P02.2: No matching IfxGtm_TOM1_*_TOUT*_P02_2_OUT macro found in IfxGtm_PinMap_TC38x_LFBGA516",
+      "P02.5: No matching IfxGtm_TOM1_*_TOUT*_P02_5_OUT macro found in IfxGtm_PinMap_TC38x_LFBGA516"
+    ],
     "reference_pins_valid": false
   },
   "template_validation": {
