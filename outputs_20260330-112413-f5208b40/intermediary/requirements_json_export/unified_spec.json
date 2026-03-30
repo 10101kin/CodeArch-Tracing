@@ -1,0 +1,182 @@
+{
+  "meta": {
+    "schema_version": "1.0",
+    "last_updated_by": "requirements",
+    "last_updated_at": "2026-03-30T19:24:13.315031",
+    "build_sequence": [
+      "requirements"
+    ],
+    "corrections_log": []
+  },
+  "requirements": {
+    "generation_mode": "MIGRATION",
+    "migration_info": {
+      "has_reference": true,
+      "reference_family": "TC3xx",
+      "target_family": "TC3xx",
+      "migration_required": false,
+      "driver_mappings": {
+        "IfxGtm_Tom_PwmHl": "IfxGtm_Tom_Pwm",
+        "IfxScuWdt": "IfxScuWdt"
+      },
+      "header_mappings": {
+        "IfxGtm_Tom_PwmHl.h": "IfxGtm_Tom_Pwm.h",
+        "IfxGtm_PinMap.h": "IfxGtm_PinMap.h",
+        "IfxPort.h": "IfxPort.h",
+        "Bsp.h": "Bsp.h"
+      },
+      "api_changes": [
+        {
+          "from": "IfxGtm_Tom_PwmHl_initConfig",
+          "to": "IfxGtm_Tom_Pwm_initConfig",
+          "reason": "Switch from complementary High/Low (PwmHl) to single-ended TOM Pwm"
+        },
+        {
+          "from": "IfxGtm_Tom_PwmHl_init",
+          "to": "IfxGtm_Tom_Pwm_init",
+          "reason": "Switch to single-ended TOM Pwm"
+        },
+        {
+          "from": "IfxGtm_Tom_PwmHl_setOnTime",
+          "to": "IfxGtm_Tom_Pwm_setOnTime",
+          "reason": "Single-ended channel on-time update"
+        }
+      ],
+      "function_names_to_preserve": []
+    },
+    "peripheral_requirement": {
+      "type": "GTM_TOM",
+      "driver_available": true,
+      "driver_name": "IfxGtm_Pwm",
+      "purpose": "3-phase single-ended PWM on TOM1, center-aligned at 20 kHz; periodic duty update every 500 ms with wrap",
+      "driver_locked": true,
+      "driver_selection_source": "engine_scored"
+    },
+    "signal_requirements": {
+      "topology": "3-phase, single-ended",
+      "tom": {
+        "module": "TOM1",
+        "alignment": "center_aligned",
+        "frequency_hz": 20000,
+        "clock_source": "IfxGtm_Cmu_Clk_0",
+        "channels": {
+          "U": {
+            "complementary": false,
+            "deadtime_ns": 0,
+            "use_existing_pin_macro": true,
+            "fallback_pin": "P00.3"
+          },
+          "V": {
+            "complementary": false,
+            "deadtime_ns": 0,
+            "use_existing_pin_macro": true,
+            "fallback_pin": "P00.5"
+          },
+          "W": {
+            "complementary": false,
+            "deadtime_ns": 0,
+            "use_existing_pin_macro": true,
+            "fallback_pin": "P00.7"
+          }
+        }
+      },
+      "pin_mapping_policy": "Reuse existing project pin macros; if undefined, map U/V/W to P00.3/P00.5/P00.7 (HS pins)"
+    },
+    "timing_requirements": {
+      "pwm_frequency_hz": 20000,
+      "alignment": "center_aligned",
+      "duty_cycle": {
+        "initial_percent": {
+          "U": 25,
+          "V": 50,
+          "W": 75
+        },
+        "step_percent": 10,
+        "wrap_range_percent": [
+          0,
+          100
+        ]
+      },
+      "update_interval_ms": 500,
+      "update_scheduler": "Use Bsp/STM-based delay (e.g., IfxStm_getTicksFromMilliseconds + wait)"
+    },
+    "device_configuration": {
+      "target_device_macro": "DEVICE_TC38X",
+      "pin_package": "IFX_PIN_PACKAGE_516",
+      "device_family": "TC3xx",
+      "clock_requirements": {
+        "requires_xtal": true,
+        "expected_system_freq_mhz": 300
+      }
+    },
+    "code_structure": {
+      "file_pattern": "reference",
+      "expected_files": [
+        "GTM_TOM_3_Phase_Inverter_PWM.c",
+        "GTM_TOM_3_Phase_Inverter_PWM.h"
+      ],
+      "has_cpu_files": true
+    },
+    "reference_context": {
+      "includes_used": [
+        "Ifx_Types.h",
+        "IfxCpu.h",
+        "IfxScuWdt.h",
+        "Bsp.h",
+        "GTM_TOM_3_Phase_Inverter_PWM.h",
+        "Ifx_Cfg_Ssw.h",
+        "IfxGtm_Tom_PwmHl.h",
+        "IfxGtm_cfg_TC38x.h"
+      ],
+      "function_patterns": [],
+      "peripheral_usage": {
+        "GTM_TOM": "3-phase PWM generation (migrating from PwmHl to single-ended Pwm)",
+        "WATCHDOG": "Disable safety and CPU watchdogs during init via IfxScuWdt"
+      }
+    },
+    "template_compatibility": {
+      "validated": true,
+      "supported_peripherals": [
+        "PWM",
+        "GTM",
+        "ASCLIN"
+      ],
+      "suggested_drivers": {
+        "PWM": [
+          "IfxCcu6_PwmBc",
+          "IfxGtm_Tom_Pwm",
+          "IfxGtm_Tom_Dtm_PwmHl",
+          "IfxGtm_Atom_Dtm_PwmHl",
+          "IfxGtm_Atom_Pwm",
+          "IfxGtm_Pwm",
+          "IfxCcu6_TPwm",
+          "IfxGtm_Tom_PwmHl",
+          "IfxCcu6_PwmHl",
+          "IfxGtm_Atom_PwmHl"
+        ],
+        "GTM": [
+          "IfxGtm_Dtm",
+          "IfxGtm_Tbu",
+          "IfxGtm",
+          "IfxGtm_Spe",
+          "IfxGtm_Pwm",
+          "IfxGtm_Psm",
+          "IfxGtm_PinMap_TC38x_LFBGA516",
+          "IfxGtm_PinMap_TC38x_LFBGA292",
+          "IfxGtm_Trig",
+          "IfxGtm_Dpll",
+          "IfxGtm_PinMap_TC38x_516"
+        ],
+        "ASCLIN": [
+          "IfxAsclin_Asc",
+          "IfxAsclin_Lin",
+          "IfxAsclin_Spi",
+          "IfxAsclin"
+        ]
+      },
+      "warnings": []
+    },
+    "header_documentation_available": true,
+    "config_values_extracted": 16
+  }
+}
