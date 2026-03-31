@@ -6,20 +6,11 @@
 #include "IfxEgtm_Cmu.h"
 #include "IfxPort.h"
 
-/* Auxiliary callback type used in structs below */
-typedef void (*IfxEgtm_Pwm_callBack)(void);
+/* Callback type used by PWM driver */
+typedef void (*IfxEgtm_Pwm_callBack)(void *arg);
 
-/* Provide Atom/Tom ToutMap stubs used by IfxEgtm_Pwm_ToutMap */
-typedef struct { uint32 reserved; } IfxEgtm_Atom_ToutMap;
-typedef struct { uint32 reserved; } IfxEgtm_Tom_ToutMap;
+/* VERIFIED TYPE DEFINITIONS — emit exactly as required (and in dependency order) */
 
-/* Pwm ToutMap union */
-typedef union {
-    IfxEgtm_Atom_ToutMap atom;
-    IfxEgtm_Tom_ToutMap  tom;
-} IfxEgtm_Pwm_ToutMap;
-
-/* VERIFIED TYPE DEFINITIONS — EMIT EXACTLY AS-IS IN MOCKS */
 typedef enum
 {
     IfxEgtm_Pwm_Alignment_edge   = 0, 
@@ -101,11 +92,23 @@ typedef enum
     IfxEgtm_Dtm_ClockSource_cmuClock2     
 } IfxEgtm_Dtm_ClockSource;
 
+/* Additional enums to support FastShutoffConfig */
+typedef enum { IfxEgtm_Dtm_ShutoffInput_0 = 0 } IfxEgtm_Dtm_ShutoffInput;
+typedef enum { IfxEgtm_Dtm_SignalLevel_low = 0, IfxEgtm_Dtm_SignalLevel_high = 1 } IfxEgtm_Dtm_SignalLevel;
+
 typedef struct
 {
     float32 rising;        
     float32 falling;       
 } IfxEgtm_Pwm_DeadTime;
+
+typedef struct
+{
+    IfxEgtm_Dtm_ShutoffInput inputSignal;                 
+    boolean                  invertInputSignal;           
+    IfxEgtm_Dtm_SignalLevel  offState;                    
+    IfxEgtm_Dtm_SignalLevel  complementaryOffState;       
+} IfxEgtm_Pwm_FastShutoffConfig;
 
 typedef struct
 {
@@ -123,15 +126,12 @@ typedef struct
     IfxEgtm_Pwm_callBack dutyEvent;         
 } IfxEgtm_Pwm_InterruptConfig;
 
-typedef struct
-{
-    IfxEgtm_Pwm_ToutMap *pin;                        
-    IfxEgtm_Pwm_ToutMap *complementaryPin;           
-    Ifx_ActiveState      polarity;                   
-    Ifx_ActiveState      complementaryPolarity;      
-    IfxPort_OutputMode   outputMode;                 
-    IfxPort_PadDriver    padDriver;                  
-} IfxEgtm_Pwm_OutputConfig;
+/* Provide ToutMap (union placeholder for mock usage) */
+typedef union {
+    uint32 atom;
+    uint32 tom;
+    uint32 hrpwm;
+} IfxEgtm_Pwm_ToutMap;
 
 typedef struct
 {
@@ -178,6 +178,16 @@ typedef enum
 
 typedef struct
 {
+    IfxEgtm_Pwm_ToutMap *pin;                        
+    IfxEgtm_Pwm_ToutMap *complementaryPin;           
+    Ifx_ActiveState      polarity;                   
+    Ifx_ActiveState      complementaryPolarity;      
+    IfxPort_OutputMode   outputMode;                 
+    IfxPort_PadDriver    padDriver;                  
+} IfxEgtm_Pwm_OutputConfig;
+
+typedef struct
+{
     volatile Ifx_UReg_32Bit *reg0;                
     volatile Ifx_UReg_32Bit *reg1;                
     uint32                   upenMask0;           
@@ -211,10 +221,6 @@ typedef struct
     IfxEgtm_Pwm_State         state;                   
 } IfxEgtm_Pwm;
 
-#ifndef IFXEGTM_PWM_IS_HIGH_RES_AVAILABLE
-# define IFXEGTM_PWM_IS_HIGH_RES_AVAILABLE 0
-#endif
-
 typedef struct
 {
     Ifx_EGTM                  *egtmSFR;                
@@ -226,7 +232,7 @@ typedef struct
     float32                    frequency;              
     IfxEgtm_Pwm_ClockSource    clockSource;            
     IfxEgtm_Dtm_ClockSource    dtmClockSource;         
-#if IFXEGTM_PWM_IS_HIGH_RES_AVAILABLE 
+#if 0 /* IFXEGTM_PWM_IS_HIGH_RES_AVAILABLE */
     boolean                    highResEnable;          
     boolean                    dtmHighResEnable;       
 #endif
@@ -241,13 +247,9 @@ typedef struct
     IfxPort_PadDriver    padDriver;        
 } IfxEgtm_Pwm_Pin;
 
-/* Function declarations (subset used by production) */
-void IfxEgtm_Pwm_initConfig(IfxEgtm_Pwm_Config *config, Ifx_EGTM *egtmSFR);
+/* Function declarations (subset used by this module) */
 void IfxEgtm_Pwm_init(IfxEgtm_Pwm *pwm, IfxEgtm_Pwm_Channel *channels, IfxEgtm_Pwm_Config *config);
+void IfxEgtm_Pwm_initConfig(IfxEgtm_Pwm_Config *config, Ifx_EGTM *egtmSFR);
 void IfxEgtm_Pwm_updateChannelsDutyImmediate(IfxEgtm_Pwm *pwm, float32 *requestDuty);
-
-/* IRQ helpers typically used around PWM */
-void IfxCpu_Irq_installInterruptHandler(void (*isr)(void), int priority);
-void IfxCpu_enableInterrupts(void);
 
 #endif /* IFXEGTM_PWM_H */
