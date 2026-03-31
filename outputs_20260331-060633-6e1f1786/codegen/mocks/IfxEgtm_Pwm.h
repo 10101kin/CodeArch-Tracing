@@ -1,3 +1,6 @@
+/*
+ * IfxEgtm_Pwm.h - Mock EGTM PWM driver header
+ */
 #ifndef IFXEGTM_PWM_H
 #define IFXEGTM_PWM_H
 
@@ -6,34 +9,22 @@
 #include "IfxEgtm_Cmu.h"
 #include "IfxPort.h"
 
-/* Callback type used by PWM driver */
-typedef void (*IfxEgtm_Pwm_callBack)(void *data);
+/* Additional dependent minimal types */
+typedef struct { uint32 reserved; } Ifx_EGTM_CLS;
 
-/* Forward/minimal definitions for types referenced by PWM */
 typedef enum { IfxEgtm_Dtm_ShutoffInput_0 = 0 } IfxEgtm_Dtm_ShutoffInput;
 typedef enum { IfxEgtm_Dtm_SignalLevel_low = 0, IfxEgtm_Dtm_SignalLevel_high = 1 } IfxEgtm_Dtm_SignalLevel;
 
-typedef struct {
-    IfxEgtm_Dtm_ShutoffInput inputSignal;
-    boolean                  invertInputSignal;
-    IfxEgtm_Dtm_SignalLevel  offState;
-    IfxEgtm_Dtm_SignalLevel  complementaryOffState;
-} IfxEgtm_Pwm_FastShutoffConfig;
+typedef void (*IfxEgtm_Pwm_callBack)(void *data);
 
-/* Minimal ToutMap dependencies */
-typedef struct { uint32 dummy; } IfxEgtm_Atom_ToutMap;
-typedef struct { uint32 dummy; } IfxEgtm_Tom_ToutMap;
-typedef struct { uint32 dummy; } IfxEgtm_Hrpwm_Out;
-
+/* Provide a simple ToutMap union for pin mapping usage in tests */
 typedef union {
-    IfxEgtm_Atom_ToutMap atom;
-    IfxEgtm_Tom_ToutMap  tom;
-#if 0 /* High-res not used in mock */
-    IfxEgtm_Hrpwm_Out    hrpwm;
-#endif
+    uint32 atom; /* placeholder for ATOM pin map */
+    uint32 tom;  /* placeholder for TOM pin map */
+    uint32 hrpwm;/* placeholder for HRPWM pin map */
 } IfxEgtm_Pwm_ToutMap;
 
-/* VERIFIED TYPE DEFINITIONS — emit exactly as-is in mocks (in dependency order) */
+/* VERIFIED TYPE DEFINITIONS — EMIT EXACTLY AS-IS (dependency order preserved) */
 
 typedef enum
 {
@@ -128,15 +119,14 @@ typedef struct
     IfxEgtm_Pwm_FastShutoffConfig *fastShutOff;       
 } IfxEgtm_Pwm_DtmConfig;
 
+/* Define FastShutoffConfig to satisfy pointer type completeness */
 typedef struct
 {
-    IfxEgtm_IrqMode      mode;              
-    IfxSrc_Tos           isrProvider;       
-    Ifx_Priority         priority;          
-    IfxSrc_VmId          vmId;              
-    IfxEgtm_Pwm_callBack periodEvent;       
-    IfxEgtm_Pwm_callBack dutyEvent;         
-} IfxEgtm_Pwm_InterruptConfig;
+    IfxEgtm_Dtm_ShutoffInput inputSignal;
+    boolean                  invertInputSignal;
+    IfxEgtm_Dtm_SignalLevel  offState;
+    IfxEgtm_Dtm_SignalLevel  complementaryOffState;
+} IfxEgtm_Pwm_FastShutoffConfig;
 
 typedef struct
 {
@@ -240,7 +230,7 @@ typedef struct
 #if IFXEGTM_PWM_IS_HIGH_RES_AVAILABLE 
     boolean                    highResEnable;          
     boolean                    dtmHighResEnable;       
-#endif /* IFXEGTM_PWM_IS_HIGH_RES_AVAILABLE */ 
+/* #if IFXEGTM_PWM_IS_HIGH_RES_AVAILABLE */ 
     boolean                    syncUpdateEnabled;      
     boolean                    syncStart;              
 } IfxEgtm_Pwm_Config;
@@ -252,7 +242,18 @@ typedef struct
     IfxPort_PadDriver    padDriver;        
 } IfxEgtm_Pwm_Pin;
 
-/* Function declarations required by module */
+/* Interrupt config struct needed earlier */
+typedef struct
+{
+    IfxEgtm_IrqMode      mode;              
+    IfxSrc_Tos           isrProvider;       
+    Ifx_Priority         priority;          
+    IfxSrc_VmId          vmId;              
+    IfxEgtm_Pwm_callBack periodEvent;       
+    IfxEgtm_Pwm_callBack dutyEvent;         
+} IfxEgtm_Pwm_InterruptConfig;
+
+/* Function declarations (subset used by this module) */
 void IfxEgtm_Pwm_initConfig(IfxEgtm_Pwm_Config *config, Ifx_EGTM *egtmSFR);
 void IfxEgtm_Pwm_init(IfxEgtm_Pwm *pwm, IfxEgtm_Pwm_Channel *channels, IfxEgtm_Pwm_Config *config);
 void IfxEgtm_Pwm_updateChannelsDutyImmediate(IfxEgtm_Pwm *pwm, float32 *requestDuty);
