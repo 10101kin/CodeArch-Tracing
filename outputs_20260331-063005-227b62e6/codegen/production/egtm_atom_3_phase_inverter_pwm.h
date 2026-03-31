@@ -1,7 +1,7 @@
 /*
  * egtm_atom_3_phase_inverter_pwm.h
  *
- * Public API for EGTM ATOM 3-Phase Inverter PWM driver
+ * Public API for eGTM ATOM 3-phase inverter PWM (TC4xx).
  */
 #ifndef EGTM_ATOM_3_PHASE_INVERTER_PWM_H
 #define EGTM_ATOM_3_PHASE_INVERTER_PWM_H
