@@ -1,8 +1,20 @@
 {
-  "type": "llm_response",
-  "phase": "production",
   "attempt": 5,
   "phase_attempt": 2,
-  "response_length": 11733,
-  "timestamp": "2026-03-31T16:35:24.872934"
+  "phase": "production",
+  "success": false,
+  "errors": [
+    "unknown type name 'IfxEgtm_Pwm_DeadTime'; did you mean 'IfxEgtm_Pwm_Config'?",
+    "implicit declaration of function 'IfxPort_togglePin' [-Wimplicit-function-declaration]",
+    "unknown type name 'IfxEgtm_Pwm_ChannelConfig'; did you mean 'IfxEgtm_Pwm_Channel'?",
+    "unknown type name 'IfxEgtm_Pwm_DtmConfig'; did you mean 'IfxEgtm_Pwm_Config'?",
+    "unknown type name 'IfxEgtm_Pwm_InterruptConfig'; did you mean 'IfxEgtm_Pwm_Config'?",
+    "unknown type name 'IfxEgtm_Pwm_OutputConfig'; did you mean 'IfxEgtm_Pwm_Config'?",
+    "request for member 'pin' in something not a structure or union",
+    "request for member 'complementaryPin' in something not a structure or union",
+    "request for member 'polarity' in something not a structure or union",
+    "request for member 'complementaryPolarity' in something not a structure or union"
+  ],
+  "timestamp": "2026-03-31T16:35:31.837672",
+  "project_name": "Generate_TC4D7_code_for_KIT_A3G_TC4D7_LITE_using_E_r_20260331_161939"
 }
