@@ -1,11 +1,8 @@
 {
-  "attempt": 5,
-  "phase_attempt": 3,
-  "phase": "mock_generation",
-  "success": false,
-  "errors": [
-    "Connection error."
-  ],
-  "timestamp": "2026-03-31T09:26:56.855805",
-  "project_name": "Upgrade_the_TC387_reference_3-phase_inverter_PWM_d_r_20260330_210321"
+  "type": "llm_response",
+  "phase": "mock",
+  "attempt": 6,
+  "phase_attempt": 4,
+  "response_length": 36127,
+  "timestamp": "2026-03-31T09:30:03.102372"
 }
