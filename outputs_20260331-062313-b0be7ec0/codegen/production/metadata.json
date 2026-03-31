@@ -1,8 +1,19 @@
 {
-  "type": "llm_response",
-  "phase": "production",
   "attempt": 9,
   "phase_attempt": 5,
-  "response_length": 9179,
-  "timestamp": "2026-03-31T15:02:52.200877"
+  "phase": "production",
+  "success": false,
+  "errors": [
+    "'IfxGtm_TOM1_2_TOUT12_P00_3_OUT' undeclared (first use in this function)",
+    "'IfxGtm_TOM1_4_TOUT14_P00_5_OUT' undeclared (first use in this function)",
+    "'IfxGtm_TOM1_6_TOUT16_P00_7_OUT' undeclared (first use in this function)",
+    "implicit declaration of function 'IfxPort_setPinModeOutput' [-Wimplicit-function-declaration]",
+    "implicit declaration of function 'mock_IfxCpu_Irq_installInterruptHandler_getCallCount' [-Wimplicit-function-declaration]",
+    "implicit declaration of function 'mock_IfxGtm_Pwm_startSyncedChannels_getCallCount'; did you mean 'mock_IfxGtm_Pwm_getChannelState_getCallCount'? [-Wimplicit-function-declaration]",
+    "implicit declaration of function 'mock_IfxGtm_Pwm_stopSyncedChannels_getCallCount'; did you mean 'mock_IfxGtm_Pwm_getChannelState_getCallCount'? [-Wimplicit-function-declaration]",
+    "implicit declaration of function 'mock_IfxGtm_Pwm_startChannelOutputs_getCallCount'; did you mean 'mock_IfxGtm_Pwm_getChannelState_getCallCount'? [-Wimplicit-function-declaration]",
+    "implicit declaration of function 'mock_IfxGtm_Pwm_stopChannelOutputs_getCallCount'; did you mean 'mock_IfxGtm_Pwm_getChannelState_getCallCount'? [-Wimplicit-function-declaration]"
+  ],
+  "timestamp": "2026-03-31T15:02:58.712303",
+  "project_name": "Update_KIT_A2G_TC387_5V_TFT_TC38x_project_to_rep_r_20260331_143821"
 }
