@@ -1,94 +1,72 @@
 /*
  * gtm_tom_3_phase_inverter_pwm.c
- *
- * Production driver: GTM TOM 3-Phase Inverter PWM using IfxGtm_Pwm unified driver
- *
- * - Submodule: TOM
- * - Alignment: center-aligned
- * - Frequency: 20 kHz
- * - Channels: 3 (U, V, W) on TOM1 high-side pins (single-ended)
- * - Synchronous start and synchronous update enabled
- * - Clock source: CMU FXCLK0 for TOM
+ * Production driver: GTM TOM 3-Phase Inverter PWM using IfxGtm_Pwm (unified driver)
  *
  * Notes:
- * - Watchdogs must be controlled only in CpuX_Main.c (not here)
- * - No STM timing in this driver; scheduling performed in CpuX_Main.c
+ * - Follows iLLD IfxGtm_Pwm init pattern with enable-guard and CMU clock setup
+ * - TOM submodule, center-aligned, sync start/update enabled
+ * - Single-ended outputs on TOM1 high-side pins (U/V/W = P00.3 / P00.5 / P00.7)
+ * - Initial duties: 25%, 50%, 75% (U, V, W)
+ * - Runtime update: +10% step with wrap into [10%, 90%) as specified
  */
 
 #include "gtm_tom_3_phase_inverter_pwm.h"
+
+/* iLLD dependencies (source-only): */
 #include "Ifx_Types.h"
 #include "IfxGtm_Pwm.h"
-#include "IfxGtm_PinMap.h"
 #include "IfxPort.h"
-#include "IfxCpu.h"
 
-/* ========================= Macros and Configuration Constants ========================= */
+/* =====================================================================================
+ * Macros (use target naming; values from migration specification)
+ * ===================================================================================== */
+#define NUM_OF_CHANNELS            (3u)
+#define PWM_FREQUENCY              (20000.0f)
+#define ISR_PRIORITY_ATOM          (3)
 
-#define NUM_OF_CHANNELS               (3U)
-#define PWM_FREQUENCY_HZ              (20000.0f)
+/* LED macro (compound form as requested; not used in this driver) */
+#define LED                        &MODULE_P13, 0
 
-/* Initial duties in percent */
-#define PHASE_U_DUTY_INIT             (25.0f)
-#define PHASE_V_DUTY_INIT             (50.0f)
-#define PHASE_W_DUTY_INIT             (75.0f)
+/* Phase pin bindings (user-preserved TOM1 pins; HS used, LS defined for reference) */
+#define PHASE_U_HS                 (&IfxGtm_TOM1_2_TOUT12_P00_3_OUT)
+#define PHASE_U_LS                 (&IfxGtm_TOM1_1_TOUT11_P00_2_OUT)
+#define PHASE_V_HS                 (&IfxGtm_TOM1_4_TOUT14_P00_5_OUT)
+#define PHASE_V_LS                 (&IfxGtm_TOM1_3_TOUT13_P00_4_OUT)
+#define PHASE_W_HS                 (&IfxGtm_TOM1_6_TOUT16_P00_7_OUT)
+#define PHASE_W_LS                 (&IfxGtm_TOM1_5_TOUT15_P00_6_OUT)
 
-/* Update step and wrap thresholds in percent */
-#define PHASE_DUTY_STEP               (10.0f)
-#define DUTY_MIN_THRESHOLD            (10.0f)
-#define DUTY_MAX_THRESHOLD            (90.0f)
+/* Initial duties (percent) */
+#define PHASE_U_DUTY               (25.0f)
+#define PHASE_V_DUTY               (50.0f)
+#define PHASE_W_DUTY               (75.0f)
 
-/* ISR priority (used by IFX_INTERRUPT declaration, ISR not wired in this module) */
-#define ISR_PRIORITY_ATOM             (3)
+/* Duty update step and bounds (percent) */
+#define PHASE_DUTY_STEP            (10.0f)
+#define PHASE_DUTY_MIN             (10.0f)
+#define PHASE_DUTY_MAX             (90.0f)
 
-/* Debug LED: Port/Pin pair macro */
-#define LED                           &MODULE_P13, 0
-
-/* Preserved TOM1 high-side TOUT mappings for P00.3 / P00.5 / P00.7 */
-#define PHASE_U_HS                    &IfxGtm_TOM1_2_TOUT12_P00_3_OUT
-#define PHASE_V_HS                    &IfxGtm_TOM1_4_TOUT14_P00_5_OUT
-#define PHASE_W_HS                    &IfxGtm_TOM1_6_TOUT16_P00_7_OUT
-
-/* ========================= Internal State ========================= */
+/* =====================================================================================
+ * Module state
+ * ===================================================================================== */
 
 typedef struct
 {
-    IfxGtm_Pwm              pwm;                                  /* unified PWM handle */
-    IfxGtm_Pwm_Channel      channels[NUM_OF_CHANNELS];            /* persistent channels array */
-    float32                 dutyCycles[NUM_OF_CHANNELS];           /* percent [0..100] */
-    float32                 phases[NUM_OF_CHANNELS];               /* degrees or percent phase (design uses 0.0f) */
-    IfxGtm_Pwm_DeadTime     deadTimes[NUM_OF_CHANNELS];           /* stored DTM dead times */
+    IfxGtm_Pwm             pwm;                                      /* driver handle */
+    IfxGtm_Pwm_Channel     channels[NUM_OF_CHANNELS];                /* persistent channel state for driver */
+    float32                dutyCycles[NUM_OF_CHANNELS];               /* percent */
+    float32                phases[NUM_OF_CHANNELS];                   /* phase offset, deg or % (here 0.0) */
+    IfxGtm_Pwm_DeadTime    deadTimes[NUM_OF_CHANNELS];                /* stored dt per channel (seconds) */
 } GtmTom3phInv_State;
 
-IFX_STATIC GtmTom3phInv_State g_gtmTom3phInv;                     /* zero-initialized */
+IFX_STATIC GtmTom3phInv_State g_tom3phInv = {0};
 
-/* ========================= ISR and Period Callback (internal) ========================= */
+/* =====================================================================================
+ * Public API implementation
+ * ===================================================================================== */
 
-/* ISR: declared per structural rules; not wired via InterruptConfig in this module */
-IFX_INTERRUPT(interruptGtmAtom, 0, ISR_PRIORITY_ATOM);
-void interruptGtmAtom(void)
-{
-    IfxPort_togglePin(LED);
-}
-
-/* Period-event callback placeholder; not assigned in this module by design */
-void IfxGtm_periodEventFunction(void *data)
-{
-    (void)data;
-}
-
-/* ========================= Public API Implementations ========================= */
-
-/*
- * Initialize 3-phase center-aligned PWM on TOM using IfxGtm_Pwm unified driver.
- *
- * Behavior (per design):
- *  - Configure with local config structs first
- *  - Use TOM1 HS pins only (single-ended), polarity active-high
- *  - No interrupt config assignment
- *  - Center alignment, syncStart, syncUpdateEnabled
- *  - Frequency 20 kHz, 3 channels, initial duties U/V/W = 25/50/75 %
- *  - Inside enable-guard: enable GTM, program GCLK and CLK0, enable FXCLK|CLK0
- *  - Initialize PWM with persistent handle and channels array; store state
+/**
+ * Initialize 3-phase center-aligned PWM on TOM1 using IfxGtm_Pwm unified driver.
+ * Configuration is created locally, hardware is touched only inside GTM enable-guard.
  */
 void initGtmTom3phInv(void)
 {
@@ -101,62 +79,64 @@ void initGtmTom3phInv(void)
     /* 2) Load defaults */
     IfxGtm_Pwm_initConfig(&config, &MODULE_GTM);
 
-    /* 3) Output configuration: bind TOM1 HS pins, active-high, push-pull, automotive speed */
-    /* Phase U */
+    /* 3) Per-channel pin/output + initial duty/phase setup (single-ended HS only) */
+    /* Channel 0: Phase U */
     output[0].pin                    = (IfxGtm_Pwm_ToutMap *)PHASE_U_HS;
-    output[0].complementaryPin       = NULL_PTR;                       /* single-ended */
+    output[0].complementaryPin       = NULL_PTR; /* single-ended */
     output[0].polarity               = Ifx_ActiveState_high;
     output[0].complementaryPolarity  = Ifx_ActiveState_low;
     output[0].outputMode             = IfxPort_OutputMode_pushPull;
     output[0].padDriver              = IfxPort_PadDriver_cmosAutomotiveSpeed1;
 
-    /* Phase V */
+    /* Channel 1: Phase V */
     output[1].pin                    = (IfxGtm_Pwm_ToutMap *)PHASE_V_HS;
-    output[1].complementaryPin       = NULL_PTR;
+    output[1].complementaryPin       = NULL_PTR; /* single-ended */
     output[1].polarity               = Ifx_ActiveState_high;
     output[1].complementaryPolarity  = Ifx_ActiveState_low;
     output[1].outputMode             = IfxPort_OutputMode_pushPull;
     output[1].padDriver              = IfxPort_PadDriver_cmosAutomotiveSpeed1;
 
-    /* Phase W */
+    /* Channel 2: Phase W */
     output[2].pin                    = (IfxGtm_Pwm_ToutMap *)PHASE_W_HS;
-    output[2].complementaryPin       = NULL_PTR;
+    output[2].complementaryPin       = NULL_PTR; /* single-ended */
     output[2].polarity               = Ifx_ActiveState_high;
     output[2].complementaryPolarity  = Ifx_ActiveState_low;
     output[2].outputMode             = IfxPort_OutputMode_pushPull;
     output[2].padDriver              = IfxPort_PadDriver_cmosAutomotiveSpeed1;
 
-    /* 4) DTM configuration: zero dead-time (single-ended) */
-    dtmConfig[0].deadTime.rising = 0.0f;  dtmConfig[0].deadTime.falling = 0.0f;
-    dtmConfig[1].deadTime.rising = 0.0f;  dtmConfig[1].deadTime.falling = 0.0f;
-    dtmConfig[2].deadTime.rising = 0.0f;  dtmConfig[2].deadTime.falling = 0.0f;
+    /* Dead-time: zero (no complementary outputs used) */
+    dtmConfig[0].deadTime.rising = 0.0f; dtmConfig[0].deadTime.falling = 0.0f;
+    dtmConfig[1].deadTime.rising = 0.0f; dtmConfig[1].deadTime.falling = 0.0f;
+    dtmConfig[2].deadTime.rising = 0.0f; dtmConfig[2].deadTime.falling = 0.0f;
 
-    /* 5) Channel configuration: logical indices 0..2; phase=0; duties 25/50/75; no ISR */
-    channelConfig[0].timerCh    = IfxGtm_Pwm_SubModule_Ch_0;
+    /* Channel 0: U */
+    channelConfig[0].timerCh    = IfxGtm_Pwm_SubModule_Ch_0;  /* logical ordinal */
     channelConfig[0].phase      = 0.0f;
-    channelConfig[0].duty       = PHASE_U_DUTY_INIT;
+    channelConfig[0].duty       = PHASE_U_DUTY;
     channelConfig[0].dtm        = &dtmConfig[0];
     channelConfig[0].output     = &output[0];
     channelConfig[0].mscOut     = NULL_PTR;
-    channelConfig[0].interrupt  = NULL_PTR;   /* no ISR used per design */
+    channelConfig[0].interrupt  = NULL_PTR;                  /* no ISR */
 
-    channelConfig[1].timerCh    = IfxGtm_Pwm_SubModule_Ch_1;
+    /* Channel 1: V */
+    channelConfig[1].timerCh    = IfxGtm_Pwm_SubModule_Ch_1;  /* logical ordinal */
     channelConfig[1].phase      = 0.0f;
-    channelConfig[1].duty       = PHASE_V_DUTY_INIT;
+    channelConfig[1].duty       = PHASE_V_DUTY;
     channelConfig[1].dtm        = &dtmConfig[1];
     channelConfig[1].output     = &output[1];
     channelConfig[1].mscOut     = NULL_PTR;
-    channelConfig[1].interrupt  = NULL_PTR;
+    channelConfig[1].interrupt  = NULL_PTR;                  /* no ISR */
 
-    channelConfig[2].timerCh    = IfxGtm_Pwm_SubModule_Ch_2;
+    /* Channel 2: W */
+    channelConfig[2].timerCh    = IfxGtm_Pwm_SubModule_Ch_2;  /* logical ordinal */
     channelConfig[2].phase      = 0.0f;
-    channelConfig[2].duty       = PHASE_W_DUTY_INIT;
+    channelConfig[2].duty       = PHASE_W_DUTY;
     channelConfig[2].dtm        = &dtmConfig[2];
     channelConfig[2].output     = &output[2];
     channelConfig[2].mscOut     = NULL_PTR;
-    channelConfig[2].interrupt  = NULL_PTR;
+    channelConfig[2].interrupt  = NULL_PTR;                  /* no ISR */
 
-    /* 6) Main PWM configuration */
+    /* 4) Main configuration */
     config.cluster              = IfxGtm_Cluster_0;
     config.subModule            = IfxGtm_Pwm_SubModule_tom;
     config.alignment            = IfxGtm_Pwm_Alignment_center;
@@ -164,11 +144,11 @@ void initGtmTom3phInv(void)
     config.syncUpdateEnabled    = TRUE;
     config.numChannels          = (uint8)NUM_OF_CHANNELS;
     config.channels             = &channelConfig[0];
-    config.frequency            = PWM_FREQUENCY_HZ;
-    config.clockSource.tom      = (uint32)IfxGtm_Cmu_Fxclk_0;  /* TOM uses FXCLK */
-    config.dtmClockSource       = IfxGtm_Dtm_ClockSource_systemClock;
+    config.frequency            = PWM_FREQUENCY;
+    config.clockSource.tom      = (uint32)IfxGtm_Cmu_Fxclk_0;        /* TOM uses FXCLK */
+    config.dtmClockSource       = IfxGtm_Dtm_ClockSource_systemClock;/* per enum spec */
 
-    /* 7) GTM enable-guard and CMU clocks setup (MANDATORY) */
+    /* 5) GTM enable-guard and CMU clocks setup (MANDATORY pattern) */
     if (!IfxGtm_isEnabled(&MODULE_GTM))
     {
         IfxGtm_enable(&MODULE_GTM);
@@ -178,51 +158,38 @@ void initGtmTom3phInv(void)
         IfxGtm_Cmu_enableClocks(&MODULE_GTM, (uint32)(IFXGTM_CMU_CLKEN_FXCLK | IFXGTM_CMU_CLKEN_CLK0));
     }
 
-    /* 8) Initialize PWM with persistent handle and channels array */
-    IfxGtm_Pwm_init(&g_gtmTom3phInv.pwm, &g_gtmTom3phInv.channels[0], &config);
+    /* 6) Initialize PWM with persistent handle and channels array */
+    IfxGtm_Pwm_init(&g_tom3phInv.pwm, &g_tom3phInv.channels[0], &config);
 
-    /* 9) Store persistent state from configuration */
-    g_gtmTom3phInv.dutyCycles[0] = channelConfig[0].duty;
-    g_gtmTom3phInv.dutyCycles[1] = channelConfig[1].duty;
-    g_gtmTom3phInv.dutyCycles[2] = channelConfig[2].duty;
+    /* 7) Store persistent state (duties, phases, deadtimes) */
+    g_tom3phInv.dutyCycles[0] = channelConfig[0].duty;
+    g_tom3phInv.dutyCycles[1] = channelConfig[1].duty;
+    g_tom3phInv.dutyCycles[2] = channelConfig[2].duty;
 
-    g_gtmTom3phInv.phases[0] = channelConfig[0].phase;
-    g_gtmTom3phInv.phases[1] = channelConfig[1].phase;
-    g_gtmTom3phInv.phases[2] = channelConfig[2].phase;
+    g_tom3phInv.phases[0] = channelConfig[0].phase;
+    g_tom3phInv.phases[1] = channelConfig[1].phase;
+    g_tom3phInv.phases[2] = channelConfig[2].phase;
 
-    g_gtmTom3phInv.deadTimes[0] = dtmConfig[0].deadTime;
-    g_gtmTom3phInv.deadTimes[1] = dtmConfig[1].deadTime;
-    g_gtmTom3phInv.deadTimes[2] = dtmConfig[2].deadTime;
-
-    /* 10) Configure LED GPIO (after PWM init) */
-    IfxPort_setPinModeOutput(LED, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
+    g_tom3phInv.deadTimes[0] = dtmConfig[0].deadTime;
+    g_tom3phInv.deadTimes[1] = dtmConfig[1].deadTime;
+    g_tom3phInv.deadTimes[2] = dtmConfig[2].deadTime;
 }
 
-/*
- * Update the three phase duty cycles and apply synchronously.
- * Algorithm per design: +10% step; if new value >= 90%, wrap to 10%.
- * Implementation uses pre-check and unconditional add (no loop) for deterministic updates.
+/**
+ * Update the three phase duty cycles: +10% each step; if new value >= 90%, wrap to 10%.
+ * Apply synchronously via unified driver's immediate multi-channel update API.
  */
 void updateGtmTom3phInvDuty(void)
 {
-    /* Pre-wrap then unconditional add; ensures wrap-to-10 when threshold reached */
-    if ((g_gtmTom3phInv.dutyCycles[0] + PHASE_DUTY_STEP) >= DUTY_MAX_THRESHOLD)
-    {
-        g_gtmTom3phInv.dutyCycles[0] = (DUTY_MIN_THRESHOLD - PHASE_DUTY_STEP);
-    }
-    if ((g_gtmTom3phInv.dutyCycles[1] + PHASE_DUTY_STEP) >= DUTY_MAX_THRESHOLD)
-    {
-        g_gtmTom3phInv.dutyCycles[1] = (DUTY_MIN_THRESHOLD - PHASE_DUTY_STEP);
-    }
-    if ((g_gtmTom3phInv.dutyCycles[2] + PHASE_DUTY_STEP) >= DUTY_MAX_THRESHOLD)
-    {
-        g_gtmTom3phInv.dutyCycles[2] = (DUTY_MIN_THRESHOLD - PHASE_DUTY_STEP);
-    }
+    /* Add first, then wrap to maintain exact behavior_description */
+    g_tom3phInv.dutyCycles[0] += PHASE_DUTY_STEP;
+    g_tom3phInv.dutyCycles[1] += PHASE_DUTY_STEP;
+    g_tom3phInv.dutyCycles[2] += PHASE_DUTY_STEP;
 
-    g_gtmTom3phInv.dutyCycles[0] += PHASE_DUTY_STEP;
-    g_gtmTom3phInv.dutyCycles[1] += PHASE_DUTY_STEP;
-    g_gtmTom3phInv.dutyCycles[2] += PHASE_DUTY_STEP;
+    if (g_tom3phInv.dutyCycles[0] >= PHASE_DUTY_MAX) { g_tom3phInv.dutyCycles[0] = PHASE_DUTY_MIN; }
+    if (g_tom3phInv.dutyCycles[1] >= PHASE_DUTY_MAX) { g_tom3phInv.dutyCycles[1] = PHASE_DUTY_MIN; }
+    if (g_tom3phInv.dutyCycles[2] >= PHASE_DUTY_MAX) { g_tom3phInv.dutyCycles[2] = PHASE_DUTY_MIN; }
 
-    /* Apply synchronously to all channels using the immediate multi-channel API */
-    IfxGtm_Pwm_updateChannelsDutyImmediate(&g_gtmTom3phInv.pwm, (float32 *)g_gtmTom3phInv.dutyCycles);
+    /* Synchronous multi-channel shadow transfer */
+    IfxGtm_Pwm_updateChannelsDutyImmediate(&g_tom3phInv.pwm, (float32 *)g_tom3phInv.dutyCycles);
 }

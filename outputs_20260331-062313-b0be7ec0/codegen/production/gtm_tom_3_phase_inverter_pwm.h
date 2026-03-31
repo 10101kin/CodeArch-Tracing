@@ -1,6 +1,5 @@
 /*
  * gtm_tom_3_phase_inverter_pwm.h
- *
  * Public API for GTM TOM 3-Phase Inverter PWM driver (IfxGtm_Pwm unified driver)
  */
 #ifndef GTM_TOM_3_PHASE_INVERTER_PWM_H
@@ -10,14 +9,8 @@
 extern "C" {
 #endif
 
-/*
- * Initialize 3-phase center-aligned PWM on TOM using IfxGtm_Pwm unified driver
- */
+/* Public API */
 void initGtmTom3phInv(void);
-
-/*
- * Update U/V/W duty cycles (+10% step with wrap to 10% at >=90%) and apply synchronously
- */
 void updateGtmTom3phInvDuty(void);
 
 #ifdef __cplusplus
