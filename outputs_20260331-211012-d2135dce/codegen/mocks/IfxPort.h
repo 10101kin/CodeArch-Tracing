@@ -1,9 +1,11 @@
+/* Mock IfxPort.h */
 #ifndef IFXPORT_H
 #define IFXPORT_H
 
 #include "mock_egtm_atom_3_phase_inverter_pwm.h"
+#include "IfxEgtm.h" /* For IfxApApu_ApuConfig, IfxApProt_ProtConfig */
 
-/* Enums */
+/* Enums (define before structs) */
 typedef enum
 {
     IfxPort_ControlledBy_port = 0,  
@@ -249,10 +251,10 @@ typedef struct
 } IfxPort_ApuConfig;
 
 #ifndef IFXPORT_NUM_APU
-# define IFXPORT_NUM_APU 1
+# define IFXPORT_NUM_APU  (1)
 #endif
 #ifndef IFXPORT_NUM_PINS
-# define IFXPORT_NUM_PINS 16
+# define IFXPORT_NUM_PINS (1)
 #endif
 
 typedef struct
@@ -266,7 +268,7 @@ typedef struct
     IfxApProt_ProtConfig protseConfig;        
 } IfxPort_ProtConfig;
 
-/* Functions required by module/tests */
+/* Functions from drivers-to-mock */
 void IfxPort_togglePin(Ifx_P *port, uint8 pinIndex);
 void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
 

@@ -1,12 +1,33 @@
+/* Mock IfxEgtm.h */
 #ifndef IFXEGTM_H
 #define IFXEGTM_H
 
 #include "mock_egtm_atom_3_phase_inverter_pwm.h"
 
-/* Additional SFR type used by PWM */
-typedef struct { uint32 reserved; } Ifx_EGTM_CLS;
+/* Placeholder dependent types (single-owner here) */
+typedef struct
+{
+    unsigned long wraTagId;
+    unsigned long wrbTagId;
+    unsigned long rdaTagId;
+    unsigned long rdbTagId;
+    unsigned char vmWrId;
+    unsigned char vmRdId;
+    unsigned char prsWrId;
+    unsigned char prsRdId;
+} IfxApApu_ApuConfig;
+typedef struct
+{
+    IfxApProt_Owner protOwner;
+    IfxApProt_State protState;
+} IfxApProt_ProtConfig;
 
-/* Enums required by EGTM */
+typedef uint32 IfxEgtm_Cfg_MscSet;
+typedef uint32 IfxEgtm_Cfg_MscSetSignal;
+typedef uint32 IfxEgtm_Cfg_MscModule;
+typedef uint32 IfxEgtm_Cfg_MscSelect;
+
+/* Enums required by iLLD */
 typedef enum
 {
     IfxEgtm_AeiBridgeOpMode_sync  = 0u, 
@@ -43,51 +64,7 @@ typedef enum
     IfxEgtm_SuspendMode_soft = 2   
 } IfxEgtm_SuspendMode;
 
-typedef enum
-{
-    IfxEgtm_Cluster_0 = 0,  
-    IfxEgtm_Cluster_1 = 1,  
-    IfxEgtm_Cluster_2 = 2   
-} IfxEgtm_Cluster;
-
-/* Placeholder MSC cfg enums */
-typedef enum
-{
-    IfxEgtm_Cfg_MscSet_0,
-    IfxEgtm_Cfg_MscSet_1,
-    IfxEgtm_Cfg_MscSet_2,
-    IfxEgtm_Cfg_MscSet_3
-} IfxEgtm_Cfg_MscSet;
-typedef enum
-{
-    IfxEgtm_Cfg_MscSetSignal_0,
-    IfxEgtm_Cfg_MscSetSignal_1,
-    IfxEgtm_Cfg_MscSetSignal_2,
-    IfxEgtm_Cfg_MscSetSignal_3,
-    IfxEgtm_Cfg_MscSetSignal_4,
-    IfxEgtm_Cfg_MscSetSignal_5,
-    IfxEgtm_Cfg_MscSetSignal_6,
-    IfxEgtm_Cfg_MscSetSignal_7,
-    IfxEgtm_Cfg_MscSetSignal_8,
-    IfxEgtm_Cfg_MscSetSignal_9,
-    IfxEgtm_Cfg_MscSetSignal_10,
-    IfxEgtm_Cfg_MscSetSignal_11,
-    IfxEgtm_Cfg_MscSetSignal_12,
-    IfxEgtm_Cfg_MscSetSignal_13,
-    IfxEgtm_Cfg_MscSetSignal_14,
-    IfxEgtm_Cfg_MscSetSignal_15
-} IfxEgtm_Cfg_MscSetSignal;
-typedef enum
-{
-    IfxEgtm_Cfg_MscModule_0
-} IfxEgtm_Cfg_MscModule;
-typedef enum
-{
-    IfxEgtm_Cfg_MscSelect_0,
-    IfxEgtm_Cfg_MscSelect_1
-} IfxEgtm_Cfg_MscSelect;
-
-/* EGTM APU/PROT configs */
+/* Config structs */
 typedef struct
 {
     IfxApApu_ApuConfig apuConfig;       
@@ -105,7 +82,7 @@ typedef struct
 } IfxEgtm_WrapApConfig;
 
 #ifndef IFXEGTM_NUM_CCM_OBJECTS
-# define IFXEGTM_NUM_CCM_OBJECTS 1
+# define IFXEGTM_NUM_CCM_OBJECTS (1)
 #endif
 
 typedef struct
@@ -125,8 +102,8 @@ typedef struct
     IfxEgtm_MscAltInput      mscAltIn;           
 } IfxEgtm_MscOut;
 
-/* Functions (subset required by module) */
-void    IfxEgtm_enable(Ifx_EGTM *egtm);
+/* Functions to mock from IfxEgtm */
+void IfxEgtm_enable(Ifx_EGTM *egtm);
 boolean IfxEgtm_isEnabled(Ifx_EGTM *egtm);
 
 #endif /* IFXEGTM_H */
