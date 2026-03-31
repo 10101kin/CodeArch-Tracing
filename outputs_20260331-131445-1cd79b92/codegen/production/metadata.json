@@ -1,11 +1,8 @@
 {
-  "attempt": 6,
-  "phase_attempt": 3,
+  "type": "llm_response",
   "phase": "production",
-  "success": false,
-  "errors": [
-    "unknown type name 'float32'; did you mean '_Float32'?"
-  ],
-  "timestamp": "2026-03-31T21:56:25.518528",
-  "project_name": "Migrate_the_TC387_TOM_EVADC_3_phase_inverter_app_t_r_20260331_213328"
+  "attempt": 8,
+  "phase_attempt": 4,
+  "response_length": 13306,
+  "timestamp": "2026-03-31T22:05:37.307079"
 }
