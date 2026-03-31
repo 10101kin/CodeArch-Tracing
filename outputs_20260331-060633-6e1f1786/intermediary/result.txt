@@ -1,11 +1,11 @@
 Status: SUCCESS
 
 Unified spec export
-Stage: requirements
-Reason: reviewer_patch_applied
+Stage: hardware
+Reason: stage_completed
 Modified By: system
 Modifier: N/A
 Reviewer: N/A
 Attempt: 2
-Phase attempt: 2
-Timestamp: 2026-03-31T14:12:55.911972
+Phase attempt: 1
+Timestamp: 2026-03-31T14:16:26.149745
