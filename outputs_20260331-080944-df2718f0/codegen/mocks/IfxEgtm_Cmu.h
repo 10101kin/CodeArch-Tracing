@@ -1,15 +1,10 @@
-/*
- * IfxEgtm_Cmu.h - EGTM CMU mock header
- */
+/* Mock IfxEgtm_Cmu.h for TC4xx */
 #ifndef IFXEGTM_CMU_H
 #define IFXEGTM_CMU_H
 
 #include "mock_egtm_atom_3_phase_inverter_pwm.h"
-#include "IfxEgtm.h"
 
-/* ==========================================================
- * Enums (must precede any struct usage)
- * ========================================================== */
+/* Enums */
 typedef enum
 {
     IfxEgtm_Cmu_Clk_0 = 0,
@@ -40,15 +35,13 @@ typedef enum
 
 typedef enum
 {
-    IfxEgtm_Cmu_Tim_Filter_Clk_0 = 0,
-    IfxEgtm_Cmu_Tim_Filter_Clk_1 = 1,
-    IfxEgtm_Cmu_Tim_Filter_Clk_6 = 6,
-    IfxEgtm_Cmu_Tim_Filter_Clk_7 = 7
+    IfxEgtm_Cmu_Tim_Filter_Clk_0 = 0,  /* CMU_CLK0 */
+    IfxEgtm_Cmu_Tim_Filter_Clk_1 = 1,  /* CMU_CLK1 */
+    IfxEgtm_Cmu_Tim_Filter_Clk_6 = 6,  /* CMU_CLK6 */
+    IfxEgtm_Cmu_Tim_Filter_Clk_7 = 7   /* CMU_CLK7 (included for completeness) */
 } IfxEgtm_Cmu_Tim_Filter_Clk;
 
-/* ==========================================================
- * Mandatory CMU function declarations
- * ========================================================== */
+/* Mandatory CMU mock functions */
 void    IfxEgtm_Cmu_enable(Ifx_EGTM *module);
 boolean IfxEgtm_Cmu_isEnabled(Ifx_EGTM *module);
 float32 IfxEgtm_Cmu_getModuleFrequency(Ifx_EGTM *module);
