@@ -1,9 +1,8 @@
 {
-  "attempt": 8,
-  "phase_attempt": 4,
-  "phase": "mock_generation",
-  "success": true,
-  "errors": [],
-  "timestamp": "2026-03-31T13:07:21.995164",
-  "project_name": "Migrate_the_KIT_A2G_TC387_5V_TFT_project_from_IfxG_r_20260331_124216"
+  "type": "llm_response",
+  "phase": "mock",
+  "attempt": 10,
+  "phase_attempt": 5,
+  "response_length": 29692,
+  "timestamp": "2026-03-31T13:13:39.091239"
 }
