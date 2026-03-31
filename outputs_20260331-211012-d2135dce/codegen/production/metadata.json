@@ -1,20 +1,8 @@
 {
-  "attempt": 7,
-  "phase_attempt": 3,
+  "type": "llm_response",
   "phase": "production",
-  "success": false,
-  "errors": [
-    "expected specifier-qualifier-list before 'unsitypedef'",
-    "expected ';' before 'enum'",
-    "expected ';' before 'enum'",
-    "expected ';' before 'enum'",
-    "expected ';' before 'enum'",
-    "expected identifier or '(' before '=' token",
-    "data definition has no type or storage class [-Werror]",
-    "type defaults to 'int' in declaration of 'IfxEgtm_SuspendMode' [-Wimplicit-int]",
-    "conflicting types for 'IfxEgtm_SuspendMode'; have 'int'",
-    "'/*' within comment [-Werror=comment]"
-  ],
-  "timestamp": "2026-04-01T05:41:53.789165",
-  "project_name": "Generate_TC4D7_eGTM_ATOM_ATOM0_Cluster_0_code_u_r_20260401_052152"
+  "attempt": 3,
+  "phase_attempt": 1,
+  "response_length": 11566,
+  "timestamp": "2026-04-01T06:05:40.681150"
 }
