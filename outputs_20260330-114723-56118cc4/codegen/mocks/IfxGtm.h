@@ -1,29 +1,36 @@
-/* IfxGtm.h (mock) */
+/* IfxGtm.h mock */
+
 #ifndef IFXGTM_H
 #define IFXGTM_H
 
 #include "mock_gtm_tom_3_phase_inverter_pwm.h"
 
-/* IfxGtm enums (owned here) */
-typedef enum
-{
+/* IfxGtm enums required by PWM driver */
+typedef enum {
     IfxGtm_IrqMode_level       = 0,
     IfxGtm_IrqMode_pulse       = 1,
     IfxGtm_IrqMode_pulseNotify = 2,
     IfxGtm_IrqMode_singlePulse = 3
 } IfxGtm_IrqMode;
 
-typedef enum
-{
+typedef enum {
     IfxGtm_SuspendMode_none = 0,
     IfxGtm_SuspendMode_hard = 1,
     IfxGtm_SuspendMode_soft = 2
 } IfxGtm_SuspendMode;
 
-/* Function declarations used by production code */
-boolean IfxGtm_isEnabled(Ifx_GTM *gtm);
-void IfxGtm_enable(Ifx_GTM *gtm);
+/* Minimal cluster enum to satisfy references in PWM types */
+typedef enum {
+    IfxGtm_Cluster_0 = 0
+} IfxGtm_Cluster;
 
-/* Other GTM helper declarations (not mocked here) could be added if needed */
+/* Minimal SFR cluster types referenced by PWM types */
+typedef struct { uint32 reserved; } Ifx_GTM_ATOM;
+typedef struct { uint32 reserved; } Ifx_GTM_TOM;
+typedef struct { uint32 reserved; } Ifx_GTM_CDTM;
+
+/* Functions used by production code / to mock */
+boolean IfxGtm_isEnabled(Ifx_GTM *gtm);
+void    IfxGtm_enable(Ifx_GTM *gtm);
 
 #endif /* IFXGTM_H */
