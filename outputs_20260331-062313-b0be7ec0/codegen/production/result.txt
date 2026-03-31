@@ -1,3 +1,153 @@
-Status: SUCCESS
+Status: FAILED
 
-LLM response for production phase (attempt 5), 9960 chars
+============================================================
+TDD CODE GENERATION - ATTEMPT STATUS
+============================================================
+Phase: production
+Attempt: 5
+Status: FAILED
+Timestamp: 2026-03-31 14:51:15
+Files generated: 2
+
+============================================================
+
+ERRORS:
+
+1. redeclaration of enumerator 'IfxGtm_Pwm_ChannelState_running'
+
+2. redeclaration of enumerator 'IfxGtm_Pwm_ChannelState_stopped'
+
+3. conflicting types for 'IfxGtm_Pwm_ChannelState'; have 'enum <anonymous>'
+
+4. 'IfxGtm_TOM1_2_TOUT12_P00_3_OUT' undeclared (first use in this function)
+
+5. 'IfxGtm_TOM1_4_TOUT14_P00_5_OUT' undeclared (first use in this function)
+
+6. 'IfxGtm_TOM1_6_TOUT16_P00_7_OUT' undeclared (first use in this function)
+
+7. redeclaration of enumerator 'IfxGtm_Pwm_ChannelState_running'
+
+8. redeclaration of enumerator 'IfxGtm_Pwm_ChannelState_stopped'
+
+9. conflicting types for 'IfxGtm_Pwm_ChannelState'; have 'enum <anonymous>'
+
+10. variable 'mock_IfxGtm_Pwm_getChannelState_returnValue' has initializer but incomplete type
+
+============================================================
+BUILD RESULT:
+{
+  "success": false,
+  "errors": [
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\include/IfxGtm_Pwm.h",
+      "line": 52,
+      "category": "error",
+      "message": "redeclaration of enumerator 'IfxGtm_Pwm_ChannelState_running'"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\include/IfxGtm_Pwm.h",
+      "line": 53,
+      "category": "error",
+      "message": "redeclaration of enumerator 'IfxGtm_Pwm_ChannelState_stopped'"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\include/IfxGtm_Pwm.h",
+      "line": 54,
+      "category": "error",
+      "message": "conflicting types for 'IfxGtm_Pwm_ChannelState'; have 'enum <anonymous>'"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 26,
+      "category": "error",
+      "message": "'IfxGtm_TOM1_2_TOUT12_P00_3_OUT' undeclared (first use in this function)"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 27,
+      "category": "error",
+      "message": "'IfxGtm_TOM1_4_TOUT14_P00_5_OUT' undeclared (first use in this function)"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 28,
+      "category": "error",
+      "message": "'IfxGtm_TOM1_6_TOUT16_P00_7_OUT' undeclared (first use in this function)"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\include/IfxGtm_Pwm.h",
+      "line": 52,
+      "category": "error",
+      "message": "redeclaration of enumerator 'IfxGtm_Pwm_ChannelState_running'"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\include/IfxGtm_Pwm.h",
+      "line": 53,
+      "category": "error",
+      "message": "redeclaration of enumerator 'IfxGtm_Pwm_ChannelState_stopped'"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\include/IfxGtm_Pwm.h",
+      "line": 54,
+      "category": "error",
+      "message": "conflicting types for 'IfxGtm_Pwm_ChannelState'; have 'enum <anonymous>'"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 37,
+      "category": "error",
+      "message": "variable 'mock_IfxGtm_Pwm_getChannelState_returnValue' has initializer but incomplete type"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 259,
+      "category": "error",
+      "message": "'mock_IfxGtm_Pwm_getChannelState_returnValue' has an incomplete type 'enum IfxGtm_Pwm_ChannelState'"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 296,
+      "category": "error",
+      "message": "'mock_IfxGtm_Pwm_getChannelState_returnValue' has an incomplete type 'enum IfxGtm_Pwm_ChannelState'"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 37,
+      "category": "error",
+      "message": "storage size of 'mock_IfxGtm_Pwm_getChannelState_returnValue' isn't known"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\test\\test_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 136,
+      "category": "error",
+      "message": "implicit declaration of function 'mock_IfxCpu_Irq_installInterruptHandler_getCallCount' [-Wimplicit-function-declaration]"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\test\\test_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 148,
+      "category": "error",
+      "message": "implicit declaration of function 'mock_IfxGtm_Pwm_startSyncedChannels_getCallCount'; did you mean 'mock_IfxGtm_Pwm_getChannelState_getCallCount'? [-Wimplicit-function-declaration]"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\test\\test_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 149,
+      "category": "error",
+      "message": "implicit declaration of function 'mock_IfxGtm_Pwm_stopSyncedChannels_getCallCount'; did you mean 'mock_IfxGtm_Pwm_getChannelState_getCallCount'? [-Wimplicit-function-declaration]"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\test\\test_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 150,
+      "category": "error",
+      "message": "implicit declaration of function 'mock_IfxGtm_Pwm_startChannelOutputs_getCallCount'; did you mean 'mock_IfxGtm_Pwm_getChannelState_getCallCount'? [-Wimplicit-function-declaration]"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\test\\test_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 151,
+      "category": "error",
+      "message": "implicit declaration of function 'mock_IfxGtm_Pwm_stopChannelOutputs_getCallCount'; did you mean 'mock_IfxGtm_Pwm_getChannelState_getCallCount'? [-Wimplicit-function-declaration]"
+    }
+  ],
+  "warnings": [],
+  "stderr": "In file included from C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\src\\gtm_tom_3_phase_inverter_pwm.c:14:\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\include/IfxGtm_Pwm.h:52:5: error: redeclaration of enumerator 'IfxGtm_Pwm_ChannelState_running'\n   52 |     IfxGtm_Pwm_ChannelState_running = 0,\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nIn file included from C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\include/Ifx_Types.h:3,\n                 from C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\src\\gtm_tom_3_phase_inverter_pwm.c:13:\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\include/mock_gtm_tom_3_phase_inverter_pwm.h:242:5: note: previous definition of 'IfxGtm_Pwm_ChannelState_running' with type 'enum <anonymous>'\n  242 |     IfxGtm_Pwm_ChannelState_running = 0,\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\include/IfxGtm_Pwm.h:53:5: error: redeclaration of enumerator 'IfxGtm_Pwm_ChannelState_stopped'\n   53 |     IfxGtm_Pwm_ChannelState_stopped\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\include/mock_gtm_tom_3_phase_inverter_pwm.h:243:5: note: previous definition of 'IfxGtm_Pwm_ChannelState_stopped' with type 'enum <anonymous>'\n  243 |     IfxGtm_Pwm_ChannelState_stopped\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\include/IfxGtm_Pwm.h:54:3: error: conflicting types for 'IfxGtm_Pwm_ChannelState'; have 'enum <anonymous>'\n   54 | } IfxGtm_Pwm_ChannelState;\n      |   ^~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\include/mock_gtm_tom_3_phase_inverter_pwm.h:244:3: note: previous declaration of 'IfxGtm_Pwm_ChannelState' with type 'IfxGtm_Pwm_ChannelState'\n  244 | } IfxGtm_Pwm_ChannelState; /* forward-compatible for getter ctrl only; real enum in IfxGtm_Pwm.h */\n      |   ^~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\src\\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTom3phInv':\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\src\\gtm_tom_3_phase_inverter_pwm.c:26:41: error: 'IfxGtm_TOM1_2_TOUT12_P00_3_OUT' undeclared (first use in this function)\n   26 | #define PHASE_U_HS                    (&IfxGtm_TOM1_2_TOUT12_P00_3_OUT)\n      |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\src\\gtm_tom_3_phase_inverter_pwm.c:88:62: note: in expansion of macro 'PHASE_U_HS'\n   88 |     output[0].pin                    = (IfxGtm_Pwm_ToutMap *)PHASE_U_HS;\n      |                                                              ^~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\src\\gtm_tom_3_phase_inverter_pwm.c:26:41: note: each undeclared identifier is reported only once for each function it appears in\n   26 | #define PHASE_U_HS                    (&IfxGtm_TOM1_2_TOUT12_P00_3_OUT)\n      |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\src\\gtm_tom_3_phase_inverter_pwm.c:88:62: note: in expansion of macro 'PHASE_U_HS'\n   88 |     output[0].pin                    = (IfxGtm_Pwm_ToutMap *)PHASE_U_HS;\n      |                                                              ^~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\src\\gtm_tom_3_phase_inverter_pwm.c:27:41: error: 'IfxGtm_TOM1_4_TOUT14_P00_5_OUT' undeclared (first use in this function)\n   27 | #define PHASE_V_HS                    (&IfxGtm_TOM1_4_TOUT14_P00_5_OUT)\n      |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\src\\gtm_tom_3_phase_inverter_pwm.c:95:62: note: in expansion of macro 'PHASE_V_HS'\n   95 |     output[1].pin                    = (IfxGtm_Pwm_ToutMap *)PHASE_V_HS;\n      |                                                              ^~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\src\\gtm_tom_3_phase_inverter_pwm.c:28:41: error: 'IfxGtm_TOM1_6_TOUT16_P00_7_OUT' undeclared (first use in this function)\n   28 | #define PHASE_W_HS                    (&IfxGtm_TOM1_6_TOUT16_P00_7_OUT)\n      |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\src\\gtm_tom_3_phase_inverter_pwm.c:102:62: note: in expansion of macro 'PHASE_W_HS'\n  102 |     output[2].pin                    = (IfxGtm_Pwm_ToutMap *)PHASE_W_HS;\n      |                                                              ^~~~~~~~~~\n\nIn file included from C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c:4:\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\include/IfxGtm_Pwm.h:52:5: error: redeclaration of enumerator 'IfxGtm_Pwm_ChannelState_running'\n   52 |     IfxGtm_Pwm_ChannelState_running = 0,\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nIn file included from C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c:1:\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\include/mock_gtm_tom_3_phase_inverter_pwm.h:242:5: note: previous definition of 'IfxGtm_Pwm_ChannelState_running' with type 'enum <anonymous>'\n  242 |     IfxGtm_Pwm_ChannelState_running = 0,\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\include/IfxGtm_Pwm.h:53:5: error: redeclaration of enumerator 'IfxGtm_Pwm_ChannelState_stopped'\n   53 |     IfxGtm_Pwm_ChannelState_stopped\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\include/mock_gtm_tom_3_phase_inverter_pwm.h:243:5: note: previous definition of 'IfxGtm_Pwm_ChannelState_stopped' with type 'enum <anonymous>'\n  243 |     IfxGtm_Pwm_ChannelState_stopped\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\include/IfxGtm_Pwm.h:54:3: error: conflicting types for 'IfxGtm_Pwm_ChannelState'; have 'enum <anonymous>'\n   54 | } IfxGtm_Pwm_ChannelState;\n      |   ^~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\include/mock_gtm_tom_3_phase_inverter_pwm.h:244:3: note: previous declaration of 'IfxGtm_Pwm_ChannelState' with type 'IfxGtm_Pwm_ChannelState'\n  244 | } IfxGtm_Pwm_ChannelState; /* forward-compatible for getter ctrl only; real enum in IfxGtm_Pwm.h */\n      |   ^~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c:37:6: error: variable 'mock_IfxGtm_Pwm_getChannelState_returnValue' has initializer but incomplete type\n   37 | enum IfxGtm_Pwm_ChannelState mock_IfxGtm_Pwm_getChannelState_returnValue = IfxGtm_Pwm_ChannelState_running;\n      |      ^~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c: In function 'IfxGtm_Pwm_getChannelState':\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c:259:12: error: 'mock_IfxGtm_Pwm_getChannelState_returnValue' has an incomplete type 'enum IfxGtm_Pwm_ChannelState'\n  259 |     return mock_IfxGtm_Pwm_getChannelState_returnValue;\n      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c: In function 'mock_gtm_tom_3_phase_inverter_pwm_reset':\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c:296:49: error: 'mock_IfxGtm_Pwm_getChannelState_returnValue' has an incomplete type 'enum IfxGtm_Pwm_ChannelState'\n  296 |     mock_IfxGtm_Pwm_getChannelState_returnValue = IfxGtm_Pwm_ChannelState_running;\n      |                                                 ^\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c: At top level:\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c:37:30: error: storage size of 'mock_IfxGtm_Pwm_getChannelState_returnValue' isn't known\n   37 | enum IfxGtm_Pwm_ChannelState mock_IfxGtm_Pwm_getChannelState_returnValue = IfxGtm_Pwm_ChannelState_running;\n      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity.h:22,\n                 from C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\test\\test_gtm_tom_3_phase_inverter_pwm.c:1:\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\test\\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G4_001_init_does_not_install_isr':\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\test\\test_gtm_tom_3_phase_inverter_pwm.c:136:41: error: implicit declaration of function 'mock_IfxCpu_Irq_installInterruptHandler_getCallCount' [-Wimplicit-function-declaration]\n  136 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxCpu_Irq_installInterruptHandler_getCallCount(), \"init() must not install any ISR handlers\");\n      |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity_internals.h:904:184: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_UINT32'\n  904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)\n      |                                                                                                                                                                                        ^~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\test\\test_gtm_tom_3_phase_inverter_pwm.c:136:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'\n  136 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxCpu_Irq_installInterruptHandler_getCallCount(), \"init() must not install any ISR handlers\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\test\\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G4_002_init_does_not_start_or_stop_channel_outputs':\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\test\\test_gtm_tom_3_phase_inverter_pwm.c:148:41: error: implicit declaration of function 'mock_IfxGtm_Pwm_startSyncedChannels_getCallCount'; did you mean 'mock_IfxGtm_Pwm_getChannelState_getCallCount'? [-Wimplicit-function-declaration]\n  148 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxGtm_Pwm_startSyncedChannels_getCallCount(), \"init() must not call startSyncedChannels()\");\n      |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity_internals.h:904:184: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_UINT32'\n  904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)\n      |                                                                                                                                                                                        ^~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\test\\test_gtm_tom_3_phase_inverter_pwm.c:148:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'\n  148 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxGtm_Pwm_startSyncedChannels_getCallCount(), \"init() must not call startSyncedChannels()\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\test\\test_gtm_tom_3_phase_inverter_pwm.c:149:41: error: implicit declaration of function 'mock_IfxGtm_Pwm_stopSyncedChannels_getCallCount'; did you mean 'mock_IfxGtm_Pwm_getChannelState_getCallCount'? [-Wimplicit-function-declaration]\n  149 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxGtm_Pwm_stopSyncedChannels_getCallCount(), \"init() must not call stopSyncedChannels()\");\n      |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity_internals.h:904:184: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_UINT32'\n  904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)\n      |                                                                                                                                                                                        ^~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\test\\test_gtm_tom_3_phase_inverter_pwm.c:149:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'\n  149 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxGtm_Pwm_stopSyncedChannels_getCallCount(), \"init() must not call stopSyncedChannels()\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\test\\test_gtm_tom_3_phase_inverter_pwm.c:150:41: error: implicit declaration of function 'mock_IfxGtm_Pwm_startChannelOutputs_getCallCount'; did you mean 'mock_IfxGtm_Pwm_getChannelState_getCallCount'? [-Wimplicit-function-declaration]\n  150 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxGtm_Pwm_startChannelOutputs_getCallCount(), \"init() must not call startChannelOutputs()\");\n      |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity_internals.h:904:184: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_UINT32'\n  904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)\n      |                                                                                                                                                                                        ^~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\test\\test_gtm_tom_3_phase_inverter_pwm.c:150:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'\n  150 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxGtm_Pwm_startChannelOutputs_getCallCount(), \"init() must not call startChannelOutputs()\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\test\\test_gtm_tom_3_phase_inverter_pwm.c:151:41: error: implicit declaration of function 'mock_IfxGtm_Pwm_stopChannelOutputs_getCallCount'; did you mean 'mock_IfxGtm_Pwm_getChannelState_getCallCount'? [-Wimplicit-function-declaration]\n  151 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxGtm_Pwm_stopChannelOutputs_getCallCount(), \"init() must not call stopChannelOutputs()\");\n      |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity_internals.h:904:184: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_UINT32'\n  904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)\n      |                                                                                                                                                                                        ^~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p3nrnrp8\\test\\test_gtm_tom_3_phase_inverter_pwm.c:151:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'\n  151 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxGtm_Pwm_stopChannelOutputs_getCallCount(), \"init() must not call stopChannelOutputs()\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n",
+  "stdout": ""
+}
