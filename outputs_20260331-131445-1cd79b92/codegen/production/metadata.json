@@ -1,11 +1,8 @@
 {
-  "attempt": 3,
-  "phase_attempt": 1,
+  "type": "llm_response",
   "phase": "production",
-  "success": false,
-  "errors": [
-    "C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_i516kf58\\src\\egtm_atom_3_phase_inverter_pwm.c:55:10: fatal error: Compilers.h: No such file or directory"
-  ],
-  "timestamp": "2026-03-31T21:44:09.466699",
-  "project_name": "Migrate_the_TC387_TOM_EVADC_3_phase_inverter_app_t_r_20260331_213328"
+  "attempt": 5,
+  "phase_attempt": 2,
+  "response_length": 15468,
+  "timestamp": "2026-03-31T21:53:14.019529"
 }
