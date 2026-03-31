@@ -1,20 +1,8 @@
 {
-  "attempt": 8,
-  "phase_attempt": 4,
+  "type": "llm_response",
   "phase": "production",
-  "success": false,
-  "errors": [
-    "unknown type name 'float32'; did you mean '_Float32'?",
-    "unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'",
-    "unknown type name 'IfxEgtm_Pwm_ToutMap'; did you mean 'IfxEgtm_Tom_ToutMap'?",
-    "unknown type name 'IfxEgtm_Pwm_ToutMap'; did you mean 'IfxEgtm_Tom_ToutMap'?",
-    "unknown type name 'IfxEgtm_Pwm_ToutMap'; did you mean 'IfxEgtm_Tom_ToutMap'?",
-    "'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P33'?",
-    "assignment to 'int *' from incompatible pointer type 'IfxEgtm_Pwm_ToutMap *' [-Wincompatible-pointer-types]",
-    "assignment to 'int *' from incompatible pointer type 'IfxEgtm_Pwm_ToutMap *' [-Wincompatible-pointer-types]",
-    "assignment to 'int *' from incompatible pointer type 'IfxEgtm_Pwm_ToutMap *' [-Wincompatible-pointer-types]",
-    "assignment to 'int *' from incompatible pointer type 'IfxEgtm_Pwm_ToutMap *' [-Wincompatible-pointer-types]"
-  ],
-  "timestamp": "2026-03-31T22:05:45.098748",
-  "project_name": "Migrate_the_TC387_TOM_EVADC_3_phase_inverter_app_t_r_20260331_213328"
+  "attempt": 10,
+  "phase_attempt": 5,
+  "response_length": 13394,
+  "timestamp": "2026-03-31T22:14:27.654216"
 }
