@@ -1,3 +1,97 @@
-Status: SUCCESS
+Status: FAILED
 
-LLM response for production phase (attempt 3), 11566 chars
+============================================================
+TDD CODE GENERATION - ATTEMPT STATUS
+============================================================
+Phase: production
+Attempt: 3
+Status: FAILED
+Timestamp: 2026-04-01 06:05:51
+Files generated: 2
+
+============================================================
+
+ERRORS:
+
+1. expected specifier-qualifier-list before 'unsitypedef'
+
+2. expected ',' or '}' before 'enum'
+
+3. '/*' within comment [-Werror=comment]
+
+4. invalid suffix 'typedef' on integer constant
+
+5. expected specifier-qualifier-list before 'unsitypedef'
+
+6. expected ',' or '}' before 'enum'
+
+7. '/*' within comment [-Werror=comment]
+
+8. '/*' within comment [-Werror=comment]
+
+9. invalid suffix 'typedef' on integer constant
+
+============================================================
+BUILD RESULT:
+{
+  "success": false,
+  "errors": [
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_sv6sreyn\\include/IfxEgtm.h",
+      "line": 11,
+      "category": "error",
+      "message": "expected specifier-qualifier-list before 'unsitypedef'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_sv6sreyn\\include/IfxEgtm.h",
+      "line": 33,
+      "category": "error",
+      "message": "expected ',' or '}' before 'enum'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_sv6sreyn\\include/IfxEgtm_Cmu.h",
+      "line": 61,
+      "category": "error",
+      "message": "'/*' within comment [-Werror=comment]"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_sv6sreyn\\include/IfxEgtm_Pwm.h",
+      "line": 61,
+      "category": "error",
+      "message": "invalid suffix 'typedef' on integer constant"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_sv6sreyn\\include/IfxEgtm.h",
+      "line": 11,
+      "category": "error",
+      "message": "expected specifier-qualifier-list before 'unsitypedef'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_sv6sreyn\\include/IfxEgtm.h",
+      "line": 33,
+      "category": "error",
+      "message": "expected ',' or '}' before 'enum'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_sv6sreyn\\include/IfxEgtm_Cmu.h",
+      "line": 61,
+      "category": "error",
+      "message": "'/*' within comment [-Werror=comment]"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_sv6sreyn\\include/IfxEgtm_Cmu.h",
+      "line": 61,
+      "category": "error",
+      "message": "'/*' within comment [-Werror=comment]"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_sv6sreyn\\include/IfxEgtm_Pwm.h",
+      "line": 61,
+      "category": "error",
+      "message": "invalid suffix 'typedef' on integer constant"
+    }
+  ],
+  "warnings": [],
+  "stderr": "In file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_sv6sreyn\\include/IfxEgtm_Pwm.h:6,\n                 from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_sv6sreyn\\src\\egtm_atom_3_phase_inverter_pwm.c:16:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_sv6sreyn\\include/IfxEgtm.h:11:5: error: expected specifier-qualifier-list before 'unsitypedef'\n   11 |     unsitypedef struct\n      |     ^~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_sv6sreyn\\include/IfxEgtm.h:33:30: error: expected ',' or '}' before 'enum'\n   33 |     IfxEgtm_Cfg_MscSetypedef enum\n      |                              ^~~~\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_sv6sreyn\\include/IfxEgtm_Pwm.h:7:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_sv6sreyn\\include/IfxEgtm_Cmu.h:61:1: error: '/*' within comment [-Werror=comment]\n   61 | /* Functions to mock (mandatory set) */\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_sv6sreyn\\include/IfxEgtm_Pwm.h:61:29: error: invalid suffix 'typedef' on integer constant\n   61 | } IfxEgtm_Pwm_ChannelState; 1typedef enum\n      |                             ^~~~~~~~\ncc1.exe: all warnings being treated as errors\n\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_sv6sreyn\\mocks\\mock_egtm_atom_3_phase_inverter_pwm.c:3:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_sv6sreyn\\include/IfxEgtm.h:11:5: error: expected specifier-qualifier-list before 'unsitypedef'\n   11 |     unsitypedef struct\n      |     ^~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_sv6sreyn\\include/IfxEgtm.h:33:30: error: expected ',' or '}' before 'enum'\n   33 |     IfxEgtm_Cfg_MscSetypedef enum\n      |                              ^~~~\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_sv6sreyn\\mocks\\mock_egtm_atom_3_phase_inverter_pwm.c:4:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_sv6sreyn\\include/IfxEgtm_Cmu.h:61:1: error: '/*' within comment [-Werror=comment]\n   61 | /* Functions to mock (mandatory set) */\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_sv6sreyn\\include/IfxEgtm_Pwm.h:7,\n                 from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_sv6sreyn\\mocks\\mock_egtm_atom_3_phase_inverter_pwm.c:5:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_sv6sreyn\\include/IfxEgtm_Cmu.h:61:1: error: '/*' within comment [-Werror=comment]\n   61 | /* Functions to mock (mandatory set) */\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_sv6sreyn\\include/IfxEgtm_Pwm.h:61:29: error: invalid suffix 'typedef' on integer constant\n   61 | } IfxEgtm_Pwm_ChannelState; 1typedef enum\n      |                             ^~~~~~~~\ncc1.exe: all warnings being treated as errors\n",
+  "stdout": ""
+}

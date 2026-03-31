@@ -1,8 +1,19 @@
 {
-  "type": "llm_response",
-  "phase": "production",
   "attempt": 3,
   "phase_attempt": 1,
-  "response_length": 11566,
-  "timestamp": "2026-04-01T06:05:40.681150"
+  "phase": "production",
+  "success": false,
+  "errors": [
+    "expected specifier-qualifier-list before 'unsitypedef'",
+    "expected ',' or '}' before 'enum'",
+    "'/*' within comment [-Werror=comment]",
+    "invalid suffix 'typedef' on integer constant",
+    "expected specifier-qualifier-list before 'unsitypedef'",
+    "expected ',' or '}' before 'enum'",
+    "'/*' within comment [-Werror=comment]",
+    "'/*' within comment [-Werror=comment]",
+    "invalid suffix 'typedef' on integer constant"
+  ],
+  "timestamp": "2026-04-01T06:05:51.868149",
+  "project_name": "Generate_TC4D7_eGTM_ATOM_ATOM0_Cluster_0_code_u_r_20260401_055538"
 }

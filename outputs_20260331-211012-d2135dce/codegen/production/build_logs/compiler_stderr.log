@@ -1,121 +1,34 @@
-In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_m6ubj94_\include/IfxEgtm_Pwm.h:5,
-                 from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_m6ubj94_\src\egtm_atom_3_phase_inverter_pwm.c:8:
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_m6ubj94_\include/IfxEgtm.h:13:5: error: expected specifier-qualifier-list before 'unsitypedef'
-   13 |     unsitypedef struct
+In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sv6sreyn\include/IfxEgtm_Pwm.h:6,
+                 from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sv6sreyn\src\egtm_atom_3_phase_inverter_pwm.c:16:
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sv6sreyn\include/IfxEgtm.h:11:5: error: expected specifier-qualifier-list before 'unsitypedef'
+   11 |     unsitypedef struct
       |     ^~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_m6ubj94_\include/IfxEgtm.h:30:33: error: expected ';' before 'enum'
-   30 | } IfxEgtm_AeiBridgeOpModetypedef enum
-      |                                 ^~~~~
-      |                                 ;
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_m6ubj94_\include/IfxEgtm.h:35:32: error: expected ';' before 'enum'
-   35 | } IfxEgtm_ClusterClockDitypedef enum
-      |                                ^~~~~
-      |                                ;
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_m6ubj94_\include/IfxEgtm.h:41:16: error: expected ';' before 'enum'
-   41 | } IfxEgttypedef enum
-      |                ^~~~~
-      |                ;
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_m6ubj94_\include/IfxEgtm.h:47:24: error: expected ';' before 'enum'
-   47 | } IfxEgtm_MscAlttypedef enum
-      |                        ^~~~~
-      |                        ;
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_m6ubj94_\include/IfxEgtm.h:52:24: error: expected identifier or '(' before '=' token
-   52 | } IfxEgtm_SuspendMode; = 2
-      |                        ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_m6ubj94_\include/IfxEgtm.h:53:3: error: data definition has no type or storage class [-Werror]
-   53 | } IfxEgtm_SuspendMode;
-      |   ^~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_m6ubj94_\include/IfxEgtm.h:53:3: error: type defaults to 'int' in declaration of 'IfxEgtm_SuspendMode' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_m6ubj94_\include/IfxEgtm.h:53:3: error: conflicting types for 'IfxEgtm_SuspendMode'; have 'int'
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_m6ubj94_\include/IfxEgtm.h:52:3: note: previous declaration of 'IfxEgtm_SuspendMode' with type 'enum <anonymous>'
-   52 | } IfxEgtm_SuspendMode; = 2
-      |   ^~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_m6ubj94_\include/IfxEgtm.h:75:1: error: '/*' within comment [-Werror=comment]
-   75 | /* EGTM access protection/Atypedef struct
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_m6ubj94_\include/IfxEgtm.h:98:1: error: '/*' within comment [-Werror=comment]
-   98 | /* EGTM enable/status API (stubs implemented in mock .c) */
-In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_m6ubj94_\include/IfxEgtm_Pwm.h:7:
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_m6ubj94_\include/IfxPort.h:12:20: error: expected ';' before 'enum'
-   12 | } IfxPort_Cotypedef enum
-      |                    ^~~~~
-      |                    ;
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_m6ubj94_\include/IfxPort.h:18:30: error: expected ';' before 'enum'
-   18 | } IfxPort_InputMode;rttypedef enum
-      |                              ^~~~~
-      |                              ;
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_m6ubj94_\include/IfxPort.h:22:16: error: expected ';' before 'enum'
-   22 | } IfxPortypedef enum
-      |                ^~~~~
-      |                ;
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_m6ubj94_\include/IfxPort.h:26:16: error: expected ';' before 'enum'
-   26 | } IfxPortypedef enum
-      |                ^~~~~
-      |                ;
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_m6ubj94_\include/IfxPort.h:62:43: error: expected ',' or '}' before 'enum'
-   62 |     IfxPort_Mode_outputOpenDrainAltypedef enum
-      |                                           ^~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sv6sreyn\include/IfxEgtm.h:33:30: error: expected ',' or '}' before 'enum'
+   33 |     IfxEgtm_Cfg_MscSetypedef enum
+      |                              ^~~~
+In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sv6sreyn\include/IfxEgtm_Pwm.h:7:
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sv6sreyn\include/IfxEgtm_Cmu.h:61:1: error: '/*' within comment [-Werror=comment]
+   61 | /* Functions to mock (mandatory set) */
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sv6sreyn\include/IfxEgtm_Pwm.h:61:29: error: invalid suffix 'typedef' on integer constant
+   61 | } IfxEgtm_Pwm_ChannelState; 1typedef enum
+      |                             ^~~~~~~~
 cc1.exe: all warnings being treated as errors
 
-In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_m6ubj94_\mocks\mock_egtm_atom_3_phase_inverter_pwm.c:3:
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_m6ubj94_\include/IfxEgtm.h:13:5: error: expected specifier-qualifier-list before 'unsitypedef'
-   13 |     unsitypedef struct
+In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sv6sreyn\mocks\mock_egtm_atom_3_phase_inverter_pwm.c:3:
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sv6sreyn\include/IfxEgtm.h:11:5: error: expected specifier-qualifier-list before 'unsitypedef'
+   11 |     unsitypedef struct
       |     ^~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_m6ubj94_\include/IfxEgtm.h:30:33: error: expected ';' before 'enum'
-   30 | } IfxEgtm_AeiBridgeOpModetypedef enum
-      |                                 ^~~~~
-      |                                 ;
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_m6ubj94_\include/IfxEgtm.h:35:32: error: expected ';' before 'enum'
-   35 | } IfxEgtm_ClusterClockDitypedef enum
-      |                                ^~~~~
-      |                                ;
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_m6ubj94_\include/IfxEgtm.h:41:16: error: expected ';' before 'enum'
-   41 | } IfxEgttypedef enum
-      |                ^~~~~
-      |                ;
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_m6ubj94_\include/IfxEgtm.h:47:24: error: expected ';' before 'enum'
-   47 | } IfxEgtm_MscAlttypedef enum
-      |                        ^~~~~
-      |                        ;
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_m6ubj94_\include/IfxEgtm.h:52:24: error: expected identifier or '(' before '=' token
-   52 | } IfxEgtm_SuspendMode; = 2
-      |                        ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_m6ubj94_\include/IfxEgtm.h:53:3: error: data definition has no type or storage class [-Werror]
-   53 | } IfxEgtm_SuspendMode;
-      |   ^~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_m6ubj94_\include/IfxEgtm.h:53:3: error: type defaults to 'int' in declaration of 'IfxEgtm_SuspendMode' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_m6ubj94_\include/IfxEgtm.h:53:3: error: conflicting types for 'IfxEgtm_SuspendMode'; have 'int'
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_m6ubj94_\include/IfxEgtm.h:52:3: note: previous declaration of 'IfxEgtm_SuspendMode' with type 'enum <anonymous>'
-   52 | } IfxEgtm_SuspendMode; = 2
-      |   ^~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_m6ubj94_\include/IfxEgtm.h:75:1: error: '/*' within comment [-Werror=comment]
-   75 | /* EGTM access protection/Atypedef struct
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_m6ubj94_\include/IfxEgtm.h:98:1: error: '/*' within comment [-Werror=comment]
-   98 | /* EGTM enable/status API (stubs implemented in mock .c) */
-In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_m6ubj94_\include/IfxEgtm_Cmu.h:5,
-                 from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_m6ubj94_\mocks\mock_egtm_atom_3_phase_inverter_pwm.c:4:
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_m6ubj94_\include/IfxEgtm.h:75:1: error: '/*' within comment [-Werror=comment]
-   75 | /* EGTM access protection/Atypedef struct
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_m6ubj94_\include/IfxEgtm.h:98:1: error: '/*' within comment [-Werror=comment]
-   98 | /* EGTM enable/status API (stubs implemented in mock .c) */
-In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_m6ubj94_\include/IfxEgtm_Pwm.h:7,
-                 from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_m6ubj94_\mocks\mock_egtm_atom_3_phase_inverter_pwm.c:5:
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_m6ubj94_\include/IfxPort.h:12:20: error: expected ';' before 'enum'
-   12 | } IfxPort_Cotypedef enum
-      |                    ^~~~~
-      |                    ;
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_m6ubj94_\include/IfxPort.h:18:30: error: expected ';' before 'enum'
-   18 | } IfxPort_InputMode;rttypedef enum
-      |                              ^~~~~
-      |                              ;
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_m6ubj94_\include/IfxPort.h:22:16: error: expected ';' before 'enum'
-   22 | } IfxPortypedef enum
-      |                ^~~~~
-      |                ;
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_m6ubj94_\include/IfxPort.h:26:16: error: expected ';' before 'enum'
-   26 | } IfxPortypedef enum
-      |                ^~~~~
-      |                ;
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_m6ubj94_\include/IfxPort.h:62:43: error: expected ',' or '}' before 'enum'
-   62 |     IfxPort_Mode_outputOpenDrainAltypedef enum
-      |                                           ^~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sv6sreyn\include/IfxEgtm.h:33:30: error: expected ',' or '}' before 'enum'
+   33 |     IfxEgtm_Cfg_MscSetypedef enum
+      |                              ^~~~
+In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sv6sreyn\mocks\mock_egtm_atom_3_phase_inverter_pwm.c:4:
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sv6sreyn\include/IfxEgtm_Cmu.h:61:1: error: '/*' within comment [-Werror=comment]
+   61 | /* Functions to mock (mandatory set) */
+In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sv6sreyn\include/IfxEgtm_Pwm.h:7,
+                 from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sv6sreyn\mocks\mock_egtm_atom_3_phase_inverter_pwm.c:5:
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sv6sreyn\include/IfxEgtm_Cmu.h:61:1: error: '/*' within comment [-Werror=comment]
+   61 | /* Functions to mock (mandatory set) */
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sv6sreyn\include/IfxEgtm_Pwm.h:61:29: error: invalid suffix 'typedef' on integer constant
+   61 | } IfxEgtm_Pwm_ChannelState; 1typedef enum
+      |                             ^~~~~~~~
 cc1.exe: all warnings being treated as errors
