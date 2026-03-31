@@ -1,9 +1,13 @@
 {
-  "attempt": 5,
-  "phase_attempt": 2,
-  "phase": "production",
-  "success": true,
-  "errors": [],
-  "timestamp": "2026-03-31T08:06:36.318048",
-  "project_name": "Upgrade_the_KIT_A2G_TC387_5V_TFT_project_to_use_If_r_20260331_075212"
+  "export_type": "node_json",
+  "export_reason": "stage_completed",
+  "node_stage": "code_generation",
+  "reviewer_name": null,
+  "reviewer_applied": false,
+  "modified_by": "system",
+  "modifier_name": null,
+  "workflow_stage": "code_generated",
+  "target_board": "KIT_A2G_TC387_5V_TFT",
+  "generation_mode": "MIGRATION",
+  "timestamp": "2026-03-31T08:06:40.237885"
 }
