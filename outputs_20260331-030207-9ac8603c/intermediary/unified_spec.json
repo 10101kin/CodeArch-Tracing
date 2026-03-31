@@ -2,7 +2,7 @@
   "meta": {
     "schema_version": "1.0",
     "last_updated_by": "sw_detailed",
-    "last_updated_at": "2026-03-31T11:34:37.124145",
+    "last_updated_at": "2026-03-31T11:38:02.166253",
     "build_sequence": [
       "requirements",
       "hardware",
@@ -376,7 +376,7 @@
     "module_name": "GTM_TOM_3_Phase_Inverter_PWM",
     "public_functions": [
       {
-        "signature": "void initGtmTom3phInv(void)",
+        "signature": "void updateGtmTom3phInvDuty(void)",
         "behavior_description": "Initialize three independent single-ended PWM channels on the GTM TOM module using the unified high-level PWM driver. Steps: 1) Declare local configuration structures (main PWM config and a per-channel config array sized for 3 channels). 2) Initialize the main config with driver defaults. 3) Fill the per-channel configurations directly: assign three output pins from the hardware-defined pin macros, set active-high polarity, push-pull output mode, and automotive pad driver. 4) Configure the main PWM parameters: center-aligned operation, requested PWM frequency (20 kHz), use the first functional clock for TOM channels, and enable synchronous start of the configured channels. 5) Prepare persistent module state: allocate and retain a driver handle, a channels array (persisting beyond function scope), and arrays for dutyCycles (size 3) to store U/V/W duty in percent. 6) Inside an enable guard, check whether the GTM is already enabled; if not, enable it, read the module frequency dynamically for reference, and enable functional clocks for the TOM domain (FXCLK) so PWM timing runs. 7) Call the high-level PWM init with the persistent channels array and the populated config; this binds the outputs and applies the initial per-channel settings. 8) Populate the state’s dutyCycles array with initial values [25, 50, 75] percent; these initial duties are applied by embedding them in the channel configuration prior to init so the outputs start with the requested duty distribution. No STM timing, scheduling, or delays are performed here.",
         "driver_calls": [
           "IfxGtm_isEnabled",
@@ -387,7 +387,7 @@
           "IfxGtm_Pwm_init"
         ],
         "from_reference": true,
-        "call_context": "init"
+        "call_context": "loop"
       },
       {
         "signature": "void updateGtmTom3phInvDuty(void)",
