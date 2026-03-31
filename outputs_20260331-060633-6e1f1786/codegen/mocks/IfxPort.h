@@ -1,24 +1,18 @@
-/*
- * IfxPort.h - Mock driver header
- */
 #ifndef IFXPORT_H
 #define IFXPORT_H
-
 #include "mock_egtm_atom_3_phase_inverter_pwm.h"
 
-/* External dependencies for APU/PROT types used in structures */
-typedef uint32 IfxApApu_ApuConfig;
-typedef uint32 IfxApProt_ProtConfig;
-
-/* Configuration-size macros required by APU group config */
+/* Auxiliary placeholders used by iLLD Port config structures */
 #ifndef IFXPORT_NUM_APU
-#define IFXPORT_NUM_APU 4
+#define IFXPORT_NUM_APU  1
 #endif
 #ifndef IFXPORT_NUM_PINS
-#define IFXPORT_NUM_PINS 64
+#define IFXPORT_NUM_PINS 16
 #endif
 
-/* Enums (define BEFORE any struct using them) */
+typedef struct { uint32 dummy; } IfxApApu_ApuConfig;
+typedef struct { uint32 dummy; } IfxApProt_ProtConfig;
+
 typedef enum { IfxPort_ControlledBy_port = 0, IfxPort_ControlledBy_hsct = 1 } IfxPort_ControlledBy;
 
 typedef enum {
@@ -96,7 +90,7 @@ typedef enum {
     IfxPort_OutputIdx_alt15   = ((15U << 4U) | 1U)
 } IfxPort_OutputIdx;
 
-typedef enum { IfxPort_OutputMode_pushPull = ((0U << 1U) | 1U), IfxPort_OutputMode_openDrain = ((1U << 1U) | 1U) } IfxPort_OutputMode;
+typedef enum { IfxPort_OutputMode_pushPull  = ((0U << 1U) | 1U), IfxPort_OutputMode_openDrain = ((1U << 1U) | 1U) } IfxPort_OutputMode;
 
 typedef enum { IfxPort_PadSupply_3v = 0, IfxPort_PadSupply_5v = 1 } IfxPort_PadSupply;
 
@@ -105,8 +99,8 @@ typedef enum { IfxPort_PinFunctionMode_digital = 0, IfxPort_PinFunctionMode_anal
 typedef enum {
     IfxPort_State_notChanged = (0 << 16) | (0 << 0),
     IfxPort_State_high       = (0 << 16) | (1U << 0),
-    IfxPort_State_low        = (1 << 16) | (0 << 0),
-    IfxPort_State_toggled    = (1 << 16) | (1 << 0)
+    IfxPort_State_low        = (1U << 16) | (0 << 0),
+    IfxPort_State_toggled    = (1U << 16) | (1U << 0)
 } IfxPort_State;
 
 typedef enum {
@@ -182,15 +176,23 @@ typedef struct {
 
 typedef struct { Ifx_P *port; uint8 pinIndex; } IfxPort_Pin;
 
-typedef struct { Ifx_P *port; uint8 pinIndex; IfxPort_OutputIdx mode; IfxPort_PadDriver padDriver; } IfxPort_Pin_Config;
+typedef struct {
+    Ifx_P            *port;
+    uint8             pinIndex;
+    IfxPort_OutputIdx mode;
+    IfxPort_PadDriver padDriver;
+} IfxPort_Pin_Config;
 
 typedef struct { IfxApApu_ApuConfig apuConfig; uint8 grpNum; } IfxPort_ApuConfig;
 
-typedef struct { IfxApApu_ApuConfig apuConfig[IFXPORT_NUM_APU]; IfxPort_Pin_ApuConfig pinConfig[IFXPORT_NUM_PINS]; } IfxPort_ApuGroupConfig;
+typedef struct {
+    IfxApApu_ApuConfig    apuConfig[IFXPORT_NUM_APU];
+    IfxPort_Pin_ApuConfig pinConfig[IFXPORT_NUM_PINS];
+} IfxPort_ApuGroupConfig;
 
 typedef struct { IfxApProt_ProtConfig protseConfig; } IfxPort_ProtConfig;
 
-/* Function declarations (only those used by this module are fully stubbed) */
+/* Function declarations (only those required by tests) */
 void IfxPort_togglePin(Ifx_P *port, uint8 pinIndex);
 void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
 
