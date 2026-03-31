@@ -1,3 +1,48 @@
-Status: SUCCESS
+Status: FAILED
 
-LLM response for production phase (attempt 5), 16524 chars
+============================================================
+TDD CODE GENERATION - ATTEMPT STATUS
+============================================================
+Phase: production
+Attempt: 5
+Status: FAILED
+Timestamp: 2026-03-31 11:21:42
+Files generated: 2
+
+============================================================
+
+ERRORS:
+
+1. unknown type name ‘IfxEgtm_Pwm_OutputConfig’; did you mean ‘IfxEgtm_Pwm_DtmConfig’?
+
+2. /tmp/tdd_build_pfi3c6va/src/egtm_atom_adc_tmadc_multiple_channels.c:11:10: fatal error: IfxPort_PinMap.h: No such file or directory
+
+3. unknown type name ‘IfxEgtm_Pwm_OutputConfig’; did you mean ‘IfxEgtm_Pwm_DtmConfig’?
+
+============================================================
+BUILD RESULT:
+{
+  "success": false,
+  "errors": [
+    {
+      "file": "/tmp/tdd_build_pfi3c6va/include/IfxEgtm_Pwm.h",
+      "line": 167,
+      "category": "error",
+      "message": "unknown type name \u2018IfxEgtm_Pwm_OutputConfig\u2019; did you mean \u2018IfxEgtm_Pwm_DtmConfig\u2019?"
+    },
+    {
+      "file": "",
+      "message": "/tmp/tdd_build_pfi3c6va/src/egtm_atom_adc_tmadc_multiple_channels.c:11:10: fatal error: IfxPort_PinMap.h: No such file or directory",
+      "category": "error"
+    },
+    {
+      "file": "/tmp/tdd_build_pfi3c6va/include/IfxEgtm_Pwm.h",
+      "line": 167,
+      "category": "error",
+      "message": "unknown type name \u2018IfxEgtm_Pwm_OutputConfig\u2019; did you mean \u2018IfxEgtm_Pwm_DtmConfig\u2019?"
+    }
+  ],
+  "warnings": [],
+  "stderr": "In file included from /tmp/tdd_build_pfi3c6va/src/egtm_atom_adc_tmadc_multiple_channels.c:9:\n/tmp/tdd_build_pfi3c6va/include/IfxEgtm_Pwm.h:167:5: error: unknown type name \u2018IfxEgtm_Pwm_OutputConfig\u2019; did you mean \u2018IfxEgtm_Pwm_DtmConfig\u2019?\n  167 |     IfxEgtm_Pwm_OutputConfig    *output;\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~\n      |     IfxEgtm_Pwm_DtmConfig\n/tmp/tdd_build_pfi3c6va/src/egtm_atom_adc_tmadc_multiple_channels.c:11:10: fatal error: IfxPort_PinMap.h: No such file or directory\n   11 | #include \"IfxPort_PinMap.h\"\n      |          ^~~~~~~~~~~~~~~~~~\ncompilation terminated.\n\nIn file included from /tmp/tdd_build_pfi3c6va/mocks/mock_egtm_atom_adc_tmadc_multiple_channels.c:4:\n/tmp/tdd_build_pfi3c6va/include/IfxEgtm_Pwm.h:167:5: error: unknown type name \u2018IfxEgtm_Pwm_OutputConfig\u2019; did you mean \u2018IfxEgtm_Pwm_DtmConfig\u2019?\n  167 |     IfxEgtm_Pwm_OutputConfig    *output;\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~\n      |     IfxEgtm_Pwm_DtmConfig\n",
+  "stdout": ""
+}

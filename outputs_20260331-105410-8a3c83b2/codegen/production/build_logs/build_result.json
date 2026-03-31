@@ -2,73 +2,24 @@
   "success": false,
   "errors": [
     {
-      "file": "/tmp/tdd_build_wokj4jay/include/IfxEgtm_Pwm.h",
-      "line": 113,
+      "file": "/tmp/tdd_build_pfi3c6va/include/IfxEgtm_Pwm.h",
+      "line": 167,
       "category": "error",
-      "message": "unknown type name \u2018IfxEgtm_Pwm_FastShutoffConfig\u2019"
+      "message": "unknown type name \u2018IfxEgtm_Pwm_OutputConfig\u2019; did you mean \u2018IfxEgtm_Pwm_DtmConfig\u2019?"
     },
     {
-      "file": "/tmp/tdd_build_wokj4jay/src/egtm_atom_adc_tmadc_multiple_channels.c",
-      "line": 87,
-      "category": "error",
-      "message": "implicit declaration of function \u2018IfxPort_togglePin\u2019 [-Wimplicit-function-declaration]"
+      "file": "",
+      "message": "/tmp/tdd_build_pfi3c6va/src/egtm_atom_adc_tmadc_multiple_channels.c:11:10: fatal error: IfxPort_PinMap.h: No such file or directory",
+      "category": "error"
     },
     {
-      "file": "/tmp/tdd_build_wokj4jay/src/egtm_atom_adc_tmadc_multiple_channels.c",
-      "line": 48,
+      "file": "/tmp/tdd_build_pfi3c6va/include/IfxEgtm_Pwm.h",
+      "line": 167,
       "category": "error",
-      "message": "\u2018IfxEgtm_ATOM0_0_TOUT64_P20_8_OUT\u2019 undeclared (first use in this function)"
-    },
-    {
-      "file": "/tmp/tdd_build_wokj4jay/src/egtm_atom_adc_tmadc_multiple_channels.c",
-      "line": 49,
-      "category": "error",
-      "message": "\u2018IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT\u2019 undeclared (first use in this function)"
-    },
-    {
-      "file": "/tmp/tdd_build_wokj4jay/src/egtm_atom_adc_tmadc_multiple_channels.c",
-      "line": 50,
-      "category": "error",
-      "message": "\u2018IfxEgtm_ATOM0_1_TOUT66_P20_10_OUT\u2019 undeclared (first use in this function)"
-    },
-    {
-      "file": "/tmp/tdd_build_wokj4jay/src/egtm_atom_adc_tmadc_multiple_channels.c",
-      "line": 51,
-      "category": "error",
-      "message": "\u2018IfxEgtm_ATOM0_1N_TOUT67_P20_11_OUT\u2019 undeclared (first use in this function)"
-    },
-    {
-      "file": "/tmp/tdd_build_wokj4jay/src/egtm_atom_adc_tmadc_multiple_channels.c",
-      "line": 52,
-      "category": "error",
-      "message": "\u2018IfxEgtm_ATOM0_2_TOUT68_P20_12_OUT\u2019 undeclared (first use in this function)"
-    },
-    {
-      "file": "/tmp/tdd_build_wokj4jay/src/egtm_atom_adc_tmadc_multiple_channels.c",
-      "line": 53,
-      "category": "error",
-      "message": "\u2018IfxEgtm_ATOM0_2N_TOUT69_P20_13_OUT\u2019 undeclared (first use in this function)"
-    },
-    {
-      "file": "/tmp/tdd_build_wokj4jay/src/egtm_atom_adc_tmadc_multiple_channels.c",
-      "line": 169,
-      "category": "error",
-      "message": "assignment to \u2018IfxEgtm_Pwm_callBack\u2019 {aka \u2018void (*)(void)\u2019} from incompatible pointer type \u2018void (*)(void *)\u2019 [-Wincompatible-pointer-types]"
-    },
-    {
-      "file": "/tmp/tdd_build_wokj4jay/src/egtm_atom_adc_tmadc_multiple_channels.c",
-      "line": 54,
-      "category": "error",
-      "message": "\u2018IfxEgtm_ATOM0_3_TOUT22_P33_0_OUT\u2019 undeclared (first use in this function)"
-    },
-    {
-      "file": "/tmp/tdd_build_wokj4jay/include/IfxEgtm_Pwm.h",
-      "line": 113,
-      "category": "error",
-      "message": "unknown type name \u2018IfxEgtm_Pwm_FastShutoffConfig\u2019"
+      "message": "unknown type name \u2018IfxEgtm_Pwm_OutputConfig\u2019; did you mean \u2018IfxEgtm_Pwm_DtmConfig\u2019?"
     }
   ],
   "warnings": [],
-  "stderr": "In file included from /tmp/tdd_build_wokj4jay/src/egtm_atom_adc_tmadc_multiple_channels.c:21:\n/tmp/tdd_build_wokj4jay/include/IfxEgtm_Pwm.h:113:5: error: unknown type name \u2018IfxEgtm_Pwm_FastShutoffConfig\u2019\n  113 |     IfxEgtm_Pwm_FastShutoffConfig *fastShutOff;\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n/tmp/tdd_build_wokj4jay/src/egtm_atom_adc_tmadc_multiple_channels.c: In function \u2018interruptEgtmAtom\u2019:\n/tmp/tdd_build_wokj4jay/src/egtm_atom_adc_tmadc_multiple_channels.c:87:5: error: implicit declaration of function \u2018IfxPort_togglePin\u2019 [-Wimplicit-function-declaration]\n   87 |     IfxPort_togglePin(LED);\n      |     ^~~~~~~~~~~~~~~~~\n/tmp/tdd_build_wokj4jay/src/egtm_atom_adc_tmadc_multiple_channels.c: In function \u2018initEgtmAtom3phInv\u2019:\n/tmp/tdd_build_wokj4jay/src/egtm_atom_adc_tmadc_multiple_channels.c:48:47: error: \u2018IfxEgtm_ATOM0_0_TOUT64_P20_8_OUT\u2019 undeclared (first use in this function)\n   48 | #define PHASE_U_HS                          (&IfxEgtm_ATOM0_0_TOUT64_P20_8_OUT)\n      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n/tmp/tdd_build_wokj4jay/src/egtm_atom_adc_tmadc_multiple_channels.c:136:63: note: in expansion of macro \u2018PHASE_U_HS\u2019\n  136 |     output[0].pin                    = (IfxEgtm_Pwm_ToutMap *)PHASE_U_HS;\n      |                                                               ^~~~~~~~~~\n/tmp/tdd_build_wokj4jay/src/egtm_atom_adc_tmadc_multiple_channels.c:48:47: note: each undeclared identifier is reported only once for each function it appears in\n   48 | #define PHASE_U_HS                          (&IfxEgtm_ATOM0_0_TOUT64_P20_8_OUT)\n      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n/tmp/tdd_build_wokj4jay/src/egtm_atom_adc_tmadc_multiple_channels.c:136:63: note: in expansion of macro \u2018PHASE_U_HS\u2019\n  136 |     output[0].pin                    = (IfxEgtm_Pwm_ToutMap *)PHASE_U_HS;\n      |                                                               ^~~~~~~~~~\n/tmp/tdd_build_wokj4jay/src/egtm_atom_adc_tmadc_multiple_channels.c:49:47: error: \u2018IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT\u2019 undeclared (first use in this function)\n   49 | #define PHASE_U_LS                          (&IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT)\n      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n/tmp/tdd_build_wokj4jay/src/egtm_atom_adc_tmadc_multiple_channels.c:137:63: note: in expansion of macro \u2018PHASE_U_LS\u2019\n  137 |     output[0].complementaryPin       = (IfxEgtm_Pwm_ToutMap *)PHASE_U_LS;\n      |                                                               ^~~~~~~~~~\n/tmp/tdd_build_wokj4jay/src/egtm_atom_adc_tmadc_multiple_channels.c:50:47: error: \u2018IfxEgtm_ATOM0_1_TOUT66_P20_10_OUT\u2019 undeclared (first use in this function)\n   50 | #define PHASE_V_HS                          (&IfxEgtm_ATOM0_1_TOUT66_P20_10_OUT)\n      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n/tmp/tdd_build_wokj4jay/src/egtm_atom_adc_tmadc_multiple_channels.c:144:63: note: in expansion of macro \u2018PHASE_V_HS\u2019\n  144 |     output[1].pin                    = (IfxEgtm_Pwm_ToutMap *)PHASE_V_HS;\n      |                                                               ^~~~~~~~~~\n/tmp/tdd_build_wokj4jay/src/egtm_atom_adc_tmadc_multiple_channels.c:51:47: error: \u2018IfxEgtm_ATOM0_1N_TOUT67_P20_11_OUT\u2019 undeclared (first use in this function)\n   51 | #define PHASE_V_LS                          (&IfxEgtm_ATOM0_1N_TOUT67_P20_11_OUT)\n      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n/tmp/tdd_build_wokj4jay/src/egtm_atom_adc_tmadc_multiple_channels.c:145:63: note: in expansion of macro \u2018PHASE_V_LS\u2019\n  145 |     output[1].complementaryPin       = (IfxEgtm_Pwm_ToutMap *)PHASE_V_LS;\n      |                                                               ^~~~~~~~~~\n/tmp/tdd_build_wokj4jay/src/egtm_atom_adc_tmadc_multiple_channels.c:52:47: error: \u2018IfxEgtm_ATOM0_2_TOUT68_P20_12_OUT\u2019 undeclared (first use in this function)\n   52 | #define PHASE_W_HS                          (&IfxEgtm_ATOM0_2_TOUT68_P20_12_OUT)\n      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n/tmp/tdd_build_wokj4jay/src/egtm_atom_adc_tmadc_multiple_channels.c:152:63: note: in expansion of macro \u2018PHASE_W_HS\u2019\n  152 |     output[2].pin                    = (IfxEgtm_Pwm_ToutMap *)PHASE_W_HS;\n      |                                                               ^~~~~~~~~~\n/tmp/tdd_build_wokj4jay/src/egtm_atom_adc_tmadc_multiple_channels.c:53:47: error: \u2018IfxEgtm_ATOM0_2N_TOUT69_P20_13_OUT\u2019 undeclared (first use in this function)\n   53 | #define PHASE_W_LS                          (&IfxEgtm_ATOM0_2N_TOUT69_P20_13_OUT)\n      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n/tmp/tdd_build_wokj4jay/src/egtm_atom_adc_tmadc_multiple_channels.c:153:63: note: in expansion of macro \u2018PHASE_W_LS\u2019\n  153 |     output[2].complementaryPin       = (IfxEgtm_Pwm_ToutMap *)PHASE_W_LS;\n      |                                                               ^~~~~~~~~~\n/tmp/tdd_build_wokj4jay/src/egtm_atom_adc_tmadc_multiple_channels.c:169:24: error: assignment to \u2018IfxEgtm_Pwm_callBack\u2019 {aka \u2018void (*)(void)\u2019} from incompatible pointer type \u2018void (*)(void *)\u2019 [-Wincompatible-pointer-types]\n  169 |     irqCfg.periodEvent = IfxEgtm_periodEventFunction;\n      |                        ^\n/tmp/tdd_build_wokj4jay/src/egtm_atom_adc_tmadc_multiple_channels.c: In function \u2018initEgtmAtomAdcTrigger\u2019:\n/tmp/tdd_build_wokj4jay/src/egtm_atom_adc_tmadc_multiple_channels.c:54:47: error: \u2018IfxEgtm_ATOM0_3_TOUT22_P33_0_OUT\u2019 undeclared (first use in this function)\n   54 | #define ADC_TRIG_PIN                        (&IfxEgtm_ATOM0_3_TOUT22_P33_0_OUT)\n      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n/tmp/tdd_build_wokj4jay/src/egtm_atom_adc_tmadc_multiple_channels.c:265:63: note: in expansion of macro \u2018ADC_TRIG_PIN\u2019\n  265 |     output[0].pin                    = (IfxEgtm_Pwm_ToutMap *)ADC_TRIG_PIN;\n      |                                                               ^~~~~~~~~~~~\n\nIn file included from /tmp/tdd_build_wokj4jay/mocks/mock_egtm_atom_adc_tmadc_multiple_channels.c:5:\n/tmp/tdd_build_wokj4jay/include/IfxEgtm_Pwm.h:113:5: error: unknown type name \u2018IfxEgtm_Pwm_FastShutoffConfig\u2019\n  113 |     IfxEgtm_Pwm_FastShutoffConfig *fastShutOff;\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n",
+  "stderr": "In file included from /tmp/tdd_build_pfi3c6va/src/egtm_atom_adc_tmadc_multiple_channels.c:9:\n/tmp/tdd_build_pfi3c6va/include/IfxEgtm_Pwm.h:167:5: error: unknown type name \u2018IfxEgtm_Pwm_OutputConfig\u2019; did you mean \u2018IfxEgtm_Pwm_DtmConfig\u2019?\n  167 |     IfxEgtm_Pwm_OutputConfig    *output;\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~\n      |     IfxEgtm_Pwm_DtmConfig\n/tmp/tdd_build_pfi3c6va/src/egtm_atom_adc_tmadc_multiple_channels.c:11:10: fatal error: IfxPort_PinMap.h: No such file or directory\n   11 | #include \"IfxPort_PinMap.h\"\n      |          ^~~~~~~~~~~~~~~~~~\ncompilation terminated.\n\nIn file included from /tmp/tdd_build_pfi3c6va/mocks/mock_egtm_atom_adc_tmadc_multiple_channels.c:4:\n/tmp/tdd_build_pfi3c6va/include/IfxEgtm_Pwm.h:167:5: error: unknown type name \u2018IfxEgtm_Pwm_OutputConfig\u2019; did you mean \u2018IfxEgtm_Pwm_DtmConfig\u2019?\n  167 |     IfxEgtm_Pwm_OutputConfig    *output;\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~\n      |     IfxEgtm_Pwm_DtmConfig\n",
   "stdout": ""
 }
