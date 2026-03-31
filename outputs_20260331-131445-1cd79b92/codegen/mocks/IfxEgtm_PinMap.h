@@ -1,12 +1,14 @@
+/* Mock IfxEgtm_PinMap.h */
 #ifndef IFXEGTM_PINMAP_H
 #define IFXEGTM_PINMAP_H
 
 #include "mock_egtm_atom_3_phase_inverter_pwm.h"
-#include "IfxEgtm_Pwm.h"
 #include "IfxPort.h"
+#include "IfxEgtm_Pwm.h"
 
 /* Enums */
-typedef enum {
+typedef enum
+{
     IfxEgtm_ChXSel_a = 0,
     IfxEgtm_ChXSel_b = 1,
     IfxEgtm_ChXSel_c = 2,
@@ -23,7 +25,8 @@ typedef enum {
     IfxEgtm_ChXSel_n = 13
 } IfxEgtm_ChXSel;
 
-typedef enum {
+typedef enum
+{
     IfxEgtm_ToutSel_0  = 0,
     IfxEgtm_ToutSel_1  = 1,
     IfxEgtm_ToutSel_2  = 2,
@@ -56,7 +59,7 @@ typedef enum {
     IfxEgtm_ToutSel_29 = 29
 } IfxEgtm_ToutSel;
 
-/* Functions to mock */
+/* Function declaration */
 void IfxEgtm_PinMap_setAtomTout(IfxEgtm_Atom_ToutMap *config, IfxPort_OutputMode outputMode, IfxPort_PadDriver padDriver);
 
 #endif /* IFXEGTM_PINMAP_H */

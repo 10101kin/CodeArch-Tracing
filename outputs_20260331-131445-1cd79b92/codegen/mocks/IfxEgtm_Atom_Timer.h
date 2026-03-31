@@ -1,3 +1,4 @@
+/* Mock IfxEgtm_Atom_Timer.h */
 #ifndef IFXEGTM_ATOM_TIMER_H
 #define IFXEGTM_ATOM_TIMER_H
 
@@ -6,19 +7,21 @@
 #include "IfxEgtm_Cmu.h"
 #include "IfxPort.h"
 
-/* Placeholder basic channel/dtm types */
-typedef uint32 IfxEgtm_Atom_Ch;
-typedef uint32 IfxEgtm_Dtm_Ch;
-typedef uint32 IfxEgtm_Atom_Ch_ClkSrc;
+/* Minimal channel enums used by timer */
+typedef enum { IfxEgtm_Atom_Ch_0 = 0 } IfxEgtm_Atom_Ch;
+typedef enum { IfxEgtm_Dtm_Ch_0  = 0 } IfxEgtm_Dtm_Ch;
+typedef enum { IfxEgtm_Atom_Ch_ClkSrc_cmuClk0 = 0, IfxEgtm_Atom_Ch_ClkSrc_cmuClk1 = 1 } IfxEgtm_Atom_Ch_ClkSrc;
 
-/* Enum as required */
-typedef enum {
+/* Count direction (2 values as required) */
+typedef enum
+{
     IfxEgtm_Atom_Timer_CountDir_up,
     IfxEgtm_Atom_Timer_CountDir_upAndDown
 } IfxEgtm_Atom_Timer_CountDir;
 
 /* Interrupt config */
-typedef struct {
+typedef struct
+{
     Ifx_Priority    isrPriority;
     IfxSrc_Tos      isrProvider;
     IfxEgtm_IrqMode irqMode;
@@ -26,7 +29,8 @@ typedef struct {
 } IfxEgtm_Atom_Timer_Interrupt;
 
 /* Trigger config */
-typedef struct {
+typedef struct
+{
     boolean                      enabled;
     uint32                       triggerPoint;
     IfxPort_OutputMode           outputMode;
@@ -36,8 +40,9 @@ typedef struct {
     IfxEgtm_Atom_Timer_Interrupt interrupt;
 } IfxEgtm_Atom_Timer_Trigger;
 
-/* Timer driver state */
-typedef struct {
+/* Driver object */
+typedef struct
+{
     Ifx_EGTM                   *egtm;
     Ifx_EGTM_CLS_ATOM          *atom;
     Ifx_EGTM_CLS_ATOM_AGC      *agc;
@@ -56,13 +61,13 @@ typedef struct {
     IfxEgtm_Atom_Timer_CountDir countDir;
 } IfxEgtm_Atom_Timer;
 
-/* Timer config */
-typedef struct {
+/* Configuration */
+typedef struct
+{
     Ifx_EGTM                    *egtm;
     IfxEgtm_Cluster              cluster;
     IfxEgtm_Atom_Ch              timerChannel;
-    /* triggerOut uses Atom ToutMap from Pwm header; forward use as void* here to avoid circular */
-    void                        *triggerOut;
+    struct IfxEgtm_Atom_ToutMap *triggerOut; /* forward type from Pwm header */
     IfxEgtm_Atom_Ch_ClkSrc       clock;
     IfxEgtm_Dtm_ClockSource      dtmClockSource;
     float32                      frequency;
@@ -74,10 +79,7 @@ typedef struct {
     boolean                      initPins;
 } IfxEgtm_Atom_Timer_Config;
 
-/* External CPU/IRQ helpers */
-void IfxCpu_Irq_installInterruptHandler(void (*isr)(void), int vectabNum, int priority);
-
-/* Functions to mock */
+/* Function declarations to mock */
 boolean IfxEgtm_Atom_Timer_setFrequency(IfxEgtm_Atom_Timer *driver, float32 frequency);
 void    IfxEgtm_Atom_Timer_setTrigger(IfxEgtm_Atom_Timer *driver, uint32 triggerPoint);
 void    IfxEgtm_Atom_Timer_run(IfxEgtm_Atom_Timer *driver);

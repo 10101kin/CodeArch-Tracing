@@ -1,3 +1,4 @@
+/* Mock IfxEgtm_Pwm.h */
 #ifndef IFXEGTM_PWM_H
 #define IFXEGTM_PWM_H
 
@@ -6,14 +7,15 @@
 #include "IfxEgtm_Cmu.h"
 #include "IfxPort.h"
 
-/* Supporting map/HRPWM types used in ToutMap union */
-typedef struct { uint32 dummy; } IfxEgtm_Atom_ToutMap;
-typedef struct { uint32 dummy; } IfxEgtm_Tom_ToutMap;
-typedef struct { uint32 dummy; } IfxEgtm_Hrpwm_Out;
+/* Dependent opaque types referenced by ToutMap */
+typedef struct IfxEgtm_Atom_ToutMap { uint32 sel; } IfxEgtm_Atom_ToutMap;
+typedef struct IfxEgtm_Tom_ToutMap  { uint32 sel; } IfxEgtm_Tom_ToutMap;
+typedef struct IfxEgtm_Hrpwm_Out    { uint32 sel; } IfxEgtm_Hrpwm_Out;
 
-typedef void (*IfxEgtm_Pwm_callBack)(void *);
+typedef void (*IfxEgtm_Pwm_callBack)(void *arg);
 
-/* VERIFIED TYPE DEFINITIONS (exact order) */
+/* VERIFIED TYPE DEFINITIONS — EMITTED VERBATIM (order preserved) */
+
 typedef enum
 {
     IfxEgtm_Pwm_Alignment_edge   = 0, 
@@ -104,7 +106,7 @@ typedef struct
 typedef struct
 {
     IfxEgtm_Pwm_DeadTime           deadTime;          
-    void                          *fastShutOff;       
+    IfxEgtm_Pwm_FastShutoffConfig *fastShutOff;       
 } IfxEgtm_Pwm_DtmConfig;
 
 typedef struct
@@ -119,8 +121,8 @@ typedef struct
 
 typedef struct
 {
-    struct IfxEgtm_Pwm_ToutMap *pin;                        
-    struct IfxEgtm_Pwm_ToutMap *complementaryPin;           
+    IfxEgtm_Pwm_ToutMap *pin;                        
+    IfxEgtm_Pwm_ToutMap *complementaryPin;           
     Ifx_ActiveState      polarity;                   
     Ifx_ActiveState      complementaryPolarity;      
     IfxPort_OutputMode   outputMode;                 
@@ -163,6 +165,8 @@ typedef struct
     IfxEgtm_Pwm_InterruptConfig *interrupt;       
 } IfxEgtm_Pwm_ChannelConfig;
 
+/* Cluster enum already defined in IfxEgtm.h; forward use here */
+
 typedef struct
 {
     volatile Ifx_UReg_32Bit *reg0;                
@@ -177,13 +181,6 @@ typedef union {
     uint32 atom;
     uint32 tom;
 } IfxEgtm_Pwm_ClockSource;
-
-typedef struct IfxEgtm_Pwm_ToutMap {
-    /* Union content replicated by composition for simple mock linkage */
-    IfxEgtm_Atom_ToutMap atom;        
-    IfxEgtm_Tom_ToutMap  tom;         
-    /* HRPWM omitted in mock */
-} IfxEgtm_Pwm_ToutMap;
 
 typedef struct
 {
@@ -216,6 +213,10 @@ typedef struct
     float32                    frequency;              
     IfxEgtm_Pwm_ClockSource    clockSource;            
     IfxEgtm_Dtm_ClockSource    dtmClockSource;         
+#if IFXEGTM_PWM_IS_HIGH_RES_AVAILABLE 
+    boolean                    highResEnable;          
+    boolean                    dtmHighResEnable;       
+#endif /* IFXEGTM_PWM_IS_HIGH_RES_AVAILABLE */ 
     boolean                    syncUpdateEnabled;      
     boolean                    syncStart;              
 } IfxEgtm_Pwm_Config;
@@ -227,11 +228,17 @@ typedef struct
     IfxPort_PadDriver    padDriver;        
 } IfxEgtm_Pwm_Pin;
 
-/* External helpers */
-void IfxCpu_Irq_installInterruptHandler(void (*isr)(void), int vectabNum, int priority);
-void IfxCpu_enableInterrupts(void);
+/* ToutMap union (after its member types defined) */
+typedef union
+{
+    IfxEgtm_Atom_ToutMap atom;
+    IfxEgtm_Tom_ToutMap  tom;
+#if IFXEGTM_PWM_IS_HIGH_RES_AVAILABLE
+    IfxEgtm_Hrpwm_Out    hrpwm;
+#endif
+} IfxEgtm_Pwm_ToutMap;
 
-/* Functions to mock */
+/* Function declarations to mock */
 void IfxEgtm_Pwm_initConfig(IfxEgtm_Pwm_Config *config, Ifx_EGTM *egtmSFR);
 void IfxEgtm_Pwm_init(IfxEgtm_Pwm *pwm, IfxEgtm_Pwm_Channel *channels, IfxEgtm_Pwm_Config *config);
 void IfxEgtm_Pwm_updateChannelDutyImmediate(IfxEgtm_Pwm *pwm, IfxEgtm_Pwm_SyncChannelIndex configIndex, float32 requestDuty);
