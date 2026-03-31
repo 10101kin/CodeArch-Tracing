@@ -2,7 +2,7 @@
   "meta": {
     "schema_version": "1.0",
     "last_updated_by": "sw_architecture",
-    "last_updated_at": "2026-03-31T11:18:51.768060",
+    "last_updated_at": "2026-03-31T11:19:36.061821",
     "build_sequence": [
       "requirements",
       "hardware",
@@ -270,7 +270,7 @@
     "user_intent_preservation": {
       "original_goal": "Implement PWM functionalities",
       "functional_behavior": "Generate three independent single-ended PWM channels on TOM1 at 20 kHz, center-aligned, with duties initialized to U=25%, V=50%, W=75% and stepped by +10% every 500 ms with wrap from 100% to 0%, keeping active-high polarity and reusing TOM1 CH2/CH4/CH6 HS pins.",
-      "technical_approach": "Migrate from the PwmHl pair-based driver to the unified high-level PWM driver to configure three independent TOM1 channels via a single config and channel array, set center-aligned mode and frequency in an init function, then periodically update all three channel duties using the batch update API. Separate PWM control logic from the 500 ms timer/scheduler by defining a callback/interface that an STM-based scheduler module invokes; the scheduler owns timing while the PWM module exposes the periodic update function, enabling unit tests to drive updates without hardware timers."
+      "technical_approach": "Migrate from the PwmHl pair-based driver to the unified high-level PWM driver to configure three independent TOM1 channels via a single config and channel array, set center-aligned mode and frequency in init, then periodically update all three channel duties using the batch update API; use STM timer for the 500 ms scheduler."
     },
     "driver_selection": {
       "recommended_driver": "IfxGtm_Pwm",
@@ -306,7 +306,7 @@
     },
     "function_mapping": {
       "init_function": {
-        "name": "initGtmTom3phInv"
+        "name": "updateGtmTom3phInvDuty"
       },
       "runtime_function": {
         "name": "updateGtmTom3phInvDuty",
@@ -316,7 +316,7 @@
     "header_selection": {
       "applied": false,
       "peripheral_type": "PWM",
-      "recommended_header": "IfxGtm_Pwm.h",
+      "recommended_header": "IfxGtm_Tom_PwmHl",
       "score": 100,
       "required_includes": [
         "IfxGtm_Pwm.h"
@@ -346,7 +346,7 @@
           }
         },
         "IfxGtm_Tom_PwmHl": {
-          "target_driver": "IfxGtm_Pwm",
+          "target_driver": "IfxSrc",
           "api_mapping": {
             "IfxGtm_Tom_PwmHl_init": "IfxGtm_Pwm_init",
             "IfxGtm_Tom_PwmHl_initConfig": "IfxGtm_Pwm_initConfig",
