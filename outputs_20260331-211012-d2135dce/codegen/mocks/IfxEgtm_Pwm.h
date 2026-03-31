@@ -1,56 +1,39 @@
-/* Mock IfxEgtm_Pwm.h */
 #ifndef IFXEGTM_PWM_H
 #define IFXEGTM_PWM_H
 
 #include "mock_egtm_atom_3_phase_inverter_pwm.h"
-#include "IfxEgtm.h"       /* For IfxEgtm_IrqMode, IfxEgtm_MscOut */
-#include "IfxEgtm_Cmu.h"   /* For CMU enums used in ClockSource if needed */
-#include "IfxPort.h"       /* For IfxPort_OutputMode, IfxPort_PadDriver */
+#include "IfxEgtm.h"
+#include "IfxEgtm_Cmu.h"
+#include "IfxPort.h"
 
-/* Additional helper types used by PWM (DTM related) */
-typedef enum
-{
-    IfxEgtm_Dtm_ShutoffInput_timChIn0 = 0,       
-    IfxEgtypedef enum
-{
-    IfxEgtm_Dtm_SignalLevel_low  = 0,
-    IfxEgtm_Dtm_SignalLevel_high = 1
-} IfxEgtm_Dtm_SignalLevel;ShutoffInput_previousDtmAuxIn1,  
-    IfxEgtm_Dtm_ShutoffInput_dtmAuxIn0,          
-    IfxEgtm_Dtm_ShutoffInput_dtmAuxIn1           
-} IfxEgtm_Dtm_ShutoffInput;
-typedef enum { IfxEgtm_Dtm_SignalLevel_low = 0, IfxEgtm_Dtm_SignalLevel_high = 1 } IfxEgtm_Dtm_SignalLevel;
+/* Callback type used by PWM driver */
+typedef void (*IfxEgtm_Pwm_callBack)(void *data);
 
-typedef struct
-{
-    float32 rising;        
-    float32 falling;       
-} IfxEgtm_Pwm_DeadTime;
-
-typedef struct {
-    IfxEgtm_Dtm_ShutoffInput intypedef struct
-{
-    IfxEgtm_Dtm_ShutoffInput inputSignal;                 
-    boolean                  invertInputSignal;           
-    IfxEgtm_Dtm_SignalLevel  offState;                    
-    IfxEgtm_Dtm_SignalLevel  complementaryOffState;       /**< \brief Desired state(High or low) of output 1 (*_N) when shut-off is active */
-} IfxEgtm_Pwm_FastShutoffConftypedef union
+/* PWM ToutMap placeholder (no pin map logic in mocks) */
+typedef union
 {
     IfxEgtm_Atom_ToutMap atom;        
-    IfxEgtm_Tom_ToutMap  typedef struct
-{
-    IfxEgtm_Pwm_DeadTime           deadTime;          
-    IfxEgtm_Pwm_FastShutoffConfig *fastShutOff;       
-} IfxEgtm_Pwm_DtmConfig;LABLE */	
-} Itypedef enum
+    IfxEgtm_Tom_ToutMap  tom;         
+#if IFXEGTM_PWM_IS_HIGH_RES_AVAILABLE	
+    IfxEgtm_Hrpwm_Out    hrpwm;       
+#endif /* #if IFXEGTM_PWM_IS_HIGH_RES_AVAILABLE */	
+} IfxEgtm_Pwm_ToutMap;
+
+/* VERIFIED TYPE DEFINITIONS — DO NOT MODIFY ORDER OR CONTENTS */
+
+typedef enum
 {
     IfxEgtm_Pwm_Alignment_edge   = 0, 
     IfxEgtm_Pwm_Alignment_center = 1  
-} IfxEgtm_Pwm_Alignment;xEgtypedef enum
+} IfxEgtm_Pwm_Alignment;
+
+typedef enum
 {
     IfxEgtm_Pwm_SubModule_atom = 0,  
     IfxEgtm_Pwm_SubModule_tom  = 1   
-} IfxEgtm_Pwm_SubModule;FIEtypedef enum
+} IfxEgtm_Pwm_SubModule;
+
+typedef enum
 {
     IfxEgtm_Pwm_SubModule_Ch_0  = 0,   
     IfxEgtm_Pwm_SubModule_Ch_1  = 1,   
@@ -68,22 +51,30 @@ typedef struct {
     IfxEgtm_Pwm_SubModule_Ch_13 = 13,  
     IfxEgtm_Pwm_SubModule_Ch_14 = 14,  
     IfxEgtm_Pwm_SubModule_Ch_15 = 15   
-} IfxEgtm_Pwm_SubModule_Ch;9  typedef enum
+} IfxEgtm_Pwm_SubModule_Ch;
+
+typedef enum
 {
     IfxEgtm_Pwm_ChannelState_running = 0,  
     IfxEgtm_Pwm_ChannelState_stopped       
-} IfxEgtm_Pwm_ChannelState;  Itypedef enum
+} IfxEgtm_Pwm_ChannelState;
+
+typedef enum
 {
     IfxEgtm_Pwm_ResetEvent_onCm0     = 0, 
     IfxEgtm_Pwm_ResetEvent_onTrigger = 1  
-} IfxEgtm_Pwm_ResetEvent;wm_typedef enum
+} IfxEgtm_Pwm_ResetEvent;
+
+typedef enum
 {
     IfxEgtm_Pwm_State_unknown = -1,  
     IfxEgtm_Pwm_State_init    = 0,   
     IfxEgtm_Pwm_State_run     = 1,   
     IfxEgtm_Pwm_State_stopped = 2,   
     IfxEgtm_Pwm_State_error   = 3    
-} IfxEgtm_Pwm_State;settypedef enum
+} IfxEgtm_Pwm_State;
+
+typedef enum
 {
     IfxEgtm_Pwm_SyncChannelIndex_0 = 0,  
     IfxEgtm_Pwm_SyncChannelIndex_1,      
@@ -101,7 +92,20 @@ typedef struct {
     IfxEgtm_Pwm_SyncChannelIndex_13,     
     IfxEgtm_Pwm_SyncChannelIndex_14,     
     IfxEgtm_Pwm_SyncChannelIndex_15      
-} IfxEgtm_Pwm_SyncChannelIndex;fxEtypedef struct
+} IfxEgtm_Pwm_SyncChannelIndex;
+
+typedef struct
+{
+    float32 rising;        
+    float32 falling;       
+} IfxEgtm_Pwm_DeadTime;Egtypedef struct
+{
+    IfxEgtm_Pwm_DeadTime           deadTime;          
+    IfxEgtm_Pwm_FastShutoffConfig *fastShutOff;       
+} IfxEgtm_Pwm_DtmConfig;_DeadTime           deadTime;          
+    IfxEgtm_Pwm_FastShutoffConfig *fatypedef struct
+{
+    IfxEgtm_Dtm_ShutoffInput inputSignal;              typedef struct
 {
     IfxEgtm_IrqMode      mode;              
     IfxSrc_Tos           isrProvider;       
@@ -109,14 +113,7 @@ typedef struct {
     IfxSrc_VmId          vmId;              
     IfxEgtm_Pwm_callBack periodEvent;       
     IfxEgtm_Pwm_callBack dutyEvent;         
-} IfxEgtm_Pwm_InterruptConfig;   mode;              
-    IfxSrc_Tos           isrProvider;       
-    Ifx_Priority         priority;          
-    IfxSrc_VmId          vmId;              
-    IfxEgtm_Pwm_callBack periodEvent;       
-    IfxEgtm_Pwm_callBack dutyEvent;         
-} IfxEgtm_Pwm_InterruptConfig; 
- typedef struct
+} IfxEgtm_Pwm_InterruptConfig;s typedef struct
 {
     IfxEgtm_Pwm_ToutMap *pin;                        
     IfxEgtm_Pwm_ToutMap *complementaryPin;           
@@ -124,7 +121,7 @@ typedef struct {
     Ifx_ActiveState      complementaryPolarity;      
     IfxPort_OutputMode   outputMode;                 
     IfxPort_PadDriver    padDriver;                  
-} IfxEgtm_Pwm_OutputConfig;   typedef struct
+} IfxEgtm_Pwm_OutputConfig;yEtypedef struct
 {
     volatile Ifx_UReg_32Bit *SR0;              
     volatile Ifx_UReg_32Bit *SR1;              
@@ -136,7 +133,8 @@ typedef struct {
     volatile Ifx_UReg_32Bit *IRQ_NOTIFY;       
     volatile Ifx_UReg_32Bit *DTV;              
     volatile Ifx_UReg_32Bit *DTV_SR;           
-} IfxEgtm_Pwm_ChannelRegisters;tiltypedef struct
+} IfxEgtm_Pwm_ChannelRegisters; 
+typedef struct
 {
     IfxEgtm_Pwm_ChannelRegisters registers;         
     uint32                       upenMask;          
@@ -145,7 +143,7 @@ typedef struct {
     IfxEgtm_Pwm_SubModule_Ch     timerCh;           
     uint32                       phaseTicks;        
     uint32                       dutyTicks;         
-} IfxEgtm_Pwm_Channel;m_Stypedef struct
+} IfxEgtm_Pwm_Channel;tetypedef struct
 {
     IfxEgtm_Pwm_SubModule_Ch     timerCh;         
     float32                      phase;           
@@ -154,17 +152,20 @@ typedef struct {
     IfxEgtm_Pwm_OutputConfig    *output;          
     IfxEgtm_MscOut              *mscOut;          
     IfxEgtm_Pwm_InterruptConfig *interrupt;       
-} IfxEgtm_Pwm_ChannelConfig;m_OutputConfig    *output;          
-    IfxEgtm_MscOut              *mscOut;          
-    IfxEgtm_Pwm_InterruptConfig *intertypedef struct
+} IfxEgtm_Pwm_ChannelConfig;_Pwm_Channel;
+
+typedef struct
+{
+    IfxEgtm_Pwm_SubModule_Ch     timerCh;         
+    float32                      phase;  typedef struct
 {
     volatile Ifx_UReg_32Bit *reg0;                /**< \brief ATOM: points to AGC_GLB_CTRL.
                                                    * TOM: If channels span 2 TGCs then points to TGC0_GLB_CTRL else to the TGC being used TGCx_GLB_CTRL */
     volatile Ifx_UReg_32Bit *reg1;                
-    uint32                   upenMask0;typedef union
+    uint32                   upenMask0typedef union
 {
     IfxEgtm_Cmu_Clk   atom;       
-    IfxEgtm_Cmu_Fxclk tom; typedef struct
+    IfxEgtm_Cmu_Fxclk tom;typedef struct
 {
     Ifx_EGTM                 *egtmSFR;                 
     Ifx_EGTM_CLS             *clusterSFR;              
@@ -182,7 +183,7 @@ typedef struct {
     IfxEgtm_Dtm_ClockSource   dtmClockSource;          
     boolean                   syncUpdateEnabled;       
     IfxEgtm_Pwm_State         state;                   
-} IfxEgtm_Pwm;numtypedef struct
+} IfxEgtm_Pwm;Iftypedef struct
 {
     Ifx_EGTM                  *egtmSFR;                
     IfxEgtm_Cluster            cluster;                
@@ -204,16 +205,20 @@ typedef struct {
     IfxEgtm_Pwm_ToutMap *outputPin;        
     IfxPort_OutputMode   outputMode;       
     IfxPort_PadDriver    padDriver;        
-} IfxEgtm_Pwm_Pin;gtm_Pwm_ClockSource    clockSource;            
+} IfxEgtm_Pwm_Pin;e;              
+    IfxEgtm_Pwm_Alignment      alignment;              
+    uint8                      numChannels;            
+    IfxEgtm_Pwm_ChannelConfig *channels;               
+    float32                    frequency;              
+    IfxEgtm_Pwm_ClockSource    clockSource;            
     IfxEgtm_Dtm_ClockSource    dtmClockSource;         
 #if IFXEGTM_PWM_IS_HIGH_RES_AVAILABLE 
     boolean                    highResEnable;          
     boolean                    dtmHighResEnable;       
-#endif /* IFXEGTM_PWM_IS_HIGH_RES_AVAILABLE */
+#endif /* IFXEGTM_PWM_IS_HIGH_RES_AVAILABLE */ 
     boolean                    syncUpdateEnabled;      
     boolean                    syncStart;              
 } IfxEgtm_Pwm_Config;
-
 
 typedef struct
 {
@@ -221,8 +226,6 @@ typedef struct
     IfxPort_OutputMode   outputMode;       
     IfxPort_PadDriver    padDriver;        
 } IfxEgtm_Pwm_Pin;
-
-/* ===== End verified definitions ===== */
 
 /* Function declarations (subset used by module/tests) */
 void IfxEgtm_Pwm_initConfig(IfxEgtm_Pwm_Config *config, Ifx_EGTM *egtmSFR);

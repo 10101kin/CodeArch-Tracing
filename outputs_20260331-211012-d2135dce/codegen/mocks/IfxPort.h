@@ -1,18 +1,10 @@
-/* Mock IfxPort.h */
 #ifndef IFXPORT_H
 #define IFXPORT_H
 
 #include "mock_egtm_atom_3_phase_inverter_pwm.h"
+#include "IfxEgtm.h" /* for IfxApApu_ApuConfig and IfxApProt_ProtConfig */
 
-/* Constants for APU arrays used in some structs */
-#ifndef IFXPORT_NUM_APU
-# define IFXPORT_NUM_APU 2
-#endif
-#ifndef IFXPORT_NUM_PINS
-# define IFXPORT_NUM_PINS 16
-#endif
-
-/* Enums (order per spec) */
+/* Enums first */
 typedef enum
 {
     IfxPort_ControlledBy_port = 0,  
@@ -132,11 +124,10 @@ typedef enum
     IfxPort_BlankingTimerConfig_2ms = 1,  
     IfxPort_BlankingTimerConfig_4ms = 2,  
     IfxPort_BlankingTimerConfig_7ms = 3   
-} IfxPort_BlankingTimertypedef enum
+} IfxPotypedef enum
 {
     IfxPort_EsrLevel_0 = 0,      
-    IfxPort_EsrLevel_1           
-typedef enum
+    IfxPortypedef enum
 {
     IfxPort_EsrPadCfg_PP  = 0,  
     IfxPort_EsrPadCfg_TPU = 1,  
@@ -178,7 +169,8 @@ typedef enum
     IfxPort_PadDriver_ttl3v3Speed1         = (3 << 3) | (0 << 0),  
     IfxPort_PadDriver_ttl3v3Speed2         = (3 << 3) | (1 << 0),  
     IfxPort_PadDriver_ttl3v3Speed3         = (3 << 3) | (2 << 0)   
-} IfxPort_PadDriver;    = (2 << 3) | (1 << 0),
+} IfxPort_PadDriver;
+    IfxPort_PadDriver_ttlSpeed2            = (2 << 3) | (1 << 0),
     IfxPort_PadDriver_ttlSpeed3            = (2 << 3) | (2 << 0),
     IfxPort_PadDriver_ttl3v3Speed1         = (3 << 3) | (0 << 0),
     IfxPort_PadDriver_ttl3v3Speed2         = (3 << 3) | (1 << 0),
@@ -212,15 +204,15 @@ typedef struct
 {
     IfxApApu_ApuConfig    apuConfig[IFXPORT_NUM_APU];       
     IfxPort_Pin_ApuConfig pinConfig[IFXPORT_NUM_PINS];      
-} IfxPort_ApuGtypedef struct
+} IfxPort_ApuGroupConfitypedef struct
 {
     IfxApProt_ProtConfig protseConfig;        
-} IfxPort_ProtConfig;ort_Pin_ApuConfig pinConfig[IFXPORT_NUM_PINS];
+} IfxPort_ProtConfig;  IfxPort_Pin_ApuConfig pinConfig[8];
 } IfxPort_ApuGroupConfig;
 
 typedef struct { IfxApProt_ProtConfig protseConfig; } IfxPort_ProtConfig;
 
-/* Functions (subset used by module/tests) */
+/* Function declarations (subset used) */
 void IfxPort_togglePin(Ifx_P *port, uint8 pinIndex);
 void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
 
