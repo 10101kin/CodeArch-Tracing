@@ -1,41 +1,43 @@
-In file included from C:\Users\extanke\Downloads\merge\infineon_POC_MVP\unity/unity.h:22,
-                 from C:\Users\extanke\AppData\Local\Temp\tdd_build_8rdq_tx7\test\test_gtm_tom_3_phase_inverter_pwm.c:1:
-C:\Users\extanke\AppData\Local\Temp\tdd_build_8rdq_tx7\test\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G5_001_update_first_step_increments_duties':
-C:\Users\extanke\AppData\Local\Temp\tdd_build_8rdq_tx7\test\test_gtm_tom_3_phase_inverter_pwm.c:174:105: error: 'mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties' undeclared (first use in this function); did you mean 'mock_IfxGtm_Pwm_updateChannelsDutyImmediate_callCount'?
-  174 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, (UT_INIT_DUTY_U_PERCENT + UT_DUTY_STEP_PERCENT), mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[0], "Phase U must increment by step on first update");
-      |                                                                                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\Downloads\merge\infineon_POC_MVP\unity/unity_internals.h:1119:183: note: in definition of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'
- 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))
-      |                                                                                                                                                                                       ^~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_8rdq_tx7\test\test_gtm_tom_3_phase_inverter_pwm.c:174:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN_MESSAGE'
-  174 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, (UT_INIT_DUTY_U_PERCENT + UT_DUTY_STEP_PERCENT), mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[0], "Phase U must increment by step on first update");
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_8rdq_tx7\test\test_gtm_tom_3_phase_inverter_pwm.c:174:105: note: each undeclared identifier is reported only once for each function it appears in
-  174 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, (UT_INIT_DUTY_U_PERCENT + UT_DUTY_STEP_PERCENT), mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[0], "Phase U must increment by step on first update");
-      |                                                                                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\Downloads\merge\infineon_POC_MVP\unity/unity_internals.h:1119:183: note: in definition of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'
- 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))
-      |                                                                                                                                                                                       ^~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_8rdq_tx7\test\test_gtm_tom_3_phase_inverter_pwm.c:174:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN_MESSAGE'
-  174 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, (UT_INIT_DUTY_U_PERCENT + UT_DUTY_STEP_PERCENT), mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[0], "Phase U must increment by step on first update");
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_8rdq_tx7\test\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G6_001_second_update_wraps_W_to_min':
-C:\Users\extanke\AppData\Local\Temp\tdd_build_8rdq_tx7\test\test_gtm_tom_3_phase_inverter_pwm.c:211:63: error: 'mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties' undeclared (first use in this function); did you mean 'mock_IfxGtm_Pwm_updateChannelsDutyImmediate_callCount'?
-  211 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 45.0f, mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[0], "After 2nd update, Phase U must be 45%");
-      |                                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\Downloads\merge\infineon_POC_MVP\unity/unity_internals.h:1119:183: note: in definition of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'
- 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))
-      |                                                                                                                                                                                       ^~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_8rdq_tx7\test\test_gtm_tom_3_phase_inverter_pwm.c:211:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN_MESSAGE'
-  211 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 45.0f, mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[0], "After 2nd update, Phase U must be 45%");
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_8rdq_tx7\test\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G6_002_fourth_update_wraps_V_to_min_independently':
-C:\Users\extanke\AppData\Local\Temp\tdd_build_8rdq_tx7\test\test_gtm_tom_3_phase_inverter_pwm.c:235:63: error: 'mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties' undeclared (first use in this function); did you mean 'mock_IfxGtm_Pwm_updateChannelsDutyImmediate_callCount'?
-  235 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 65.0f, mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[0], "After 4th update, Phase U must be 65%");
-      |                                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\Downloads\merge\infineon_POC_MVP\unity/unity_internals.h:1119:183: note: in definition of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'
- 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))
-      |                                                                                                                                                                                       ^~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_8rdq_tx7\test\test_gtm_tom_3_phase_inverter_pwm.c:235:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN_MESSAGE'
-  235 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 65.0f, mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[0], "After 4th update, Phase U must be 65%");
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_na2vys63\src\gtm_tom_3_phase_inverter_pwm.c: In function 'GTM_TOM_3_Phase_Inverter_PWM_init':
+C:\Users\extanke\AppData\Local\Temp\tdd_build_na2vys63\src\gtm_tom_3_phase_inverter_pwm.c:34:37: error: 'IfxGtm_TOM1_2_TOUT12_P00_3_OUT' undeclared (first use in this function)
+   34 | #define PHASE_U_HS                (&IfxGtm_TOM1_2_TOUT12_P00_3_OUT)  /* U high-side:  TOM1 CH2 -> P00.3 */
+      |                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_na2vys63\src\gtm_tom_3_phase_inverter_pwm.c:93:61: note: in expansion of macro 'PHASE_U_HS'
+   93 |     output[0].pin                    = (IfxGtm_Pwm_ToutMap*)PHASE_U_HS;
+      |                                                             ^~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_na2vys63\src\gtm_tom_3_phase_inverter_pwm.c:34:37: note: each undeclared identifier is reported only once for each function it appears in
+   34 | #define PHASE_U_HS                (&IfxGtm_TOM1_2_TOUT12_P00_3_OUT)  /* U high-side:  TOM1 CH2 -> P00.3 */
+      |                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_na2vys63\src\gtm_tom_3_phase_inverter_pwm.c:93:61: note: in expansion of macro 'PHASE_U_HS'
+   93 |     output[0].pin                    = (IfxGtm_Pwm_ToutMap*)PHASE_U_HS;
+      |                                                             ^~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_na2vys63\src\gtm_tom_3_phase_inverter_pwm.c:35:37: error: 'IfxGtm_TOM1_1_TOUT11_P00_2_OUT' undeclared (first use in this function)
+   35 | #define PHASE_U_LS                (&IfxGtm_TOM1_1_TOUT11_P00_2_OUT)  /* U low-side:   TOM1 CH1 -> P00.2 */
+      |                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_na2vys63\src\gtm_tom_3_phase_inverter_pwm.c:94:61: note: in expansion of macro 'PHASE_U_LS'
+   94 |     output[0].complementaryPin       = (IfxGtm_Pwm_ToutMap*)PHASE_U_LS;
+      |                                                             ^~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_na2vys63\src\gtm_tom_3_phase_inverter_pwm.c:36:37: error: 'IfxGtm_TOM1_4_TOUT14_P00_5_OUT' undeclared (first use in this function)
+   36 | #define PHASE_V_HS                (&IfxGtm_TOM1_4_TOUT14_P00_5_OUT)  /* V high-side:  TOM1 CH4 -> P00.5 */
+      |                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_na2vys63\src\gtm_tom_3_phase_inverter_pwm.c:100:61: note: in expansion of macro 'PHASE_V_HS'
+  100 |     output[1].pin                    = (IfxGtm_Pwm_ToutMap*)PHASE_V_HS;
+      |                                                             ^~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_na2vys63\src\gtm_tom_3_phase_inverter_pwm.c:37:37: error: 'IfxGtm_TOM1_3_TOUT13_P00_4_OUT' undeclared (first use in this function)
+   37 | #define PHASE_V_LS                (&IfxGtm_TOM1_3_TOUT13_P00_4_OUT)  /* V low-side:   TOM1 CH3 -> P00.4 */
+      |                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_na2vys63\src\gtm_tom_3_phase_inverter_pwm.c:101:61: note: in expansion of macro 'PHASE_V_LS'
+  101 |     output[1].complementaryPin       = (IfxGtm_Pwm_ToutMap*)PHASE_V_LS;
+      |                                                             ^~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_na2vys63\src\gtm_tom_3_phase_inverter_pwm.c:38:37: error: 'IfxGtm_TOM1_6_TOUT16_P00_7_OUT' undeclared (first use in this function)
+   38 | #define PHASE_W_HS                (&IfxGtm_TOM1_6_TOUT16_P00_7_OUT)  /* W high-side:  TOM1 CH6 -> P00.7 */
+      |                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_na2vys63\src\gtm_tom_3_phase_inverter_pwm.c:107:61: note: in expansion of macro 'PHASE_W_HS'
+  107 |     output[2].pin                    = (IfxGtm_Pwm_ToutMap*)PHASE_W_HS;
+      |                                                             ^~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_na2vys63\src\gtm_tom_3_phase_inverter_pwm.c:39:37: error: 'IfxGtm_TOM1_5_TOUT15_P00_6_OUT' undeclared (first use in this function)
+   39 | #define PHASE_W_LS                (&IfxGtm_TOM1_5_TOUT15_P00_6_OUT)  /* W low-side:   TOM1 CH5 -> P00.6 */
+      |                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_na2vys63\src\gtm_tom_3_phase_inverter_pwm.c:108:61: note: in expansion of macro 'PHASE_W_LS'
+  108 |     output[2].complementaryPin       = (IfxGtm_Pwm_ToutMap*)PHASE_W_LS;
+      |                                                             ^~~~~~~~~~
