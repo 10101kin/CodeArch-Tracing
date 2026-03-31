@@ -1,11 +1,12 @@
 {
   "meta": {
     "schema_version": "1.0",
-    "last_updated_by": "hardware",
-    "last_updated_at": "2026-03-31T09:33:59.165244",
+    "last_updated_by": "sw_architecture",
+    "last_updated_at": "2026-03-31T09:37:36.708866",
     "build_sequence": [
       "requirements",
-      "hardware"
+      "hardware",
+      "sw_architecture"
     ],
     "corrections_log": []
   },
@@ -585,6 +586,212 @@
         "VADC requested but no matching drivers found in template",
         "EVADC requested but no matching drivers found in template"
       ]
+    }
+  },
+  "sw_architecture": {
+    "user_intent_preservation": {
+      "original_goal": "Migrate 3-phase PWM motor control to new AURIX target",
+      "functional_behavior": "Generate three complementary, center-aligned PWM phases on EGTM Cluster 0 ATOM0 CH0–CH2 at 20 kHz with 1 µs dead-time using CMU CLK0, set initial duties U=25%, V=50%, W=75%, and produce an edge-aligned 50% ADC trigger on ATOM0 CH3 routed to TMADC. Configure TMADC0 CH0–CH4 one-shot on SAR Core 0 with 100 ns sampling and wait-for-read; enable ADC module; service results in resultISR() (priority 25, vmId 0); toggle P03.9 in ISR; update PWM duty every 500 ms; provide updateEgtmAtomDuty() that updates duties immediately.",
+      "technical_approach": "Use the unified PWM driver to configure EGTM ATOM0 channels as a synchronized, center-aligned complementary group with hardware DTM set for 1 µs from CMU CLK0. Use ATOM0 CH3 in edge-aligned mode at 50% to feed TMADC via the trigger crossbar. Initialize TMADC0 and channels for one-shot operation with 100 ns sampling and enable channel event requests to the configured service node. The ISR reads all five results and toggles P03.9. Duty updates are applied with a single immediate multi-channel API to meet the 500 ms update requirement."
+    },
+    "driver_selection": {
+      "recommended_driver": "IfxEgtm_Pwm",
+      "selection_rationale": "Unified high-level PWM supports ATOM with complementary pairs, center alignment, synchronized updates, and dead-time management via DTM integration, minimizing low-level handling while matching the 3-phase inverter pattern and trigger needs.",
+      "available_in_template": true,
+      "complexity_level": "advanced",
+      "alternatives_considered": [
+        "IfxEgtm_Atom_Pwm",
+        "IfxEgtm_Tom_Pwm",
+        "IfxGtm_Pwm"
+      ]
+    },
+    "driver_usage": {
+      "initialization_apis": [
+        "IfxEgtm_Pwm_initConfig",
+        "IfxEgtm_Pwm_init",
+        "IfxEgtm_isEnabled",
+        "IfxEgtm_enable",
+        "IfxEgtm_Cmu_enableClocks",
+        "IfxEgtm_Trigger_trigToAdc",
+        "IfxAdc_enableModule",
+        "IfxAdc_Tmadc_initModuleConfig",
+        "IfxAdc_Tmadc_initModule",
+        "IfxAdc_Tmadc_initChannelConfig",
+        "IfxAdc_Tmadc_initChannel",
+        "IfxAdc_Tmadc_enableChannelEvent",
+        "IfxAdc_Tmadc_runModule",
+        "IfxPort_setPinModeOutput"
+      ],
+      "runtime_apis": [
+        "IfxEgtm_Pwm_updateChannelsDutyImmediate",
+        "IfxPort_togglePin"
+      ]
+    },
+    "file_structure": {
+      "module_files": [
+        "EGTM_ATOM_ADC_TMADC_Multiple_Channels.c",
+        "EGTM_ATOM_ADC_TMADC_Multiple_Channels.h"
+      ],
+      "cpu_files": [
+        "Cpu0_Main.c"
+      ],
+      "from_reference": true
+    },
+    "function_mapping": {
+      "init_function": {
+        "name": "initEgtmAtom3phInv"
+      },
+      "runtime_function": {
+        "name": "updateEgtmAtomDuty",
+        "purpose": "Immediate multi-channel duty update for U/V/W phases per 500 ms schedule"
+      }
+    },
+    "header_selection": {
+      "applied": true,
+      "peripheral_type": "PWM",
+      "recommended_header": "IfxEgtm_Pwm",
+      "score": 334,
+      "required_includes": [
+        "IfxEgtm_Pwm.h"
+      ],
+      "function_mapping": {
+        "IfxGtm_Pwm_startSyncedGroups": "IfxEgtm_Pwm_startSyncedGroups",
+        "IfxGtm_Pwm_updateChannelsDutyImmediate": "IfxEgtm_Pwm_updateChannelsDutyImmediate",
+        "IfxGtm_Pwm_initConfig": "IfxEgtm_Pwm_initConfig",
+        "IfxGtm_enable": "IfxEgtm_Pwm_enableChannelsSyncUpdate",
+        "IFX_INTERRUPT": "IfxEgtm_Pwm_interruptHandler",
+        "IfxGtm_Pwm_init": "IfxEgtm_Pwm_init",
+        "PWM_FREQUENCY": "IfxEgtm_Pwm_updateSyncedGroupsFrequency"
+      },
+      "available_functions_count": 100
+    },
+    "driver_selection_engine": {
+      "applied": true,
+      "mcu_family": "TC4xx",
+      "requirement_analysis": {},
+      "recommendations": {
+        "PWM": {
+          "driver": "IfxEgtm_Pwm",
+          "score": 100,
+          "complexity": "locked",
+          "rationale": "Driver locked by refiner node (user explicit or engine-scored)",
+          "alternatives": []
+        }
+      },
+      "migration_mappings": {
+        "IfxScuWdt": {
+          "target_driver": "IfxWtu",
+          "api_mapping": {
+            "IfxScuWdt_disableCpuWatchdog": "IfxWtu_disableCpuWatchdog",
+            "IfxScuWdt_disableSafetyWatchdog": "IfxWtu_enableCpuWatchdog",
+            "IfxScuWdt_enableCpuWatchdog": "// No equivalent - manual mapping needed",
+            "IfxScuWdt_enableSafetyWatchdog": "// No equivalent - manual mapping needed",
+            "IfxScuWdt_serviceCpuWatchdog": "IfxWtu_serviceCpuWatchdog",
+            "IfxScuWdt_serviceSafetyWatchdog": "// No equivalent - manual mapping needed",
+            "IfxScuWdt_clearCpuEndinit": "// No equivalent - manual mapping needed",
+            "IfxScuWdt_setCpuEndinit": "// No equivalent - manual mapping needed"
+          }
+        },
+        "IfxGtm_Pwm": {
+          "target_driver": "IfxEgtm_Pwm",
+          "api_mapping": {
+            "IfxGtm_Pwm_init": "IfxEgtm_Pwm_init",
+            "IfxGtm_Pwm_initConfig": "IfxEgtm_Pwm_initConfig",
+            "IfxGtm_Pwm_start": "IfxEgtm_Pwm_start",
+            "IfxGtm_Pwm_stop": "IfxEgtm_Pwm_stop",
+            "IfxGtm_Pwm_setDuty": "IfxEgtm_Pwm_setDuty"
+          }
+        },
+        "IfxPort": {
+          "target_driver": "IfxPort_Io",
+          "api_mapping": {
+            "IfxPort_setPinMode": "IfxPort_Io_initModule",
+            "IfxPort_setPinModeOutput": "// No equivalent - manual mapping needed",
+            "IfxPort_setPinModeInput": "// No equivalent - manual mapping needed",
+            "IfxPort_setPinPadDriver": "// No equivalent - manual mapping needed",
+            "IfxPort_setPinState": "IfxPort_Io_setPinState",
+            "IfxPort_getPinState": "IfxPort_Io_getPinState",
+            "IfxPort_togglePin": "// No equivalent - manual mapping needed",
+            "IfxPort_setPinHigh": "// No equivalent - manual mapping needed",
+            "IfxPort_setPinLow": "// No equivalent - manual mapping needed"
+          }
+        }
+      }
+    },
+    "driver_knowledge_base": {
+      "applied": false
+    },
+    "migration_numerical_values": {
+      "NUM_OF_CHANNELS": {
+        "value": 3.0,
+        "unit": "",
+        "label": "Number of channels"
+      },
+      "NUM_OF_ADC_TRIG_CHANNELS": {
+        "value": 1.0,
+        "unit": "",
+        "label": "Number of channels"
+      },
+      "PHASE_U_DUTY": {
+        "value": 25.0,
+        "unit": "%",
+        "label": "Phase U initial duty cycle"
+      },
+      "PHASE_V_DUTY": {
+        "value": 50.0,
+        "unit": "%",
+        "label": "Phase V initial duty cycle"
+      },
+      "PHASE_W_DUTY": {
+        "value": 75.0,
+        "unit": "%",
+        "label": "Phase W initial duty cycle"
+      },
+      "PHASE_DUTY_STEP": {
+        "value": 0.01,
+        "unit": "%",
+        "label": "Duty cycle step increment"
+      },
+      "ADC_TRIG_DUTY": {
+        "value": 50.0,
+        "unit": "%",
+        "label": "Duty cycle"
+      },
+      "PWM_FREQUENCY": {
+        "value": 20000.0,
+        "unit": "Hz",
+        "label": "PWM switching frequency"
+      },
+      "INTERRUPT_PRIORITY_EVADC_CUR": {
+        "value": 100.0,
+        "unit": "",
+        "label": "Interrupt priority"
+      },
+      ".priority": {
+        "value": 0.0,
+        "unit": "",
+        "label": "Interrupt priority"
+      },
+      "PHASECURSENSE_REFILL_TRIG": {
+        "value": 1.0,
+        "unit": "",
+        "label": "Phasecursense refill trig"
+      },
+      ".rising": {
+        "value": 1.0,
+        "unit": "",
+        "label": ".rising"
+      },
+      ".falling": {
+        "value": 0.0,
+        "unit": "",
+        "label": ".falling"
+      },
+      ".phase": {
+        "value": 0.0,
+        "unit": "",
+        "label": ".phase"
+      }
     }
   }
 }
