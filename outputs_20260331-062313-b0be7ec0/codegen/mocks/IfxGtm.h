@@ -1,3 +1,4 @@
+/* IfxGtm base mock */
 #ifndef IFXGTM_H
 #define IFXGTM_H
 
@@ -19,8 +20,13 @@ typedef enum
     IfxGtm_SuspendMode_soft = 2
 } IfxGtm_SuspendMode;
 
-/* Functions (only those needed by production/mocks) */
+/* Function declarations */
 boolean IfxGtm_isEnabled(Ifx_GTM *gtm);
-void IfxGtm_enable(Ifx_GTM *gtm);
+boolean IfxGtm_isModuleSuspended(Ifx_GTM *gtm);
+void    IfxGtm_setSuspendMode(Ifx_GTM *gtm, IfxGtm_SuspendMode mode);
+void    IfxGtm_disable(Ifx_GTM *gtm);
+void    IfxGtm_enable(Ifx_GTM *gtm);
+float32 IfxGtm_getSysClkFrequency(Ifx_GTM *gtm);
+float32 IfxGtm_getClusterFrequency(Ifx_GTM *gtm, uint32 clusterIdx);
 
 #endif /* IFXGTM_H */

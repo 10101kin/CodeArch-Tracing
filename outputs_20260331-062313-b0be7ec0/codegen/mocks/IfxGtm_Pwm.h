@@ -1,3 +1,4 @@
+/* IfxGtm_Pwm mock */
 #ifndef IFXGTM_PWM_H
 #define IFXGTM_PWM_H
 
@@ -6,8 +7,25 @@
 #include "IfxGtm_Cmu.h"
 #include "IfxPort.h"
 
-/* VERIFIED TYPE DEFINITIONS — EMIT EXACTLY AS-IS IN MOCKS (plus support types) */
+/* Driver-specific peer/aux types */
+typedef void (*IfxGtm_Pwm_callBack)(void *);
 
+typedef struct { uint32 dummy; } IfxGtm_Atom_ToutMap;
+typedef struct { uint32 dummy; } IfxGtm_Tom_ToutMap;
+
+typedef union
+{
+    IfxGtm_Atom_ToutMap atom;
+    IfxGtm_Tom_ToutMap  tom;
+} IfxGtm_Pwm_ToutMap;
+
+typedef struct { uint32 r; } Ifx_GTM_ATOM;
+typedef struct { uint32 r; } Ifx_GTM_TOM;
+typedef struct { uint32 r; } Ifx_GTM_CDTM;
+
+typedef struct { uint32 r; } IfxGtm_Trig_MscOut;
+
+/* VERIFIED TYPE DEFINITIONS — emit exactly as provided */
 typedef enum
 {
     IfxGtm_Pwm_Alignment_edge   = 0, 
@@ -89,12 +107,6 @@ typedef enum
     IfxGtm_Dtm_ClockSource_cmuClock2     
 } IfxGtm_Dtm_ClockSource;
 
-/* Support forward declarations for structs used in verified defs */
-typedef struct { uint32 dummy; } IfxGtm_Trig_MscOut;
-typedef struct { uint32 dummy; } Ifx_GTM_ATOM;
-typedef struct { uint32 dummy; } Ifx_GTM_TOM;
-typedef struct { uint32 dummy; } Ifx_GTM_CDTM;
-
 typedef struct
 {
     float32 rising;        
@@ -106,15 +118,14 @@ typedef struct
     IfxGtm_Pwm_DeadTime deadTime;       
 } IfxGtm_Pwm_DtmConfig;
 
-/* Callback type used by InterruptConfig */
-typedef void (*IfxGtm_Pwm_callBack)(void *arg);
-
-/* Union/map types for pin selection */
-typedef union
+typedef struct
 {
-    uint32 atom;       /* placeholder */
-    uint32 tom;        /* placeholder */
-} IfxGtm_Pwm_ToutMap;
+    IfxGtm_IrqMode      mode;              
+    IfxSrc_Tos          isrProvider;       
+    Ifx_Priority        priority;          
+    IfxGtm_Pwm_callBack periodEvent;       
+    IfxGtm_Pwm_callBack dutyEvent;         
+} IfxGtm_Pwm_InterruptConfig;
 
 typedef struct
 {
@@ -235,22 +246,9 @@ typedef struct
     IfxPort_PadDriver   padDriver;       
 } IfxGtm_Pwm_Pin;
 
-/* InterruptConfig struct (uses IfxGtm_IrqMode from IfxGtm.h) */
-typedef struct
-{
-    IfxGtm_IrqMode      mode;              
-    IfxSrc_Tos          isrProvider;       
-    Ifx_Priority        priority;          
-    IfxGtm_Pwm_callBack periodEvent;       
-    IfxGtm_Pwm_callBack dutyEvent;         
-} IfxGtm_Pwm_InterruptConfig;
-
-/* Pwm APIs (declare the ones used by production and tests) */
-void IfxGtm_Pwm_initConfig(IfxGtm_Pwm_Config *config, Ifx_GTM *gtmSFR);
+/* Function declarations (subset required by production/tests) */
 void IfxGtm_Pwm_init(IfxGtm_Pwm *pwm, IfxGtm_Pwm_Channel *channels, IfxGtm_Pwm_Config *config);
+void IfxGtm_Pwm_initConfig(IfxGtm_Pwm_Config *config, Ifx_GTM *gtmSFR);
 void IfxGtm_Pwm_updateChannelsDutyImmediate(IfxGtm_Pwm *pwm, float32 *requestDuty);
-
-/* CPU IRQ helper (needed by some templates) */
-void IfxCpu_Irq_installInterruptHandler(void (*isr)(void), int priority);
 
 #endif /* IFXGTM_PWM_H */
