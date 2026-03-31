@@ -1,26 +1,24 @@
 #ifndef IFXPORT_H
 #define IFXPORT_H
-
 #include "mock_gtm_tom_3_phase_inverter_pwm.h"
 
-/* Basic IfxPort types used by PWM driver */
+/* Port output mode */
 typedef enum {
     IfxPort_OutputMode_pushPull = 0,
-    IfxPort_OutputMode_openDrain = 1
+    IfxPort_OutputMode_openDrain
 } IfxPort_OutputMode;
 
+/* Port pad driver */
 typedef enum {
     IfxPort_PadDriver_cmosAutomotiveSpeed1 = 0,
-    IfxPort_PadDriver_cmosAutomotiveSpeed2 = 1,
-    IfxPort_PadDriver_cmosAutomotiveSpeed3 = 2,
-    IfxPort_PadDriver_cmosAutomotiveSpeed4 = 3
+    IfxPort_PadDriver_cmosAutomotiveSpeed2,
+    IfxPort_PadDriver_cmosAutomotiveSpeed3,
+    IfxPort_PadDriver_cmosAutomotiveSpeed4
 } IfxPort_PadDriver;
 
+/* Optional additional enums often used */
 typedef enum {
-    IfxPort_OutputIdx_0 = 0,
-    IfxPort_OutputIdx_1 = 1,
-    IfxPort_OutputIdx_2 = 2,
-    IfxPort_OutputIdx_3 = 3
+    IfxPort_OutputIdx_general = 0
 } IfxPort_OutputIdx;
 
 typedef enum {

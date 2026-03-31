@@ -1,29 +1,23 @@
 #ifndef IFXGTM_PWM_H
 #define IFXGTM_PWM_H
-
 #include "mock_gtm_tom_3_phase_inverter_pwm.h"
 #include "IfxGtm.h"
 #include "IfxGtm_Cmu.h"
 #include "IfxPort.h"
 
-/* Helper/peer types referenced by verified typedefs */
-typedef void (*IfxGtm_Pwm_callBack)(void *);
-
-typedef struct { uint8 dummy; } IfxGtm_Atom_ToutMap;
-typedef struct { uint8 dummy; } IfxGtm_Tom_ToutMap;
-
-typedef union {
-    IfxGtm_Atom_ToutMap atom;       /* ATOM map */
-    IfxGtm_Tom_ToutMap  tom;        /* TOM map */
-} IfxGtm_Pwm_ToutMap;
-
+/* Additional forward stub types referenced by PWM structures */
 typedef struct { uint32 reserved; } Ifx_GTM_ATOM;
 typedef struct { uint32 reserved; } Ifx_GTM_TOM;
 typedef struct { uint32 reserved; } Ifx_GTM_CDTM;
-
 typedef struct { uint32 reserved; } IfxGtm_Trig_MscOut;
 
-/* VERIFIED TYPE DEFINITIONS — EMIT EXACTLY AS-IS IN MOCKS */
+/* ToutMap provided by PWM driver (union for ATOM/TOM) */
+typedef union {
+    uint32 atom;
+    uint32 tom;
+} IfxGtm_Pwm_ToutMap;
+
+/* Verified definitions: emit EXACTLY as provided (order preserved) */
 
 typedef enum
 {
@@ -105,6 +99,9 @@ typedef enum
     IfxGtm_Dtm_ClockSource_cmuClock1,    
     IfxGtm_Dtm_ClockSource_cmuClock2     
 } IfxGtm_Dtm_ClockSource;
+
+/* Callback type used by PWM driver */
+typedef void (*IfxGtm_Pwm_callBack)(void *);
 
 typedef struct
 {
@@ -194,11 +191,11 @@ typedef struct
     volatile uint32 *reg1;                
     uint32           upenMask0;           
     uint32           upenMask1;           
-    volatile uint32 *endisCtrlReg0;       /**< \brief ATOM: points to AGC_ENDIS_CTRL.
-                                             * TOM: If channels span 2 TGCs then points to TGC0_ENDIS_CTRL else to the TGC being used TGCx_GLB_CTRL */
+    volatile uint32 *endisCtrlReg0;       
     volatile uint32 *endisCtrlReg1;       
 } IfxGtm_Pwm_GlobalControl;
 
+/* Clock source union with uint32 fields (to avoid enum-conversion issues) */
 typedef union {
     uint32 atom;
     uint32 tom;
@@ -246,7 +243,7 @@ typedef struct
     IfxPort_PadDriver   padDriver;       
 } IfxGtm_Pwm_Pin;
 
-/* Functions from DRIVERS TO MOCK */
+/* Function declarations (subset required by production) */
 void IfxGtm_Pwm_init(IfxGtm_Pwm *pwm, IfxGtm_Pwm_Channel *channels, IfxGtm_Pwm_Config *config);
 void IfxGtm_Pwm_initConfig(IfxGtm_Pwm_Config *config, Ifx_GTM *gtmSFR);
 void IfxGtm_Pwm_updateChannelsDutyImmediate(IfxGtm_Pwm *pwm, float32 *requestDuty);
