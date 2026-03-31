@@ -1,7 +1,4 @@
-/* IfxGtm_Pwm.h - mock
- * Must include mock base header first, then peer headers
- */
-
+/* IfxGtm_Pwm.h - mock header for GTM PWM driver */
 #ifndef IFXGTM_PWM_H
 #define IFXGTM_PWM_H
 
@@ -10,7 +7,10 @@
 #include "IfxGtm_Cmu.h"
 #include "IfxPort.h"
 
-/* VERIFIED TYPE DEFINITIONS — Emit in exact order provided */
+/* Provide callback typedef used by interrupt config */
+typedef void (*IfxGtm_Pwm_callBack)(void *);
+
+/* VERIFIED TYPE DEFINITIONS (emit verbatim and in the provided order) */
 
 typedef enum
 {
@@ -147,6 +147,7 @@ typedef struct
     uint32                      dutyTicks;         
 } IfxGtm_Pwm_Channel;
 
+/* ChannelConfig must include mscOut and interrupt pointers per spec */
 typedef struct
 {
     IfxGtm_Pwm_SubModule_Ch     timerCh;         
@@ -154,9 +155,14 @@ typedef struct
     float32                     duty;            
     IfxGtm_Pwm_DtmConfig       *dtm;             
     IfxGtm_Pwm_OutputConfig    *output;          
-    IfxGtm_Trig_MscOut         *mscOut;          
+    void                       *mscOut;          /* simplified MSC out pointer */
     IfxGtm_Pwm_InterruptConfig *interrupt;       
 } IfxGtm_Pwm_ChannelConfig;
+
+/* Cluster SFRs referenced by PWM. Provide stub types for SFR pointers. */
+typedef struct { uint32 reserved; } Ifx_GTM_ATOM;
+typedef struct { uint32 reserved; } Ifx_GTM_TOM;
+typedef struct { uint32 reserved; } Ifx_GTM_CDTM;
 
 typedef struct
 {
@@ -175,6 +181,7 @@ typedef struct
     volatile uint32 *endisCtrlReg1;       
 } IfxGtm_Pwm_GlobalControl;
 
+/* CLOCKSOURCE union using uint32 fields to avoid -Werror enum conversions */
 typedef union {
     uint32 atom;
     uint32 tom;
@@ -184,7 +191,7 @@ typedef struct
 {
     Ifx_GTM                 *gtmSFR;                  
     IfxGtm_Pwm_ClusterSFR    clusterSFR;              
-    IfxGtm_Cluster           cluster;                 
+    int                      cluster;                 /* simplified */
     IfxGtm_Pwm_SubModule     subModule;               
     IfxGtm_Pwm_Alignment     alignment;               
     uint8                    numChannels;             
@@ -203,7 +210,7 @@ typedef struct
 typedef struct
 {
     Ifx_GTM                  *gtmSFR;                 
-    IfxGtm_Cluster            cluster;                
+    int                       cluster;                /* simplified */
     IfxGtm_Pwm_SubModule      subModule;              
     IfxGtm_Pwm_Alignment      alignment;              
     uint8                     numChannels;            
@@ -222,19 +229,26 @@ typedef struct
     IfxPort_PadDriver   padDriver;       
 } IfxGtm_Pwm_Pin;
 
-/* Function declarations (subset needed for tests) */
+/* Provide TouTMap typedef and underlying atom/tom types */
+typedef union {
+    uint32 atom;
+    uint32 tom;
+} IfxGtm_Atom_ToutMap; /* simplified */
+
+typedef union {
+    uint32 atom;
+    uint32 tom;
+} IfxGtm_Tom_ToutMap; /* simplified */
+
+typedef union
+{
+    IfxGtm_Atom_ToutMap atom;       /**< \brief ATOM map */
+    IfxGtm_Tom_ToutMap  tom;        /**< \brief TOM map */
+} IfxGtm_Pwm_ToutMap;
+
+/* Function declarations (subset required by DRIVERS TO MOCK) */
 void IfxGtm_Pwm_initConfig(IfxGtm_Pwm_Config *config, Ifx_GTM *gtmSFR);
 void IfxGtm_Pwm_init(IfxGtm_Pwm *pwm, IfxGtm_Pwm_Channel *channels, IfxGtm_Pwm_Config *config);
-void IfxGtm_Pwm_updateFrequency(IfxGtm_Pwm *pwm, float32 frequency);
-void IfxGtm_Pwm_updateChannelsDuty(IfxGtm_Pwm *pwm, float32 *requestDuty);
 void IfxGtm_Pwm_updateChannelsDutyImmediate(IfxGtm_Pwm *pwm, float32 *requestDuty);
-void IfxGtm_Pwm_setChannelPolarity(IfxGtm_Pwm *pwm, uint8 ch, Ifx_ActiveState polarity);
-void IfxGtm_Pwm_updateChannelPhase(IfxGtm_Pwm *pwm, uint8 ch, float32 phase);
-void IfxGtm_Pwm_updateChannelPhaseImmediate(IfxGtm_Pwm *pwm, uint8 ch, float32 phase);
-void IfxGtm_Pwm_updateChannelDuty(IfxGtm_Pwm *pwm, uint8 ch, float32 duty);
-void IfxGtm_Pwm_updateChannelDutyImmediate(IfxGtm_Pwm *pwm, uint8 ch, float32 duty);
-void IfxGtm_Pwm_updateChannelDeadTimeImmediate(IfxGtm_Pwm *pwm, uint8 ch, IfxGtm_Pwm_DtmConfig *dtm);
-
-/* Minimal externs for ToutMap pin symbols (none provided in prompt) */
 
 #endif /* IFXGTM_PWM_H */

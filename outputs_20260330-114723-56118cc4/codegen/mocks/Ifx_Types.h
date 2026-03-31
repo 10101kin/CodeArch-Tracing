@@ -1,4 +1,4 @@
-/* Redirector for Ifx_Types.h used by production code */
+/* Ifx_Types.h redirector - include the mock base header if production code includes Ifx_Types.h */
 #ifndef IFX_TYPES_H
 #define IFX_TYPES_H
 

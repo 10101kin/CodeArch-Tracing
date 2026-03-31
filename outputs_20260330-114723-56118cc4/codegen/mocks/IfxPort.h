@@ -1,13 +1,10 @@
-/* IfxPort.h - mock
- * Must include mock base header first
- */
-
+/* IfxPort.h - mock header for PORT driver */
 #ifndef IFXPORT_H
 #define IFXPORT_H
 
 #include "mock_gtm_tom_3_phase_inverter_pwm.h"
 
-/* Types and enums as required by the template */
+/* Types and enums required by production code */
 
 typedef enum
 {
@@ -19,8 +16,8 @@ typedef enum
 {
     IfxPort_InputMode_undefined    = -1,
     IfxPort_InputMode_noPullDevice = 0 << 3,
-    IfxPort_InputMode_pullDown     = 1U << 3,
-    IfxPort_InputMode_pullUp       = 2U << 3
+    IfxPort_InputMode_pullDown = 1U << 3,
+    IfxPort_InputMode_pullUp   = 2U << 3
 } IfxPort_InputMode;
 
 typedef enum
@@ -55,20 +52,20 @@ typedef enum
 typedef enum
 {
     IfxPort_OutputIdx_general  = 0x10U << 3,
-    IfxPort_OutputIdx_alt1     = 0x11U << 3,
-    IfxPort_OutputIdx_alt2     = 0x12U << 3,
-    IfxPort_OutputIdx_alt3     = 0x13U << 3,
-    IfxPort_OutputIdx_alt4     = 0x14U << 3,
-    IfxPort_OutputIdx_alt5     = 0x15U << 3,
-    IfxPort_OutputIdx_alt6     = 0x16U << 3,
-    IfxPort_OutputIdx_alt7     = 0x17U << 3
+    IfxPort_OutputIdx_alt1 = 0x11U << 3,
+    IfxPort_OutputIdx_alt2 = 0x12U << 3,
+    IfxPort_OutputIdx_alt3 = 0x13U << 3,
+    IfxPort_OutputIdx_alt4 = 0x14U << 3,
+    IfxPort_OutputIdx_alt5 = 0x15U << 3,
+    IfxPort_OutputIdx_alt6 = 0x16U << 3,
+    IfxPort_OutputIdx_alt7 = 0x17U << 3
 } IfxPort_OutputIdx;
 
 typedef enum
 {
     IfxPort_OutputMode_pushPull      = 0x10U << 3,
-    IfxPort_OutputMode_openDrain    = 0x18U << 3,
-    IfxPort_OutputMode_none         = 0
+    IfxPort_OutputMode_openDrain = 0x18U << 3,
+    IfxPort_OutputMode_none      = 0
 } IfxPort_OutputMode;
 
 typedef enum
@@ -107,13 +104,31 @@ typedef enum
     IfxPort_State_toggled    = (1U << 16) | (1U << 0)
 } IfxPort_State;
 
-/* LVDS enums (simplified) */
-typedef enum { IfxPort_LvdsDirection_rx = 0, IfxPort_LvdsDirection_tx = 1 } IfxPort_LvdsDirection;
-typedef enum { IfxPort_LvdsPath_enable = 0, IfxPort_LvdsPath_disable = 1 } IfxPort_LvdsPath;
-typedef enum { IfxPort_LvdsPullDown_disable = 0, IfxPort_LvdsPullDown_enable = 1 } IfxPort_LvdsPullDown;
-typedef enum { IfxPort_LvdsTerminationMode_external = 0, IfxPort_LvdsTerminationMode_internal = 1 } IfxPort_LvdsTerminationMode;
+typedef enum
+{
+    IfxPort_LvdsDirection_rx = 0,
+    IfxPort_LvdsDirection_tx = 1
+} IfxPort_LvdsDirection;
 
-/* Structs */
+typedef enum
+{
+    IfxPort_LvdsPath_enable  = 0,
+    IfxPort_LvdsPath_disable = 1
+} IfxPort_LvdsPath;
+
+typedef enum
+{
+    IfxPort_LvdsPullDown_disable = 0,
+    IfxPort_LvdsPullDown_enable  = 1
+} IfxPort_LvdsPullDown;
+
+typedef enum
+{
+    IfxPort_LvdsTerminationMode_external = 0,
+    IfxPort_LvdsTerminationMode_internal = 1
+} IfxPort_LvdsTerminationMode;
+
+/* Small structs used by production code */
 typedef struct {
     IfxPort_LvdsMode     lvdsMode;
     IfxPort_ControlledBy enablePortControlled;
@@ -132,14 +147,7 @@ typedef struct {
     IfxPort_PadDriver padDriver;
 } IfxPort_Pin_Config;
 
-/* Function declarations (subset used by production code/tests) */
-IfxPort_State IfxPort_getPinState(Ifx_P *port, uint8 pinIndex);
-void IfxPort_setPinFunctionMode(Ifx_P *port, uint8 pinIndex, IfxPort_PinFunctionMode mode);
-void IfxPort_setPinHigh(Ifx_P *port, uint8 pinIndex);
-void IfxPort_setPinLow(Ifx_P *port, uint8 pinIndex);
-void IfxPort_setPinModeInput(Ifx_P *port, uint8 pinIndex, IfxPort_InputMode mode);
+/* Function declarations - only the ones needed by drivers to mock */
 void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
-void IfxPort_setPinState(Ifx_P *port, uint8 pinIndex, IfxPort_State state);
-void IfxPort_togglePin(Ifx_P *port, uint8 pinIndex);
 
 #endif /* IFXPORT_H */
