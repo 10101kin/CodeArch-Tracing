@@ -1,3 +1,4 @@
+/* IfxGtm_Pwm mock header */
 #ifndef IFXGTM_PWM_H
 #define IFXGTM_PWM_H
 
@@ -6,15 +7,15 @@
 #include "IfxGtm_Cmu.h"
 #include "IfxPort.h"
 
-/* PWM callback type (minimal for mocks) */
-typedef void (*IfxGtm_Pwm_callBack)(void *);
+/* Pre-declare auxiliary types used by verified structs */
+typedef struct { uint32 dummy; } IfxGtm_Pwm_ToutMap;  /* Pin map descriptor for PWM */
+typedef void (*IfxGtm_Pwm_callBack)(void *arg);
+typedef struct { uint32 reserved; } Ifx_GTM_ATOM;
+typedef struct { uint32 reserved; } Ifx_GTM_TOM;
+typedef struct { uint32 reserved; } Ifx_GTM_CDTM;
+typedef struct { uint32 dummy; } IfxGtm_Trig_MscOut;
 
-/* PWM ToutMap type (kept simple for mocks; production treats as opaque) */
-typedef struct {
-    uint32 dummy;
-} IfxGtm_Pwm_ToutMap;
-
-/* VERIFIED TYPE DEFINITIONS — emitted verbatim (dependency order respected) */
+/* VERIFIED TYPE DEFINITIONS (emit verbatim, in dependency order) */
 typedef enum
 {
     IfxGtm_Pwm_Alignment_edge   = 0, 
@@ -122,8 +123,8 @@ typedef struct
     IfxGtm_Pwm_ToutMap *complementaryPin;           
     Ifx_ActiveState     polarity;                   
     Ifx_ActiveState     complementaryPolarity;      
-    int                 outputMode;                 /* IfxPort_OutputMode */
-    int                 padDriver;                  /* IfxPort_PadDriver  */
+    IfxPort_OutputMode  outputMode;                 
+    IfxPort_PadDriver   padDriver;                  
 } IfxGtm_Pwm_OutputConfig;
 
 typedef struct
@@ -234,14 +235,14 @@ typedef struct
 typedef struct
 {
     IfxGtm_Pwm_ToutMap *outputPin;       
-    int                 outputMode;      /* IfxPort_OutputMode */
-    int                 padDriver;       /* IfxPort_PadDriver  */
+    IfxPort_OutputMode  outputMode;      
+    IfxPort_PadDriver   padDriver;       
 } IfxGtm_Pwm_Pin;
 
-/* Function declarations needed by production/tests */
+/* Functions used by production/tests */
+void IfxGtm_Pwm_initConfig(IfxGtm_Pwm_Config *config, Ifx_GTM *gtmSFR);
 void IfxGtm_Pwm_init(IfxGtm_Pwm *pwm, IfxGtm_Pwm_Channel *channels, IfxGtm_Pwm_Config *config);
 void IfxGtm_Pwm_updateChannelsDutyImmediate(IfxGtm_Pwm *pwm, float32 *requestDuty);
-void IfxGtm_Pwm_initConfig(IfxGtm_Pwm_Config *config, Ifx_GTM *gtmSFR);
-IfxGtm_Pwm_ChannelState IfxGtm_Pwm_getChannelState(IfxGtm_Pwm *pwm, IfxGtm_Pwm_SubModule_Ch channel);
+IfxGtm_Pwm_ChannelState IfxGtm_Pwm_getChannelState(IfxGtm_Pwm *pwm, IfxGtm_Pwm_SubModule_Ch ch);
 
 #endif /* IFXGTM_PWM_H */

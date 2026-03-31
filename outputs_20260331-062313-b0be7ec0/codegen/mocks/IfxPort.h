@@ -1,14 +1,16 @@
+/* IfxPort mock header: types used by PWM driver */
 #ifndef IFXPORT_H
 #define IFXPORT_H
 
 #include "mock_gtm_tom_3_phase_inverter_pwm.h"
 
-/* IfxPort enums and types (minimal) */
+/* Output mode enum */
 typedef enum {
     IfxPort_OutputMode_pushPull = 0,
     IfxPort_OutputMode_openDrain = 1
 } IfxPort_OutputMode;
 
+/* Pad driver enum */
 typedef enum {
     IfxPort_PadDriver_cmosAutomotiveSpeed1 = 0,
     IfxPort_PadDriver_cmosAutomotiveSpeed2 = 1,
@@ -16,17 +18,15 @@ typedef enum {
     IfxPort_PadDriver_cmosAutomotiveSpeed4 = 3
 } IfxPort_PadDriver;
 
+/* Additional enums often present/used by pin APIs */
 typedef enum {
     IfxPort_OutputIdx_general = 0
 } IfxPort_OutputIdx;
 
 typedef enum {
-    IfxPort_State_low = 0,
-    IfxPort_State_high = 1
+    IfxPort_State_notChanged = 0,
+    IfxPort_State_low = 1,
+    IfxPort_State_high = 2
 } IfxPort_State;
-
-/* Function declarations commonly used */
-void IfxPort_togglePin(Ifx_P *port, uint8 pinIndex);
-void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_PadDriver padDriver);
 
 #endif /* IFXPORT_H */
