@@ -1,12 +1,16 @@
-Status: SUCCESS
+Status: FAILED
 
 ============================================================
 TDD CODE GENERATION - ATTEMPT STATUS
 ============================================================
 Phase: mock_generation
-Attempt: 1
-Status: SUCCESS
-Timestamp: 2026-03-30 21:08:16
-Files generated: 7
+Attempt: 5
+Status: FAILED
+Timestamp: 2026-03-31 09:26:56
+Files generated: 0
 
 ============================================================
+
+ERRORS:
+
+1. Connection error.
