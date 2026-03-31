@@ -1,8 +1,9 @@
 {
-  "type": "llm_response",
-  "phase": "mock",
   "attempt": 10,
   "phase_attempt": 5,
-  "response_length": 29510,
-  "timestamp": "2026-03-31T16:51:43.015017"
+  "phase": "mock_generation",
+  "success": true,
+  "errors": [],
+  "timestamp": "2026-03-31T16:51:49.811334",
+  "project_name": "Generate_TC4D7_code_for_KIT_A3G_TC4D7_LITE_using_E_r_20260331_161939"
 }

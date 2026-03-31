@@ -3,37 +3,44 @@
 
 #include "mock_egtm_atom_3_phase_inverter_pwm.h"
 
-/* ===== Enums ===== */
-
-typedef enum
-{
-    IfxPort_OutputMode_pushPull = 0,
-    IfxPort_OutputMode_openDrain = 1
-} IfxPort_OutputMode;
-
-typedef enum
-{
-    IfxPort_PadDriver_cmosAutomotiveSpeed1 = 0,
-    IfxPort_PadDriver_cmosAutomotiveSpeed2 = 1
-} IfxPort_PadDriver;
-
-typedef enum
-{
-    IfxPort_OutputIdx_general = 0,
-    IfxPort_OutputIdx_alt1    = 1,
-    IfxPort_OutputIdx_alt2    = 2
+/* Output index enum (subset) */
+typedef enum {
+    IfxPort_OutputIdx_general = 0
 } IfxPort_OutputIdx;
 
-typedef enum
-{
-    IfxPort_State_low = 0,
+/* State enum */
+typedef enum {
+    IfxPort_State_low  = 0,
     IfxPort_State_high = 1
 } IfxPort_State;
 
-/* ===== Function declarations (minimal) ===== */
+/* Output mode */
+typedef enum {
+    IfxPort_OutputMode_pushPull = 0,
+    IfxPort_OutputMode_openDrain,
+    IfxPort_OutputMode_openSource
+} IfxPort_OutputMode;
 
-void IfxPort_setPinMode(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode);
-void IfxPort_setPinPadDriver(Ifx_P *port, uint8 pinIndex, IfxPort_PadDriver driver);
+/* Pad driver */
+typedef enum {
+    IfxPort_PadDriver_cmosAutomotiveSpeed1 = 0,
+    IfxPort_PadDriver_cmosAutomotiveSpeed2,
+    IfxPort_PadDriver_cmosAutomotiveSpeed3,
+    IfxPort_PadDriver_cmosAutomotiveSpeed4
+} IfxPort_PadDriver;
+
+/* Pin descriptor (minimal) */
+typedef struct {
+    Ifx_P  *port;
+    uint8   pinIndex;
+} IfxPort_Pin;
+
+/* API */
+void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_PadDriver pad);
+void IfxPort_setPinHigh(Ifx_P *port, uint8 pinIndex);
+void IfxPort_setPinLow(Ifx_P *port, uint8 pinIndex);
 void IfxPort_togglePin(Ifx_P *port, uint8 pinIndex);
+void IfxPort_setPinState(Ifx_P *port, uint8 pinIndex, IfxPort_State state);
+void IfxPort_setPinPadDriver(Ifx_P *port, uint8 pinIndex, IfxPort_PadDriver pad);
 
 #endif /* IFXPORT_H */
