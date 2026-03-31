@@ -1,12 +1,13 @@
 {
   "meta": {
     "schema_version": "1.0",
-    "last_updated_by": "sw_architecture",
-    "last_updated_at": "2026-03-31T16:14:35.943447",
+    "last_updated_by": "sw_detailed",
+    "last_updated_at": "2026-03-31T16:18:36.403456",
     "build_sequence": [
       "requirements",
       "hardware",
-      "sw_architecture"
+      "sw_architecture",
+      "sw_detailed"
     ],
     "corrections_log": []
   },
@@ -729,6 +730,138 @@
     },
     "driver_knowledge_base": {
       "applied": false
+    },
+    "migration_numerical_values": {
+      "NUM_OF_CHANNELS": {
+        "value": 3,
+        "source": "proposed",
+        "reference_value": 3.0,
+        "proposed_value": 3,
+        "unit_hint": "",
+        "category": "count",
+        "semantic_label": "Number of channels"
+      },
+      "PHASE_U_DUTY": {
+        "value": 25.0,
+        "source": "proposed",
+        "reference_value": 25.0,
+        "proposed_value": 25.0,
+        "unit_hint": "%",
+        "category": "duty_cycle",
+        "semantic_label": "Phase U initial duty cycle"
+      },
+      "PHASE_V_DUTY": {
+        "value": 50.0,
+        "source": "proposed",
+        "reference_value": 50.0,
+        "proposed_value": 50.0,
+        "unit_hint": "%",
+        "category": "duty_cycle",
+        "semantic_label": "Phase V initial duty cycle"
+      },
+      "PHASE_W_DUTY": {
+        "value": 75.0,
+        "source": "proposed",
+        "reference_value": 75.0,
+        "proposed_value": 75.0,
+        "unit_hint": "%",
+        "category": "duty_cycle",
+        "semantic_label": "Phase W initial duty cycle"
+      },
+      "PHASE_DUTY_STEP": {
+        "value": 10.0,
+        "source": "proposed",
+        "reference_value": 10.0,
+        "proposed_value": 10.0,
+        "unit_hint": "%",
+        "category": "duty_cycle",
+        "semantic_label": "Duty cycle step increment"
+      },
+      "PWM_FREQUENCY": {
+        "value": 20000.0,
+        "source": "proposed",
+        "reference_value": 20000.0,
+        "proposed_value": 20000.0,
+        "unit_hint": "Hz",
+        "category": "frequency",
+        "semantic_label": "PWM switching frequency"
+      },
+      "ISR_PRIORITY_ATOM": {
+        "value": 20,
+        "source": "proposed",
+        "reference_value": 20.0,
+        "proposed_value": 20,
+        "unit_hint": "",
+        "category": "interrupt",
+        "semantic_label": "ISR priority"
+      },
+      ".rising": {
+        "value": 1,
+        "source": "proposed",
+        "reference_value": 1.0,
+        "proposed_value": 1,
+        "unit_hint": "",
+        "category": "other",
+        "semantic_label": ".rising"
+      },
+      ".falling": {
+        "value": 1,
+        "source": "proposed",
+        "reference_value": 1.0,
+        "proposed_value": 1,
+        "unit_hint": "",
+        "category": "other",
+        "semantic_label": ".falling"
+      },
+      ".phase": {
+        "value": 0.0,
+        "source": "proposed",
+        "reference_value": 0.0,
+        "proposed_value": 0.0,
+        "unit_hint": "",
+        "category": "other",
+        "semantic_label": ".phase"
+      },
+      "WAIT_TIME": {
+        "value": 500.0,
+        "source": "proposed",
+        "reference_value": 500.0,
+        "proposed_value": 500.0,
+        "unit_hint": "ms",
+        "category": "timing",
+        "semantic_label": "Wait / delay time"
+      }
+    }
+  },
+  "sw_detailed": {
+    "module_name": "EGTM_ATOM_3_Phase_Inverter_PWM",
+    "public_functions": [
+      {
+        "signature": "void initEgtmAtom3phInv(void)",
+        "behavior_description": "Declare all configuration structs as local variables: main Pwm config, a 3-element array of channel configs, a 3-element array of dead-time configs, one interrupt config, and a 3-element array of output configs. Initialize the main Pwm config with defaults using the unified EGTM Pwm initConfig API. Populate output[0..2] to assign each logical channel's high-side pin and complementary low-side pin, with high-side active_high and complementary active_low polarity, push-pull output mode, and the required pad driver. Set dtmConfig[0..2] deadTime for both rising and falling edges to 1e-6 seconds. Configure the interruptConfig for a period event on the base channel: mode set to pulse-notify, isrProvider set to CPU0 type-of-service, priority set to 20, vmId assigned, periodEvent set to IfxEgtm_periodEventFunction, and dutyEvent left NULL. Fill channelConfig[0..2] using contiguous logical timer channel indices starting from SubModule_Ch_0; for each channel set phase = 0.0f, duty to initial percentages (25/50/75), attach its dtm and output pointers, leave mscOut = NULL, and assign interrupt only to channelConfig[0] (base channel) while channelConfig[1] and [2] have interrupt = NULL. Complete the main config: set the target cluster index to 0 and subModule to ATOM, select center-aligned operation, enable syncStart so all channels start together after init, set frequency to 20 kHz, attach the channels array pointer and numChannels = 3, select the ATOM clock source from the first FXCLK domain (Fxclk_0), choose a suitable DTM clock source, and enable syncUpdate so compare values transfer at period end. Inside an enable guard, check if the EGTM module is enabled; if not, enable it, read the module frequency dynamically, configure the EGTM CMU to run the global clock with a unity divider (GCLK derived directly from module clock) and program CLK0 using the appropriate CMU count configuration so the functional clock domain is available, then enable the necessary EGTM clocks. Call the unified Pwm init once, passing a persistent channels array from the module state and the filled config so the driver applies frequency, duty, phase, outputs, DTM, and interrupt setup. After init, copy the initial duty and dead-time values into the module's persistent state (dutyCycles[], deadTimes[]) for later updates. Finally, configure the LED GPIO as push-pull output using the Port driver; do not drive the pin level here. The period-event callback remains a separate function (IfxEgtm_periodEventFunction) with void *data, and the hardware ISR (EgtmAtomIsr) is declared separately; the driver internally routes the interrupt using the provided InterruptConfig.",
+        "driver_calls": [
+          "IfxEgtm_isEnabled",
+          "IfxEgtm_enable",
+          "IfxEgtm_Cmu_getModuleFrequency",
+          "IfxEgtm_Cmu_setGclkDivider"
+        ]
+      }
+    ],
+    "dependencies": {},
+    "header_selection": {
+      "applied": true,
+      "peripheral_type": "PWM",
+      "recommended_header": "IfxEgtm_Cmu",
+      "template_functions_count": 1461,
+      "required_includes": [
+        "IfxEgtm_Cmu.h"
+      ],
+      "original_recommendation": "IfxEgtm_Pwm",
+      "reconciled": true,
+      "reconciliation_reason": "LLM driver_calls use IfxEgtm_Cmu_* API, not IfxEgtm_Pwm (the reference API). Updated to match actual usage.",
+      "original_required_includes": [
+        "IfxEgtm_Pwm.h"
+      ]
     },
     "migration_numerical_values": {
       "NUM_OF_CHANNELS": {
