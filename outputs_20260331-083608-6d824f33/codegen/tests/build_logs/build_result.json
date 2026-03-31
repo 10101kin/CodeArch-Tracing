@@ -1,18 +1,3 @@
-Status: SUCCESS
-
-============================================================
-TDD CODE GENERATION - ATTEMPT STATUS
-============================================================
-Phase: test_execution
-Attempt: 5
-Status: SUCCESS
-Timestamp: 2026-03-31 09:10:32
-Files generated: 2
-
-============================================================
-
-============================================================
-BUILD RESULT:
 {
   "test_result": {
     "success": true,
