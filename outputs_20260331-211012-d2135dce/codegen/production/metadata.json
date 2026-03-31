@@ -1,20 +1,8 @@
 {
-  "attempt": 3,
-  "phase_attempt": 1,
+  "type": "llm_response",
   "phase": "production",
-  "success": false,
-  "errors": [
-    "expected identifier or '(' before '{' token",
-    "data definition has no type or storage class [-Werror]",
-    "type defaults to 'int' in declaration of 'IfxApProt_ProtConfig' [-Wimplicit-int]",
-    "expected identifier or '(' before '{' token",
-    "data definition has no type or storage class [-Werror]",
-    "type defaults to 'int' in declaration of 'IfxEgtm_ClusterClockDiv' [-Wimplicit-int]",
-    "expected identifier or '(' before '{' token",
-    "data definition has no type or storage class [-Werror]",
-    "type defaults to 'int' in declaration of 'IfxEgtm_IrqMode' [-Wimplicit-int]",
-    "expected identifier or '(' before '{' token"
-  ],
-  "timestamp": "2026-04-01T06:39:03.875486",
-  "project_name": "Generate_TC4D7_eGTM_ATOM_ATOM0_Cluster_0_code_u_r_20260401_062619"
+  "attempt": 5,
+  "phase_attempt": 2,
+  "response_length": 11254,
+  "timestamp": "2026-04-01T06:46:44.259099"
 }
