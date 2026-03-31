@@ -1,25 +1,7 @@
 {
-  "success": false,
-  "errors": [
-    {
-      "file": "/tmp/tdd_build_ze19mjwx/include/IfxGtm_Pwm.h",
-      "line": 163,
-      "category": "error",
-      "message": "unknown type name \u2018IfxGtm_Trig_MscOut\u2019"
-    },
-    {
-      "file": "",
-      "message": "/tmp/tdd_build_ze19mjwx/src/gtm_tom_3_phase_inverter_pwm.c:18:10: fatal error: IfxPort_Pinmap.h: No such file or directory",
-      "category": "error"
-    },
-    {
-      "file": "/tmp/tdd_build_ze19mjwx/include/IfxGtm_Pwm.h",
-      "line": 163,
-      "category": "error",
-      "message": "unknown type name \u2018IfxGtm_Trig_MscOut\u2019"
-    }
-  ],
+  "success": true,
+  "errors": [],
   "warnings": [],
-  "stderr": "In file included from /tmp/tdd_build_ze19mjwx/src/gtm_tom_3_phase_inverter_pwm.c:16:\n/tmp/tdd_build_ze19mjwx/include/IfxGtm_Pwm.h:163:5: error: unknown type name \u2018IfxGtm_Trig_MscOut\u2019\n  163 |     IfxGtm_Trig_MscOut         *mscOut;\n      |     ^~~~~~~~~~~~~~~~~~\n/tmp/tdd_build_ze19mjwx/src/gtm_tom_3_phase_inverter_pwm.c:18:10: fatal error: IfxPort_Pinmap.h: No such file or directory\n   18 | #include \"IfxPort_Pinmap.h\"\n      |          ^~~~~~~~~~~~~~~~~~\ncompilation terminated.\n\nIn file included from /tmp/tdd_build_ze19mjwx/mocks/mock_gtm_tom_3_phase_inverter_pwm.c:4:\n/tmp/tdd_build_ze19mjwx/include/IfxGtm_Pwm.h:163:5: error: unknown type name \u2018IfxGtm_Trig_MscOut\u2019\n  163 |     IfxGtm_Trig_MscOut         *mscOut;\n      |     ^~~~~~~~~~~~~~~~~~\n",
+  "stderr": "",
   "stdout": ""
 }
