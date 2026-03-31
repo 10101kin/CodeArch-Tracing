@@ -1,19 +1,18 @@
-/* IfxPort.h - per-driver mock header */
+/* IfxPort mock header */
 #ifndef IFXPORT_H
 #define IFXPORT_H
-
 #include "mock_egtm_atom_3_phase_inverter_pwm.h"
-#include "IfxEgtm.h"  /* For IfxApApu_ApuConfig, IfxApProt_ProtConfig */
+#include "IfxEgtm.h" /* For IfxApApu_ApuConfig used below */
 
-/* ====== Configuration constants required by types ====== */
+/* Configuration constants used by APU group structures */
 #ifndef IFXPORT_NUM_APU
-# define IFXPORT_NUM_APU 1
+#define IFXPORT_NUM_APU 2
 #endif
 #ifndef IFXPORT_NUM_PINS
-# define IFXPORT_NUM_PINS 16
+#define IFXPORT_NUM_PINS 16
 #endif
 
-/* ====== Enums (define ALL required values) ====== */
+/* Enums (define ALL values as required) */
 typedef enum
 {
     IfxPort_ControlledBy_port = 0,  
@@ -108,7 +107,7 @@ typedef enum
     IfxPort_BlankingTimerConfig_2ms = 1,
     IfxPort_BlankingTimerConfig_4ms = 2,
     IfxPort_BlankingTimerConfig_7ms = 3
-} IfxPort_BlankingTimerConfig;{ IfxPort_EsrLevel_0 = 0, IfxPort_EsrLevel_1 } IfxPort_EsrLevel;{ IfxPort_EsrPadCfg_PP = 0, IfxPort_EsrPadCfg_TPU = 1, IfxPort_EsrPadCfg_TPD = 2 } IfxPort_EsrPadCfg;{ IfxPort_LvdsDirection_rx = 0, IfxPort_LvdsDirection_tx = 1 } IfxPort_LvdsDirection;{ IfxPort_LvdsPath_enable = 0, IfxPort_LvdsPath_disable = 1 } IfxPort_LvdsPath;{ IfxPort_LvdsPullDown_disable = 0, IfxPort_LvdsPullDown_enable = 1 } IfxPort_LvdsPullDown;{ IfxPort_LvdsTerminationMode_external = 0, IfxPort_LvdsTerminationMode_internal = 1 } IfxPort_LvdsTerminationMode;{
+} IfxPort_BlankingTimerConfig;{ IfxPort_EsrLevel_0 = 0 } IfxPort_EsrLevel;{ IfxPort_EsrPadCfg_PP = 0, IfxPort_EsrPadCfg_TPU = 1, IfxPort_EsrPadCfg_TPD = 2 } IfxPort_EsrPadCfg;{ IfxPort_LvdsDirection_rx = 0, IfxPort_LvdsDirection_tx = 1 } IfxPort_LvdsDirection;{ IfxPort_LvdsPath_enable = 0, IfxPort_LvdsPath_disable = 1 } IfxPort_LvdsPath;{ IfxPort_LvdsPullDown_disable = 0, IfxPort_LvdsPullDown_enable = 1 } IfxPort_LvdsPullDown;{ IfxPort_LvdsTerminationMode_external = 0, IfxPort_LvdsTerminationMode_internal = 1 } IfxPort_LvdsTerminationMode;{
     IfxPort_PadAccessGroup_PadAccessGroup0 = 0,
     IfxPort_PadAccessGroup_PadAccessGroup1 = 1,
     IfxPort_PadAccessGroup_PadAccessGroup2 = 2,
@@ -129,7 +128,7 @@ typedef enum
     IfxPort_PadDriver_ttl3v3Speed3         = (3 << 3) | (2 << 0)
 } IfxPort_PadDriver;
 
-/* ====== Structs ====== */
+/* Structs */
 typedef struct
 {
     uint8 pinIndex;       
@@ -139,25 +138,23 @@ typedef struct
     IfxPort_ControlledBy enablePortControlled;
     IfxPort_PadSupply    padSupply;
     IfxPort_LvdsTerm     lvdsTerm;
-} IfxPort_LvdsConfig;{
-    Ifx_P *port;
-    uint8  pinIndex;
-} IfxPort_Pin;{
+} IfxPort_LvdsConfig;{ Ifx_P *port; uint8 pinIndex; } IfxPort_Pin;{
     Ifx_P            *port;
     uint8             pinIndex;
     IfxPort_OutputIdx mode;
     IfxPort_PadDriver padDriver;
-} IfxPort_Pin_Config;{
-    IfxApApu_ApuConfig apuConfig;
-    uint8              grpNum;
-} IfxPort_ApuConfig;{
+} IfxPort_Pin_Config;
+
+/* APU/PROT config dependency types are defined in IfxEgtm.typedef struct
+{
+    IfxApApu_ApuConfig apuConfig;       
+    uint8              grpNum;          
+} IfxPort_ApuConfig;um; } IfxPort_ApuConfig;{
     IfxApApu_ApuConfig    apuConfig[IFXPORT_NUM_APU];
     IfxPort_Pin_ApuConfig pinConfig[IFXPORT_NUM_PINS];
-} IfxPort_ApuGroupConfig;{
-    IfxApProt_ProtConfig protseConfig;
-} IfxPort_ProtConfig;
+} IfxPort_ApuGroupConfig;{ IfxApProt_ProtConfig protseConfig; } IfxPort_ProtConfig;
 
-/* ====== Function declarations (subset used by module) ====== */
+/* Functions to mock (subset) */
 void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
 void IfxPort_togglePin(Ifx_P *port, uint8 pinIndex);
 
