@@ -1,23 +1,81 @@
-In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_0vl1ah2b\include/IfxEgtm_Pwm.h:5,
-                 from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_0vl1ah2b\src\egtm_atom_3_phase_inverter_pwm.c:18:
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_0vl1ah2b\include/IfxEgtm.h:24:5: error: unknown type name 'IfxApProt_Owner'
-   24 |     IfxApProt_Owner protOwner;
-      |     ^~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_0vl1ah2b\include/IfxEgtm.h:25:5: error: unknown type name 'IfxApProt_State'
-   25 |     IfxApProt_State protState;
-      |     ^~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_0vl1ah2b\include/IfxEgtm_Pwm.h:110:5: error: unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'
-  110 |     IfxEgtm_Pwm_FastShutoffConfig *fastShutOff;
+In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_ilk59z0c\include/IfxEgtm_Pwm.h:5,
+                 from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_ilk59z0c\src\egtm_atom_3_phase_inverter_pwm.c:12:
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_ilk59z0c\include/IfxEgtm.h:9:5: error: unknown type name 'IfxEgtm_Cfg_MscSet'
+    9 |     IfxEgtm_Cfg_MscSet       mscSet;
+      |     ^~~~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_ilk59z0c\include/IfxEgtm.h:10:5: error: unknown type name 'IfxEgtm_Cfg_MscSetSignal'
+   10 |     IfxEgtm_Cfg_MscSetSignal mscSetSignal;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_ilk59z0c\include/IfxEgtm.h:11:5: error: unknown type name 'IfxEgtm_Cfg_MscModule'
+   11 |     IfxEgtm_Cfg_MscModule    mscModule;
+      |     ^~~~~~~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_ilk59z0c\include/IfxEgtm.h:12:5: error: unknown type name 'IfxEgtm_Cfg_MscSelect'
+   12 |     IfxEgtm_Cfg_MscSelect    mscSelect;
+      |     ^~~~~~~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_ilk59z0c\include/IfxEgtm.h:13:5: error: unknown type name 'IfxEgtm_MscAltInput'
+   13 |     IfxEgtm_MscAltInput      mscAltIn;
+      |     ^~~~~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_ilk59z0c\include/IfxEgtm.h:48:37: error: 'IFXEGTM_NUM_CCM_OBJECTS' undeclared here (not in a function)
+   48 |     IfxEgtm_ClApConfig   clApConfig[IFXEGTM_NUM_CCM_OBJECTS];
+      |                                     ^~~~~~~~~~~~~~~~~~~~~~~
+In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_ilk59z0c\include/IfxEgtm_Pwm.h:7:
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_ilk59z0c\include/IfxPort.h:193:37: error: 'IFXPORT_NUM_APU' undeclared here (not in a function)
+  193 |     IfxApApu_ApuConfig    apuConfig[IFXPORT_NUM_APU];
+      |                                     ^~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_ilk59z0c\include/IfxPort.h:194:37: error: 'IFXPORT_NUM_PINS' undeclared here (not in a function)
+  194 |     IfxPort_Pin_ApuConfig pinConfig[IFXPORT_NUM_PINS];
+      |                                     ^~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_ilk59z0c\include/IfxEgtm_Pwm.h:88:5: error: unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'
+   88 |     IfxEgtm_Pwm_FastShutoffConfig *fastShutOff;
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_ilk59z0c\src\egtm_atom_3_phase_inverter_pwm.c: In function 'interruptEgtmAtom':
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_ilk59z0c\src\egtm_atom_3_phase_inverter_pwm.c:26:39: error: 'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P20'?
+   26 | #define LED                         (&MODULE_P03), (9u)
+      |                                       ^~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_ilk59z0c\src\egtm_atom_3_phase_inverter_pwm.c:61:23: note: in expansion of macro 'LED'
+   61 |     IfxPort_togglePin(LED);
+      |                       ^~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_ilk59z0c\src\egtm_atom_3_phase_inverter_pwm.c:26:39: note: each undeclared identifier is reported only once for each function it appears in
+   26 | #define LED                         (&MODULE_P03), (9u)
+      |                                       ^~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_ilk59z0c\src\egtm_atom_3_phase_inverter_pwm.c:61:23: note: in expansion of macro 'LED'
+   61 |     IfxPort_togglePin(LED);
+      |                       ^~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_ilk59z0c\src\egtm_atom_3_phase_inverter_pwm.c: In function 'initEgtmAtom3phInv':
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_ilk59z0c\src\egtm_atom_3_phase_inverter_pwm.c:26:39: error: 'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P20'?
+   26 | #define LED                         (&MODULE_P03), (9u)
+      |                                       ^~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_ilk59z0c\src\egtm_atom_3_phase_inverter_pwm.c:189:30: note: in expansion of macro 'LED'
+  189 |     IfxPort_setPinModeOutput(LED, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
+      |                              ^~~
 
-In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_0vl1ah2b\mocks\mock_egtm_atom_3_phase_inverter_pwm.c:2:
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_0vl1ah2b\include/IfxEgtm.h:24:5: error: unknown type name 'IfxApProt_Owner'
-   24 |     IfxApProt_Owner protOwner;
-      |     ^~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_0vl1ah2b\include/IfxEgtm.h:25:5: error: unknown type name 'IfxApProt_State'
-   25 |     IfxApProt_State protState;
-      |     ^~~~~~~~~~~~~~~
-In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_0vl1ah2b\mocks\mock_egtm_atom_3_phase_inverter_pwm.c:4:
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_0vl1ah2b\include/IfxEgtm_Pwm.h:110:5: error: unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'
-  110 |     IfxEgtm_Pwm_FastShutoffConfig *fastShutOff;
+In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_ilk59z0c\mocks\mock_egtm_atom_3_phase_inverter_pwm.c:2:
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_ilk59z0c\include/IfxEgtm.h:9:5: error: unknown type name 'IfxEgtm_Cfg_MscSet'
+    9 |     IfxEgtm_Cfg_MscSet       mscSet;
+      |     ^~~~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_ilk59z0c\include/IfxEgtm.h:10:5: error: unknown type name 'IfxEgtm_Cfg_MscSetSignal'
+   10 |     IfxEgtm_Cfg_MscSetSignal mscSetSignal;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_ilk59z0c\include/IfxEgtm.h:11:5: error: unknown type name 'IfxEgtm_Cfg_MscModule'
+   11 |     IfxEgtm_Cfg_MscModule    mscModule;
+      |     ^~~~~~~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_ilk59z0c\include/IfxEgtm.h:12:5: error: unknown type name 'IfxEgtm_Cfg_MscSelect'
+   12 |     IfxEgtm_Cfg_MscSelect    mscSelect;
+      |     ^~~~~~~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_ilk59z0c\include/IfxEgtm.h:13:5: error: unknown type name 'IfxEgtm_MscAltInput'
+   13 |     IfxEgtm_MscAltInput      mscAltIn;
+      |     ^~~~~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_ilk59z0c\include/IfxEgtm.h:48:37: error: 'IFXEGTM_NUM_CCM_OBJECTS' undeclared here (not in a function)
+   48 |     IfxEgtm_ClApConfig   clApConfig[IFXEGTM_NUM_CCM_OBJECTS];
+      |                                     ^~~~~~~~~~~~~~~~~~~~~~~
+In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_ilk59z0c\include/IfxEgtm_Pwm.h:7,
+                 from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_ilk59z0c\mocks\mock_egtm_atom_3_phase_inverter_pwm.c:4:
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_ilk59z0c\include/IfxPort.h:193:37: error: 'IFXPORT_NUM_APU' undeclared here (not in a function)
+  193 |     IfxApApu_ApuConfig    apuConfig[IFXPORT_NUM_APU];
+      |                                     ^~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_ilk59z0c\include/IfxPort.h:194:37: error: 'IFXPORT_NUM_PINS' undeclared here (not in a function)
+  194 |     IfxPort_Pin_ApuConfig pinConfig[IFXPORT_NUM_PINS];
+      |                                     ^~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_ilk59z0c\include/IfxEgtm_Pwm.h:88:5: error: unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'
+   88 |     IfxEgtm_Pwm_FastShutoffConfig *fastShutOff;
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
