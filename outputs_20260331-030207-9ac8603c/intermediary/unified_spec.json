@@ -2,7 +2,7 @@
   "meta": {
     "schema_version": "1.0",
     "last_updated_by": "sw_detailed",
-    "last_updated_at": "2026-03-31T11:38:02.166253",
+    "last_updated_at": "2026-03-31T11:53:59.682489",
     "build_sequence": [
       "requirements",
       "hardware",
@@ -373,7 +373,7 @@
     }
   },
   "sw_detailed": {
-    "module_name": "GTM_TOM_3_Phase_Inverter_PWM",
+    "module_name": "GTM_uujjjTOM_3_Phase_Inverter_PWM",
     "public_functions": [
       {
         "signature": "void updateGtmTom3phInvDuty(void)",
