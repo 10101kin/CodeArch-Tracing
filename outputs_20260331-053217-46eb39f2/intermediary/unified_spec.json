@@ -2,7 +2,7 @@
   "meta": {
     "schema_version": "1.0",
     "last_updated_by": "reviewer_patch:requirements",
-    "last_updated_at": "2026-03-31T13:36:25.330051",
+    "last_updated_at": "2026-03-31T13:37:33.408140",
     "build_sequence": [
       "requirements"
     ],
@@ -18,6 +18,7 @@
       "driver_mappings": {
         "IfxGtm_Tom_PwmHl": "IfxGtm_Pwm"
       },
+      "driver_mappings_verification": "UNVERIFIED - Provide iLLD headers/Doxygen for IfxGtm_Pwm and IfxGtm_Tom_PwmHl or official TC3xx migration notes to confirm mapping.",
       "header_mappings": {
         "IfxGtm_Tom_PwmHl.h": "IfxGtm_Pwm.h"
       },
@@ -47,6 +48,7 @@
       "type": "PWM",
       "driver_available": true,
       "driver_name": "IfxGtm_Pwm",
+      "driver_name_verification": "UNVERIFIED - Confirm IfxGtm_Pwm exists for TC3xx in iLLD/Doxygen (check IfxGtm_Pwm.h and API documentation).",
       "purpose": "3-phase inverter PWM on TOM1, Cluster_1, center-aligned, 3 complementary pairs at 20 kHz with 1 µs dead time; synchronous start and synchronous update enabled; plus a GTM ATOM 1 kHz ISR to toggle P13.0",
       "driver_locked": true,
       "driver_selection_source": "engine_scored"
@@ -93,8 +95,8 @@
             }
           }
         ],
-        "pin_mapping_header": "IfxGtm_PinMap_TC38x_LFBGA516.h",
-        "pin_mapping_status": "Tentative - verify exact TOM1 channel↔P02.x TOUT mapping in the device pinmap and adjust channels if required. Action required: Before code implementation, confirm TOM1_CH[0..5] ↔ P02.[0,7,1,4,2,5] TOUT mapping against IfxGtm_PinMap_TC38x_LFBGA516 and the board schematic; if discrepancies exist, update 'pins' and 'tentative_channels' (hs/ls/tgc) to the verified channels and record the final mapping."
+        "pin_mapping_header": "IfxGtm_PinMap_TC38x_LFBGA292.h",
+        "pin_mapping_status": "Tentative - verify exact TOM1 channel↔P02.x TOUT mapping in the device pinmap and adjust channels if required"
       },
       "atom_isr": {
         "module": "GTM",
@@ -131,11 +133,12 @@
     },
     "device_configuration": {
       "target_device_macro": "DEVICE_TC38X",
-      "pin_package": "IFX_PIN_PACKAGE_516",
+      "pin_package": "IFX_PIN_PACKAGE_292",
       "device_family": "TC3xx",
       "clock_requirements": {
         "requires_xtal": true,
         "expected_system_freq_mhz": 300,
+        "expected_system_freq_mhz_verification": "UNVERIFIED - Consult TC38x datasheet (PLL/clock system). Board has 20 MHz XTAL; confirm max system clock and GTM requirements.",
         "gtm_enable_guard": true,
         "cmu_clock_setup": true
       }
