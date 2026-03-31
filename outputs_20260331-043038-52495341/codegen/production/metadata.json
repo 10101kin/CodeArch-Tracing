@@ -1,8 +1,13 @@
 {
-  "type": "llm_response",
-  "phase": "production",
   "attempt": 7,
   "phase_attempt": 3,
-  "response_length": 11871,
-  "timestamp": "2026-03-31T13:04:08.118820"
+  "phase": "production",
+  "success": false,
+  "errors": [
+    "'mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties' undeclared (first use in this function); did you mean 'mock_IfxGtm_Pwm_updateChannelsDutyImmediate_callCount'?",
+    "'mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties' undeclared (first use in this function); did you mean 'mock_IfxGtm_Pwm_updateChannelsDutyImmediate_callCount'?",
+    "'mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties' undeclared (first use in this function); did you mean 'mock_IfxGtm_Pwm_updateChannelsDutyImmediate_callCount'?"
+  ],
+  "timestamp": "2026-03-31T13:04:14.932329",
+  "project_name": "Migrate_the_KIT_A2G_TC387_5V_TFT_project_from_IfxG_r_20260331_124216"
 }

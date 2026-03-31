@@ -1,65 +1,41 @@
-In file included from C:\Users\extanke\AppData\Local\Temp\tdd_build_ewwf_k2i\src\gtm_tom_3_phase_inverter_pwm.c:12:
-C:\Users\extanke\AppData\Local\Temp\tdd_build_ewwf_k2i\include/IfxGtm_Pwm.h:97:5: error: redeclaration of enumerator 'IfxGtm_Dtm_ClockSource_systemClock'
-   97 |     IfxGtm_Dtm_ClockSource_systemClock,
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-In file included from C:\Users\extanke\AppData\Local\Temp\tdd_build_ewwf_k2i\include/IfxGtm_Pwm.h:6:
-C:\Users\extanke\AppData\Local\Temp\tdd_build_ewwf_k2i\include/IfxGtm_Cmu.h:54:5: note: previous definition of 'IfxGtm_Dtm_ClockSource_systemClock' with type 'enum <anonymous>'
-   54 |     IfxGtm_Dtm_ClockSource_systemClock,
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_ewwf_k2i\include/IfxGtm_Pwm.h:98:5: error: redeclaration of enumerator 'IfxGtm_Dtm_ClockSource_cmuClock0'
-   98 |     IfxGtm_Dtm_ClockSource_cmuClock0,
+In file included from C:\Users\extanke\Downloads\merge\infineon_POC_MVP\unity/unity.h:22,
+                 from C:\Users\extanke\AppData\Local\Temp\tdd_build_8rdq_tx7\test\test_gtm_tom_3_phase_inverter_pwm.c:1:
+C:\Users\extanke\AppData\Local\Temp\tdd_build_8rdq_tx7\test\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G5_001_update_first_step_increments_duties':
+C:\Users\extanke\AppData\Local\Temp\tdd_build_8rdq_tx7\test\test_gtm_tom_3_phase_inverter_pwm.c:174:105: error: 'mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties' undeclared (first use in this function); did you mean 'mock_IfxGtm_Pwm_updateChannelsDutyImmediate_callCount'?
+  174 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, (UT_INIT_DUTY_U_PERCENT + UT_DUTY_STEP_PERCENT), mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[0], "Phase U must increment by step on first update");
+      |                                                                                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\Downloads\merge\infineon_POC_MVP\unity/unity_internals.h:1119:183: note: in definition of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'
+ 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))
+      |                                                                                                                                                                                       ^~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_8rdq_tx7\test\test_gtm_tom_3_phase_inverter_pwm.c:174:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN_MESSAGE'
+  174 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, (UT_INIT_DUTY_U_PERCENT + UT_DUTY_STEP_PERCENT), mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[0], "Phase U must increment by step on first update");
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_ewwf_k2i\include/IfxGtm_Cmu.h:55:5: note: previous definition of 'IfxGtm_Dtm_ClockSource_cmuClock0' with type 'enum <anonymous>'
-   55 |     IfxGtm_Dtm_ClockSource_cmuClock0,
+C:\Users\extanke\AppData\Local\Temp\tdd_build_8rdq_tx7\test\test_gtm_tom_3_phase_inverter_pwm.c:174:105: note: each undeclared identifier is reported only once for each function it appears in
+  174 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, (UT_INIT_DUTY_U_PERCENT + UT_DUTY_STEP_PERCENT), mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[0], "Phase U must increment by step on first update");
+      |                                                                                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\Downloads\merge\infineon_POC_MVP\unity/unity_internals.h:1119:183: note: in definition of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'
+ 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))
+      |                                                                                                                                                                                       ^~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_8rdq_tx7\test\test_gtm_tom_3_phase_inverter_pwm.c:174:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN_MESSAGE'
+  174 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, (UT_INIT_DUTY_U_PERCENT + UT_DUTY_STEP_PERCENT), mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[0], "Phase U must increment by step on first update");
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_ewwf_k2i\include/IfxGtm_Pwm.h:99:5: error: redeclaration of enumerator 'IfxGtm_Dtm_ClockSource_cmuClock1'
-   99 |     IfxGtm_Dtm_ClockSource_cmuClock1,
+C:\Users\extanke\AppData\Local\Temp\tdd_build_8rdq_tx7\test\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G6_001_second_update_wraps_W_to_min':
+C:\Users\extanke\AppData\Local\Temp\tdd_build_8rdq_tx7\test\test_gtm_tom_3_phase_inverter_pwm.c:211:63: error: 'mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties' undeclared (first use in this function); did you mean 'mock_IfxGtm_Pwm_updateChannelsDutyImmediate_callCount'?
+  211 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 45.0f, mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[0], "After 2nd update, Phase U must be 45%");
+      |                                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\Downloads\merge\infineon_POC_MVP\unity/unity_internals.h:1119:183: note: in definition of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'
+ 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))
+      |                                                                                                                                                                                       ^~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_8rdq_tx7\test\test_gtm_tom_3_phase_inverter_pwm.c:211:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN_MESSAGE'
+  211 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 45.0f, mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[0], "After 2nd update, Phase U must be 45%");
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_ewwf_k2i\include/IfxGtm_Cmu.h:56:5: note: previous definition of 'IfxGtm_Dtm_ClockSource_cmuClock1' with type 'enum <anonymous>'
-   56 |     IfxGtm_Dtm_ClockSource_cmuClock1,
+C:\Users\extanke\AppData\Local\Temp\tdd_build_8rdq_tx7\test\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G6_002_fourth_update_wraps_V_to_min_independently':
+C:\Users\extanke\AppData\Local\Temp\tdd_build_8rdq_tx7\test\test_gtm_tom_3_phase_inverter_pwm.c:235:63: error: 'mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties' undeclared (first use in this function); did you mean 'mock_IfxGtm_Pwm_updateChannelsDutyImmediate_callCount'?
+  235 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 65.0f, mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[0], "After 4th update, Phase U must be 65%");
+      |                                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\Downloads\merge\infineon_POC_MVP\unity/unity_internals.h:1119:183: note: in definition of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'
+ 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))
+      |                                                                                                                                                                                       ^~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_8rdq_tx7\test\test_gtm_tom_3_phase_inverter_pwm.c:235:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN_MESSAGE'
+  235 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 65.0f, mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[0], "After 4th update, Phase U must be 65%");
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_ewwf_k2i\include/IfxGtm_Pwm.h:100:5: error: redeclaration of enumerator 'IfxGtm_Dtm_ClockSource_cmuClock2'
-  100 |     IfxGtm_Dtm_ClockSource_cmuClock2
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_ewwf_k2i\include/IfxGtm_Cmu.h:57:5: note: previous definition of 'IfxGtm_Dtm_ClockSource_cmuClock2' with type 'enum <anonymous>'
-   57 |     IfxGtm_Dtm_ClockSource_cmuClock2
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_ewwf_k2i\include/IfxGtm_Pwm.h:101:3: error: conflicting types for 'IfxGtm_Dtm_ClockSource'; have 'enum <anonymous>'
-  101 | } IfxGtm_Dtm_ClockSource;
-      |   ^~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_ewwf_k2i\include/IfxGtm_Cmu.h:58:3: note: previous declaration of 'IfxGtm_Dtm_ClockSource' with type 'IfxGtm_Dtm_ClockSource'
-   58 | } IfxGtm_Dtm_ClockSource;
-      |   ^~~~~~~~~~~~~~~~~~~~~~
-
-In file included from C:\Users\extanke\AppData\Local\Temp\tdd_build_ewwf_k2i\mocks\mock_gtm_tom_3_phase_inverter_pwm.c:5:
-C:\Users\extanke\AppData\Local\Temp\tdd_build_ewwf_k2i\include/IfxGtm_Pwm.h:97:5: error: redeclaration of enumerator 'IfxGtm_Dtm_ClockSource_systemClock'
-   97 |     IfxGtm_Dtm_ClockSource_systemClock,
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-In file included from C:\Users\extanke\AppData\Local\Temp\tdd_build_ewwf_k2i\mocks\mock_gtm_tom_3_phase_inverter_pwm.c:3:
-C:\Users\extanke\AppData\Local\Temp\tdd_build_ewwf_k2i\include/IfxGtm_Cmu.h:54:5: note: previous definition of 'IfxGtm_Dtm_ClockSource_systemClock' with type 'enum <anonymous>'
-   54 |     IfxGtm_Dtm_ClockSource_systemClock,
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_ewwf_k2i\include/IfxGtm_Pwm.h:98:5: error: redeclaration of enumerator 'IfxGtm_Dtm_ClockSource_cmuClock0'
-   98 |     IfxGtm_Dtm_ClockSource_cmuClock0,
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_ewwf_k2i\include/IfxGtm_Cmu.h:55:5: note: previous definition of 'IfxGtm_Dtm_ClockSource_cmuClock0' with type 'enum <anonymous>'
-   55 |     IfxGtm_Dtm_ClockSource_cmuClock0,
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_ewwf_k2i\include/IfxGtm_Pwm.h:99:5: error: redeclaration of enumerator 'IfxGtm_Dtm_ClockSource_cmuClock1'
-   99 |     IfxGtm_Dtm_ClockSource_cmuClock1,
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_ewwf_k2i\include/IfxGtm_Cmu.h:56:5: note: previous definition of 'IfxGtm_Dtm_ClockSource_cmuClock1' with type 'enum <anonymous>'
-   56 |     IfxGtm_Dtm_ClockSource_cmuClock1,
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_ewwf_k2i\include/IfxGtm_Pwm.h:100:5: error: redeclaration of enumerator 'IfxGtm_Dtm_ClockSource_cmuClock2'
-  100 |     IfxGtm_Dtm_ClockSource_cmuClock2
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_ewwf_k2i\include/IfxGtm_Cmu.h:57:5: note: previous definition of 'IfxGtm_Dtm_ClockSource_cmuClock2' with type 'enum <anonymous>'
-   57 |     IfxGtm_Dtm_ClockSource_cmuClock2
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_ewwf_k2i\include/IfxGtm_Pwm.h:101:3: error: conflicting types for 'IfxGtm_Dtm_ClockSource'; have 'enum <anonymous>'
-  101 | } IfxGtm_Dtm_ClockSource;
-      |   ^~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_ewwf_k2i\include/IfxGtm_Cmu.h:58:3: note: previous declaration of 'IfxGtm_Dtm_ClockSource' with type 'IfxGtm_Dtm_ClockSource'
-   58 | } IfxGtm_Dtm_ClockSource;
-      |   ^~~~~~~~~~~~~~~~~~~~~~
