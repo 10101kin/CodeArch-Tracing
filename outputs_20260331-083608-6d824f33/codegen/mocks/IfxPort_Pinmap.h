@@ -3,7 +3,6 @@
 
 #include "IfxEgtm_Pwm.h"
 
-/* Required pin symbol externs for this module */
 extern IfxEgtm_Pwm_ToutMap IfxEgtm_ATOM1_0N_TOUT64_P20_8_OUT;
 extern IfxEgtm_Pwm_ToutMap IfxEgtm_ATOM1_0_TOUT65_P20_9_OUT;
 extern IfxEgtm_Pwm_ToutMap IfxEgtm_ATOM1_0_TOUT68_P20_12_OUT;
