@@ -1,12 +1,13 @@
 {
   "meta": {
     "schema_version": "1.0",
-    "last_updated_by": "sw_architecture",
-    "last_updated_at": "2026-03-31T21:27:05.894958",
+    "last_updated_by": "sw_detailed",
+    "last_updated_at": "2026-03-31T21:31:24.816308",
     "build_sequence": [
       "requirements",
       "hardware",
-      "sw_architecture"
+      "sw_architecture",
+      "sw_detailed"
     ],
     "corrections_log": []
   },
@@ -723,6 +724,160 @@
     },
     "driver_knowledge_base": {
       "applied": false
+    },
+    "migration_numerical_values": {
+      "NUM_OF_CHANNELS": {
+        "value": 3,
+        "unit": "",
+        "label": "Number of channels"
+      },
+      "NUM_OF_ADC_TRIG_CHANNELS": {
+        "value": 1,
+        "unit": "",
+        "label": "Number of channels"
+      },
+      "PHASE_U_DUTY": {
+        "value": 25.0,
+        "unit": "%",
+        "label": "Phase U initial duty cycle"
+      },
+      "PHASE_V_DUTY": {
+        "value": 50.0,
+        "unit": "%",
+        "label": "Phase V initial duty cycle"
+      },
+      "PHASE_W_DUTY": {
+        "value": 75.0,
+        "unit": "%",
+        "label": "Phase W initial duty cycle"
+      },
+      "PHASE_DUTY_STEP": {
+        "value": 0.01,
+        "unit": "%",
+        "label": "Duty cycle step increment"
+      },
+      "ADC_TRIG_DUTY": {
+        "value": 50.0,
+        "unit": "%",
+        "label": "Duty cycle"
+      },
+      "PWM_FREQUENCY": {
+        "value": 20000.0,
+        "unit": "Hz",
+        "label": "PWM switching frequency"
+      },
+      "INTERRUPT_PRIORITY_EVADC_CUR": {
+        "value": 100.0,
+        "unit": "",
+        "label": "Interrupt priority"
+      },
+      ".priority": {
+        "value": 0.0,
+        "unit": "",
+        "label": "Interrupt priority"
+      },
+      "PHASECURSENSE_REFILL_TRIG": {
+        "value": 1.0,
+        "unit": "",
+        "label": "Phasecursense refill trig"
+      },
+      ".rising": {
+        "value": 1.0,
+        "unit": "",
+        "label": ".rising"
+      },
+      ".falling": {
+        "value": 1.0,
+        "unit": "",
+        "label": ".falling"
+      },
+      ".phase": {
+        "value": 0.0,
+        "unit": "",
+        "label": ".phase"
+      }
+    }
+  },
+  "sw_detailed": {
+    "module_name": "EGTM_ATOM_3_Phase_Inverter_PWM",
+    "public_functions": [
+      {
+        "signature": "void initEgtmAtom3phInv(void)",
+        "behavior_description": "Initialize EGTM CLS0 ATOM resources for a 3‑phase complementary PWM on logical channels 0..2 at 20 kHz center‑aligned with 1 µs hardware dead‑time, and set up ATOM0 logical channel 3 as a 50% edge‑aligned trigger output routed to the ADC trigger fabric. Implementation pattern: 1) Declare all configuration structures locally: the unified EGTM PWM main config, per‑channel configs for 3 logical channels, per‑channel output descriptors (with complementary pins and polarities), and per‑channel dead‑time configs. Also declare an ATOM timer config/handle for the trigger channel. 2) Call the PWM initConfig API to load defaults. 3) Populate output[] for the three logical PWM channels using the exact hardware pin macros provided for the high‑side and complementary low‑side pads; set active‑high polarity for the high‑side and the complementary polarity for the low‑side; set push‑pull output mode and an automotive‑grade pad driver. 4) Populate dtmConfig[] with the required 1.0 µs dead‑time (both rising and falling) and select the DTM clock sourced from CMU CLK0. 5) For each logical PWM channel i = 0..2: assign channelConfig[i].timerCh to the ordinal sub‑module channel enum (Ch_0, Ch_1, Ch_2), set alignment to center‑aligned via the main config, set initial duty to the requested phase U/V/W values (25%, 50%, 75%), assign the corresponding output[i] and dtmConfig[i]; do not attach a PWM period interrupt (interrupt = NULL). In the main PWM config, set: cluster to CLS0, sub‑module to ATOM, numChannels = 3, channels = &channelConfig[0], frequency = 20000 Hz, alignment = center‑aligned, syncStart = TRUE, clockSource.atom = CLK0, dtmClockSource = CMU CLK0, and enable syncUpdate so shadow registers transfer at period end. 6) Defer any hardware touching until after config structs are ready. Then inside an enable guard: if the EGTM module is not enabled, enable it; read the module frequency dynamically via the CMU getModuleFrequency; program GCLK and CLK0 to that same frequency using the CMU frequency‑set APIs; finally enable the required clocks (limit to CLK0 as per requirement) using the CMU enableClocks API — all actions confined to this guard. 7) Initialize the unified EGTM PWM with the prepared config; this applies the initial duties and dead‑time to the complementary pairs. Persist the PWM driver handle, the channels array, and state arrays (duties, phases, dead‑times) in the module’s persistent state so they remain valid after init. 8) Configure ATOM0 logical channel 3 as an edge‑aligned timer/trigger source: load default ATOM timer config, bind it to the same cluster and ATOM as the PWM, assign the timer and trigger channels both to logical channel 3, select CMU CLK0 as timer clock, and initialize the timer driver. Set the timer frequency to 20 kHz, read back the period ticks, compute triggerPoint = period/2 for 50% position, and set the trigger point accordingly; run the timer. 9) Route the trigger channel to its physical TOUT pin using the EGTM PinMap API (generic header) with push‑pull mode and an automotive pad driver; then connect ATOM0 CH3 to the ADC trigger fabric using the EGTM trigger API, selecting the specified ADC trigger signal and edge sense as required by the system. 10) Finally, configure the LED GPIO pin as a push‑pull output (no need to drive it high/low here); it will be toggled in the ADC result ISR.",
+        "driver_calls": [
+          "IfxEgtm_isEnabled",
+          "IfxEgtm_enable",
+          "IfxEgtm_Cmu_getModuleFrequency",
+          "IfxEgtm_Cmu_setGclkFrequency",
+          "IfxEgtm_Cmu_setClkFrequency",
+          "IfxEgtm_Cmu_enableClocks",
+          "IfxEgtm_Pwm_initConfig",
+          "IfxEgtm_Pwm_init",
+          "IfxEgtm_Atom_Timer_setFrequency",
+          "IfxEgtm_Atom_Timer_getPeriod",
+          "IfxEgtm_Atom_Timer_setTrigger",
+          "IfxEgtm_Atom_Timer_run",
+          "IfxEgtm_PinMap_setAtomTout",
+          "IfxEgtm_Trigger_trigToAdc",
+          "IfxPort_setPinModeOutput"
+        ],
+        "from_reference": true,
+        "call_context": "init"
+      },
+      {
+        "signature": "void updateEgtmAtom3phInvDuty(float32 *requestDuty)",
+        "behavior_description": "Update the three logical PWM channel duties immediately. Read requestDuty[0..2] as percent values (0..100). For each logical channel i = 0..2, clamp to [0, 100] if needed, store the value into the module state dutyCycles[i], and invoke the per‑channel immediate duty update API for that logical channel using the persistent PWM handle. No timing or delay logic is included here; this function only updates arithmetic state and applies it to hardware immediately.",
+        "driver_calls": [
+          "IfxEgtm_Pwm_updateChannelDutyImmediate"
+        ],
+        "from_reference": true,
+        "call_context": "loop"
+      },
+      {
+        "signature": "void resultISR(void)",
+        "behavior_description": "ADC conversion‑complete interrupt service routine. Minimal ISR: toggle the configured LED output pin and return. No driver‑level ADC APIs, parsing, or extended processing are performed inside the ISR.",
+        "driver_calls": [
+          "IfxPort_togglePin"
+        ],
+        "from_reference": true,
+        "call_context": "none"
+      }
+    ],
+    "private_functions": [
+      {
+        "signature": "static void configureEgtmAtomTrigger(uint8 channel)",
+        "needed": true,
+        "from_reference": false
+      }
+    ],
+    "dependencies": {
+      "includes": [
+        "IfxEgtm_Pwm.h",
+        "IfxEgtm_Trigger.h",
+        "IfxPort.h",
+        "IfxPort_PinMap.h"
+      ]
+    },
+    "cpu_main_requirements": {
+      "needs_cpu_sync": true,
+      "uses_timer_delay": false,
+      "delay_ms": 0,
+      "additional_includes": []
+    },
+    "header_selection": {
+      "applied": true,
+      "peripheral_type": "PWM",
+      "recommended_header": "IfxEgtm_Atom",
+      "template_functions_count": 1453,
+      "required_includes": [
+        "IfxEgtm_Atom.h"
+      ],
+      "original_recommendation": "IfxEgtm_Atom_Timer",
+      "reconciled": true,
+      "reconciliation_reason": "LLM driver_calls use IfxEgtm_Atom_* API, not IfxEgtm_Atom_Timer (the reference API). Updated to match actual usage.",
+      "original_required_includes": [
+        "IfxEgtm_Atom_Timer.h"
+      ]
     },
     "migration_numerical_values": {
       "NUM_OF_CHANNELS": {
