@@ -1,16 +1,8 @@
 {
-  "attempt": 3,
-  "phase_attempt": 1,
+  "type": "llm_response",
   "phase": "production",
-  "success": false,
-  "errors": [
-    "conflicting types for \u2018IfxApApu_ApuConfig\u2019; have \u2018struct <anonymous>\u2019",
-    "conflicting types for \u2018IfxApProt_ProtConfig\u2019; have \u2018struct <anonymous>\u2019",
-    "\u2018Ifx_ActiveState_high\u2019 undeclared (first use in this function); did you mean \u2018Ifx_ActiveState\u2019?",
-    "\u2018Ifx_ActiveState_low\u2019 undeclared (first use in this function); did you mean \u2018Ifx_ActiveState\u2019?",
-    "conflicting types for \u2018IfxApApu_ApuConfig\u2019; have \u2018struct <anonymous>\u2019",
-    "conflicting types for \u2018IfxApProt_ProtConfig\u2019; have \u2018struct <anonymous>\u2019"
-  ],
-  "timestamp": "2026-03-31T09:04:09.286021",
-  "project_name": "Generate_TC4D7_KIT_A3G_TC4D7_LITE_eGTM_ATOM_code_r_20260331_085556"
+  "attempt": 5,
+  "phase_attempt": 2,
+  "response_length": 12538,
+  "timestamp": "2026-03-31T09:10:24.057249"
 }
