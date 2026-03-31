@@ -6,19 +6,25 @@
 #include "IfxGtm_Cmu.h"
 #include "IfxPort.h"
 
-/* Auxiliary dependent types (placeholders for SFR-related types) */
-typedef struct { uint32 dummy; } Ifx_GTM_ATOM;
-typedef struct { uint32 dummy; } Ifx_GTM_TOM;
-typedef struct { uint32 dummy; } Ifx_GTM_CDTM;
-typedef struct { uint32 dummy; } IfxGtm_Trig_MscOut;
-
-typedef struct { uint32 dummy; } IfxGtm_Atom_ToutMap;
-typedef struct { uint32 dummy; } IfxGtm_Tom_ToutMap;
-
 /* Callback type used by PWM driver */
 typedef void (*IfxGtm_Pwm_callBack)(void *data);
 
-/* VERIFIED TYPE DEFINITIONS — emitted verbatim and in dependency order */
+/* Incomplete SFR type tags used as pointers in ClusterSFR */
+typedef struct Ifx_GTM_ATOM Ifx_GTM_ATOM;
+typedef struct Ifx_GTM_TOM  Ifx_GTM_TOM;
+typedef struct Ifx_GTM_CDTM Ifx_GTM_CDTM;
+
+typedef struct IfxGtm_Trig_MscOut IfxGtm_Trig_MscOut; /* used as pointer in ChannelConfig */
+
+/* ToutMap helpers */
+typedef struct { uint32 reserved; } IfxGtm_Atom_ToutMap;
+typedef struct { uint32 reserved; } IfxGtm_Tom_ToutMap;
+typedef union {
+    IfxGtm_Atom_ToutMap atom;
+    IfxGtm_Tom_ToutMap  tom;
+} IfxGtm_Pwm_ToutMap;
+
+/* VERIFIED TYPE DEFINITIONS — emit exactly as provided */
 typedef enum
 {
     IfxGtm_Pwm_Alignment_edge   = 0, 
@@ -110,12 +116,6 @@ typedef struct
 {
     IfxGtm_Pwm_DeadTime deadTime;       
 } IfxGtm_Pwm_DtmConfig;
-
-typedef union
-{
-    IfxGtm_Atom_ToutMap atom;       
-    IfxGtm_Tom_ToutMap  tom;        
-} IfxGtm_Pwm_ToutMap;
 
 typedef struct
 {
@@ -243,12 +243,12 @@ typedef struct
     IfxPort_PadDriver   padDriver;       
 } IfxGtm_Pwm_Pin;
 
-/* Function declarations (subset needed by module/tests) */
+/* Functions (subset required by module/tests) */
 void IfxGtm_Pwm_initConfig(IfxGtm_Pwm_Config *config, Ifx_GTM *gtmSFR);
 void IfxGtm_Pwm_init(IfxGtm_Pwm *pwm, IfxGtm_Pwm_Channel *channels, IfxGtm_Pwm_Config *config);
 void IfxGtm_Pwm_updateChannelsDutyImmediate(IfxGtm_Pwm *pwm, float32 *requestDuty);
 
-/* IRQ installer used by PWM examples */
-void IfxCpu_Irq_installInterruptHandler(void (*isr)(void), int priority);
+/* Commonly used ISR install helper */
+void IfxCpu_Irq_installInterruptHandler(void (*isr)(void), sint32 vectabNum, sint32 priority);
 
 #endif /* IFXGTM_PWM_H */

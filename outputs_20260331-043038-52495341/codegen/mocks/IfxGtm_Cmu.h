@@ -3,7 +3,7 @@
 
 #include "mock_gtm_tom_3_phase_inverter_pwm.h"
 
-/* CMU enums */
+/* Enums */
 typedef enum {
     IfxGtm_Cmu_Clk_0 = 0,
     IfxGtm_Cmu_Clk_1,
@@ -36,7 +36,6 @@ typedef enum {
     IfxGtm_Cmu_Tim_Filter_Clk_7
 } IfxGtm_Cmu_Tim_Filter_Clk;
 
-/* CMU enable mask macros */
 #ifndef IFXGTM_CMU_CLKEN_FXCLK
 #define IFXGTM_CMU_CLKEN_FXCLK (1u << 0)
 #endif
@@ -44,7 +43,7 @@ typedef enum {
 #define IFXGTM_CMU_CLKEN_CLK0  (1u << 1)
 #endif
 
-/* Function declarations */
+/* Function declarations (mandatory subset) */
 void    IfxGtm_Cmu_enable(Ifx_GTM *module);
 boolean IfxGtm_Cmu_isEnabled(Ifx_GTM *module);
 float32 IfxGtm_Cmu_getModuleFrequency(Ifx_GTM *gtm);
