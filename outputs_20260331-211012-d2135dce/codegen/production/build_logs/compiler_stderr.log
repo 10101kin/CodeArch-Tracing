@@ -1,0 +1,185 @@
+In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxEgtm_Pwm.h:6,
+                 from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\src\egtm_atom_3_phase_inverter_pwm.c:18:
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxEgtm.h:11:5: error: expected specifier-qualifier-list before 'unsitypedef'
+   11 |     unsitypedef struct
+      |     ^~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxEgtm.h:30:24: error: expected ';' before 'enum'
+   30 | } IfxEgtm_AeiBritypedef enum
+      |                        ^~~~~
+      |                        ;
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxEgtm.h:35:13: error: expected ';' before 'enum'
+   35 | } Ifxtypedef enum
+      |             ^~~~~
+      |             ;
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxEgtm.h:41:16: error: expected ';' before 'enum'
+   41 | } IfxEgttypedef enum
+      |                ^~~~~
+      |                ;
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxEgtm.h:47:24: error: expected ';' before 'enum'
+   47 | } IfxEgtm_MscAlttypedef enum
+      |                        ^~~~~
+      |                        ;
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxEgtm.h:52:24: error: expected identifier or '(' before numeric constant
+   52 | } IfxEgtm_SuspendMode; 1, IfxEgtm_SuspendMode_softypedef struct
+      |                        ^
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxEgtm.h:59:3: error: data definition has no type or storage class [-Werror]
+   59 | } IfxEgtm_MscOut;
+      |   ^~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxEgtm.h:59:3: error: type defaults to 'int' in declaration of 'IfxEgtm_MscOut' [-Wimplicit-int]
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxEgtm.h:60:5: error: unknown type name 'IfxEgtm_MscAltInput'
+   60 |     IfxEgtm_MscAltInput      mscAltIn;
+      |     ^~~~~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxEgtm.h:61:1: error: expected identifier or '(' before '}' token
+   61 | } IfxEgtm_MscOut;tm_Cfg_MscSelect;
+      | ^
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxEgtm.h:61:3: error: data definition has no type or storage class [-Werror]
+   61 | } IfxEgtm_MscOut;tm_Cfg_MscSelect;
+      |   ^~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxEgtm.h:61:3: error: type defaults to 'int' in declaration of 'IfxEgtm_MscOut' [-Wimplicit-int]
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxEgtm.h:61:18: error: data definition has no type or storage class [-Werror]
+   61 | } IfxEgtm_MscOut;tm_Cfg_MscSelect;
+      |                  ^~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxEgtm.h:61:18: error: type defaults to 'int' in declaration of 'tm_Cfg_MscSelect' [-Wimplicit-int]
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxEgtm.h:64:5: error: unknown type name 'IfxEgtm_Cfg_MscSet'
+   64 |     IfxEgtm_Cfg_MscSet       mscSet;
+      |     ^~~~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxEgtm.h:65:5: error: unknown type name 'IfxEgtm_Cfg_MscSetSignal'
+   65 |     IfxEgtm_Cfg_MscSetSignal mscSetSignal;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxEgtm.h:66:5: error: unknown type name 'IfxEgtm_Cfg_MscModule'
+   66 |     IfxEgtm_Cfg_MscModule    mscModule;
+      |     ^~~~~~~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxEgtm.h:67:5: error: unknown type name 'IfxEgtm_Cfg_MscSelect'
+   67 |     IfxEgtm_Cfg_MscSelect    mscSelect;
+      |     ^~~~~~~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxEgtm.h:68:5: error: unknown type name 'IfxEgtm_MscAltInput'
+   68 |     IfxEgtm_MscAltInput      mscAltIn;
+      |     ^~~~~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxEgtm.h:69:3: error: 'IfxEgtm_MscOut' redeclared as different kind of symbol
+   69 | } IfxEgtm_MscOut;
+      |   ^~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxEgtm.h:61:3: note: previous declaration of 'IfxEgtm_MscOut' with type 'int'
+   61 | } IfxEgtm_MscOut;tm_Cfg_MscSelect;
+      |   ^~~~~~~~~~~~~~
+In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxEgtm_Pwm.h:8:
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxPort.h:21:20: error: expected ';' before 'enum'
+   21 | } IfxPort_Cotypedef enum
+      |                    ^~~~~
+      |                    ;
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxPort.h:27:30: error: expected ';' before 'enum'
+   27 | } IfxPort_InputMode;rttypedef enum
+      |                              ^~~~~
+      |                              ;
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxPort.h:31:16: error: expected ';' before 'enum'
+   31 | } IfxPortypedef enum
+      |                ^~~~~
+      |                ;
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxPort.h:35:16: error: expected ';' before 'enum'
+   35 | } IfxPortypedef enum
+      |                ^~~~~
+      |                ;
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxPort.h:71:43: error: expected ',' or '}' before 'enum'
+   71 |     IfxPort_Mode_outputOpenDrainAltypedef enum
+      |                                           ^~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxEgtm_Pwm.h:232:2: error: '#endif' without '#if'
+  232 | #endif /* IFXEGTM_PWM_H */
+      |  ^~~~~
+In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxPort_Pinmap.h:4,
+                 from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\src\egtm_atom_3_phase_inverter_pwm.c:20:
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxEgtm_Pwm.h:232:2: error: '#endif' without '#if'
+  232 | #endif /* IFXEGTM_PWM_H */
+      |  ^~~~~
+cc1.exe: all warnings being treated as errors
+
+In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\mocks\mock_egtm_atom_3_phase_inverter_pwm.c:3:
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxEgtm.h:11:5: error: expected specifier-qualifier-list before 'unsitypedef'
+   11 |     unsitypedef struct
+      |     ^~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxEgtm.h:30:24: error: expected ';' before 'enum'
+   30 | } IfxEgtm_AeiBritypedef enum
+      |                        ^~~~~
+      |                        ;
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxEgtm.h:35:13: error: expected ';' before 'enum'
+   35 | } Ifxtypedef enum
+      |             ^~~~~
+      |             ;
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxEgtm.h:41:16: error: expected ';' before 'enum'
+   41 | } IfxEgttypedef enum
+      |                ^~~~~
+      |                ;
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxEgtm.h:47:24: error: expected ';' before 'enum'
+   47 | } IfxEgtm_MscAlttypedef enum
+      |                        ^~~~~
+      |                        ;
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxEgtm.h:52:24: error: expected identifier or '(' before numeric constant
+   52 | } IfxEgtm_SuspendMode; 1, IfxEgtm_SuspendMode_softypedef struct
+      |                        ^
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxEgtm.h:59:3: error: data definition has no type or storage class [-Werror]
+   59 | } IfxEgtm_MscOut;
+      |   ^~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxEgtm.h:59:3: error: type defaults to 'int' in declaration of 'IfxEgtm_MscOut' [-Wimplicit-int]
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxEgtm.h:60:5: error: unknown type name 'IfxEgtm_MscAltInput'
+   60 |     IfxEgtm_MscAltInput      mscAltIn;
+      |     ^~~~~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxEgtm.h:61:1: error: expected identifier or '(' before '}' token
+   61 | } IfxEgtm_MscOut;tm_Cfg_MscSelect;
+      | ^
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxEgtm.h:61:3: error: data definition has no type or storage class [-Werror]
+   61 | } IfxEgtm_MscOut;tm_Cfg_MscSelect;
+      |   ^~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxEgtm.h:61:3: error: type defaults to 'int' in declaration of 'IfxEgtm_MscOut' [-Wimplicit-int]
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxEgtm.h:61:18: error: data definition has no type or storage class [-Werror]
+   61 | } IfxEgtm_MscOut;tm_Cfg_MscSelect;
+      |                  ^~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxEgtm.h:61:18: error: type defaults to 'int' in declaration of 'tm_Cfg_MscSelect' [-Wimplicit-int]
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxEgtm.h:64:5: error: unknown type name 'IfxEgtm_Cfg_MscSet'
+   64 |     IfxEgtm_Cfg_MscSet       mscSet;
+      |     ^~~~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxEgtm.h:65:5: error: unknown type name 'IfxEgtm_Cfg_MscSetSignal'
+   65 |     IfxEgtm_Cfg_MscSetSignal mscSetSignal;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxEgtm.h:66:5: error: unknown type name 'IfxEgtm_Cfg_MscModule'
+   66 |     IfxEgtm_Cfg_MscModule    mscModule;
+      |     ^~~~~~~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxEgtm.h:67:5: error: unknown type name 'IfxEgtm_Cfg_MscSelect'
+   67 |     IfxEgtm_Cfg_MscSelect    mscSelect;
+      |     ^~~~~~~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxEgtm.h:68:5: error: unknown type name 'IfxEgtm_MscAltInput'
+   68 |     IfxEgtm_MscAltInput      mscAltIn;
+      |     ^~~~~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxEgtm.h:69:3: error: 'IfxEgtm_MscOut' redeclared as different kind of symbol
+   69 | } IfxEgtm_MscOut;
+      |   ^~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxEgtm.h:61:3: note: previous declaration of 'IfxEgtm_MscOut' with type 'int'
+   61 | } IfxEgtm_MscOut;tm_Cfg_MscSelect;
+      |   ^~~~~~~~~~~~~~
+In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxEgtm_Pwm.h:8,
+                 from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\mocks\mock_egtm_atom_3_phase_inverter_pwm.c:5:
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxPort.h:21:20: error: expected ';' before 'enum'
+   21 | } IfxPort_Cotypedef enum
+      |                    ^~~~~
+      |                    ;
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxPort.h:27:30: error: expected ';' before 'enum'
+   27 | } IfxPort_InputMode;rttypedef enum
+      |                              ^~~~~
+      |                              ;
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxPort.h:31:16: error: expected ';' before 'enum'
+   31 | } IfxPortypedef enum
+      |                ^~~~~
+      |                ;
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxPort.h:35:16: error: expected ';' before 'enum'
+   35 | } IfxPortypedef enum
+      |                ^~~~~
+      |                ;
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxPort.h:71:43: error: expected ',' or '}' before 'enum'
+   71 |     IfxPort_Mode_outputOpenDrainAltypedef enum
+      |                                           ^~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxEgtm_Pwm.h:232:2: error: '#endif' without '#if'
+  232 | #endif /* IFXEGTM_PWM_H */
+      |  ^~~~~
+In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxPort_Pinmap.h:4,
+                 from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\mocks\mock_egtm_atom_3_phase_inverter_pwm.c:7:
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_xzkgt3gp\include/IfxEgtm_Pwm.h:232:2: error: '#endif' without '#if'
+  232 | #endif /* IFXEGTM_PWM_H */
+      |  ^~~~~
+cc1.exe: all warnings being treated as errors
