@@ -1,0 +1,134 @@
+{
+  "success": false,
+  "errors": [
+    {
+      "file": "C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\include/egtm_atom_3_phase_inverter_pwm.h",
+      "line": 10,
+      "category": "error",
+      "message": "unknown type name 'float32'; did you mean '_Float32'?"
+    },
+    {
+      "file": "C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\include/IfxEgtm_Pwm.h",
+      "line": 109,
+      "category": "error",
+      "message": "unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'"
+    },
+    {
+      "file": "C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\include/IfxEgtm_Pwm.h",
+      "line": 124,
+      "category": "error",
+      "message": "unknown type name 'IfxEgtm_Pwm_ToutMap'; did you mean 'IfxEgtm_Tom_ToutMap'?"
+    },
+    {
+      "file": "C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\include/IfxEgtm_Pwm.h",
+      "line": 125,
+      "category": "error",
+      "message": "unknown type name 'IfxEgtm_Pwm_ToutMap'; did you mean 'IfxEgtm_Tom_ToutMap'?"
+    },
+    {
+      "file": "C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\include/IfxEgtm_Pwm.h",
+      "line": 226,
+      "category": "error",
+      "message": "unknown type name 'IfxEgtm_Pwm_ToutMap'; did you mean 'IfxEgtm_Tom_ToutMap'?"
+    },
+    {
+      "file": "C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\src\\egtm_atom_3_phase_inverter_pwm.c",
+      "line": 35,
+      "category": "error",
+      "message": "'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P33'?"
+    },
+    {
+      "file": "C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\src\\egtm_atom_3_phase_inverter_pwm.c",
+      "line": 118,
+      "category": "error",
+      "message": "assignment to 'int *' from incompatible pointer type 'IfxEgtm_Pwm_ToutMap *' [-Wincompatible-pointer-types]"
+    },
+    {
+      "file": "C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\src\\egtm_atom_3_phase_inverter_pwm.c",
+      "line": 119,
+      "category": "error",
+      "message": "assignment to 'int *' from incompatible pointer type 'IfxEgtm_Pwm_ToutMap *' [-Wincompatible-pointer-types]"
+    },
+    {
+      "file": "C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\src\\egtm_atom_3_phase_inverter_pwm.c",
+      "line": 126,
+      "category": "error",
+      "message": "assignment to 'int *' from incompatible pointer type 'IfxEgtm_Pwm_ToutMap *' [-Wincompatible-pointer-types]"
+    },
+    {
+      "file": "C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\src\\egtm_atom_3_phase_inverter_pwm.c",
+      "line": 127,
+      "category": "error",
+      "message": "assignment to 'int *' from incompatible pointer type 'IfxEgtm_Pwm_ToutMap *' [-Wincompatible-pointer-types]"
+    },
+    {
+      "file": "C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\src\\egtm_atom_3_phase_inverter_pwm.c",
+      "line": 134,
+      "category": "error",
+      "message": "assignment to 'int *' from incompatible pointer type 'IfxEgtm_Pwm_ToutMap *' [-Wincompatible-pointer-types]"
+    },
+    {
+      "file": "C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\src\\egtm_atom_3_phase_inverter_pwm.c",
+      "line": 135,
+      "category": "error",
+      "message": "assignment to 'int *' from incompatible pointer type 'IfxEgtm_Pwm_ToutMap *' [-Wincompatible-pointer-types]"
+    },
+    {
+      "file": "C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\src\\egtm_atom_3_phase_inverter_pwm.c",
+      "line": 35,
+      "category": "error",
+      "message": "'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P33'?"
+    },
+    {
+      "file": "C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\include/IfxEgtm_Pwm.h",
+      "line": 109,
+      "category": "error",
+      "message": "unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'"
+    },
+    {
+      "file": "C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\include/IfxEgtm_Pwm.h",
+      "line": 124,
+      "category": "error",
+      "message": "unknown type name 'IfxEgtm_Pwm_ToutMap'; did you mean 'IfxEgtm_Tom_ToutMap'?"
+    },
+    {
+      "file": "C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\include/IfxEgtm_Pwm.h",
+      "line": 125,
+      "category": "error",
+      "message": "unknown type name 'IfxEgtm_Pwm_ToutMap'; did you mean 'IfxEgtm_Tom_ToutMap'?"
+    },
+    {
+      "file": "C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\include/IfxEgtm_Pwm.h",
+      "line": 226,
+      "category": "error",
+      "message": "unknown type name 'IfxEgtm_Pwm_ToutMap'; did you mean 'IfxEgtm_Tom_ToutMap'?"
+    },
+    {
+      "file": "C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+      "line": 223,
+      "category": "error",
+      "message": "'mock_IfxEgtm_Pwm_updateChannelDutyImmediate_lastDuties' undeclared (first use in this function); did you mean 'mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_lastDuties'?"
+    },
+    {
+      "file": "C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+      "line": 244,
+      "category": "error",
+      "message": "'mock_IfxEgtm_Pwm_updateChannelDutyImmediate_lastDuties' undeclared (first use in this function); did you mean 'mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_lastDuties'?"
+    },
+    {
+      "file": "C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+      "line": 268,
+      "category": "error",
+      "message": "'mock_IfxEgtm_Pwm_updateChannelDutyImmediate_lastDuties' undeclared (first use in this function); did you mean 'mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_lastDuties'?"
+    },
+    {
+      "file": "C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+      "line": 291,
+      "category": "error",
+      "message": "'mock_IfxEgtm_Pwm_updateChannelDutyImmediate_lastDuties' undeclared (first use in this function); did you mean 'mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_lastDuties'?"
+    }
+  ],
+  "warnings": [],
+  "stderr": "In file included from C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\src\\egtm_atom_3_phase_inverter_pwm.c:6:\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\include/egtm_atom_3_phase_inverter_pwm.h:10:31: error: unknown type name 'float32'; did you mean '_Float32'?\n   10 | void updateEgtmAtom3phInvDuty(float32 *requestDuty);\n      |                               ^~~~~~~\n      |                               _Float32\nIn file included from C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\src\\egtm_atom_3_phase_inverter_pwm.c:9:\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\include/IfxEgtm_Pwm.h:109:5: error: unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'\n  109 |     IfxEgtm_Pwm_FastShutoffConfig *fastShutOff;\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\include/IfxEgtm_Pwm.h:124:5: error: unknown type name 'IfxEgtm_Pwm_ToutMap'; did you mean 'IfxEgtm_Tom_ToutMap'?\n  124 |     IfxEgtm_Pwm_ToutMap *pin;\n      |     ^~~~~~~~~~~~~~~~~~~\n      |     IfxEgtm_Tom_ToutMap\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\include/IfxEgtm_Pwm.h:125:5: error: unknown type name 'IfxEgtm_Pwm_ToutMap'; did you mean 'IfxEgtm_Tom_ToutMap'?\n  125 |     IfxEgtm_Pwm_ToutMap *complementaryPin;\n      |     ^~~~~~~~~~~~~~~~~~~\n      |     IfxEgtm_Tom_ToutMap\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\include/IfxEgtm_Pwm.h:226:5: error: unknown type name 'IfxEgtm_Pwm_ToutMap'; did you mean 'IfxEgtm_Tom_ToutMap'?\n  226 |     IfxEgtm_Pwm_ToutMap *outputPin;\n      |     ^~~~~~~~~~~~~~~~~~~\n      |     IfxEgtm_Tom_ToutMap\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\src\\egtm_atom_3_phase_inverter_pwm.c: In function 'resultISR':\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\src\\egtm_atom_3_phase_inverter_pwm.c:35:14: error: 'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P33'?\n   35 | #define LED &MODULE_P03, 9\n      |              ^~~~~~~~~~\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\src\\egtm_atom_3_phase_inverter_pwm.c:92:23: note: in expansion of macro 'LED'\n   92 |     IfxPort_togglePin(LED);\n      |                       ^~~\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\src\\egtm_atom_3_phase_inverter_pwm.c:35:14: note: each undeclared identifier is reported only once for each function it appears in\n   35 | #define LED &MODULE_P03, 9\n      |              ^~~~~~~~~~\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\src\\egtm_atom_3_phase_inverter_pwm.c:92:23: note: in expansion of macro 'LED'\n   92 |     IfxPort_togglePin(LED);\n      |                       ^~~\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\src\\egtm_atom_3_phase_inverter_pwm.c: In function 'initEgtmAtom3phInv':\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\src\\egtm_atom_3_phase_inverter_pwm.c:118:38: error: assignment to 'int *' from incompatible pointer type 'IfxEgtm_Pwm_ToutMap *' [-Wincompatible-pointer-types]\n  118 |     output[0].pin                    = (IfxEgtm_Pwm_ToutMap*)PHASE_U_HS;\n      |                                      ^\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\src\\egtm_atom_3_phase_inverter_pwm.c:119:38: error: assignment to 'int *' from incompatible pointer type 'IfxEgtm_Pwm_ToutMap *' [-Wincompatible-pointer-types]\n  119 |     output[0].complementaryPin       = (IfxEgtm_Pwm_ToutMap*)PHASE_U_LS;\n      |                                      ^\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\src\\egtm_atom_3_phase_inverter_pwm.c:126:38: error: assignment to 'int *' from incompatible pointer type 'IfxEgtm_Pwm_ToutMap *' [-Wincompatible-pointer-types]\n  126 |     output[1].pin                    = (IfxEgtm_Pwm_ToutMap*)PHASE_V_HS; /* To be assigned during board integration */\n      |                                      ^\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\src\\egtm_atom_3_phase_inverter_pwm.c:127:38: error: assignment to 'int *' from incompatible pointer type 'IfxEgtm_Pwm_ToutMap *' [-Wincompatible-pointer-types]\n  127 |     output[1].complementaryPin       = (IfxEgtm_Pwm_ToutMap*)PHASE_V_LS; /* To be assigned during board integration */\n      |                                      ^\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\src\\egtm_atom_3_phase_inverter_pwm.c:134:38: error: assignment to 'int *' from incompatible pointer type 'IfxEgtm_Pwm_ToutMap *' [-Wincompatible-pointer-types]\n  134 |     output[2].pin                    = (IfxEgtm_Pwm_ToutMap*)PHASE_W_HS; /* To be assigned during board integration */\n      |                                      ^\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\src\\egtm_atom_3_phase_inverter_pwm.c:135:38: error: assignment to 'int *' from incompatible pointer type 'IfxEgtm_Pwm_ToutMap *' [-Wincompatible-pointer-types]\n  135 |     output[2].complementaryPin       = (IfxEgtm_Pwm_ToutMap*)PHASE_W_LS; /* To be assigned during board integration */\n      |                                      ^\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\src\\egtm_atom_3_phase_inverter_pwm.c:35:14: error: 'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P33'?\n   35 | #define LED &MODULE_P03, 9\n      |              ^~~~~~~~~~\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\src\\egtm_atom_3_phase_inverter_pwm.c:235:30: note: in expansion of macro 'LED'\n  235 |     IfxPort_setPinModeOutput(LED, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);\n      |                              ^~~\n\nIn file included from C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\mocks\\mock_egtm_atom_3_phase_inverter_pwm.c:5:\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\include/IfxEgtm_Pwm.h:109:5: error: unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'\n  109 |     IfxEgtm_Pwm_FastShutoffConfig *fastShutOff;\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\include/IfxEgtm_Pwm.h:124:5: error: unknown type name 'IfxEgtm_Pwm_ToutMap'; did you mean 'IfxEgtm_Tom_ToutMap'?\n  124 |     IfxEgtm_Pwm_ToutMap *pin;\n      |     ^~~~~~~~~~~~~~~~~~~\n      |     IfxEgtm_Tom_ToutMap\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\include/IfxEgtm_Pwm.h:125:5: error: unknown type name 'IfxEgtm_Pwm_ToutMap'; did you mean 'IfxEgtm_Tom_ToutMap'?\n  125 |     IfxEgtm_Pwm_ToutMap *complementaryPin;\n      |     ^~~~~~~~~~~~~~~~~~~\n      |     IfxEgtm_Tom_ToutMap\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\include/IfxEgtm_Pwm.h:226:5: error: unknown type name 'IfxEgtm_Pwm_ToutMap'; did you mean 'IfxEgtm_Tom_ToutMap'?\n  226 |     IfxEgtm_Pwm_ToutMap *outputPin;\n      |     ^~~~~~~~~~~~~~~~~~~\n      |     IfxEgtm_Tom_ToutMap\n\nIn file included from C:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\unity/unity.h:22,\n                 from C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\test\\test_egtm_atom_3_phase_inverter_pwm.c:1:\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\test\\test_egtm_atom_3_phase_inverter_pwm.c: In function 'test_TC_G5_001_update_applies_in_range_duties_immediately':\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\test\\test_egtm_atom_3_phase_inverter_pwm.c:223:80: error: 'mock_IfxEgtm_Pwm_updateChannelDutyImmediate_lastDuties' undeclared (first use in this function); did you mean 'mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_lastDuties'?\n  223 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, UT_INIT_DUTY_U_PERCENT, mock_IfxEgtm_Pwm_updateChannelDutyImmediate_lastDuties[0], \"Phase U duty applied in percent\");\n      |                                                                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\unity/unity_internals.h:1119:183: note: in definition of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'\n 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))\n      |                                                                                                                                                                                       ^~~~~~\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\test\\test_egtm_atom_3_phase_inverter_pwm.c:223:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN_MESSAGE'\n  223 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, UT_INIT_DUTY_U_PERCENT, mock_IfxEgtm_Pwm_updateChannelDutyImmediate_lastDuties[0], \"Phase U duty applied in percent\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\test\\test_egtm_atom_3_phase_inverter_pwm.c:223:80: note: each undeclared identifier is reported only once for each function it appears in\n  223 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, UT_INIT_DUTY_U_PERCENT, mock_IfxEgtm_Pwm_updateChannelDutyImmediate_lastDuties[0], \"Phase U duty applied in percent\");\n      |                                                                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\unity/unity_internals.h:1119:183: note: in definition of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'\n 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))\n      |                                                                                                                                                                                       ^~~~~~\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\test\\test_egtm_atom_3_phase_inverter_pwm.c:223:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN_MESSAGE'\n  223 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, UT_INIT_DUTY_U_PERCENT, mock_IfxEgtm_Pwm_updateChannelDutyImmediate_lastDuties[0], \"Phase U duty applied in percent\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\test\\test_egtm_atom_3_phase_inverter_pwm.c: In function 'test_TC_G5_002_update_applies_exact_initial_duties_constants':\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\test\\test_egtm_atom_3_phase_inverter_pwm.c:244:63: error: 'mock_IfxEgtm_Pwm_updateChannelDutyImmediate_lastDuties' undeclared (first use in this function); did you mean 'mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_lastDuties'?\n  244 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 25.0f, mock_IfxEgtm_Pwm_updateChannelDutyImmediate_lastDuties[0], \"U=25% after update\");\n      |                                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\unity/unity_internals.h:1119:183: note: in definition of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'\n 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))\n      |                                                                                                                                                                                       ^~~~~~\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\test\\test_egtm_atom_3_phase_inverter_pwm.c:244:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN_MESSAGE'\n  244 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 25.0f, mock_IfxEgtm_Pwm_updateChannelDutyImmediate_lastDuties[0], \"U=25% after update\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\test\\test_egtm_atom_3_phase_inverter_pwm.c: In function 'test_TC_G6_001_update_clamps_out_of_range_values_and_calls_per_channel':\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\test\\test_egtm_atom_3_phase_inverter_pwm.c:268:64: error: 'mock_IfxEgtm_Pwm_updateChannelDutyImmediate_lastDuties' undeclared (first use in this function); did you mean 'mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_lastDuties'?\n  268 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 0.0f,   mock_IfxEgtm_Pwm_updateChannelDutyImmediate_lastDuties[0], \"Phase U clamped to 0%\");\n      |                                                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\unity/unity_internals.h:1119:183: note: in definition of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'\n 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))\n      |                                                                                                                                                                                       ^~~~~~\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\test\\test_egtm_atom_3_phase_inverter_pwm.c:268:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN_MESSAGE'\n  268 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 0.0f,   mock_IfxEgtm_Pwm_updateChannelDutyImmediate_lastDuties[0], \"Phase U clamped to 0%\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\test\\test_egtm_atom_3_phase_inverter_pwm.c: In function 'test_TC_G6_002_multiple_updates_accumulate_call_count_and_overwrite_values':\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\test\\test_egtm_atom_3_phase_inverter_pwm.c:291:62: error: 'mock_IfxEgtm_Pwm_updateChannelDutyImmediate_lastDuties' undeclared (first use in this function); did you mean 'mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_lastDuties'?\n  291 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 4.0f, mock_IfxEgtm_Pwm_updateChannelDutyImmediate_lastDuties[0], \"Last U duty reflects second update\");\n      |                                                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\unity/unity_internals.h:1119:183: note: in definition of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'\n 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))\n      |                                                                                                                                                                                       ^~~~~~\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_to95whfe\\test\\test_egtm_atom_3_phase_inverter_pwm.c:291:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN_MESSAGE'\n  291 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 4.0f, mock_IfxEgtm_Pwm_updateChannelDutyImmediate_lastDuties[0], \"Last U duty reflects second update\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n",
+  "stdout": ""
+}
