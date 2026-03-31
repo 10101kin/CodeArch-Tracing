@@ -1,12 +1,11 @@
-/* Mock IfxEgtm_Cmu.h for TC4xx */
 #ifndef IFXEGTM_CMU_H
 #define IFXEGTM_CMU_H
 
 #include "mock_egtm_atom_3_phase_inverter_pwm.h"
+#include "IfxEgtm.h"
 
-/* Enums */
-typedef enum
-{
+/* Enums first */
+typedef enum {
     IfxEgtm_Cmu_Clk_0 = 0,
     IfxEgtm_Cmu_Clk_1,
     IfxEgtm_Cmu_Clk_2,
@@ -17,15 +16,13 @@ typedef enum
     IfxEgtm_Cmu_Clk_7
 } IfxEgtm_Cmu_Clk;
 
-typedef enum
-{
+typedef enum {
     IfxEgtm_Cmu_Eclk_0 = 0,
     IfxEgtm_Cmu_Eclk_1,
     IfxEgtm_Cmu_Eclk_2
 } IfxEgtm_Cmu_Eclk;
 
-typedef enum
-{
+typedef enum {
     IfxEgtm_Cmu_Fxclk_0 = 0,
     IfxEgtm_Cmu_Fxclk_1,
     IfxEgtm_Cmu_Fxclk_2,
@@ -33,19 +30,18 @@ typedef enum
     IfxEgtm_Cmu_Fxclk_4
 } IfxEgtm_Cmu_Fxclk;
 
-typedef enum
-{
+typedef enum {
     IfxEgtm_Cmu_Tim_Filter_Clk_0 = 0,  /* CMU_CLK0 */
-    IfxEgtm_Cmu_Tim_Filter_Clk_1 = 1,  /* CMU_CLK1 */
-    IfxEgtm_Cmu_Tim_Filter_Clk_6 = 6,  /* CMU_CLK6 */
-    IfxEgtm_Cmu_Tim_Filter_Clk_7 = 7   /* CMU_CLK7 (included for completeness) */
+    IfxEgtm_Cmu_Tim_Filter_Clk_1,      /* CMU_CLK1 */
+    IfxEgtm_Cmu_Tim_Filter_Clk_6,      /* CMU_CLK6 */
+    IfxEgtm_Cmu_Tim_Filter_Clk_7       /* CMU_CLK7 */
 } IfxEgtm_Cmu_Tim_Filter_Clk;
 
-/* Mandatory CMU mock functions */
+/* Function declarations (subset + mandatory) */
 void    IfxEgtm_Cmu_enable(Ifx_EGTM *module);
 boolean IfxEgtm_Cmu_isEnabled(Ifx_EGTM *module);
-float32 IfxEgtm_Cmu_getModuleFrequency(Ifx_EGTM *module);
-void    IfxEgtm_Cmu_setGclkFrequency(Ifx_EGTM *module, float32 frequency);
+float32 IfxEgtm_Cmu_getModuleFrequency(Ifx_EGTM *egtm);
+void    IfxEgtm_Cmu_setGclkFrequency(Ifx_EGTM *egtm, uint32 numerator, uint32 denominator);
 void    IfxEgtm_Cmu_setClkFrequency(Ifx_EGTM *module, IfxEgtm_Cmu_Clk clk, float32 frequency);
 void    IfxEgtm_Cmu_enableClocks(Ifx_EGTM *module, uint32 mask);
 
