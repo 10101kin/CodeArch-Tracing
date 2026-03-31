@@ -6,21 +6,17 @@
 #include "IfxGtm_Cmu.h"
 #include "IfxPort.h"
 
-/* Auxiliary forward-like simple types used by PWM structures */
-typedef struct { uint32 dummy; } IfxGtm_Atom_ToutMap;
-typedef struct { uint32 dummy; } IfxGtm_Tom_ToutMap;
-typedef struct { uint32 dummy; } IfxGtm_Trig_MscOut;
-typedef struct { uint32 dummy; } Ifx_GTM_ATOM;
-typedef struct { uint32 dummy; } Ifx_GTM_TOM;
-typedef struct { uint32 dummy; } Ifx_GTM_CDTM;
-
+/* Forward/aux types used by PWM */
 typedef void (*IfxGtm_Pwm_callBack)(void *data);
 
-typedef union
-{
-    IfxGtm_Atom_ToutMap atom;       /* ATOM map */
-    IfxGtm_Tom_ToutMap  tom;        /* TOM map */
-} IfxGtm_Pwm_ToutMap;
+typedef struct { uint32 dummy; } IfxGtm_Atom_ToutMap;
+typedef struct { uint32 dummy; } IfxGtm_Tom_ToutMap;
+
+typedef struct { uint32 reserved; } Ifx_GTM_ATOM;
+typedef struct { uint32 reserved; } Ifx_GTM_TOM;
+typedef struct { uint32 reserved; } Ifx_GTM_CDTM;
+
+typedef struct IfxGtm_Trig_MscOut IfxGtm_Trig_MscOut; /* pointer used in config */
 
 /* VERIFIED TYPE DEFINITIONS — emit exactly as provided */
 typedef enum
@@ -114,6 +110,12 @@ typedef struct
 {
     IfxGtm_Pwm_DeadTime deadTime;       
 } IfxGtm_Pwm_DtmConfig;
+
+typedef union
+{
+    IfxGtm_Atom_ToutMap atom;       
+    IfxGtm_Tom_ToutMap  tom;        
+} IfxGtm_Pwm_ToutMap;
 
 typedef struct
 {
@@ -241,7 +243,10 @@ typedef struct
     IfxPort_PadDriver   padDriver;       
 } IfxGtm_Pwm_Pin;
 
-/* Functions from DRIVERS TO MOCK for PWM */
+/* Functions (subset required by tests) */
+void IfxCpu_Irq_installInterruptHandler(void (*isr)(void), int vectabNum, int priority);
+void IfxGtm_Cmu_setGclkFrequency(Ifx_GTM *gtm, float32 frequency);
+void IfxGtm_Cmu_enableClocks(Ifx_GTM *gtm, uint32 clkMask);
 void IfxGtm_Pwm_initConfig(IfxGtm_Pwm_Config *config, Ifx_GTM *gtmSFR);
 void IfxGtm_Pwm_init(IfxGtm_Pwm *pwm, IfxGtm_Pwm_Channel *channels, IfxGtm_Pwm_Config *config);
 void IfxGtm_Pwm_updateChannelsDutyImmediate(IfxGtm_Pwm *pwm, float32 *requestDuty);

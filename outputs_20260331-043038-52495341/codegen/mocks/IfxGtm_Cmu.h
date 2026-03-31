@@ -3,7 +3,7 @@
 
 #include "mock_gtm_tom_3_phase_inverter_pwm.h"
 
-/* CMU clock enums */
+/* Enums */
 typedef enum
 {
     IfxGtm_Cmu_Clk_0 = 0,
@@ -40,14 +40,24 @@ typedef enum
     IfxGtm_Cmu_Tim_Filter_Clk_7
 } IfxGtm_Cmu_Tim_Filter_Clk;
 
+/* CLKEN macros */
 #ifndef IFXGTM_CMU_CLKEN_FXCLK
-#define IFXGTM_CMU_CLKEN_FXCLK (0x1U)
+#define IFXGTM_CMU_CLKEN_FXCLK (1u << 0)
 #endif
 #ifndef IFXGTM_CMU_CLKEN_CLK0
-#define IFXGTM_CMU_CLKEN_CLK0  (0x2U)
+#define IFXGTM_CMU_CLKEN_CLK0  (1u << 1)
 #endif
 
-/* Mandatory CMU functions */
+/* Additional required types */
+typedef enum
+{
+    IfxGtm_Dtm_ClockSource_systemClock,
+    IfxGtm_Dtm_ClockSource_cmuClock0,
+    IfxGtm_Dtm_ClockSource_cmuClock1,
+    IfxGtm_Dtm_ClockSource_cmuClock2
+} IfxGtm_Dtm_ClockSource;
+
+/* Functions */
 void    IfxGtm_Cmu_enable(Ifx_GTM *module);
 boolean IfxGtm_Cmu_isEnabled(Ifx_GTM *module);
 float32 IfxGtm_Cmu_getModuleFrequency(Ifx_GTM *gtm);
