@@ -1,10 +1,17 @@
-/* IfxPort mock */
 #ifndef IFXPORT_H
 #define IFXPORT_H
-
 #include "mock_egtm_atom_3_phase_inverter_pwm.h"
+#include "IfxAp.h"
 
-/* Enums */
+/* Macros to size APU arrays (safe defaults) */
+#ifndef IFXPORT_NUM_APU
+#define IFXPORT_NUM_APU 4
+#endif
+#ifndef IFXPORT_NUM_PINS
+#define IFXPORT_NUM_PINS 64
+#endif
+
+/* Enums (order before structs) */
 typedef enum { IfxPort_ControlledBy_port = 0, IfxPort_ControlledBy_hsct = 1 } IfxPort_ControlledBy;
 
 typedef enum {
@@ -151,13 +158,13 @@ typedef enum {
     IfxPort_PadDriver_ttl3v3Speed3         = (3 << 3) | (2 << 0)
 } IfxPort_PadDriver;
 
-/* Additional types used by APIs */
-typedef enum { IfxPort_Index_0 = 0 } IfxPort_Index;
+/* IfxPort_Index for getIndex() */
+typedef enum { IfxPort_Index_0 = 0, IfxPort_Index_1 = 1 } IfxPort_Index;
 
+/* Structs */
 typedef struct { uint8 pinIndex; uint8 grpNum; } IfxPort_Pin_ApuConfig;
 
-typedef struct
-{
+typedef struct {
     IfxPort_LvdsMode     lvdsMode;
     IfxPort_ControlledBy enablePortControlled;
     IfxPort_PadSupply    padSupply;
@@ -166,16 +173,17 @@ typedef struct
 
 typedef struct { Ifx_P *port; uint8 pinIndex; } IfxPort_Pin;
 
-typedef struct { Ifx_P *port; uint8 pinIndex; IfxPort_OutputIdx mode; IfxPort_PadDriver padDriver; } IfxPort_Pin_Config;
+typedef struct {
+    Ifx_P            *port;
+    uint8             pinIndex;
+    IfxPort_OutputIdx mode;
+    IfxPort_PadDriver padDriver;
+} IfxPort_Pin_Config;
 
-typedef struct { IfxApApu_ApuConfig apuConfig; uint8 grpNum; } IfxPort_ApuConfig;
-
-#ifndef IFXPORT_NUM_APU
-#define IFXPORT_NUM_APU 2
-#endif
-#ifndef IFXPORT_NUM_PINS
-#define IFXPORT_NUM_PINS 64
-#endif
+typedef struct {
+    IfxApApu_ApuConfig apuConfig;
+    uint8              grpNum;
+} IfxPort_ApuConfig;
 
 typedef struct {
     IfxApApu_ApuConfig    apuConfig[IFXPORT_NUM_APU];
@@ -184,7 +192,7 @@ typedef struct {
 
 typedef struct { IfxApProt_ProtConfig protseConfig; } IfxPort_ProtConfig;
 
-/* Function declarations (mandatory non-inline set) */
+/* Function declarations (mandatory set) */
 boolean IfxPort_getPinState(Ifx_P *port, uint8 pinIndex);
 void IfxPort_setPinFunctionMode(Ifx_P *port, uint8 pinIndex, IfxPort_PinFunctionMode mode);
 void IfxPort_setPinHigh(Ifx_P *port, uint8 pinIndex);
@@ -206,7 +214,7 @@ void IfxPort_resetPinControllerSelection(Ifx_P *port, uint8 pinIndex);
 void IfxPort_modifyPinControllerSelection(Ifx_P *port, uint8 pinIndex, boolean mode);
 uint32 IfxPort_getGroupState(Ifx_P *port, uint8 pinIndex, uint16 mask);
 void IfxPort_setGroupState(Ifx_P *port, uint8 pinIndex, uint16 mask, uint16 data);
-IfxPort_Index IfxPort_getIndex(Ifx_P *port);
+unsigned int IfxPort_getIndex(Ifx_P *port);
 void IfxPort_setGroupModeInput(Ifx_P *port, uint8 pinIndex, uint16 mask, IfxPort_InputMode mode);
 void IfxPort_setGroupModeOutput(Ifx_P *port, uint8 pinIndex, uint16 mask, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
 void IfxPort_setGroupPadDriver(Ifx_P *port, uint8 pinIndex, uint16 mask, IfxPort_PadDriver padDriver);
