@@ -1,32 +1,3 @@
-Status: FAILED
-
-============================================================
-TDD CODE GENERATION - ATTEMPT STATUS
-============================================================
-Phase: production
-Attempt: 3
-Status: FAILED
-Timestamp: 2026-03-31 09:04:09
-Files generated: 2
-
-============================================================
-
-ERRORS:
-
-1. conflicting types for ‘IfxApApu_ApuConfig’; have ‘struct <anonymous>’
-
-2. conflicting types for ‘IfxApProt_ProtConfig’; have ‘struct <anonymous>’
-
-3. ‘Ifx_ActiveState_high’ undeclared (first use in this function); did you mean ‘Ifx_ActiveState’?
-
-4. ‘Ifx_ActiveState_low’ undeclared (first use in this function); did you mean ‘Ifx_ActiveState’?
-
-5. conflicting types for ‘IfxApApu_ApuConfig’; have ‘struct <anonymous>’
-
-6. conflicting types for ‘IfxApProt_ProtConfig’; have ‘struct <anonymous>’
-
-============================================================
-BUILD RESULT:
 {
   "success": false,
   "errors": [
