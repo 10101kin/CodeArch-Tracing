@@ -1,739 +1,111 @@
-In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:5,
-                 from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\src\egtm_atom_3_phase_inverter_pwm.c:16:
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:17:22: error: expected identifier or '(' before '{' token
-   17 | } IfxApApu_ApuConfig;{ uint32 dummy; } IfxApProt_ProtConfig;
+In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sii_5omk\include/IfxEgtm_Pwm.h:6,
+                 from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sii_5omk\src\egtm_atom_3_phase_inverter_pwm.c:16:
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sii_5omk\include/IfxEgtm.h:18:22: error: expected identifier or '(' before '{' token
+   18 | } IfxApApu_ApuConfig;{ uint32 reserved; } IfxApProt_ProtConfig;
       |                      ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:17:40: error: data definition has no type or storage class [-Werror]
-   17 | } IfxApApu_ApuConfig;{ uint32 dummy; } IfxApProt_ProtConfig;
-      |                                        ^~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:17:40: error: type defaults to 'int' in declaration of 'IfxApProt_ProtConfig' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:24:27: error: expected identifier or '(' before '{' token
-   24 | } IfxEgtm_AeiBridgeOpMode;{
-      |                           ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:28:3: error: data definition has no type or storage class [-Werror]
-   28 | } IfxEgtm_ClusterClockDiv;{
-      |   ^~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:28:3: error: type defaults to 'int' in declaration of 'IfxEgtm_ClusterClockDiv' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:28:27: error: expected identifier or '(' before '{' token
-   28 | } IfxEgtm_ClusterClockDiv;{
-      |                           ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:33:3: error: data definition has no type or storage class [-Werror]
-   33 | } IfxEgtm_IrqMode;{
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sii_5omk\include/IfxEgtm.h:18:43: error: data definition has no type or storage class [-Werror]
+   18 | } IfxApApu_ApuConfig;{ uint32 reserved; } IfxApProt_ProtConfig;
+      |                                           ^~~~~~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sii_5omk\include/IfxEgtm.h:18:43: error: type defaults to 'int' in declaration of 'IfxApProt_ProtConfig' [-Wimplicit-int]
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sii_5omk\include/IfxEgtm.h:27:22: error: expected identifier or '(' before '{' token
+   27 | } IfxEgtm_Cfg_MscSet;{ IfxEgtm_Cfg_MscSetSignal_a = 0 } IfxEgtm_Cfg_MscSetSignal;{ IfxEgtm_Cfg_MscModule_a = 0 } IfxEgtm_Cfg_MscModule;{ IfxEgtm_Cfg_MscSetypedef enum
+      |                      ^
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sii_5omk\include/IfxEgtm.h:27:57: error: data definition has no type or storage class [-Werror]
+   27 | } IfxEgtm_Cfg_MscSet;{ IfxEgtm_Cfg_MscSetSignal_a = 0 } IfxEgtm_Cfg_MscSetSignal;{ IfxEgtm_Cfg_MscModule_a = 0 } IfxEgtm_Cfg_MscModule;{ IfxEgtm_Cfg_MscSetypedef enum
+      |                                                         ^~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sii_5omk\include/IfxEgtm.h:27:57: error: type defaults to 'int' in declaration of 'IfxEgtm_Cfg_MscSetSignal' [-Wimplicit-int]
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sii_5omk\include/IfxEgtm.h:27:82: error: expected identifier or '(' before '{' token
+   27 | } IfxEgtm_Cfg_MscSet;{ IfxEgtm_Cfg_MscSetSignal_a = 0 } IfxEgtm_Cfg_MscSetSignal;{ IfxEgtm_Cfg_MscModule_a = 0 } IfxEgtm_Cfg_MscModule;{ IfxEgtm_Cfg_MscSetypedef enum
+      |                                                                                  ^
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sii_5omk\include/IfxEgtm.h:27:114: error: data definition has no type or storage class [-Werror]
+   27 | } IfxEgtm_Cfg_MscSet;{ IfxEgtm_Cfg_MscSetSignal_a = 0 } IfxEgtm_Cfg_MscSetSignal;{ IfxEgtm_Cfg_MscModule_a = 0 } IfxEgtm_Cfg_MscModule;{ IfxEgtm_Cfg_MscSetypedef enum
+      |                                                                                                                  ^~~~~~~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sii_5omk\include/IfxEgtm.h:27:114: error: type defaults to 'int' in declaration of 'IfxEgtm_Cfg_MscModule' [-Wimplicit-int]
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sii_5omk\include/IfxEgtm.h:27:136: error: expected identifier or '(' before '{' token
+   27 | } IfxEgtm_Cfg_MscSet;{ IfxEgtm_Cfg_MscSetSignal_a = 0 } IfxEgtm_Cfg_MscSetSignal;{ IfxEgtm_Cfg_MscModule_a = 0 } IfxEgtm_Cfg_MscModule;{ IfxEgtm_Cfg_MscSetypedef enum
+      |                                                                                                                                        ^
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sii_5omk\include/IfxEgtm.h:31:81: error: data definition has no type or storage class [-Werror]
+   31 | } IfxEgtm_AeiBridgeOpMode;pMode_sync = 0u, IfxEgtm_AeiBridgeOpMode_async = 1u } IfxEgtm_AeiBridgeOpMode;{ IfxEgtm_ClusterClockDiv_disable = 0u, IfxEgtm_ClusterClockDiv_enable = 1u, IfxEgtm_ClusterClockDiv_enableDiv2 = 2u } IfxEgtm_ClusterClockDiv;{
+      |                                                                                 ^~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sii_5omk\include/IfxEgtm.h:31:81: error: type defaults to 'int' in declaration of 'IfxEgtm_AeiBridgeOpMode' [-Wimplicit-int]
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sii_5omk\include/IfxEgtm.h:31:105: error: expected identifier or '(' before '{' token
+   31 | } IfxEgtm_AeiBridgeOpMode;pMode_sync = 0u, IfxEgtm_AeiBridgeOpMode_async = 1u } IfxEgtm_AeiBridgeOpMode;{ IfxEgtm_ClusterClockDiv_disable = 0u, IfxEgtm_ClusterClockDiv_enable = 1u, IfxEgtm_ClusterClockDiv_enableDiv2 = 2u } IfxEgtm_ClusterClockDiv;{
+      |                                                                                                         ^
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sii_5omk\include/IfxEgtm.h:31:224: error: data definition has no type or storage class [-Werror]
+   31 | } IfxEgtm_AeiBridgeOpMode;pMode_sync = 0u, IfxEgtm_AeiBridgeOpMode_async = 1u } IfxEgtm_AeiBridgeOpMode;{ IfxEgtm_ClusterClockDiv_disable = 0u, IfxEgtm_ClusterClockDiv_enable = 1u, IfxEgtm_ClusterClockDiv_enableDiv2 = 2u } IfxEgtm_ClusterClockDiv;{
+      |                                                                                                                                                                                                                                ^~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sii_5omk\include/IfxEgtm.h:31:224: error: type defaults to 'int' in declaration of 'IfxEgtm_ClusterClockDiv' [-Wimplicit-int]
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sii_5omk\include/IfxEgtm.h:31:248: error: expected identifier or '(' before '{' token
+   31 | } IfxEgtm_AeiBridgeOpMode;pMode_sync = 0u, IfxEgtm_AeiBridgeOpMode_async = 1u } IfxEgtm_AeiBridgeOpMode;{ IfxEgtm_ClusterClockDiv_disable = 0u, IfxEgtm_ClusterClockDiv_enable = 1u, IfxEgtm_ClusterClockDiv_enableDiv2 = 2u } IfxEgtm_ClusterClockDiv;{
+      |                                                                                                                                                                                                                                                        ^
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sii_5omk\include/IfxEgtm.h:36:3: error: data definition has no type or storage class [-Werror]
+   36 | } IfxEgtm_IrqMode;{
       |   ^~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:33:3: error: type defaults to 'int' in declaration of 'IfxEgtm_IrqMode' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:33:19: error: expected identifier or '(' before '{' token
-   33 | } IfxEgtm_IrqMode;{
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sii_5omk\include/IfxEgtm.h:36:3: error: type defaults to 'int' in declaration of 'IfxEgtm_IrqMode' [-Wimplicit-int]
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sii_5omk\include/IfxEgtm.h:36:19: error: expected identifier or '(' before '{' token
+   36 | } IfxEgtm_IrqMode;{
       |                   ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:43:3: error: data definition has no type or storage class [-Werror]
-   43 | } IfxEgtm_SuspendMode;
-      |   ^~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:43:3: error: type defaults to 'int' in declaration of 'IfxEgtm_SuspendMode' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:50:22: error: expected identifier or '(' before '{' token
-   50 | } IfxEgtm_ClApConfig;{
-      |                      ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:53:3: error: data definition has no type or storage class [-Werror]
-   53 | } IfxEgtm_CtrlApConfig;{
-      |   ^~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:53:3: error: type defaults to 'int' in declaration of 'IfxEgtm_CtrlApConfig' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:53:24: error: expected identifier or '(' before '{' token
-   53 | } IfxEgtm_CtrlApConfig;{
-      |                        ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:55:3: error: data definition has no type or storage class [-Werror]
-   55 | } IfxEgtm_WrapApConfig;{
-      |   ^~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:55:3: error: type defaults to 'int' in declaration of 'IfxEgtm_WrapApConfig' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:55:24: error: expected identifier or '(' before '{' token
-   55 | } IfxEgtm_WrapApConfig;{
-      |                        ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:60:3: error: data definition has no type or storage class [-Werror]
-   60 | } IfxEgtm_ApConfig;{
-      |   ^~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:60:3: error: type defaults to 'int' in declaration of 'IfxEgtm_ApConfig' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:60:20: error: expected identifier or '(' before '{' token
-   60 | } IfxEgtm_ApConfig;{
-      |                    ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:62:3: error: data definition has no type or storage class [-Werror]
-   62 | } IfxEgtm_MscOut;
-      |   ^~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:62:3: error: type defaults to 'int' in declaration of 'IfxEgtm_MscOut' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:68:2: error: '#endif' without '#if'
-   68 | #endif /* IFXEGTM_H */
-      |  ^~~~~
-In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:6:
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Cmu.h:17:19: error: expected identifier or '(' before '{' token
-   17 | } IfxEgtm_Cmu_Clk;{
-      |                   ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Cmu.h:21:3: error: data definition has no type or storage class [-Werror]
-   21 | } IfxEgtm_Cmu_Eclk;{
-      |   ^~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Cmu.h:21:3: error: type defaults to 'int' in declaration of 'IfxEgtm_Cmu_Eclk' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Cmu.h:21:20: error: expected identifier or '(' before '{' token
-   21 | } IfxEgtm_Cmu_Eclk;{
-      |                    ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Cmu.h:27:3: error: data definition has no type or storage class [-Werror]
-   27 | } IfxEgtm_Cmu_Fxclk;{
-      |   ^~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Cmu.h:27:3: error: type defaults to 'int' in declaration of 'IfxEgtm_Cmu_Fxclk' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Cmu.h:27:21: error: expected identifier or '(' before '{' token
-   27 | } IfxEgtm_Cmu_Fxclk;{
-      |                     ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Cmu.h:32:3: error: data definition has no type or storage class [-Werror]
-   32 | } IfxEgtm_Cmu_Tim_Filter_Clk;
-      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Cmu.h:32:3: error: type defaults to 'int' in declaration of 'IfxEgtm_Cmu_Tim_Filter_Clk' [-Wimplicit-int]
-In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:7:
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:19:24: error: expected identifier or '(' before '{' token
-   19 | } IfxPort_ControlledBy;{
-      |                        ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:24:3: error: data definition has no type or storage class [-Werror]
-   24 | } IfxPort_InputMode;{
-      |   ^~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:24:3: error: type defaults to 'int' in declaration of 'IfxPort_InputMode' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:24:21: error: expected identifier or '(' before '{' token
-   24 | } IfxPort_InputMode;{
-      |                     ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:27:3: error: data definition has no type or storage class [-Werror]
-   27 | } IfxPort_LvdsMode;{
-      |   ^~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:27:3: error: type defaults to 'int' in declaration of 'IfxPort_LvdsMode' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:27:20: error: expected identifier or '(' before '{' token
-   27 | } IfxPort_LvdsMode;{
-      |                    ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:30:3: error: data definition has no type or storage class [-Werror]
-   30 | } IfxPort_LvdsTerm;{
-      |   ^~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:30:3: error: type defaults to 'int' in declaration of 'IfxPort_LvdsTerm' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:30:20: error: expected identifier or '(' before '{' token
-   30 | } IfxPort_LvdsTerm;{
-      |                    ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:66:3: error: data definition has no type or storage class [-Werror]
-   66 | } IfxPort_Mode;{
-      |   ^~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:66:3: error: type defaults to 'int' in declaration of 'IfxPort_Mode' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:66:16: error: expected identifier or '(' before '{' token
-   66 | } IfxPort_Mode;{
-      |                ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:71:3: error: data definition has no type or storage class [-Werror]
-   71 | } IfxPort_Modex;{
-      |   ^~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:71:3: error: type defaults to 'int' in declaration of 'IfxPort_Modex' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:71:17: error: expected identifier or '(' before '{' token
-   71 | } IfxPort_Modex;{
-      |                 ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:88:3: error: data definition has no type or storage class [-Werror]
-   88 | } IfxPort_OutputIdx;{
-      |   ^~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:88:3: error: type defaults to 'int' in declaration of 'IfxPort_OutputIdx' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:88:21: error: expected identifier or '(' before '{' token
-   88 | } IfxPort_OutputIdx;{
-      |                     ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:91:3: error: data definition has no type or storage class [-Werror]
-   91 | } IfxPort_OutputMode;{
-      |   ^~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:91:3: error: type defaults to 'int' in declaration of 'IfxPort_OutputMode' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:91:22: error: expected identifier or '(' before '{' token
-   91 | } IfxPort_OutputMode;{
-      |                      ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:94:3: error: data definition has no type or storage class [-Werror]
-   94 | } IfxPort_PadSupply;{
-      |   ^~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:94:3: error: type defaults to 'int' in declaration of 'IfxPort_PadSupply' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:94:21: error: expected identifier or '(' before '{' token
-   94 | } IfxPort_PadSupply;{
-      |                     ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:97:3: error: data definition has no type or storage class [-Werror]
-   97 | } IfxPort_PinFunctionMode;{
-      |   ^~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:97:3: error: type defaults to 'int' in declaration of 'IfxPort_PinFunctionMode' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:97:27: error: expected identifier or '(' before '{' token
-   97 | } IfxPort_PinFunctionMode;{
-      |                           ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:102:3: error: data definition has no type or storage class [-Werror]
-  102 | } IfxPort_State;{
-      |   ^~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:102:3: error: type defaults to 'int' in declaration of 'IfxPort_State' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:102:17: error: expected identifier or '(' before '{' token
-  102 | } IfxPort_State;{
-      |                 ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:119:3: error: data definition has no type or storage class [-Werror]
-  119 | } IfxPort_BandgapTrimConfig;{
-      |   ^~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:119:3: error: type defaults to 'int' in declaration of 'IfxPort_BandgapTrimConfig' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:119:29: error: expected identifier or '(' before '{' token
-  119 | } IfxPort_BandgapTrimConfig;{
-      |                             ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:124:3: error: data definition has no type or storage class [-Werror]
-  124 | } IfxPort_BlankingTimerConfig;{
-      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:124:3: error: type defaults to 'int' in declaration of 'IfxPort_BlankingTimerConfig' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:124:31: error: expected identifier or '(' before '{' token
-  124 | } IfxPort_BlankingTimerConfig;{
-      |                               ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:127:3: error: data definition has no type or storage class [-Werror]
-  127 | } IfxPort_EsrLevel;{
-      |   ^~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:127:3: error: type defaults to 'int' in declaration of 'IfxPort_EsrLevel' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:127:20: error: expected identifier or '(' before '{' token
-  127 | } IfxPort_EsrLevel;{
-      |                    ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:131:3: error: data definition has no type or storage class [-Werror]
-  131 | } IfxPort_EsrPadCfg;{
-      |   ^~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:131:3: error: type defaults to 'int' in declaration of 'IfxPort_EsrPadCfg' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:131:21: error: expected identifier or '(' before '{' token
-  131 | } IfxPort_EsrPadCfg;{
-      |                     ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:134:3: error: data definition has no type or storage class [-Werror]
-  134 | } IfxPort_LvdsDirection;{
-      |   ^~~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:134:3: error: type defaults to 'int' in declaration of 'IfxPort_LvdsDirection' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:134:25: error: expected identifier or '(' before '{' token
-  134 | } IfxPort_LvdsDirection;{
-      |                         ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:137:3: error: data definition has no type or storage class [-Werror]
-  137 | } IfxPort_LvdsPath;{
-      |   ^~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:137:3: error: type defaults to 'int' in declaration of 'IfxPort_LvdsPath' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:137:20: error: expected identifier or '(' before '{' token
-  137 | } IfxPort_LvdsPath;{
-      |                    ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:140:3: error: data definition has no type or storage class [-Werror]
-  140 | } IfxPort_LvdsPullDown;{
-      |   ^~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:140:3: error: type defaults to 'int' in declaration of 'IfxPort_LvdsPullDown' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:140:24: error: expected identifier or '(' before '{' token
-  140 | } IfxPort_LvdsPullDown;{
-      |                        ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:143:3: error: data definition has no type or storage class [-Werror]
-  143 | } IfxPort_LvdsTerminationMode;{
-      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:143:3: error: type defaults to 'int' in declaration of 'IfxPort_LvdsTerminationMode' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:143:31: error: expected identifier or '(' before '{' token
-  143 | } IfxPort_LvdsTerminationMode;{
-      |                               ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:152:3: error: data definition has no type or storage class [-Werror]
-  152 | } IfxPort_PadAccessGroup;{
-      |   ^~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:152:3: error: type defaults to 'int' in declaration of 'IfxPort_PadAccessGroup' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:152:26: error: expected identifier or '(' before '{' token
-  152 | } IfxPort_PadAccessGroup;{
-      |                          ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:162:3: error: data definition has no type or storage class [-Werror]
-  162 | } IfxPort_PadDriver;
-      |   ^~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:162:3: error: type defaults to 'int' in declaration of 'IfxPort_PadDriver' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:170:19: error: expected identifier or '(' before 'typedef'
-  170 |     unsigned long typedef struct
-      |                   ^~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:174:3: error: expected ';' before 'IfxPort_Pin_ApuConfig'
-  174 | } IfxPort_Pin_ApuConfig; prsWrId;
-      |   ^~~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:176:3: error: conflicting types for 'IfxApApu_ApuConfig'; have 'struct <anonymous>'
-  176 | } IfxApApu_ApuConfig;{ uint32 dummy; } IfxApProt_ProtConfig;
-      |   ^~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:17:3: note: previous declaration of 'IfxApApu_ApuConfig' with type 'IfxApApu_ApuConfig'
-   17 | } IfxApApu_ApuConfig;{ uint32 dummy; } IfxApProt_ProtConfig;
-      |   ^~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:176:22: error: expected identifier or '(' before '{' token
-  176 | } IfxApApu_ApuConfig;{ uint32 dummy; } IfxApProt_ProtConfig;
-      |                      ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:176:40: error: data definition has no type or storage class [-Werror]
-  176 | } IfxApApu_ApuConfig;{ uint32 dummy; } IfxApProt_ProtConfig;
-      |                                        ^~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:176:40: error: type defaults to 'int' in declaration of 'IfxApProt_ProtConfig' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:182:25: error: expected identifier or '(' before '{' token
-  182 | } IfxPort_Pin_ApuConfig;{
-      |                         ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:187:3: error: data definition has no type or storage class [-Werror]
-  187 | } IfxPort_LvdsConfig;{
-      |   ^~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:187:3: error: type defaults to 'int' in declaration of 'IfxPort_LvdsConfig' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:187:22: error: expected identifier or '(' before '{' token
-  187 | } IfxPort_LvdsConfig;{
-      |                      ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:190:3: error: data definition has no type or storage class [-Werror]
-  190 | } IfxPort_Pin;{
-      |   ^~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:190:3: error: type defaults to 'int' in declaration of 'IfxPort_Pin' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:190:15: error: expected identifier or '(' before '{' token
-  190 | } IfxPort_Pin;{
-      |               ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:195:3: error: data definition has no type or storage class [-Werror]
-  195 | } IfxPort_Pin_Config;{
-      |   ^~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:195:3: error: type defaults to 'int' in declaration of 'IfxPort_Pin_Config' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:195:22: error: expected identifier or '(' before '{' token
-  195 | } IfxPort_Pin_Config;{
-      |                      ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:198:3: error: data definition has no type or storage class [-Werror]
-  198 | } IfxPort_ApuConfig;{
-      |   ^~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:198:3: error: type defaults to 'int' in declaration of 'IfxPort_ApuConfig' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:198:21: error: expected identifier or '(' before '{' token
-  198 | } IfxPort_ApuConfig;{
-      |                     ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:201:3: error: data definition has no type or storage class [-Werror]
-  201 | } IfxPort_ApuGroupConfig;{
-      |   ^~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:201:3: error: type defaults to 'int' in declaration of 'IfxPort_ApuGroupConfig' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:201:26: error: expected identifier or '(' before '{' token
-  201 | } IfxPort_ApuGroupConfig;{
-      |                          ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:203:3: error: data definition has no type or storage class [-Werror]
-  203 | } IfxPort_ProtConfig;
-      |   ^~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:203:3: error: type defaults to 'int' in declaration of 'IfxPort_ProtConfig' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:206:60: error: expected declaration specifiers or '...' before 'IfxPort_OutputMode'
-  206 | void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
-      |                                                            ^~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:206:85: error: expected declaration specifiers or '...' before 'IfxPort_OutputIdx'
-  206 | void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
-      |                                                                                     ^~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:15:5: error: unknown type name 'IfxEgtm_Atom_ToutMap'
-   15 |     IfxEgtm_Atom_ToutMap atom;
-      |     ^~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:16:5: error: unknown type name 'IfxEgtm_Tom_ToutMap'
-   16 |     IfxEgtm_Tom_ToutMap  tom;
-      |     ^~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:29:1: error: expected identifier or '(' before '{' token
-   29 | {
-      | ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:32:3: error: data definition has no type or storage class [-Werror]
-   32 | } IfxEgtm_Pwm_SubModule;
-      |   ^~~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:32:3: error: type defaults to 'int' in declaration of 'IfxEgtm_Pwm_SubModule' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:33:1: error: expected identifier or '(' before '{' token
-   33 | {
-      | ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:50:3: error: data definition has no type or storage class [-Werror]
-   50 | } IfxEgtm_Pwm_SubModule_Ch;
-      |   ^~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:50:3: error: type defaults to 'int' in declaration of 'IfxEgtm_Pwm_SubModule_Ch' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:51:1: error: expected identifier or '(' before '{' token
-   51 | {
-      | ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:54:3: error: data definition has no type or storage class [-Werror]
-   54 | } IfxEgtm_Pwm_ChannelState;
-      |   ^~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:54:3: error: type defaults to 'int' in declaration of 'IfxEgtm_Pwm_ChannelState' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:55:1: error: expected identifier or '(' before '{' token
-   55 | {
-      | ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:58:3: error: data definition has no type or storage class [-Werror]
-   58 | } IfxEgtm_Pwm_ResetEvent;
-      |   ^~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:58:3: error: type defaults to 'int' in declaration of 'IfxEgtm_Pwm_ResetEvent' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:59:1: error: expected identifier or '(' before '{' token
-   59 | {
-      | ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:65:3: error: data definition has no type or storage class [-Werror]
-   65 | } IfxEgtm_Pwm_State;
-      |   ^~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:65:3: error: type defaults to 'int' in declaration of 'IfxEgtm_Pwm_State' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:66:1: error: expected identifier or '(' before '{' token
-   66 | {
-      | ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:83:3: error: data definition has no type or storage class [-Werror]
-   83 | } IfxEgtm_Pwm_SyncChannelIndex;
-      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:83:3: error: type defaults to 'int' in declaration of 'IfxEgtm_Pwm_SyncChannelIndex' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:84:1: error: expected identifier or '(' before '{' token
-   84 | {
-      | ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:89:3: error: data definition has no type or storage class [-Werror]
-   89 | } IfxEgtm_Dtm_ClockSource;
-      |   ^~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:89:3: error: type defaults to 'int' in declaration of 'IfxEgtm_Dtm_ClockSource' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:90:1: error: expected identifier or '(' before '{' token
-   90 | {
-      | ^
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sii_5omk\include/IfxEgtm.h:43:105: error: data definition has no type or storage class [-Werror]
+   43 | } IfxEgtm_ClApConfig;SuspendMode_none = 0, IfxEgtm_SuspendMode_hard = 1, IfxEgtm_SuspendMode_soft = 2 } IfxEgtm_SuspendMode;
+      |                                                                                                         ^~~~~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sii_5omk\include/IfxEgtm.h:43:105: error: type defaults to 'int' in declaration of 'IfxEgtm_SuspendMode' [-Wimplicit-int]
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sii_5omk\include/IfxEgtm.h:46:53: error: expected ':', ',', ';', '}' or '__attribute__' before 'struct'
+   46 | typedef struct { IfxApApu_ApuConfig apuConfitypedef struct
+      |                                                     ^~~~~~
 cc1.exe: all warnings being treated as errors
 
-In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\mocks\mock_egtm_atom_3_phase_inverter_pwm.c:2:
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:19:24: error: expected identifier or '(' before '{' token
-   19 | } IfxPort_ControlledBy;{
-      |                        ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:24:3: error: data definition has no type or storage class [-Werror]
-   24 | } IfxPort_InputMode;{
-      |   ^~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:24:3: error: type defaults to 'int' in declaration of 'IfxPort_InputMode' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:24:21: error: expected identifier or '(' before '{' token
-   24 | } IfxPort_InputMode;{
-      |                     ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:27:3: error: data definition has no type or storage class [-Werror]
-   27 | } IfxPort_LvdsMode;{
-      |   ^~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:27:3: error: type defaults to 'int' in declaration of 'IfxPort_LvdsMode' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:27:20: error: expected identifier or '(' before '{' token
-   27 | } IfxPort_LvdsMode;{
-      |                    ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:30:3: error: data definition has no type or storage class [-Werror]
-   30 | } IfxPort_LvdsTerm;{
-      |   ^~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:30:3: error: type defaults to 'int' in declaration of 'IfxPort_LvdsTerm' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:30:20: error: expected identifier or '(' before '{' token
-   30 | } IfxPort_LvdsTerm;{
-      |                    ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:66:3: error: data definition has no type or storage class [-Werror]
-   66 | } IfxPort_Mode;{
-      |   ^~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:66:3: error: type defaults to 'int' in declaration of 'IfxPort_Mode' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:66:16: error: expected identifier or '(' before '{' token
-   66 | } IfxPort_Mode;{
-      |                ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:71:3: error: data definition has no type or storage class [-Werror]
-   71 | } IfxPort_Modex;{
-      |   ^~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:71:3: error: type defaults to 'int' in declaration of 'IfxPort_Modex' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:71:17: error: expected identifier or '(' before '{' token
-   71 | } IfxPort_Modex;{
-      |                 ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:88:3: error: data definition has no type or storage class [-Werror]
-   88 | } IfxPort_OutputIdx;{
-      |   ^~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:88:3: error: type defaults to 'int' in declaration of 'IfxPort_OutputIdx' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:88:21: error: expected identifier or '(' before '{' token
-   88 | } IfxPort_OutputIdx;{
-      |                     ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:91:3: error: data definition has no type or storage class [-Werror]
-   91 | } IfxPort_OutputMode;{
-      |   ^~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:91:3: error: type defaults to 'int' in declaration of 'IfxPort_OutputMode' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:91:22: error: expected identifier or '(' before '{' token
-   91 | } IfxPort_OutputMode;{
+In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sii_5omk\include/IfxPort.h:6,
+                 from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sii_5omk\mocks\mock_egtm_atom_3_phase_inverter_pwm.c:6:
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sii_5omk\include/IfxEgtm.h:18:22: error: expected identifier or '(' before '{' token
+   18 | } IfxApApu_ApuConfig;{ uint32 reserved; } IfxApProt_ProtConfig;
       |                      ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:94:3: error: data definition has no type or storage class [-Werror]
-   94 | } IfxPort_PadSupply;{
-      |   ^~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:94:3: error: type defaults to 'int' in declaration of 'IfxPort_PadSupply' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:94:21: error: expected identifier or '(' before '{' token
-   94 | } IfxPort_PadSupply;{
-      |                     ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:97:3: error: data definition has no type or storage class [-Werror]
-   97 | } IfxPort_PinFunctionMode;{
-      |   ^~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:97:3: error: type defaults to 'int' in declaration of 'IfxPort_PinFunctionMode' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:97:27: error: expected identifier or '(' before '{' token
-   97 | } IfxPort_PinFunctionMode;{
-      |                           ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:102:3: error: data definition has no type or storage class [-Werror]
-  102 | } IfxPort_State;{
-      |   ^~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:102:3: error: type defaults to 'int' in declaration of 'IfxPort_State' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:102:17: error: expected identifier or '(' before '{' token
-  102 | } IfxPort_State;{
-      |                 ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:119:3: error: data definition has no type or storage class [-Werror]
-  119 | } IfxPort_BandgapTrimConfig;{
-      |   ^~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:119:3: error: type defaults to 'int' in declaration of 'IfxPort_BandgapTrimConfig' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:119:29: error: expected identifier or '(' before '{' token
-  119 | } IfxPort_BandgapTrimConfig;{
-      |                             ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:124:3: error: data definition has no type or storage class [-Werror]
-  124 | } IfxPort_BlankingTimerConfig;{
-      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:124:3: error: type defaults to 'int' in declaration of 'IfxPort_BlankingTimerConfig' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:124:31: error: expected identifier or '(' before '{' token
-  124 | } IfxPort_BlankingTimerConfig;{
-      |                               ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:127:3: error: data definition has no type or storage class [-Werror]
-  127 | } IfxPort_EsrLevel;{
-      |   ^~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:127:3: error: type defaults to 'int' in declaration of 'IfxPort_EsrLevel' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:127:20: error: expected identifier or '(' before '{' token
-  127 | } IfxPort_EsrLevel;{
-      |                    ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:131:3: error: data definition has no type or storage class [-Werror]
-  131 | } IfxPort_EsrPadCfg;{
-      |   ^~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:131:3: error: type defaults to 'int' in declaration of 'IfxPort_EsrPadCfg' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:131:21: error: expected identifier or '(' before '{' token
-  131 | } IfxPort_EsrPadCfg;{
-      |                     ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:134:3: error: data definition has no type or storage class [-Werror]
-  134 | } IfxPort_LvdsDirection;{
-      |   ^~~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:134:3: error: type defaults to 'int' in declaration of 'IfxPort_LvdsDirection' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:134:25: error: expected identifier or '(' before '{' token
-  134 | } IfxPort_LvdsDirection;{
-      |                         ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:137:3: error: data definition has no type or storage class [-Werror]
-  137 | } IfxPort_LvdsPath;{
-      |   ^~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:137:3: error: type defaults to 'int' in declaration of 'IfxPort_LvdsPath' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:137:20: error: expected identifier or '(' before '{' token
-  137 | } IfxPort_LvdsPath;{
-      |                    ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:140:3: error: data definition has no type or storage class [-Werror]
-  140 | } IfxPort_LvdsPullDown;{
-      |   ^~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:140:3: error: type defaults to 'int' in declaration of 'IfxPort_LvdsPullDown' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:140:24: error: expected identifier or '(' before '{' token
-  140 | } IfxPort_LvdsPullDown;{
-      |                        ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:143:3: error: data definition has no type or storage class [-Werror]
-  143 | } IfxPort_LvdsTerminationMode;{
-      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:143:3: error: type defaults to 'int' in declaration of 'IfxPort_LvdsTerminationMode' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:143:31: error: expected identifier or '(' before '{' token
-  143 | } IfxPort_LvdsTerminationMode;{
-      |                               ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:152:3: error: data definition has no type or storage class [-Werror]
-  152 | } IfxPort_PadAccessGroup;{
-      |   ^~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:152:3: error: type defaults to 'int' in declaration of 'IfxPort_PadAccessGroup' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:152:26: error: expected identifier or '(' before '{' token
-  152 | } IfxPort_PadAccessGroup;{
-      |                          ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:162:3: error: data definition has no type or storage class [-Werror]
-  162 | } IfxPort_PadDriver;
-      |   ^~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:162:3: error: type defaults to 'int' in declaration of 'IfxPort_PadDriver' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:170:19: error: expected identifier or '(' before 'typedef'
-  170 |     unsigned long typedef struct
-      |                   ^~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:174:3: error: expected ';' before 'IfxPort_Pin_ApuConfig'
-  174 | } IfxPort_Pin_ApuConfig; prsWrId;
-      |   ^~~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:176:22: error: expected identifier or '(' before '{' token
-  176 | } IfxApApu_ApuConfig;{ uint32 dummy; } IfxApProt_ProtConfig;
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sii_5omk\include/IfxEgtm.h:18:43: error: data definition has no type or storage class [-Werror]
+   18 | } IfxApApu_ApuConfig;{ uint32 reserved; } IfxApProt_ProtConfig;
+      |                                           ^~~~~~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sii_5omk\include/IfxEgtm.h:18:43: error: type defaults to 'int' in declaration of 'IfxApProt_ProtConfig' [-Wimplicit-int]
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sii_5omk\include/IfxEgtm.h:27:22: error: expected identifier or '(' before '{' token
+   27 | } IfxEgtm_Cfg_MscSet;{ IfxEgtm_Cfg_MscSetSignal_a = 0 } IfxEgtm_Cfg_MscSetSignal;{ IfxEgtm_Cfg_MscModule_a = 0 } IfxEgtm_Cfg_MscModule;{ IfxEgtm_Cfg_MscSetypedef enum
       |                      ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:176:40: error: data definition has no type or storage class [-Werror]
-  176 | } IfxApApu_ApuConfig;{ uint32 dummy; } IfxApProt_ProtConfig;
-      |                                        ^~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:176:40: error: type defaults to 'int' in declaration of 'IfxApProt_ProtConfig' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:182:25: error: expected identifier or '(' before '{' token
-  182 | } IfxPort_Pin_ApuConfig;{
-      |                         ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:187:3: error: data definition has no type or storage class [-Werror]
-  187 | } IfxPort_LvdsConfig;{
-      |   ^~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:187:3: error: type defaults to 'int' in declaration of 'IfxPort_LvdsConfig' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:187:22: error: expected identifier or '(' before '{' token
-  187 | } IfxPort_LvdsConfig;{
-      |                      ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:190:3: error: data definition has no type or storage class [-Werror]
-  190 | } IfxPort_Pin;{
-      |   ^~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:190:3: error: type defaults to 'int' in declaration of 'IfxPort_Pin' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:190:15: error: expected identifier or '(' before '{' token
-  190 | } IfxPort_Pin;{
-      |               ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:195:3: error: data definition has no type or storage class [-Werror]
-  195 | } IfxPort_Pin_Config;{
-      |   ^~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:195:3: error: type defaults to 'int' in declaration of 'IfxPort_Pin_Config' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:195:22: error: expected identifier or '(' before '{' token
-  195 | } IfxPort_Pin_Config;{
-      |                      ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:198:3: error: data definition has no type or storage class [-Werror]
-  198 | } IfxPort_ApuConfig;{
-      |   ^~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:198:3: error: type defaults to 'int' in declaration of 'IfxPort_ApuConfig' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:198:21: error: expected identifier or '(' before '{' token
-  198 | } IfxPort_ApuConfig;{
-      |                     ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:201:3: error: data definition has no type or storage class [-Werror]
-  201 | } IfxPort_ApuGroupConfig;{
-      |   ^~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:201:3: error: type defaults to 'int' in declaration of 'IfxPort_ApuGroupConfig' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:201:26: error: expected identifier or '(' before '{' token
-  201 | } IfxPort_ApuGroupConfig;{
-      |                          ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:203:3: error: data definition has no type or storage class [-Werror]
-  203 | } IfxPort_ProtConfig;
-      |   ^~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:203:3: error: type defaults to 'int' in declaration of 'IfxPort_ProtConfig' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:206:60: error: expected declaration specifiers or '...' before 'IfxPort_OutputMode'
-  206 | void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
-      |                                                            ^~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:206:85: error: expected declaration specifiers or '...' before 'IfxPort_OutputIdx'
-  206 | void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
-      |                                                                                     ^~~~~~~~~~~~~~~~~
-In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\mocks\mock_egtm_atom_3_phase_inverter_pwm.c:3:
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:17:3: error: conflicting types for 'IfxApApu_ApuConfig'; have 'struct <anonymous>'
-   17 | } IfxApApu_ApuConfig;{ uint32 dummy; } IfxApProt_ProtConfig;
-      |   ^~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxPort.h:176:3: note: previous declaration of 'IfxApApu_ApuConfig' with type 'IfxApApu_ApuConfig'
-  176 | } IfxApApu_ApuConfig;{ uint32 dummy; } IfxApProt_ProtConfig;
-      |   ^~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:17:22: error: expected identifier or '(' before '{' token
-   17 | } IfxApApu_ApuConfig;{ uint32 dummy; } IfxApProt_ProtConfig;
-      |                      ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:17:40: error: data definition has no type or storage class [-Werror]
-   17 | } IfxApApu_ApuConfig;{ uint32 dummy; } IfxApProt_ProtConfig;
-      |                                        ^~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:17:40: error: type defaults to 'int' in declaration of 'IfxApProt_ProtConfig' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:24:27: error: expected identifier or '(' before '{' token
-   24 | } IfxEgtm_AeiBridgeOpMode;{
-      |                           ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:28:3: error: data definition has no type or storage class [-Werror]
-   28 | } IfxEgtm_ClusterClockDiv;{
-      |   ^~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:28:3: error: type defaults to 'int' in declaration of 'IfxEgtm_ClusterClockDiv' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:28:27: error: expected identifier or '(' before '{' token
-   28 | } IfxEgtm_ClusterClockDiv;{
-      |                           ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:33:3: error: data definition has no type or storage class [-Werror]
-   33 | } IfxEgtm_IrqMode;{
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sii_5omk\include/IfxEgtm.h:27:57: error: data definition has no type or storage class [-Werror]
+   27 | } IfxEgtm_Cfg_MscSet;{ IfxEgtm_Cfg_MscSetSignal_a = 0 } IfxEgtm_Cfg_MscSetSignal;{ IfxEgtm_Cfg_MscModule_a = 0 } IfxEgtm_Cfg_MscModule;{ IfxEgtm_Cfg_MscSetypedef enum
+      |                                                         ^~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sii_5omk\include/IfxEgtm.h:27:57: error: type defaults to 'int' in declaration of 'IfxEgtm_Cfg_MscSetSignal' [-Wimplicit-int]
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sii_5omk\include/IfxEgtm.h:27:82: error: expected identifier or '(' before '{' token
+   27 | } IfxEgtm_Cfg_MscSet;{ IfxEgtm_Cfg_MscSetSignal_a = 0 } IfxEgtm_Cfg_MscSetSignal;{ IfxEgtm_Cfg_MscModule_a = 0 } IfxEgtm_Cfg_MscModule;{ IfxEgtm_Cfg_MscSetypedef enum
+      |                                                                                  ^
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sii_5omk\include/IfxEgtm.h:27:114: error: data definition has no type or storage class [-Werror]
+   27 | } IfxEgtm_Cfg_MscSet;{ IfxEgtm_Cfg_MscSetSignal_a = 0 } IfxEgtm_Cfg_MscSetSignal;{ IfxEgtm_Cfg_MscModule_a = 0 } IfxEgtm_Cfg_MscModule;{ IfxEgtm_Cfg_MscSetypedef enum
+      |                                                                                                                  ^~~~~~~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sii_5omk\include/IfxEgtm.h:27:114: error: type defaults to 'int' in declaration of 'IfxEgtm_Cfg_MscModule' [-Wimplicit-int]
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sii_5omk\include/IfxEgtm.h:27:136: error: expected identifier or '(' before '{' token
+   27 | } IfxEgtm_Cfg_MscSet;{ IfxEgtm_Cfg_MscSetSignal_a = 0 } IfxEgtm_Cfg_MscSetSignal;{ IfxEgtm_Cfg_MscModule_a = 0 } IfxEgtm_Cfg_MscModule;{ IfxEgtm_Cfg_MscSetypedef enum
+      |                                                                                                                                        ^
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sii_5omk\include/IfxEgtm.h:31:81: error: data definition has no type or storage class [-Werror]
+   31 | } IfxEgtm_AeiBridgeOpMode;pMode_sync = 0u, IfxEgtm_AeiBridgeOpMode_async = 1u } IfxEgtm_AeiBridgeOpMode;{ IfxEgtm_ClusterClockDiv_disable = 0u, IfxEgtm_ClusterClockDiv_enable = 1u, IfxEgtm_ClusterClockDiv_enableDiv2 = 2u } IfxEgtm_ClusterClockDiv;{
+      |                                                                                 ^~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sii_5omk\include/IfxEgtm.h:31:81: error: type defaults to 'int' in declaration of 'IfxEgtm_AeiBridgeOpMode' [-Wimplicit-int]
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sii_5omk\include/IfxEgtm.h:31:105: error: expected identifier or '(' before '{' token
+   31 | } IfxEgtm_AeiBridgeOpMode;pMode_sync = 0u, IfxEgtm_AeiBridgeOpMode_async = 1u } IfxEgtm_AeiBridgeOpMode;{ IfxEgtm_ClusterClockDiv_disable = 0u, IfxEgtm_ClusterClockDiv_enable = 1u, IfxEgtm_ClusterClockDiv_enableDiv2 = 2u } IfxEgtm_ClusterClockDiv;{
+      |                                                                                                         ^
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sii_5omk\include/IfxEgtm.h:31:224: error: data definition has no type or storage class [-Werror]
+   31 | } IfxEgtm_AeiBridgeOpMode;pMode_sync = 0u, IfxEgtm_AeiBridgeOpMode_async = 1u } IfxEgtm_AeiBridgeOpMode;{ IfxEgtm_ClusterClockDiv_disable = 0u, IfxEgtm_ClusterClockDiv_enable = 1u, IfxEgtm_ClusterClockDiv_enableDiv2 = 2u } IfxEgtm_ClusterClockDiv;{
+      |                                                                                                                                                                                                                                ^~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sii_5omk\include/IfxEgtm.h:31:224: error: type defaults to 'int' in declaration of 'IfxEgtm_ClusterClockDiv' [-Wimplicit-int]
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sii_5omk\include/IfxEgtm.h:31:248: error: expected identifier or '(' before '{' token
+   31 | } IfxEgtm_AeiBridgeOpMode;pMode_sync = 0u, IfxEgtm_AeiBridgeOpMode_async = 1u } IfxEgtm_AeiBridgeOpMode;{ IfxEgtm_ClusterClockDiv_disable = 0u, IfxEgtm_ClusterClockDiv_enable = 1u, IfxEgtm_ClusterClockDiv_enableDiv2 = 2u } IfxEgtm_ClusterClockDiv;{
+      |                                                                                                                                                                                                                                                        ^
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sii_5omk\include/IfxEgtm.h:36:3: error: data definition has no type or storage class [-Werror]
+   36 | } IfxEgtm_IrqMode;{
       |   ^~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:33:3: error: type defaults to 'int' in declaration of 'IfxEgtm_IrqMode' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:33:19: error: expected identifier or '(' before '{' token
-   33 | } IfxEgtm_IrqMode;{
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sii_5omk\include/IfxEgtm.h:36:3: error: type defaults to 'int' in declaration of 'IfxEgtm_IrqMode' [-Wimplicit-int]
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sii_5omk\include/IfxEgtm.h:36:19: error: expected identifier or '(' before '{' token
+   36 | } IfxEgtm_IrqMode;{
       |                   ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:43:3: error: data definition has no type or storage class [-Werror]
-   43 | } IfxEgtm_SuspendMode;
-      |   ^~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:43:3: error: type defaults to 'int' in declaration of 'IfxEgtm_SuspendMode' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:50:22: error: expected identifier or '(' before '{' token
-   50 | } IfxEgtm_ClApConfig;{
-      |                      ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:53:3: error: data definition has no type or storage class [-Werror]
-   53 | } IfxEgtm_CtrlApConfig;{
-      |   ^~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:53:3: error: type defaults to 'int' in declaration of 'IfxEgtm_CtrlApConfig' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:53:24: error: expected identifier or '(' before '{' token
-   53 | } IfxEgtm_CtrlApConfig;{
-      |                        ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:55:3: error: data definition has no type or storage class [-Werror]
-   55 | } IfxEgtm_WrapApConfig;{
-      |   ^~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:55:3: error: type defaults to 'int' in declaration of 'IfxEgtm_WrapApConfig' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:55:24: error: expected identifier or '(' before '{' token
-   55 | } IfxEgtm_WrapApConfig;{
-      |                        ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:60:3: error: data definition has no type or storage class [-Werror]
-   60 | } IfxEgtm_ApConfig;{
-      |   ^~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:60:3: error: type defaults to 'int' in declaration of 'IfxEgtm_ApConfig' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:60:20: error: expected identifier or '(' before '{' token
-   60 | } IfxEgtm_ApConfig;{
-      |                    ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:62:3: error: data definition has no type or storage class [-Werror]
-   62 | } IfxEgtm_MscOut;
-      |   ^~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:62:3: error: type defaults to 'int' in declaration of 'IfxEgtm_MscOut' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:68:2: error: '#endif' without '#if'
-   68 | #endif /* IFXEGTM_H */
-      |  ^~~~~
-In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\mocks\mock_egtm_atom_3_phase_inverter_pwm.c:4:
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Cmu.h:17:19: error: expected identifier or '(' before '{' token
-   17 | } IfxEgtm_Cmu_Clk;{
-      |                   ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Cmu.h:21:3: error: data definition has no type or storage class [-Werror]
-   21 | } IfxEgtm_Cmu_Eclk;{
-      |   ^~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Cmu.h:21:3: error: type defaults to 'int' in declaration of 'IfxEgtm_Cmu_Eclk' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Cmu.h:21:20: error: expected identifier or '(' before '{' token
-   21 | } IfxEgtm_Cmu_Eclk;{
-      |                    ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Cmu.h:27:3: error: data definition has no type or storage class [-Werror]
-   27 | } IfxEgtm_Cmu_Fxclk;{
-      |   ^~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Cmu.h:27:3: error: type defaults to 'int' in declaration of 'IfxEgtm_Cmu_Fxclk' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Cmu.h:27:21: error: expected identifier or '(' before '{' token
-   27 | } IfxEgtm_Cmu_Fxclk;{
-      |                     ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Cmu.h:32:3: error: data definition has no type or storage class [-Werror]
-   32 | } IfxEgtm_Cmu_Tim_Filter_Clk;
-      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Cmu.h:32:3: error: type defaults to 'int' in declaration of 'IfxEgtm_Cmu_Tim_Filter_Clk' [-Wimplicit-int]
-In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:5,
-                 from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\mocks\mock_egtm_atom_3_phase_inverter_pwm.c:5:
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:50:3: error: conflicting types for 'IfxEgtm_ClApConfig'; have 'struct <anonymous>'
-   50 | } IfxEgtm_ClApConfig;{
-      |   ^~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:50:3: note: previous declaration of 'IfxEgtm_ClApConfig' with type 'IfxEgtm_ClApConfig'
-   50 | } IfxEgtm_ClApConfig;{
-      |   ^~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:50:22: error: expected identifier or '(' before '{' token
-   50 | } IfxEgtm_ClApConfig;{
-      |                      ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:53:3: error: data definition has no type or storage class [-Werror]
-   53 | } IfxEgtm_CtrlApConfig;{
-      |   ^~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:53:3: error: type defaults to 'int' in declaration of 'IfxEgtm_CtrlApConfig' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:53:24: error: expected identifier or '(' before '{' token
-   53 | } IfxEgtm_CtrlApConfig;{
-      |                        ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:55:3: error: data definition has no type or storage class [-Werror]
-   55 | } IfxEgtm_WrapApConfig;{
-      |   ^~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:55:3: error: type defaults to 'int' in declaration of 'IfxEgtm_WrapApConfig' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:55:24: error: expected identifier or '(' before '{' token
-   55 | } IfxEgtm_WrapApConfig;{
-      |                        ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:60:3: error: data definition has no type or storage class [-Werror]
-   60 | } IfxEgtm_ApConfig;{
-      |   ^~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:60:3: error: type defaults to 'int' in declaration of 'IfxEgtm_ApConfig' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:60:20: error: expected identifier or '(' before '{' token
-   60 | } IfxEgtm_ApConfig;{
-      |                    ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:62:3: error: data definition has no type or storage class [-Werror]
-   62 | } IfxEgtm_MscOut;
-      |   ^~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:62:3: error: type defaults to 'int' in declaration of 'IfxEgtm_MscOut' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm.h:68:2: error: '#endif' without '#if'
-   68 | #endif /* IFXEGTM_H */
-      |  ^~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:15:5: error: unknown type name 'IfxEgtm_Atom_ToutMap'
-   15 |     IfxEgtm_Atom_ToutMap atom;
-      |     ^~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:16:5: error: unknown type name 'IfxEgtm_Tom_ToutMap'
-   16 |     IfxEgtm_Tom_ToutMap  tom;
-      |     ^~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:29:1: error: expected identifier or '(' before '{' token
-   29 | {
-      | ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:32:3: error: data definition has no type or storage class [-Werror]
-   32 | } IfxEgtm_Pwm_SubModule;
-      |   ^~~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:32:3: error: type defaults to 'int' in declaration of 'IfxEgtm_Pwm_SubModule' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:33:1: error: expected identifier or '(' before '{' token
-   33 | {
-      | ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:50:3: error: data definition has no type or storage class [-Werror]
-   50 | } IfxEgtm_Pwm_SubModule_Ch;
-      |   ^~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:50:3: error: type defaults to 'int' in declaration of 'IfxEgtm_Pwm_SubModule_Ch' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:51:1: error: expected identifier or '(' before '{' token
-   51 | {
-      | ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:54:3: error: data definition has no type or storage class [-Werror]
-   54 | } IfxEgtm_Pwm_ChannelState;
-      |   ^~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:54:3: error: type defaults to 'int' in declaration of 'IfxEgtm_Pwm_ChannelState' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:55:1: error: expected identifier or '(' before '{' token
-   55 | {
-      | ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:58:3: error: data definition has no type or storage class [-Werror]
-   58 | } IfxEgtm_Pwm_ResetEvent;
-      |   ^~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:58:3: error: type defaults to 'int' in declaration of 'IfxEgtm_Pwm_ResetEvent' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:59:1: error: expected identifier or '(' before '{' token
-   59 | {
-      | ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:65:3: error: data definition has no type or storage class [-Werror]
-   65 | } IfxEgtm_Pwm_State;
-      |   ^~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:65:3: error: type defaults to 'int' in declaration of 'IfxEgtm_Pwm_State' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:66:1: error: expected identifier or '(' before '{' token
-   66 | {
-      | ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:83:3: error: data definition has no type or storage class [-Werror]
-   83 | } IfxEgtm_Pwm_SyncChannelIndex;
-      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:83:3: error: type defaults to 'int' in declaration of 'IfxEgtm_Pwm_SyncChannelIndex' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:84:1: error: expected identifier or '(' before '{' token
-   84 | {
-      | ^
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:89:3: error: data definition has no type or storage class [-Werror]
-   89 | } IfxEgtm_Dtm_ClockSource;
-      |   ^~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:89:3: error: type defaults to 'int' in declaration of 'IfxEgtm_Dtm_ClockSource' [-Wimplicit-int]
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wb4lxxi3\include/IfxEgtm_Pwm.h:90:1: error: expected identifier or '(' before '{' token
-   90 | {
-      | ^
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sii_5omk\include/IfxEgtm.h:43:105: error: data definition has no type or storage class [-Werror]
+   43 | } IfxEgtm_ClApConfig;SuspendMode_none = 0, IfxEgtm_SuspendMode_hard = 1, IfxEgtm_SuspendMode_soft = 2 } IfxEgtm_SuspendMode;
+      |                                                                                                         ^~~~~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sii_5omk\include/IfxEgtm.h:43:105: error: type defaults to 'int' in declaration of 'IfxEgtm_SuspendMode' [-Wimplicit-int]
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_sii_5omk\include/IfxEgtm.h:46:53: error: expected ':', ',', ';', '}' or '__attribute__' before 'struct'
+   46 | typedef struct { IfxApApu_ApuConfig apuConfitypedef struct
+      |                                                     ^~~~~~
 cc1.exe: all warnings being treated as errors
