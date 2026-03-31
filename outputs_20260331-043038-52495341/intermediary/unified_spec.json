@@ -1,12 +1,13 @@
 {
   "meta": {
     "schema_version": "1.0",
-    "last_updated_by": "sw_architecture",
-    "last_updated_at": "2026-03-31T12:37:42.741173",
+    "last_updated_by": "sw_detailed",
+    "last_updated_at": "2026-03-31T12:41:04.600686",
     "build_sequence": [
       "requirements",
       "hardware",
-      "sw_architecture"
+      "sw_architecture",
+      "sw_detailed"
     ],
     "corrections_log": []
   },
@@ -489,6 +490,170 @@
     },
     "driver_knowledge_base": {
       "applied": false
+    },
+    "migration_numerical_values": {
+      "DUTY_25_PERCENT": {
+        "value": 25.0,
+        "source": "proposed",
+        "reference_value": 0.25,
+        "proposed_value": 25.0,
+        "unit_hint": "%",
+        "category": "duty_cycle",
+        "semantic_label": "Phase U initial duty cycle"
+      },
+      "DUTY_50_PERCENT": {
+        "value": 50.0,
+        "source": "proposed",
+        "reference_value": 0.5,
+        "proposed_value": 50.0,
+        "unit_hint": "%",
+        "category": "duty_cycle",
+        "semantic_label": "Phase V initial duty cycle"
+      },
+      "DUTY_75_PERCENT": {
+        "value": 75.0,
+        "source": "proposed",
+        "reference_value": 0.75,
+        "proposed_value": 75.0,
+        "unit_hint": "%",
+        "category": "duty_cycle",
+        "semantic_label": "Phase W initial duty cycle"
+      },
+      "DUTY_STEP": {
+        "value": 10.0,
+        "source": "proposed",
+        "reference_value": 0.1,
+        "proposed_value": 10.0,
+        "unit_hint": "%",
+        "category": "duty_cycle",
+        "semantic_label": "Duty cycle step increment"
+      },
+      "DUTY_MIN": {
+        "value": 10.0,
+        "source": "proposed",
+        "reference_value": 0.1,
+        "proposed_value": 10.0,
+        "unit_hint": "%",
+        "category": "duty_cycle",
+        "semantic_label": "Minimum duty cycle"
+      },
+      "DUTY_MAX": {
+        "value": 90.0,
+        "source": "proposed",
+        "reference_value": 0.9,
+        "proposed_value": 90.0,
+        "unit_hint": "%",
+        "category": "duty_cycle",
+        "semantic_label": "Maximum duty cycle"
+      },
+      "PWM_FREQ_HZ": {
+        "value": 20000.0,
+        "source": "proposed",
+        "reference_value": 20000.0,
+        "proposed_value": 20000.0,
+        "unit_hint": "Hz",
+        "category": "frequency",
+        "semantic_label": "PWM switching frequency"
+      },
+      "WAIT_TIME": {
+        "value": 10.0,
+        "source": "proposed",
+        "reference_value": 10.0,
+        "proposed_value": 10.0,
+        "unit_hint": "ms",
+        "category": "timing",
+        "semantic_label": "Wait / delay time"
+      },
+      "PWM_DEAD_TIME": {
+        "value": 1e-06,
+        "source": "user",
+        "reference_value": 5e-07,
+        "proposed_value": 5e-07,
+        "unit_hint": "s",
+        "category": "timing",
+        "semantic_label": "Dead-time between complementary outputs"
+      },
+      "PWM_MIN_PULSE_TIME": {
+        "value": 1e-06,
+        "source": "proposed",
+        "reference_value": 1e-06,
+        "proposed_value": 1e-06,
+        "unit_hint": "s",
+        "category": "timing",
+        "semantic_label": "Minimum pulse width"
+      }
+    }
+  },
+  "sw_detailed": {
+    "module_name": "GTM_TOM_3_Phase_Inverter_PWM",
+    "public_functions": [
+      {
+        "signature": "void GTM_TOM_3_Phase_Inverter_PWM_init(void)",
+        "behavior_description": "Initialize a persistent 3-channel complementary PWM on the TOM sub-module using the unified high-level driver. Algorithm: 1) Declare local configuration objects: main IfxGtm_Pwm_Config, per-channel IfxGtm_Pwm_ChannelConfig[3], per-channel output descriptors array (one output with its complementary per channel), dead-time config array for the three complementary pairs, and a single InterruptConfig instance. Do not allocate the driver handle or the channels array locally — store them in a persistent module-state struct (handle + channels[] + dutyCycles[3] + phases[3] + deadTimes[3]). 2) Call IfxGtm_Pwm_initConfig to populate defaults. 3) Fill per-channel output configuration for three logical channels (indices 0..2): assign the high-side output pin and its complementary low-side output pin using the exact macros from the hardware context, set polarity to active-high for both, outputMode=pushPull, padDriver=cmosAutomotiveSpeed1. 4) Set per-channel fields directly in channelConfig[i]: timerCh to logical SubModule_Ch_0, _Ch_1, _Ch_2 for the three phases; duty to initial percent values [25.0, 50.0, 75.0]; phase to 0.0; attach the corresponding output[i] and dtmConfig[i]. For interrupts, assign the single InterruptConfig pointer to channelConfig[0].interrupt (base period event on the first channel) and NULL_PTR to remaining channels. 5) Prepare InterruptConfig fully: enable period event in pulse notify mode, set provider to CPU0 and a valid priority, and assign periodEvent = IfxGtm_periodEventFunction (void *data callback). Do not assign the ISR here. 6) Complete the main config: select subModule = TOM, select the base channel (logical channel 0) for time base, set alignment=center-aligned, enable syncStart and syncUpdate, configure frequency=20 kHz, choose clock source = FXCLK0 for the TOM, provide the dtm clock source, set complementary pairing enabled, minimum pulse = 1 us, and dead-time = 0.5 us. 7) Inside an enable-guard, if GTM is not enabled, enable it and configure CMU clocks dynamically: a) enable the GTM module; b) read the module frequency at runtime; c) set GCLK to that frequency; d) set CLK0 to the same frequency; e) enable the FXCLK domain via the clock enable mask. All of these clock operations occur only inside the guard. 8) Call IfxGtm_Pwm_init with the persistent handle, the persistent channels array, and the filled config (this applies the initial 25/50/75 percent duties atomically with sync updates and complementary outputs). 9) Copy the initial duty values and dead-time values actually used into the module state arrays for later updates. 10) Configure the LED/debug GPIO as a push-pull output using IfxPort_setPinModeOutput so the ISR can toggle it. Do not manually start or sync-start channels; syncStart in the config handles it, and no immediate duty update is called during init.",
+        "driver_calls": [
+          "IfxGtm_Pwm_initConfig",
+          "IfxGtm_isEnabled",
+          "IfxGtm_enable",
+          "IfxGtm_Cmu_getModuleFrequency",
+          "IfxGtm_Cmu_setGclkFrequency",
+          "IfxGtm_Cmu_setClkFrequency",
+          "IfxGtm_Cmu_enableClocks",
+          "IfxGtm_Pwm_init",
+          "IfxPort_setPinModeOutput"
+        ],
+        "from_reference": true,
+        "call_context": "init"
+      },
+      {
+        "signature": "void GTM_TOM_3_Phase_Inverter_PWM_updateDuties(void)",
+        "behavior_description": "Update the three phase duties in percent and apply them immediately. Algorithm: 1) Read the module state's dutyCycles[3] array (percent units). 2) For each channel i=0..2, add DUTY_STEP (10.0). 3) If any updated duty >= DUTY_MAX (90.0), wrap that duty to DUTY_MIN (10.0). 4) Store the updated duties back into the module state. 5) Pass the state's dutyCycles array directly to IfxGtm_Pwm_updateChannelsDutyImmediate to synchronously and immediately update all three complementary pairs. No timing or delay logic is performed here.",
+        "driver_calls": [
+          "IfxGtm_Pwm_updateChannelsDutyImmediate"
+        ],
+        "from_reference": true,
+        "call_context": "loop"
+      },
+      {
+        "signature": "void interruptGtmAtom(void)",
+        "behavior_description": "ISR routed by the high-level PWM driver through the TOM/ATOM interrupt line. Minimal body: toggle the configured LED/debug pin using the port driver. Do not call any GTM/PWM driver interrupt handler here.",
+        "driver_calls": [
+          "IfxPort_togglePin"
+        ],
+        "from_reference": false,
+        "call_context": "none"
+      },
+      {
+        "signature": "void IfxGtm_periodEventFunction(void *data)",
+        "behavior_description": "Period event callback used by the high-level PWM driver InterruptConfig. Keep the body empty and simply cast data to void to avoid warnings. This is distinct from the IFX_INTERRUPT ISR and must not toggle GPIO.",
+        "driver_calls": [],
+        "from_reference": false,
+        "call_context": "none"
+      }
+    ],
+    "private_functions": [],
+    "dependencies": {
+      "includes": [
+        "Ifx_Types.h",
+        "IfxGtm_Pwm.h",
+        "IfxPort.h"
+      ]
+    },
+    "cpu_main_requirements": {
+      "needs_cpu_sync": true,
+      "uses_timer_delay": true,
+      "delay_ms": 10,
+      "additional_includes": [
+        "Bsp.h"
+      ]
+    },
+    "header_selection": {
+      "applied": true,
+      "peripheral_type": "PWM",
+      "recommended_header": "IfxGtm_Pwm",
+      "template_functions_count": 1026,
+      "required_includes": [
+        "IfxGtm_Pwm.h"
+      ]
     },
     "migration_numerical_values": {
       "DUTY_25_PERCENT": {
