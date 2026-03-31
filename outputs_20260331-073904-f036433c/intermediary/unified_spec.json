@@ -1,10 +1,11 @@
 {
   "meta": {
     "schema_version": "1.0",
-    "last_updated_by": "requirements",
-    "last_updated_at": "2026-03-31T07:39:04.841259",
+    "last_updated_by": "hardware",
+    "last_updated_at": "2026-03-31T07:43:51.058804",
     "build_sequence": [
-      "requirements"
+      "requirements",
+      "hardware"
     ],
     "corrections_log": []
   },
@@ -301,5 +302,146 @@
     },
     "header_documentation_available": true,
     "config_values_extracted": 16
+  },
+  "hardware": {
+    "microcontroller": {
+      "model": "TC387 (LFBGA-516)",
+      "verified": true
+    },
+    "peripheral_instance": {
+      "module": "TOM1/Cluster_1",
+      "channels": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "pin_assignments": [
+      {
+        "signal": "U_HIGH",
+        "port_pin": "P02.0",
+        "function": "TBD",
+        "pin_macro": "TBD",
+        "is_complementary": true,
+        "verified": false,
+        "source": "hardware_verified"
+      },
+      {
+        "signal": "U_LOW",
+        "port_pin": "P02.7",
+        "function": "TBD",
+        "pin_macro": "TBD",
+        "is_complementary": true,
+        "verified": false,
+        "source": "hardware_verified"
+      },
+      {
+        "signal": "V_HIGH",
+        "port_pin": "P02.1",
+        "function": "TBD",
+        "pin_macro": "TBD",
+        "is_complementary": true,
+        "verified": false,
+        "source": "hardware_verified"
+      },
+      {
+        "signal": "V_LOW",
+        "port_pin": "P02.4",
+        "function": "TBD",
+        "pin_macro": "TBD",
+        "is_complementary": true,
+        "verified": false,
+        "source": "hardware_verified"
+      },
+      {
+        "signal": "W_HIGH",
+        "port_pin": "P02.2",
+        "function": "TBD",
+        "pin_macro": "TBD",
+        "is_complementary": true,
+        "verified": false,
+        "source": "hardware_verified"
+      },
+      {
+        "signal": "W_LOW",
+        "port_pin": "P02.5",
+        "function": "TBD",
+        "pin_macro": "TBD",
+        "is_complementary": true,
+        "verified": false,
+        "source": "hardware_verified"
+      }
+    ],
+    "clock_configuration": {
+      "xtal_frequency_mhz": 20,
+      "system_frequency_mhz": 300
+    },
+    "validation": {
+      "all_verified": false,
+      "conflicts": [],
+      "reference_pins_valid": true
+    },
+    "template_validation": {
+      "supported_peripherals": [
+        "PWM",
+        "GTM",
+        "GPIO",
+        "ASCLIN",
+        "INTERRUPT"
+      ],
+      "suggested_drivers": {
+        "PWM": [
+          "IfxGtm_Pinmap"
+        ],
+        "GTM": [
+          "IfxGtm_Pinmap"
+        ],
+        "GPIO": [
+          "IfxPort_cfg_TC38x",
+          "IfxPort_cfg_TC33x",
+          "IfxPort_cfg_TC38EVOx",
+          "IfxPort",
+          "IfxPort_cfg_TC33xED",
+          "IfxPort_cfg_TC37xED",
+          "IfxPort_cfg_TC36x",
+          "IfxPort_cfg_TC35x",
+          "IfxPort_cfg_TC39xB",
+          "IfxPort_cfg_TC37x",
+          "IfxPort_Io"
+        ],
+        "ASCLIN": [
+          "IfxAsclin_cfg_TC33x",
+          "IfxAsclin_cfg_TC33xED",
+          "IfxAsclin_cfg_TC35x",
+          "IfxAsclin_cfg_TC36x",
+          "IfxAsclin_cfg_TC37x",
+          "IfxAsclin_cfg_TC37xED",
+          "IfxAsclin_cfg_TC38EVOx",
+          "IfxAsclin_cfg_TC38x",
+          "IfxAsclin_cfg_TC39xB",
+          "IfxAsclin_Asc",
+          "IfxAsclin_Lin",
+          "IfxAsclin_Spi",
+          "IfxAsclin"
+        ],
+        "INTERRUPT": [
+          "IfxCpu_Irq"
+        ],
+        "_driver_selection": {
+          "explicit_target": "IfxGtm_Pinmap",
+          "replaced_source": "IfxGtm_Pwm",
+          "primary_drivers": [
+            "IfxGtm_Pinmap"
+          ],
+          "avoid_drivers": [
+            "IfxGtm_Pwm"
+          ]
+        }
+      },
+      "warnings": []
+    }
   }
 }
