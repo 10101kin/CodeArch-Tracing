@@ -2,7 +2,7 @@
   "meta": {
     "schema_version": "1.0",
     "last_updated_by": "reviewer_patch:requirements",
-    "last_updated_at": "2026-03-31T14:08:08.442414",
+    "last_updated_at": "2026-03-31T14:09:02.233106",
     "build_sequence": [
       "requirements"
     ],
@@ -161,10 +161,14 @@
         "enabled": true,
         "priority": 20,
         "cpu": "CPU0",
-        "vmId": "IfxSrc_VmId_0"
+        "vmId": "IfxSrc_VmId_0",
+        "vmId_mandatory": false,
+        "vmId_notes": "Default vmId=IfxSrc_VmId_0 is suitable for bare-metal/single-VM systems. The vmId is configurable; select the appropriate IfxSrc_VmId_* value to match the system's interrupt routing or virtualization policy as defined by the target's SRC/interrupt router configuration. Ensure consistency across related EGTM PWM interrupts and the chosen CPU/TOS."
       },
       "wait_time_ms": 500,
-      "fxclk0_assumed_frequency_hz": 100000000
+      "fxclk0_assumed_frequency_hz": 100000000,
+      "fxclk0_setup_in_scope": false,
+      "fxclk0_setup_notes": "FXCLK0 at 100 MHz is assumed to be pre-configured by the BSP/startup. No board-level clock muxing is required; FXCLK0 selection is handled by the on-chip EGTM CMU. If FXCLK0 is not available at 100 MHz, the implementation must enable EGTM and program the CMU to provide 100 MHz on FXCLK0 (e.g., using IfxEgtm_Cmu APIs), ensuring the system clock tree allows this frequency."
     },
     "device_configuration": {
       "target_device_macro": "DEVICE_TC4DX",
