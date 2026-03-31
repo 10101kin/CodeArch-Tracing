@@ -1,0 +1,41 @@
+In file included from /tmp/tdd_build_sqhswaw4/include/IfxEgtm_Pwm.h:7,
+                 from /tmp/tdd_build_sqhswaw4/src/egtm_atom_3_phase_inverter_pwm.c:16:
+/tmp/tdd_build_sqhswaw4/include/IfxPort.h:7:34: error: conflicting types for ‘IfxApApu_ApuConfig’; have ‘struct <anonymous>’
+    7 | typedef struct { uint32 dummy; } IfxApApu_ApuConfig;
+      |                                  ^~~~~~~~~~~~~~~~~~
+In file included from /tmp/tdd_build_sqhswaw4/include/IfxEgtm_Pwm.h:5:
+/tmp/tdd_build_sqhswaw4/include/IfxEgtm.h:44:34: note: previous declaration of ‘IfxApApu_ApuConfig’ with type ‘IfxApApu_ApuConfig’
+   44 | typedef struct { uint32 dummy; } IfxApApu_ApuConfig;
+      |                                  ^~~~~~~~~~~~~~~~~~
+/tmp/tdd_build_sqhswaw4/include/IfxPort.h:8:34: error: conflicting types for ‘IfxApProt_ProtConfig’; have ‘struct <anonymous>’
+    8 | typedef struct { uint32 dummy; } IfxApProt_ProtConfig;
+      |                                  ^~~~~~~~~~~~~~~~~~~~
+/tmp/tdd_build_sqhswaw4/include/IfxEgtm.h:45:34: note: previous declaration of ‘IfxApProt_ProtConfig’ with type ‘IfxApProt_ProtConfig’
+   45 | typedef struct { uint32 dummy; } IfxApProt_ProtConfig;
+      |                                  ^~~~~~~~~~~~~~~~~~~~
+/tmp/tdd_build_sqhswaw4/src/egtm_atom_3_phase_inverter_pwm.c: In function ‘initEgtmAtom3phInv’:
+/tmp/tdd_build_sqhswaw4/src/egtm_atom_3_phase_inverter_pwm.c:99:40: error: ‘Ifx_ActiveState_high’ undeclared (first use in this function); did you mean ‘Ifx_ActiveState’?
+   99 |     output[0].polarity               = Ifx_ActiveState_high;           /* HS active HIGH */
+      |                                        ^~~~~~~~~~~~~~~~~~~~
+      |                                        Ifx_ActiveState
+/tmp/tdd_build_sqhswaw4/src/egtm_atom_3_phase_inverter_pwm.c:99:40: note: each undeclared identifier is reported only once for each function it appears in
+/tmp/tdd_build_sqhswaw4/src/egtm_atom_3_phase_inverter_pwm.c:100:40: error: ‘Ifx_ActiveState_low’ undeclared (first use in this function); did you mean ‘Ifx_ActiveState’?
+  100 |     output[0].complementaryPolarity  = Ifx_ActiveState_low;            /* LS active LOW  */
+      |                                        ^~~~~~~~~~~~~~~~~~~
+      |                                        Ifx_ActiveState
+
+In file included from /tmp/tdd_build_sqhswaw4/include/IfxEgtm_Pwm.h:7,
+                 from /tmp/tdd_build_sqhswaw4/mocks/mock_egtm_atom_3_phase_inverter_pwm.c:4:
+/tmp/tdd_build_sqhswaw4/include/IfxPort.h:7:34: error: conflicting types for ‘IfxApApu_ApuConfig’; have ‘struct <anonymous>’
+    7 | typedef struct { uint32 dummy; } IfxApApu_ApuConfig;
+      |                                  ^~~~~~~~~~~~~~~~~~
+In file included from /tmp/tdd_build_sqhswaw4/mocks/mock_egtm_atom_3_phase_inverter_pwm.c:2:
+/tmp/tdd_build_sqhswaw4/include/IfxEgtm.h:44:34: note: previous declaration of ‘IfxApApu_ApuConfig’ with type ‘IfxApApu_ApuConfig’
+   44 | typedef struct { uint32 dummy; } IfxApApu_ApuConfig;
+      |                                  ^~~~~~~~~~~~~~~~~~
+/tmp/tdd_build_sqhswaw4/include/IfxPort.h:8:34: error: conflicting types for ‘IfxApProt_ProtConfig’; have ‘struct <anonymous>’
+    8 | typedef struct { uint32 dummy; } IfxApProt_ProtConfig;
+      |                                  ^~~~~~~~~~~~~~~~~~~~
+/tmp/tdd_build_sqhswaw4/include/IfxEgtm.h:45:34: note: previous declaration of ‘IfxApProt_ProtConfig’ with type ‘IfxApProt_ProtConfig’
+   45 | typedef struct { uint32 dummy; } IfxApProt_ProtConfig;
+      |                                  ^~~~~~~~~~~~~~~~~~~~
