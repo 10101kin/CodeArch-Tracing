@@ -1,3 +1,33 @@
-Status: SUCCESS
+Status: FAILED
 
-LLM response for production phase (attempt 6), 12562 chars
+============================================================
+TDD CODE GENERATION - ATTEMPT STATUS
+============================================================
+Phase: production
+Attempt: 6
+Status: FAILED
+Timestamp: 2026-03-31 21:56:25
+Files generated: 2
+
+============================================================
+
+ERRORS:
+
+1. unknown type name 'float32'; did you mean '_Float32'?
+
+============================================================
+BUILD RESULT:
+{
+  "success": false,
+  "errors": [
+    {
+      "file": "C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_q14ccday\\include/egtm_atom_3_phase_inverter_pwm.h",
+      "line": 10,
+      "category": "error",
+      "message": "unknown type name 'float32'; did you mean '_Float32'?"
+    }
+  ],
+  "warnings": [],
+  "stderr": "In file included from C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_q14ccday\\src\\egtm_atom_3_phase_inverter_pwm.c:12:\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_q14ccday\\include/egtm_atom_3_phase_inverter_pwm.h:10:31: error: unknown type name 'float32'; did you mean '_Float32'?\n   10 | void updateEgtmAtom3phInvDuty(float32 *requestDuty);\n      |                               ^~~~~~~\n      |                               _Float32\n",
+  "stdout": ""
+}

@@ -1,4 +1,5 @@
-C:\Users\extalth\AppData\Local\Temp\tdd_build_i516kf58\src\egtm_atom_3_phase_inverter_pwm.c:55:10: fatal error: Compilers.h: No such file or directory
-   55 | #include "Compilers.h" /* for IFX_STATIC keyword */
-      |          ^~~~~~~~~~~~~
-compilation terminated.
+In file included from C:\Users\extalth\AppData\Local\Temp\tdd_build_q14ccday\src\egtm_atom_3_phase_inverter_pwm.c:12:
+C:\Users\extalth\AppData\Local\Temp\tdd_build_q14ccday\include/egtm_atom_3_phase_inverter_pwm.h:10:31: error: unknown type name 'float32'; did you mean '_Float32'?
+   10 | void updateEgtmAtom3phInvDuty(float32 *requestDuty);
+      |                               ^~~~~~~
+      |                               _Float32

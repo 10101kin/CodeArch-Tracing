@@ -1,7 +1,14 @@
 {
-  "success": true,
-  "errors": [],
+  "success": false,
+  "errors": [
+    {
+      "file": "C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_q14ccday\\include/egtm_atom_3_phase_inverter_pwm.h",
+      "line": 10,
+      "category": "error",
+      "message": "unknown type name 'float32'; did you mean '_Float32'?"
+    }
+  ],
   "warnings": [],
-  "stderr": "",
+  "stderr": "In file included from C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_q14ccday\\src\\egtm_atom_3_phase_inverter_pwm.c:12:\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_q14ccday\\include/egtm_atom_3_phase_inverter_pwm.h:10:31: error: unknown type name 'float32'; did you mean '_Float32'?\n   10 | void updateEgtmAtom3phInvDuty(float32 *requestDuty);\n      |                               ^~~~~~~\n      |                               _Float32\n",
   "stdout": ""
 }
