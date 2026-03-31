@@ -1,8 +1,18 @@
 {
-  "type": "llm_response",
-  "phase": "production",
   "attempt": 5,
   "phase_attempt": 2,
-  "response_length": 11520,
-  "timestamp": "2026-04-01T07:20:35.081777"
+  "phase": "production",
+  "success": false,
+  "errors": [
+    "unknown type name 'IfxApProt_Owner'",
+    "unknown type name 'IfxApProt_State'",
+    "unknown type name 'IfxEgtm_Atom_ToutMap'",
+    "unknown type name 'IfxEgtm_Tom_ToutMap'",
+    "unknown type name 'IfxApProt_Owner'",
+    "unknown type name 'IfxApProt_State'",
+    "unknown type name 'IfxEgtm_Atom_ToutMap'",
+    "unknown type name 'IfxEgtm_Tom_ToutMap'"
+  ],
+  "timestamp": "2026-04-01T07:20:42.255166",
+  "project_name": "Generate_TC4D7_eGTM_ATOM_ATOM0_Cluster_0_code_u_r_20260401_070608"
 }

@@ -1,29 +1,29 @@
-In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_f_gk4sro\src\egtm_atom_3_phase_inverter_pwm.c:13:
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_f_gk4sro\include/IfxEgtm_Pwm.h:118:5: error: unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'
-  118 |     IfxEgtm_Pwm_FastShutoffConfig *fastShutOff;
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_f_gk4sro\src\egtm_atom_3_phase_inverter_pwm.c: In function 'interruptEgtmAtom':
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_f_gk4sro\src\egtm_atom_3_phase_inverter_pwm.c:30:37: error: 'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P20'?
-   30 | #define LED                       (&MODULE_P03), 9u
-      |                                     ^~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_f_gk4sro\src\egtm_atom_3_phase_inverter_pwm.c:63:23: note: in expansion of macro 'LED'
-   63 |     IfxPort_togglePin(LED);
-      |                       ^~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_f_gk4sro\src\egtm_atom_3_phase_inverter_pwm.c:30:37: note: each undeclared identifier is reported only once for each function it appears in
-   30 | #define LED                       (&MODULE_P03), 9u
-      |                                     ^~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_f_gk4sro\src\egtm_atom_3_phase_inverter_pwm.c:63:23: note: in expansion of macro 'LED'
-   63 |     IfxPort_togglePin(LED);
-      |                       ^~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_f_gk4sro\src\egtm_atom_3_phase_inverter_pwm.c: In function 'initEgtmAtom3phInv':
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_f_gk4sro\src\egtm_atom_3_phase_inverter_pwm.c:30:37: error: 'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P20'?
-   30 | #define LED                       (&MODULE_P03), 9u
-      |                                     ^~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_f_gk4sro\src\egtm_atom_3_phase_inverter_pwm.c:200:30: note: in expansion of macro 'LED'
-  200 |     IfxPort_setPinModeOutput(LED, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
-      |                              ^~~
+In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_d9_e4wsv\include/IfxEgtm_Pwm.h:6,
+                 from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_d9_e4wsv\src\egtm_atom_3_phase_inverter_pwm.c:17:
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_d9_e4wsv\include/IfxEgtm.h:21:5: error: unknown type name 'IfxApProt_Owner'
+   21 |     IfxApProt_Owner protOwner;
+      |     ^~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_d9_e4wsv\include/IfxEgtm.h:22:5: error: unknown type name 'IfxApProt_State'
+   22 |     IfxApProt_State protState;
+      |     ^~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_d9_e4wsv\include/IfxEgtm_Pwm.h:19:5: error: unknown type name 'IfxEgtm_Atom_ToutMap'
+   19 |     IfxEgtm_Atom_ToutMap atom;
+      |     ^~~~~~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_d9_e4wsv\include/IfxEgtm_Pwm.h:20:5: error: unknown type name 'IfxEgtm_Tom_ToutMap'
+   20 |     IfxEgtm_Tom_ToutMap  tom;
+      |     ^~~~~~~~~~~~~~~~~~~
 
-In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_f_gk4sro\mocks\mock_egtm_atom_3_phase_inverter_pwm.c:4:
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_f_gk4sro\include/IfxEgtm_Pwm.h:118:5: error: unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'
-  118 |     IfxEgtm_Pwm_FastShutoffConfig *fastShutOff;
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_d9_e4wsv\mocks\mock_egtm_atom_3_phase_inverter_pwm.c:5:
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_d9_e4wsv\include/IfxEgtm.h:21:5: error: unknown type name 'IfxApProt_Owner'
+   21 |     IfxApProt_Owner protOwner;
+      |     ^~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_d9_e4wsv\include/IfxEgtm.h:22:5: error: unknown type name 'IfxApProt_State'
+   22 |     IfxApProt_State protState;
+      |     ^~~~~~~~~~~~~~~
+In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_d9_e4wsv\mocks\mock_egtm_atom_3_phase_inverter_pwm.c:7:
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_d9_e4wsv\include/IfxEgtm_Pwm.h:19:5: error: unknown type name 'IfxEgtm_Atom_ToutMap'
+   19 |     IfxEgtm_Atom_ToutMap atom;
+      |     ^~~~~~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_d9_e4wsv\include/IfxEgtm_Pwm.h:20:5: error: unknown type name 'IfxEgtm_Tom_ToutMap'
+   20 |     IfxEgtm_Tom_ToutMap  tom;
+      |     ^~~~~~~~~~~~~~~~~~~
