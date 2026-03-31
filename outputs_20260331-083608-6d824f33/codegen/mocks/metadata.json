@@ -1,8 +1,9 @@
 {
-  "type": "llm_response",
-  "phase": "mock",
   "attempt": 1,
   "phase_attempt": 1,
-  "response_length": 34746,
-  "timestamp": "2026-03-31T08:59:31.150358"
+  "phase": "mock_generation",
+  "success": true,
+  "errors": [],
+  "timestamp": "2026-03-31T08:59:36.427285",
+  "project_name": "Generate_TC4D7_KIT_A3G_TC4D7_LITE_eGTM_ATOM_code_r_20260331_085556"
 }
