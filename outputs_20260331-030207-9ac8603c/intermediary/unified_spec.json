@@ -2,7 +2,7 @@
   "meta": {
     "schema_version": "1.0",
     "last_updated_by": "sw_architecture",
-    "last_updated_at": "2026-03-31T11:19:36.061821",
+    "last_updated_at": "2026-03-31T11:19:59.350771",
     "build_sequence": [
       "requirements",
       "hardware",
@@ -319,7 +319,7 @@
       "recommended_header": "IfxGtm_Tom_PwmHl",
       "score": 100,
       "required_includes": [
-        "IfxGtm_Pwm.h"
+        "IfxGtm_Tom_PwmHl.h"
       ],
       "function_mapping": {},
       "available_functions_count": 47
