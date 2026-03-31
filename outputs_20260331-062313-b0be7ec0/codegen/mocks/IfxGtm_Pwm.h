@@ -1,4 +1,3 @@
-/* IfxGtm_Pwm mock header */
 #ifndef IFXGTM_PWM_H
 #define IFXGTM_PWM_H
 
@@ -7,15 +6,25 @@
 #include "IfxGtm_Cmu.h"
 #include "IfxPort.h"
 
-/* Pre-declare auxiliary types used by verified structs */
-typedef struct { uint32 dummy; } IfxGtm_Pwm_ToutMap;  /* Pin map descriptor for PWM */
-typedef void (*IfxGtm_Pwm_callBack)(void *arg);
+/* Helper/peer types referenced by verified typedefs */
+typedef void (*IfxGtm_Pwm_callBack)(void *);
+
+typedef struct { uint8 dummy; } IfxGtm_Atom_ToutMap;
+typedef struct { uint8 dummy; } IfxGtm_Tom_ToutMap;
+
+typedef union {
+    IfxGtm_Atom_ToutMap atom;       /* ATOM map */
+    IfxGtm_Tom_ToutMap  tom;        /* TOM map */
+} IfxGtm_Pwm_ToutMap;
+
 typedef struct { uint32 reserved; } Ifx_GTM_ATOM;
 typedef struct { uint32 reserved; } Ifx_GTM_TOM;
 typedef struct { uint32 reserved; } Ifx_GTM_CDTM;
-typedef struct { uint32 dummy; } IfxGtm_Trig_MscOut;
 
-/* VERIFIED TYPE DEFINITIONS (emit verbatim, in dependency order) */
+typedef struct { uint32 reserved; } IfxGtm_Trig_MscOut;
+
+/* VERIFIED TYPE DEFINITIONS — EMIT EXACTLY AS-IS IN MOCKS */
+
 typedef enum
 {
     IfxGtm_Pwm_Alignment_edge   = 0, 
@@ -169,10 +178,7 @@ typedef enum
     IfxGtm_Cluster_2,     
     IfxGtm_Cluster_3,     
     IfxGtm_Cluster_4,     
-    IfxGtm_Cluster_5,     
-    IfxGtm_Cluster_6,     
-    IfxGtm_Cluster_7,     
-    IfxGtm_Cluster_8      
+    IfxGtm_Cluster_5      
 } IfxGtm_Cluster;
 
 typedef struct
@@ -188,7 +194,8 @@ typedef struct
     volatile uint32 *reg1;                
     uint32           upenMask0;           
     uint32           upenMask1;           
-    volatile uint32 *endisCtrlReg0;       
+    volatile uint32 *endisCtrlReg0;       /**< \brief ATOM: points to AGC_ENDIS_CTRL.
+                                             * TOM: If channels span 2 TGCs then points to TGC0_ENDIS_CTRL else to the TGC being used TGCx_GLB_CTRL */
     volatile uint32 *endisCtrlReg1;       
 } IfxGtm_Pwm_GlobalControl;
 
@@ -239,10 +246,9 @@ typedef struct
     IfxPort_PadDriver   padDriver;       
 } IfxGtm_Pwm_Pin;
 
-/* Functions used by production/tests */
-void IfxGtm_Pwm_initConfig(IfxGtm_Pwm_Config *config, Ifx_GTM *gtmSFR);
+/* Functions from DRIVERS TO MOCK */
 void IfxGtm_Pwm_init(IfxGtm_Pwm *pwm, IfxGtm_Pwm_Channel *channels, IfxGtm_Pwm_Config *config);
+void IfxGtm_Pwm_initConfig(IfxGtm_Pwm_Config *config, Ifx_GTM *gtmSFR);
 void IfxGtm_Pwm_updateChannelsDutyImmediate(IfxGtm_Pwm *pwm, float32 *requestDuty);
-IfxGtm_Pwm_ChannelState IfxGtm_Pwm_getChannelState(IfxGtm_Pwm *pwm, IfxGtm_Pwm_SubModule_Ch ch);
 
 #endif /* IFXGTM_PWM_H */
