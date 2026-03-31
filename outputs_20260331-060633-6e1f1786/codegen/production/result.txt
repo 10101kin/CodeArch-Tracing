@@ -1,3 +1,56 @@
-Status: SUCCESS
+Status: FAILED
 
-LLM response for production phase (attempt 7), 11803 chars
+============================================================
+TDD CODE GENERATION - ATTEMPT STATUS
+============================================================
+Phase: production
+Attempt: 7
+Status: FAILED
+Timestamp: 2026-03-31 14:45:53
+Files generated: 2
+
+============================================================
+
+ERRORS:
+
+1. C:\Users\extalth\AppData\Local\Temp\tdd_build_jkzlcfin\src\egtm_atom_3_phase_inverter_pwm.c:22:10: fatal error: IfxPort_PinMap.h: No such file or directory
+
+2. 'mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_lastDuties' undeclared (first use in this function); did you mean 'mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_callCount'?
+
+3. 'mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_lastDuties' undeclared (first use in this function); did you mean 'mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_callCount'?
+
+4. 'mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_lastDuties' undeclared (first use in this function); did you mean 'mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_callCount'?
+
+============================================================
+BUILD RESULT:
+{
+  "success": false,
+  "errors": [
+    {
+      "file": "",
+      "message": "C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_jkzlcfin\\src\\egtm_atom_3_phase_inverter_pwm.c:22:10: fatal error: IfxPort_PinMap.h: No such file or directory",
+      "category": "error"
+    },
+    {
+      "file": "C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_jkzlcfin\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+      "line": 120,
+      "category": "error",
+      "message": "'mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_lastDuties' undeclared (first use in this function); did you mean 'mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_callCount'?"
+    },
+    {
+      "file": "C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_jkzlcfin\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+      "line": 139,
+      "category": "error",
+      "message": "'mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_lastDuties' undeclared (first use in this function); did you mean 'mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_callCount'?"
+    },
+    {
+      "file": "C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_jkzlcfin\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+      "line": 221,
+      "category": "error",
+      "message": "'mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_lastDuties' undeclared (first use in this function); did you mean 'mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_callCount'?"
+    }
+  ],
+  "warnings": [],
+  "stderr": "C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_jkzlcfin\\src\\egtm_atom_3_phase_inverter_pwm.c:22:10: fatal error: IfxPort_PinMap.h: No such file or directory\n   22 | #include \"IfxPort_PinMap.h\"\n      |          ^~~~~~~~~~~~~~~~~~\ncompilation terminated.\n\nIn file included from C:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\unity/unity.h:22,\n                 from C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_jkzlcfin\\test\\test_egtm_atom_3_phase_inverter_pwm.c:1:\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_jkzlcfin\\test\\test_egtm_atom_3_phase_inverter_pwm.c: In function 'test_TC_G03_001_Single_Update_Increments_All_Duties':\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_jkzlcfin\\test\\test_egtm_atom_3_phase_inverter_pwm.c:120:63: error: 'mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_lastDuties' undeclared (first use in this function); did you mean 'mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_callCount'?\n  120 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 35.0f, mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_lastDuties[0], \"U duty should increment by step to 35%\");\n      |                                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\unity/unity_internals.h:1119:183: note: in definition of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'\n 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))\n      |                                                                                                                                                                                       ^~~~~~\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_jkzlcfin\\test\\test_egtm_atom_3_phase_inverter_pwm.c:120:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN_MESSAGE'\n  120 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 35.0f, mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_lastDuties[0], \"U duty should increment by step to 35%\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_jkzlcfin\\test\\test_egtm_atom_3_phase_inverter_pwm.c:120:63: note: each undeclared identifier is reported only once for each function it appears in\n  120 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 35.0f, mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_lastDuties[0], \"U duty should increment by step to 35%\");\n      |                                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\unity/unity_internals.h:1119:183: note: in definition of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'\n 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))\n      |                                                                                                                                                                                       ^~~~~~\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_jkzlcfin\\test\\test_egtm_atom_3_phase_inverter_pwm.c:120:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN_MESSAGE'\n  120 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 35.0f, mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_lastDuties[0], \"U duty should increment by step to 35%\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_jkzlcfin\\test\\test_egtm_atom_3_phase_inverter_pwm.c: In function 'test_TC_G03_002_Third_Update_Wraps_W_Only':\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_jkzlcfin\\test\\test_egtm_atom_3_phase_inverter_pwm.c:139:63: error: 'mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_lastDuties' undeclared (first use in this function); did you mean 'mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_callCount'?\n  139 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 55.0f, mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_lastDuties[0], \"U duty after 3 updates should be 55%\");\n      |                                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\unity/unity_internals.h:1119:183: note: in definition of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'\n 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))\n      |                                                                                                                                                                                       ^~~~~~\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_jkzlcfin\\test\\test_egtm_atom_3_phase_inverter_pwm.c:139:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN_MESSAGE'\n  139 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 55.0f, mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_lastDuties[0], \"U duty after 3 updates should be 55%\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_jkzlcfin\\test\\test_egtm_atom_3_phase_inverter_pwm.c: In function 'test_TC_G06_001_Multiple_Updates_Cause_Wrap_On_All_Channels':\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_jkzlcfin\\test\\test_egtm_atom_3_phase_inverter_pwm.c:221:63: error: 'mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_lastDuties' undeclared (first use in this function); did you mean 'mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_callCount'?\n  221 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 10.0f, mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_lastDuties[0], \"U duty should wrap to 10% after 8 updates\");\n      |                                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\Downloads\\Infineon\\infineon_POC_MVP\\unity/unity_internals.h:1119:183: note: in definition of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'\n 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))\n      |                                                                                                                                                                                       ^~~~~~\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_jkzlcfin\\test\\test_egtm_atom_3_phase_inverter_pwm.c:221:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN_MESSAGE'\n  221 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 10.0f, mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_lastDuties[0], \"U duty should wrap to 10% after 8 updates\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n",
+  "stdout": ""
+}
