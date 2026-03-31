@@ -1,10 +1,13 @@
-/* Mock IfxEgtm.h */
 #ifndef IFXEGTM_H
 #define IFXEGTM_H
 
 #include "mock_egtm_atom_3_phase_inverter_pwm.h"
 
-/* Placeholder dependent types (single-owner here) */
+/* Provide dependent types used by EGTM and peers */
+#ifndef IFXEGTM_NUM_CCM_OBJECTS
+#define IFXEGTM_NUM_CCM_OBJECTS 3
+#endif
+
 typedef struct
 {
     unsigned long wraTagId;
@@ -15,30 +18,24 @@ typedef struct
     unsigned char vmRdId;
     unsigned char prsWrId;
     unsigned char prsRdId;
-} IfxApApu_ApuConfig;
+} IfxApApu_ApuConfig;   /* minimal stub */
 typedef struct
 {
     IfxApProt_Owner protOwner;
     IfxApProt_State protState;
-} IfxApProt_ProtConfig;
+} IfxApProt_ProtConfig; /* minimal stub */
 
-typedef uint32 IfxEgtm_Cfg_MscSet;
-typedef uint32 IfxEgtm_Cfg_MscSetSignal;
-typedef uint32 IfxEgtm_Cfg_MscModule;
-typedef uint32 IfxEgtm_Cfg_MscSelect;
-
-/* Enums required by iLLD */
 typedef enum
 {
-    IfxEgtm_AeiBridgeOpMode_sync  = 0u, 
-    IfxEgtm_AeiBridgeOpMode_async = 1u  
+    IfxEgtm_AeiBridgeOpMode_sync  = 0u,
+    IfxEgtm_AeiBridgeOpMode_async = 1u
 } IfxEgtm_AeiBridgeOpMode;
 
 typedef enum
 {
-    IfxEgtm_ClusterClockDiv_disable    = 0u, 
-    IfxEgtm_ClusterClockDiv_enable     = 1u, 
-    IfxEgtm_ClusterClockDiv_enableDiv2 = 2u  
+    IfxEgtm_ClusterClockDiv_disable    = 0u,
+    IfxEgtm_ClusterClockDiv_enable     = 1u,
+    IfxEgtm_ClusterClockDiv_enableDiv2 = 2u
 } IfxEgtm_ClusterClockDiv;
 
 typedef enum
@@ -59,12 +56,18 @@ typedef enum
 
 typedef enum
 {
-    IfxEgtm_SuspendMode_none = 0,  
-    IfxEgtm_SuspendMode_hard = 1,  
-    IfxEgtm_SuspendMode_soft = 2   
+    IfxEgtm_SuspendMode_none = 0,
+    IfxEgtm_SuspendMode_hard = 1,
+    IfxEgtm_SuspendMode_soft = 2
 } IfxEgtm_SuspendMode;
 
-/* Config structs */
+/* Minimal MSC cfg enums referenced by IfxEgtm_MscOut */
+typedef enum { IfxEgtm_Cfg_MscSet_none = 0 } IfxEgtm_Cfg_MscSet;
+typedef enum { IfxEgtm_Cfg_MscSetSignal_none = 0 } IfxEgtm_Cfg_MscSetSignal;
+typedef enum { IfxEgtm_Cfg_MscModule_0 = 0 } IfxEgtm_Cfg_MscModule;
+typedef enum { IfxEgtm_Cfg_MscSelect_0 = 0 } IfxEgtm_Cfg_MscSelect;
+
+/* EGTM AP configuration types (minimal, keep field names) */
 typedef struct
 {
     IfxApApu_ApuConfig apuConfig;       
@@ -80,10 +83,6 @@ typedef struct
 {
     IfxApApu_ApuConfig apuConfig;       
 } IfxEgtm_WrapApConfig;
-
-#ifndef IFXEGTM_NUM_CCM_OBJECTS
-# define IFXEGTM_NUM_CCM_OBJECTS (1)
-#endif
 
 typedef struct
 {
@@ -102,8 +101,8 @@ typedef struct
     IfxEgtm_MscAltInput      mscAltIn;           
 } IfxEgtm_MscOut;
 
-/* Functions to mock from IfxEgtm */
-void IfxEgtm_enable(Ifx_EGTM *egtm);
+/* Minimal APIs used by production */
+void    IfxEgtm_enable(Ifx_EGTM *egtm);
 boolean IfxEgtm_isEnabled(Ifx_EGTM *egtm);
 
 #endif /* IFXEGTM_H */

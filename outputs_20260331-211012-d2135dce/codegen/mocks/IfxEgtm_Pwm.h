@@ -1,4 +1,3 @@
-/* Mock IfxEgtm_Pwm.h */
 #ifndef IFXEGTM_PWM_H
 #define IFXEGTM_PWM_H
 
@@ -10,20 +9,14 @@
 /* Callback type used by PWM driver */
 typedef void (*IfxEgtm_Pwm_callBack)(void *data);
 
-/* Forward declare FastShutoffConfig to satisfy pointer usage */
-typedef struct IfxEgtm_Pwm_FastShutoffConfig IfxEgtm_Pwm_FastShutoffConfig;
-
-/* Provide ToutMap type used for pin symbols */
-typedef union
+/* Provide ToutMap type used in OutputConfig and pin symbols */
+typedef struct
 {
-    IfxEgtm_Atom_ToutMap atom;        
-    IfxEgtm_Tom_ToutMap  tom;         
-#if IFXEGTM_PWM_IS_HIGH_RES_AVAILABLE	
-    IfxEgtm_Hrpwm_Out    hrpwm;       
-#endif /* #if IFXEGTM_PWM_IS_HIGH_RES_AVAILABLE */	
+    uint32 dummy;
 } IfxEgtm_Pwm_ToutMap;
 
-/* ===== VERIFIED TYPE DEFINITIONS (order preserved) ===== */
+/* ===== VERIFIED TYPE DEFINITIONS (emit as provided) ===== */
+
 typedef enum
 {
     IfxEgtm_Pwm_Alignment_edge   = 0, 
@@ -244,9 +237,13 @@ typedef struct
     IfxPort_PadDriver    padDriver;        
 } IfxEgtm_Pwm_Pin;
 
-/* Functions from drivers-to-mock */
+/* ===== Functions to mock ===== */
 void IfxEgtm_Pwm_initConfig(IfxEgtm_Pwm_Config *config, Ifx_EGTM *egtmSFR);
-void IfxEgtm_Pwm_updateChannelsDutyImmediate(IfxEgtm_Pwm *pwm, float32 *requestDuty);
 void IfxEgtm_Pwm_init(IfxEgtm_Pwm *pwm, IfxEgtm_Pwm_Channel *channels, IfxEgtm_Pwm_Config *config);
+void IfxEgtm_Pwm_updateChannelsDutyImmediate(IfxEgtm_Pwm *pwm, float32 *requestDuty);
+
+/* Minimal CPU interrupt helper APIs (declared here for convenience) */
+void IfxCpu_Irq_installInterruptHandler(void (*isr)(void), int priority);
+void IfxCpu_enableInterrupts(void);
 
 #endif /* IFXEGTM_PWM_H */
