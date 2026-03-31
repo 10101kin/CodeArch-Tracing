@@ -1,11 +1,8 @@
 {
-  "attempt": 8,
-  "phase_attempt": 4,
+  "type": "llm_response",
   "phase": "production",
-  "success": false,
-  "errors": [
-    "Connection error."
-  ],
-  "timestamp": "2026-03-31T13:55:25.727221",
-  "project_name": "Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260330_190037"
+  "attempt": 9,
+  "phase_attempt": 5,
+  "response_length": 11871,
+  "timestamp": "2026-03-31T13:57:52.099571"
 }
