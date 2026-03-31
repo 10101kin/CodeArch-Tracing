@@ -1,8 +1,9 @@
 {
-  "type": "llm_response",
-  "phase": "test",
   "attempt": 2,
   "phase_attempt": 1,
-  "response_length": 15029,
-  "timestamp": "2026-04-01T05:28:56.292485"
+  "phase": "test_generation",
+  "success": true,
+  "errors": [],
+  "timestamp": "2026-04-01T05:29:02.582046",
+  "project_name": "Generate_TC4D7_eGTM_ATOM_ATOM0_Cluster_0_code_u_r_20260401_052152"
 }
