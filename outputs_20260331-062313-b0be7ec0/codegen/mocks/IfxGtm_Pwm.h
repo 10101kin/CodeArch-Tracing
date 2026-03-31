@@ -1,23 +1,12 @@
 #ifndef IFXGTM_PWM_H
 #define IFXGTM_PWM_H
+
 #include "mock_gtm_tom_3_phase_inverter_pwm.h"
 #include "IfxGtm.h"
 #include "IfxGtm_Cmu.h"
 #include "IfxPort.h"
 
-/* Additional forward stub types referenced by PWM structures */
-typedef struct { uint32 reserved; } Ifx_GTM_ATOM;
-typedef struct { uint32 reserved; } Ifx_GTM_TOM;
-typedef struct { uint32 reserved; } Ifx_GTM_CDTM;
-typedef struct { uint32 reserved; } IfxGtm_Trig_MscOut;
-
-/* ToutMap provided by PWM driver (union for ATOM/TOM) */
-typedef union {
-    uint32 atom;
-    uint32 tom;
-} IfxGtm_Pwm_ToutMap;
-
-/* Verified definitions: emit EXACTLY as provided (order preserved) */
+/* VERIFIED TYPE DEFINITIONS — EMIT EXACTLY AS-IS IN MOCKS (plus support types) */
 
 typedef enum
 {
@@ -100,8 +89,11 @@ typedef enum
     IfxGtm_Dtm_ClockSource_cmuClock2     
 } IfxGtm_Dtm_ClockSource;
 
-/* Callback type used by PWM driver */
-typedef void (*IfxGtm_Pwm_callBack)(void *);
+/* Support forward declarations for structs used in verified defs */
+typedef struct { uint32 dummy; } IfxGtm_Trig_MscOut;
+typedef struct { uint32 dummy; } Ifx_GTM_ATOM;
+typedef struct { uint32 dummy; } Ifx_GTM_TOM;
+typedef struct { uint32 dummy; } Ifx_GTM_CDTM;
 
 typedef struct
 {
@@ -114,14 +106,15 @@ typedef struct
     IfxGtm_Pwm_DeadTime deadTime;       
 } IfxGtm_Pwm_DtmConfig;
 
-typedef struct
+/* Callback type used by InterruptConfig */
+typedef void (*IfxGtm_Pwm_callBack)(void *arg);
+
+/* Union/map types for pin selection */
+typedef union
 {
-    IfxGtm_IrqMode      mode;              
-    IfxSrc_Tos          isrProvider;       
-    Ifx_Priority        priority;          
-    IfxGtm_Pwm_callBack periodEvent;       
-    IfxGtm_Pwm_callBack dutyEvent;         
-} IfxGtm_Pwm_InterruptConfig;
+    uint32 atom;       /* placeholder */
+    uint32 tom;        /* placeholder */
+} IfxGtm_Pwm_ToutMap;
 
 typedef struct
 {
@@ -195,7 +188,6 @@ typedef struct
     volatile uint32 *endisCtrlReg1;       
 } IfxGtm_Pwm_GlobalControl;
 
-/* Clock source union with uint32 fields (to avoid enum-conversion issues) */
 typedef union {
     uint32 atom;
     uint32 tom;
@@ -243,9 +235,22 @@ typedef struct
     IfxPort_PadDriver   padDriver;       
 } IfxGtm_Pwm_Pin;
 
-/* Function declarations (subset required by production) */
-void IfxGtm_Pwm_init(IfxGtm_Pwm *pwm, IfxGtm_Pwm_Channel *channels, IfxGtm_Pwm_Config *config);
+/* InterruptConfig struct (uses IfxGtm_IrqMode from IfxGtm.h) */
+typedef struct
+{
+    IfxGtm_IrqMode      mode;              
+    IfxSrc_Tos          isrProvider;       
+    Ifx_Priority        priority;          
+    IfxGtm_Pwm_callBack periodEvent;       
+    IfxGtm_Pwm_callBack dutyEvent;         
+} IfxGtm_Pwm_InterruptConfig;
+
+/* Pwm APIs (declare the ones used by production and tests) */
 void IfxGtm_Pwm_initConfig(IfxGtm_Pwm_Config *config, Ifx_GTM *gtmSFR);
+void IfxGtm_Pwm_init(IfxGtm_Pwm *pwm, IfxGtm_Pwm_Channel *channels, IfxGtm_Pwm_Config *config);
 void IfxGtm_Pwm_updateChannelsDutyImmediate(IfxGtm_Pwm *pwm, float32 *requestDuty);
+
+/* CPU IRQ helper (needed by some templates) */
+void IfxCpu_Irq_installInterruptHandler(void (*isr)(void), int priority);
 
 #endif /* IFXGTM_PWM_H */
