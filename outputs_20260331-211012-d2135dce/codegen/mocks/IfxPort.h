@@ -3,17 +3,16 @@
 #define IFXPORT_H
 
 #include "mock_egtm_atom_3_phase_inverter_pwm.h"
-#include "IfxEgtm.h" /* for IfxApApu_ApuConfig, IfxApProt_ProtConfig used below */
 
-/* Config array sizes */
+/* Constants for APU arrays used in some structs */
 #ifndef IFXPORT_NUM_APU
-#define IFXPORT_NUM_APU 4
+# define IFXPORT_NUM_APU 2
 #endif
 #ifndef IFXPORT_NUM_PINS
-#define IFXPORT_NUM_PINS 8
+# define IFXPORT_NUM_PINS 16
 #endif
 
-/* Enums */
+/* Enums (order per spec) */
 typedef enum
 {
     IfxPort_ControlledBy_port = 0,  
@@ -136,7 +135,8 @@ typedef enum
 } IfxPort_BlankingTimertypedef enum
 {
     IfxPort_EsrLevel_0 = 0,      
-    IfxPort_EsrLevel_1        typedef enum
+    IfxPort_EsrLevel_1           
+typedef enum
 {
     IfxPort_EsrPadCfg_PP  = 0,  
     IfxPort_EsrPadCfg_TPU = 1,  
@@ -178,7 +178,7 @@ typedef enum
     IfxPort_PadDriver_ttl3v3Speed1         = (3 << 3) | (0 << 0),  
     IfxPort_PadDriver_ttl3v3Speed2         = (3 << 3) | (1 << 0),  
     IfxPort_PadDriver_ttl3v3Speed3         = (3 << 3) | (2 << 0)   
-} IfxPort_PadDriver;        = (2 << 3) | (1 << 0),
+} IfxPort_PadDriver;    = (2 << 3) | (1 << 0),
     IfxPort_PadDriver_ttlSpeed3            = (2 << 3) | (2 << 0),
     IfxPort_PadDriver_ttl3v3Speed1         = (3 << 3) | (0 << 0),
     IfxPort_PadDriver_ttl3v3Speed2         = (3 << 3) | (1 << 0),
@@ -220,7 +220,7 @@ typedef struct
 
 typedef struct { IfxApProt_ProtConfig protseConfig; } IfxPort_ProtConfig;
 
-/* Function declarations subset used by module */
+/* Functions (subset used by module/tests) */
 void IfxPort_togglePin(Ifx_P *port, uint8 pinIndex);
 void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
 

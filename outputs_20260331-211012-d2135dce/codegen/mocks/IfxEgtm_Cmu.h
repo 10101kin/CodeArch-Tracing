@@ -41,34 +41,18 @@ typedef enum
     IfxEgtm_Cmu_Tim_Filter_Clk_7   
 } IfxEgtm_Cmu_Tim_Filter_Clk;
 
-/* CMU enable macros */
+/* CMU enable masks (guarded) */
 #ifndef IFXEGTM_CMU_CLKEN_FXCLK
-#define IFXEGTM_CMU_CLKEN_FXCLK (1u << 0)
+# define IFXEGTM_CMU_CLKEN_FXCLK (0x1u << 0)
 #endif
 #ifndef IFXEGTM_CMU_CLKEN_CLK0
-#define IFXEGTM_CMU_CLKEN_CLK0  (1u << 1)
+# define IFXEGTM_CMU_CLKEN_CLK0  (0x1u << 8)
 #endif
 
-/* Declarations */
+/* Function declarations (MANDATORY CMU MOCK FUNCTIONS) */
 void    IfxEgtm_Cmu_enableClocks(Ifx_EGTM *egtm, uint32 clkMask);
-float32 IfxEgtm_Cmu_getGclkFrequency(Ifx_EGTM *egtm);
 float32 IfxEgtm_Cmu_getModuleFrequency(Ifx_EGTM *egtm);
-boolean IfxEgtm_Cmu_isClkClockEnabled(Ifx_EGTM *egtm, IfxEgtm_Cmu_Clk clkIndex);
-boolean IfxEgtm_Cmu_isEclkClockEnabled(Ifx_EGTM *egtm, IfxEgtm_Cmu_Eclk eclkIndex);
-boolean IfxEgtm_Cmu_isFxClockEnabled(Ifx_EGTM *egtm, IfxEgtm_Cmu_Fxclk fxIndex);
-void    IfxEgtm_Cmu_selectClkInput(Ifx_EGTM *egtm, IfxEgtm_Cmu_Clk clkIndex, uint32 input);
-void    IfxEgtm_Cmu_setClkCount(Ifx_EGTM *egtm, IfxEgtm_Cmu_Clk clkIndex, uint32 count);
-void    IfxEgtm_Cmu_setEclkDivider(Ifx_EGTM *egtm, IfxEgtm_Cmu_Eclk eclkIndex, uint32 divider);
-void    IfxEgtm_Cmu_setGclkDivider(Ifx_EGTM *egtm, uint32 divider);
-float32 IfxEgtm_Cmu_getClkFrequency(Ifx_EGTM *egtm, IfxEgtm_Cmu_Clk clkIndex);
-float32 IfxEgtm_Cmu_getEclkFrequency(Ifx_EGTM *egtm, IfxEgtm_Cmu_Eclk eclkIndex);
-float32 IfxEgtm_Cmu_getFxClkFrequency(Ifx_EGTM *egtm, IfxEgtm_Cmu_Fxclk fxIndex);
-void    IfxEgtm_Cmu_setClkFrequency(Ifx_EGTM *egtm, IfxEgtm_Cmu_Clk clkIndex, float32 frequency);
-void    IfxEgtm_Cmu_setEclkFrequency(Ifx_EGTM *egtm, IfxEgtm_Cmu_Eclk eclkIndex, float32 frequency);
 void    IfxEgtm_Cmu_setGclkFrequency(Ifx_EGTM *egtm, float32 frequency);
-
-/* Mandatory CMU control (mocked) */
-void    IfxEgtm_Cmu_enable(Ifx_EGTM *module);
-boolean IfxEgtm_Cmu_isEnabled(Ifx_EGTM *module);
+void    IfxEgtm_Cmu_setClkFrequency(Ifx_EGTM *egtm, IfxEgtm_Cmu_Clk clkIndex, float32 frequency);
 
 #endif /* IFXEGTM_CMU_H */
