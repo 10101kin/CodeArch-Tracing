@@ -1,20 +1,8 @@
 {
-  "attempt": 9,
-  "phase_attempt": 3,
+  "type": "llm_response",
   "phase": "production",
-  "success": false,
-  "errors": [
-    "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_4pdum979\\src\\gtm_tom_3_phase_inverter_pwm.c:12:10: fatal error: Gtm/Pwm/IfxGtm_Pwm.h: No such file or directory",
-    "unknown type name 'IfxGtm_Pwm_callBack'; did you mean 'IfxGtm_Pwm_State'?",
-    "unknown type name 'IfxGtm_Pwm_callBack'; did you mean 'IfxGtm_Pwm_State'?",
-    "unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Pwm_State'?",
-    "unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Pwm_State'?",
-    "unknown type name 'IfxGtm_Pwm_callBack'; did you mean 'IfxGtm_Pwm_State'?",
-    "unknown type name 'IfxGtm_Pwm_callBack'; did you mean 'IfxGtm_Pwm_State'?",
-    "unknown type name 'Ifx_GTM_ATOM'",
-    "unknown type name 'Ifx_GTM_TOM'; did you mean 'Ifx_GTM'?",
-    "unknown type name 'Ifx_GTM_CDTM'"
-  ],
-  "timestamp": "2026-03-31T09:38:35.657176",
-  "project_name": "Upgrade_the_TC387_reference_3-phase_inverter_PWM_d_r_20260330_210321"
+  "attempt": 11,
+  "phase_attempt": 4,
+  "response_length": 14193,
+  "timestamp": "2026-03-31T09:44:48.076787"
 }
