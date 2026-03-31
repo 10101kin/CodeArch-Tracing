@@ -1,20 +1,8 @@
 {
-  "attempt": 3,
-  "phase_attempt": 1,
+  "type": "llm_response",
   "phase": "production",
-  "success": false,
-  "errors": [
-    "unknown type name \u2018IfxEgtm_Pwm_FastShutoffConfig\u2019",
-    "implicit declaration of function \u2018IfxPort_togglePin\u2019 [-Wimplicit-function-declaration]",
-    "\u2018IfxEgtm_ATOM0_0_TOUT64_P20_8_OUT\u2019 undeclared (first use in this function)",
-    "\u2018IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT\u2019 undeclared (first use in this function)",
-    "\u2018IfxEgtm_ATOM0_1_TOUT66_P20_10_OUT\u2019 undeclared (first use in this function)",
-    "\u2018IfxEgtm_ATOM0_1N_TOUT67_P20_11_OUT\u2019 undeclared (first use in this function)",
-    "\u2018IfxEgtm_ATOM0_2_TOUT68_P20_12_OUT\u2019 undeclared (first use in this function)",
-    "\u2018IfxEgtm_ATOM0_2N_TOUT69_P20_13_OUT\u2019 undeclared (first use in this function)",
-    "assignment to \u2018IfxEgtm_Pwm_callBack\u2019 {aka \u2018void (*)(void)\u2019} from incompatible pointer type \u2018void (*)(void *)\u2019 [-Wincompatible-pointer-types]",
-    "\u2018IfxEgtm_ATOM0_3_TOUT22_P33_0_OUT\u2019 undeclared (first use in this function)"
-  ],
-  "timestamp": "2026-03-31T11:15:42.359094",
-  "project_name": "Generate_TC4D7_code_for_KIT_A3G_TC4D7_LITE_migrati_r_20260331_110713"
+  "attempt": 5,
+  "phase_attempt": 2,
+  "response_length": 16524,
+  "timestamp": "2026-03-31T11:21:38.789029"
 }
