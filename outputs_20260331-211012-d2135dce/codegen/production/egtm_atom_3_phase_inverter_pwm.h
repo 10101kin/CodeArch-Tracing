@@ -1,7 +1,10 @@
 /*
  * egtm_atom_3_phase_inverter_pwm.h
  *
- * Public API for EGTM ATOM 3-Phase Inverter PWM driver
+ * Public API for EGTM ATOM 3-Phase Inverter PWM driver (TC4xx).
+ *
+ * Note:
+ *  - No watchdog handling here; keep watchdog control in CpuX_Main.c only.
  */
 #ifndef EGTM_ATOM_3_PHASE_INVERTER_PWM_H
 #define EGTM_ATOM_3_PHASE_INVERTER_PWM_H
@@ -10,7 +13,7 @@
 extern "C" {
 #endif
 
-/* Public Functions */
+/* Public API */
 void initEgtmAtom3phInv(void);
 void updateEgtmAtom3phInvDuty(void);
 

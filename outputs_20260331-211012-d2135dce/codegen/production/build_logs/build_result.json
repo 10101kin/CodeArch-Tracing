@@ -2,331 +2,253 @@
   "success": false,
   "errors": [
     {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h",
-      "line": 11,
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h",
+      "line": 12,
       "category": "error",
-      "message": "expected specifier-qualifier-list before 'unsitypedef'"
+      "message": "expected ';' before 'enum'"
     },
     {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h",
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h",
+      "line": 17,
+      "category": "error",
+      "message": "expected ';' before 'enum'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h",
+      "line": 23,
+      "category": "error",
+      "message": "expected ';' before 'enum'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h",
+      "line": 29,
+      "category": "error",
+      "message": "expected ';' before 'enum'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h",
+      "line": 34,
+      "category": "error",
+      "message": "data definition has no type or storage class [-Werror]"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h",
+      "line": 34,
+      "category": "error",
+      "message": "type defaults to 'int' in declaration of 'ndMode' [-Wimplicit-int]"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h",
+      "line": 64,
+      "category": "error",
+      "message": "'/*' within comment [-Werror=comment]"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h",
+      "line": 68,
+      "category": "error",
+      "message": "expected ';' before 'struct'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h",
+      "line": 72,
+      "category": "error",
+      "message": "expected ';' before 'struct'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h",
+      "line": 75,
+      "category": "error",
+      "message": "expected ';' before 'struct'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h",
+      "line": 78,
+      "category": "error",
+      "message": "unknown type name 'IfxEgtm_ClApConfig'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h",
+      "line": 78,
+      "category": "error",
+      "message": "'IFXEGTM_NUM_CCM_OBJECTS' undeclared here (not in a function)"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h",
+      "line": 79,
+      "category": "error",
+      "message": "unknown type name 'IfxEgtm_CtrlApConfig'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h",
+      "line": 80,
+      "category": "error",
+      "message": "unknown type name 'IfxEgtm_WrapApConfig'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h",
+      "line": 80,
+      "category": "error",
+      "message": "expected specifier-qualifier-list before 'typedef'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxPort.h",
+      "line": 20,
+      "category": "error",
+      "message": "expected ';' before 'enum'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxPort.h",
+      "line": 26,
+      "category": "error",
+      "message": "expected ';' before 'enum'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxPort.h",
       "line": 30,
       "category": "error",
       "message": "expected ';' before 'enum'"
     },
     {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h",
-      "line": 35,
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxPort.h",
+      "line": 34,
       "category": "error",
       "message": "expected ';' before 'enum'"
     },
     {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h",
-      "line": 41,
-      "category": "error",
-      "message": "expected ';' before 'enum'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h",
-      "line": 47,
-      "category": "error",
-      "message": "expected ';' before 'enum'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h",
-      "line": 52,
-      "category": "error",
-      "message": "expected identifier or '(' before numeric constant"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h",
-      "line": 59,
-      "category": "error",
-      "message": "data definition has no type or storage class [-Werror]"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h",
-      "line": 59,
-      "category": "error",
-      "message": "type defaults to 'int' in declaration of 'IfxEgtm_MscOut' [-Wimplicit-int]"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h",
-      "line": 60,
-      "category": "error",
-      "message": "unknown type name 'IfxEgtm_MscAltInput'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h",
-      "line": 61,
-      "category": "error",
-      "message": "expected identifier or '(' before '}' token"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h",
-      "line": 61,
-      "category": "error",
-      "message": "data definition has no type or storage class [-Werror]"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h",
-      "line": 61,
-      "category": "error",
-      "message": "type defaults to 'int' in declaration of 'IfxEgtm_MscOut' [-Wimplicit-int]"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h",
-      "line": 61,
-      "category": "error",
-      "message": "data definition has no type or storage class [-Werror]"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h",
-      "line": 61,
-      "category": "error",
-      "message": "type defaults to 'int' in declaration of 'tm_Cfg_MscSelect' [-Wimplicit-int]"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h",
-      "line": 64,
-      "category": "error",
-      "message": "unknown type name 'IfxEgtm_Cfg_MscSet'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h",
-      "line": 65,
-      "category": "error",
-      "message": "unknown type name 'IfxEgtm_Cfg_MscSetSignal'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h",
-      "line": 66,
-      "category": "error",
-      "message": "unknown type name 'IfxEgtm_Cfg_MscModule'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h",
-      "line": 67,
-      "category": "error",
-      "message": "unknown type name 'IfxEgtm_Cfg_MscSelect'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h",
-      "line": 68,
-      "category": "error",
-      "message": "unknown type name 'IfxEgtm_MscAltInput'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h",
-      "line": 69,
-      "category": "error",
-      "message": "'IfxEgtm_MscOut' redeclared as different kind of symbol"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxPort.h",
-      "line": 21,
-      "category": "error",
-      "message": "expected ';' before 'enum'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxPort.h",
-      "line": 27,
-      "category": "error",
-      "message": "expected ';' before 'enum'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxPort.h",
-      "line": 31,
-      "category": "error",
-      "message": "expected ';' before 'enum'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxPort.h",
-      "line": 35,
-      "category": "error",
-      "message": "expected ';' before 'enum'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxPort.h",
-      "line": 71,
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxPort.h",
+      "line": 70,
       "category": "error",
       "message": "expected ',' or '}' before 'enum'"
     },
     {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm_Pwm.h",
-      "line": 232,
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h",
+      "line": 12,
       "category": "error",
-      "message": "'#endif' without '#if'"
+      "message": "expected ';' before 'enum'"
     },
     {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm_Pwm.h",
-      "line": 232,
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h",
+      "line": 17,
       "category": "error",
-      "message": "'#endif' without '#if'"
+      "message": "expected ';' before 'enum'"
     },
     {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h",
-      "line": 11,
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h",
+      "line": 23,
       "category": "error",
-      "message": "expected specifier-qualifier-list before 'unsitypedef'"
+      "message": "expected ';' before 'enum'"
     },
     {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h",
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h",
+      "line": 29,
+      "category": "error",
+      "message": "expected ';' before 'enum'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h",
+      "line": 34,
+      "category": "error",
+      "message": "data definition has no type or storage class [-Werror]"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h",
+      "line": 34,
+      "category": "error",
+      "message": "type defaults to 'int' in declaration of 'ndMode' [-Wimplicit-int]"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h",
+      "line": 64,
+      "category": "error",
+      "message": "'/*' within comment [-Werror=comment]"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h",
+      "line": 68,
+      "category": "error",
+      "message": "expected ';' before 'struct'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h",
+      "line": 72,
+      "category": "error",
+      "message": "expected ';' before 'struct'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h",
+      "line": 75,
+      "category": "error",
+      "message": "expected ';' before 'struct'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h",
+      "line": 78,
+      "category": "error",
+      "message": "unknown type name 'IfxEgtm_ClApConfig'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h",
+      "line": 78,
+      "category": "error",
+      "message": "'IFXEGTM_NUM_CCM_OBJECTS' undeclared here (not in a function)"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h",
+      "line": 79,
+      "category": "error",
+      "message": "unknown type name 'IfxEgtm_CtrlApConfig'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h",
+      "line": 80,
+      "category": "error",
+      "message": "unknown type name 'IfxEgtm_WrapApConfig'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h",
+      "line": 80,
+      "category": "error",
+      "message": "expected specifier-qualifier-list before 'typedef'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h",
+      "line": 64,
+      "category": "error",
+      "message": "'/*' within comment [-Werror=comment]"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxPort.h",
+      "line": 20,
+      "category": "error",
+      "message": "expected ';' before 'enum'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxPort.h",
+      "line": 26,
+      "category": "error",
+      "message": "expected ';' before 'enum'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxPort.h",
       "line": 30,
       "category": "error",
       "message": "expected ';' before 'enum'"
     },
     {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h",
-      "line": 35,
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxPort.h",
+      "line": 34,
       "category": "error",
       "message": "expected ';' before 'enum'"
     },
     {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h",
-      "line": 41,
-      "category": "error",
-      "message": "expected ';' before 'enum'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h",
-      "line": 47,
-      "category": "error",
-      "message": "expected ';' before 'enum'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h",
-      "line": 52,
-      "category": "error",
-      "message": "expected identifier or '(' before numeric constant"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h",
-      "line": 59,
-      "category": "error",
-      "message": "data definition has no type or storage class [-Werror]"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h",
-      "line": 59,
-      "category": "error",
-      "message": "type defaults to 'int' in declaration of 'IfxEgtm_MscOut' [-Wimplicit-int]"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h",
-      "line": 60,
-      "category": "error",
-      "message": "unknown type name 'IfxEgtm_MscAltInput'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h",
-      "line": 61,
-      "category": "error",
-      "message": "expected identifier or '(' before '}' token"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h",
-      "line": 61,
-      "category": "error",
-      "message": "data definition has no type or storage class [-Werror]"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h",
-      "line": 61,
-      "category": "error",
-      "message": "type defaults to 'int' in declaration of 'IfxEgtm_MscOut' [-Wimplicit-int]"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h",
-      "line": 61,
-      "category": "error",
-      "message": "data definition has no type or storage class [-Werror]"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h",
-      "line": 61,
-      "category": "error",
-      "message": "type defaults to 'int' in declaration of 'tm_Cfg_MscSelect' [-Wimplicit-int]"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h",
-      "line": 64,
-      "category": "error",
-      "message": "unknown type name 'IfxEgtm_Cfg_MscSet'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h",
-      "line": 65,
-      "category": "error",
-      "message": "unknown type name 'IfxEgtm_Cfg_MscSetSignal'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h",
-      "line": 66,
-      "category": "error",
-      "message": "unknown type name 'IfxEgtm_Cfg_MscModule'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h",
-      "line": 67,
-      "category": "error",
-      "message": "unknown type name 'IfxEgtm_Cfg_MscSelect'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h",
-      "line": 68,
-      "category": "error",
-      "message": "unknown type name 'IfxEgtm_MscAltInput'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h",
-      "line": 69,
-      "category": "error",
-      "message": "'IfxEgtm_MscOut' redeclared as different kind of symbol"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxPort.h",
-      "line": 21,
-      "category": "error",
-      "message": "expected ';' before 'enum'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxPort.h",
-      "line": 27,
-      "category": "error",
-      "message": "expected ';' before 'enum'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxPort.h",
-      "line": 31,
-      "category": "error",
-      "message": "expected ';' before 'enum'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxPort.h",
-      "line": 35,
-      "category": "error",
-      "message": "expected ';' before 'enum'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxPort.h",
-      "line": 71,
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxPort.h",
+      "line": 70,
       "category": "error",
       "message": "expected ',' or '}' before 'enum'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm_Pwm.h",
-      "line": 232,
-      "category": "error",
-      "message": "'#endif' without '#if'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm_Pwm.h",
-      "line": 232,
-      "category": "error",
-      "message": "'#endif' without '#if'"
     }
   ],
   "warnings": [],
-  "stderr": "In file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm_Pwm.h:6,\n                 from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\src\\egtm_atom_3_phase_inverter_pwm.c:18:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h:11:5: error: expected specifier-qualifier-list before 'unsitypedef'\n   11 |     unsitypedef struct\n      |     ^~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h:30:24: error: expected ';' before 'enum'\n   30 | } IfxEgtm_AeiBritypedef enum\n      |                        ^~~~~\n      |                        ;\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h:35:13: error: expected ';' before 'enum'\n   35 | } Ifxtypedef enum\n      |             ^~~~~\n      |             ;\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h:41:16: error: expected ';' before 'enum'\n   41 | } IfxEgttypedef enum\n      |                ^~~~~\n      |                ;\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h:47:24: error: expected ';' before 'enum'\n   47 | } IfxEgtm_MscAlttypedef enum\n      |                        ^~~~~\n      |                        ;\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h:52:24: error: expected identifier or '(' before numeric constant\n   52 | } IfxEgtm_SuspendMode; 1, IfxEgtm_SuspendMode_softypedef struct\n      |                        ^\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h:59:3: error: data definition has no type or storage class [-Werror]\n   59 | } IfxEgtm_MscOut;\n      |   ^~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h:59:3: error: type defaults to 'int' in declaration of 'IfxEgtm_MscOut' [-Wimplicit-int]\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h:60:5: error: unknown type name 'IfxEgtm_MscAltInput'\n   60 |     IfxEgtm_MscAltInput      mscAltIn;\n      |     ^~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h:61:1: error: expected identifier or '(' before '}' token\n   61 | } IfxEgtm_MscOut;tm_Cfg_MscSelect;\n      | ^\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h:61:3: error: data definition has no type or storage class [-Werror]\n   61 | } IfxEgtm_MscOut;tm_Cfg_MscSelect;\n      |   ^~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h:61:3: error: type defaults to 'int' in declaration of 'IfxEgtm_MscOut' [-Wimplicit-int]\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h:61:18: error: data definition has no type or storage class [-Werror]\n   61 | } IfxEgtm_MscOut;tm_Cfg_MscSelect;\n      |                  ^~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h:61:18: error: type defaults to 'int' in declaration of 'tm_Cfg_MscSelect' [-Wimplicit-int]\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h:64:5: error: unknown type name 'IfxEgtm_Cfg_MscSet'\n   64 |     IfxEgtm_Cfg_MscSet       mscSet;\n      |     ^~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h:65:5: error: unknown type name 'IfxEgtm_Cfg_MscSetSignal'\n   65 |     IfxEgtm_Cfg_MscSetSignal mscSetSignal;\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h:66:5: error: unknown type name 'IfxEgtm_Cfg_MscModule'\n   66 |     IfxEgtm_Cfg_MscModule    mscModule;\n      |     ^~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h:67:5: error: unknown type name 'IfxEgtm_Cfg_MscSelect'\n   67 |     IfxEgtm_Cfg_MscSelect    mscSelect;\n      |     ^~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h:68:5: error: unknown type name 'IfxEgtm_MscAltInput'\n   68 |     IfxEgtm_MscAltInput      mscAltIn;\n      |     ^~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h:69:3: error: 'IfxEgtm_MscOut' redeclared as different kind of symbol\n   69 | } IfxEgtm_MscOut;\n      |   ^~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h:61:3: note: previous declaration of 'IfxEgtm_MscOut' with type 'int'\n   61 | } IfxEgtm_MscOut;tm_Cfg_MscSelect;\n      |   ^~~~~~~~~~~~~~\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm_Pwm.h:8:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxPort.h:21:20: error: expected ';' before 'enum'\n   21 | } IfxPort_Cotypedef enum\n      |                    ^~~~~\n      |                    ;\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxPort.h:27:30: error: expected ';' before 'enum'\n   27 | } IfxPort_InputMode;rttypedef enum\n      |                              ^~~~~\n      |                              ;\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxPort.h:31:16: error: expected ';' before 'enum'\n   31 | } IfxPortypedef enum\n      |                ^~~~~\n      |                ;\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxPort.h:35:16: error: expected ';' before 'enum'\n   35 | } IfxPortypedef enum\n      |                ^~~~~\n      |                ;\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxPort.h:71:43: error: expected ',' or '}' before 'enum'\n   71 |     IfxPort_Mode_outputOpenDrainAltypedef enum\n      |                                           ^~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm_Pwm.h:232:2: error: '#endif' without '#if'\n  232 | #endif /* IFXEGTM_PWM_H */\n      |  ^~~~~\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxPort_Pinmap.h:4,\n                 from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\src\\egtm_atom_3_phase_inverter_pwm.c:20:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm_Pwm.h:232:2: error: '#endif' without '#if'\n  232 | #endif /* IFXEGTM_PWM_H */\n      |  ^~~~~\ncc1.exe: all warnings being treated as errors\n\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\mocks\\mock_egtm_atom_3_phase_inverter_pwm.c:3:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h:11:5: error: expected specifier-qualifier-list before 'unsitypedef'\n   11 |     unsitypedef struct\n      |     ^~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h:30:24: error: expected ';' before 'enum'\n   30 | } IfxEgtm_AeiBritypedef enum\n      |                        ^~~~~\n      |                        ;\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h:35:13: error: expected ';' before 'enum'\n   35 | } Ifxtypedef enum\n      |             ^~~~~\n      |             ;\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h:41:16: error: expected ';' before 'enum'\n   41 | } IfxEgttypedef enum\n      |                ^~~~~\n      |                ;\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h:47:24: error: expected ';' before 'enum'\n   47 | } IfxEgtm_MscAlttypedef enum\n      |                        ^~~~~\n      |                        ;\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h:52:24: error: expected identifier or '(' before numeric constant\n   52 | } IfxEgtm_SuspendMode; 1, IfxEgtm_SuspendMode_softypedef struct\n      |                        ^\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h:59:3: error: data definition has no type or storage class [-Werror]\n   59 | } IfxEgtm_MscOut;\n      |   ^~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h:59:3: error: type defaults to 'int' in declaration of 'IfxEgtm_MscOut' [-Wimplicit-int]\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h:60:5: error: unknown type name 'IfxEgtm_MscAltInput'\n   60 |     IfxEgtm_MscAltInput      mscAltIn;\n      |     ^~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h:61:1: error: expected identifier or '(' before '}' token\n   61 | } IfxEgtm_MscOut;tm_Cfg_MscSelect;\n      | ^\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h:61:3: error: data definition has no type or storage class [-Werror]\n   61 | } IfxEgtm_MscOut;tm_Cfg_MscSelect;\n      |   ^~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h:61:3: error: type defaults to 'int' in declaration of 'IfxEgtm_MscOut' [-Wimplicit-int]\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h:61:18: error: data definition has no type or storage class [-Werror]\n   61 | } IfxEgtm_MscOut;tm_Cfg_MscSelect;\n      |                  ^~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h:61:18: error: type defaults to 'int' in declaration of 'tm_Cfg_MscSelect' [-Wimplicit-int]\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h:64:5: error: unknown type name 'IfxEgtm_Cfg_MscSet'\n   64 |     IfxEgtm_Cfg_MscSet       mscSet;\n      |     ^~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h:65:5: error: unknown type name 'IfxEgtm_Cfg_MscSetSignal'\n   65 |     IfxEgtm_Cfg_MscSetSignal mscSetSignal;\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h:66:5: error: unknown type name 'IfxEgtm_Cfg_MscModule'\n   66 |     IfxEgtm_Cfg_MscModule    mscModule;\n      |     ^~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h:67:5: error: unknown type name 'IfxEgtm_Cfg_MscSelect'\n   67 |     IfxEgtm_Cfg_MscSelect    mscSelect;\n      |     ^~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h:68:5: error: unknown type name 'IfxEgtm_MscAltInput'\n   68 |     IfxEgtm_MscAltInput      mscAltIn;\n      |     ^~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h:69:3: error: 'IfxEgtm_MscOut' redeclared as different kind of symbol\n   69 | } IfxEgtm_MscOut;\n      |   ^~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm.h:61:3: note: previous declaration of 'IfxEgtm_MscOut' with type 'int'\n   61 | } IfxEgtm_MscOut;tm_Cfg_MscSelect;\n      |   ^~~~~~~~~~~~~~\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm_Pwm.h:8,\n                 from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\mocks\\mock_egtm_atom_3_phase_inverter_pwm.c:5:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxPort.h:21:20: error: expected ';' before 'enum'\n   21 | } IfxPort_Cotypedef enum\n      |                    ^~~~~\n      |                    ;\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxPort.h:27:30: error: expected ';' before 'enum'\n   27 | } IfxPort_InputMode;rttypedef enum\n      |                              ^~~~~\n      |                              ;\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxPort.h:31:16: error: expected ';' before 'enum'\n   31 | } IfxPortypedef enum\n      |                ^~~~~\n      |                ;\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxPort.h:35:16: error: expected ';' before 'enum'\n   35 | } IfxPortypedef enum\n      |                ^~~~~\n      |                ;\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxPort.h:71:43: error: expected ',' or '}' before 'enum'\n   71 |     IfxPort_Mode_outputOpenDrainAltypedef enum\n      |                                           ^~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm_Pwm.h:232:2: error: '#endif' without '#if'\n  232 | #endif /* IFXEGTM_PWM_H */\n      |  ^~~~~\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxPort_Pinmap.h:4,\n                 from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\mocks\\mock_egtm_atom_3_phase_inverter_pwm.c:7:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_xzkgt3gp\\include/IfxEgtm_Pwm.h:232:2: error: '#endif' without '#if'\n  232 | #endif /* IFXEGTM_PWM_H */\n      |  ^~~~~\ncc1.exe: all warnings being treated as errors\n",
+  "stderr": "In file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm_Pwm.h:6,\n                 from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\src\\egtm_atom_3_phase_inverter_pwm.c:19:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h:12:33: error: expected ';' before 'enum'\n   12 | } IfxEgtm_AeiBridgeOpModetypedef enum\n      |                                 ^~~~~\n      |                                 ;\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h:17:32: error: expected ';' before 'enum'\n   17 | } IfxEgtm_ClusterClockDitypedef enum\n      |                                ^~~~~\n      |                                ;\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h:23:28: error: expected ';' before 'enum'\n   23 | } IfxEgtm_IrqMode;rqtypedef enum\n      |                            ^~~~~\n      |                            ;\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h:29:32: error: expected ';' before 'enum'\n   29 | } IfxEgtm_MscAltInput;tItypedef enum\n      |                                ^~~~~\n      |                                ;\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h:34:23: error: data definition has no type or storage class [-Werror]\n   34 | } IfxEgtm_SuspendMode;ndMode;\n      |                       ^~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h:34:23: error: type defaults to 'int' in declaration of 'ndMode' [-Wimplicit-int]\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h:64:1: error: '/*' within comment [-Werror=comment]\n   64 | /* Structs */\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h:68:24: error: expected ';' before 'struct'\n   68 | } IfxEgtm_ClApCotypedef struct\n      |                        ^~~~~~~\n      |                        ;\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h:72:17: error: expected ';' before 'struct'\n   72 | } IfxEgtmtypedef struct\n      |                 ^~~~~~~\n      |                 ;\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h:75:26: error: expected ';' before 'struct'\n   75 | } IfxEgtm_WrapApCotypedef struct\n      |                          ^~~~~~~\n      |                          ;\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h:78:5: error: unknown type name 'IfxEgtm_ClApConfig'\n   78 |     IfxEgtm_ClApConfig   clApConfig[IFXEGTM_NUM_CCM_OBJECTS];\n      |     ^~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h:78:37: error: 'IFXEGTM_NUM_CCM_OBJECTS' undeclared here (not in a function)\n   78 |     IfxEgtm_ClApConfig   clApConfig[IFXEGTM_NUM_CCM_OBJECTS];\n      |                                     ^~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h:79:5: error: unknown type name 'IfxEgtm_CtrlApConfig'\n   79 |     IfxEgtm_CtrlApConfig ctrlApConfig;\n      |     ^~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h:80:5: error: unknown type name 'IfxEgtm_WrapApConfig'\n   80 |     IfxEgtm_WrapApConfig wrapApConfig;   typedef struct\n      |     ^~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h:80:42: error: expected specifier-qualifier-list before 'typedef'\n   80 |     IfxEgtm_WrapApConfig wrapApConfig;   typedef struct\n      |                                          ^~~~~~~\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm_Pwm.h:8:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxPort.h:20:20: error: expected ';' before 'enum'\n   20 | } IfxPort_Cotypedef enum\n      |                    ^~~~~\n      |                    ;\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxPort.h:26:30: error: expected ';' before 'enum'\n   26 | } IfxPort_InputMode;rttypedef enum\n      |                              ^~~~~\n      |                              ;\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxPort.h:30:16: error: expected ';' before 'enum'\n   30 | } IfxPortypedef enum\n      |                ^~~~~\n      |                ;\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxPort.h:34:16: error: expected ';' before 'enum'\n   34 | } IfxPortypedef enum\n      |                ^~~~~\n      |                ;\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxPort.h:70:43: error: expected ',' or '}' before 'enum'\n   70 |     IfxPort_Mode_outputOpenDrainAltypedef enum\n      |                                           ^~~~\ncc1.exe: all warnings being treated as errors\n\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\mocks\\mock_egtm_atom_3_phase_inverter_pwm.c:6:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h:12:33: error: expected ';' before 'enum'\n   12 | } IfxEgtm_AeiBridgeOpModetypedef enum\n      |                                 ^~~~~\n      |                                 ;\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h:17:32: error: expected ';' before 'enum'\n   17 | } IfxEgtm_ClusterClockDitypedef enum\n      |                                ^~~~~\n      |                                ;\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h:23:28: error: expected ';' before 'enum'\n   23 | } IfxEgtm_IrqMode;rqtypedef enum\n      |                            ^~~~~\n      |                            ;\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h:29:32: error: expected ';' before 'enum'\n   29 | } IfxEgtm_MscAltInput;tItypedef enum\n      |                                ^~~~~\n      |                                ;\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h:34:23: error: data definition has no type or storage class [-Werror]\n   34 | } IfxEgtm_SuspendMode;ndMode;\n      |                       ^~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h:34:23: error: type defaults to 'int' in declaration of 'ndMode' [-Wimplicit-int]\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h:64:1: error: '/*' within comment [-Werror=comment]\n   64 | /* Structs */\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h:68:24: error: expected ';' before 'struct'\n   68 | } IfxEgtm_ClApCotypedef struct\n      |                        ^~~~~~~\n      |                        ;\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h:72:17: error: expected ';' before 'struct'\n   72 | } IfxEgtmtypedef struct\n      |                 ^~~~~~~\n      |                 ;\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h:75:26: error: expected ';' before 'struct'\n   75 | } IfxEgtm_WrapApCotypedef struct\n      |                          ^~~~~~~\n      |                          ;\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h:78:5: error: unknown type name 'IfxEgtm_ClApConfig'\n   78 |     IfxEgtm_ClApConfig   clApConfig[IFXEGTM_NUM_CCM_OBJECTS];\n      |     ^~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h:78:37: error: 'IFXEGTM_NUM_CCM_OBJECTS' undeclared here (not in a function)\n   78 |     IfxEgtm_ClApConfig   clApConfig[IFXEGTM_NUM_CCM_OBJECTS];\n      |                                     ^~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h:79:5: error: unknown type name 'IfxEgtm_CtrlApConfig'\n   79 |     IfxEgtm_CtrlApConfig ctrlApConfig;\n      |     ^~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h:80:5: error: unknown type name 'IfxEgtm_WrapApConfig'\n   80 |     IfxEgtm_WrapApConfig wrapApConfig;   typedef struct\n      |     ^~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h:80:42: error: expected specifier-qualifier-list before 'typedef'\n   80 |     IfxEgtm_WrapApConfig wrapApConfig;   typedef struct\n      |                                          ^~~~~~~\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm_Pwm.h:6,\n                 from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\mocks\\mock_egtm_atom_3_phase_inverter_pwm.c:8:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm.h:64:1: error: '/*' within comment [-Werror=comment]\n   64 | /* Structs */\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxEgtm_Pwm.h:8:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxPort.h:20:20: error: expected ';' before 'enum'\n   20 | } IfxPort_Cotypedef enum\n      |                    ^~~~~\n      |                    ;\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxPort.h:26:30: error: expected ';' before 'enum'\n   26 | } IfxPort_InputMode;rttypedef enum\n      |                              ^~~~~\n      |                              ;\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxPort.h:30:16: error: expected ';' before 'enum'\n   30 | } IfxPortypedef enum\n      |                ^~~~~\n      |                ;\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxPort.h:34:16: error: expected ';' before 'enum'\n   34 | } IfxPortypedef enum\n      |                ^~~~~\n      |                ;\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_6wwufyxn\\include/IfxPort.h:70:43: error: expected ',' or '}' before 'enum'\n   70 |     IfxPort_Mode_outputOpenDrainAltypedef enum\n      |                                           ^~~~\ncc1.exe: all warnings being treated as errors\n",
   "stdout": ""
 }
