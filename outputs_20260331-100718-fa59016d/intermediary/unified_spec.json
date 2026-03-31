@@ -1,0 +1,1050 @@
+{
+  "meta": {
+    "schema_version": "1.0",
+    "last_updated_by": "sw_detailed",
+    "last_updated_at": "2026-03-31T10:16:34.299475",
+    "build_sequence": [
+      "requirements",
+      "hardware",
+      "sw_architecture",
+      "sw_detailed"
+    ],
+    "corrections_log": []
+  },
+  "requirements": {
+    "generation_mode": "MIGRATION",
+    "migration_info": {
+      "has_reference": true,
+      "reference_family": "TC3xx",
+      "target_family": "TC4xx",
+      "migration_required": true,
+      "driver_mappings": {
+        "IfxScuWdt": "IfxWtu",
+        "IfxGtm_Pwm": "IfxEgtm_Pwm",
+        "IfxGtm": "IfxEgtm",
+        "IfxGtm_Cmu": "IfxEgtm_Cmu",
+        "IfxGtm_Dtm": "IfxEgtm_Dtm",
+        "IfxGtm_Trig": "IfxEgtm_Trigger",
+        "IfxEVadc_Adc": "IfxAdc_Tmadc"
+      },
+      "header_mappings": {
+        "IfxScuWdt.h": "IfxWtu.h",
+        "IfxGtm_Pwm.h": "IfxEgtm_Pwm.h",
+        "IfxGtm.h": "IfxEgtm.h",
+        "IfxGtm_Cmu.h": "IfxEgtm_Cmu.h",
+        "IfxGtm_Dtm.h": "IfxEgtm_Dtm.h",
+        "IfxGtm_Trig.h": "IfxEgtm_Trigger.h",
+        "IfxGtm_PinMap.h": "IfxEgtm_PinMap.h",
+        "IfxEVadc_Adc.h": "IfxAdc_Tmadc.h"
+      },
+      "api_changes": [
+        {
+          "from": "initGtmTom3phInv",
+          "to": "initEgtmAtom3phInv",
+          "reason": "TC3xx→TC4xx function name"
+        },
+        {
+          "from": "updateGtmTom3phInvDuty",
+          "to": "updateEgtmAtom3phInvDuty",
+          "reason": "TC3xx→TC4xx function name"
+        },
+        {
+          "from": "IfxGtm_Pwm_initConfig",
+          "to": "IfxEgtm_Pwm_initConfig",
+          "reason": "GTM→EGTM driver migration"
+        },
+        {
+          "from": "IfxGtm_Pwm_init",
+          "to": "IfxEgtm_Pwm_init",
+          "reason": "GTM→EGTM driver migration"
+        },
+        {
+          "from": "IfxGtm_Pwm_startSyncedGroups",
+          "to": "IfxEgtm_Pwm_startSyncedGroups",
+          "reason": "GTM→EGTM driver migration"
+        },
+        {
+          "from": "IfxGtm_Pwm_updateChannelsDutyImmediate",
+          "to": "IfxEgtm_Pwm_updateChannelsDutyImmediate",
+          "reason": "GTM→EGTM driver migration"
+        },
+        {
+          "from": "IfxGtm_Trig_toEVadc",
+          "to": "IfxEgtm_Trigger_trigToAdc",
+          "reason": "GTM Trigger→EGTM Trigger; EVADC→ADC trigger interface on TC4xx"
+        },
+        {
+          "from": "&MODULE_GTM",
+          "to": "&MODULE_EGTM",
+          "reason": "GTM→EGTM module reference"
+        },
+        {
+          "from": "IfxScuWdt_disableCpuWatchdog",
+          "to": "IfxWtu_disableCpuWatchdog",
+          "reason": "TC3xx→TC4xx watchdog migration"
+        },
+        {
+          "from": "IfxScuWdt_disableSafetyWatchdog",
+          "to": "IfxWtu_disableSystemWatchdog",
+          "reason": "TC3xx→TC4xx watchdog naming"
+        },
+        {
+          "from": "EVADC group/channel one-shot APIs",
+          "to": "TMADC0 one-shot channel APIs (IfxAdc_Tmadc_*)",
+          "reason": "EVADC (TC3xx) replaced by TMADC (TC4D7)"
+        },
+        {
+          "from": "IfxCpu_emitEvent / IfxCpu_waitEvent",
+          "to": "Removed",
+          "reason": "CPU synchronization removed per instructions"
+        }
+      ],
+      "function_names_to_preserve": [
+        "initEgtmAtom3phInv",
+        "updateEgtmAtom3phInvDuty",
+        "updateEgtmAtomDuty",
+        "resultISR"
+      ]
+    },
+    "peripheral_requirement": {
+      "type": "PWM",
+      "driver_available": true,
+      "driver_name": "IfxEgtm_Pwm",
+      "purpose": "3-phase inverter complementary center-aligned PWM on EGTM ATOM0 with ADC trigger; duties updated at runtime",
+      "driver_locked": true,
+      "driver_selection_source": "engine_scored"
+    },
+    "signal_requirements": {
+      "pwm": {
+        "egtm_cluster": 0,
+        "atom": 0,
+        "channels": {
+          "pairs_center_aligned": [
+            {
+              "phase": "U",
+              "channels": [
+                0
+              ],
+              "pins": {
+                "high": "P20.8",
+                "low": "P20.9"
+              },
+              "initial_duty_percent": 25
+            },
+            {
+              "phase": "V",
+              "channels": [
+                1
+              ],
+              "pins": {
+                "high": "P20.10",
+                "low": "P20.11"
+              },
+              "initial_duty_percent": 50
+            },
+            {
+              "phase": "W",
+              "channels": [
+                2
+              ],
+              "pins": {
+                "high": "P20.12",
+                "low": "P20.13"
+              },
+              "initial_duty_percent": 75
+            }
+          ],
+          "adc_trigger": {
+            "channel": 3,
+            "mode": "edge_aligned",
+            "duty_percent": 50,
+            "route": "AdcTriggerSignal_0 via IfxEgtm_Trigger_trigToAdc()",
+            "monitor_pin": "P33.0"
+          }
+        },
+        "frequency_hz": 20000,
+        "clock_source": "CMU_CLK0",
+        "dead_time": {
+          "type": "CDTM",
+          "rising_ns": 1000,
+          "falling_ns": 1000
+        }
+      },
+      "adc": {
+        "type": "TMADC",
+        "module": "TMADC0",
+        "sar_core": 0,
+        "channels": [
+          {
+            "id": 0,
+            "mode": "one_shot",
+            "trigger_edge": "falling",
+            "trigger_mux": "TriggerMuxSel_36"
+          },
+          {
+            "id": 1,
+            "mode": "one_shot",
+            "trigger_edge": "falling",
+            "trigger_mux": "TriggerMuxSel_36"
+          },
+          {
+            "id": 2,
+            "mode": "one_shot",
+            "trigger_edge": "falling",
+            "trigger_mux": "TriggerMuxSel_36"
+          },
+          {
+            "id": 3,
+            "mode": "one_shot",
+            "trigger_edge": "falling",
+            "trigger_mux": "TriggerMuxSel_36"
+          },
+          {
+            "id": 4,
+            "mode": "one_shot",
+            "trigger_edge": "falling",
+            "trigger_mux": "TriggerMuxSel_36"
+          }
+        ],
+        "sample_time_ns": 100,
+        "wait_for_read": true,
+        "trigger_source": "EGTM.ATOM0.CH3 via AdcTriggerSignal_0",
+        "analog_inputs_assumption": {
+          "mapping": "TMADC0.AN0..AN4 (default analog pad selection for channels CH0..CH4)",
+          "note": "Exact board pin pads to be finalized; adjust to match KIT_A3G_TC4D7_LITE schematic"
+        }
+      },
+      "isr": {
+        "name": "resultISR",
+        "cpu": "CPU0",
+        "priority": 25,
+        "vmId": "IfxSrc_VmId_0",
+        "behavior": "On each trigger, read all 5 TMADC0 results (CH0..CH4), clear flags/WFR, and toggle P03.9"
+      },
+      "gpio_misc": {
+        "toggle_pin": "P03.9",
+        "port_headers": [
+          "IfxPort.h",
+          "IfxPort_PinMap.h"
+        ]
+      }
+    },
+    "timing_requirements": {
+      "pwm_frequency_hz": 20000,
+      "pwm_alignment": "center_aligned",
+      "adc_trigger_alignment": "edge_aligned_50_percent",
+      "dead_time_rising_ns": 1000,
+      "dead_time_falling_ns": 1000,
+      "adc_sample_time_ns": 100,
+      "duty_update_period_ms": 500,
+      "duty_update_step_percent": 1.0,
+      "stm_timer": {
+        "module": "STM0",
+        "api": [
+          "IfxStm_getTicksFromMilliseconds",
+          "waitTime"
+        ]
+      },
+      "cmu_clock": {
+        "source": "CMU_CLK0",
+        "note": "Derive from PLL to meet 20 kHz period and 1 µs CDTM dead-time resolution with adequate tick granularity"
+      }
+    },
+    "device_configuration": {
+      "target_device_macro": "DEVICE_TC4DX",
+      "pin_package": "IFX_PIN_PACKAGE_BGA436_COM",
+      "device_family": "TC4xx",
+      "clock_requirements": {
+        "requires_xtal": true,
+        "expected_system_freq_mhz": 300
+      }
+    },
+    "code_structure": {
+      "file_pattern": "reference",
+      "expected_files": [
+        "EGTM_ATOM_ADC_TMADC_Multiple_Channels.c",
+        "EGTM_ATOM_ADC_TMADC_Multiple_Channels.h",
+        "Cpu0_Main.c"
+      ],
+      "has_cpu_files": true
+    },
+    "reference_context": {
+      "includes_used": [
+        "Ifx_Types.h",
+        "IfxCpu.h",
+        "IfxScuWdt.h",
+        "IfxEVadc_Adc.h",
+        "IfxGtm_Pwm.h",
+        "IfxGtm_Trig.h",
+        "IfxPort.h",
+        "IfxPort_PinMap.h"
+      ],
+      "function_patterns": [
+        "initGtmTom3phInv",
+        "updateGtmTom3phInvDuty",
+        "IfxGtm_Pwm_initConfig",
+        "IfxGtm_Pwm_init",
+        "IfxGtm_Pwm_startSyncedGroups",
+        "IfxGtm_Trig_toEVadc"
+      ],
+      "peripheral_usage": {
+        "GTM": "TOM-based 3-phase PWM generation with EVADC trigger",
+        "EVADC": "Multiple channel one-shot conversions triggered by GTM",
+        "Port": "Pin configuration and GPIO toggling"
+      }
+    },
+    "migration_numerical_values": {
+      "NUM_OF_CHANNELS": {
+        "value": 3,
+        "unit": "",
+        "label": "Number of channels"
+      },
+      "NUM_OF_ADC_TRIG_CHANNELS": {
+        "value": 1,
+        "unit": "",
+        "label": "Number of channels"
+      },
+      "PHASE_U_DUTY": {
+        "value": 25,
+        "unit": "%",
+        "label": "Phase U initial duty cycle"
+      },
+      "PHASE_V_DUTY": {
+        "value": 50,
+        "unit": "%",
+        "label": "Phase V initial duty cycle"
+      },
+      "PHASE_W_DUTY": {
+        "value": 75,
+        "unit": "%",
+        "label": "Phase W initial duty cycle"
+      },
+      "PHASE_DUTY_STEP": {
+        "value": 0.01,
+        "unit": "%",
+        "label": "Duty cycle step increment"
+      },
+      "ADC_TRIG_DUTY": {
+        "value": 50,
+        "unit": "%",
+        "label": "Duty cycle"
+      },
+      "PWM_FREQUENCY": {
+        "value": 20000,
+        "unit": "Hz",
+        "label": "PWM switching frequency"
+      },
+      "INTERRUPT_PRIORITY_EVADC_CUR": {
+        "value": 10,
+        "unit": "",
+        "label": "Interrupt priority"
+      },
+      ".priority": {
+        "value": 0,
+        "unit": "",
+        "label": "Interrupt priority"
+      },
+      "PHASECURSENSE_REFILL_TRIG": {
+        "value": 1,
+        "unit": "",
+        "label": "Phasecursense refill trig"
+      },
+      ".rising": {
+        "value": 1.0,
+        "unit": "",
+        "label": ".rising"
+      },
+      ".falling": {
+        "value": 1.0,
+        "unit": "",
+        "label": ".falling"
+      },
+      ".phase": {
+        "value": 0,
+        "unit": "",
+        "label": ".phase"
+      }
+    },
+    "template_compatibility": {
+      "validated": false,
+      "supported_peripherals": [
+        "PWM",
+        "GTM",
+        "EGTM",
+        "TIMER",
+        "STM",
+        "GPIO",
+        "ASCLIN",
+        "ADC",
+        "INTERRUPT",
+        "WATCHDOG",
+        "CPU"
+      ],
+      "suggested_drivers": {
+        "PWM": [
+          "IfxEgtm_Pwm",
+          "IfxGtm_Atom_Pwm",
+          "IfxEgtm_Tom_Pwm",
+          "IfxGtm_Tom_Pwm",
+          "IfxGtm_Pwm",
+          "IfxEgtm_Atom_Pwm"
+        ],
+        "GTM": [
+          "IfxGtm_PinMap",
+          "IfxGtm_Tbu",
+          "IfxGtm",
+          "IfxGtm_Psm",
+          "IfxGtm_Dtm",
+          "IfxGtm_Spe",
+          "IfxGtm_Pwm",
+          "IfxGtm_Trigger",
+          "IfxGtm_Input"
+        ],
+        "EGTM": [
+          "IfxEgtm_PinMap",
+          "IfxEgtm_cfg_TC4Dx",
+          "IfxEgtm_Input",
+          "IfxEgtm_Pwm",
+          "IfxEgtm",
+          "IfxEgtm_Atom",
+          "IfxEgtm_Cmu",
+          "IfxEgtm_Dtm",
+          "IfxEgtm_Spe",
+          "IfxEgtm_Tbu",
+          "IfxEgtm_Tim",
+          "IfxEgtm_Tom",
+          "IfxEgtm_Trigger",
+          "IfxEgtm_Tom_Pwm",
+          "IfxEgtm_Tom_Timer",
+          "IfxEgtm_Tim_In",
+          "IfxEgtm_Tim_Timer",
+          "IfxEgtm_Atom_Pwm",
+          "IfxEgtm_Atom_Timer"
+        ],
+        "TIMER": [
+          "IfxStm_Timer",
+          "IfxScrTimer01",
+          "IfxGtm_Tom_Timer",
+          "IfxGtm_Tim_Timer",
+          "IfxGtm_Atom_Timer",
+          "IfxEgtm_Tom_Timer",
+          "IfxEgtm_Tim_Timer",
+          "IfxEgtm_Atom_Timer",
+          "IfxPpu_Timer"
+        ],
+        "STM": [
+          "IfxStm_cfg_TC4Dx",
+          "IfxStm",
+          "IfxStm_Timer"
+        ],
+        "GPIO": [
+          "IfxPort",
+          "IfxPort_PinMap",
+          "IfxScrPort",
+          "IfxPort_Io",
+          "IfxPort_cfg_TC4Dx"
+        ],
+        "ASCLIN": [
+          "IfxAsclin_cfg_TC4Dx",
+          "IfxAsclin_Asc",
+          "IfxAsclin_Lin",
+          "IfxAsclin_Spi",
+          "IfxAsclin"
+        ],
+        "ADC": [
+          "IfxAdc_Dsadc"
+        ],
+        "INTERRUPT": [
+          "IfxCpu_Irq",
+          "IfxScrCpuIrq"
+        ],
+        "WATCHDOG": [
+          "IfxWtu_cfg_TC4Dx",
+          "IfxWtu.asm",
+          "IfxWtu"
+        ],
+        "CPU": [
+          "IfxCpu"
+        ]
+      },
+      "warnings": [
+        "VADC requested but no matching drivers found in template",
+        "EVADC requested but no matching drivers found in template"
+      ]
+    },
+    "header_documentation_available": true,
+    "config_values_extracted": 54
+  },
+  "hardware": {
+    "microcontroller": {
+      "model": "TC4Dx",
+      "verified": true
+    },
+    "peripheral_instance": {
+      "module": "EGTM0.ATOM0",
+      "channels": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "pin_assignments": [
+      {
+        "signal": "PWM_U_HIGH",
+        "port_pin": "P20.8",
+        "function": "TOUT",
+        "pin_macro": null,
+        "is_complementary": false,
+        "verified": false,
+        "source": "hardware_verified"
+      },
+      {
+        "signal": "PWM_U_LOW",
+        "port_pin": "P20.9",
+        "function": "TOUTN",
+        "pin_macro": null,
+        "is_complementary": true,
+        "verified": false,
+        "source": "hardware_verified"
+      },
+      {
+        "signal": "PWM_V_HIGH",
+        "port_pin": "P20.10",
+        "function": "TOUT",
+        "pin_macro": null,
+        "is_complementary": false,
+        "verified": false,
+        "source": "hardware_verified"
+      },
+      {
+        "signal": "PWM_V_LOW",
+        "port_pin": "P20.11",
+        "function": "TOUTN",
+        "pin_macro": null,
+        "is_complementary": true,
+        "verified": false,
+        "source": "hardware_verified"
+      },
+      {
+        "signal": "PWM_W_HIGH",
+        "port_pin": "P20.12",
+        "function": "TOUT",
+        "pin_macro": null,
+        "is_complementary": false,
+        "verified": false,
+        "source": "hardware_verified"
+      },
+      {
+        "signal": "PWM_W_LOW",
+        "port_pin": "P20.13",
+        "function": "TOUTN",
+        "pin_macro": null,
+        "is_complementary": true,
+        "verified": false,
+        "source": "hardware_verified"
+      },
+      {
+        "signal": "ADC_TRIG_OUT",
+        "port_pin": "P33.0",
+        "function": "TOUT",
+        "pin_macro": null,
+        "is_complementary": false,
+        "verified": false,
+        "source": "hardware_verified"
+      }
+    ],
+    "clock_configuration": {
+      "xtal_frequency_mhz": 25,
+      "system_frequency_mhz": 500
+    },
+    "validation": {
+      "all_verified": false,
+      "conflicts": [
+        "Pin macros for P20.8/9/10/11/12/13 and P33.0 not resolved in template PinMap; cannot confirm TOUT/TOUTN alternate functions on IFX_PIN_PACKAGE_BGA436_COM.",
+        "ATOM0 channel-to-TOUT index mapping for requested pins not found in provided template context; verification pending device PinMap header."
+      ],
+      "reference_pins_valid": true
+    },
+    "template_validation": {
+      "supported_peripherals": [
+        "PWM",
+        "GTM",
+        "EGTM",
+        "TIMER",
+        "STM",
+        "GPIO",
+        "ASCLIN",
+        "ADC",
+        "INTERRUPT",
+        "WATCHDOG",
+        "CPU"
+      ],
+      "suggested_drivers": {
+        "PWM": [
+          "IfxEgtm_Pwm",
+          "IfxGtm_Atom_Pwm",
+          "IfxEgtm_Tom_Pwm",
+          "IfxGtm_Tom_Pwm",
+          "IfxGtm_Pwm",
+          "IfxEgtm_Atom_Pwm"
+        ],
+        "GTM": [
+          "IfxGtm_PinMap",
+          "IfxGtm_Tbu",
+          "IfxGtm",
+          "IfxGtm_Psm",
+          "IfxGtm_Dtm",
+          "IfxGtm_Spe",
+          "IfxGtm_Pwm",
+          "IfxGtm_Trigger",
+          "IfxGtm_Input"
+        ],
+        "EGTM": [
+          "IfxEgtm_PinMap",
+          "IfxEgtm_cfg_TC4Dx",
+          "IfxEgtm_Input",
+          "IfxEgtm_Pwm",
+          "IfxEgtm",
+          "IfxEgtm_Atom",
+          "IfxEgtm_Cmu",
+          "IfxEgtm_Dtm",
+          "IfxEgtm_Spe",
+          "IfxEgtm_Tbu",
+          "IfxEgtm_Tim",
+          "IfxEgtm_Tom",
+          "IfxEgtm_Trigger",
+          "IfxEgtm_Tom_Pwm",
+          "IfxEgtm_Tom_Timer",
+          "IfxEgtm_Tim_In",
+          "IfxEgtm_Tim_Timer",
+          "IfxEgtm_Atom_Pwm",
+          "IfxEgtm_Atom_Timer"
+        ],
+        "TIMER": [
+          "IfxStm_Timer",
+          "IfxScrTimer01",
+          "IfxGtm_Tom_Timer",
+          "IfxGtm_Tim_Timer",
+          "IfxGtm_Atom_Timer",
+          "IfxEgtm_Tom_Timer",
+          "IfxEgtm_Tim_Timer",
+          "IfxEgtm_Atom_Timer",
+          "IfxPpu_Timer"
+        ],
+        "STM": [
+          "IfxStm_cfg_TC4Dx",
+          "IfxStm",
+          "IfxStm_Timer"
+        ],
+        "GPIO": [
+          "IfxPort",
+          "IfxPort_PinMap",
+          "IfxScrPort",
+          "IfxPort_Io",
+          "IfxPort_cfg_TC4Dx"
+        ],
+        "ASCLIN": [
+          "IfxAsclin_cfg_TC4Dx",
+          "IfxAsclin_Asc",
+          "IfxAsclin_Lin",
+          "IfxAsclin_Spi",
+          "IfxAsclin"
+        ],
+        "ADC": [
+          "IfxAdc_Dsadc"
+        ],
+        "INTERRUPT": [
+          "IfxCpu_Irq",
+          "IfxScrCpuIrq"
+        ],
+        "WATCHDOG": [
+          "IfxWtu_cfg_TC4Dx",
+          "IfxWtu.asm",
+          "IfxWtu"
+        ],
+        "CPU": [
+          "IfxCpu"
+        ]
+      },
+      "warnings": [
+        "VADC requested but no matching drivers found in template",
+        "EVADC requested but no matching drivers found in template"
+      ]
+    }
+  },
+  "sw_architecture": {
+    "user_intent_preservation": {
+      "original_goal": "Migrate the TC387 TOM/EVADC 3-phase inverter to TC4D7 using eGTM ATOM + TMADC with identical behavior.",
+      "functional_behavior": "Generate three complementary, center-aligned PWM pairs on ATOM0 CH0–CH2 at 20 kHz with 1 µs CDTM dead-time and initial duties U=25%, V=50%, W=75%; output an edge-aligned 50% trigger on ATOM0 CH3 routed to AdcTriggerSignal_0; run TMADC0 with five one-shot channels (CH0–CH4) triggered on falling edge; service an ISR on CPU0 to read all five results and toggle P03.9; update PWM duties every 500 ms.",
+      "technical_approach": "Use the unified IfxEgtm_Pwm driver on EGTM Cluster 0 to configure ATOM0 channels for complementary center-aligned PWM with CDTM-managed dead-time and a separate edge-aligned trigger channel; route the trigger to the ADC via IfxEgtm_Trigger_trigToAdc; configure TMADC0 channels with IfxAdc_Tmadc for one-shot conversions and enable channel events to invoke resultISR; control GPIO with IfxPort; update phase duties at runtime via IfxEgtm_Pwm_updateChannelsDutyImmediate."
+    },
+    "driver_selection": {
+      "recommended_driver": "IfxEgtm_Pwm",
+      "selection_rationale": "Unified PWM driver supports ATOM-based center/edge alignment, complementary outputs with CDTM dead-time, synced groups, and provides immediate duty update APIs required by updateEgtmAtomDuty while simplifying initialization for multi-channel setups. It aligns with the migration goal and the locked PWM driver choice.",
+      "available_in_template": true,
+      "complexity_level": "advanced",
+      "alternatives_considered": [
+        "IfxEgtm_Atom_Pwm",
+        "IfxGtm_Pwm"
+      ]
+    },
+    "driver_usage": {
+      "initialization_apis": [
+        "IfxEgtm_Pwm_initConfig",
+        "IfxEgtm_Pwm_init",
+        "IfxEgtm_enable",
+        "IfxEgtm_isEnabled",
+        "IfxEgtm_Cmu_enableClocks",
+        "IfxEgtm_Cmu_selectClkInput",
+        "IfxEgtm_Trigger_trigToAdc",
+        "IfxAdc_Tmadc_initModuleConfig",
+        "IfxAdc_Tmadc_initModule",
+        "IfxAdc_Tmadc_initChannelConfig",
+        "IfxAdc_Tmadc_initChannel",
+        "IfxAdc_Tmadc_enableChannelEvent",
+        "IfxAdc_Tmadc_runModule",
+        "IfxPort_setPinModeOutput"
+      ],
+      "runtime_apis": [
+        "IfxEgtm_Pwm_updateChannelsDutyImmediate",
+        "IfxPort_togglePin"
+      ]
+    },
+    "file_structure": {
+      "module_files": [
+        "EGTM_ATOM_ADC_TMADC_Multiple_Channels.c",
+        "EGTM_ATOM_ADC_TMADC_Multiple_Channels.h"
+      ],
+      "cpu_files": [
+        "Cpu0_Main.c"
+      ],
+      "from_reference": true
+    },
+    "function_mapping": {
+      "init_function": {
+        "name": "initEgtmAtom3phInv"
+      },
+      "runtime_function": {
+        "name": "updateEgtmAtomDuty",
+        "purpose": "Immediate runtime update of U/V/W complementary PWM duties using IfxEgtm_Pwm_updateChannelsDutyImmediate while maintaining ADC trigger generation."
+      }
+    },
+    "header_selection": {
+      "applied": true,
+      "peripheral_type": "PWM",
+      "recommended_header": "IfxEgtm_Pwm",
+      "score": 314,
+      "required_includes": [
+        "IfxEgtm_Pwm.h"
+      ],
+      "function_mapping": {
+        "IfxGtm_Pwm_startSyncedGroups": "IfxEgtm_Pwm_startSyncedGroups",
+        "IfxGtm_Pwm_updateChannelsDutyImmediate": "IfxEgtm_Pwm_updateChannelsDutyImmediate",
+        "IfxGtm_Pwm_initConfig": "IfxEgtm_Pwm_initConfig",
+        "IfxGtm_enable": "IfxEgtm_Pwm_enableChannelsSyncUpdate",
+        "IFX_INTERRUPT": "IfxEgtm_Pwm_interruptHandler",
+        "IfxGtm_Pwm_init": "IfxEgtm_Pwm_init",
+        "PWM_FREQUENCY": "IfxEgtm_Pwm_updateSyncedGroupsFrequency"
+      },
+      "available_functions_count": 100
+    },
+    "driver_selection_engine": {
+      "applied": true,
+      "mcu_family": "TC4xx",
+      "requirement_analysis": {},
+      "recommendations": {
+        "PWM": {
+          "driver": "IfxEgtm_Pwm",
+          "score": 100,
+          "complexity": "locked",
+          "rationale": "Driver locked by refiner node (user explicit or engine-scored)",
+          "alternatives": []
+        }
+      },
+      "migration_mappings": {
+        "IfxScuWdt": {
+          "target_driver": "IfxWtu",
+          "api_mapping": {
+            "IfxScuWdt_disableCpuWatchdog": "IfxWtu_disableCpuWatchdog",
+            "IfxScuWdt_disableSafetyWatchdog": "IfxWtu_enableCpuWatchdog",
+            "IfxScuWdt_enableCpuWatchdog": "// No equivalent - manual mapping needed",
+            "IfxScuWdt_enableSafetyWatchdog": "// No equivalent - manual mapping needed",
+            "IfxScuWdt_serviceCpuWatchdog": "IfxWtu_serviceCpuWatchdog",
+            "IfxScuWdt_serviceSafetyWatchdog": "// No equivalent - manual mapping needed",
+            "IfxScuWdt_clearCpuEndinit": "// No equivalent - manual mapping needed",
+            "IfxScuWdt_setCpuEndinit": "// No equivalent - manual mapping needed"
+          }
+        },
+        "IfxGtm_Pwm": {
+          "target_driver": "IfxEgtm_Pwm",
+          "api_mapping": {
+            "IfxGtm_Pwm_init": "IfxEgtm_Pwm_init",
+            "IfxGtm_Pwm_initConfig": "IfxEgtm_Pwm_initConfig",
+            "IfxGtm_Pwm_start": "IfxEgtm_Pwm_start",
+            "IfxGtm_Pwm_stop": "IfxEgtm_Pwm_stop",
+            "IfxGtm_Pwm_setDuty": "IfxEgtm_Pwm_setDuty"
+          }
+        },
+        "IfxPort": {
+          "target_driver": "IfxPort_Io",
+          "api_mapping": {
+            "IfxPort_setPinMode": "IfxPort_Io_initModule",
+            "IfxPort_setPinModeOutput": "// No equivalent - manual mapping needed",
+            "IfxPort_setPinModeInput": "// No equivalent - manual mapping needed",
+            "IfxPort_setPinPadDriver": "// No equivalent - manual mapping needed",
+            "IfxPort_setPinState": "IfxPort_Io_setPinState",
+            "IfxPort_getPinState": "IfxPort_Io_getPinState",
+            "IfxPort_togglePin": "// No equivalent - manual mapping needed",
+            "IfxPort_setPinHigh": "// No equivalent - manual mapping needed",
+            "IfxPort_setPinLow": "// No equivalent - manual mapping needed"
+          }
+        }
+      }
+    },
+    "driver_knowledge_base": {
+      "applied": false
+    },
+    "migration_numerical_values": {
+      "NUM_OF_CHANNELS": {
+        "value": 3,
+        "unit": "",
+        "label": "Number of channels"
+      },
+      "NUM_OF_ADC_TRIG_CHANNELS": {
+        "value": 1,
+        "unit": "",
+        "label": "Number of channels"
+      },
+      "PHASE_U_DUTY": {
+        "value": 25,
+        "unit": "%",
+        "label": "Phase U initial duty cycle"
+      },
+      "PHASE_V_DUTY": {
+        "value": 50,
+        "unit": "%",
+        "label": "Phase V initial duty cycle"
+      },
+      "PHASE_W_DUTY": {
+        "value": 75,
+        "unit": "%",
+        "label": "Phase W initial duty cycle"
+      },
+      "PHASE_DUTY_STEP": {
+        "value": 0.01,
+        "unit": "%",
+        "label": "Duty cycle step increment"
+      },
+      "ADC_TRIG_DUTY": {
+        "value": 50,
+        "unit": "%",
+        "label": "Duty cycle"
+      },
+      "PWM_FREQUENCY": {
+        "value": 20000,
+        "unit": "Hz",
+        "label": "PWM switching frequency"
+      },
+      "INTERRUPT_PRIORITY_EVADC_CUR": {
+        "value": 10,
+        "unit": "",
+        "label": "Interrupt priority"
+      },
+      ".priority": {
+        "value": 0,
+        "unit": "",
+        "label": "Interrupt priority"
+      },
+      "PHASECURSENSE_REFILL_TRIG": {
+        "value": 1,
+        "unit": "",
+        "label": "Phasecursense refill trig"
+      },
+      ".rising": {
+        "value": 1.0,
+        "unit": "",
+        "label": ".rising"
+      },
+      ".falling": {
+        "value": 1.0,
+        "unit": "",
+        "label": ".falling"
+      },
+      ".phase": {
+        "value": 0,
+        "unit": "",
+        "label": ".phase"
+      }
+    }
+  },
+  "sw_detailed": {
+    "module_name": "EGTM_ATOM_ADC_TMADC_Multiple_Channels",
+    "public_functions": [
+      {
+        "signature": "void initEgtmAtom3phInv(void)",
+        "behavior_description": "Initialize a 3-phase complementary PWM (3 logical channels) on the eGTM ATOM submodule and a separate trigger channel, then configure TMADC0 for 5 one-shot channels and bind the eGTM trigger to the ADC. Algorithm/order: 1) Declare all local configuration structs: IfxEgtm_Pwm_Config (main), IfxEgtm_Pwm_ChannelConfig channelConfig[4] (3 phases + 1 trigger), IfxEgtm_Pwm_OutputConfig output[4], IfxEgtm_Pwm_DeadTime dtmConfig[3], IfxEgtm_Pwm_InterruptConfig interruptConfig; TMADC structs: IfxAdc_Tmadc_Config tmadcCfg, IfxAdc_Tmadc_ChConfig chCfg[5]. 2) Initialize the PWM main config defaults with IfxEgtm_Pwm_initConfig. 3) Fill output[] for three complementary phase channels and the single trigger channel: for the 3 phase entries set both primary and complementary outputs, active polarities, push-pull output mode, and pad driver; for the trigger channel set only a single output (no complementary). 4) Fill dtmConfig[] for the three phase channels with equal rising/falling dead-times matching the requirement and attach dtmConfig[i] to channelConfig[i] (i=0..2); leave the trigger channel without DTM. 5) Configure interruptConfig for the base channel: set mode to pulse notify, isrProvider to CPU0, priority to the required value, vmId to the required value; assign interruptConfig to channelConfig[0].interrupt and NULL_PTR to the remaining channelConfig[1..3]. Set interruptConfig.periodEvent = IfxEgtm_periodEventFunction (void *data) and dutyEvent = NULL_PTR. 6) Set channelConfig array members using logical indices starting at 0: channelConfig[0..2] as the 3 complementary PWM channels with timerCh = SubModule_Ch_0, _Ch_1, _Ch_2, center-aligned operation and initial duty values (percent) per requirement; channelConfig[3] as the trigger channel with timerCh = SubModule_Ch_3, edge-aligned, 50% duty, and no complementary output. 7) Complete the main PWM config: set cluster to the required eGTM cluster, select submodule ATOM, set alignment for center-aligned generation where applicable, enable syncStart so all configured channels start together, set numChannels=4 and attach channelConfig. Set the desired PWM switching frequency and choose ATOM clock source = CMU CLK0. Attach the DTM clock source for dead-time generation as CMU CLK0. 8) Inside an enable-guard: if the eGTM module is not yet enabled, enable it; read the module frequency dynamically via IfxEgtm_Cmu_getModuleFrequency; program the global clock and CLK0 to match the module frequency using available divider/count APIs; finally enable the relevant eGTM clocks. All of these CMU steps remain inside the guard. 9) Call IfxEgtm_Pwm_init to apply the configuration; this binds the channels array pointer into the persistent module state. 10) Route the ATOM trigger channel to the ADC trigger signal using the eGTM trigger routing API per requirement. 11) Initialize TMADC0: prepare a module config, then init the module; configure EMUX/trigger selection to use the eGTM trigger path and set 100 ns sampling time via the helper conversion API. For channels CH0..CH4: build channel configs for one-shot mode with falling-edge trigger selection and enable their channel event notifications on the required service request. Run the TMADC module. 12) Persistently store the PWM driver handle, its channels array pointer, initial duty array (percent), and dead-time parameters in the module’s state struct for runtime use by update calls. 13) Configure the designated GPIO used for ISR toggling as a push-pull output with the port driver. Do not perform any timing/scheduling here; this function only initializes hardware and driver state.",
+        "driver_calls": [
+          "IfxEgtm_Pwm_initConfig",
+          "IfxEgtm_isEnabled",
+          "IfxEgtm_enable",
+          "IfxEgtm_Cmu_getModuleFrequency",
+          "IfxEgtm_Cmu_setGclkDivider",
+          "IfxEgtm_Cmu_setClkCount",
+          "IfxEgtm_Cmu_enableClocks",
+          "IfxEgtm_Pwm_init",
+          "IfxEgtm_Trigger_trigToAdc",
+          "IfxAdc_enableModule",
+          "IfxAdc_Tmadc_initModuleConfig",
+          "IfxAdc_Tmadc_initModule",
+          "IfxAdc_Tmadc_configureEmux",
+          "IfxAdc_getTmadcSamplingTimeValue",
+          "IfxAdc_getTmadcTriggerDelayValue",
+          "IfxAdc_Tmadc_initChannelConfig",
+          "IfxAdc_Tmadc_initChannel",
+          "IfxAdc_Tmadc_enableChannelEvent",
+          "IfxAdc_Tmadc_runModule",
+          "IfxPort_setPinModeOutput"
+        ],
+        "from_reference": true,
+        "call_context": "init"
+      },
+      {
+        "signature": "void updateEgtmAtom3phInvDuty(float32 *requestDuty)",
+        "behavior_description": "Immediate multi-channel duty update for the 3 complementary PWM phases. Copy the three percent values from requestDuty[0..2] into the module state dutyCycles[0..2] without scaling. Leave the trigger channel unchanged. Call the PWM driver’s immediate multi-channel duty update API with the dutyCycles array (percent) to apply new duties atomically at the next safe update point.",
+        "driver_calls": [
+          "IfxEgtm_Pwm_updateChannelsDutyImmediate"
+        ],
+        "from_reference": true,
+        "call_context": "loop"
+      },
+      {
+        "signature": "void updateEgtmAtomDuty(void)",
+        "behavior_description": "Autonomous duty ramp for the 3 complementary phases: for each phase i in 0..2, add a fixed step (percent) to state.dutyCycles[i]. If a value exceeds 100.0, wrap it back to 0.0. After updating all three elements, pass the state.dutyCycles array directly (percent values) to the PWM driver’s immediate multi-channel duty update API to apply the change. Do not perform any STM-based timing here; periodic calling cadence is managed by the main loop.",
+        "driver_calls": [
+          "IfxEgtm_Pwm_updateChannelsDutyImmediate"
+        ],
+        "from_reference": true,
+        "call_context": "loop"
+      },
+      {
+        "signature": "void resultISR(void)",
+        "behavior_description": "TMADC result interrupt service routine. For each configured TMADC0 result (CH0..CH4): check if a new result is available; if available, read the conversion result from its result register (direct SFR read) and then clear the corresponding result flag. After servicing all five channels, toggle the configured GPIO output to provide a timing/health indication. Keep ISR processing minimal; any further processing should occur outside the ISR.",
+        "driver_calls": [
+          "IfxAdc_isTmadcResultAvailable",
+          "IfxAdc_clearTmadcResultFlag",
+          "IfxPort_togglePin"
+        ],
+        "from_reference": false,
+        "call_context": "none"
+      }
+    ],
+    "private_functions": [
+      {
+        "signature": "void IfxEgtm_periodEventFunction(void *data)",
+        "needed": true,
+        "from_reference": false
+      }
+    ],
+    "dependencies": {
+      "includes": [
+        "Ifx_Types.h",
+        "IfxEgtm_Pwm.h",
+        "IfxEgtm_Trigger.h",
+        "IfxAdc.h",
+        "IfxAdc_Tmadc.h",
+        "IfxPort.h",
+        "IfxPort_PinMap.h"
+      ]
+    },
+    "cpu_main_requirements": {
+      "needs_cpu_sync": false,
+      "uses_timer_delay": true,
+      "delay_ms": 500,
+      "additional_includes": [
+        "Bsp.h"
+      ]
+    },
+    "header_selection": {
+      "applied": true,
+      "peripheral_type": "PWM",
+      "recommended_header": "IfxEgtm_Pwm",
+      "template_functions_count": 1461,
+      "required_includes": [
+        "IfxEgtm_Pwm.h"
+      ]
+    },
+    "migration_numerical_values": {
+      "NUM_OF_CHANNELS": {
+        "value": 3,
+        "unit": "",
+        "label": "Number of channels"
+      },
+      "NUM_OF_ADC_TRIG_CHANNELS": {
+        "value": 1,
+        "unit": "",
+        "label": "Number of channels"
+      },
+      "PHASE_U_DUTY": {
+        "value": 25,
+        "unit": "%",
+        "label": "Phase U initial duty cycle"
+      },
+      "PHASE_V_DUTY": {
+        "value": 50,
+        "unit": "%",
+        "label": "Phase V initial duty cycle"
+      },
+      "PHASE_W_DUTY": {
+        "value": 75,
+        "unit": "%",
+        "label": "Phase W initial duty cycle"
+      },
+      "PHASE_DUTY_STEP": {
+        "value": 0.01,
+        "unit": "%",
+        "label": "Duty cycle step increment"
+      },
+      "ADC_TRIG_DUTY": {
+        "value": 50,
+        "unit": "%",
+        "label": "Duty cycle"
+      },
+      "PWM_FREQUENCY": {
+        "value": 20000,
+        "unit": "Hz",
+        "label": "PWM switching frequency"
+      },
+      "INTERRUPT_PRIORITY_EVADC_CUR": {
+        "value": 10,
+        "unit": "",
+        "label": "Interrupt priority"
+      },
+      ".priority": {
+        "value": 0,
+        "unit": "",
+        "label": "Interrupt priority"
+      },
+      "PHASECURSENSE_REFILL_TRIG": {
+        "value": 1,
+        "unit": "",
+        "label": "Phasecursense refill trig"
+      },
+      ".rising": {
+        "value": 1.0,
+        "unit": "",
+        "label": ".rising"
+      },
+      ".falling": {
+        "value": 1.0,
+        "unit": "",
+        "label": ".falling"
+      },
+      ".phase": {
+        "value": 0,
+        "unit": "",
+        "label": ".phase"
+      }
+    }
+  }
+}
