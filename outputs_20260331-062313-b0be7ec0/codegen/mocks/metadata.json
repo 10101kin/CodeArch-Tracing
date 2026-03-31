@@ -1,8 +1,9 @@
 {
-  "type": "llm_response",
-  "phase": "mock",
   "attempt": 4,
   "phase_attempt": 2,
-  "response_length": 32973,
-  "timestamp": "2026-03-31T14:49:30.322771"
+  "phase": "mock_generation",
+  "success": true,
+  "errors": [],
+  "timestamp": "2026-03-31T14:49:35.989439",
+  "project_name": "Update_KIT_A2G_TC387_5V_TFT_TC38x_project_to_rep_r_20260331_143821"
 }

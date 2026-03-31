@@ -1,9 +1,10 @@
 #ifndef IFXPORT_PINMAP_H
 #define IFXPORT_PINMAP_H
 
+#include "IfxPort.h"
 #include "IfxGtm_Pwm.h"
 
-/* Required extern pin symbols */
+/* Required pin symbol externs for PWM */
 extern IfxGtm_Pwm_ToutMap IfxGtm_TOM1_1N_TOUT14_P00_5_OUT;
 extern IfxGtm_Pwm_ToutMap IfxGtm_TOM1_2N_TOUT15_P00_6_OUT;
 extern IfxGtm_Pwm_ToutMap IfxGtm_TOM1_2_TOUT12_P00_3_OUT;
