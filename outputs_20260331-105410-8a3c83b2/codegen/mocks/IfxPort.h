@@ -3,13 +3,10 @@
 
 #include "mock_egtm_atom_adc_tmadc_multiple_channels.h"
 
-/* Types/Structs */
+/* Structs */
 typedef struct { uint8 pinIndex; uint8 grpNum; } IfxPort_Pin_ApuConfig;
 
-typedef enum {
-    IfxPort_ControlledBy_port = 0,
-    IfxPort_ControlledBy_hsct = 1
-} IfxPort_ControlledBy;
+typedef enum { IfxPort_ControlledBy_port = 0, IfxPort_ControlledBy_hsct = 1 } IfxPort_ControlledBy;
 
 typedef enum {
     IfxPort_InputMode_undefined    = -1,
@@ -160,8 +157,6 @@ typedef enum {
     IfxPort_PadDriver_ttl3v3Speed3         = (3 << 3) | (2 << 0)
 } IfxPort_PadDriver;
 
-typedef struct { IfxPort_LvdsMode lvdsMode; IfxPort_ControlledBy enablePortControlled; IfxPort_PadSupply padSupply; IfxPort_LvdsTerm lvdsTerm; } IfxPort_LvdsConfig;
-
 typedef struct { Ifx_P *port; uint8 pinIndex; } IfxPort_Pin;
 
 typedef struct { Ifx_P *port; uint8 pinIndex; IfxPort_OutputIdx mode; IfxPort_PadDriver padDriver; } IfxPort_Pin_Config;
@@ -172,7 +167,9 @@ typedef struct { IfxApApu_ApuConfig apuConfig[1]; IfxPort_Pin_ApuConfig pinConfi
 
 typedef struct { IfxApProt_ProtConfig protseConfig; } IfxPort_ProtConfig;
 
-/* Function declarations (subset required by production/tests) */
+typedef struct { IfxPort_LvdsMode lvdsMode; IfxPort_ControlledBy enablePortControlled; IfxPort_PadSupply padSupply; IfxPort_LvdsTerm lvdsTerm; } IfxPort_LvdsConfig;
+
+/* Functions used by tests */
 void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
 void IfxPort_togglePin(Ifx_P *port, uint8 pinIndex);
 

@@ -3,10 +3,18 @@
 
 #include "mock_egtm_atom_adc_tmadc_multiple_channels.h"
 
-/* Placeholder dependent types to satisfy struct fields */
-typedef struct { uint32 r; } IfxApApu_ApuConfig;
-typedef struct { uint32 r; } IfxApProt_ProtConfig;
+/* Forward EGTM cluster SFR stub used by PWM driver */
+typedef struct { uint32 reserved; } Ifx_EGTM_CLS;
 
+/* Auxiliary driver-specific stubs for AP/MSC config structs and enums */
+typedef struct { uint32 reserved; } IfxApApu_ApuConfig;
+typedef struct { uint32 reserved; } IfxApProt_ProtConfig;
+typedef enum { IfxEgtm_Cfg_MscSet_0 = 0 } IfxEgtm_Cfg_MscSet;
+typedef enum { IfxEgtm_Cfg_MscSetSignal_0 = 0 } IfxEgtm_Cfg_MscSetSignal;
+typedef enum { IfxEgtm_Cfg_MscModule_0 = 0 } IfxEgtm_Cfg_MscModule;
+typedef enum { IfxEgtm_Cfg_MscSelect_0 = 0 } IfxEgtm_Cfg_MscSelect;
+
+/* Required enums */
 typedef enum {
     IfxEgtm_AeiBridgeOpMode_sync  = 0u,
     IfxEgtm_AeiBridgeOpMode_async = 1u
@@ -38,11 +46,33 @@ typedef enum {
     IfxEgtm_SuspendMode_soft = 2
 } IfxEgtm_SuspendMode;
 
-/* Additional placeholders referenced by IfxEgtm_MscOut */
-typedef enum { IfxEgtm_Cfg_MscSet_a = 0 } IfxEgtm_Cfg_MscSet;
-typedef enum { IfxEgtm_Cfg_MscSetSignal_a = 0 } IfxEgtm_Cfg_MscSetSignal;
-typedef enum { IfxEgtm_Cfg_MscModule_a = 0 } IfxEgtm_Cfg_MscModule;
-typedef enum { IfxEgtm_Cfg_MscSelect_a = 0 } IfxEgtm_Cfg_MscSelect;
+/* Cluster enum used by PWM driver (verified order) */
+typedef enum {
+    IfxEgtm_Cluster_0 = 0,
+    IfxEgtm_Cluster_1 = 1,
+    IfxEgtm_Cluster_2 = 2
+} IfxEgtm_Cluster;
+
+/* AP config structs (minimal stubs retaining field names) */
+typedef struct {
+    IfxApApu_ApuConfig apuConfig;
+} IfxEgtm_ClApConfig;
+
+typedef struct {
+    IfxApProt_ProtConfig proteConfig;
+    IfxApApu_ApuConfig   apuConfig;
+} IfxEgtm_CtrlApConfig;
+
+typedef struct {
+    IfxApApu_ApuConfig apuConfig;
+} IfxEgtm_WrapApConfig;
+
+typedef struct {
+    IfxApProt_ProtConfig protseConfig;
+    IfxEgtm_ClApConfig   clApConfig[3];
+    IfxEgtm_CtrlApConfig ctrlApConfig;
+    IfxEgtm_WrapApConfig wrapApConfig;
+} IfxEgtm_ApConfig;
 
 typedef struct {
     IfxEgtm_Cfg_MscSet       mscSet;
@@ -52,23 +82,7 @@ typedef struct {
     IfxEgtm_MscAltInput      mscAltIn;
 } IfxEgtm_MscOut;
 
-/* AP config wrappers (minimal) */
-#define IFXEGTM_NUM_CCM_OBJECTS 1
-
-typedef struct { IfxApApu_ApuConfig apuConfig; } IfxEgtm_ClApConfig;
-
-typedef struct { IfxApProt_ProtConfig proteConfig; IfxApApu_ApuConfig apuConfig; } IfxEgtm_CtrlApConfig;
-
-typedef struct { IfxApApu_ApuConfig apuConfig; } IfxEgtm_WrapApConfig;
-
-typedef struct {
-    IfxApProt_ProtConfig protseConfig;
-    IfxEgtm_ClApConfig   clApConfig[IFXEGTM_NUM_CCM_OBJECTS];
-    IfxEgtm_CtrlApConfig ctrlApConfig;
-    IfxEgtm_WrapApConfig wrapApConfig;
-} IfxEgtm_ApConfig;
-
-/* Enable / status functions */
+/* Functions used by production */
 void    IfxEgtm_enable(Ifx_EGTM *egtm);
 boolean IfxEgtm_isEnabled(Ifx_EGTM *egtm);
 
