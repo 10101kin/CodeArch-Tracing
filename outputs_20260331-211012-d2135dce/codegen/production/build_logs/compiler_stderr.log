@@ -1,29 +1,23 @@
-In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_d9_e4wsv\include/IfxEgtm_Pwm.h:6,
-                 from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_d9_e4wsv\src\egtm_atom_3_phase_inverter_pwm.c:17:
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_d9_e4wsv\include/IfxEgtm.h:21:5: error: unknown type name 'IfxApProt_Owner'
-   21 |     IfxApProt_Owner protOwner;
+In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_0vl1ah2b\include/IfxEgtm_Pwm.h:5,
+                 from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_0vl1ah2b\src\egtm_atom_3_phase_inverter_pwm.c:18:
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_0vl1ah2b\include/IfxEgtm.h:24:5: error: unknown type name 'IfxApProt_Owner'
+   24 |     IfxApProt_Owner protOwner;
       |     ^~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_d9_e4wsv\include/IfxEgtm.h:22:5: error: unknown type name 'IfxApProt_State'
-   22 |     IfxApProt_State protState;
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_0vl1ah2b\include/IfxEgtm.h:25:5: error: unknown type name 'IfxApProt_State'
+   25 |     IfxApProt_State protState;
       |     ^~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_d9_e4wsv\include/IfxEgtm_Pwm.h:19:5: error: unknown type name 'IfxEgtm_Atom_ToutMap'
-   19 |     IfxEgtm_Atom_ToutMap atom;
-      |     ^~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_d9_e4wsv\include/IfxEgtm_Pwm.h:20:5: error: unknown type name 'IfxEgtm_Tom_ToutMap'
-   20 |     IfxEgtm_Tom_ToutMap  tom;
-      |     ^~~~~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_0vl1ah2b\include/IfxEgtm_Pwm.h:110:5: error: unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'
+  110 |     IfxEgtm_Pwm_FastShutoffConfig *fastShutOff;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_d9_e4wsv\mocks\mock_egtm_atom_3_phase_inverter_pwm.c:5:
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_d9_e4wsv\include/IfxEgtm.h:21:5: error: unknown type name 'IfxApProt_Owner'
-   21 |     IfxApProt_Owner protOwner;
+In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_0vl1ah2b\mocks\mock_egtm_atom_3_phase_inverter_pwm.c:2:
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_0vl1ah2b\include/IfxEgtm.h:24:5: error: unknown type name 'IfxApProt_Owner'
+   24 |     IfxApProt_Owner protOwner;
       |     ^~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_d9_e4wsv\include/IfxEgtm.h:22:5: error: unknown type name 'IfxApProt_State'
-   22 |     IfxApProt_State protState;
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_0vl1ah2b\include/IfxEgtm.h:25:5: error: unknown type name 'IfxApProt_State'
+   25 |     IfxApProt_State protState;
       |     ^~~~~~~~~~~~~~~
-In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_d9_e4wsv\mocks\mock_egtm_atom_3_phase_inverter_pwm.c:7:
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_d9_e4wsv\include/IfxEgtm_Pwm.h:19:5: error: unknown type name 'IfxEgtm_Atom_ToutMap'
-   19 |     IfxEgtm_Atom_ToutMap atom;
-      |     ^~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_d9_e4wsv\include/IfxEgtm_Pwm.h:20:5: error: unknown type name 'IfxEgtm_Tom_ToutMap'
-   20 |     IfxEgtm_Tom_ToutMap  tom;
-      |     ^~~~~~~~~~~~~~~~~~~
+In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_0vl1ah2b\mocks\mock_egtm_atom_3_phase_inverter_pwm.c:4:
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_0vl1ah2b\include/IfxEgtm_Pwm.h:110:5: error: unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'
+  110 |     IfxEgtm_Pwm_FastShutoffConfig *fastShutOff;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~

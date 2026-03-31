@@ -1,8 +1,16 @@
 {
-  "type": "llm_response",
-  "phase": "production",
   "attempt": 3,
   "phase_attempt": 1,
-  "response_length": 10788,
-  "timestamp": "2026-04-01T07:43:38.491530"
+  "phase": "production",
+  "success": false,
+  "errors": [
+    "unknown type name 'IfxApProt_Owner'",
+    "unknown type name 'IfxApProt_State'",
+    "unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'",
+    "unknown type name 'IfxApProt_Owner'",
+    "unknown type name 'IfxApProt_State'",
+    "unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'"
+  ],
+  "timestamp": "2026-04-01T07:43:44.282695",
+  "project_name": "Generate_TC4D7_eGTM_ATOM_ATOM0_Cluster_0_code_u_r_20260401_073539"
 }

@@ -1,3 +1,73 @@
-Status: SUCCESS
+Status: FAILED
 
-LLM response for production phase (attempt 3), 10788 chars
+============================================================
+TDD CODE GENERATION - ATTEMPT STATUS
+============================================================
+Phase: production
+Attempt: 3
+Status: FAILED
+Timestamp: 2026-04-01 07:43:44
+Files generated: 2
+
+============================================================
+
+ERRORS:
+
+1. unknown type name 'IfxApProt_Owner'
+
+2. unknown type name 'IfxApProt_State'
+
+3. unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'
+
+4. unknown type name 'IfxApProt_Owner'
+
+5. unknown type name 'IfxApProt_State'
+
+6. unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'
+
+============================================================
+BUILD RESULT:
+{
+  "success": false,
+  "errors": [
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_0vl1ah2b\\include/IfxEgtm.h",
+      "line": 24,
+      "category": "error",
+      "message": "unknown type name 'IfxApProt_Owner'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_0vl1ah2b\\include/IfxEgtm.h",
+      "line": 25,
+      "category": "error",
+      "message": "unknown type name 'IfxApProt_State'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_0vl1ah2b\\include/IfxEgtm_Pwm.h",
+      "line": 110,
+      "category": "error",
+      "message": "unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_0vl1ah2b\\include/IfxEgtm.h",
+      "line": 24,
+      "category": "error",
+      "message": "unknown type name 'IfxApProt_Owner'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_0vl1ah2b\\include/IfxEgtm.h",
+      "line": 25,
+      "category": "error",
+      "message": "unknown type name 'IfxApProt_State'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_0vl1ah2b\\include/IfxEgtm_Pwm.h",
+      "line": 110,
+      "category": "error",
+      "message": "unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'"
+    }
+  ],
+  "warnings": [],
+  "stderr": "In file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_0vl1ah2b\\include/IfxEgtm_Pwm.h:5,\n                 from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_0vl1ah2b\\src\\egtm_atom_3_phase_inverter_pwm.c:18:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_0vl1ah2b\\include/IfxEgtm.h:24:5: error: unknown type name 'IfxApProt_Owner'\n   24 |     IfxApProt_Owner protOwner;\n      |     ^~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_0vl1ah2b\\include/IfxEgtm.h:25:5: error: unknown type name 'IfxApProt_State'\n   25 |     IfxApProt_State protState;\n      |     ^~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_0vl1ah2b\\include/IfxEgtm_Pwm.h:110:5: error: unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'\n  110 |     IfxEgtm_Pwm_FastShutoffConfig *fastShutOff;\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_0vl1ah2b\\mocks\\mock_egtm_atom_3_phase_inverter_pwm.c:2:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_0vl1ah2b\\include/IfxEgtm.h:24:5: error: unknown type name 'IfxApProt_Owner'\n   24 |     IfxApProt_Owner protOwner;\n      |     ^~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_0vl1ah2b\\include/IfxEgtm.h:25:5: error: unknown type name 'IfxApProt_State'\n   25 |     IfxApProt_State protState;\n      |     ^~~~~~~~~~~~~~~\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_0vl1ah2b\\mocks\\mock_egtm_atom_3_phase_inverter_pwm.c:4:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_0vl1ah2b\\include/IfxEgtm_Pwm.h:110:5: error: unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'\n  110 |     IfxEgtm_Pwm_FastShutoffConfig *fastShutOff;\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n",
+  "stdout": ""
+}
