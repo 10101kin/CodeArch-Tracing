@@ -1,29 +1,36 @@
+/* IfxPort mock */
 #ifndef IFXPORT_H
 #define IFXPORT_H
 
 #include "mock_egtm_atom_3_phase_inverter_pwm.h"
-#include "IfxEgtm.h" /* for IfxApApu_ApuConfig and IfxApProt_ProtConfig */
 
-/* Enums first */
+#ifndef IFXPORT_NUM_APU
+#define IFXPORT_NUM_APU 8u
+#endif
+#ifndef IFXPORT_NUM_PINS
+#define IFXPORT_NUM_PINS 128u
+#endif
+
+/* Types and enums */
 typedef enum
 {
     IfxPort_ControlledBy_port = 0,  
     IfxPort_ControlledBy_hsct = 1   
-} IfxPort_Cotypedef enum
+} IfxPort_Controlledtypedef enum
 {
     IfxPort_InputMode_undefined    = -1,
     IfxPort_InputMode_noPullDevice = ((0U << 4U) | (0U << 1U) | 0U),
     IfxPort_InputMode_pullDown     = ((1U << 4U) | (0U << 1U) | 0U),
     IfxPort_InputMode_pullUp       = ((2U << 4U) | (0U << 1U) | 0U)
-} IfxPort_InputMode;rttypedef enum
+} IfxPort_InputMode;Motypedef enum
 {
     IfxPort_LvdsMode_high   = 0, 
     IfxPort_LvdsMode_medium = 1  
-} IfxPortypedef enum
+} IfxPort_LvdsModetypedef enum
 {
     IfxPort_LvdsTerm_external = 0,  
     IfxPort_LvdsTerm_internal = 1   
-} IfxPortypedef enum
+} IfxPort_LvdsTetypedef enum
 {
     IfxPort_Mode_inputNoPullDevice      = ((0U << 4U) | (0U << 1U) | 0U),  
     IfxPort_Mode_inputPullDown          = ((1U << 4U) | (0U << 1U) | 0U),  
@@ -83,19 +90,19 @@ typedef enum
     IfxPort_OutputIdx_alt13   = ((13U << 4U) | 1U),
     IfxPort_OutputIdx_alt14   = ((14U << 4U) | 1U),
     IfxPort_OutputIdx_alt15   = ((15U << 4U) | 1U)
-} IfxPort_OutputIdx;uttypedef enum
+} IfxPort_OutputIdx;U)typedef enum
 {
     IfxPort_OutputMode_pushPull  = ((0U << 1U) | 1U),
     IfxPort_OutputMode_openDrain = ((1U << 1U) | 1U)
-} IfxPort_Outptypedef enum
+} IfxPort_OutputMode;| typedef enum
 {
     IfxPort_PadSupply_3v = 0,  
     IfxPort_PadSupply_5v = 1   
-} IfxPorttypedef enum
+} IfxPort_PadSupptypedef enum
 {
     IfxPort_PinFunctionMode_digital = 0,  
     IfxPort_PinFunctionMode_analog  = 1   
-} IfxPort_PinFtypedef enum
+} IfxPort_PinFunctionMotypedef enum
 {
     IfxPort_State_notChanged = (0 << 16) | (0 << 0),  
     IfxPort_State_high       = (0 << 16) | (1U << 0), 
@@ -124,31 +131,32 @@ typedef enum
     IfxPort_BlankingTimerConfig_2ms = 1,  
     IfxPort_BlankingTimerConfig_4ms = 2,  
     IfxPort_BlankingTimerConfig_7ms = 3   
-} IfxPotypedef enum
+} IfxPort_BlankingTimertypedef enum
 {
     IfxPort_EsrLevel_0 = 0,      
-    IfxPortypedef enum
+    IfxPort_EsrLevel_1           
+} Iftypedef enum
 {
     IfxPort_EsrPadCfg_PP  = 0,  
     IfxPort_EsrPadCfg_TPU = 1,  
     IfxPort_EsrPadCfg_TPD = 2   
-} typedef enum
+} IfxPort_EsrPatypedef enum
 {
     IfxPort_LvdsDirection_rx = 0,  
     IfxPort_LvdsDirection_tx = 1   
-} IfxPort_Lvdtypedef enum
+} IfxPort_LvdsDirectitypedef enum
 {
     IfxPort_LvdsPath_enable  = 0, 
     IfxPort_LvdsPath_disable = 1  
-} IfxPorttypedef enum
+} IfxPort_LvdsPathtypedef enum
 {
     IfxPort_LvdsPullDown_disable = 0,  
     IfxPort_LvdsPullDown_enable  = 1   
-} IfxPort_Ltypedef enum
+} IfxPort_LvdsPullDotypedef enum
 {
     IfxPort_LvdsTerminationMode_external = 0,  
     IfxPort_LvdsTerminationMode_internal = 1   
-} IfxPort_LvdsTermitypedef enum
+} IfxPort_LvdsTerminationMotypedef enum
 {
     IfxPort_PadAccessGroup_PadAccessGroup0 = 0,  
     IfxPort_PadAccessGroup_PadAccessGroup1 = 1,  
@@ -169,20 +177,16 @@ typedef enum
     IfxPort_PadDriver_ttl3v3Speed1         = (3 << 3) | (0 << 0),  
     IfxPort_PadDriver_ttl3v3Speed2         = (3 << 3) | (1 << 0),  
     IfxPort_PadDriver_ttl3v3Speed3         = (3 << 3) | (2 << 0)   
-} IfxPort_PadDriver;
-    IfxPort_PadDriver_ttlSpeed2            = (2 << 3) | (1 << 0),
-    IfxPort_PadDriver_ttlSpeed3            = (2 << 3) | (2 << 0),
-    IfxPort_PadDriver_ttl3v3Speed1         = (3 << 3) | (0 << 0),
+} IfxPort_PadDriver;t_PadDriver_ttl3v3Speed1         = (3 << 3) | (0 << 0),
     IfxPort_PadDriver_ttl3v3Speed2         = (3 << 3) | (1 << 0),
     IfxPort_PadDriver_ttl3v3Speed3         = (3 << 3) | (2 << 0)
 } IfxPort_PadDriver;
 
-/* Structs */
 typedef struct
 {
     uint8 pinIndex;       
     uint8 grpNum;         
-} typedef struct
+} IfxPort_typedef struct
 {
     IfxPort_LvdsMode     lvdsMode;                   
     IfxPort_ControlledBy enablePortControlled;       
@@ -191,28 +195,31 @@ typedef struct
 {
     Ifx_P *port;
     uint8  pinIndex;
-} IfxPotypedef struct
+} IfxPort_Pin;sCtypedef struct
 {
     Ifx_P            *port;
     uint8             pinIndex;
     IfxPort_OutputIdx mode;
     IfxPort_PadDriver padDriver;
-} IfxPort_Pin_Config;  typedef struct
+} IfxPort_Pin_Config; Itypedef struct
 {
     IfxApApu_ApuConfig apuConfig;       
-    uint8              grtypedef struct
+    uint8              grpNum;          
+} Ifxtypedef struct
 {
     IfxApApu_ApuConfig    apuConfig[IFXPORT_NUM_APU];       
     IfxPort_Pin_ApuConfig pinConfig[IFXPORT_NUM_PINS];      
-} IfxPort_ApuGroupConfitypedef struct
+} IfxPort_ApuGtypedef struct
 {
     IfxApProt_ProtConfig protseConfig;        
-} IfxPort_ProtConfig;  IfxPort_Pin_ApuConfig pinConfig[8];
+} IfxPort_ProtConfig;NS];
 } IfxPort_ApuGroupConfig;
 
-typedef struct { IfxApProt_ProtConfig protseConfig; } IfxPort_ProtConfig;
+typedef struct {
+    IfxApProt_ProtConfig protseConfig;
+} IfxPort_ProtConfig;
 
-/* Function declarations (subset used) */
+/* Functions to mock */
 void IfxPort_togglePin(Ifx_P *port, uint8 pinIndex);
 void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
 

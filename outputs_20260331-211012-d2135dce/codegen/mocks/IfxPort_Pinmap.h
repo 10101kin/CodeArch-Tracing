@@ -2,8 +2,9 @@
 #define IFXPORT_PINMAP_H
 
 #include "IfxEgtm_Pwm.h"
+#include "IfxPort.h"
 
-/* Required pin symbol externs for PWM TOUT mapping */
+/* Required pin symbol externs */
 extern IfxEgtm_Pwm_ToutMap IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT;
 extern IfxEgtm_Pwm_ToutMap IfxEgtm_ATOM0_0_TOUT64_P20_8_OUT;
 extern IfxEgtm_Pwm_ToutMap IfxEgtm_ATOM0_1N_TOUT67_P20_11_OUT;

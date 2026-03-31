@@ -1,12 +1,10 @@
+/* IfxEgtm base mock */
 #ifndef IFXEGTM_H
 #define IFXEGTM_H
 
 #include "mock_egtm_atom_3_phase_inverter_pwm.h"
 
-/* Forward SFR typedefs related to EGTM cluster */
-typedef struct { uint32 reserved; } Ifx_EGTM_CLS;
-
-/* Minimal AP/PROT config types used by EGTM and Port */
+/* Support types used by configs */
 typedef struct
 {
     unsigned long wraTagId;
@@ -22,8 +20,30 @@ typedef struct
 } IfxApApu_ApuConfig;
 typedef struct { uint32 dummy; } IfxApProt_ProtConfig;
 
-/* EGTM auxiliary enums/structs required by PWM */
+/* Optional constants */
+#ifndef IFXEGTM_NUM_CCM_OBJECTS
+#define IFXEGTM_NUM_CCM_OBJECTS (3u)
+#endif
+
+/* MSC config enums used by IfxEgtm_MscOut */
 typedef enum
+{
+    IfxEgtm_Cfg_MscSet_0,
+    IfxEgtm_Cfg_MscSet_1,
+    IfxEgtm_Cfg_MscSetypedef enum
+{
+    IfxEgtm_Cfg_MscSetSignal_0,
+    IfxEgtm_Cfg_MscSetSignal_1,
+    IfxEgtm_Cfg_MscSetSignatypedef enum
+{
+    IfxEgtm_Cfg_MscModule_0
+} IfxEgtm_Cfg_MscModule;l_5,
+    IfxEgtm_Cfg_MscSetSigtypedef enum
+{
+    IfxEgtm_Cfg_MscSelect_0,
+    IfxEgtm_Cfg_MscSelect_1
+} IfxEgtm_Cfg_MscSelect;nal_9,
+    IfxEgtm_Cfg_MscSetypedef enum
 {
     IfxEgtm_AeiBridgeOpMode_sync  = 0u, 
     IfxEgtm_AeiBridgeOpMode_async = 1u  
@@ -38,29 +58,34 @@ typedef enum
     IfxEgtm_IrqMode_pulse       = 1,
     IfxEgtm_IrqMode_pulseNotify = 2,
     IfxEgtm_IrqMode_singlePulse = 3
-} IfxEgttypedef enum
+} IfxEgtm_IrqMode;e typedef enum
 {
     IfxEgtm_MscAltInput_low     = 0,
     IfxEgtm_MscAltInput_lowext  = 1,
     IfxEgtm_MscAltInput_high    = 2,
     IfxEgtm_MscAltInput_highext = 3
-} IfxEgtm_MscAlttypedef enum
-{
-    IfxEgtm_SuspendMode_none = 0,  
-    IfxEgtm_SuspendMode_hard = 1,  
-    IfxEgtm_SuspendMode_soft = 2   
-} IfxEgtm_SuspendMode; = 2
-} IfxEgtm_SuspendMode;
+} IfxEgtm_MscAltInput;
+    IfxEgtm_ClusterClockDiv_enable     = 1u,
+    IfxEgtm_ClusterClockDiv_enableDiv2 = 2u
+} IfxEgtm_ClusterClockDiv;
 
-/* Mtypedef struct
-{
-    IfxEgtm_Cfg_MscSet       mscSet;             
-    IfxEgtm_Cfg_MscSetSignal mscSetSignal;       
-    IfxEgtm_Cfg_MscModule    mscModule;          
-    IfxEgtm_Cfg_MscSelect    mscSelect;          
-    IfxEgtm_MscAltInput      mscAltIn;           
-} IfxEgtm_MscOut;ltIn;           
-} IfxEgtm_MscOut;tm_Cfg_Mstypedef struct
+typedef enum {
+    IfxEgtm_IrqMode_level       = 0,
+    IfxEgtm_IrqMode_pulse       = 1,
+    IfxEgtm_IrqMode_pulseNotify = 2,
+    IfxEgtm_IrqMode_singlePulse = 3
+} IfxEgtm_IrqMode;
+
+typedef enum {
+    IfxEgtm_MscAltInput_low     = 0,
+    IfxEgtm_MscAltInput_lowext  = 1,
+    IfxEgtm_MscAltInput_high    = 2,
+    IfxEgtm_MscAltInput_highext = 3
+} IfxEgtm_MscAltInput;
+
+typedef enum {
+    IfxEgtm_SuspendMode_none = 0,
+    IfxEgtmtypedef struct
 {
     IfxApApu_ApuConfig apuConfig;       
 } IfxEgtm_ClApCotypedef struct
@@ -70,32 +95,31 @@ typedef enum
 } IfxEgtmtypedef struct
 {
     IfxApApu_ApuConfig apuConfig;       
-} IfxEgtm_WrapApConfig;t;
-
-/* EGTM access protection/Atypedef struct
+} IfxEgtm_WrapApCotypedef struct
 {
     IfxApProt_ProtConfig protseConfig;                              
     IfxEgtm_ClApConfig   clApConfig[IFXEGTM_NUM_CCM_OBJECTS];       
-    IfxEgtm_CtrlApConfig ctrlApConfig;                              
-    IfxEgtm_WrapApConfig wrapApConfig;                              
-} IfxEgtm_ApConfig;fig;
-
-typedef struct
+    IfxEgtm_CtrlApConfig ctrlApConfig;                        typedef struct
 {
-    IfxApApu_ApuConfig apuConfig;
-} IfxEgtm_WrapApConfig;
-
-#define IFXEGTM_NUM_CCM_OBJECTS 3u
-
-typedef struct
-{
-    IfxApProt_ProtConfig protseConfig;
-    IfxEgtm_ClApConfig   clApConfig[IFXEGTM_NUM_CCM_OBJECTS];
+    IfxEgtm_Cfg_MscSet       mscSet;             
+    IfxEgtm_Cfg_MscSetSignal mscSetSignal;       
+    IfxEgtm_Cfg_MscModule    mscModule;          
+    IfxEgtm_Cfg_MscSelect    mscSelect;          
+    IfxEgtm_MscAltInput      mscAltIn;           
+} IfxEgtm_MscOut;pConfig   clApConfig[IFXEGTM_NUM_CCM_OBJECTS];
     IfxEgtm_CtrlApConfig ctrlApConfig;
     IfxEgtm_WrapApConfig wrapApConfig;
 } IfxEgtm_ApConfig;
 
-/* EGTM enable/status API (stubs implemented in mock .c) */
+typedef struct {
+    IfxEgtm_Cfg_MscSet       mscSet;
+    IfxEgtm_Cfg_MscSetSignal mscSetSignal;
+    IfxEgtm_Cfg_MscModule    mscModule;
+    IfxEgtm_Cfg_MscSelect    mscSelect;
+    IfxEgtm_MscAltInput      mscAltIn;
+} IfxEgtm_MscOut;
+
+/* Functions to mock */
 void    IfxEgtm_enable(Ifx_EGTM *egtm);
 boolean IfxEgtm_isEnabled(Ifx_EGTM *egtm);
 

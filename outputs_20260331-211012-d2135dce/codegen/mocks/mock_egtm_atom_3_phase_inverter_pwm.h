@@ -1,33 +1,27 @@
 /*
  * Base mock header for EGTM_ATOM_3_Phase_Inverter_PWM
- * - Provides base types, shared enums, MODULE_* stubs, and spy API declarations
- * - Does NOT contain driver-specific types or function prototypes
+ * Owns: base types, shared enums, MODULE_* stubs, spy externs, reset/getters
  */
 #ifndef MOCK_EGTM_ATOM_3_PHASE_INVERTER_PWM_H
 #define MOCK_EGTM_ATOM_3_PHASE_INVERTER_PWM_H
 
-/* Base integer/float/boolean types */
+/* Base type aliases */
 typedef unsigned char boolean;
-typedef float float32;
-typedef double float64;
 typedef unsigned char uint8;
-typedef signed char sint8;
-typedef unsigned short uint16;
 typedef signed short sint16;
+typedef unsigned short uint16;
 typedef unsigned int uint32;
 typedef signed int sint32;
-typedef unsigned long long uint64;
-typedef signed long long sint64;
-typedef unsigned int Ifx_Priority;
-
-typedef uint32 Ifx_UReg_32Bit; /* 32-bit register shadow type */
+typedef float float32;
+typedef unsigned char Ifx_Priority;
+typedef uint32 Ifx_UReg_32Bit;
 
 /* Macros */
 #ifndef TRUE
-#define TRUE  ((boolean)1)
+#define TRUE  (1u)
 #endif
 #ifndef FALSE
-#define FALSE ((boolean)0)
+#define FALSE (0u)
 #endif
 #ifndef NULL_PTR
 #define NULL_PTR ((void*)0)
@@ -39,19 +33,20 @@ typedef uint32 Ifx_UReg_32Bit; /* 32-bit register shadow type */
 #define IFX_INTERRUPT(isr_name, vectab_num, priority) void isr_name(void)
 #endif
 
-/* Shared enums used across multiple drivers */
+/* Shared enums */
 typedef enum {
     Ifx_ActiveState_low = 0,
     Ifx_ActiveState_high = 1
 } Ifx_ActiveState;
 
 typedef enum {
-    IfxSrc_Tos_cpu0 = 0,
-    IfxSrc_Tos_cpu1 = 1,
-    IfxSrc_Tos_cpu2 = 2,
-    IfxSrc_Tos_cpu3 = 3,
-    IfxSrc_Tos_cpu4 = 4,
-    IfxSrc_Tos_cpu5 = 5
+    IfxSrc_Tos_none = 0,
+    IfxSrc_Tos_cpu0 = 1,
+    IfxSrc_Tos_cpu1 = 2,
+    IfxSrc_Tos_cpu2 = 3,
+    IfxSrc_Tos_cpu3 = 4,
+    IfxSrc_Tos_cpu4 = 5,
+    IfxSrc_Tos_cpu5 = 6
 } IfxSrc_Tos;
 
 typedef enum {
@@ -60,11 +55,11 @@ typedef enum {
     IfxSrc_VmId_2 = 2
 } IfxSrc_VmId;
 
-/* MODULE_* register-block stubs */
+/* MODULE_* register-block stubs (typedef + extern) */
 typedef struct { uint32 reserved; } Ifx_EGTM;
+typedef struct { uint32 reserved; } Ifx_EGTM_CLS;
 typedef struct { uint32 reserved; } Ifx_P;
 
-/* Extern MODULE instances */
 extern Ifx_EGTM MODULE_EGTM;
 extern Ifx_P MODULE_P00;
 extern Ifx_P MODULE_P01;
@@ -89,29 +84,30 @@ extern Ifx_P MODULE_P34;
 extern Ifx_P MODULE_P35;
 extern Ifx_P MODULE_P40;
 
-/* Spy API declarations */
-#define MOCK_MAX_CHANNELS 16
+/* Spy API state and controls */
+#define MOCK_MAX_CHANNELS 16u
 
-/* Primary PWM init/initConfig/duty capture */
+/* Primary PWM init spies */
 extern uint32  mock_IfxEgtm_Pwm_init_lastNumChannels;
 extern float32 mock_IfxEgtm_Pwm_init_lastFrequency;
 extern uint32  mock_IfxEgtm_Pwm_initConfig_lastNumChannels;
 extern float32 mock_IfxEgtm_Pwm_initConfig_lastFrequency;
+
+/* Duty update capture */
 extern float32 mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_lastDuties[MOCK_MAX_CHANNELS];
-extern float32 mock_dt_lastDtRising[MOCK_MAX_CHANNELS];
-extern float32 mock_dt_lastDtFalling[MOCK_MAX_CHANNELS];
 
-/* Toggle pin convenience counter */
-extern uint32 mock_togglePin_callCount;
+/* Dead-time update capture (reserved for tests even if function not used) */
+extern float32 mock_IfxEgtm_Pwm_updateChannelsDeadTimeImmediate_lastDtRising[MOCK_MAX_CHANNELS];
+extern float32 mock_IfxEgtm_Pwm_updateChannelsDeadTimeImmediate_lastDtFalling[MOCK_MAX_CHANNELS];
 
-/* Call counters */
+/* Function call counters */
 extern int mock_IfxEgtm_enable_callCount;
 extern int mock_IfxEgtm_isEnabled_callCount;
 extern int mock_IfxEgtm_Cmu_enableClocks_callCount;
 extern int mock_IfxEgtm_Cmu_getModuleFrequency_callCount;
-extern int mock_IfxEgtm_Cmu_getGclkFrequency_callCount;
 extern int mock_IfxEgtm_Cmu_setGclkFrequency_callCount;
 extern int mock_IfxEgtm_Cmu_setClkFrequency_callCount;
+extern int mock_IfxEgtm_Cmu_enable_callCount;
 extern int mock_IfxEgtm_Cmu_isEnabled_callCount;
 extern int mock_IfxEgtm_Pwm_init_callCount;
 extern int mock_IfxEgtm_Pwm_initConfig_callCount;
@@ -119,23 +115,22 @@ extern int mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_callCount;
 extern int mock_IfxPort_togglePin_callCount;
 extern int mock_IfxPort_setPinModeOutput_callCount;
 
-/* Return value controls for non-void functions */
+/* Return-value controls */
 extern boolean mock_IfxEgtm_isEnabled_returnValue;
 extern boolean mock_IfxEgtm_Cmu_isEnabled_returnValue;
 extern float32 mock_IfxEgtm_Cmu_getModuleFrequency_returnValue;
-extern float32 mock_IfxEgtm_Cmu_getGclkFrequency_returnValue;
-extern float32 mock_IfxEgtm_Cmu_getClkFrequency_returnValue;
 
-/* Mock control API */
+/* Mock control */
 void mock_egtm_atom_3_phase_inverter_pwm_reset(void);
 
+/* Getters for call counts */
 int mock_IfxEgtm_enable_getCallCount(void);
 int mock_IfxEgtm_isEnabled_getCallCount(void);
 int mock_IfxEgtm_Cmu_enableClocks_getCallCount(void);
 int mock_IfxEgtm_Cmu_getModuleFrequency_getCallCount(void);
-int mock_IfxEgtm_Cmu_getGclkFrequency_getCallCount(void);
 int mock_IfxEgtm_Cmu_setGclkFrequency_getCallCount(void);
 int mock_IfxEgtm_Cmu_setClkFrequency_getCallCount(void);
+int mock_IfxEgtm_Cmu_enable_getCallCount(void);
 int mock_IfxEgtm_Cmu_isEnabled_getCallCount(void);
 int mock_IfxEgtm_Pwm_init_getCallCount(void);
 int mock_IfxEgtm_Pwm_initConfig_getCallCount(void);

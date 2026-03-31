@@ -1,3 +1,4 @@
+/* IfxEgtm_Cmu mock */
 #ifndef IFXEGTM_CMU_H
 #define IFXEGTM_CMU_H
 
@@ -41,20 +42,28 @@ typedef enum
     IfxEgtm_Cmu_Tim_Filter_Clk_7   
 } IfxEgtm_Cmu_Tim_Filter_Clk;
 
-/* Enable mask macros */
 #ifndef IFXEGTM_CMU_CLKEN_FXCLK
 #define IFXEGTM_CMU_CLKEN_FXCLK (1u << 0)
 #endif
 #ifndef IFXEGTM_CMU_CLKEN_CLK0
-#define IFXEGTM_CMU_CLKEN_CLK0  (1u << 1)
+#define IFXEGTM_CMU_CLKEN_CLK0  (1u << 8)
 #endif
 
-/* Function declarations (TC4xx signatures) */
-void    IfxEgtm_Cmu_enableClocks(Ifx_EGTM *egtm, uint32 clkMask);
-float32 IfxEgtm_Cmu_getModuleFrequency(Ifx_EGTM *egtm);
-float32 IfxEgtm_Cmu_getGclkFrequency(Ifx_EGTM *egtm);
-void    IfxEgtm_Cmu_setGclkFrequency(Ifx_EGTM *egtm, float32 frequency);
-void    IfxEgtm_Cmu_setClkFrequency(Ifx_EGTM *egtm, IfxEgtm_Cmu_Clk clkIndex, float32 frequency);
-boolean IfxEgtm_Cmu_isEnabled(Ifx_EGTM *egtm);
+/* DTM ctypedef enum
+{
+    IfxEgtm_Dtm_ClockSource_systemClock,  
+    IfxEgtm_Dtm_ClockSource_cmuClock0,    
+    IfxEgtm_Dtm_ClockSource_cmuClock1,    
+    IfxEgtm_Dtm_ClockSource_cmuClock2     
+} IfxEgtm_Dtm_ClockSource;ock2
+} IfxEgtm_Dtm_ClockSource;
+
+/* Functions to mock (mandatory set) */
+void    IfxEgtm_Cmu_enableClocks(Ifx_EGTM *module, uint32 mask);
+float32 IfxEgtm_Cmu_getModuleFrequency(Ifx_EGTM *module);
+void    IfxEgtm_Cmu_setGclkFrequency(Ifx_EGTM *module, float32 frequency);
+void    IfxEgtm_Cmu_setClkFrequency(Ifx_EGTM *module, IfxEgtm_Cmu_Clk clk, float32 frequency);
+void    IfxEgtm_Cmu_enable(Ifx_EGTM *module);
+boolean IfxEgtm_Cmu_isEnabled(Ifx_EGTM *module);
 
 #endif /* IFXEGTM_CMU_H */
