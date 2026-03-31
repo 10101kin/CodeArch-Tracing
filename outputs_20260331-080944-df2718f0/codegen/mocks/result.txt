@@ -1,12 +1,3 @@
 Status: SUCCESS
 
-============================================================
-TDD CODE GENERATION - ATTEMPT STATUS
-============================================================
-Phase: mock_generation
-Attempt: 10
-Status: SUCCESS
-Timestamp: 2026-03-31 16:51:49
-Files generated: 9
-
-============================================================
+LLM response for mock phase (attempt 12), 31292 chars
