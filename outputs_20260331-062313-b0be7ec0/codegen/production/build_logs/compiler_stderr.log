@@ -1,0 +1,17 @@
+C:\Users\extanke\AppData\Local\Temp\tdd_build_94qthm_9\src\gtm_tom_3_phase_inverter_pwm.c: In function 'interruptGtmAtom':
+C:\Users\extanke\AppData\Local\Temp\tdd_build_94qthm_9\src\gtm_tom_3_phase_inverter_pwm.c:74:5: error: implicit declaration of function 'IfxPort_togglePin' [-Wimplicit-function-declaration]
+   74 |     IfxPort_togglePin(LED);
+      |     ^~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_94qthm_9\src\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTom3phInv':
+C:\Users\extanke\AppData\Local\Temp\tdd_build_94qthm_9\src\gtm_tom_3_phase_inverter_pwm.c:209:5: error: implicit declaration of function 'IfxPort_setPinModeOutput' [-Wimplicit-function-declaration]
+  209 |     IfxPort_setPinModeOutput(&MODULE_P13, 0, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+
+C:\Users\extanke\AppData\Local\Temp\tdd_build_94qthm_9\mocks\mock_gtm_tom_3_phase_inverter_pwm.c:291:8: error: conflicting types for 'IfxGtm_Pwm_getChannelState' due to enum/integer mismatch; have 'uint32(IfxGtm_Pwm *, uint32)' {aka 'unsigned int(IfxGtm_Pwm *, unsigned int)'} [-Werror=enum-int-mismatch]
+  291 | uint32 IfxGtm_Pwm_getChannelState(IfxGtm_Pwm *pwm, uint32 channelIndex) { (void)pwm; (void)channelIndex; mock_IfxGtm_Pwm_getChannelState_callCount++; return mock_IfxGtm_Pwm_getChannelState_returnValue; }
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from C:\Users\extanke\AppData\Local\Temp\tdd_build_94qthm_9\mocks\mock_gtm_tom_3_phase_inverter_pwm.c:4:
+C:\Users\extanke\AppData\Local\Temp\tdd_build_94qthm_9\include/IfxGtm_Pwm.h:283:25: note: previous declaration of 'IfxGtm_Pwm_getChannelState' with type 'IfxGtm_Pwm_ChannelState(IfxGtm_Pwm *, IfxGtm_Pwm_SubModule_Ch)'
+  283 | IfxGtm_Pwm_ChannelState IfxGtm_Pwm_getChannelState(IfxGtm_Pwm *pwm, IfxGtm_Pwm_SubModule_Ch ch);
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+cc1.exe: all warnings being treated as errors
