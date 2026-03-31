@@ -1,6 +1,7 @@
 #ifndef IFXPORT_PINMAP_H
 #define IFXPORT_PINMAP_H
 
+#include "IfxPort.h"
 #include "IfxGtm_Pwm.h"
 
 /* Required pin symbol externs */
