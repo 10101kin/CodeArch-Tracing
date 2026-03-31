@@ -1,0 +1,13 @@
+In file included from /tmp/tdd_build_ze19mjwx/src/gtm_tom_3_phase_inverter_pwm.c:16:
+/tmp/tdd_build_ze19mjwx/include/IfxGtm_Pwm.h:163:5: error: unknown type name ‘IfxGtm_Trig_MscOut’
+  163 |     IfxGtm_Trig_MscOut         *mscOut;
+      |     ^~~~~~~~~~~~~~~~~~
+/tmp/tdd_build_ze19mjwx/src/gtm_tom_3_phase_inverter_pwm.c:18:10: fatal error: IfxPort_Pinmap.h: No such file or directory
+   18 | #include "IfxPort_Pinmap.h"
+      |          ^~~~~~~~~~~~~~~~~~
+compilation terminated.
+
+In file included from /tmp/tdd_build_ze19mjwx/mocks/mock_gtm_tom_3_phase_inverter_pwm.c:4:
+/tmp/tdd_build_ze19mjwx/include/IfxGtm_Pwm.h:163:5: error: unknown type name ‘IfxGtm_Trig_MscOut’
+  163 |     IfxGtm_Trig_MscOut         *mscOut;
+      |     ^~~~~~~~~~~~~~~~~~
