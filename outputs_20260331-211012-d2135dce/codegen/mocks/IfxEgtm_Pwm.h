@@ -1,3 +1,4 @@
+/* IfxEgtm_Pwm.h - per-driver mock header */
 #ifndef IFXEGTM_PWM_H
 #define IFXEGTM_PWM_H
 
@@ -6,10 +7,13 @@
 #include "IfxEgtm_Cmu.h"
 #include "IfxPort.h"
 
-/* Callback type used by driver */
+/* Callback type used across structures */
 typedef void (*IfxEgtm_Pwm_callBack)(void *data);
 
-/* Minimal ToutMap type for pin mapping */
+/* Forward decl for FastShutoffConfig (used via pointer only) */
+typedef struct IfxEgtm_Pwm_FastShutoffConfig IfxEgtm_Pwm_FastShutoffConfig;
+
+/* Tout map used by pin symbols */
 typedef union
 {
     IfxEgtm_Atom_ToutMap atom;        
@@ -19,7 +23,7 @@ typedef union
 #endif /* #if IFXEGTM_PWM_IS_HIGH_RES_AVAILABLE */	
 } IfxEgtm_Pwm_ToutMap;
 
-/* ===== VERIFIED TYPE DEFINITIONS — copied verbatim order ===== */
+/* ====== VERIFIED TYPE DEFINITIONS (emit exactly as given) ====== */
 
 typedef enum
 {
@@ -89,13 +93,8 @@ typedef enum
 } IfxEgtm_Dtm_ClockSource;
 {
     float32 rising;        
-    ftypedef struct
-{
-    IfxEgtm_Pwm_DeadTime           deadTime;          
-    IfxEgtm_Pwm_FastShutoffConfig *fastShutOff;       
-} IfxEgtm_Pwm_DtmConfig;onfig IfxEgtm_Pwm_FastShutoffConfig;
-
-typedef struct
+    float32 falling;       
+} IfxEgtm_Pwm_DeadTime;
 {
     IfxEgtm_Pwm_DeadTime           deadTime;          
     IfxEgtm_Pwm_FastShutoffConfig *fastShutOff;       
@@ -152,11 +151,13 @@ typedef struct
     IfxEgtm_Cluster_2 = 2   
 } IfxEgtm_Cluster;
 {
-    volatile Ifx_UReg_32Bit *reg0;                
+    volatile Ifx_UReg_32Bit *reg0;                /**< \brief ATOM: points to AGC_GLB_CTRL.
+                                                   * TOM: If channels span 2 TGCs then points to TGC0_GLB_CTRL else to the TGC being used TGCx_GLB_CTRL */
     volatile Ifx_UReg_32Bit *reg1;                
     uint32                   upenMask0;           
     uint32                   upenMask1;           
-    volatile Ifx_UReg_32Bit *endisCtrlReg0;       
+    volatile Ifx_UReg_32Bit *endisCtrlReg0;       /**< \brief ATOM: points to AGC_ENDIS_CTRL.
+                                                   * TOM: If channels span 2 TGCs then points to TGC0_ENDIS_CTRL else to the TGC being used TGCx_GLB_CTRL */
     volatile Ifx_UReg_32Bit *endisCtrlReg1;       
 } IfxEgtm_Pwm_GlobalControl;{
     uint32 atom;
@@ -193,7 +194,7 @@ typedef struct
 #if IFXEGTM_PWM_IS_HIGH_RES_AVAILABLE 
     boolean                    highResEnable;          
     boolean                    dtmHighResEnable;       
-#endif /* IFXEGTM_PWM_IS_HIGH_RES_AVAILABLE */ 
+#endif /* #if IFXEGTM_PWM_IS_HIGH_RES_AVAILABLE */ 
     boolean                    syncUpdateEnabled;      
     boolean                    syncStart;              
 } IfxEgtm_Pwm_Config;
@@ -203,9 +204,13 @@ typedef struct
     IfxPort_PadDriver    padDriver;        
 } IfxEgtm_Pwm_Pin;
 
-/* ===== Function declarations (subset used by module) ===== */
+/* ====== Function declarations (subset used by module/tests) ====== */
+void IfxEgtm_Pwm_initConfig(IfxEgtm_Pwm_Config *config, Ifx_EGTM *egtmSFR);
 void IfxEgtm_Pwm_init(IfxEgtm_Pwm *pwm, IfxEgtm_Pwm_Channel *channels, IfxEgtm_Pwm_Config *config);
 void IfxEgtm_Pwm_updateChannelsDutyImmediate(IfxEgtm_Pwm *pwm, float32 *requestDuty);
-void IfxEgtm_Pwm_initConfig(IfxEgtm_Pwm_Config *config, Ifx_EGTM *egtmSFR);
+
+/* CPU IRQ helpers referenced in iLLD examples */
+void IfxCpu_Irq_installInterruptHandler(void (*isr)(void), uint32 vectabNum, Ifx_Priority priority);
+void IfxCpu_enableInterrupts(void);
 
 #endif /* IFXEGTM_PWM_H */
