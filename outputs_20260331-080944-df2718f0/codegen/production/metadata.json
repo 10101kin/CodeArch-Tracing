@@ -1,8 +1,20 @@
 {
-  "type": "llm_response",
-  "phase": "production",
   "attempt": 11,
   "phase_attempt": 5,
-  "response_length": 12204,
-  "timestamp": "2026-03-31T16:54:24.809710"
+  "phase": "production",
+  "success": false,
+  "errors": [
+    "unknown type name 'IfxEgtm_Pwm_ChannelConfig'; did you mean 'IfxEgtm_Pwm_Channel'?",
+    "unknown type name 'IfxEgtm_Pwm_DtmConfig'; did you mean 'IfxEgtm_Pwm_Config'?",
+    "'IfxEgtm_Pwm_OutputConfig' has no member named 'padDriver'",
+    "'IfxEgtm_Pwm_OutputConfig' has no member named 'padDriver'",
+    "'IfxEgtm_Pwm_OutputConfig' has no member named 'padDriver'",
+    "request for member 'deadTime' in something not a structure or union",
+    "request for member 'deadTime' in something not a structure or union",
+    "request for member 'fastShutOff' in something not a structure or union",
+    "request for member 'deadTime' in something not a structure or union",
+    "request for member 'deadTime' in something not a structure or union"
+  ],
+  "timestamp": "2026-03-31T16:54:32.276099",
+  "project_name": "Generate_TC4D7_code_for_KIT_A3G_TC4D7_LITE_using_E_r_20260331_161939"
 }
