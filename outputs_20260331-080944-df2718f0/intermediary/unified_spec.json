@@ -1,11 +1,12 @@
 {
   "meta": {
     "schema_version": "1.0",
-    "last_updated_by": "hardware",
-    "last_updated_at": "2026-03-31T16:11:56.842877",
+    "last_updated_by": "sw_architecture",
+    "last_updated_at": "2026-03-31T16:14:35.943447",
     "build_sequence": [
       "requirements",
-      "hardware"
+      "hardware",
+      "sw_architecture"
     ],
     "corrections_log": []
   },
@@ -603,6 +604,232 @@
         ]
       },
       "warnings": []
+    }
+  },
+  "sw_architecture": {
+    "user_intent_preservation": {
+      "original_goal": "Implement 3-phase PWM motor control",
+      "functional_behavior": "Generate a 3-phase complementary, center-aligned PWM at 20 kHz with 1 µs dead-time per edge, initial duties U/V/W = 25%/50%/75%, apply 10% step updates every 500 ms, start and update synchronously, and handle a period-event ISR toggling the board LED.",
+      "technical_approach": "Use the unified PWM driver to configure EGTM ATOM0 Cluster 0 for a 3-phase complementary pair setup with center-aligned mode and DTM-based dead-time via the driver config; perform a single synced start and use synced duty updates; route the period-event to an ISR named EgtmAtomIsr (LED toggle) while enabling EGTM clocks and setting the LED GPIO as push-pull."
+    },
+    "driver_selection": {
+      "recommended_driver": "IfxEgtm_Pwm",
+      "selection_rationale": "Unified PWM supports center-aligned operation, complementary outputs with DTM dead-time, contiguous synced channels, synced start/update, and integrates pin routing and ISR linkage through its configuration. It directly maps the TC3xx TOM reference to TC4xx ATOM with minimal code changes while preserving behavior.",
+      "available_in_template": true,
+      "complexity_level": "advanced",
+      "alternatives_considered": [
+        "IfxEgtm_Atom_Pwm",
+        "IfxEgtm_Tom_Pwm",
+        "IfxGtm_Pwm"
+      ]
+    },
+    "driver_usage": {
+      "initialization_apis": [
+        "IfxEgtm_Pwm_initConfig",
+        "IfxEgtm_Pwm_init",
+        "IfxEgtm_isEnabled",
+        "IfxEgtm_enable",
+        "IfxEgtm_Cmu_enableClocks",
+        "IfxPort_setPinModeOutput"
+      ],
+      "runtime_apis": [
+        "IfxEgtm_Pwm_updateChannelsDuty",
+        "IfxPort_togglePin"
+      ]
+    },
+    "file_structure": {
+      "module_files": [
+        "EGTM_ATOM_3_Phase_Inverter_PWM.c",
+        "EGTM_ATOM_3_Phase_Inverter_PWM.h"
+      ],
+      "cpu_files": [
+        "Cpu0_Main.c"
+      ],
+      "from_reference": true
+    },
+    "function_mapping": {
+      "init_function": {
+        "name": "initEgtmAtom3phInv"
+      },
+      "runtime_function": {
+        "name": "updateEgtmAtom3phInvDuty",
+        "purpose": "Apply 10% duty-cycle steps to U/V/W every 500 ms using synchronized updates while maintaining complementary, center-aligned PWM with configured dead-time."
+      }
+    },
+    "header_selection": {
+      "applied": true,
+      "peripheral_type": "PWM",
+      "recommended_header": "IfxEgtm_Pwm",
+      "score": 312,
+      "required_includes": [
+        "IfxEgtm_Pwm.h"
+      ],
+      "function_mapping": {
+        "IfxGtm_Pwm_updateChannelsDutyImmediate": "IfxEgtm_Pwm_updateChannelsDutyImmediate",
+        "IfxGtm_enable": "IfxEgtm_Pwm_enableChannel",
+        "IFX_INTERRUPT": "IfxEgtm_Pwm_initInterrupts",
+        "IfxGtm_Pwm_init": "IfxEgtm_Pwm_initInterrupts",
+        "IfxGtm_Pwm_initConfig": "IfxEgtm_Pwm_initConfig",
+        "PWM_FREQUENCY": "IfxEgtm_Pwm_updateFrequency"
+      },
+      "available_functions_count": 100
+    },
+    "driver_selection_engine": {
+      "applied": true,
+      "mcu_family": "TC4xx",
+      "requirement_analysis": {},
+      "recommendations": {
+        "PWM": {
+          "driver": "IfxEgtm_Pwm",
+          "score": 100,
+          "complexity": "locked",
+          "rationale": "Driver locked by refiner node (user explicit or engine-scored)",
+          "alternatives": []
+        }
+      },
+      "migration_mappings": {
+        "IfxScuWdt": {
+          "target_driver": "IfxWtu",
+          "api_mapping": {
+            "IfxScuWdt_disableCpuWatchdog": "IfxWtu_disableCpuWatchdog",
+            "IfxScuWdt_disableSafetyWatchdog": "IfxWtu_enableCpuWatchdog",
+            "IfxScuWdt_enableCpuWatchdog": "// No equivalent - manual mapping needed",
+            "IfxScuWdt_enableSafetyWatchdog": "// No equivalent - manual mapping needed",
+            "IfxScuWdt_serviceCpuWatchdog": "IfxWtu_serviceCpuWatchdog",
+            "IfxScuWdt_serviceSafetyWatchdog": "// No equivalent - manual mapping needed",
+            "IfxScuWdt_clearCpuEndinit": "// No equivalent - manual mapping needed",
+            "IfxScuWdt_setCpuEndinit": "// No equivalent - manual mapping needed"
+          }
+        },
+        "IfxGtm_Pwm": {
+          "target_driver": "IfxEgtm_Pwm",
+          "api_mapping": {
+            "IfxGtm_Pwm_init": "IfxEgtm_Pwm_init",
+            "IfxGtm_Pwm_initConfig": "IfxEgtm_Pwm_initConfig",
+            "IfxGtm_Pwm_start": "IfxEgtm_Pwm_start",
+            "IfxGtm_Pwm_stop": "IfxEgtm_Pwm_stop",
+            "IfxGtm_Pwm_setDuty": "IfxEgtm_Pwm_setDuty"
+          }
+        },
+        "IfxPort": {
+          "target_driver": "IfxPort_Io",
+          "api_mapping": {
+            "IfxPort_setPinMode": "IfxPort_Io_initModule",
+            "IfxPort_setPinModeOutput": "// No equivalent - manual mapping needed",
+            "IfxPort_setPinModeInput": "// No equivalent - manual mapping needed",
+            "IfxPort_setPinPadDriver": "// No equivalent - manual mapping needed",
+            "IfxPort_setPinState": "IfxPort_Io_setPinState",
+            "IfxPort_getPinState": "IfxPort_Io_getPinState",
+            "IfxPort_togglePin": "// No equivalent - manual mapping needed",
+            "IfxPort_setPinHigh": "// No equivalent - manual mapping needed",
+            "IfxPort_setPinLow": "// No equivalent - manual mapping needed"
+          }
+        }
+      }
+    },
+    "driver_knowledge_base": {
+      "applied": false
+    },
+    "migration_numerical_values": {
+      "NUM_OF_CHANNELS": {
+        "value": 3,
+        "source": "proposed",
+        "reference_value": 3.0,
+        "proposed_value": 3,
+        "unit_hint": "",
+        "category": "count",
+        "semantic_label": "Number of channels"
+      },
+      "PHASE_U_DUTY": {
+        "value": 25.0,
+        "source": "proposed",
+        "reference_value": 25.0,
+        "proposed_value": 25.0,
+        "unit_hint": "%",
+        "category": "duty_cycle",
+        "semantic_label": "Phase U initial duty cycle"
+      },
+      "PHASE_V_DUTY": {
+        "value": 50.0,
+        "source": "proposed",
+        "reference_value": 50.0,
+        "proposed_value": 50.0,
+        "unit_hint": "%",
+        "category": "duty_cycle",
+        "semantic_label": "Phase V initial duty cycle"
+      },
+      "PHASE_W_DUTY": {
+        "value": 75.0,
+        "source": "proposed",
+        "reference_value": 75.0,
+        "proposed_value": 75.0,
+        "unit_hint": "%",
+        "category": "duty_cycle",
+        "semantic_label": "Phase W initial duty cycle"
+      },
+      "PHASE_DUTY_STEP": {
+        "value": 10.0,
+        "source": "proposed",
+        "reference_value": 10.0,
+        "proposed_value": 10.0,
+        "unit_hint": "%",
+        "category": "duty_cycle",
+        "semantic_label": "Duty cycle step increment"
+      },
+      "PWM_FREQUENCY": {
+        "value": 20000.0,
+        "source": "proposed",
+        "reference_value": 20000.0,
+        "proposed_value": 20000.0,
+        "unit_hint": "Hz",
+        "category": "frequency",
+        "semantic_label": "PWM switching frequency"
+      },
+      "ISR_PRIORITY_ATOM": {
+        "value": 20,
+        "source": "proposed",
+        "reference_value": 20.0,
+        "proposed_value": 20,
+        "unit_hint": "",
+        "category": "interrupt",
+        "semantic_label": "ISR priority"
+      },
+      ".rising": {
+        "value": 1,
+        "source": "proposed",
+        "reference_value": 1.0,
+        "proposed_value": 1,
+        "unit_hint": "",
+        "category": "other",
+        "semantic_label": ".rising"
+      },
+      ".falling": {
+        "value": 1,
+        "source": "proposed",
+        "reference_value": 1.0,
+        "proposed_value": 1,
+        "unit_hint": "",
+        "category": "other",
+        "semantic_label": ".falling"
+      },
+      ".phase": {
+        "value": 0.0,
+        "source": "proposed",
+        "reference_value": 0.0,
+        "proposed_value": 0.0,
+        "unit_hint": "",
+        "category": "other",
+        "semantic_label": ".phase"
+      },
+      "WAIT_TIME": {
+        "value": 500.0,
+        "source": "proposed",
+        "reference_value": 500.0,
+        "proposed_value": 500.0,
+        "unit_hint": "ms",
+        "category": "timing",
+        "semantic_label": "Wait / delay time"
+      }
     }
   }
 }
