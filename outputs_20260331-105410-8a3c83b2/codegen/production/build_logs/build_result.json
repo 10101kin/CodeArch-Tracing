@@ -2,31 +2,39 @@
   "success": false,
   "errors": [
     {
-      "file": "/tmp/tdd_build_k9ka2w2h/include/IfxEgtm_Pwm.h",
-      "line": 107,
+      "file": "/tmp/tdd_build_o_9g1x6v/include/egtm_atom_adc_tmadc_multiple_channels.h",
+      "line": 10,
       "category": "error",
-      "message": "unknown type name \u2018IfxEgtm_Pwm_FastShutoffConfig\u2019"
+      "message": "unknown type name \u2018float32\u2019; did you mean \u2018_Float32\u2019?"
     },
     {
-      "file": "/tmp/tdd_build_k9ka2w2h/src/egtm_atom_adc_tmadc_multiple_channels.c",
-      "line": 40,
-      "category": "error",
-      "message": "\u2018MODULE_P03\u2019 undeclared (first use in this function); did you mean \u2018MODULE_P33\u2019?"
+      "file": "",
+      "message": "/tmp/tdd_build_o_9g1x6v/include/IfxEgtm_Pwm.h:1: error: unterminated #ifndef",
+      "category": "error"
     },
     {
-      "file": "/tmp/tdd_build_k9ka2w2h/src/egtm_atom_adc_tmadc_multiple_channels.c",
-      "line": 40,
-      "category": "error",
-      "message": "\u2018MODULE_P03\u2019 undeclared (first use in this function); did you mean \u2018MODULE_P33\u2019?"
+      "file": "",
+      "message": "/tmp/tdd_build_o_9g1x6v/src/egtm_atom_adc_tmadc_multiple_channels.c:15:10: fatal error: IfxPort_PinMap.h: No such file or directory",
+      "category": "error"
     },
     {
-      "file": "/tmp/tdd_build_k9ka2w2h/include/IfxEgtm_Pwm.h",
-      "line": 107,
+      "file": "",
+      "message": "/tmp/tdd_build_o_9g1x6v/include/IfxEgtm_Pwm.h:1: error: unterminated #ifndef",
+      "category": "error"
+    },
+    {
+      "file": "",
+      "message": "/tmp/tdd_build_o_9g1x6v/include/IfxEgtm_Pwm.h:1: error: unterminated #ifndef",
+      "category": "error"
+    },
+    {
+      "file": "/tmp/tdd_build_o_9g1x6v/include/IfxPort_Pinmap.h",
+      "line": 7,
       "category": "error",
-      "message": "unknown type name \u2018IfxEgtm_Pwm_FastShutoffConfig\u2019"
+      "message": "expected specifier-qualifier-list before \u2018extern\u2019"
     }
   ],
   "warnings": [],
-  "stderr": "In file included from /tmp/tdd_build_k9ka2w2h/src/egtm_atom_adc_tmadc_multiple_channels.c:7:\n/tmp/tdd_build_k9ka2w2h/include/IfxEgtm_Pwm.h:107:5: error: unknown type name \u2018IfxEgtm_Pwm_FastShutoffConfig\u2019\n  107 |     IfxEgtm_Pwm_FastShutoffConfig *fastShutOff;\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n/tmp/tdd_build_k9ka2w2h/src/egtm_atom_adc_tmadc_multiple_channels.c: In function \u2018interruptEgtmAtom\u2019:\n/tmp/tdd_build_k9ka2w2h/src/egtm_atom_adc_tmadc_multiple_channels.c:40:44: error: \u2018MODULE_P03\u2019 undeclared (first use in this function); did you mean \u2018MODULE_P33\u2019?\n   40 | #define LED                               &MODULE_P03, 9u\n      |                                            ^~~~~~~~~~\n/tmp/tdd_build_k9ka2w2h/src/egtm_atom_adc_tmadc_multiple_channels.c:80:23: note: in expansion of macro \u2018LED\u2019\n   80 |     IfxPort_togglePin(LED);\n      |                       ^~~\n/tmp/tdd_build_k9ka2w2h/src/egtm_atom_adc_tmadc_multiple_channels.c:40:44: note: each undeclared identifier is reported only once for each function it appears in\n   40 | #define LED                               &MODULE_P03, 9u\n      |                                            ^~~~~~~~~~\n/tmp/tdd_build_k9ka2w2h/src/egtm_atom_adc_tmadc_multiple_channels.c:80:23: note: in expansion of macro \u2018LED\u2019\n   80 |     IfxPort_togglePin(LED);\n      |                       ^~~\n/tmp/tdd_build_k9ka2w2h/src/egtm_atom_adc_tmadc_multiple_channels.c: In function \u2018initEgtmAtom3phInv\u2019:\n/tmp/tdd_build_k9ka2w2h/src/egtm_atom_adc_tmadc_multiple_channels.c:40:44: error: \u2018MODULE_P03\u2019 undeclared (first use in this function); did you mean \u2018MODULE_P33\u2019?\n   40 | #define LED                               &MODULE_P03, 9u\n      |                                            ^~~~~~~~~~\n/tmp/tdd_build_k9ka2w2h/src/egtm_atom_adc_tmadc_multiple_channels.c:200:30: note: in expansion of macro \u2018LED\u2019\n  200 |     IfxPort_setPinModeOutput(LED, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);\n      |                              ^~~\n\nIn file included from /tmp/tdd_build_k9ka2w2h/mocks/mock_egtm_atom_adc_tmadc_multiple_channels.c:7:\n/tmp/tdd_build_k9ka2w2h/include/IfxEgtm_Pwm.h:107:5: error: unknown type name \u2018IfxEgtm_Pwm_FastShutoffConfig\u2019\n  107 |     IfxEgtm_Pwm_FastShutoffConfig *fastShutOff;\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n",
+  "stderr": "In file included from /tmp/tdd_build_o_9g1x6v/src/egtm_atom_adc_tmadc_multiple_channels.c:11:\n/tmp/tdd_build_o_9g1x6v/include/egtm_atom_adc_tmadc_multiple_channels.h:10:31: error: unknown type name \u2018float32\u2019; did you mean \u2018_Float32\u2019?\n   10 | void updateEgtmAtom3phInvDuty(float32 *requestDuty);\n      |                               ^~~~~~~\n      |                               _Float32\nIn file included from /tmp/tdd_build_o_9g1x6v/src/egtm_atom_adc_tmadc_multiple_channels.c:13:\n/tmp/tdd_build_o_9g1x6v/include/IfxEgtm_Pwm.h:1: error: unterminated #ifndef\n    1 | #ifndef IFXEGTM_PWM_H\n/tmp/tdd_build_o_9g1x6v/src/egtm_atom_adc_tmadc_multiple_channels.c:15:10: fatal error: IfxPort_PinMap.h: No such file or directory\n   15 | #include \"IfxPort_PinMap.h\"\n      |          ^~~~~~~~~~~~~~~~~~\ncompilation terminated.\n\nIn file included from /tmp/tdd_build_o_9g1x6v/mocks/mock_egtm_atom_adc_tmadc_multiple_channels.c:4:\n/tmp/tdd_build_o_9g1x6v/include/IfxEgtm_Pwm.h:1: error: unterminated #ifndef\n    1 | #ifndef IFXEGTM_PWM_H\nIn file included from /tmp/tdd_build_o_9g1x6v/include/IfxPort_Pinmap.h:4,\n                 from /tmp/tdd_build_o_9g1x6v/mocks/mock_egtm_atom_adc_tmadc_multiple_channels.c:6:\n/tmp/tdd_build_o_9g1x6v/include/IfxEgtm_Pwm.h:1: error: unterminated #ifndef\n    1 | #ifndef IFXEGTM_PWM_H\n/tmp/tdd_build_o_9g1x6v/include/IfxPort_Pinmap.h:7:1: error: expected specifier-qualifier-list before \u2018extern\u2019\n    7 | extern IfxEgtm_Pwm_ToutMap IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT;\n      | ^~~~~~\n",
   "stdout": ""
 }
