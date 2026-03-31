@@ -1,10 +1,11 @@
 {
   "meta": {
     "schema_version": "1.0",
-    "last_updated_by": "requirements",
-    "last_updated_at": "2026-03-31T16:09:44.316482",
+    "last_updated_by": "hardware",
+    "last_updated_at": "2026-03-31T16:11:56.842877",
     "build_sequence": [
-      "requirements"
+      "requirements",
+      "hardware"
     ],
     "corrections_log": []
   },
@@ -423,5 +424,185 @@
     },
     "header_documentation_available": true,
     "config_values_extracted": 54
+  },
+  "hardware": {
+    "microcontroller": {
+      "model": "TC4D7",
+      "verified": true
+    },
+    "peripheral_instance": {
+      "module": "EGTM.ATOM0.Cluster0",
+      "channels": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "pin_assignments": [
+      {
+        "signal": "U_HS",
+        "port_pin": "P20.8",
+        "function": "TOUT64",
+        "pin_macro": null,
+        "is_complementary": false,
+        "verified": false,
+        "source": "hardware_verified"
+      },
+      {
+        "signal": "U_LS",
+        "port_pin": "P20.9",
+        "function": "TOUT65",
+        "pin_macro": null,
+        "is_complementary": true,
+        "verified": false,
+        "source": "hardware_verified"
+      },
+      {
+        "signal": "V_HS",
+        "port_pin": "P21.4",
+        "function": "TOUT55",
+        "pin_macro": null,
+        "is_complementary": false,
+        "verified": false,
+        "source": "hardware_verified"
+      },
+      {
+        "signal": "V_LS",
+        "port_pin": "P20.11",
+        "function": "TOUT67",
+        "pin_macro": null,
+        "is_complementary": true,
+        "verified": false,
+        "source": "hardware_verified"
+      },
+      {
+        "signal": "W_HS",
+        "port_pin": "P20.12",
+        "function": "TOUT68",
+        "pin_macro": null,
+        "is_complementary": false,
+        "verified": false,
+        "source": "hardware_verified"
+      },
+      {
+        "signal": "W_LS",
+        "port_pin": "P20.13",
+        "function": "TOUT69",
+        "pin_macro": null,
+        "is_complementary": true,
+        "verified": false,
+        "source": "hardware_verified"
+      },
+      {
+        "signal": "LED",
+        "port_pin": "P03.9",
+        "function": "GPIO",
+        "pin_macro": null,
+        "is_complementary": false,
+        "verified": false,
+        "source": "hardware_verified"
+      }
+    ],
+    "clock_configuration": {
+      "xtal_frequency_mhz": 25,
+      "system_frequency_mhz": 500
+    },
+    "validation": {
+      "all_verified": false,
+      "conflicts": [
+        "IfxEgtm_PinMap macro not found in template context for P20.8 (TOUT64) on TC4D7 BGA436_COM",
+        "IfxEgtm_PinMap macro not found in template context for P20.9 (TOUT65) on TC4D7 BGA436_COM",
+        "IfxEgtm_PinMap macro not found in template context for P21.4 (TOUT55) on TC4D7 BGA436_COM",
+        "IfxEgtm_PinMap macro not found in template context for P20.11 (TOUT67) on TC4D7 BGA436_COM",
+        "IfxEgtm_PinMap macro not found in template context for P20.12 (TOUT68) on TC4D7 BGA436_COM",
+        "IfxEgtm_PinMap macro not found in template context for P20.13 (TOUT69) on TC4D7 BGA436_COM",
+        "GPIO macro not provided in template context for LED P03.9"
+      ],
+      "reference_pins_valid": false
+    },
+    "template_validation": {
+      "supported_peripherals": [
+        "PWM",
+        "GTM",
+        "EGTM",
+        "GPIO",
+        "ASCLIN",
+        "INTERRUPT",
+        "WATCHDOG",
+        "CPU"
+      ],
+      "suggested_drivers": {
+        "PWM": [
+          "IfxEgtm_Pwm",
+          "IfxGtm_Atom_Pwm",
+          "IfxEgtm_Tom_Pwm",
+          "IfxGtm_Tom_Pwm",
+          "IfxGtm_Pwm",
+          "IfxEgtm_Atom_Pwm"
+        ],
+        "GTM": [
+          "IfxGtm_PinMap",
+          "IfxGtm_Tbu",
+          "IfxGtm",
+          "IfxGtm_Psm",
+          "IfxGtm_Dtm",
+          "IfxGtm_Spe",
+          "IfxGtm_Pwm",
+          "IfxGtm_Trigger",
+          "IfxGtm_Input"
+        ],
+        "EGTM": [
+          "IfxEgtm_PinMap",
+          "IfxEgtm_cfg_TC4Dx",
+          "IfxEgtm_Input",
+          "IfxEgtm_Pwm",
+          "IfxEgtm",
+          "IfxEgtm_Atom",
+          "IfxEgtm_Cmu",
+          "IfxEgtm_Dtm",
+          "IfxEgtm_Spe",
+          "IfxEgtm_Tbu",
+          "IfxEgtm_Tim",
+          "IfxEgtm_Tom",
+          "IfxEgtm_Trigger",
+          "IfxEgtm_Tom_Pwm",
+          "IfxEgtm_Tom_Timer",
+          "IfxEgtm_Tim_In",
+          "IfxEgtm_Tim_Timer",
+          "IfxEgtm_Atom_Pwm",
+          "IfxEgtm_Atom_Timer"
+        ],
+        "GPIO": [
+          "IfxPort",
+          "IfxPort_PinMap",
+          "IfxScrPort",
+          "IfxPort_Io",
+          "IfxPort_cfg_TC4Dx"
+        ],
+        "ASCLIN": [
+          "IfxAsclin_cfg_TC4Dx",
+          "IfxAsclin_Asc",
+          "IfxAsclin_Lin",
+          "IfxAsclin_Spi",
+          "IfxAsclin"
+        ],
+        "INTERRUPT": [
+          "IfxCpu_Irq",
+          "IfxScrCpuIrq"
+        ],
+        "WATCHDOG": [
+          "IfxWtu_cfg_TC4Dx",
+          "IfxWtu.asm",
+          "IfxWtu"
+        ],
+        "CPU": [
+          "IfxCpu"
+        ]
+      },
+      "warnings": []
+    }
   }
 }
