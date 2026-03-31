@@ -1,0 +1,65 @@
+Status: FAILED
+
+============================================================
+TDD CODE GENERATION - ATTEMPT STATUS
+============================================================
+Phase: production
+Attempt: 9
+Status: FAILED
+Timestamp: 2026-03-31 14:51:17
+Files generated: 2
+
+============================================================
+
+ERRORS:
+
+1. unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'
+
+2. 'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P21'?
+
+3. 'IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT' undeclared (first use in this function)
+
+4. 'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P21'?
+
+5. unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'
+
+============================================================
+BUILD RESULT:
+{
+  "success": false,
+  "errors": [
+    {
+      "file": "C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_wk1x3grn\\include/IfxEgtm_Pwm.h",
+      "line": 85,
+      "category": "error",
+      "message": "unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'"
+    },
+    {
+      "file": "C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_wk1x3grn\\src\\egtm_atom_3_phase_inverter_pwm.c",
+      "line": 27,
+      "category": "error",
+      "message": "'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P21'?"
+    },
+    {
+      "file": "C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_wk1x3grn\\src\\egtm_atom_3_phase_inverter_pwm.c",
+      "line": 37,
+      "category": "error",
+      "message": "'IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT' undeclared (first use in this function)"
+    },
+    {
+      "file": "C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_wk1x3grn\\src\\egtm_atom_3_phase_inverter_pwm.c",
+      "line": 27,
+      "category": "error",
+      "message": "'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P21'?"
+    },
+    {
+      "file": "C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_wk1x3grn\\include/IfxEgtm_Pwm.h",
+      "line": 85,
+      "category": "error",
+      "message": "unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'"
+    }
+  ],
+  "warnings": [],
+  "stderr": "In file included from C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_wk1x3grn\\src\\egtm_atom_3_phase_inverter_pwm.c:12:\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_wk1x3grn\\include/IfxEgtm_Pwm.h:85:49: error: unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'\n   85 | typedef struct { IfxEgtm_Pwm_DeadTime deadTime; IfxEgtm_Pwm_FastShutoffConfig *fastShutOff; } IfxEgtm_Pwm_DtmConfig;\n      |                                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_wk1x3grn\\src\\egtm_atom_3_phase_inverter_pwm.c: In function 'interruptEgtmAtom':\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_wk1x3grn\\src\\egtm_atom_3_phase_inverter_pwm.c:27:33: error: 'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P21'?\n   27 | #define LED                    &MODULE_P03, 9u\n      |                                 ^~~~~~~~~~\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_wk1x3grn\\src\\egtm_atom_3_phase_inverter_pwm.c:65:23: note: in expansion of macro 'LED'\n   65 |     IfxPort_togglePin(LED);\n      |                       ^~~\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_wk1x3grn\\src\\egtm_atom_3_phase_inverter_pwm.c:27:33: note: each undeclared identifier is reported only once for each function it appears in\n   27 | #define LED                    &MODULE_P03, 9u\n      |                                 ^~~~~~~~~~\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_wk1x3grn\\src\\egtm_atom_3_phase_inverter_pwm.c:65:23: note: in expansion of macro 'LED'\n   65 |     IfxPort_togglePin(LED);\n      |                       ^~~\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_wk1x3grn\\src\\egtm_atom_3_phase_inverter_pwm.c: In function 'initEgtmAtom3phInv':\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_wk1x3grn\\src\\egtm_atom_3_phase_inverter_pwm.c:37:34: error: 'IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT' undeclared (first use in this function)\n   37 | #define PHASE_U_LS             (&IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT)\n      |                                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_wk1x3grn\\src\\egtm_atom_3_phase_inverter_pwm.c:94:62: note: in expansion of macro 'PHASE_U_LS'\n   94 |     output[0].complementaryPin      = (IfxEgtm_Pwm_ToutMap *)PHASE_U_LS;\n      |                                                              ^~~~~~~~~~\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_wk1x3grn\\src\\egtm_atom_3_phase_inverter_pwm.c:27:33: error: 'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P21'?\n   27 | #define LED                    &MODULE_P03, 9u\n      |                                 ^~~~~~~~~~\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_wk1x3grn\\src\\egtm_atom_3_phase_inverter_pwm.c:206:30: note: in expansion of macro 'LED'\n  206 |     IfxPort_setPinModeOutput(LED, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);\n      |                              ^~~\n\nIn file included from C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_wk1x3grn\\mocks\\mock_egtm_atom_3_phase_inverter_pwm.c:7:\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_wk1x3grn\\include/IfxEgtm_Pwm.h:85:49: error: unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'\n   85 | typedef struct { IfxEgtm_Pwm_DeadTime deadTime; IfxEgtm_Pwm_FastShutoffConfig *fastShutOff; } IfxEgtm_Pwm_DtmConfig;\n      |                                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n",
+  "stdout": ""
+}
