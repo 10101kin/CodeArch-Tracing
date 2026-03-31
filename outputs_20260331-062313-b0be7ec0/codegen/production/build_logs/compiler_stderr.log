@@ -1,32 +1,44 @@
-C:\Users\extanke\AppData\Local\Temp\tdd_build_ksnzbjfo\src\gtm_tom_3_phase_inverter_pwm.c: In function 'interruptGtmAtom':
-C:\Users\extanke\AppData\Local\Temp\tdd_build_ksnzbjfo\src\gtm_tom_3_phase_inverter_pwm.c:67:5: error: implicit declaration of function 'IfxPort_togglePin' [-Wimplicit-function-declaration]
-   67 |     IfxPort_togglePin(LED);
-      |     ^~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_ksnzbjfo\src\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTom3phInv':
-C:\Users\extanke\AppData\Local\Temp\tdd_build_ksnzbjfo\src\gtm_tom_3_phase_inverter_pwm.c:49:43: error: 'IfxGtm_TOM1_2_TOUT12_P00_3_OUT' undeclared (first use in this function)
-   49 | #define PHASE_U_HS                       &IfxGtm_TOM1_2_TOUT12_P00_3_OUT  /* U: TOM1 CH2 â†’ P00.3 */
-      |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_ksnzbjfo\src\gtm_tom_3_phase_inverter_pwm.c:103:62: note: in expansion of macro 'PHASE_U_HS'
-  103 |     output[0].pin                    = (IfxGtm_Pwm_ToutMap *)PHASE_U_HS;
+In file included from C:\Users\extanke\AppData\Local\Temp\tdd_build_joey5rfp\src\gtm_tom_3_phase_inverter_pwm.c:15:
+C:\Users\extanke\AppData\Local\Temp\tdd_build_joey5rfp\include/IfxGtm_Pwm.h:161:5: error: unknown type name 'IfxGtm_Pwm_InterruptConfig'; did you mean 'IfxGtm_Pwm_OutputConfig'?
+  161 |     IfxGtm_Pwm_InterruptConfig *interrupt;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxGtm_Pwm_OutputConfig
+C:\Users\extanke\AppData\Local\Temp\tdd_build_joey5rfp\src\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTom3phInv':
+C:\Users\extanke\AppData\Local\Temp\tdd_build_joey5rfp\src\gtm_tom_3_phase_inverter_pwm.c:46:45: error: 'IfxGtm_TOM1_2_TOUT12_P00_3_OUT' undeclared (first use in this function)
+   46 | #define PHASE_U_HS                        (&IfxGtm_TOM1_2_TOUT12_P00_3_OUT)
+      |                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_joey5rfp\src\gtm_tom_3_phase_inverter_pwm.c:86:62: note: in expansion of macro 'PHASE_U_HS'
+   86 |     output[0].pin                    = (IfxGtm_Pwm_ToutMap *)PHASE_U_HS;
       |                                                              ^~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_ksnzbjfo\src\gtm_tom_3_phase_inverter_pwm.c:49:43: note: each undeclared identifier is reported only once for each function it appears in
-   49 | #define PHASE_U_HS                       &IfxGtm_TOM1_2_TOUT12_P00_3_OUT  /* U: TOM1 CH2 â†’ P00.3 */
-      |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_ksnzbjfo\src\gtm_tom_3_phase_inverter_pwm.c:103:62: note: in expansion of macro 'PHASE_U_HS'
-  103 |     output[0].pin                    = (IfxGtm_Pwm_ToutMap *)PHASE_U_HS;
+C:\Users\extanke\AppData\Local\Temp\tdd_build_joey5rfp\src\gtm_tom_3_phase_inverter_pwm.c:46:45: note: each undeclared identifier is reported only once for each function it appears in
+   46 | #define PHASE_U_HS                        (&IfxGtm_TOM1_2_TOUT12_P00_3_OUT)
+      |                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_joey5rfp\src\gtm_tom_3_phase_inverter_pwm.c:86:62: note: in expansion of macro 'PHASE_U_HS'
+   86 |     output[0].pin                    = (IfxGtm_Pwm_ToutMap *)PHASE_U_HS;
       |                                                              ^~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_ksnzbjfo\src\gtm_tom_3_phase_inverter_pwm.c:50:43: error: 'IfxGtm_TOM1_4_TOUT14_P00_5_OUT' undeclared (first use in this function)
-   50 | #define PHASE_V_HS                       &IfxGtm_TOM1_4_TOUT14_P00_5_OUT  /* V: TOM1 CH4 â†’ P00.5 */
-      |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_ksnzbjfo\src\gtm_tom_3_phase_inverter_pwm.c:111:62: note: in expansion of macro 'PHASE_V_HS'
-  111 |     output[1].pin                    = (IfxGtm_Pwm_ToutMap *)PHASE_V_HS;
+C:\Users\extanke\AppData\Local\Temp\tdd_build_joey5rfp\src\gtm_tom_3_phase_inverter_pwm.c:88:40: error: 'Ifx_ActiveState_high' undeclared (first use in this function); did you mean 'Ifx_ActiveState'?
+   88 |     output[0].polarity               = Ifx_ActiveState_high;                /* HS active high */
+      |                                        ^~~~~~~~~~~~~~~~~~~~
+      |                                        Ifx_ActiveState
+C:\Users\extanke\AppData\Local\Temp\tdd_build_joey5rfp\src\gtm_tom_3_phase_inverter_pwm.c:89:40: error: 'Ifx_ActiveState_low' undeclared (first use in this function); did you mean 'Ifx_ActiveState'?
+   89 |     output[0].complementaryPolarity  = Ifx_ActiveState_low;                 /* LS active low (unused) */
+      |                                        ^~~~~~~~~~~~~~~~~~~
+      |                                        Ifx_ActiveState
+C:\Users\extanke\AppData\Local\Temp\tdd_build_joey5rfp\src\gtm_tom_3_phase_inverter_pwm.c:47:45: error: 'IfxGtm_TOM1_4_TOUT14_P00_5_OUT' undeclared (first use in this function)
+   47 | #define PHASE_V_HS                        (&IfxGtm_TOM1_4_TOUT14_P00_5_OUT)
+      |                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_joey5rfp\src\gtm_tom_3_phase_inverter_pwm.c:94:62: note: in expansion of macro 'PHASE_V_HS'
+   94 |     output[1].pin                    = (IfxGtm_Pwm_ToutMap *)PHASE_V_HS;
       |                                                              ^~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_ksnzbjfo\src\gtm_tom_3_phase_inverter_pwm.c:51:43: error: 'IfxGtm_TOM1_6_TOUT16_P00_7_OUT' undeclared (first use in this function)
-   51 | #define PHASE_W_HS                       &IfxGtm_TOM1_6_TOUT16_P00_7_OUT  /* W: TOM1 CH6 â†’ P00.7 */
-      |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_ksnzbjfo\src\gtm_tom_3_phase_inverter_pwm.c:119:62: note: in expansion of macro 'PHASE_W_HS'
-  119 |     output[2].pin                    = (IfxGtm_Pwm_ToutMap *)PHASE_W_HS;
+C:\Users\extanke\AppData\Local\Temp\tdd_build_joey5rfp\src\gtm_tom_3_phase_inverter_pwm.c:48:45: error: 'IfxGtm_TOM1_6_TOUT16_P00_7_OUT' undeclared (first use in this function)
+   48 | #define PHASE_W_HS                        (&IfxGtm_TOM1_6_TOUT16_P00_7_OUT)
+      |                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_joey5rfp\src\gtm_tom_3_phase_inverter_pwm.c:102:62: note: in expansion of macro 'PHASE_W_HS'
+  102 |     output[2].pin                    = (IfxGtm_Pwm_ToutMap *)PHASE_W_HS;
       |                                                              ^~~~~~~~~~
-C:\Users\extanke\AppData\Local\Temp\tdd_build_ksnzbjfo\src\gtm_tom_3_phase_inverter_pwm.c:198:5: error: implicit declaration of function 'IfxPort_setPinModeOutput' [-Wimplicit-function-declaration]
-  198 |     IfxPort_setPinModeOutput(LED, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+
+In file included from C:\Users\extanke\AppData\Local\Temp\tdd_build_joey5rfp\mocks\mock_gtm_tom_3_phase_inverter_pwm.c:5:
+C:\Users\extanke\AppData\Local\Temp\tdd_build_joey5rfp\include/IfxGtm_Pwm.h:161:5: error: unknown type name 'IfxGtm_Pwm_InterruptConfig'; did you mean 'IfxGtm_Pwm_OutputConfig'?
+  161 |     IfxGtm_Pwm_InterruptConfig *interrupt;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxGtm_Pwm_OutputConfig
