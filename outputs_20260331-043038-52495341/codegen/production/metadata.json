@@ -1,16 +1,13 @@
 {
-  "attempt": 11,
-  "phase_attempt": 5,
-  "phase": "production",
-  "success": false,
-  "errors": [
-    "'IfxGtm_TOM1_2_TOUT12_P00_3_OUT' undeclared (first use in this function)",
-    "'IfxGtm_TOM1_1_TOUT11_P00_2_OUT' undeclared (first use in this function)",
-    "'IfxGtm_TOM1_4_TOUT14_P00_5_OUT' undeclared (first use in this function)",
-    "'IfxGtm_TOM1_3_TOUT13_P00_4_OUT' undeclared (first use in this function)",
-    "'IfxGtm_TOM1_6_TOUT16_P00_7_OUT' undeclared (first use in this function)",
-    "'IfxGtm_TOM1_5_TOUT15_P00_6_OUT' undeclared (first use in this function)"
-  ],
-  "timestamp": "2026-03-31T13:15:58.931501",
-  "project_name": "Migrate_the_KIT_A2G_TC387_5V_TFT_project_from_IfxG_r_20260331_124216"
+  "export_type": "node_json",
+  "export_reason": "stage_failed",
+  "node_stage": "code_generation",
+  "reviewer_name": null,
+  "reviewer_applied": false,
+  "modified_by": "system",
+  "modifier_name": null,
+  "workflow_stage": "code_generation_failed",
+  "target_board": "KIT_A2G_TC387_5V_TFT",
+  "generation_mode": "MIGRATION",
+  "timestamp": "2026-03-31T13:19:08.355537"
 }
