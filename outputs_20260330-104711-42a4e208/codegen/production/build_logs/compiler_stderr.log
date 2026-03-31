@@ -1,0 +1,18 @@
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_hho5picn\src\egtm_atom_3_phase_inverter_pwm.c: In function 'interruptEgtmAtom':
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_hho5picn\src\egtm_atom_3_phase_inverter_pwm.c:38:37: error: 'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P21'?
+   38 | #define LED                        &MODULE_P03, 9
+      |                                     ^~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_hho5picn\src\egtm_atom_3_phase_inverter_pwm.c:91:23: note: in expansion of macro 'LED'
+   91 |     IfxPort_togglePin(LED);
+      |                       ^~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_hho5picn\src\egtm_atom_3_phase_inverter_pwm.c:38:37: note: each undeclared identifier is reported only once for each function it appears in
+   38 | #define LED                        &MODULE_P03, 9
+      |                                     ^~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_hho5picn\src\egtm_atom_3_phase_inverter_pwm.c:91:23: note: in expansion of macro 'LED'
+   91 |     IfxPort_togglePin(LED);
+      |                       ^~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_hho5picn\src\egtm_atom_3_phase_inverter_pwm.c: In function 'initEgtmAtom3phInv':
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_hho5picn\src\egtm_atom_3_phase_inverter_pwm.c:221:31: error: 'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P21'?
+  221 |     IfxPort_setPinModeOutput(&MODULE_P03, 9, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
+      |                               ^~~~~~~~~~
+      |                               MODULE_P21
