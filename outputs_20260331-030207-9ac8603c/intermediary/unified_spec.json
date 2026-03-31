@@ -1,11 +1,12 @@
 {
   "meta": {
     "schema_version": "1.0",
-    "last_updated_by": "hardware",
-    "last_updated_at": "2026-03-31T11:08:12.950208",
+    "last_updated_by": "sw_architecture",
+    "last_updated_at": "2026-03-31T11:14:24.313849",
     "build_sequence": [
       "requirements",
-      "hardware"
+      "hardware",
+      "sw_architecture"
     ],
     "corrections_log": []
   },
@@ -263,6 +264,111 @@
         }
       },
       "warnings": []
+    }
+  },
+  "sw_architecture": {
+    "user_intent_preservation": {
+      "original_goal": "Implement PWM functionality",
+      "functional_behavior": "Generate three independent single-ended PWM channels on TOM1 at 20 kHz, center-aligned, with duties initialized to U=25%, V=50%, W=75% and stepped by +10% every 500 ms with wrap from 100% to 0%, keeping active-high polarity and reusing TOM1 CH2/CH4/CH6 HS pins.",
+      "technical_approach": "Migrate from the PwmHl pair-based driver to the unified high-level PWM driver to configure three independent TOM1 channels via a single config and channel array, set center-aligned mode and frequency in init, then periodically update all three channel duties using the batch update API; use STM timer for the 500 ms scheduler."
+    },
+    "driver_selection": {
+      "recommended_driver": "IfxGtm_Pwm",
+      "selection_rationale": "Unified high-level PWM driver supports single-ended independent channels and center-aligned operation with simpler init and atomic multi-channel duty updates; matches the explicit upgrade requirement and avoids pair-based semantics of PwmHl.",
+      "available_in_template": true,
+      "complexity_level": "simple",
+      "alternatives_considered": [
+        "IfxGtm_Tom_PwmHl",
+        "IfxGtm_Tom_Pwm"
+      ]
+    },
+    "driver_usage": {
+      "initialization_apis": [
+        "IfxGtm_isEnabled",
+        "IfxGtm_enable",
+        "IfxGtm_Cmu_enableClocks",
+        "IfxGtm_Pwm_initConfig",
+        "IfxGtm_Pwm_init"
+      ],
+      "runtime_apis": [
+        "IfxGtm_Pwm_updateChannelsDutyImmediate"
+      ]
+    },
+    "file_structure": {
+      "module_files": [
+        "GTM_TOM_3_Phase_Inverter_PWM.c",
+        "GTM_TOM_3_Phase_Inverter_PWM.h"
+      ],
+      "cpu_files": [
+        "Cpu0_Main.c"
+      ],
+      "from_reference": true
+    },
+    "function_mapping": {
+      "init_function": {
+        "name": "initGtmTom3phInv"
+      },
+      "runtime_function": {
+        "name": "updateGtmTom3phInvDuty",
+        "purpose": "Every 500 ms, step U/V/W duties by +10% with wrap at 100% using the unified multi-channel duty update API."
+      }
+    },
+    "header_selection": {
+      "applied": true,
+      "peripheral_type": "PWM",
+      "recommended_header": "IfxGtm_Tom_PwmHl",
+      "score": 301,
+      "required_includes": [
+        "IfxGtm_Tom_PwmHl.h"
+      ],
+      "function_mapping": {},
+      "available_functions_count": 47
+    },
+    "driver_selection_engine": {
+      "applied": true,
+      "mcu_family": "TC3xx",
+      "requirement_analysis": {},
+      "recommendations": {
+        "PWM": {
+          "driver": "IfxGtm_Pwm",
+          "score": 100,
+          "complexity": "locked",
+          "rationale": "Driver locked by refiner node (user explicit or engine-scored)",
+          "alternatives": []
+        }
+      },
+      "migration_mappings": {
+        "IfxScuWdt": {
+          "target_driver": "IfxScuWdt",
+          "api_mapping": {
+            "IfxScuWdt_init": "IfxScuWdt_init",
+            "IfxScuWdt_initConfig": "IfxScuWdt_initConfig"
+          }
+        },
+        "IfxGtm_Tom_PwmHl": {
+          "target_driver": "IfxGtm_Pwm",
+          "api_mapping": {
+            "IfxGtm_Tom_PwmHl_init": "IfxGtm_Pwm_init",
+            "IfxGtm_Tom_PwmHl_initConfig": "IfxGtm_Pwm_initConfig",
+            "IfxGtm_Tom_PwmHl_setOnTime": "IfxGtm_Pwm_setDuty",
+            "IfxGtm_Tom_PwmHl_setPeriod": "IfxGtm_Pwm_updatePeriod",
+            "IfxGtm_Tom_PwmHl_start": "IfxGtm_Pwm_start",
+            "IfxGtm_Tom_PwmHl_stop": "IfxGtm_Pwm_stop"
+          },
+          "upgrade_reason": "User explicitly requested: IfxGtm_Tom_PwmHl → IfxGtm_Pwm"
+        },
+        "IfxCpu_Irq": {
+          "target_driver": "IfxSrc",
+          "api_mapping": {
+            "IfxCpu_Irq_installInterruptHandler": "IfxSrc_init",
+            "IfxCpu_enableInterrupts": "IfxSrc_setRequest",
+            "IfxCpu_disableInterrupts": "IfxSrc_clearRequest"
+          }
+        }
+      }
+    },
+    "driver_knowledge_base": {
+      "applied": false
     }
   }
 }
