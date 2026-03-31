@@ -1,44 +1,7 @@
 {
-  "success": false,
-  "errors": [
-    {
-      "file": "/tmp/tdd_build_sqhswaw4/include/IfxPort.h",
-      "line": 7,
-      "category": "error",
-      "message": "conflicting types for \u2018IfxApApu_ApuConfig\u2019; have \u2018struct <anonymous>\u2019"
-    },
-    {
-      "file": "/tmp/tdd_build_sqhswaw4/include/IfxPort.h",
-      "line": 8,
-      "category": "error",
-      "message": "conflicting types for \u2018IfxApProt_ProtConfig\u2019; have \u2018struct <anonymous>\u2019"
-    },
-    {
-      "file": "/tmp/tdd_build_sqhswaw4/src/egtm_atom_3_phase_inverter_pwm.c",
-      "line": 99,
-      "category": "error",
-      "message": "\u2018Ifx_ActiveState_high\u2019 undeclared (first use in this function); did you mean \u2018Ifx_ActiveState\u2019?"
-    },
-    {
-      "file": "/tmp/tdd_build_sqhswaw4/src/egtm_atom_3_phase_inverter_pwm.c",
-      "line": 100,
-      "category": "error",
-      "message": "\u2018Ifx_ActiveState_low\u2019 undeclared (first use in this function); did you mean \u2018Ifx_ActiveState\u2019?"
-    },
-    {
-      "file": "/tmp/tdd_build_sqhswaw4/include/IfxPort.h",
-      "line": 7,
-      "category": "error",
-      "message": "conflicting types for \u2018IfxApApu_ApuConfig\u2019; have \u2018struct <anonymous>\u2019"
-    },
-    {
-      "file": "/tmp/tdd_build_sqhswaw4/include/IfxPort.h",
-      "line": 8,
-      "category": "error",
-      "message": "conflicting types for \u2018IfxApProt_ProtConfig\u2019; have \u2018struct <anonymous>\u2019"
-    }
-  ],
+  "success": true,
+  "errors": [],
   "warnings": [],
-  "stderr": "In file included from /tmp/tdd_build_sqhswaw4/include/IfxEgtm_Pwm.h:7,\n                 from /tmp/tdd_build_sqhswaw4/src/egtm_atom_3_phase_inverter_pwm.c:16:\n/tmp/tdd_build_sqhswaw4/include/IfxPort.h:7:34: error: conflicting types for \u2018IfxApApu_ApuConfig\u2019; have \u2018struct <anonymous>\u2019\n    7 | typedef struct { uint32 dummy; } IfxApApu_ApuConfig;\n      |                                  ^~~~~~~~~~~~~~~~~~\nIn file included from /tmp/tdd_build_sqhswaw4/include/IfxEgtm_Pwm.h:5:\n/tmp/tdd_build_sqhswaw4/include/IfxEgtm.h:44:34: note: previous declaration of \u2018IfxApApu_ApuConfig\u2019 with type \u2018IfxApApu_ApuConfig\u2019\n   44 | typedef struct { uint32 dummy; } IfxApApu_ApuConfig;\n      |                                  ^~~~~~~~~~~~~~~~~~\n/tmp/tdd_build_sqhswaw4/include/IfxPort.h:8:34: error: conflicting types for \u2018IfxApProt_ProtConfig\u2019; have \u2018struct <anonymous>\u2019\n    8 | typedef struct { uint32 dummy; } IfxApProt_ProtConfig;\n      |                                  ^~~~~~~~~~~~~~~~~~~~\n/tmp/tdd_build_sqhswaw4/include/IfxEgtm.h:45:34: note: previous declaration of \u2018IfxApProt_ProtConfig\u2019 with type \u2018IfxApProt_ProtConfig\u2019\n   45 | typedef struct { uint32 dummy; } IfxApProt_ProtConfig;\n      |                                  ^~~~~~~~~~~~~~~~~~~~\n/tmp/tdd_build_sqhswaw4/src/egtm_atom_3_phase_inverter_pwm.c: In function \u2018initEgtmAtom3phInv\u2019:\n/tmp/tdd_build_sqhswaw4/src/egtm_atom_3_phase_inverter_pwm.c:99:40: error: \u2018Ifx_ActiveState_high\u2019 undeclared (first use in this function); did you mean \u2018Ifx_ActiveState\u2019?\n   99 |     output[0].polarity               = Ifx_ActiveState_high;           /* HS active HIGH */\n      |                                        ^~~~~~~~~~~~~~~~~~~~\n      |                                        Ifx_ActiveState\n/tmp/tdd_build_sqhswaw4/src/egtm_atom_3_phase_inverter_pwm.c:99:40: note: each undeclared identifier is reported only once for each function it appears in\n/tmp/tdd_build_sqhswaw4/src/egtm_atom_3_phase_inverter_pwm.c:100:40: error: \u2018Ifx_ActiveState_low\u2019 undeclared (first use in this function); did you mean \u2018Ifx_ActiveState\u2019?\n  100 |     output[0].complementaryPolarity  = Ifx_ActiveState_low;            /* LS active LOW  */\n      |                                        ^~~~~~~~~~~~~~~~~~~\n      |                                        Ifx_ActiveState\n\nIn file included from /tmp/tdd_build_sqhswaw4/include/IfxEgtm_Pwm.h:7,\n                 from /tmp/tdd_build_sqhswaw4/mocks/mock_egtm_atom_3_phase_inverter_pwm.c:4:\n/tmp/tdd_build_sqhswaw4/include/IfxPort.h:7:34: error: conflicting types for \u2018IfxApApu_ApuConfig\u2019; have \u2018struct <anonymous>\u2019\n    7 | typedef struct { uint32 dummy; } IfxApApu_ApuConfig;\n      |                                  ^~~~~~~~~~~~~~~~~~\nIn file included from /tmp/tdd_build_sqhswaw4/mocks/mock_egtm_atom_3_phase_inverter_pwm.c:2:\n/tmp/tdd_build_sqhswaw4/include/IfxEgtm.h:44:34: note: previous declaration of \u2018IfxApApu_ApuConfig\u2019 with type \u2018IfxApApu_ApuConfig\u2019\n   44 | typedef struct { uint32 dummy; } IfxApApu_ApuConfig;\n      |                                  ^~~~~~~~~~~~~~~~~~\n/tmp/tdd_build_sqhswaw4/include/IfxPort.h:8:34: error: conflicting types for \u2018IfxApProt_ProtConfig\u2019; have \u2018struct <anonymous>\u2019\n    8 | typedef struct { uint32 dummy; } IfxApProt_ProtConfig;\n      |                                  ^~~~~~~~~~~~~~~~~~~~\n/tmp/tdd_build_sqhswaw4/include/IfxEgtm.h:45:34: note: previous declaration of \u2018IfxApProt_ProtConfig\u2019 with type \u2018IfxApProt_ProtConfig\u2019\n   45 | typedef struct { uint32 dummy; } IfxApProt_ProtConfig;\n      |                                  ^~~~~~~~~~~~~~~~~~~~\n",
+  "stderr": "",
   "stdout": ""
 }
