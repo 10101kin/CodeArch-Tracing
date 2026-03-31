@@ -1,4 +1,27 @@
-C:\Users\extalth\AppData\Local\Temp\tdd_build_7kez42eu\src\egtm_atom_3_phase_inverter_pwm.c:17:10: fatal error: IfxPort_Pinmap.h: No such file or directory
-   17 | #include "IfxPort_Pinmap.h"
-      |          ^~~~~~~~~~~~~~~~~~
-compilation terminated.
+In file included from C:\Users\extalth\AppData\Local\Temp\tdd_build_8cxfrx6_\src\egtm_atom_3_phase_inverter_pwm.c:8:
+C:\Users\extalth\AppData\Local\Temp\tdd_build_8cxfrx6_\include/IfxEgtm_Pwm.h:119:5: error: unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'
+  119 |     IfxEgtm_Pwm_FastShutoffConfig *fastShutOff;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\AppData\Local\Temp\tdd_build_8cxfrx6_\include/IfxEgtm_Pwm.h:174:5: error: unknown type name 'IfxEgtm_Pwm_InterruptConfig'; did you mean 'IfxEgtm_Pwm_OutputConfig'?
+  174 |     IfxEgtm_Pwm_InterruptConfig *interrupt;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxEgtm_Pwm_OutputConfig
+C:\Users\extalth\AppData\Local\Temp\tdd_build_8cxfrx6_\include/IfxEgtm_Pwm.h:4: error: unterminated #ifndef
+    4 | #ifndef IFXEGTM_PWM_H
+C:\Users\extalth\AppData\Local\Temp\tdd_build_8cxfrx6_\src\egtm_atom_3_phase_inverter_pwm.c:49:1: error: expected specifier-qualifier-list before 'typedef'
+   49 | typedef struct
+      | ^~~~~~~
+
+In file included from C:\Users\extalth\AppData\Local\Temp\tdd_build_8cxfrx6_\mocks\mock_egtm_atom_3_phase_inverter_pwm.c:8:
+C:\Users\extalth\AppData\Local\Temp\tdd_build_8cxfrx6_\include/IfxEgtm_Pwm.h:119:5: error: unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'
+  119 |     IfxEgtm_Pwm_FastShutoffConfig *fastShutOff;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\AppData\Local\Temp\tdd_build_8cxfrx6_\include/IfxEgtm_Pwm.h:174:5: error: unknown type name 'IfxEgtm_Pwm_InterruptConfig'; did you mean 'IfxEgtm_Pwm_OutputConfig'?
+  174 |     IfxEgtm_Pwm_InterruptConfig *interrupt;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxEgtm_Pwm_OutputConfig
+C:\Users\extalth\AppData\Local\Temp\tdd_build_8cxfrx6_\include/IfxEgtm_Pwm.h:4: error: unterminated #ifndef
+    4 | #ifndef IFXEGTM_PWM_H
+C:\Users\extalth\AppData\Local\Temp\tdd_build_8cxfrx6_\mocks\mock_egtm_atom_3_phase_inverter_pwm.c:12:22: error: expected ':', ',', ';', '}' or '__attribute__' before '=' token
+   12 | Ifx_EGTM MODULE_EGTM = {0};
+      |                      ^

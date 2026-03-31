@@ -1,8 +1,18 @@
 {
-  "type": "llm_response",
-  "phase": "production",
   "attempt": 5,
   "phase_attempt": 2,
-  "response_length": 10425,
-  "timestamp": "2026-03-31T14:39:43.139250"
+  "phase": "production",
+  "success": false,
+  "errors": [
+    "unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'",
+    "unknown type name 'IfxEgtm_Pwm_InterruptConfig'; did you mean 'IfxEgtm_Pwm_OutputConfig'?",
+    "C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_8cxfrx6_\\include/IfxEgtm_Pwm.h:4: error: unterminated #ifndef",
+    "expected specifier-qualifier-list before 'typedef'",
+    "unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'",
+    "unknown type name 'IfxEgtm_Pwm_InterruptConfig'; did you mean 'IfxEgtm_Pwm_OutputConfig'?",
+    "C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_8cxfrx6_\\include/IfxEgtm_Pwm.h:4: error: unterminated #ifndef",
+    "expected ':', ',', ';', '}' or '__attribute__' before '=' token"
+  ],
+  "timestamp": "2026-03-31T14:39:49.969250",
+  "project_name": "Migrate_the_TC387_GTM_TOM_3_phase_inverter_PWM_to_r_20260331_142319"
 }
