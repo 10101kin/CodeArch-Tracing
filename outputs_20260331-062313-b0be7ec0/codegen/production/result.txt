@@ -1,3 +1,49 @@
-Status: SUCCESS
+Status: FAILED
 
-LLM response for production phase (attempt 3), 10324 chars
+============================================================
+TDD CODE GENERATION - ATTEMPT STATUS
+============================================================
+Phase: production
+Attempt: 3
+Status: FAILED
+Timestamp: 2026-03-31 16:34:45
+Files generated: 2
+
+============================================================
+
+ERRORS:
+
+1. 'IfxGtm_TOM1_2_TOUT12_P00_3_OUT' undeclared (first use in this function)
+
+2. 'IfxGtm_TOM1_1N_TOUT14_P00_5_OUT' undeclared (first use in this function)
+
+3. 'IfxGtm_TOM1_3N_TOUT16_P00_7_OUT' undeclared (first use in this function)
+
+============================================================
+BUILD RESULT:
+{
+  "success": false,
+  "errors": [
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cpva7uav\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 31,
+      "category": "error",
+      "message": "'IfxGtm_TOM1_2_TOUT12_P00_3_OUT' undeclared (first use in this function)"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cpva7uav\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 33,
+      "category": "error",
+      "message": "'IfxGtm_TOM1_1N_TOUT14_P00_5_OUT' undeclared (first use in this function)"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cpva7uav\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 35,
+      "category": "error",
+      "message": "'IfxGtm_TOM1_3N_TOUT16_P00_7_OUT' undeclared (first use in this function)"
+    }
+  ],
+  "warnings": [],
+  "stderr": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cpva7uav\\src\\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTom3phInv':\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cpva7uav\\src\\gtm_tom_3_phase_inverter_pwm.c:31:43: error: 'IfxGtm_TOM1_2_TOUT12_P00_3_OUT' undeclared (first use in this function)\n   31 | #define PHASE_U_HS                      (&IfxGtm_TOM1_2_TOUT12_P00_3_OUT)  /* U high-side: P00.3 (TOM1 CH2) */\n      |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cpva7uav\\src\\gtm_tom_3_phase_inverter_pwm.c:76:62: note: in expansion of macro 'PHASE_U_HS'\n   76 |     output[0].pin                     = (IfxGtm_Pwm_ToutMap*)PHASE_U_HS;\n      |                                                              ^~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cpva7uav\\src\\gtm_tom_3_phase_inverter_pwm.c:31:43: note: each undeclared identifier is reported only once for each function it appears in\n   31 | #define PHASE_U_HS                      (&IfxGtm_TOM1_2_TOUT12_P00_3_OUT)  /* U high-side: P00.3 (TOM1 CH2) */\n      |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cpva7uav\\src\\gtm_tom_3_phase_inverter_pwm.c:76:62: note: in expansion of macro 'PHASE_U_HS'\n   76 |     output[0].pin                     = (IfxGtm_Pwm_ToutMap*)PHASE_U_HS;\n      |                                                              ^~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cpva7uav\\src\\gtm_tom_3_phase_inverter_pwm.c:33:43: error: 'IfxGtm_TOM1_1N_TOUT14_P00_5_OUT' undeclared (first use in this function)\n   33 | #define PHASE_V_HS                      (&IfxGtm_TOM1_1N_TOUT14_P00_5_OUT) /* V high-side: P00.5 (mapped option for TOM1) */\n      |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cpva7uav\\src\\gtm_tom_3_phase_inverter_pwm.c:84:62: note: in expansion of macro 'PHASE_V_HS'\n   84 |     output[1].pin                     = (IfxGtm_Pwm_ToutMap*)PHASE_V_HS;\n      |                                                              ^~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cpva7uav\\src\\gtm_tom_3_phase_inverter_pwm.c:35:43: error: 'IfxGtm_TOM1_3N_TOUT16_P00_7_OUT' undeclared (first use in this function)\n   35 | #define PHASE_W_HS                      (&IfxGtm_TOM1_3N_TOUT16_P00_7_OUT) /* W high-side: P00.7 (mapped option for TOM1) */\n      |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_cpva7uav\\src\\gtm_tom_3_phase_inverter_pwm.c:92:62: note: in expansion of macro 'PHASE_W_HS'\n   92 |     output[2].pin                     = (IfxGtm_Pwm_ToutMap*)PHASE_W_HS;\n      |                                                              ^~~~~~~~~~\n",
+  "stdout": ""
+}
