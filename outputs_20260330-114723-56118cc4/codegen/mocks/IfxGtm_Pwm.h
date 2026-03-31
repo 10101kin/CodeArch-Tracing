@@ -1,4 +1,4 @@
-/* IfxGtm_Pwm.h - mock header for GTM PWM driver */
+/* IfxGtm_Pwm.h - mock */
 #ifndef IFXGTM_PWM_H
 #define IFXGTM_PWM_H
 
@@ -7,10 +7,7 @@
 #include "IfxGtm_Cmu.h"
 #include "IfxPort.h"
 
-/* Provide callback typedef used by interrupt config */
-typedef void (*IfxGtm_Pwm_callBack)(void *);
-
-/* VERIFIED TYPE DEFINITIONS (emit verbatim and in the provided order) */
+/* VERIFIED TYPE DEFINITIONS - EMIT VERBATIM (order matters) */
 
 typedef enum
 {
@@ -104,6 +101,9 @@ typedef struct
     IfxGtm_Pwm_DeadTime deadTime;       
 } IfxGtm_Pwm_DtmConfig;
 
+/* Forward-declare callback type used in InterruptConfig */
+typedef void (*IfxGtm_Pwm_callBack)(void);
+
 typedef struct
 {
     IfxGtm_IrqMode      mode;              
@@ -147,7 +147,6 @@ typedef struct
     uint32                      dutyTicks;         
 } IfxGtm_Pwm_Channel;
 
-/* ChannelConfig must include mscOut and interrupt pointers per spec */
 typedef struct
 {
     IfxGtm_Pwm_SubModule_Ch     timerCh;         
@@ -155,14 +154,9 @@ typedef struct
     float32                     duty;            
     IfxGtm_Pwm_DtmConfig       *dtm;             
     IfxGtm_Pwm_OutputConfig    *output;          
-    void                       *mscOut;          /* simplified MSC out pointer */
+    IfxGtm_Trig_MscOut         *mscOut;          
     IfxGtm_Pwm_InterruptConfig *interrupt;       
 } IfxGtm_Pwm_ChannelConfig;
-
-/* Cluster SFRs referenced by PWM. Provide stub types for SFR pointers. */
-typedef struct { uint32 reserved; } Ifx_GTM_ATOM;
-typedef struct { uint32 reserved; } Ifx_GTM_TOM;
-typedef struct { uint32 reserved; } Ifx_GTM_CDTM;
 
 typedef struct
 {
@@ -181,7 +175,7 @@ typedef struct
     volatile uint32 *endisCtrlReg1;       
 } IfxGtm_Pwm_GlobalControl;
 
-/* CLOCKSOURCE union using uint32 fields to avoid -Werror enum conversions */
+/* CLOCKSOURCE union - per RULE, use integer fields to avoid enum conversion warnings */
 typedef union {
     uint32 atom;
     uint32 tom;
@@ -191,7 +185,7 @@ typedef struct
 {
     Ifx_GTM                 *gtmSFR;                  
     IfxGtm_Pwm_ClusterSFR    clusterSFR;              
-    int                      cluster;                 /* simplified */
+    IfxGtm_Cluster           cluster;                 
     IfxGtm_Pwm_SubModule     subModule;               
     IfxGtm_Pwm_Alignment     alignment;               
     uint8                    numChannels;             
@@ -210,7 +204,7 @@ typedef struct
 typedef struct
 {
     Ifx_GTM                  *gtmSFR;                 
-    int                       cluster;                /* simplified */
+    IfxGtm_Cluster            cluster;                
     IfxGtm_Pwm_SubModule      subModule;              
     IfxGtm_Pwm_Alignment      alignment;              
     uint8                     numChannels;            
@@ -229,24 +223,13 @@ typedef struct
     IfxPort_PadDriver   padDriver;       
 } IfxGtm_Pwm_Pin;
 
-/* Provide TouTMap typedef and underlying atom/tom types */
+/* Minimal definition for ToutMap to satisfy previous build errors and production uses */
 typedef union {
     uint32 atom;
     uint32 tom;
-} IfxGtm_Atom_ToutMap; /* simplified */
-
-typedef union {
-    uint32 atom;
-    uint32 tom;
-} IfxGtm_Tom_ToutMap; /* simplified */
-
-typedef union
-{
-    IfxGtm_Atom_ToutMap atom;       /**< \brief ATOM map */
-    IfxGtm_Tom_ToutMap  tom;        /**< \brief TOM map */
 } IfxGtm_Pwm_ToutMap;
 
-/* Function declarations (subset required by DRIVERS TO MOCK) */
+/* Function prototypes required by production code/tests */
 void IfxGtm_Pwm_initConfig(IfxGtm_Pwm_Config *config, Ifx_GTM *gtmSFR);
 void IfxGtm_Pwm_init(IfxGtm_Pwm *pwm, IfxGtm_Pwm_Channel *channels, IfxGtm_Pwm_Config *config);
 void IfxGtm_Pwm_updateChannelsDutyImmediate(IfxGtm_Pwm *pwm, float32 *requestDuty);
