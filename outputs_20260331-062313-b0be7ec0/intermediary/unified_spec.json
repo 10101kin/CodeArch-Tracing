@@ -1,0 +1,651 @@
+{
+  "meta": {
+    "schema_version": "1.0",
+    "last_updated_by": "sw_detailed",
+    "last_updated_at": "2026-03-31T14:37:26.902278",
+    "build_sequence": [
+      "requirements",
+      "hardware",
+      "sw_architecture",
+      "sw_detailed"
+    ],
+    "corrections_log": []
+  },
+  "requirements": {
+    "generation_mode": "MIGRATION",
+    "migration_info": {
+      "has_reference": true,
+      "reference_family": "TC3xx",
+      "target_family": "TC3xx",
+      "migration_required": false,
+      "driver_mappings": {
+        "IfxGtm_Tom_PwmHl": "IfxGtm_Tom_Pwm"
+      },
+      "header_mappings": {
+        "IfxGtm_Tom_PwmHl.h": "IfxGtm_Tom_Pwm.h"
+      },
+      "api_changes": [
+        {
+          "from": "IfxGtm_Tom_PwmHl_*",
+          "to": "IfxGtm_Tom_Pwm_*",
+          "reason": "User-requested replacement of PwmHl with Pwm on TOM"
+        },
+        {
+          "from": "IfxGtm_Tom_PwmHl_initConfig",
+          "to": "IfxGtm_Tom_Pwm_initConfig",
+          "reason": "Driver API alignment (mid-level TOM PWM config)"
+        },
+        {
+          "from": "IfxGtm_Tom_PwmHl_init",
+          "to": "IfxGtm_Tom_Pwm_init",
+          "reason": "Driver API alignment (mid-level TOM PWM init)"
+        }
+      ],
+      "function_names_to_preserve": [
+        "initGtmTom3phInv",
+        "updateGtmTom3phInvDuty"
+      ],
+      "explicit_driver_upgrade": true,
+      "target_driver": "IfxGtm_Tom_Pwm"
+    },
+    "peripheral_requirement": {
+      "type": "GTM_TOM",
+      "driver_available": true,
+      "driver_name": "IfxGtm_Tom_Pwm",
+      "purpose": "3-phase center-aligned PWM on TOM1 at 20 kHz with synchronous multi-channel update; replace PwmHl with Pwm while preserving pins and module API names.",
+      "driver_locked": true,
+      "driver_selection_source": "user_explicit"
+    },
+    "signal_requirements": {
+      "preserve_pins": true,
+      "tom_module": "TOM1",
+      "channel_assignments": {
+        "U": {
+          "high_side_pin": "P00.3 (TOM1 CH2)",
+          "low_side_pin": "P00.2 (TOM1 CH1)"
+        },
+        "V": {
+          "high_side_pin": "P00.5 (TOM1 CH4)",
+          "low_side_pin": "P00.4 (TOM1 CH3)"
+        },
+        "W": {
+          "high_side_pin": "P00.7 (TOM1 CH6)",
+          "low_side_pin": "P00.6 (TOM1 CH5)"
+        }
+      },
+      "pinmap_headers": [
+        "IfxGtm_PinMap.h"
+      ],
+      "synchronous_update": {
+        "enabled": true,
+        "method": "TOM1 TGC shadow transfer for all used channels (CH1..CH6)",
+        "update_trigger": "software trigger after all new duties are staged"
+      },
+      "complementary_mode": {
+        "enabled": false,
+        "note": "Default to single-ended using HS pins P00.3/5/7 only. If complementary is later required, Pwm driver does not provide hardware dead-time; consider switching to IfxGtm_Tom_Dtm_PwmHl or retain PwmHl for dead-time management."
+      },
+      "single_ended_pins_active": [
+        "P00.3 (CH2)",
+        "P00.5 (CH4)",
+        "P00.7 (CH6)"
+      ]
+    },
+    "timing_requirements": {
+      "pwm_frequency_hz": 20000,
+      "alignment": "center",
+      "clock_source": "GTM CMU_CLK0 (default)",
+      "initial_duty_cycles": {
+        "U": 0.25,
+        "V": 0.5,
+        "W": 0.75
+      },
+      "duty_step": 0.1,
+      "duty_wrap_range": [
+        0.0,
+        1.0
+      ],
+      "update_interval_ms": 500,
+      "min_pulse_time_s": 1e-06,
+      "dead_time_s": 0.0,
+      "notes": [
+        "Center-aligned (up/down) PWM on TOM1; use synchronous shadow transfer for glitch-free updates.",
+        "With complementary_mode=false, drive only HS channels (CH2/4/6)."
+      ]
+    },
+    "device_configuration": {
+      "target_device_macro": "DEVICE_TC38X",
+      "pin_package": "IFX_PIN_PACKAGE_516",
+      "device_family": "TC3xx",
+      "clock_requirements": {
+        "requires_xtal": true,
+        "expected_system_freq_mhz": 300,
+        "gtm_cmu_clock": "Configure CMU_FX clock for precise 20 kHz period on TOM1"
+      }
+    },
+    "code_structure": {
+      "file_pattern": "reference",
+      "expected_files": [
+        "GTM_TOM_3_Phase_Inverter_PWM.c",
+        "GTM_TOM_3_Phase_Inverter_PWM.h"
+      ],
+      "has_cpu_files": true
+    },
+    "reference_context": {
+      "includes_used": [
+        "Ifx_Types.h",
+        "IfxCpu.h",
+        "IfxScuWdt.h",
+        "Bsp.h",
+        "GTM_TOM_3_Phase_Inverter_PWM.h",
+        "Ifx_Cfg_Ssw.h",
+        "IfxGtm_Tom_PwmHl.h",
+        "IfxGtm_cfg_TC38x.h"
+      ],
+      "function_patterns": [
+        "initGtmTom3phInv",
+        "updateGtmTom3phInvDuty"
+      ],
+      "peripheral_usage": {
+        "GTM_TOM": "3-phase PWM generation on TOM1",
+        "Port": "Pin configuration for P00.[2..7]",
+        "Watchdog": "Disable CPU and Safety watchdogs during init"
+      }
+    },
+    "migration_numerical_values": {
+      "DUTY_25_PERCENT": {
+        "value": 25.0,
+        "unit": "%",
+        "label": "Phase U initial duty cycle"
+      },
+      "DUTY_50_PERCENT": {
+        "value": 50.0,
+        "unit": "%",
+        "label": "Phase V initial duty cycle"
+      },
+      "DUTY_75_PERCENT": {
+        "value": 75.0,
+        "unit": "%",
+        "label": "Phase W initial duty cycle"
+      },
+      "DUTY_STEP": {
+        "value": 10.0,
+        "unit": "%",
+        "label": "Duty cycle step increment"
+      },
+      "DUTY_MIN": {
+        "value": 10.0,
+        "unit": "%",
+        "label": "Minimum duty cycle"
+      },
+      "DUTY_MAX": {
+        "value": 90.0,
+        "unit": "%",
+        "label": "Maximum duty cycle"
+      },
+      "PWM_FREQ_HZ": {
+        "value": 20000.0,
+        "unit": "Hz",
+        "label": "PWM switching frequency"
+      },
+      "WAIT_TIME": {
+        "value": 10.0,
+        "unit": "ms",
+        "label": "Wait / delay time"
+      },
+      "PWM_DEAD_TIME": {
+        "value": 1e-06,
+        "unit": "s",
+        "label": "Dead-time between complementary outputs"
+      },
+      "PWM_MIN_PULSE_TIME": {
+        "value": 1e-06,
+        "unit": "s",
+        "label": "Minimum pulse width"
+      }
+    },
+    "template_compatibility": {
+      "validated": true,
+      "supported_peripherals": [
+        "PWM",
+        "GTM",
+        "ETHERNET"
+      ],
+      "suggested_drivers": {
+        "PWM": [
+          "IfxGtm_Tom_Pwm"
+        ],
+        "GTM": [
+          "IfxGtm_Tom_Pwm"
+        ],
+        "ETHERNET": [
+          "IfxGeth_cfg_TC33xED",
+          "IfxGeth_cfg_TC35x",
+          "IfxGeth_cfg_TC38EVOx",
+          "IfxGeth_cfg_TC38x",
+          "IfxGeth_cfg_TC39xB",
+          "IfxGeth_cfg_TC37x",
+          "IfxGeth",
+          "IfxGeth_Eth",
+          "IfxGeth_cfg_TC37xED",
+          "IfxGeth_cfg_TC36x"
+        ],
+        "_driver_selection": {
+          "explicit_target": "IfxGtm_Tom_Pwm",
+          "replaced_source": "IfxGtm_Tom_PwmHl",
+          "primary_drivers": [
+            "IfxGtm_Tom_Pwm"
+          ],
+          "avoid_drivers": [
+            "IfxGtm_Tom_PwmHl"
+          ]
+        }
+      },
+      "warnings": []
+    },
+    "header_documentation_available": true,
+    "config_values_extracted": 16
+  },
+  "hardware": {
+    "microcontroller": {
+      "model": "TC387QP",
+      "verified": true
+    },
+    "peripheral_instance": {
+      "module": "TOM1",
+      "channels": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ]
+    },
+    "pin_assignments": [
+      {
+        "signal": "U_LS",
+        "port_pin": "P00.2",
+        "function": "TOUT11",
+        "pin_macro": "IfxGtm_TOM1_5_TOUT11_P00_2_OUT",
+        "is_complementary": true,
+        "verified": true,
+        "source": "hardware_verified"
+      },
+      {
+        "signal": "U_HS",
+        "port_pin": "P00.3",
+        "function": "TOUT12",
+        "pin_macro": "IfxGtm_TOM1_2_TOUT12_P00_3_OUT",
+        "is_complementary": false,
+        "verified": true,
+        "source": "hardware_verified",
+        "_original_pin_macro": "IfxGtm_TOM1_6_TOUT12_P00_3_OUT"
+      },
+      {
+        "signal": "V_LS",
+        "port_pin": "P00.4",
+        "function": "TOUT13",
+        "pin_macro": "IfxGtm_TOM1_3_TOUT13_P00_4_OUT",
+        "is_complementary": true,
+        "verified": true,
+        "source": "hardware_verified",
+        "_original_pin_macro": "IfxGtm_TOM1_7_TOUT13_P00_4_OUT"
+      },
+      {
+        "signal": "V_HS",
+        "port_pin": "P00.5",
+        "function": "TOUT14",
+        "pin_macro": "IfxGtm_TOM1_1N_TOUT14_P00_5_OUT",
+        "is_complementary": false,
+        "verified": true,
+        "source": "hardware_verified",
+        "_original_pin_macro": "IfxGtm_TOM1_8_TOUT14_P00_5_OUT"
+      },
+      {
+        "signal": "W_LS",
+        "port_pin": "P00.6",
+        "function": "TOUT15",
+        "pin_macro": "IfxGtm_TOM1_2N_TOUT15_P00_6_OUT",
+        "is_complementary": true,
+        "verified": true,
+        "source": "hardware_verified",
+        "_original_pin_macro": "IfxGtm_TOM1_9_TOUT15_P00_6_OUT"
+      },
+      {
+        "signal": "W_HS",
+        "port_pin": "P00.7",
+        "function": "TOUT16",
+        "pin_macro": "IfxGtm_TOM1_3N_TOUT16_P00_7_OUT",
+        "is_complementary": false,
+        "verified": true,
+        "source": "hardware_verified",
+        "_original_pin_macro": "IfxGtm_TOM1_10_TOUT16_P00_7_OUT"
+      }
+    ],
+    "clock_configuration": {
+      "xtal_frequency_mhz": 20,
+      "system_frequency_mhz": 300
+    },
+    "validation": {
+      "all_verified": true,
+      "conflicts": [],
+      "reference_pins_valid": true
+    },
+    "template_validation": {
+      "supported_peripherals": [
+        "PWM",
+        "GTM",
+        "ETHERNET"
+      ],
+      "suggested_drivers": {
+        "PWM": [
+          "IfxGtm_Tom_Pwm"
+        ],
+        "GTM": [
+          "IfxGtm_Tom_Pwm"
+        ],
+        "ETHERNET": [
+          "IfxGeth_cfg_TC33xED",
+          "IfxGeth_cfg_TC35x",
+          "IfxGeth_cfg_TC38EVOx",
+          "IfxGeth_cfg_TC38x",
+          "IfxGeth_cfg_TC39xB",
+          "IfxGeth_cfg_TC37x",
+          "IfxGeth",
+          "IfxGeth_Eth",
+          "IfxGeth_cfg_TC37xED",
+          "IfxGeth_cfg_TC36x"
+        ],
+        "_driver_selection": {
+          "explicit_target": "IfxGtm_Tom_Pwm",
+          "replaced_source": "IfxGtm_Tom_PwmHl",
+          "primary_drivers": [
+            "IfxGtm_Tom_Pwm"
+          ],
+          "avoid_drivers": [
+            "IfxGtm_Tom_PwmHl"
+          ]
+        }
+      },
+      "warnings": []
+    }
+  },
+  "sw_architecture": {
+    "user_intent_preservation": {
+      "original_goal": "Implement PWM functionality",
+      "functional_behavior": "Generate 3-phase center-aligned PWM at 20 kHz on TOM1, initialize U/V/W duties to 25%/50%/75%, then every 500 ms increment each duty by +10% with wrap inside [0%,100%], and update all active channels synchronously. Preserve the same TOM1 pins and keep the public API function names initGtmTom3phInv and updateGtmTom3phInvDuty.",
+      "technical_approach": "Use the mid-level TOM PWM driver for initialization/start, configure TOM1 channels mapped to the preserved pins, enable TGC-based shadow transfer for synchronous updates, and compute/refresh channel compare values for center-aligned operation at runtime using TOM/TGC primitives with a single applyUpdate trigger. Default to single-ended by enabling only HS pins (CH2/4/6); complementary mode can be revisited later if dead-time is required."
+    },
+    "driver_selection": {
+      "recommended_driver": "IfxGtm_Tom_Pwm",
+      "selection_rationale": "It directly replaces the previous high/low (PwmHl) usage as requested, supports TOM-based PWM on TC3xx, exists in the template, and fits the required 3-phase center-aligned PWM with synchronous shadow transfer on TOM1 while keeping the original module API names.",
+      "available_in_template": true,
+      "complexity_level": "moderate",
+      "alternatives_considered": [
+        "IfxGtm_Pwm",
+        "IfxGtm_Tom_Dtm_PwmHl"
+      ]
+    },
+    "driver_usage": {
+      "initialization_apis": [
+        "IfxGtm_isEnabled",
+        "IfxGtm_enable",
+        "IfxGtm_Cmu_enableClocks",
+        "IfxGtm_Tom_Pwm_initConfig",
+        "IfxGtm_Tom_Pwm_init",
+        "IfxGtm_Tom_Pwm_start",
+        "IfxGtm_PinMap_setTomTout",
+        "IfxPort_setPinModeOutput",
+        "IfxGtm_Tom_Tgc_enableChannel",
+        "IfxGtm_Tom_Tgc_enableChannelOutput",
+        "IfxGtm_Tom_Tgc_enableChannelTrigger"
+      ],
+      "runtime_apis": [
+        "IfxGtm_Tom_Timer_disableUpdate",
+        "IfxGtm_Tom_Timer_applyUpdate",
+        "IfxGtm_Tom_Ch_getClockFrequency",
+        "IfxGtm_getClusterFrequency"
+      ]
+    },
+    "file_structure": {
+      "module_files": [
+        "GTM_TOM_3_Phase_Inverter_PWM.c",
+        "GTM_TOM_3_Phase_Inverter_PWM.h"
+      ],
+      "cpu_files": [
+        "Cpu0_Main.c"
+      ],
+      "from_reference": true
+    },
+    "function_mapping": {
+      "init_function": {
+        "name": "initGtmTom3phInv"
+      },
+      "runtime_function": {
+        "name": "updateGtmTom3phInvDuty",
+        "purpose": "Compute new duty cycle values with wrap, write channel shadow compare values for TOM1 CH2/4/6 (and CH1/3/5 if complementary is enabled later), then issue a single TGC shadow transfer so all channels update synchronously."
+      }
+    },
+    "header_selection": {
+      "applied": true,
+      "peripheral_type": "PWM",
+      "recommended_header": "IfxGtm_Tom_PwmHl",
+      "score": 381,
+      "required_includes": [
+        "IfxGtm_Tom_PwmHl.h"
+      ],
+      "function_mapping": {},
+      "available_functions_count": 47
+    },
+    "driver_selection_engine": {
+      "applied": true,
+      "mcu_family": "TC3xx",
+      "requirement_analysis": {},
+      "recommendations": {
+        "PWM": {
+          "driver": "IfxGtm_Tom_Pwm",
+          "score": 100,
+          "complexity": "locked",
+          "rationale": "Driver locked by refiner node (user explicit or engine-scored)",
+          "alternatives": []
+        }
+      },
+      "migration_mappings": {
+        "IfxScuWdt": {
+          "target_driver": "IfxScuWdt",
+          "api_mapping": {
+            "IfxScuWdt_init": "IfxScuWdt_init",
+            "IfxScuWdt_initConfig": "IfxScuWdt_initConfig"
+          }
+        },
+        "IfxGtm_Tom_PwmHl": {
+          "target_driver": "IfxGtm_Tom_Pwm",
+          "api_mapping": {
+            "IfxGtm_Tom_PwmHl_init": "IfxGtm_Pwm_init",
+            "IfxGtm_Tom_PwmHl_initConfig": "IfxGtm_Pwm_initConfig",
+            "IfxGtm_Tom_PwmHl_setOnTime": "IfxGtm_Pwm_setDuty",
+            "IfxGtm_Tom_PwmHl_setPeriod": "IfxGtm_Pwm_updatePeriod",
+            "IfxGtm_Tom_PwmHl_start": "IfxGtm_Pwm_start",
+            "IfxGtm_Tom_PwmHl_stop": "IfxGtm_Pwm_stop"
+          },
+          "upgrade_reason": "User explicitly requested: IfxGtm_Tom_PwmHl → IfxGtm_Tom_Pwm"
+        },
+        "IfxCpu_Irq": {
+          "target_driver": "IfxSrc",
+          "api_mapping": {
+            "IfxCpu_Irq_installInterruptHandler": "IfxSrc_init",
+            "IfxCpu_enableInterrupts": "IfxSrc_setRequest",
+            "IfxCpu_disableInterrupts": "IfxSrc_clearRequest"
+          }
+        }
+      }
+    },
+    "driver_knowledge_base": {
+      "applied": false
+    },
+    "migration_numerical_values": {
+      "DUTY_25_PERCENT": {
+        "value": 25.0,
+        "unit": "%",
+        "label": "Phase U initial duty cycle"
+      },
+      "DUTY_50_PERCENT": {
+        "value": 50.0,
+        "unit": "%",
+        "label": "Phase V initial duty cycle"
+      },
+      "DUTY_75_PERCENT": {
+        "value": 75.0,
+        "unit": "%",
+        "label": "Phase W initial duty cycle"
+      },
+      "DUTY_STEP": {
+        "value": 10.0,
+        "unit": "%",
+        "label": "Duty cycle step increment"
+      },
+      "DUTY_MIN": {
+        "value": 10.0,
+        "unit": "%",
+        "label": "Minimum duty cycle"
+      },
+      "DUTY_MAX": {
+        "value": 90.0,
+        "unit": "%",
+        "label": "Maximum duty cycle"
+      },
+      "PWM_FREQ_HZ": {
+        "value": 20000.0,
+        "unit": "Hz",
+        "label": "PWM switching frequency"
+      },
+      "WAIT_TIME": {
+        "value": 10.0,
+        "unit": "ms",
+        "label": "Wait / delay time"
+      },
+      "PWM_DEAD_TIME": {
+        "value": 1e-06,
+        "unit": "s",
+        "label": "Dead-time between complementary outputs"
+      },
+      "PWM_MIN_PULSE_TIME": {
+        "value": 1e-06,
+        "unit": "s",
+        "label": "Minimum pulse width"
+      }
+    }
+  },
+  "sw_detailed": {
+    "module_name": "GTM_TOM_3_Phase_Inverter_PWM",
+    "public_functions": [
+      {
+        "signature": "void initGtmTom3phInv(void)",
+        "behavior_description": "Initialize 3-phase center-aligned PWM on the target module using a unified high-level GTM PWM driver with three logical channels (U, V, W). Perform all configuration with local config structs first, then touch hardware inside an enable-guard. Steps: 1) Declare all configuration structures as locals: main PWM config, per-channel config array [3], output config array [3], and dead-time config array [3] (set all dead times to zero because complementary outputs are not used). 2) Call the driver initConfig once to load defaults into the main config. 3) For each of the three channels (indices 0..2): bind its output to the preserved TOM1 high-side pins via the output config entries, set polarity active-high, output mode push-pull, and pad driver for automotive speed. Leave complementaryPin NULL to keep single-ended mode (only HS pins). Set channelConfig[i] fields: timerCh to the logical ordinal index (Ch_0, Ch_1, Ch_2), phase = 0.0f, and initial duty = 25.0f, 50.0f, and 75.0f respectively (percent units). Attach a zero-deadtime dtmConfig to each channel. Do not assign an interrupt config (no ISR is used). 4) Fill the main config: select TOM as submodule, center alignment, enable synchronous start and synchronous update, set frequency to 20 kHz, set number of channels = 3 and channels pointer to the channelConfig array. 5) Inside the GTM enable-guard: if the module is not enabled, enable it, read the module frequency dynamically, and enable the FX clock(s) required by TOM. 6) Call the PWM init with a persistent module-state handle and a persistent channels array (these live in the module’s state, not local variables). The init applies the initial duties from channelConfig and configures TOM routing internally. 7) Store a persistent state array dutyCycles[3] in percent (25, 50, 75) for runtime updates. No separate start call or immediate duty update is required because syncStart is enabled and initialization applies the requested duty values.",
+        "driver_calls": [
+          "IfxGtm_isEnabled",
+          "IfxGtm_enable",
+          "IfxGtm_Cmu_getModuleFrequency",
+          "IfxGtm_Cmu_enableClocks",
+          "IfxGtm_Pwm_initConfig",
+          "IfxGtm_Pwm_init"
+        ],
+        "from_reference": true,
+        "call_context": "init"
+      },
+      {
+        "signature": "void updateGtmTom3phInvDuty(void)",
+        "behavior_description": "Update the three phase duty cycles in percent and apply them synchronously. Algorithm: read the persistent state array dutyCycles[3] (percent). For each element i in 0..2, add a fixed step of +10.0. If a value becomes greater than or equal to the maximum threshold (90.0), wrap it to the minimum threshold (10.0). Store the updated values back to the state. Pass the state’s dutyCycles array directly (percent units) to the PWM driver’s immediate multi-channel update API so all configured outputs update coherently in one shadow transfer.",
+        "driver_calls": [
+          "IfxGtm_Pwm_updateChannelsDutyImmediate"
+        ],
+        "from_reference": true,
+        "call_context": "loop"
+      }
+    ],
+    "private_functions": [],
+    "dependencies": {
+      "includes": [
+        "Ifx_Types.h",
+        "IfxGtm_Pwm.h",
+        "IfxPort.h"
+      ]
+    },
+    "cpu_main_requirements": {
+      "needs_cpu_sync": true,
+      "uses_timer_delay": true,
+      "delay_ms": 10,
+      "additional_includes": [
+        "Bsp.h"
+      ]
+    },
+    "header_selection": {
+      "applied": true,
+      "peripheral_type": "PWM",
+      "recommended_header": "IfxGtm_Pwm",
+      "template_functions_count": 1029,
+      "required_includes": [
+        "IfxGtm_Pwm.h"
+      ],
+      "original_recommendation": "IfxGtm_Tom_PwmHl",
+      "reconciled": true,
+      "reconciliation_reason": "LLM driver_calls use IfxGtm_Pwm_* API, not IfxGtm_Tom_PwmHl (the reference API). Updated to match actual usage.",
+      "original_required_includes": [
+        "IfxGtm_Tom_PwmHl.h"
+      ]
+    },
+    "migration_numerical_values": {
+      "DUTY_25_PERCENT": {
+        "value": 25.0,
+        "unit": "%",
+        "label": "Phase U initial duty cycle"
+      },
+      "DUTY_50_PERCENT": {
+        "value": 50.0,
+        "unit": "%",
+        "label": "Phase V initial duty cycle"
+      },
+      "DUTY_75_PERCENT": {
+        "value": 75.0,
+        "unit": "%",
+        "label": "Phase W initial duty cycle"
+      },
+      "DUTY_STEP": {
+        "value": 10.0,
+        "unit": "%",
+        "label": "Duty cycle step increment"
+      },
+      "DUTY_MIN": {
+        "value": 10.0,
+        "unit": "%",
+        "label": "Minimum duty cycle"
+      },
+      "DUTY_MAX": {
+        "value": 90.0,
+        "unit": "%",
+        "label": "Maximum duty cycle"
+      },
+      "PWM_FREQ_HZ": {
+        "value": 20000.0,
+        "unit": "Hz",
+        "label": "PWM switching frequency"
+      },
+      "WAIT_TIME": {
+        "value": 10.0,
+        "unit": "ms",
+        "label": "Wait / delay time"
+      },
+      "PWM_DEAD_TIME": {
+        "value": 1e-06,
+        "unit": "s",
+        "label": "Dead-time between complementary outputs"
+      },
+      "PWM_MIN_PULSE_TIME": {
+        "value": 1e-06,
+        "unit": "s",
+        "label": "Minimum pulse width"
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "success": false,
+  "errors": [
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_joey5rfp\\include/IfxGtm_Pwm.h",
+      "line": 161,
+      "category": "error",
+      "message": "unknown type name 'IfxGtm_Pwm_InterruptConfig'; did you mean 'IfxGtm_Pwm_OutputConfig'?"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_joey5rfp\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 46,
+      "category": "error",
+      "message": "'IfxGtm_TOM1_2_TOUT12_P00_3_OUT' undeclared (first use in this function)"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_joey5rfp\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 88,
+      "category": "error",
+      "message": "'Ifx_ActiveState_high' undeclared (first use in this function); did you mean 'Ifx_ActiveState'?"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_joey5rfp\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 89,
+      "category": "error",
+      "message": "'Ifx_ActiveState_low' undeclared (first use in this function); did you mean 'Ifx_ActiveState'?"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_joey5rfp\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 47,
+      "category": "error",
+      "message": "'IfxGtm_TOM1_4_TOUT14_P00_5_OUT' undeclared (first use in this function)"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_joey5rfp\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 48,
+      "category": "error",
+      "message": "'IfxGtm_TOM1_6_TOUT16_P00_7_OUT' undeclared (first use in this function)"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_joey5rfp\\include/IfxGtm_Pwm.h",
+      "line": 161,
+      "category": "error",
+      "message": "unknown type name 'IfxGtm_Pwm_InterruptConfig'; did you mean 'IfxGtm_Pwm_OutputConfig'?"
+    }
+  ],
+  "warnings": [],
+  "stderr": "In file included from C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_joey5rfp\\src\\gtm_tom_3_phase_inverter_pwm.c:15:\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_joey5rfp\\include/IfxGtm_Pwm.h:161:5: error: unknown type name 'IfxGtm_Pwm_InterruptConfig'; did you mean 'IfxGtm_Pwm_OutputConfig'?\n  161 |     IfxGtm_Pwm_InterruptConfig *interrupt;\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~\n      |     IfxGtm_Pwm_OutputConfig\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_joey5rfp\\src\\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTom3phInv':\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_joey5rfp\\src\\gtm_tom_3_phase_inverter_pwm.c:46:45: error: 'IfxGtm_TOM1_2_TOUT12_P00_3_OUT' undeclared (first use in this function)\n   46 | #define PHASE_U_HS                        (&IfxGtm_TOM1_2_TOUT12_P00_3_OUT)\n      |                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_joey5rfp\\src\\gtm_tom_3_phase_inverter_pwm.c:86:62: note: in expansion of macro 'PHASE_U_HS'\n   86 |     output[0].pin                    = (IfxGtm_Pwm_ToutMap *)PHASE_U_HS;\n      |                                                              ^~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_joey5rfp\\src\\gtm_tom_3_phase_inverter_pwm.c:46:45: note: each undeclared identifier is reported only once for each function it appears in\n   46 | #define PHASE_U_HS                        (&IfxGtm_TOM1_2_TOUT12_P00_3_OUT)\n      |                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_joey5rfp\\src\\gtm_tom_3_phase_inverter_pwm.c:86:62: note: in expansion of macro 'PHASE_U_HS'\n   86 |     output[0].pin                    = (IfxGtm_Pwm_ToutMap *)PHASE_U_HS;\n      |                                                              ^~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_joey5rfp\\src\\gtm_tom_3_phase_inverter_pwm.c:88:40: error: 'Ifx_ActiveState_high' undeclared (first use in this function); did you mean 'Ifx_ActiveState'?\n   88 |     output[0].polarity               = Ifx_ActiveState_high;                /* HS active high */\n      |                                        ^~~~~~~~~~~~~~~~~~~~\n      |                                        Ifx_ActiveState\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_joey5rfp\\src\\gtm_tom_3_phase_inverter_pwm.c:89:40: error: 'Ifx_ActiveState_low' undeclared (first use in this function); did you mean 'Ifx_ActiveState'?\n   89 |     output[0].complementaryPolarity  = Ifx_ActiveState_low;                 /* LS active low (unused) */\n      |                                        ^~~~~~~~~~~~~~~~~~~\n      |                                        Ifx_ActiveState\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_joey5rfp\\src\\gtm_tom_3_phase_inverter_pwm.c:47:45: error: 'IfxGtm_TOM1_4_TOUT14_P00_5_OUT' undeclared (first use in this function)\n   47 | #define PHASE_V_HS                        (&IfxGtm_TOM1_4_TOUT14_P00_5_OUT)\n      |                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_joey5rfp\\src\\gtm_tom_3_phase_inverter_pwm.c:94:62: note: in expansion of macro 'PHASE_V_HS'\n   94 |     output[1].pin                    = (IfxGtm_Pwm_ToutMap *)PHASE_V_HS;\n      |                                                              ^~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_joey5rfp\\src\\gtm_tom_3_phase_inverter_pwm.c:48:45: error: 'IfxGtm_TOM1_6_TOUT16_P00_7_OUT' undeclared (first use in this function)\n   48 | #define PHASE_W_HS                        (&IfxGtm_TOM1_6_TOUT16_P00_7_OUT)\n      |                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_joey5rfp\\src\\gtm_tom_3_phase_inverter_pwm.c:102:62: note: in expansion of macro 'PHASE_W_HS'\n  102 |     output[2].pin                    = (IfxGtm_Pwm_ToutMap *)PHASE_W_HS;\n      |                                                              ^~~~~~~~~~\n\nIn file included from C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_joey5rfp\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c:5:\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_joey5rfp\\include/IfxGtm_Pwm.h:161:5: error: unknown type name 'IfxGtm_Pwm_InterruptConfig'; did you mean 'IfxGtm_Pwm_OutputConfig'?\n  161 |     IfxGtm_Pwm_InterruptConfig *interrupt;\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~\n      |     IfxGtm_Pwm_OutputConfig\n",
+  "stdout": ""
+}

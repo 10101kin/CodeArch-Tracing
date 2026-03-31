@@ -1,0 +1,262 @@
+/* Spy state + stub bodies + MODULE_* definitions */
+#include "mock_gtm_tom_3_phase_inverter_pwm.h"
+#include "IfxPort.h"
+#include "IfxGtm.h"
+#include "IfxGtm_Cmu.h"
+#include "IfxGtm_Pwm.h"
+#include "IfxPort_Pinmap.h"
+
+/* MODULE_* instances */
+Ifx_GTM MODULE_GTM = {0u};
+
+Ifx_P MODULE_P00 = {0u};
+Ifx_P MODULE_P01 = {0u};
+Ifx_P MODULE_P02 = {0u};
+Ifx_P MODULE_P10 = {0u};
+Ifx_P MODULE_P11 = {0u};
+Ifx_P MODULE_P12 = {0u};
+Ifx_P MODULE_P13 = {0u};
+Ifx_P MODULE_P14 = {0u};
+Ifx_P MODULE_P15 = {0u};
+Ifx_P MODULE_P20 = {0u};
+Ifx_P MODULE_P21 = {0u};
+Ifx_P MODULE_P22 = {0u};
+Ifx_P MODULE_P23 = {0u};
+Ifx_P MODULE_P24 = {0u};
+Ifx_P MODULE_P25 = {0u};
+Ifx_P MODULE_P26 = {0u};
+Ifx_P MODULE_P30 = {0u};
+Ifx_P MODULE_P31 = {0u};
+Ifx_P MODULE_P32 = {0u};
+Ifx_P MODULE_P33 = {0u};
+Ifx_P MODULE_P34 = {0u};
+Ifx_P MODULE_P40 = {0u};
+Ifx_P MODULE_P41 = {0u};
+
+/* Pin symbol allocations */
+IfxGtm_Pwm_ToutMap IfxGtm_TOM1_1N_TOUT14_P00_5_OUT = {0};
+IfxGtm_Pwm_ToutMap IfxGtm_TOM1_2N_TOUT15_P00_6_OUT = {0};
+IfxGtm_Pwm_ToutMap IfxGtm_TOM1_2_TOUT12_P00_3_OUT  = {0};
+IfxGtm_Pwm_ToutMap IfxGtm_TOM1_3N_TOUT16_P00_7_OUT = {0};
+IfxGtm_Pwm_ToutMap IfxGtm_TOM1_3_TOUT13_P00_4_OUT  = {0};
+IfxGtm_Pwm_ToutMap IfxGtm_TOM1_5_TOUT11_P00_2_OUT  = {0};
+/* Additional pins to fix prior build errors */
+IfxGtm_Pwm_ToutMap IfxGtm_TOM1_4_TOUT14_P00_5_OUT  = {0};
+IfxGtm_Pwm_ToutMap IfxGtm_TOM1_6_TOUT16_P00_7_OUT  = {0};
+
+/* Spy counters */
+int mock_IfxGtm_Pwm_init_callCount = 0;
+int mock_IfxGtm_Pwm_initConfig_callCount = 0;
+int mock_IfxGtm_Pwm_updateChannelsDutyImmediate_callCount = 0;
+int mock_IfxGtm_isEnabled_callCount = 0;
+int mock_IfxGtm_enable_callCount = 0;
+int mock_IfxGtm_Cmu_getModuleFrequency_callCount = 0;
+int mock_IfxGtm_Cmu_enableClocks_callCount = 0;
+int mock_IfxGtm_Cmu_setGclkFrequency_callCount = 0;
+int mock_IfxGtm_Cmu_setClkFrequency_callCount = 0;
+uint32 mock_togglePin_callCount = 0u;
+
+/* Return control */
+boolean mock_IfxGtm_isEnabled_returnValue = FALSE;
+float32 mock_IfxGtm_Cmu_getModuleFrequency_returnValue = 0.0f;
+
+/* Spy captures */
+uint32  mock_IfxGtm_Pwm_init_lastNumChannels = 0u;
+float32 mock_IfxGtm_Pwm_init_lastFrequency   = 0.0f;
+uint32  mock_IfxGtm_Pwm_initConfig_lastNumChannels = 0u;
+float32 mock_IfxGtm_Pwm_initConfig_lastFrequency   = 0.0f;
+float32 mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[MOCK_MAX_CHANNELS] = {0.0f};
+float32 mock_IfxGtm_Pwm_updateChannelsDeadTimeImmediate_lastDtRising[MOCK_MAX_CHANNELS]  = {0.0f};
+float32 mock_IfxGtm_Pwm_updateChannelsDeadTimeImmediate_lastDtFalling[MOCK_MAX_CHANNELS] = {0.0f};
+
+/* Internal captured channel count (bounded copy) */
+static uint32 _captured_numChannels = 0u;
+
+/* ===== IfxGtm_Pwm stubs ===== */
+void IfxGtm_Pwm_init(IfxGtm_Pwm *pwm, IfxGtm_Pwm_Channel *channels, IfxGtm_Pwm_Config *config)
+{
+    (void)pwm; (void)channels;
+    mock_IfxGtm_Pwm_init_callCount++;
+    if (config != NULL_PTR)
+    {
+        mock_IfxGtm_Pwm_init_lastNumChannels = (uint32)config->numChannels;
+        mock_IfxGtm_Pwm_init_lastFrequency   = config->frequency;
+        _captured_numChannels = (uint32)config->numChannels;
+    }
+}
+
+void IfxGtm_Pwm_initConfig(IfxGtm_Pwm_Config *config, Ifx_GTM *gtmSFR)
+{
+    (void)gtmSFR;
+    mock_IfxGtm_Pwm_initConfig_callCount++;
+    if (config != NULL_PTR)
+    {
+        mock_IfxGtm_Pwm_initConfig_lastNumChannels = (uint32)config->numChannels;
+        mock_IfxGtm_Pwm_initConfig_lastFrequency   = config->frequency;
+        _captured_numChannels = (uint32)config->numChannels;
+    }
+}
+
+void IfxGtm_Pwm_updateChannelsDutyImmediate(IfxGtm_Pwm *pwm, float32 *requestDuty)
+{
+    (void)pwm;
+    mock_IfxGtm_Pwm_updateChannelsDutyImmediate_callCount++;
+    uint32 n = (_captured_numChannels > 0u && _captured_numChannels <= (uint32)MOCK_MAX_CHANNELS) ? _captured_numChannels : (uint32)MOCK_MAX_CHANNELS;
+    if (requestDuty != NULL_PTR)
+    {
+        for (uint32 i = 0u; i < n; ++i)
+        {
+            mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[i] = requestDuty[i];
+        }
+    }
+}
+
+/* ===== IfxGtm enable/status stubs ===== */
+boolean IfxGtm_isEnabled(Ifx_GTM *gtm)
+{
+    (void)gtm;
+    mock_IfxGtm_isEnabled_callCount++;
+    return mock_IfxGtm_isEnabled_returnValue;
+}
+
+void IfxGtm_enable(Ifx_GTM *gtm)
+{
+    (void)gtm;
+    mock_IfxGtm_enable_callCount++;
+}
+
+/* ===== IfxGtm_Cmu stubs ===== */
+void IfxGtm_Cmu_enable(Ifx_GTM *module)
+{
+    (void)module;
+}
+
+boolean IfxGtm_Cmu_isEnabled(Ifx_GTM *module)
+{
+    (void)module;
+    return TRUE;
+}
+
+float32 IfxGtm_Cmu_getModuleFrequency(Ifx_GTM *gtm)
+{
+    (void)gtm;
+    mock_IfxGtm_Cmu_getModuleFrequency_callCount++;
+    if (mock_IfxGtm_Cmu_getModuleFrequency_returnValue != 0.0f)
+    {
+        return mock_IfxGtm_Cmu_getModuleFrequency_returnValue;
+    }
+    return 100000000.0f; /* default 100 MHz */
+}
+
+float32 IfxGtm_Cmu_getGclkFrequency(Ifx_GTM *gtm)
+{
+    (void)gtm;
+    return 100000000.0f;
+}
+
+float32 IfxGtm_Cmu_getClkFrequency(Ifx_GTM *gtm, IfxGtm_Cmu_Clk clkIndex, boolean assumeEnabled)
+{
+    (void)gtm; (void)clkIndex; (void)assumeEnabled;
+    return 100000000.0f;
+}
+
+float32 IfxGtm_Cmu_getEclkFrequency(Ifx_GTM *gtm)
+{
+    (void)gtm;
+    return 100000000.0f;
+}
+
+float32 IfxGtm_Cmu_getFxClkFrequency(Ifx_GTM *gtm)
+{
+    (void)gtm;
+    return 100000000.0f;
+}
+
+boolean IfxGtm_Cmu_isClkClockEnabled(Ifx_GTM *gtm, IfxGtm_Cmu_Clk clkIndex)
+{
+    (void)gtm; (void)clkIndex;
+    return TRUE;
+}
+
+boolean IfxGtm_Cmu_isEclkClockEnabled(Ifx_GTM *gtm, IfxGtm_Cmu_Eclk eclk)
+{
+    (void)gtm; (void)eclk;
+    return TRUE;
+}
+
+boolean IfxGtm_Cmu_isFxClockEnabled(Ifx_GTM *gtm)
+{
+    (void)gtm;
+    return TRUE;
+}
+
+void IfxGtm_Cmu_selectClkInput(Ifx_GTM *gtm, IfxGtm_Cmu_Clk clkIndex, uint32 inputSel)
+{
+    (void)gtm; (void)clkIndex; (void)inputSel;
+}
+
+void IfxGtm_Cmu_setClkFrequency(Ifx_GTM *gtm, IfxGtm_Cmu_Clk clkIndex, float32 frequency)
+{
+    (void)gtm; (void)clkIndex; (void)frequency;
+    mock_IfxGtm_Cmu_setClkFrequency_callCount++;
+}
+
+void IfxGtm_Cmu_setEclkFrequency(Ifx_GTM *gtm, IfxGtm_Cmu_Eclk eclk, float32 frequency)
+{
+    (void)gtm; (void)eclk; (void)frequency;
+}
+
+void IfxGtm_Cmu_setGclkFrequency(Ifx_GTM *gtm, float32 frequency)
+{
+    (void)gtm; (void)frequency;
+    mock_IfxGtm_Cmu_setGclkFrequency_callCount++;
+}
+
+void IfxGtm_Cmu_enableClocks(Ifx_GTM *gtm, uint32 clkMask)
+{
+    (void)gtm; (void)clkMask;
+    mock_IfxGtm_Cmu_enableClocks_callCount++;
+}
+
+/* ===== Spy getters ===== */
+int mock_IfxGtm_Pwm_init_getCallCount(void) { return mock_IfxGtm_Pwm_init_callCount; }
+int mock_IfxGtm_Pwm_initConfig_getCallCount(void) { return mock_IfxGtm_Pwm_initConfig_callCount; }
+int mock_IfxGtm_Pwm_updateChannelsDutyImmediate_getCallCount(void) { return mock_IfxGtm_Pwm_updateChannelsDutyImmediate_callCount; }
+int mock_IfxGtm_isEnabled_getCallCount(void) { return mock_IfxGtm_isEnabled_callCount; }
+int mock_IfxGtm_enable_getCallCount(void) { return mock_IfxGtm_enable_callCount; }
+int mock_IfxGtm_Cmu_getModuleFrequency_getCallCount(void) { return mock_IfxGtm_Cmu_getModuleFrequency_callCount; }
+int mock_IfxGtm_Cmu_enableClocks_getCallCount(void) { return mock_IfxGtm_Cmu_enableClocks_callCount; }
+int mock_IfxGtm_Cmu_setGclkFrequency_getCallCount(void) { return mock_IfxGtm_Cmu_setGclkFrequency_callCount; }
+int mock_IfxGtm_Cmu_setClkFrequency_getCallCount(void) { return mock_IfxGtm_Cmu_setClkFrequency_callCount; }
+
+/* ===== Reset ===== */
+void mock_gtm_tom_3_phase_inverter_pwm_reset(void)
+{
+    mock_IfxGtm_Pwm_init_callCount = 0;
+    mock_IfxGtm_Pwm_initConfig_callCount = 0;
+    mock_IfxGtm_Pwm_updateChannelsDutyImmediate_callCount = 0;
+    mock_IfxGtm_isEnabled_callCount = 0;
+    mock_IfxGtm_enable_callCount = 0;
+    mock_IfxGtm_Cmu_getModuleFrequency_callCount = 0;
+    mock_IfxGtm_Cmu_enableClocks_callCount = 0;
+    mock_IfxGtm_Cmu_setGclkFrequency_callCount = 0;
+    mock_IfxGtm_Cmu_setClkFrequency_callCount = 0;
+    mock_togglePin_callCount = 0u;
+
+    mock_IfxGtm_isEnabled_returnValue = FALSE;
+    mock_IfxGtm_Cmu_getModuleFrequency_returnValue = 0.0f;
+
+    mock_IfxGtm_Pwm_init_lastNumChannels = 0u;
+    mock_IfxGtm_Pwm_init_lastFrequency = 0.0f;
+    mock_IfxGtm_Pwm_initConfig_lastNumChannels = 0u;
+    mock_IfxGtm_Pwm_initConfig_lastFrequency = 0.0f;
+
+    for (uint32 i = 0u; i < (uint32)MOCK_MAX_CHANNELS; ++i)
+    {
+        mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[i] = 0.0f;
+        mock_IfxGtm_Pwm_updateChannelsDeadTimeImmediate_lastDtRising[i] = 0.0f;
+        mock_IfxGtm_Pwm_updateChannelsDeadTimeImmediate_lastDtFalling[i] = 0.0f;
+    }
+
+    _captured_numChannels = 0u;
+}

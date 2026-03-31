@@ -1,0 +1,17 @@
+{
+  "attempt": 7,
+  "phase_attempt": 3,
+  "phase": "production",
+  "success": false,
+  "errors": [
+    "unknown type name 'IfxGtm_Pwm_InterruptConfig'; did you mean 'IfxGtm_Pwm_OutputConfig'?",
+    "'IfxGtm_TOM1_2_TOUT12_P00_3_OUT' undeclared (first use in this function)",
+    "'Ifx_ActiveState_high' undeclared (first use in this function); did you mean 'Ifx_ActiveState'?",
+    "'Ifx_ActiveState_low' undeclared (first use in this function); did you mean 'Ifx_ActiveState'?",
+    "'IfxGtm_TOM1_4_TOUT14_P00_5_OUT' undeclared (first use in this function)",
+    "'IfxGtm_TOM1_6_TOUT16_P00_7_OUT' undeclared (first use in this function)",
+    "unknown type name 'IfxGtm_Pwm_InterruptConfig'; did you mean 'IfxGtm_Pwm_OutputConfig'?"
+  ],
+  "timestamp": "2026-03-31T16:46:04.185577",
+  "project_name": "Update_KIT_A2G_TC387_5V_TFT_TC38x_project_to_rep_r_20260331_162647"
+}
