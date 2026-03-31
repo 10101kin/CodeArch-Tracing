@@ -1,7 +1,6 @@
+#include "mock_gtm_tom_3_phase_inverter_pwm.h"
 #ifndef IFXGTM_CMU_H
 #define IFXGTM_CMU_H
-
-#include "mock_gtm_tom_3_phase_inverter_pwm.h"
 
 /* Enums */
 typedef enum
@@ -40,6 +39,7 @@ typedef enum
     IfxGtm_Cmu_Tim_Filter_Clk_7
 } IfxGtm_Cmu_Tim_Filter_Clk;
 
+/* CMU enable mask macros */
 #ifndef IFXGTM_CMU_CLKEN_FXCLK
 #define IFXGTM_CMU_CLKEN_FXCLK (0x1u)
 #endif
@@ -47,14 +47,12 @@ typedef enum
 #define IFXGTM_CMU_CLKEN_CLK0  (0x2u)
 #endif
 
-/* Mandatory CMU mock functions */
+/* Functions (mandatory + used by production module) */
 void    IfxGtm_Cmu_enable(Ifx_GTM *module);
 boolean IfxGtm_Cmu_isEnabled(Ifx_GTM *module);
-
-/* Functions from DRIVERS TO MOCK */
-void    IfxGtm_Cmu_setGclkFrequency(Ifx_GTM *gtm, float32 frequency);
-void    IfxGtm_Cmu_setClkFrequency(Ifx_GTM *gtm, IfxGtm_Cmu_Clk clkIndex, float32 frequency);
 float32 IfxGtm_Cmu_getModuleFrequency(Ifx_GTM *gtm);
-void    IfxGtm_Cmu_enableClocks(Ifx_GTM *gtm, uint32 clkMask);
+void    IfxGtm_Cmu_setGclkFrequency(Ifx_GTM *gtm, float32 frequency);
+void    IfxGtm_Cmu_setClkFrequency(Ifx_GTM *gtm, IfxGtm_Cmu_Clk clk, float32 frequency);
+void    IfxGtm_Cmu_enableClocks(Ifx_GTM *gtm, uint32 mask);
 
 #endif /* IFXGTM_CMU_H */

@@ -1,7 +1,6 @@
+#include "mock_gtm_tom_3_phase_inverter_pwm.h"
 #ifndef IFXPORT_H
 #define IFXPORT_H
-
-#include "mock_gtm_tom_3_phase_inverter_pwm.h"
 
 /* Enums */
 typedef enum
@@ -148,7 +147,7 @@ typedef struct
     IfxPort_PadDriver padDriver;
 } IfxPort_Pin_Config;
 
-/* Function declarations (subset used by module) */
+/* Functions (subset used by production module) */
 void IfxPort_togglePin(Ifx_P *port, uint8 pinIndex);
 void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
 

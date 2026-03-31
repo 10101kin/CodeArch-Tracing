@@ -1,7 +1,6 @@
+#include "mock_gtm_tom_3_phase_inverter_pwm.h"
 #ifndef IFXGTM_H
 #define IFXGTM_H
-
-#include "mock_gtm_tom_3_phase_inverter_pwm.h"
 
 /* Enums */
 typedef enum
@@ -19,7 +18,7 @@ typedef enum
     IfxGtm_SuspendMode_soft = 2
 } IfxGtm_SuspendMode;
 
-/* Function declarations (subset used by module) */
+/* Functions (subset used by production module) */
 boolean IfxGtm_isEnabled(Ifx_GTM *gtm);
 void IfxGtm_enable(Ifx_GTM *gtm);
 
