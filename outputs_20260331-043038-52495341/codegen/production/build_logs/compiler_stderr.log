@@ -1,0 +1,4 @@
+C:\Users\extanke\AppData\Local\Temp\tdd_build_zq4xisbk\src\gtm_tom_3_phase_inverter_pwm.c:21:10: fatal error: IfxCpu.h: No such file or directory
+   21 | #include "IfxCpu.h"
+      |          ^~~~~~~~~~
+compilation terminated.
