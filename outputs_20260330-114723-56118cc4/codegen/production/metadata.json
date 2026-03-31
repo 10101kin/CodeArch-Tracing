@@ -1,8 +1,20 @@
 {
-  "type": "llm_response",
-  "phase": "production",
   "attempt": 7,
   "phase_attempt": 2,
-  "response_length": 13301,
-  "timestamp": "2026-03-31T09:32:07.619513"
+  "phase": "production",
+  "success": false,
+  "errors": [
+    "unknown type name 'IfxGtm_Pwm_ClusterSFR'; did you mean 'IfxGtm_Cluster'?",
+    "unknown type name 'IfxGtm_Pwm_GlobalControl'",
+    "unknown type name 'IfxGtm_Pwm_ClockSource'; did you mean 'IfxGtm_Dtm_ClockSource'?",
+    "implicit declaration of function 'IfxPort_togglePin' [-Wimplicit-function-declaration]",
+    "assignment to 'IfxGtm_Pwm_callBack' {aka 'void (*)(void)'} from incompatible pointer type 'void (*)(void *)' [-Wincompatible-pointer-types]",
+    "'IFXGTM_CLUSTER' undeclared (first use in this function)",
+    "'configurePwmChannels' defined but not used [-Werror=unused-function]",
+    "unknown type name 'IfxGtm_Pwm_ClusterSFR'; did you mean 'IfxGtm_Cluster'?",
+    "unknown type name 'IfxGtm_Pwm_GlobalControl'",
+    "unknown type name 'IfxGtm_Pwm_ClockSource'; did you mean 'IfxGtm_Dtm_ClockSource'?"
+  ],
+  "timestamp": "2026-03-31T09:32:15.611851",
+  "project_name": "Upgrade_the_TC387_reference_3-phase_inverter_PWM_d_r_20260330_210321"
 }
