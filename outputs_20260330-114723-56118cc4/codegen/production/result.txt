@@ -1,3 +1,158 @@
-Status: SUCCESS
+Status: FAILED
 
-LLM response for production phase (attempt 9), 14048 chars
+============================================================
+TDD CODE GENERATION - ATTEMPT STATUS
+============================================================
+Phase: production
+Attempt: 9
+Status: FAILED
+Timestamp: 2026-03-31 09:38:35
+Files generated: 2
+
+============================================================
+
+ERRORS:
+
+1. C:\Users\extpedj\AppData\Local\Temp\tdd_build_4pdum979\src\gtm_tom_3_phase_inverter_pwm.c:12:10: fatal error: Gtm/Pwm/IfxGtm_Pwm.h: No such file or directory
+
+2. unknown type name 'IfxGtm_Pwm_callBack'; did you mean 'IfxGtm_Pwm_State'?
+
+3. unknown type name 'IfxGtm_Pwm_callBack'; did you mean 'IfxGtm_Pwm_State'?
+
+4. unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Pwm_State'?
+
+5. unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Pwm_State'?
+
+6. unknown type name 'IfxGtm_Pwm_callBack'; did you mean 'IfxGtm_Pwm_State'?
+
+7. unknown type name 'IfxGtm_Pwm_callBack'; did you mean 'IfxGtm_Pwm_State'?
+
+8. unknown type name 'Ifx_GTM_ATOM'
+
+9. unknown type name 'Ifx_GTM_TOM'; did you mean 'Ifx_GTM'?
+
+10. unknown type name 'Ifx_GTM_CDTM'
+
+============================================================
+BUILD RESULT:
+{
+  "success": false,
+  "errors": [
+    {
+      "file": "",
+      "message": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_4pdum979\\src\\gtm_tom_3_phase_inverter_pwm.c:12:10: fatal error: Gtm/Pwm/IfxGtm_Pwm.h: No such file or directory",
+      "category": "error"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_4pdum979\\include/IfxGtm_Pwm.h",
+      "line": 94,
+      "category": "error",
+      "message": "unknown type name 'IfxGtm_Pwm_callBack'; did you mean 'IfxGtm_Pwm_State'?"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_4pdum979\\include/IfxGtm_Pwm.h",
+      "line": 95,
+      "category": "error",
+      "message": "unknown type name 'IfxGtm_Pwm_callBack'; did you mean 'IfxGtm_Pwm_State'?"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_4pdum979\\include/IfxGtm_Pwm.h",
+      "line": 100,
+      "category": "error",
+      "message": "unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Pwm_State'?"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_4pdum979\\include/IfxGtm_Pwm.h",
+      "line": 101,
+      "category": "error",
+      "message": "unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Pwm_State'?"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_4pdum979\\include/IfxGtm_Pwm.h",
+      "line": 146,
+      "category": "error",
+      "message": "unknown type name 'IfxGtm_Pwm_callBack'; did you mean 'IfxGtm_Pwm_State'?"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_4pdum979\\include/IfxGtm_Pwm.h",
+      "line": 147,
+      "category": "error",
+      "message": "unknown type name 'IfxGtm_Pwm_callBack'; did you mean 'IfxGtm_Pwm_State'?"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_4pdum979\\include/IfxGtm_Pwm.h",
+      "line": 166,
+      "category": "error",
+      "message": "unknown type name 'Ifx_GTM_ATOM'"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_4pdum979\\include/IfxGtm_Pwm.h",
+      "line": 167,
+      "category": "error",
+      "message": "unknown type name 'Ifx_GTM_TOM'; did you mean 'Ifx_GTM'?"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_4pdum979\\include/IfxGtm_Pwm.h",
+      "line": 168,
+      "category": "error",
+      "message": "unknown type name 'Ifx_GTM_CDTM'"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_4pdum979\\include/IfxGtm_Pwm.h",
+      "line": 223,
+      "category": "error",
+      "message": "unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Pwm_Config'?"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_4pdum979\\include/IfxGtm_Pwm.h",
+      "line": 245,
+      "category": "error",
+      "message": "unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Pwm_Config'?"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_4pdum979\\include/IfxGtm_Pwm.h",
+      "line": 246,
+      "category": "error",
+      "message": "unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Pwm_Config'?"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_4pdum979\\include/IfxGtm_Pwm.h",
+      "line": 247,
+      "category": "error",
+      "message": "unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Pwm_Config'?"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_4pdum979\\include/IfxGtm_Pwm.h",
+      "line": 248,
+      "category": "error",
+      "message": "unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Pwm_Config'?"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_4pdum979\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 224,
+      "category": "error",
+      "message": "unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Pwm_Config'?"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_4pdum979\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 225,
+      "category": "error",
+      "message": "unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Pwm_Config'?"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_4pdum979\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 226,
+      "category": "error",
+      "message": "unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Pwm_Config'?"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_4pdum979\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 227,
+      "category": "error",
+      "message": "unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Pwm_Config'?"
+    }
+  ],
+  "warnings": [],
+  "stderr": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_4pdum979\\src\\gtm_tom_3_phase_inverter_pwm.c:12:10: fatal error: Gtm/Pwm/IfxGtm_Pwm.h: No such file or directory\n   12 | #include <Gtm/Pwm/IfxGtm_Pwm.h>\n      |          ^~~~~~~~~~~~~~~~~~~~~~\ncompilation terminated.\n\nIn file included from C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_4pdum979\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c:8:\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_4pdum979\\include/IfxGtm_Pwm.h:94:5: error: unknown type name 'IfxGtm_Pwm_callBack'; did you mean 'IfxGtm_Pwm_State'?\n   94 |     IfxGtm_Pwm_callBack periodEvent;\n      |     ^~~~~~~~~~~~~~~~~~~\n      |     IfxGtm_Pwm_State\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_4pdum979\\include/IfxGtm_Pwm.h:95:5: error: unknown type name 'IfxGtm_Pwm_callBack'; did you mean 'IfxGtm_Pwm_State'?\n   95 |     IfxGtm_Pwm_callBack dutyEvent;\n      |     ^~~~~~~~~~~~~~~~~~~\n      |     IfxGtm_Pwm_State\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_4pdum979\\include/IfxGtm_Pwm.h:100:5: error: unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Pwm_State'?\n  100 |     IfxGtm_Pwm_ToutMap *pin;\n      |     ^~~~~~~~~~~~~~~~~~\n      |     IfxGtm_Pwm_State\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_4pdum979\\include/IfxGtm_Pwm.h:101:5: error: unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Pwm_State'?\n  101 |     IfxGtm_Pwm_ToutMap *complementaryPin;\n      |     ^~~~~~~~~~~~~~~~~~\n      |     IfxGtm_Pwm_State\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_4pdum979\\include/IfxGtm_Pwm.h:146:5: error: unknown type name 'IfxGtm_Pwm_callBack'; did you mean 'IfxGtm_Pwm_State'?\n  146 |     IfxGtm_Pwm_callBack         periodEvent;\n      |     ^~~~~~~~~~~~~~~~~~~\n      |     IfxGtm_Pwm_State\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_4pdum979\\include/IfxGtm_Pwm.h:147:5: error: unknown type name 'IfxGtm_Pwm_callBack'; did you mean 'IfxGtm_Pwm_State'?\n  147 |     IfxGtm_Pwm_callBack         dutyEvent;\n      |     ^~~~~~~~~~~~~~~~~~~\n      |     IfxGtm_Pwm_State\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_4pdum979\\include/IfxGtm_Pwm.h:166:5: error: unknown type name 'Ifx_GTM_ATOM'\n  166 |     Ifx_GTM_ATOM *ATOM;\n      |     ^~~~~~~~~~~~\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_4pdum979\\include/IfxGtm_Pwm.h:167:5: error: unknown type name 'Ifx_GTM_TOM'; did you mean 'Ifx_GTM'?\n  167 |     Ifx_GTM_TOM  *TOM;\n      |     ^~~~~~~~~~~\n      |     Ifx_GTM\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_4pdum979\\include/IfxGtm_Pwm.h:168:5: error: unknown type name 'Ifx_GTM_CDTM'\n  168 |     Ifx_GTM_CDTM *CDTM;\n      |     ^~~~~~~~~~~~\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_4pdum979\\include/IfxGtm_Pwm.h:223:5: error: unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Pwm_Config'?\n  223 |     IfxGtm_Pwm_ToutMap *outputPin;\n      |     ^~~~~~~~~~~~~~~~~~\n      |     IfxGtm_Pwm_Config\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_4pdum979\\include/IfxGtm_Pwm.h:245:8: error: unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Pwm_Config'?\n  245 | extern IfxGtm_Pwm_ToutMap IfxGtm_TOM1_1_TOUT11_P00_2_OUT;\n      |        ^~~~~~~~~~~~~~~~~~\n      |        IfxGtm_Pwm_Config\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_4pdum979\\include/IfxGtm_Pwm.h:246:8: error: unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Pwm_Config'?\n  246 | extern IfxGtm_Pwm_ToutMap IfxGtm_TOM1_2_TOUT12_P00_3_OUT;\n      |        ^~~~~~~~~~~~~~~~~~\n      |        IfxGtm_Pwm_Config\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_4pdum979\\include/IfxGtm_Pwm.h:247:8: error: unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Pwm_Config'?\n  247 | extern IfxGtm_Pwm_ToutMap IfxGtm_TOM1_3_TOUT13_P00_4_OUT;\n      |        ^~~~~~~~~~~~~~~~~~\n      |        IfxGtm_Pwm_Config\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_4pdum979\\include/IfxGtm_Pwm.h:248:8: error: unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Pwm_Config'?\n  248 | extern IfxGtm_Pwm_ToutMap IfxGtm_TOM1_5_TOUT11_P00_2_OUT;\n      |        ^~~~~~~~~~~~~~~~~~\n      |        IfxGtm_Pwm_Config\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_4pdum979\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c:224:1: error: unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Pwm_Config'?\n  224 | IfxGtm_Pwm_ToutMap IfxGtm_TOM1_1_TOUT11_P00_2_OUT = {0};\n      | ^~~~~~~~~~~~~~~~~~\n      | IfxGtm_Pwm_Config\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_4pdum979\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c:225:1: error: unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Pwm_Config'?\n  225 | IfxGtm_Pwm_ToutMap IfxGtm_TOM1_2_TOUT12_P00_3_OUT = {0};\n      | ^~~~~~~~~~~~~~~~~~\n      | IfxGtm_Pwm_Config\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_4pdum979\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c:226:1: error: unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Pwm_Config'?\n  226 | IfxGtm_Pwm_ToutMap IfxGtm_TOM1_3_TOUT13_P00_4_OUT = {0};\n      | ^~~~~~~~~~~~~~~~~~\n      | IfxGtm_Pwm_Config\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_4pdum979\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c:227:1: error: unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Pwm_Config'?\n  227 | IfxGtm_Pwm_ToutMap IfxGtm_TOM1_5_TOUT11_P00_2_OUT = {0};\n      | ^~~~~~~~~~~~~~~~~~\n      | IfxGtm_Pwm_Config\n",
+  "stdout": ""
+}
