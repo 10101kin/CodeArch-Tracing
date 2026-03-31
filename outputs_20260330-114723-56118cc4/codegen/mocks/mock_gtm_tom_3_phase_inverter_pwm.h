@@ -1,4 +1,7 @@
-/* mock_gtm_tom_3_phase_inverter_pwm.h - base types + MODULE stubs + spy API */
+/* mock_gtm_tom_3_phase_inverter_pwm.h
+ * Base types + MODULE stubs + spy API
+ * Owner: base common types for GTM_TOM_3_Phase_Inverter_PWM tests
+ */
 
 #ifndef MOCK_GTM_TOM_3_PHASE_INVERTER_PWM_H
 #define MOCK_GTM_TOM_3_PHASE_INVERTER_PWM_H
@@ -6,22 +9,22 @@
 #include <stdint.h>
 #include <stddef.h>
 
-/* Base type aliases (single-owner) */
+/* Base type aliases (owned by this file) */
 typedef float    float32;
 typedef uint32_t uint32;
 typedef int32_t  sint32;
 typedef uint8_t  uint8;
 typedef uint16_t uint16;
 typedef int16_t  sint16;
-typedef uint8_t  boolean;
-typedef int       Ifx_Priority;
+typedef _Bool     boolean;
+typedef int32_t  Ifx_Priority;
 
 /* Macros */
 #ifndef TRUE
-#define TRUE  (1U)
+#define TRUE 1
 #endif
 #ifndef FALSE
-#define FALSE (0U)
+#define FALSE 0
 #endif
 #ifndef NULL_PTR
 #define NULL_PTR ((void*)0)
@@ -30,24 +33,27 @@ typedef int       Ifx_Priority;
 #define IFX_STATIC static
 #endif
 
-/* IFX_INTERRUPT macro MUST be 3-arg */
+/* IFX_INTERRUPT macro (3-arg) */
 #define IFX_INTERRUPT(isr_name, vectab_num, priority) void isr_name(void)
 
-/* Shared enums used across multiple drivers (single-owner) */
-typedef enum {
+/* Shared enums used across drivers (owned here) */
+typedef enum
+{
     Ifx_ActiveState_high = 0,
     Ifx_ActiveState_low  = 1
 } Ifx_ActiveState;
 
-typedef enum {
+typedef enum
+{
     IfxSrc_Tos_cpu0 = 0,
-    IfxSrc_Tos_cpu1,
-    IfxSrc_Tos_cpu2,
-    IfxSrc_Tos_cpu3
+    IfxSrc_Tos_cpu1 = 1,
+    IfxSrc_Tos_cpu2 = 2,
+    IfxSrc_Tos_cpu3 = 3
 } IfxSrc_Tos;
 
-/* MODULE_* register-block stubs (single-owner) */
-/* Minimal stub layout: single reserved field to represent SFR block */
+/* MODULE_* register-block stubs (typedef + extern) - owned here
+   Each type is a minimal SFR block stub so code can take addresses. */
+
 typedef struct { uint32 reserved; } Ifx_GTM;
 extern Ifx_GTM MODULE_GTM;
 
@@ -76,7 +82,7 @@ extern Ifx_P MODULE_P34;
 extern Ifx_P MODULE_P40;
 extern Ifx_P MODULE_P41;
 
-/* SFR module stubs for many peripherals (typedef + extern) */
+/* Other module stubs (Ifx_* minimal structs) */
 typedef struct { uint32 reserved; } Ifx_ASCLIN0;  extern Ifx_ASCLIN0 MODULE_ASCLIN0;
 typedef struct { uint32 reserved; } Ifx_ASCLIN1;  extern Ifx_ASCLIN1 MODULE_ASCLIN1;
 typedef struct { uint32 reserved; } Ifx_ASCLIN2;  extern Ifx_ASCLIN2 MODULE_ASCLIN2;
@@ -106,10 +112,12 @@ typedef struct { uint32 reserved; } Ifx_CAN0; extern Ifx_CAN0 MODULE_CAN0;
 typedef struct { uint32 reserved; } Ifx_CAN1; extern Ifx_CAN1 MODULE_CAN1;
 typedef struct { uint32 reserved; } Ifx_CAN2; extern Ifx_CAN2 MODULE_CAN2;
 
-typedef struct { uint32 reserved; } Ifx_CBS; extern Ifx_CBS MODULE_CBS;
+typedef struct { uint32 reserved; } Ifx_CBS;   extern Ifx_CBS MODULE_CBS;
 typedef struct { uint32 reserved; } Ifx_CCU60; extern Ifx_CCU60 MODULE_CCU60;
 typedef struct { uint32 reserved; } Ifx_CCU61; extern Ifx_CCU61 MODULE_CCU61;
+
 typedef struct { uint32 reserved; } Ifx_CONVCTRL; extern Ifx_CONVCTRL MODULE_CONVCTRL;
+
 typedef struct { uint32 reserved; } Ifx_CPU0; extern Ifx_CPU0 MODULE_CPU0;
 typedef struct { uint32 reserved; } Ifx_CPU1; extern Ifx_CPU1 MODULE_CPU1;
 typedef struct { uint32 reserved; } Ifx_CPU2; extern Ifx_CPU2 MODULE_CPU2;
@@ -118,29 +126,38 @@ typedef struct { uint32 reserved; } Ifx_CPU3; extern Ifx_CPU3 MODULE_CPU3;
 typedef struct { uint32 reserved; } Ifx_DAM0; extern Ifx_DAM0 MODULE_DAM0;
 typedef struct { uint32 reserved; } Ifx_DMA;  extern Ifx_DMA MODULE_DMA;
 typedef struct { uint32 reserved; } Ifx_DMU;  extern Ifx_DMU MODULE_DMU;
+
 typedef struct { uint32 reserved; } Ifx_DOM0; extern Ifx_DOM0 MODULE_DOM0;
 typedef struct { uint32 reserved; } Ifx_EDSADC; extern Ifx_EDSADC MODULE_EDSADC;
+
 typedef struct { uint32 reserved; } Ifx_ERAY0; extern Ifx_ERAY0 MODULE_ERAY0;
 typedef struct { uint32 reserved; } Ifx_ERAY1; extern Ifx_ERAY1 MODULE_ERAY1;
+
 typedef struct { uint32 reserved; } Ifx_EVADC; extern Ifx_EVADC MODULE_EVADC;
 typedef struct { uint32 reserved; } Ifx_FCE; extern Ifx_FCE MODULE_FCE;
+
 typedef struct { uint32 reserved; } Ifx_FSI; extern Ifx_FSI MODULE_FSI;
 typedef struct { uint32 reserved; } Ifx_GETH; extern Ifx_GETH MODULE_GETH;
 typedef struct { uint32 reserved; } Ifx_GPT120; extern Ifx_GPT120 MODULE_GPT120;
 
 typedef struct { uint32 reserved; } Ifx_HSCT0; extern Ifx_HSCT0 MODULE_HSCT0;
 typedef struct { uint32 reserved; } Ifx_HSSL0; extern Ifx_HSSL0 MODULE_HSSL0;
+
 typedef struct { uint32 reserved; } Ifx_I2C0; extern Ifx_I2C0 MODULE_I2C0;
 typedef struct { uint32 reserved; } Ifx_I2C1; extern Ifx_I2C1 MODULE_I2C1;
-typedef struct { uint32 reserved; } Ifx_INT; extern Ifx_INT MODULE_INT;
-typedef struct { uint32 reserved; } Ifx_IOM; extern Ifx_IOM MODULE_IOM;
+
+typedef struct { uint32 reserved; } Ifx_INT;  extern Ifx_INT MODULE_INT;
+typedef struct { uint32 reserved; } Ifx_IOM;  extern Ifx_IOM MODULE_IOM;
+
 typedef struct { uint32 reserved; } Ifx_LMU0; extern Ifx_LMU0 MODULE_LMU0;
 typedef struct { uint32 reserved; } Ifx_MINIMCDS; extern Ifx_MINIMCDS MODULE_MINIMCDS;
+
 typedef struct { uint32 reserved; } Ifx_MSC0; extern Ifx_MSC0 MODULE_MSC0;
 typedef struct { uint32 reserved; } Ifx_MSC1; extern Ifx_MSC1 MODULE_MSC1;
 typedef struct { uint32 reserved; } Ifx_MSC2; extern Ifx_MSC2 MODULE_MSC2;
 
 typedef struct { uint32 reserved; } Ifx_MTU; extern Ifx_MTU MODULE_MTU;
+
 typedef struct { uint32 reserved; } Ifx_PFI0; extern Ifx_PFI0 MODULE_PFI0;
 typedef struct { uint32 reserved; } Ifx_PFI1; extern Ifx_PFI1 MODULE_PFI1;
 typedef struct { uint32 reserved; } Ifx_PFI2; extern Ifx_PFI2 MODULE_PFI2;
@@ -148,8 +165,10 @@ typedef struct { uint32 reserved; } Ifx_PFI3; extern Ifx_PFI3 MODULE_PFI3;
 
 typedef struct { uint32 reserved; } Ifx_PMS; extern Ifx_PMS MODULE_PMS;
 typedef struct { uint32 reserved; } Ifx_PMU; extern Ifx_PMU MODULE_PMU;
+
 typedef struct { uint32 reserved; } Ifx_PSI5S; extern Ifx_PSI5S MODULE_PSI5S;
-typedef struct { uint32 reserved; } Ifx_PSI5; extern Ifx_PSI5 MODULE_PSI5;
+typedef struct { uint32 reserved; } Ifx_PSI5;  extern Ifx_PSI5 MODULE_PSI5;
+
 typedef struct { uint32 reserved; } Ifx_QSPI0; extern Ifx_QSPI0 MODULE_QSPI0;
 typedef struct { uint32 reserved; } Ifx_QSPI1; extern Ifx_QSPI1 MODULE_QSPI1;
 typedef struct { uint32 reserved; } Ifx_QSPI2; extern Ifx_QSPI2 MODULE_QSPI2;
@@ -161,16 +180,16 @@ typedef struct { uint32 reserved; } Ifx_SCU;  extern Ifx_SCU MODULE_SCU;
 typedef struct { uint32 reserved; } Ifx_SENT; extern Ifx_SENT MODULE_SENT;
 typedef struct { uint32 reserved; } Ifx_SMU;  extern Ifx_SMU MODULE_SMU;
 typedef struct { uint32 reserved; } Ifx_SRC;  extern Ifx_SRC MODULE_SRC;
+
 typedef struct { uint32 reserved; } Ifx_STM0; extern Ifx_STM0 MODULE_STM0;
 typedef struct { uint32 reserved; } Ifx_STM1; extern Ifx_STM1 MODULE_STM1;
 typedef struct { uint32 reserved; } Ifx_STM2; extern Ifx_STM2 MODULE_STM2;
 typedef struct { uint32 reserved; } Ifx_STM3; extern Ifx_STM3 MODULE_STM3;
 
-/* Spy control API and spy variables (single-owner) */
-
+/* Spy control API and variables (owned here) */
 #define MOCK_MAX_CHANNELS 16
 
-/* Call counters (one per mocked function) */
+/* Call counters */
 extern int mock_IfxGtm_Cmu_setClkFrequency_callCount;
 extern int mock_IfxGtm_Cmu_getModuleFrequency_callCount;
 extern int mock_IfxGtm_Cmu_setGclkFrequency_callCount;
@@ -184,27 +203,29 @@ extern int mock_IfxGtm_isEnabled_callCount;
 extern int mock_IfxGtm_enable_callCount;
 
 extern int mock_IfxPort_setPinModeOutput_callCount;
+extern int mock_IfxPort_togglePin_callCount; /* preserved from previous mock errors */
 
-/* Return-value controls for non-void functions */
-extern float32 mock_IfxGtm_Cmu_getModuleFrequency_returnValue; /* float32 */
-extern boolean mock_IfxGtm_isEnabled_returnValue; /* boolean */
+/* Return-value controls */
+extern float32 mock_IfxGtm_Cmu_getModuleFrequency_returnValue; /* special default used in stub */
+extern boolean mock_IfxGtm_isEnabled_returnValue;
 
 /* Value-capture spy fields */
-extern uint32  mock_IfxGtm_Pwm_init_lastNumChannels;
+extern uint32 mock_IfxGtm_Pwm_init_lastNumChannels;
 extern float32 mock_IfxGtm_Pwm_init_lastFrequency;
-extern uint32  mock_IfxGtm_Pwm_initConfig_lastNumChannels;
+extern uint32 mock_IfxGtm_Pwm_initConfig_lastNumChannels;
 extern float32 mock_IfxGtm_Pwm_initConfig_lastFrequency;
 
 extern float32 mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[MOCK_MAX_CHANNELS];
-extern float32 mock_IfxGtm_Pwm_updateChannelDeadTimeImmediate_lastDtRising[MOCK_MAX_CHANNELS];
-extern float32 mock_IfxGtm_Pwm_updateChannelDeadTimeImmediate_lastDtFalling[MOCK_MAX_CHANNELS];
+extern float32 mock_IfxGtm_Pwm_updateChannelDeadTime_lastDtRising[MOCK_MAX_CHANNELS];
+extern float32 mock_IfxGtm_Pwm_updateChannelDeadTime_lastDtFalling[MOCK_MAX_CHANNELS];
 
-extern uint32 mock_togglePin_callCount;
+/* mock toggle pin counter (explicitly requested) */
+extern int mock_togglePin_callCount;
 
-/* Mock control API */
+/* Mock control functions */
 void mock_gtm_tom_3_phase_inverter_pwm_reset(void);
 
-/* CallCount getters (one per mocked function) */
+/* Getters for call counts (one per mocked function) */
 int mock_IfxGtm_Cmu_setClkFrequency_getCallCount(void);
 int mock_IfxGtm_Cmu_getModuleFrequency_getCallCount(void);
 int mock_IfxGtm_Cmu_setGclkFrequency_getCallCount(void);
@@ -218,8 +239,6 @@ int mock_IfxGtm_isEnabled_getCallCount(void);
 int mock_IfxGtm_enable_getCallCount(void);
 
 int mock_IfxPort_setPinModeOutput_getCallCount(void);
-
-/* Preserve previous spy API names that tests may reference */
-int mock_togglePin_getCallCount(void);
+int mock_IfxPort_togglePin_getCallCount(void);
 
 #endif /* MOCK_GTM_TOM_3_PHASE_INVERTER_PWM_H */
