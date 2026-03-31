@@ -1,16 +1,8 @@
 {
-  "attempt": 7,
-  "phase_attempt": 3,
+  "type": "llm_response",
   "phase": "production",
-  "success": false,
-  "errors": [
-    "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_p8weut6b\\src\\gtm_tom_3_phase_inverter_pwm.c:21:10: fatal error: IfxGtm_PinMap.h: No such file or directory",
-    "implicit declaration of function 'mock_IfxCpu_Irq_installInterruptHandler_getCallCount' [-Wimplicit-function-declaration]",
-    "implicit declaration of function 'mock_IfxGtm_Pwm_startSyncedChannels_getCallCount'; did you mean 'mock_IfxGtm_Pwm_getChannelState_getCallCount'? [-Wimplicit-function-declaration]",
-    "implicit declaration of function 'mock_IfxGtm_Pwm_stopSyncedChannels_getCallCount'; did you mean 'mock_IfxGtm_Pwm_getChannelState_getCallCount'? [-Wimplicit-function-declaration]",
-    "implicit declaration of function 'mock_IfxGtm_Pwm_startChannelOutputs_getCallCount'; did you mean 'mock_IfxGtm_Pwm_getChannelState_getCallCount'? [-Wimplicit-function-declaration]",
-    "implicit declaration of function 'mock_IfxGtm_Pwm_stopChannelOutputs_getCallCount'; did you mean 'mock_IfxGtm_Pwm_getChannelState_getCallCount'? [-Wimplicit-function-declaration]"
-  ],
-  "timestamp": "2026-03-31T14:57:01.377397",
-  "project_name": "Update_KIT_A2G_TC387_5V_TFT_TC38x_project_to_rep_r_20260331_143821"
+  "attempt": 8,
+  "phase_attempt": 4,
+  "response_length": 9847,
+  "timestamp": "2026-03-31T14:59:30.473064"
 }
