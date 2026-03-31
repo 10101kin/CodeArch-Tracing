@@ -2,7 +2,7 @@
   "meta": {
     "schema_version": "1.0",
     "last_updated_by": "sw_architecture",
-    "last_updated_at": "2026-03-31T11:15:00.393197",
+    "last_updated_at": "2026-03-31T11:17:41.779933",
     "build_sequence": [
       "requirements",
       "hardware",

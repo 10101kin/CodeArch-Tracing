@@ -1,13 +1,13 @@
 {
   "export_type": "unified_spec",
-  "export_reason": "manual_json_edit",
+  "export_reason": "reviewer_patch_applied",
   "node_stage": "sw_architecture",
   "reviewer_name": null,
   "reviewer_applied": false,
-  "modified_by": "user",
-  "modifier_name": "guest",
+  "modified_by": "system",
+  "modifier_name": null,
   "workflow_stage": "sw_architecture_validation",
   "target_board": "KIT_A2G_TC387_5V_TFT",
   "generation_mode": "MIGRATION",
-  "timestamp": "2026-03-31T11:15:00.396808"
+  "timestamp": "2026-03-31T11:17:41.781531"
 }
