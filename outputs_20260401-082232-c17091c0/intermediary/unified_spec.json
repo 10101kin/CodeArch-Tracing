@@ -1,10 +1,11 @@
 {
   "meta": {
     "schema_version": "1.0",
-    "last_updated_by": "requirements",
-    "last_updated_at": "2026-04-01T16:22:32.441454",
+    "last_updated_by": "hardware",
+    "last_updated_at": "2026-04-01T16:29:45.792782",
     "build_sequence": [
-      "requirements"
+      "requirements",
+      "hardware"
     ],
     "corrections_log": []
   },
@@ -330,5 +331,177 @@
     },
     "header_documentation_available": true,
     "config_values_extracted": 16
+  },
+  "hardware": {
+    "microcontroller": {
+      "model": "TC387 (516-pin board variant)",
+      "verified": true
+    },
+    "peripheral_instance": {
+      "module": "TOM1.Cluster_1",
+      "channels": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "pin_assignments": [
+      {
+        "signal": "PhaseU_HS",
+        "port_pin": "P02.0",
+        "function": "TOM1_CH0_TOUT",
+        "pin_macro": "",
+        "is_complementary": true,
+        "verified": false,
+        "source": "hardware_verified"
+      },
+      {
+        "signal": "PhaseU_LS",
+        "port_pin": "P02.7",
+        "function": "TOM1_CH1_TOUT",
+        "pin_macro": "",
+        "is_complementary": true,
+        "verified": false,
+        "source": "hardware_verified"
+      },
+      {
+        "signal": "PhaseV_HS",
+        "port_pin": "P02.1",
+        "function": "TOM1_CH2_TOUT",
+        "pin_macro": "",
+        "is_complementary": true,
+        "verified": false,
+        "source": "hardware_verified"
+      },
+      {
+        "signal": "PhaseV_LS",
+        "port_pin": "P02.4",
+        "function": "TOM1_CH3_TOUT",
+        "pin_macro": "",
+        "is_complementary": true,
+        "verified": false,
+        "source": "hardware_verified"
+      },
+      {
+        "signal": "PhaseW_HS",
+        "port_pin": "P02.2",
+        "function": "TOM1_CH4_TOUT",
+        "pin_macro": "",
+        "is_complementary": true,
+        "verified": false,
+        "source": "hardware_verified"
+      },
+      {
+        "signal": "PhaseW_LS",
+        "port_pin": "P02.5",
+        "function": "TOM1_CH5_TOUT",
+        "pin_macro": "",
+        "is_complementary": true,
+        "verified": false,
+        "source": "hardware_verified"
+      },
+      {
+        "signal": "PWM_Period_ISR_Toggle",
+        "port_pin": "P13.0",
+        "function": "GPIO",
+        "pin_macro": "",
+        "is_complementary": false,
+        "verified": true,
+        "source": "hardware_verified"
+      }
+    ],
+    "clock_configuration": {
+      "xtal_frequency_mhz": 20,
+      "system_frequency_mhz": 300
+    },
+    "validation": {
+      "all_verified": false,
+      "conflicts": [
+        "Requested pins on Port 02 (P02.0/P02.7/P02.1/P02.4/P02.2/P02.5) require confirmation in IfxGtm_PinMap_TC38x_516 for TOM1 Cluster_1 TOUT mapping.",
+        "Exact IfxGtm pin macros for the requested P02.* pins are not confirmed in the provided template context; mapping remains TBD.",
+        "Complementary channel pairing planned as (0/1, 2/3, 4/5) per requirement; final TOUT numbers to be verified against the TC38x 516-pin pin map."
+      ],
+      "reference_pins_valid": false
+    },
+    "template_validation": {
+      "supported_peripherals": [
+        "PWM",
+        "GTM",
+        "TIMER",
+        "STM",
+        "GPIO",
+        "ASCLIN",
+        "INTERRUPT"
+      ],
+      "suggested_drivers": {
+        "PWM": [
+          "IfxGtm_Pwm"
+        ],
+        "GTM": [
+          "IfxGtm_Pwm"
+        ],
+        "TIMER": [
+          "IfxGtm_Pwm"
+        ],
+        "STM": [
+          "IfxStm_cfg_TC33x",
+          "IfxStm_cfg_TC33xED",
+          "IfxStm_cfg_TC35x",
+          "IfxStm_cfg_TC36x",
+          "IfxStm_cfg_TC37x",
+          "IfxStm_cfg_TC37xED",
+          "IfxStm_cfg_TC38EVOx",
+          "IfxStm_cfg_TC38x",
+          "IfxStm_cfg_TC39xB",
+          "IfxStm",
+          "IfxStm_Timer"
+        ],
+        "GPIO": [
+          "IfxPort_cfg_TC38x",
+          "IfxPort_cfg_TC33x",
+          "IfxPort_cfg_TC38EVOx",
+          "IfxPort",
+          "IfxPort_cfg_TC33xED",
+          "IfxPort_cfg_TC37xED",
+          "IfxPort_cfg_TC36x",
+          "IfxPort_cfg_TC35x",
+          "IfxPort_cfg_TC39xB",
+          "IfxPort_cfg_TC37x",
+          "IfxPort_Io"
+        ],
+        "ASCLIN": [
+          "IfxAsclin_cfg_TC33x",
+          "IfxAsclin_cfg_TC33xED",
+          "IfxAsclin_cfg_TC35x",
+          "IfxAsclin_cfg_TC36x",
+          "IfxAsclin_cfg_TC37x",
+          "IfxAsclin_cfg_TC37xED",
+          "IfxAsclin_cfg_TC38EVOx",
+          "IfxAsclin_cfg_TC38x",
+          "IfxAsclin_cfg_TC39xB",
+          "IfxAsclin_Asc",
+          "IfxAsclin_Lin",
+          "IfxAsclin_Spi",
+          "IfxAsclin"
+        ],
+        "INTERRUPT": [
+          "IfxCpu_Irq"
+        ],
+        "_driver_selection": {
+          "explicit_target": "IfxGtm_Pwm",
+          "replaced_source": "IfxGtm_Tom_PwmHl",
+          "primary_drivers": [
+            "IfxGtm_Pwm"
+          ],
+          "avoid_drivers": [
+            "IfxGtm_Tom_PwmHl"
+          ]
+        }
+      },
+      "warnings": []
+    }
   }
 }
