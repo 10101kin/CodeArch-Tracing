@@ -1,8 +1,9 @@
 {
-  "type": "llm_response",
-  "phase": "mock",
   "attempt": 1,
   "phase_attempt": 1,
-  "response_length": 47680,
-  "timestamp": "2026-04-01T14:53:02.853328"
+  "phase": "mock_generation",
+  "success": true,
+  "errors": [],
+  "timestamp": "2026-04-01T14:53:13.308524",
+  "project_name": "Generate_consolidated_TC4D7_code_that_replaces_TC3_r_20260401_144730"
 }
