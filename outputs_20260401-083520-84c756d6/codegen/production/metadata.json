@@ -1,8 +1,12 @@
 {
-  "type": "llm_response",
-  "phase": "production",
   "attempt": 3,
   "phase_attempt": 1,
-  "response_length": 12991,
-  "timestamp": "2026-04-01T16:55:34.118305"
+  "phase": "production",
+  "success": false,
+  "errors": [
+    "unknown type name 'float32'; did you mean '_Float32'?",
+    "C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_ejha70o6\\src\\egtm_atom_3_phase_inverter_pwm.c:22:10: fatal error: IfxPort_PinMap.h: No such file or directory"
+  ],
+  "timestamp": "2026-04-01T16:55:44.887910",
+  "project_name": "Migrate_the_TC387_GTM_TOM_EVADC_inverter_to_TC4D_r_20260401_164632"
 }
