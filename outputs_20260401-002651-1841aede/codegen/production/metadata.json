@@ -1,9 +1,13 @@
 {
-  "attempt": 3,
-  "phase_attempt": 1,
-  "phase": "production",
-  "success": true,
-  "errors": [],
-  "timestamp": "2026-04-01T09:58:32.178797",
-  "project_name": "Generate_TC4D7_code_for_KIT_A3G_TC4D7_LITE_that_mi_r_20260401_094643"
+  "export_type": "node_json",
+  "export_reason": "stage_completed",
+  "node_stage": "code_generation",
+  "reviewer_name": null,
+  "reviewer_applied": false,
+  "modified_by": "system",
+  "modifier_name": null,
+  "workflow_stage": "code_generated",
+  "target_board": "KIT_A3G_TC4D7_LITE",
+  "generation_mode": "MIGRATION",
+  "timestamp": "2026-04-01T09:58:38.833547"
 }
