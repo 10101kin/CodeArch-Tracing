@@ -1,3 +1,153 @@
-Status: SUCCESS
+Status: FAILED
 
-LLM response for production phase (attempt 5), 10315 chars
+============================================================
+TDD CODE GENERATION - ATTEMPT STATUS
+============================================================
+Phase: production
+Attempt: 5
+Status: FAILED
+Timestamp: 2026-04-01 09:01:08
+Files generated: 2
+
+============================================================
+
+ERRORS:
+
+1. unknown type name 'IfxApApu_ApuConfig'
+
+2. unknown type name 'IfxApProt_ProtConfig'
+
+3. unknown type name 'IfxApApu_ApuConfig'
+
+4. unknown type name 'IfxApApu_ApuConfig'
+
+5. unknown type name 'IfxApProt_ProtConfig'
+
+6. conflicting types for 'mock_IfxPort_togglePin_callCount'; have 'unsigned int'
+
+7. conflicting types for 'mock_IfxPort_setPinModeOutput_callCount'; have 'unsigned int'
+
+8. conflicting types for 'mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_callCount'; have 'unsigned int'
+
+9. conflicting types for 'mock_IfxEgtm_Pwm_init_callCount'; have 'unsigned int'
+
+10. conflicting types for 'mock_IfxEgtm_Pwm_initConfig_callCount'; have 'unsigned int'
+
+============================================================
+BUILD RESULT:
+{
+  "success": false,
+  "errors": [
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\include/IfxEgtm.h",
+      "line": 35,
+      "category": "error",
+      "message": "unknown type name 'IfxApApu_ApuConfig'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\include/IfxEgtm.h",
+      "line": 39,
+      "category": "error",
+      "message": "unknown type name 'IfxApProt_ProtConfig'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\include/IfxEgtm.h",
+      "line": 40,
+      "category": "error",
+      "message": "unknown type name 'IfxApApu_ApuConfig'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\include/IfxEgtm.h",
+      "line": 44,
+      "category": "error",
+      "message": "unknown type name 'IfxApApu_ApuConfig'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\include/IfxEgtm.h",
+      "line": 52,
+      "category": "error",
+      "message": "unknown type name 'IfxApProt_ProtConfig'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+      "line": 25,
+      "category": "error",
+      "message": "conflicting types for 'mock_IfxPort_togglePin_callCount'; have 'unsigned int'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+      "line": 26,
+      "category": "error",
+      "message": "conflicting types for 'mock_IfxPort_setPinModeOutput_callCount'; have 'unsigned int'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+      "line": 27,
+      "category": "error",
+      "message": "conflicting types for 'mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_callCount'; have 'unsigned int'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+      "line": 28,
+      "category": "error",
+      "message": "conflicting types for 'mock_IfxEgtm_Pwm_init_callCount'; have 'unsigned int'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+      "line": 29,
+      "category": "error",
+      "message": "conflicting types for 'mock_IfxEgtm_Pwm_initConfig_callCount'; have 'unsigned int'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+      "line": 30,
+      "category": "error",
+      "message": "conflicting types for 'mock_IfxEgtm_Cmu_enableClocks_callCount'; have 'unsigned int'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+      "line": 31,
+      "category": "error",
+      "message": "conflicting types for 'mock_IfxEgtm_Cmu_setClkFrequency_callCount'; have 'unsigned int'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+      "line": 32,
+      "category": "error",
+      "message": "conflicting types for 'mock_IfxEgtm_Cmu_getModuleFrequency_callCount'; have 'unsigned int'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+      "line": 33,
+      "category": "error",
+      "message": "conflicting types for 'mock_IfxEgtm_Cmu_setGclkFrequency_callCount'; have 'unsigned int'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+      "line": 34,
+      "category": "error",
+      "message": "conflicting types for 'mock_IfxEgtm_enable_callCount'; have 'unsigned int'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+      "line": 35,
+      "category": "error",
+      "message": "conflicting types for 'mock_IfxEgtm_isEnabled_callCount'; have 'unsigned int'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+      "line": 36,
+      "category": "error",
+      "message": "conflicting types for 'mock_togglePin_callCount'; have 'unsigned int'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\test\\test_egtm_atom_3_phase_inverter_pwm.c",
+      "line": 42,
+      "category": "error",
+      "message": "conflicting types for 'mock_IfxEgtm_Cmu_getModuleFrequency_returnValue'; have 'unsigned int'"
+    }
+  ],
+  "warnings": [],
+  "stderr": "In file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\include/IfxEgtm_Pwm.h:5,\n                 from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\src\\egtm_atom_3_phase_inverter_pwm.c:19:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\include/IfxEgtm.h:35:5: error: unknown type name 'IfxApApu_ApuConfig'\n   35 |     IfxApApu_ApuConfig apuConfig;\n      |     ^~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\include/IfxEgtm.h:39:5: error: unknown type name 'IfxApProt_ProtConfig'\n   39 |     IfxApProt_ProtConfig proteConfig;\n      |     ^~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\include/IfxEgtm.h:40:5: error: unknown type name 'IfxApApu_ApuConfig'\n   40 |     IfxApApu_ApuConfig   apuConfig;\n      |     ^~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\include/IfxEgtm.h:44:5: error: unknown type name 'IfxApApu_ApuConfig'\n   44 |     IfxApApu_ApuConfig apuConfig;\n      |     ^~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\include/IfxEgtm.h:52:5: error: unknown type name 'IfxApProt_ProtConfig'\n   52 |     IfxApProt_ProtConfig protseConfig;\n      |     ^~~~~~~~~~~~~~~~~~~~\n\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\test\\test_egtm_atom_3_phase_inverter_pwm.c:25:21: error: conflicting types for 'mock_IfxPort_togglePin_callCount'; have 'unsigned int'\n   25 | extern unsigned int mock_IfxPort_togglePin_callCount;\n      |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\test\\test_egtm_atom_3_phase_inverter_pwm.c:2:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\include/mock_egtm_atom_3_phase_inverter_pwm.h:88:12: note: previous declaration of 'mock_IfxPort_togglePin_callCount' with type 'int'\n   88 | extern int mock_IfxPort_togglePin_callCount;\n      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\test\\test_egtm_atom_3_phase_inverter_pwm.c:26:21: error: conflicting types for 'mock_IfxPort_setPinModeOutput_callCount'; have 'unsigned int'\n   26 | extern unsigned int mock_IfxPort_setPinModeOutput_callCount;\n      |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\include/mock_egtm_atom_3_phase_inverter_pwm.h:89:12: note: previous declaration of 'mock_IfxPort_setPinModeOutput_callCount' with type 'int'\n   89 | extern int mock_IfxPort_setPinModeOutput_callCount;\n      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\test\\test_egtm_atom_3_phase_inverter_pwm.c:27:21: error: conflicting types for 'mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_callCount'; have 'unsigned int'\n   27 | extern unsigned int mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_callCount;\n      |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\include/mock_egtm_atom_3_phase_inverter_pwm.h:90:12: note: previous declaration of 'mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_callCount' with type 'int'\n   90 | extern int mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_callCount;\n      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\test\\test_egtm_atom_3_phase_inverter_pwm.c:28:21: error: conflicting types for 'mock_IfxEgtm_Pwm_init_callCount'; have 'unsigned int'\n   28 | extern unsigned int mock_IfxEgtm_Pwm_init_callCount;\n      |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\include/mock_egtm_atom_3_phase_inverter_pwm.h:91:12: note: previous declaration of 'mock_IfxEgtm_Pwm_init_callCount' with type 'int'\n   91 | extern int mock_IfxEgtm_Pwm_init_callCount;\n      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\test\\test_egtm_atom_3_phase_inverter_pwm.c:29:21: error: conflicting types for 'mock_IfxEgtm_Pwm_initConfig_callCount'; have 'unsigned int'\n   29 | extern unsigned int mock_IfxEgtm_Pwm_initConfig_callCount;\n      |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\include/mock_egtm_atom_3_phase_inverter_pwm.h:92:12: note: previous declaration of 'mock_IfxEgtm_Pwm_initConfig_callCount' with type 'int'\n   92 | extern int mock_IfxEgtm_Pwm_initConfig_callCount;\n      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\test\\test_egtm_atom_3_phase_inverter_pwm.c:30:21: error: conflicting types for 'mock_IfxEgtm_Cmu_enableClocks_callCount'; have 'unsigned int'\n   30 | extern unsigned int mock_IfxEgtm_Cmu_enableClocks_callCount;\n      |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\include/mock_egtm_atom_3_phase_inverter_pwm.h:93:12: note: previous declaration of 'mock_IfxEgtm_Cmu_enableClocks_callCount' with type 'int'\n   93 | extern int mock_IfxEgtm_Cmu_enableClocks_callCount;\n      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\test\\test_egtm_atom_3_phase_inverter_pwm.c:31:21: error: conflicting types for 'mock_IfxEgtm_Cmu_setClkFrequency_callCount'; have 'unsigned int'\n   31 | extern unsigned int mock_IfxEgtm_Cmu_setClkFrequency_callCount;\n      |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\include/mock_egtm_atom_3_phase_inverter_pwm.h:94:12: note: previous declaration of 'mock_IfxEgtm_Cmu_setClkFrequency_callCount' with type 'int'\n   94 | extern int mock_IfxEgtm_Cmu_setClkFrequency_callCount;\n      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\test\\test_egtm_atom_3_phase_inverter_pwm.c:32:21: error: conflicting types for 'mock_IfxEgtm_Cmu_getModuleFrequency_callCount'; have 'unsigned int'\n   32 | extern unsigned int mock_IfxEgtm_Cmu_getModuleFrequency_callCount;\n      |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\include/mock_egtm_atom_3_phase_inverter_pwm.h:95:12: note: previous declaration of 'mock_IfxEgtm_Cmu_getModuleFrequency_callCount' with type 'int'\n   95 | extern int mock_IfxEgtm_Cmu_getModuleFrequency_callCount;\n      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\test\\test_egtm_atom_3_phase_inverter_pwm.c:33:21: error: conflicting types for 'mock_IfxEgtm_Cmu_setGclkFrequency_callCount'; have 'unsigned int'\n   33 | extern unsigned int mock_IfxEgtm_Cmu_setGclkFrequency_callCount;\n      |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\include/mock_egtm_atom_3_phase_inverter_pwm.h:96:12: note: previous declaration of 'mock_IfxEgtm_Cmu_setGclkFrequency_callCount' with type 'int'\n   96 | extern int mock_IfxEgtm_Cmu_setGclkFrequency_callCount;\n      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\test\\test_egtm_atom_3_phase_inverter_pwm.c:34:21: error: conflicting types for 'mock_IfxEgtm_enable_callCount'; have 'unsigned int'\n   34 | extern unsigned int mock_IfxEgtm_enable_callCount;\n      |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\include/mock_egtm_atom_3_phase_inverter_pwm.h:97:12: note: previous declaration of 'mock_IfxEgtm_enable_callCount' with type 'int'\n   97 | extern int mock_IfxEgtm_enable_callCount;\n      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\test\\test_egtm_atom_3_phase_inverter_pwm.c:35:21: error: conflicting types for 'mock_IfxEgtm_isEnabled_callCount'; have 'unsigned int'\n   35 | extern unsigned int mock_IfxEgtm_isEnabled_callCount;\n      |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\include/mock_egtm_atom_3_phase_inverter_pwm.h:98:12: note: previous declaration of 'mock_IfxEgtm_isEnabled_callCount' with type 'int'\n   98 | extern int mock_IfxEgtm_isEnabled_callCount;\n      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\test\\test_egtm_atom_3_phase_inverter_pwm.c:36:21: error: conflicting types for 'mock_togglePin_callCount'; have 'unsigned int'\n   36 | extern unsigned int mock_togglePin_callCount;\n      |                     ^~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\include/mock_egtm_atom_3_phase_inverter_pwm.h:104:12: note: previous declaration of 'mock_togglePin_callCount' with type 'int'\n  104 | extern int mock_togglePin_callCount;\n      |            ^~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\test\\test_egtm_atom_3_phase_inverter_pwm.c:42:21: error: conflicting types for 'mock_IfxEgtm_Cmu_getModuleFrequency_returnValue'; have 'unsigned int'\n   42 | extern unsigned int mock_IfxEgtm_Cmu_getModuleFrequency_returnValue;\n      |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_zs7jrf5h\\include/mock_egtm_atom_3_phase_inverter_pwm.h:107:16: note: previous declaration of 'mock_IfxEgtm_Cmu_getModuleFrequency_returnValue' with type 'float32' {aka 'float'}\n  107 | extern float32 mock_IfxEgtm_Cmu_getModuleFrequency_returnValue;\n      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n",
+  "stdout": ""
+}
