@@ -1,0 +1,13 @@
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_gt9xuinm\src\gtm_tom_3_phase_inverter_pwm.c:16:10: fatal error: Gtm/Pwm/IfxGtm_Pwm.h: No such file or directory
+   16 | #include "Gtm/Pwm/IfxGtm_Pwm.h"
+      |          ^~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+
+In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_gt9xuinm\mocks\mock_gtm_tom_3_phase_inverter_pwm.c:5:
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_gt9xuinm\include/IfxGtm_Tom_Timer.h:32:34: error: conflicting types for 'IfxGtm_Tom_ToutMap'; have 'struct <anonymous>'
+   32 | typedef struct { uint32 dummy; } IfxGtm_Tom_ToutMap;
+      |                                  ^~~~~~~~~~~~~~~~~~
+In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_gt9xuinm\mocks\mock_gtm_tom_3_phase_inverter_pwm.c:4:
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_gt9xuinm\include/IfxGtm_Pwm.h:11:34: note: previous declaration of 'IfxGtm_Tom_ToutMap' with type 'IfxGtm_Tom_ToutMap'
+   11 | typedef struct { uint32 dummy; } IfxGtm_Tom_ToutMap;
+      |                                  ^~~~~~~~~~~~~~~~~~
