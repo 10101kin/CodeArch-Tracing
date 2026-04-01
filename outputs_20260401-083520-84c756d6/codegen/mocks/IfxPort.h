@@ -3,8 +3,7 @@
 
 #include "mock_egtm_atom_3_phase_inverter_pwm.h"
 
-/* Enums and types required by IfxPort */
-
+/* Enums */
 typedef enum {
     IfxPort_ControlledBy_port = 0,
     IfxPort_ControlledBy_hsct = 1
@@ -96,9 +95,15 @@ typedef enum {
     IfxPort_OutputMode_openDrain = ((1U << 1U) | 1U)
 } IfxPort_OutputMode;
 
-typedef enum { IfxPort_PadSupply_3v = 0, IfxPort_PadSupply_5v = 1 } IfxPort_PadSupply;
+typedef enum {
+    IfxPort_PadSupply_3v = 0,
+    IfxPort_PadSupply_5v = 1
+} IfxPort_PadSupply;
 
-typedef enum { IfxPort_PinFunctionMode_digital = 0, IfxPort_PinFunctionMode_analog = 1 } IfxPort_PinFunctionMode;
+typedef enum {
+    IfxPort_PinFunctionMode_digital = 0,
+    IfxPort_PinFunctionMode_analog  = 1
+} IfxPort_PinFunctionMode;
 
 typedef enum {
     IfxPort_State_notChanged = (0 << 16) | (0 << 0),
@@ -133,17 +138,35 @@ typedef enum {
     IfxPort_BlankingTimerConfig_7ms = 3
 } IfxPort_BlankingTimerConfig;
 
-typedef enum { IfxPort_EsrLevel_0 = 0, IfxPort_EsrLevel_1 } IfxPort_EsrLevel;
+typedef enum {
+    IfxPort_EsrLevel_0 = 0
+} IfxPort_EsrLevel;
 
-typedef enum { IfxPort_EsrPadCfg_PP = 0, IfxPort_EsrPadCfg_TPU = 1, IfxPort_EsrPadCfg_TPD = 2 } IfxPort_EsrPadCfg;
+typedef enum {
+    IfxPort_EsrPadCfg_PP  = 0,
+    IfxPort_EsrPadCfg_TPU = 1,
+    IfxPort_EsrPadCfg_TPD = 2
+} IfxPort_EsrPadCfg;
 
-typedef enum { IfxPort_LvdsDirection_rx = 0, IfxPort_LvdsDirection_tx = 1 } IfxPort_LvdsDirection;
+typedef enum {
+    IfxPort_LvdsDirection_rx = 0,
+    IfxPort_LvdsDirection_tx = 1
+} IfxPort_LvdsDirection;
 
-typedef enum { IfxPort_LvdsPath_enable = 0, IfxPort_LvdsPath_disable = 1 } IfxPort_LvdsPath;
+typedef enum {
+    IfxPort_LvdsPath_enable  = 0,
+    IfxPort_LvdsPath_disable = 1
+} IfxPort_LvdsPath;
 
-typedef enum { IfxPort_LvdsPullDown_disable = 0, IfxPort_LvdsPullDown_enable = 1 } IfxPort_LvdsPullDown;
+typedef enum {
+    IfxPort_LvdsPullDown_disable = 0,
+    IfxPort_LvdsPullDown_enable  = 1
+} IfxPort_LvdsPullDown;
 
-typedef enum { IfxPort_LvdsTerminationMode_external = 0, IfxPort_LvdsTerminationMode_internal = 1 } IfxPort_LvdsTerminationMode;
+typedef enum {
+    IfxPort_LvdsTerminationMode_external = 0,
+    IfxPort_LvdsTerminationMode_internal = 1
+} IfxPort_LvdsTerminationMode;
 
 typedef enum {
     IfxPort_PadAccessGroup_PadAccessGroup0 = 0,
@@ -167,14 +190,6 @@ typedef enum {
     IfxPort_PadDriver_ttl3v3Speed2         = (3 << 3) | (1 << 0),
     IfxPort_PadDriver_ttl3v3Speed3         = (3 << 3) | (2 << 0)
 } IfxPort_PadDriver;
-
-/* Additional size macros for group configs */
-#ifndef IFXPORT_NUM_APU
-# define IFXPORT_NUM_APU 1
-#endif
-#ifndef IFXPORT_NUM_PINS
-# define IFXPORT_NUM_PINS 1
-#endif
 
 /* Structs */
 typedef struct {
@@ -215,7 +230,7 @@ typedef struct {
     IfxApProt_ProtConfig protseConfig;
 } IfxPort_ProtConfig;
 
-/* Functions (only those needed by tests) */
+/* Functions used by production/tests */
 void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
 void IfxPort_togglePin(Ifx_P *port, uint8 pinIndex);
 

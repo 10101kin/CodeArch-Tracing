@@ -3,15 +3,7 @@
 
 #include "mock_egtm_atom_3_phase_inverter_pwm.h"
 
-/* Local placeholder peer types used by AE/AP config structs */
-typedef struct { uint32 dummy; } IfxApApu_ApuConfig;
-typedef struct { uint32 dummy; } IfxApProt_ProtConfig;
-
-#ifndef IFXEGTM_NUM_CCM_OBJECTS
-# define IFXEGTM_NUM_CCM_OBJECTS 3
-#endif
-
-/* Enums required */
+/* Enums */
 typedef enum {
     IfxEgtm_AeiBridgeOpMode_sync  = 0u,
     IfxEgtm_AeiBridgeOpMode_async = 1u
@@ -43,13 +35,13 @@ typedef enum {
     IfxEgtm_SuspendMode_soft = 2
 } IfxEgtm_SuspendMode;
 
-/* Minimal MSC config enums used by IfxEgtm_MscOut */
-typedef enum { IfxEgtm_Cfg_MscSet_a = 0 } IfxEgtm_Cfg_MscSet;
+/* Placeholder MSC configuration enums referenced by IfxEgtm_MscOut */
+typedef enum { IfxEgtm_Cfg_MscSet_0 = 0 }       IfxEgtm_Cfg_MscSet;
 typedef enum { IfxEgtm_Cfg_MscSetSignal_0 = 0 } IfxEgtm_Cfg_MscSetSignal;
-typedef enum { IfxEgtm_Cfg_MscModule_0 = 0 } IfxEgtm_Cfg_MscModule;
-typedef enum { IfxEgtm_Cfg_MscSelect_0 = 0 } IfxEgtm_Cfg_MscSelect;
+typedef enum { IfxEgtm_Cfg_MscModule_0 = 0 }    IfxEgtm_Cfg_MscModule;
+typedef enum { IfxEgtm_Cfg_MscSelect_0 = 0 }    IfxEgtm_Cfg_MscSelect;
 
-/* Structs required */
+/* Structs */
 typedef struct {
     IfxApApu_ApuConfig apuConfig;
 } IfxEgtm_ClApConfig;
@@ -78,8 +70,8 @@ typedef struct {
     IfxEgtm_MscAltInput      mscAltIn;
 } IfxEgtm_MscOut;
 
-/* Enable / status functions */
-boolean IfxEgtm_isEnabled(Ifx_EGTM *egtm);
+/* Minimal API used by production */
 void    IfxEgtm_enable(Ifx_EGTM *egtm);
+boolean IfxEgtm_isEnabled(Ifx_EGTM *egtm);
 
 #endif /* IFXEGTM_H */
