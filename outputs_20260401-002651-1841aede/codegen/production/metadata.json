@@ -1,20 +1,8 @@
 {
-  "attempt": 5,
-  "phase_attempt": 2,
+  "type": "llm_response",
   "phase": "production",
-  "success": false,
-  "errors": [
-    "unknown type name 'IfxApApu_ApuConfig'",
-    "unknown type name 'IfxApProt_ProtConfig'",
-    "unknown type name 'IfxApApu_ApuConfig'",
-    "unknown type name 'IfxApApu_ApuConfig'",
-    "unknown type name 'IfxApProt_ProtConfig'",
-    "conflicting types for 'mock_IfxPort_togglePin_callCount'; have 'unsigned int'",
-    "conflicting types for 'mock_IfxPort_setPinModeOutput_callCount'; have 'unsigned int'",
-    "conflicting types for 'mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_callCount'; have 'unsigned int'",
-    "conflicting types for 'mock_IfxEgtm_Pwm_init_callCount'; have 'unsigned int'",
-    "conflicting types for 'mock_IfxEgtm_Pwm_initConfig_callCount'; have 'unsigned int'"
-  ],
-  "timestamp": "2026-04-01T09:01:08.988832",
-  "project_name": "Generate_TC4D7_code_for_KIT_A3G_TC4D7_LITE_that_mi_r_20260401_083940"
+  "attempt": 3,
+  "phase_attempt": 1,
+  "response_length": 11225,
+  "timestamp": "2026-04-01T09:58:12.820700"
 }
