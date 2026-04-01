@@ -1,3 +1,64 @@
-Status: SUCCESS
+Status: FAILED
 
-LLM response for production phase (attempt 3), 12573 chars
+============================================================
+TDD CODE GENERATION - ATTEMPT STATUS
+============================================================
+Phase: production
+Attempt: 3
+Status: FAILED
+Timestamp: 2026-04-01 12:34:29
+Files generated: 2
+
+============================================================
+
+ERRORS:
+
+1. conflicting types for 'IfxGtm_Tom_ToutMap'; have 'struct <anonymous>'
+
+2. conflicting types for 'Ifx_GTM_TOM'; have 'struct <anonymous>'
+
+3. C:\Users\extsiyv\AppData\Local\Temp\tdd_build_di53ei7y\src\gtm_tom_3_phase_inverter_pwm.c:21:10: fatal error: IfxPort_Pinmap.h: No such file or directory
+
+4. conflicting types for 'IfxGtm_Tom_ToutMap'; have 'struct <anonymous>'
+
+5. conflicting types for 'Ifx_GTM_TOM'; have 'struct <anonymous>'
+
+============================================================
+BUILD RESULT:
+{
+  "success": false,
+  "errors": [
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_di53ei7y\\include/IfxGtm_Tom_Timer.h",
+      "line": 17,
+      "category": "error",
+      "message": "conflicting types for 'IfxGtm_Tom_ToutMap'; have 'struct <anonymous>'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_di53ei7y\\include/IfxGtm_Tom_Timer.h",
+      "line": 21,
+      "category": "error",
+      "message": "conflicting types for 'Ifx_GTM_TOM'; have 'struct <anonymous>'"
+    },
+    {
+      "file": "",
+      "message": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_di53ei7y\\src\\gtm_tom_3_phase_inverter_pwm.c:21:10: fatal error: IfxPort_Pinmap.h: No such file or directory",
+      "category": "error"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_di53ei7y\\include/IfxGtm_Tom_Timer.h",
+      "line": 17,
+      "category": "error",
+      "message": "conflicting types for 'IfxGtm_Tom_ToutMap'; have 'struct <anonymous>'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_di53ei7y\\include/IfxGtm_Tom_Timer.h",
+      "line": 21,
+      "category": "error",
+      "message": "conflicting types for 'Ifx_GTM_TOM'; have 'struct <anonymous>'"
+    }
+  ],
+  "warnings": [],
+  "stderr": "In file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_di53ei7y\\src\\gtm_tom_3_phase_inverter_pwm.c:17:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_di53ei7y\\include/IfxGtm_Tom_Timer.h:17:34: error: conflicting types for 'IfxGtm_Tom_ToutMap'; have 'struct <anonymous>'\n   17 | typedef struct { uint32 dummy; } IfxGtm_Tom_ToutMap;\n      |                                  ^~~~~~~~~~~~~~~~~~\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_di53ei7y\\src\\gtm_tom_3_phase_inverter_pwm.c:16:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_di53ei7y\\include/IfxGtm_Pwm.h:15:34: note: previous declaration of 'IfxGtm_Tom_ToutMap' with type 'IfxGtm_Tom_ToutMap'\n   15 | typedef struct { uint32 dummy; } IfxGtm_Tom_ToutMap;\n      |                                  ^~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_di53ei7y\\include/IfxGtm_Tom_Timer.h:21:37: error: conflicting types for 'Ifx_GTM_TOM'; have 'struct <anonymous>'\n   21 | typedef struct { uint32 reserved; } Ifx_GTM_TOM;\n      |                                     ^~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_di53ei7y\\include/IfxGtm_Pwm.h:10:37: note: previous declaration of 'Ifx_GTM_TOM' with type 'Ifx_GTM_TOM'\n   10 | typedef struct { uint32 reserved; } Ifx_GTM_TOM;\n      |                                     ^~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_di53ei7y\\src\\gtm_tom_3_phase_inverter_pwm.c:21:10: fatal error: IfxPort_Pinmap.h: No such file or directory\n   21 | #include \"IfxPort_Pinmap.h\"\n      |          ^~~~~~~~~~~~~~~~~~\ncompilation terminated.\n\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_di53ei7y\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c:6:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_di53ei7y\\include/IfxGtm_Tom_Timer.h:17:34: error: conflicting types for 'IfxGtm_Tom_ToutMap'; have 'struct <anonymous>'\n   17 | typedef struct { uint32 dummy; } IfxGtm_Tom_ToutMap;\n      |                                  ^~~~~~~~~~~~~~~~~~\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_di53ei7y\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c:5:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_di53ei7y\\include/IfxGtm_Pwm.h:15:34: note: previous declaration of 'IfxGtm_Tom_ToutMap' with type 'IfxGtm_Tom_ToutMap'\n   15 | typedef struct { uint32 dummy; } IfxGtm_Tom_ToutMap;\n      |                                  ^~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_di53ei7y\\include/IfxGtm_Tom_Timer.h:21:37: error: conflicting types for 'Ifx_GTM_TOM'; have 'struct <anonymous>'\n   21 | typedef struct { uint32 reserved; } Ifx_GTM_TOM;\n      |                                     ^~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_di53ei7y\\include/IfxGtm_Pwm.h:10:37: note: previous declaration of 'Ifx_GTM_TOM' with type 'Ifx_GTM_TOM'\n   10 | typedef struct { uint32 reserved; } Ifx_GTM_TOM;\n      |                                     ^~~~~~~~~~~\n",
+  "stdout": ""
+}
