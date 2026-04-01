@@ -2,106 +2,96 @@
 #include "mock_egtm_atom_3_phase_inverter_pwm.h"
 #include "egtm_atom_3_phase_inverter_pwm.h"
 
-/* Extern declarations for ISR and period callback implemented in production .c */
+/* Extern declarations for ISR and callback defined in production .c */
 extern void interruptEgtmAtom(void);
 extern void IfxEgtm_periodEventFunction(void *data);
 
 /* Duplicate config values as UT_ macros for self-documenting tests */
-#define UT_FLOAT_EPSILON                  (1e-4f)
-#define UT_NUM_CHANNELS                   (3)
-#define UT_PWM_FREQ_HZ                    (20000.0f)
-#define UT_INIT_DUTY_U_PERCENT            (25.0f)
-#define UT_INIT_DUTY_V_PERCENT            (50.0f)
-#define UT_INIT_DUTY_W_PERCENT            (75.0f)
-#define UT_STEP_PERCENT                   (10.0f)
-#define UT_DT_RISING_US                   (1.0f)
-#define UT_DT_FALLING_US                  (1.0f)
-#define UT_ISR_PRIORITY                   (20)
-#define UT_CMU_TARGET_FREQ_HZ             (100000000u)
+#define UT_FLOAT_EPSILON                (1e-4f)
+#define UT_NUM_CHANNELS                 (3)
+#define UT_PWM_FREQUENCY_HZ             (20000.0f)
+#define UT_INIT_DUTY_U_PERCENT          (25.0f)
+#define UT_INIT_DUTY_V_PERCENT          (50.0f)
+#define UT_INIT_DUTY_W_PERCENT          (75.0f)
+#define UT_STEP_PERCENT                 (10.0f)
+#define UT_DEADTIME_RISE_US             (1.0f)
+#define UT_DEADTIME_FALL_US             (1.0f)
+#define UT_ISR_PRIORITY                 (20)
+#define UT_CMU_TARGET_FREQ_HZ           (100000000U)
 
-void setUp(void)   { mock_egtm_atom_3_phase_inverter_pwm_reset(); }
+void setUp(void) { 
+    mock_egtm_atom_3_phase_inverter_pwm_reset(); 
+}
+
 void tearDown(void) {}
 
-/* ========================================= */
-/* GROUP 1 - initEgtmAtom3phInv: init/enable guard */
-/* ========================================= */
-void test_TC_G1_001_init_enables_and_configures_when_disabled(void)
-{
+/* GROUP 1 - initEgtmAtom3phInv: initialization / enable guard */
+void test_TC_01_001_Init_PeripheralDisabled_ConfiguresAndEnablesClocks(void) {
     /* Arrange */
-    mock_IfxEgtm_isEnabled_returnValue = FALSE; /* eGTM disabled → enable path taken */
+    mock_IfxEgtm_isEnabled_returnValue = FALSE; /* eGTM disabled path */
     mock_IfxEgtm_Cmu_getModuleFrequency_returnValue = UT_CMU_TARGET_FREQ_HZ;
 
     /* Act */
     initEgtmAtom3phInv();
 
-    /* Assert - target API usage and clock setup on disabled path */
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1u, mock_IfxEgtm_Pwm_initConfig_getCallCount(), "IfxEgtm_Pwm_initConfig must be called once");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1u, mock_IfxEgtm_isEnabled_getCallCount(),       "IfxEgtm_isEnabled must be queried once");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1u, mock_IfxEgtm_enable_getCallCount(),          "IfxEgtm_enable must be called when module is disabled");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1u, mock_IfxEgtm_Cmu_getModuleFrequency_getCallCount(), "CMU module frequency must be read once");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1u, mock_IfxEgtm_Cmu_setGclkFrequency_getCallCount(),   "GCLK frequency must be set once");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1u, mock_IfxEgtm_Cmu_setClkFrequency_getCallCount(),    "CLK0 frequency must be set once");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1u, mock_IfxEgtm_Cmu_enableClocks_getCallCount(),       "CMU clocks must be enabled once");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1u, mock_IfxEgtm_Pwm_init_getCallCount(),                "IfxEgtm_Pwm_init must be called once");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1u, mock_IfxPort_setPinModeOutput_getCallCount(),        "LED GPIO must be configured as push-pull output");
+    /* Assert */
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxEgtm_Pwm_initConfig_getCallCount(), "initConfig should be called exactly once");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxEgtm_isEnabled_getCallCount(), "isEnabled should be queried once");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxEgtm_enable_getCallCount(), "enable should be called when module is disabled");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxEgtm_Cmu_getModuleFrequency_getCallCount(), "getModuleFrequency should be called once in enable path");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxEgtm_Cmu_enableClocks_getCallCount(), "CMU clocks should be enabled in enable path");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxEgtm_Pwm_init_getCallCount(), "Pwm_init should be called exactly once");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxEgtm_Cmu_setGclkFrequency_getCallCount(), "GCLK frequency should be configured once in enable path");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxEgtm_Cmu_setClkFrequency_getCallCount(), "CLK0 frequency should be configured once in enable path");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxPort_setPinModeOutput_getCallCount(), "LED GPIO should be configured as output once");
 }
 
-void test_TC_G1_002_init_skips_enable_and_cmu_when_already_enabled(void)
-{
+void test_TC_01_002_Init_PeripheralAlreadyEnabled_SkipsEnableAndClockSetup(void) {
     /* Arrange */
-    mock_IfxEgtm_isEnabled_returnValue = TRUE;  /* eGTM already enabled → skip enable path */
-    mock_IfxEgtm_Cmu_getModuleFrequency_returnValue = UT_CMU_TARGET_FREQ_HZ;
+    mock_IfxEgtm_isEnabled_returnValue = TRUE; /* already enabled */
 
     /* Act */
     initEgtmAtom3phInv();
 
-    /* Assert - still calls init APIs but skips enable/CMU */
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1u, mock_IfxEgtm_Pwm_initConfig_getCallCount(), "IfxEgtm_Pwm_initConfig must be called once");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1u, mock_IfxEgtm_isEnabled_getCallCount(),       "IfxEgtm_isEnabled must be queried once");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0u, mock_IfxEgtm_enable_getCallCount(),          "IfxEgtm_enable must NOT be called when already enabled");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0u, mock_IfxEgtm_Cmu_getModuleFrequency_getCallCount(), "CMU frequency read must be skipped when already enabled");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0u, mock_IfxEgtm_Cmu_setGclkFrequency_getCallCount(),   "GCLK frequency set must be skipped when already enabled");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0u, mock_IfxEgtm_Cmu_setClkFrequency_getCallCount(),    "CLK0 frequency set must be skipped when already enabled");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0u, mock_IfxEgtm_Cmu_enableClocks_getCallCount(),       "CMU enable clocks must be skipped when already enabled");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1u, mock_IfxEgtm_Pwm_init_getCallCount(),                "IfxEgtm_Pwm_init must still be called once");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1u, mock_IfxPort_setPinModeOutput_getCallCount(),        "LED GPIO must be configured as push-pull output");
+    /* Assert */
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxEgtm_isEnabled_getCallCount(), "isEnabled should be checked once");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxEgtm_enable_getCallCount(), "enable should not be called when already enabled");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxEgtm_Cmu_getModuleFrequency_getCallCount(), "getModuleFrequency should not be called when already enabled");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxEgtm_Cmu_enableClocks_getCallCount(), "enableClocks should not be called when already enabled");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxEgtm_Cmu_setGclkFrequency_getCallCount(), "setGclkFrequency should not be called when already enabled");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0, mock_IfxEgtm_Cmu_setClkFrequency_getCallCount(), "setClkFrequency should not be called when already enabled");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxEgtm_Pwm_initConfig_getCallCount(), "initConfig should be called exactly once");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxEgtm_Pwm_init_getCallCount(), "Pwm_init should be called exactly once");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxPort_setPinModeOutput_getCallCount(), "LED GPIO should be configured as output once");
 }
 
-/* ========================================= */
 /* GROUP 2 - initEgtmAtom3phInv: configuration values */
-/* ========================================= */
-void test_TC_G2_001_init_sets_frequency_and_num_channels(void)
-{
+void test_TC_02_001_Init_SetsFrequencyAndChannelCount(void) {
+    /* Arrange */
+    mock_IfxEgtm_isEnabled_returnValue = TRUE; /* focus on config spies */
+
+    /* Act */
+    initEgtmAtom3phInv();
+
+    /* Assert */
+    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, UT_PWM_FREQUENCY_HZ, mock_IfxEgtm_Pwm_init_lastFrequency, "PWM switching frequency should be 20 kHz");
+    TEST_ASSERT_EQUAL_INT_MESSAGE(UT_NUM_CHANNELS, mock_IfxEgtm_Pwm_init_lastNumChannels, "Number of logical channels should be 3 for 3-phase");
+}
+
+void test_TC_02_002_Init_CallsInitConfigAndInitExactlyOnce(void) {
     /* Arrange */
     mock_IfxEgtm_isEnabled_returnValue = TRUE;
 
     /* Act */
     initEgtmAtom3phInv();
 
-    /* Assert - verify config captured at init() time */
-    TEST_ASSERT_EQUAL_INT_MESSAGE(UT_NUM_CHANNELS, mock_IfxEgtm_Pwm_init_lastNumChannels, "Number of PWM logical channels must be 3 (U,V,W)");
-    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, UT_PWM_FREQ_HZ, mock_IfxEgtm_Pwm_init_lastFrequency, "PWM switching frequency must be 20 kHz");
+    /* Assert */
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxEgtm_Pwm_initConfig_getCallCount(), "initConfig should be called exactly once");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxEgtm_Pwm_init_getCallCount(), "init should be called exactly once");
 }
 
-void test_TC_G2_002_init_calls_init_and_initConfig_once(void)
-{
-    /* Arrange */
-    mock_IfxEgtm_isEnabled_returnValue = TRUE;
-
-    /* Act */
-    initEgtmAtom3phInv();
-
-    /* Assert - call counts */
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1u, mock_IfxEgtm_Pwm_initConfig_getCallCount(), "initConfig must be called exactly once");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1u, mock_IfxEgtm_Pwm_init_getCallCount(),       "init must be called exactly once");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0u, mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_getCallCount(), "No duty update should occur during init");
-}
-
-/* ========================================= */
 /* GROUP 3 - initEgtmAtom3phInv: runtime update logic (post-init behavior) */
-/* ========================================= */
-void test_TC_G3_001_first_update_increments_duty_percentages(void)
-{
+void test_TC_03_001_AfterInit_SingleUpdate_IncrementsAllDutiesByStep(void) {
     /* Arrange */
     mock_IfxEgtm_isEnabled_returnValue = TRUE;
     initEgtmAtom3phInv();
@@ -109,59 +99,56 @@ void test_TC_G3_001_first_update_increments_duty_percentages(void)
     /* Act */
     updateEgtmAtom3phInvDuty();
 
-    /* Assert - percent units and single bulk update */
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1u, mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_getCallCount(), "Duty update must be issued once as a bulk call");
-    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, (UT_INIT_DUTY_U_PERCENT + UT_STEP_PERCENT), mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_lastDuties[0], "Phase U duty should be 35% after one update");
-    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, (UT_INIT_DUTY_V_PERCENT + UT_STEP_PERCENT), mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_lastDuties[1], "Phase V duty should be 60% after one update");
-    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, (UT_INIT_DUTY_W_PERCENT + UT_STEP_PERCENT), mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_lastDuties[2], "Phase W duty should be 85% after one update");
+    /* Assert */
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_getCallCount(), "Duty update should be called once per update cycle");
+    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, (UT_INIT_DUTY_U_PERCENT + UT_STEP_PERCENT), mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_lastDuties[0], "Phase U duty should increment by step to 35% on first update");
+    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, (UT_INIT_DUTY_V_PERCENT + UT_STEP_PERCENT), mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_lastDuties[1], "Phase V duty should increment by step to 60% on first update");
+    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, (UT_INIT_DUTY_W_PERCENT + UT_STEP_PERCENT), mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_lastDuties[2], "Phase W duty should increment by step to 85% on first update");
 }
 
-void test_TC_G3_002_three_updates_wrap_W_channel_only(void)
-{
+void test_TC_03_002_AfterInit_ThreeUpdates_WrapsWOnly(void) {
     /* Arrange */
     mock_IfxEgtm_isEnabled_returnValue = TRUE;
     initEgtmAtom3phInv();
 
-    /* Act - perform three updates */
-    updateEgtmAtom3phInvDuty();
-    updateEgtmAtom3phInvDuty();
-    updateEgtmAtom3phInvDuty();
+    /* Act */
+    updateEgtmAtom3phInvDuty(); /* 1: U35 V60 W85 */
+    updateEgtmAtom3phInvDuty(); /* 2: U45 V70 W95 */
+    updateEgtmAtom3phInvDuty(); /* 3: U55 V80 W10 (wrap) */
 
-    /* After 3 updates: U=55, V=80, W wraps: 75->85->95->10 */
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(3u, mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_getCallCount(), "HAL duty update must be called once per update");
-    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 55.0f, mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_lastDuties[0], "Phase U should be 55% after three updates");
-    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 80.0f, mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_lastDuties[1], "Phase V should be 80% after three updates");
-    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 10.0f, mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_lastDuties[2], "Phase W should wrap to 10% after three updates");
+    /* Assert */
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(3, mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_getCallCount(), "Duty update should be called once per update invocation");
+    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 55.0f, mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_lastDuties[0], "Phase U should be 55% after 3 updates");
+    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 80.0f, mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_lastDuties[1], "Phase V should be 80% after 3 updates");
+    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 10.0f, mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_lastDuties[2], "Phase W should wrap to 10% after 3 updates");
 }
 
-/* ========================================= */
 /* GROUP 4 - initEgtmAtom3phInv: ISR / interrupt behavior */
-/* ========================================= */
-void test_TC_G4_001_isr_toggles_led_once(void)
-{
+void test_TC_04_001_ISR_TogglesLedOnce(void) {
+    /* Arrange */
+    uint32_t before = mock_togglePin_callCount;
+
     /* Act */
     interruptEgtmAtom();
 
     /* Assert */
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1u, mock_togglePin_callCount, "ISR must toggle LED exactly once per invocation");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(before + 1, mock_togglePin_callCount, "ISR should toggle LED exactly once per invocation");
 }
 
-void test_TC_G4_002_isr_toggle_accumulates_across_calls(void)
-{
+void test_TC_04_002_ISR_Toggle_AccumulatesAcrossMultipleCalls(void) {
+    /* Arrange */
+    uint32_t before = mock_togglePin_callCount;
+
     /* Act */
-    interruptEgtmAtom();
     interruptEgtmAtom();
     interruptEgtmAtom();
 
     /* Assert */
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(3u, mock_togglePin_callCount, "ISR toggle count must accumulate across calls");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(before + 2, mock_togglePin_callCount, "LED toggle should accumulate across multiple ISR calls");
 }
 
-/* ========================================= */
 /* GROUP 5 - updateEgtmAtom3phInvDuty: configuration values */
-/* ========================================= */
-void test_TC_G5_001_update_calls_hal_once_per_call(void)
-{
+void test_TC_05_001_Update_FirstCall_UsesPercentUnits(void) {
     /* Arrange */
     mock_IfxEgtm_isEnabled_returnValue = TRUE;
     initEgtmAtom3phInv();
@@ -170,193 +157,185 @@ void test_TC_G5_001_update_calls_hal_once_per_call(void)
     updateEgtmAtom3phInvDuty();
 
     /* Assert */
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1u, mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_getCallCount(), "Each update must result in one HAL call");
+    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 35.0f, mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_lastDuties[0], "Duties passed to HAL should be in percent (35.0f), not normalized");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_getCallCount(), "Single immediate update call is expected");
 }
 
-void test_TC_G5_002_update_multiple_calls_increment_hal_count(void)
-{
+void test_TC_05_002_Update_DoesNotAffectInitFrequencyOrChannelCount(void) {
     /* Arrange */
     mock_IfxEgtm_isEnabled_returnValue = TRUE;
     initEgtmAtom3phInv();
 
     /* Act */
     updateEgtmAtom3phInvDuty();
-    updateEgtmAtom3phInvDuty();
-    updateEgtmAtom3phInvDuty();
-    updateEgtmAtom3phInvDuty();
 
     /* Assert */
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(4u, mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_getCallCount(), "HAL update call count must equal number of updates");
+    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, UT_PWM_FREQUENCY_HZ, mock_IfxEgtm_Pwm_init_lastFrequency, "Init frequency spy should remain 20 kHz after updates");
+    TEST_ASSERT_EQUAL_INT_MESSAGE(UT_NUM_CHANNELS, mock_IfxEgtm_Pwm_init_lastNumChannels, "Init numChannels spy should remain 3 after updates");
 }
 
-/* ========================================= */
 /* GROUP 6 - updateEgtmAtom3phInvDuty: runtime update logic */
-/* ========================================= */
-void test_TC_G6_001_three_updates_match_expected_values(void)
-{
+void test_TC_06_001_Update_WrapBehavior_AllChannelsIndependent(void) {
     /* Arrange */
     mock_IfxEgtm_isEnabled_returnValue = TRUE;
     initEgtmAtom3phInv();
 
-    /* Act */
-    updateEgtmAtom3phInvDuty();
-    updateEgtmAtom3phInvDuty();
-    updateEgtmAtom3phInvDuty();
-
-    /* Assert */
-    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 55.0f, mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_lastDuties[0], "U = 55% after three updates");
-    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 80.0f, mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_lastDuties[1], "V = 80% after three updates");
-    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 10.0f, mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_lastDuties[2], "W wraps to 10% after three updates");
-}
-
-void test_TC_G6_002_five_updates_independent_wraps(void)
-{
-    /* Arrange */
-    mock_IfxEgtm_isEnabled_returnValue = TRUE;
-    initEgtmAtom3phInv();
-
-    /* Act */
-    for (int i = 0; i < 5; ++i)
-    {
+    /* Act: perform 8 updates */
+    for (int i = 0; i < 8; ++i) {
         updateEgtmAtom3phInvDuty();
     }
 
-    /* After 5 updates: U=75, V wraps at 5th to 10, W wraps at 3rd then 30 */
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(5u, mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_getCallCount(), "HAL update must be called once per update (5x)");
-    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 75.0f, mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_lastDuties[0], "U = 75% after five updates");
-    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 10.0f, mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_lastDuties[1], "V wraps to 10% after five updates");
-    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 30.0f, mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_lastDuties[2], "W = 30% after five updates (wrapped at 3rd)");
+    /* After 8 updates: U=10, V=40, W=60 */
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(8, mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_getCallCount(), "One HAL call per update; should be 8 after 8 updates");
+    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 10.0f, mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_lastDuties[0], "Phase U wrap result should be 10% after 8 updates");
+    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 40.0f, mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_lastDuties[1], "Phase V expected 40% after 8 updates");
+    TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, 60.0f, mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_lastDuties[2], "Phase W expected 60% after 8 updates");
 }
 
-/* ========================================= */
-/* GROUP 7 - interruptEgtmAtom: init/enable guard semantics */
-/* ========================================= */
-void test_TC_G7_001_isr_can_be_called_before_init(void)
-{
+void test_TC_06_002_Update_CallCountAccumulates(void) {
+    /* Arrange */
+    mock_IfxEgtm_isEnabled_returnValue = TRUE;
+    initEgtmAtom3phInv();
+
+    /* Act */
+    for (int i = 0; i < 5; ++i) {
+        updateEgtmAtom3phInvDuty();
+    }
+
+    /* Assert */
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(5, mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_getCallCount(), "updateChannelsDutyImmediate should be invoked once per call; total 5");
+}
+
+/* GROUP 7 - interruptEgtmAtom: initialization / enable guard (no PWM or CMU interactions) */
+void test_TC_07_001_ISR_DoesNotInvokePwmUpdate(void) {
+    /* Arrange */
+    uint32_t beforeUpdates = mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_getCallCount();
+
     /* Act */
     interruptEgtmAtom();
 
     /* Assert */
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1u, mock_togglePin_callCount, "ISR should toggle even if init was not called");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(beforeUpdates, mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_getCallCount(), "ISR should not invoke PWM duty update");
 }
 
-void test_TC_G7_002_isr_does_not_invoke_pwm_hal(void)
-{
+void test_TC_07_002_ISR_ToggleOnce_WhenCalledOnce(void) {
+    /* Arrange */
+    uint32_t before = mock_togglePin_callCount;
+
     /* Act */
     interruptEgtmAtom();
 
     /* Assert */
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0u, mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_getCallCount(), "ISR must not call PWM update API");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0u, mock_IfxEgtm_Pwm_init_getCallCount(), "ISR must not call PWM init API");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(before + 1, mock_togglePin_callCount, "ISR should toggle LED exactly once");
 }
 
-/* ========================================= */
-/* GROUP 8 - interruptEgtmAtom: ISR behavior */
-/* ========================================= */
-void test_TC_G8_001_isr_toggle_count_matches_getter(void)
-{
-    /* Act */
-    interruptEgtmAtom();
-    interruptEgtmAtom();
+/* GROUP 8 - interruptEgtmAtom: ISR / interrupt behavior */
+void test_TC_08_001_ISR_MultipleInvocations_AccumulateToggleCount(void) {
+    /* Arrange */
+    uint32_t before = mock_togglePin_callCount;
 
-    /* Assert - prefer single counter; also verify getter matches underlying counter */
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(2u, mock_togglePin_callCount, "Underlying toggle counter must be 2 after two ISR calls");
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(2u, mock_IfxPort_togglePin_getCallCount(), "Mock getter should report two toggles as well");
-}
-
-void test_TC_G8_002_isr_three_calls_results_in_three_toggles(void)
-{
     /* Act */
     interruptEgtmAtom();
     interruptEgtmAtom();
     interruptEgtmAtom();
 
     /* Assert */
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(3u, mock_togglePin_callCount, "Three ISR calls must produce three toggles");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(before + 3, mock_togglePin_callCount, "Three ISR calls should produce three toggles");
 }
 
-/* ========================================= */
+void test_TC_08_002_ISR_DoesNotAffectCmuClockEnableCalls(void) {
+    /* Arrange */
+    uint32_t beforeCmuEnable = mock_IfxEgtm_Cmu_enableClocks_getCallCount();
+
+    /* Act */
+    interruptEgtmAtom();
+
+    /* Assert */
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(beforeCmuEnable, mock_IfxEgtm_Cmu_enableClocks_getCallCount(), "ISR should not touch CMU clock enable");
+}
+
 /* GROUP 9 - IfxEgtm_periodEventFunction: configuration values (no side effects) */
-/* ========================================= */
-void test_TC_G9_001_period_callback_has_no_side_effect_on_toggle(void)
-{
+void test_TC_09_001_PeriodCallback_DoesNothing_NoToggle(void) {
     /* Arrange */
-    /* Ensure some known baseline of toggle count (zero) */
+    uint32_t beforeToggle = mock_togglePin_callCount;
 
     /* Act */
     IfxEgtm_periodEventFunction(NULL);
 
     /* Assert */
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0u, mock_togglePin_callCount, "Period callback must not toggle LED");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(beforeToggle, mock_togglePin_callCount, "Period callback must not toggle LED");
 }
 
-void test_TC_G9_002_period_callback_does_not_call_pwm_update(void)
-{
-    /* Act */
-    IfxEgtm_periodEventFunction(NULL);
-
-    /* Assert */
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0u, mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_getCallCount(), "Period callback must not call PWM update API");
-}
-
-/* ========================================= */
-/* GROUP 10 - IfxEgtm_periodEventFunction: ISR/interrupt behavior (empty) */
-/* ========================================= */
-void test_TC_G10_001_period_callback_multiple_calls_no_toggle_change(void)
-{
-    /* Act */
-    IfxEgtm_periodEventFunction(NULL);
-    IfxEgtm_periodEventFunction(NULL);
-
-    /* Assert */
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(0u, mock_togglePin_callCount, "Multiple period callbacks must not change toggle count");
-}
-
-void test_TC_G10_002_period_callback_does_not_change_state_after_isr(void)
-{
+void test_TC_09_002_PeriodCallback_DoesNothing_NoPwmUpdate(void) {
     /* Arrange */
-    interruptEgtmAtom(); /* toggle once */
+    uint32_t beforeUpdates = mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_getCallCount();
 
     /* Act */
     IfxEgtm_periodEventFunction(NULL);
 
     /* Assert */
-    TEST_ASSERT_EQUAL_UINT32_MESSAGE(1u, mock_togglePin_callCount, "Period callback must not affect ISR-driven toggle state");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(beforeUpdates, mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_getCallCount(), "Period callback must not update PWM duties");
 }
 
-int main(void)
-{
+/* GROUP 10 - IfxEgtm_periodEventFunction: ISR / interrupt behavior (no-op) */
+void test_TC_10_001_PeriodCallback_MultipleInvocations_NoSideEffects(void) {
+    /* Arrange */
+    uint32_t beforeToggle = mock_togglePin_callCount;
+    uint32_t beforeUpdates = mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_getCallCount();
+
+    /* Act */
+    IfxEgtm_periodEventFunction(NULL);
+    IfxEgtm_periodEventFunction(NULL);
+    IfxEgtm_periodEventFunction(NULL);
+
+    /* Assert */
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(beforeToggle, mock_togglePin_callCount, "Multiple period callbacks should not toggle LED");
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(beforeUpdates, mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_getCallCount(), "Multiple period callbacks should not update PWM duties");
+}
+
+void test_TC_10_002_PeriodCallback_NullDataAccepted_NoAction(void) {
+    /* Arrange */
+    uint32_t beforeToggle = mock_togglePin_callCount;
+
+    /* Act */
+    IfxEgtm_periodEventFunction(NULL);
+
+    /* Assert */
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(beforeToggle, mock_togglePin_callCount, "Callback should accept NULL data and perform no action");
+}
+
+int main(void) {
     UNITY_BEGIN();
 
-    RUN_TEST(test_TC_G1_001_init_enables_and_configures_when_disabled);
-    RUN_TEST(test_TC_G1_002_init_skips_enable_and_cmu_when_already_enabled);
+    RUN_TEST(test_TC_01_001_Init_PeripheralDisabled_ConfiguresAndEnablesClocks);
+    RUN_TEST(test_TC_01_002_Init_PeripheralAlreadyEnabled_SkipsEnableAndClockSetup);
 
-    RUN_TEST(test_TC_G2_001_init_sets_frequency_and_num_channels);
-    RUN_TEST(test_TC_G2_002_init_calls_init_and_initConfig_once);
+    RUN_TEST(test_TC_02_001_Init_SetsFrequencyAndChannelCount);
+    RUN_TEST(test_TC_02_002_Init_CallsInitConfigAndInitExactlyOnce);
 
-    RUN_TEST(test_TC_G3_001_first_update_increments_duty_percentages);
-    RUN_TEST(test_TC_G3_002_three_updates_wrap_W_channel_only);
+    RUN_TEST(test_TC_03_001_AfterInit_SingleUpdate_IncrementsAllDutiesByStep);
+    RUN_TEST(test_TC_03_002_AfterInit_ThreeUpdates_WrapsWOnly);
 
-    RUN_TEST(test_TC_G4_001_isr_toggles_led_once);
-    RUN_TEST(test_TC_G4_002_isr_toggle_accumulates_across_calls);
+    RUN_TEST(test_TC_04_001_ISR_TogglesLedOnce);
+    RUN_TEST(test_TC_04_002_ISR_Toggle_AccumulatesAcrossMultipleCalls);
 
-    RUN_TEST(test_TC_G5_001_update_calls_hal_once_per_call);
-    RUN_TEST(test_TC_G5_002_update_multiple_calls_increment_hal_count);
+    RUN_TEST(test_TC_05_001_Update_FirstCall_UsesPercentUnits);
+    RUN_TEST(test_TC_05_002_Update_DoesNotAffectInitFrequencyOrChannelCount);
 
-    RUN_TEST(test_TC_G6_001_three_updates_match_expected_values);
-    RUN_TEST(test_TC_G6_002_five_updates_independent_wraps);
+    RUN_TEST(test_TC_06_001_Update_WrapBehavior_AllChannelsIndependent);
+    RUN_TEST(test_TC_06_002_Update_CallCountAccumulates);
 
-    RUN_TEST(test_TC_G7_001_isr_can_be_called_before_init);
-    RUN_TEST(test_TC_G7_002_isr_does_not_invoke_pwm_hal);
+    RUN_TEST(test_TC_07_001_ISR_DoesNotInvokePwmUpdate);
+    RUN_TEST(test_TC_07_002_ISR_ToggleOnce_WhenCalledOnce);
 
-    RUN_TEST(test_TC_G8_001_isr_toggle_count_matches_getter);
-    RUN_TEST(test_TC_G8_002_isr_three_calls_results_in_three_toggles);
+    RUN_TEST(test_TC_08_001_ISR_MultipleInvocations_AccumulateToggleCount);
+    RUN_TEST(test_TC_08_002_ISR_DoesNotAffectCmuClockEnableCalls);
 
-    RUN_TEST(test_TC_G9_001_period_callback_has_no_side_effect_on_toggle);
-    RUN_TEST(test_TC_G9_002_period_callback_does_not_call_pwm_update);
+    RUN_TEST(test_TC_09_001_PeriodCallback_DoesNothing_NoToggle);
+    RUN_TEST(test_TC_09_002_PeriodCallback_DoesNothing_NoPwmUpdate);
 
-    RUN_TEST(test_TC_G10_001_period_callback_multiple_calls_no_toggle_change);
-    RUN_TEST(test_TC_G10_002_period_callback_does_not_change_state_after_isr);
+    RUN_TEST(test_TC_10_001_PeriodCallback_MultipleInvocations_NoSideEffects);
+    RUN_TEST(test_TC_10_002_PeriodCallback_NullDataAccepted_NoAction);
 
     return UNITY_END();
 }
