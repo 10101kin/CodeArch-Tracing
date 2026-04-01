@@ -1,12 +1,13 @@
 {
   "meta": {
     "schema_version": "1.0",
-    "last_updated_by": "sw_architecture",
-    "last_updated_at": "2026-04-01T16:41:10.753665",
+    "last_updated_by": "sw_detailed",
+    "last_updated_at": "2026-04-01T16:44:32.865280",
     "build_sequence": [
       "requirements",
       "hardware",
-      "sw_architecture"
+      "sw_architecture",
+      "sw_detailed"
     ],
     "corrections_log": []
   },
@@ -804,6 +805,125 @@
     },
     "driver_knowledge_base": {
       "applied": false
+    },
+    "migration_numerical_values": {
+      "NUM_OF_CHANNELS": {
+        "value": 3.0,
+        "unit": "",
+        "label": "Number of channels"
+      },
+      "NUM_OF_ADC_TRIG_CHANNELS": {
+        "value": 1.0,
+        "unit": "",
+        "label": "Number of channels"
+      },
+      "PHASE_U_DUTY": {
+        "value": 25.0,
+        "unit": "%",
+        "label": "Phase U initial duty cycle"
+      },
+      "PHASE_V_DUTY": {
+        "value": 50.0,
+        "unit": "%",
+        "label": "Phase V initial duty cycle"
+      },
+      "PHASE_W_DUTY": {
+        "value": 75.0,
+        "unit": "%",
+        "label": "Phase W initial duty cycle"
+      },
+      "PHASE_DUTY_STEP": {
+        "value": 0.01,
+        "unit": "%",
+        "label": "Duty cycle step increment"
+      },
+      "ADC_TRIG_DUTY": {
+        "value": 50.0,
+        "unit": "%",
+        "label": "Duty cycle"
+      },
+      "PWM_FREQUENCY": {
+        "value": 20000.0,
+        "unit": "Hz",
+        "label": "PWM switching frequency"
+      },
+      "INTERRUPT_PRIORITY_EVADC_CUR": {
+        "value": 100.0,
+        "unit": "",
+        "label": "Interrupt priority"
+      },
+      ".priority": {
+        "value": 0.0,
+        "unit": "",
+        "label": "Interrupt priority"
+      },
+      "PHASECURSENSE_REFILL_TRIG": {
+        "value": 1.0,
+        "unit": "",
+        "label": "Phasecursense refill trig"
+      },
+      ".rising": {
+        "value": 1.0,
+        "unit": "",
+        "label": ".rising"
+      },
+      ".falling": {
+        "value": 1.0,
+        "unit": "",
+        "label": ".falling"
+      },
+      ".phase": {
+        "value": 0.0,
+        "unit": "",
+        "label": ".phase"
+      }
+    }
+  },
+  "sw_detailed": {
+    "module_name": "EGTM_ATOM_3_Phase_Inverter_PWM",
+    "public_functions": [
+      {
+        "signature": "void initEgtmAtom3phInv(void)",
+        "behavior_description": "Allocate and initialize all configuration structures locally, then fill fields directly without calling per-channel init helpers. Configure three logical PWM channels (base + two synchronous) for complementary, center-aligned operation with hardware dead-time for both edges. Assign one additional edge-aligned channel as a trigger generator. Set the driver output mapping for each logical channel with complementary outputs and desired polarities, attach dead-time parameters (rising and falling set to the target values), and prepare one interrupt configuration object with periodEvent pointing to IfxEgtm_periodEventFunction, isrProvider set to the requested core, vmId set, and an appropriate priority. Attach the single interrupt config pointer to channelConfig[0] and NULL_PTR to remaining channels. Configure the main PWM config with: cluster and ATOM submodule selection, alignment=center-aligned, syncStart enabled so outputs start after init, numChannels=3 (one per complementary phase pair), frequency=20 kHz, atom clock source set to CMU Clock 0, dtm clock source consistent with CMU Clock 0, and enable synchronous updates from shadow at period end. Perform the enable guard for the EGTM module: if the module is not enabled, enable it, read the module frequency dynamically, configure GCLK using a 1:1 divider, configure ECLK0 using a 1:1 divider, select CMU Clock 0 as the input source where applicable, and enable the clocks via the CMU clock-enable mask. Call the unified PWM init once, passing the persistent handle and the persistent channels array so the driver can retain pointers. After init, store initial duty cycle values (in percent for the three logical channels) and the configured dead-time values into the module's persistent state for later updates. Route the trigger channel to the ADC trigger bus via the EGTM Trigger API. Finally, configure the LED GPIO pin as push-pull output for debug indication. Do not perform any timing operations or start-synchronization API calls; starting is handled by config.syncStart.",
+        "driver_calls": [
+          "IfxEgtm_isEnabled",
+          "IfxEgtm_enable",
+          "IfxEgtm_Cmu_getModuleFrequency",
+          "IfxEgtm_Cmu_setGclkDivider",
+          "IfxEgtm_Cmu_setEclkDivider",
+          "IfxEgtm_Cmu_enableClocks",
+          "IfxEgtm_Pwm_initConfig",
+          "IfxEgtm_Pwm_init",
+          "IfxEgtm_Trigger_trigToAdc",
+          "IfxPort_setPinModeOutput"
+        ],
+        "from_reference": true,
+        "call_context": "init"
+      },
+      {
+        "signature": "void updateEgtmAtom3phInvDuty(float32 *requestDuty)",
+        "behavior_description": "Copy three duty-percent values from the caller into the module's persistent dutyCycles array in the order of the three logical PWM channels. Each value is interpreted directly in percent (0..100%). Validate range and clamp to [0, 100]. Apply the clamped values atomically to the three logical channels using shadow registers so changes take effect at the next period boundary. Do not modify dead-time or alignment. Do not start or stop the PWM.",
+        "driver_calls": [],
+        "from_reference": true,
+        "call_context": "runtime"
+      }
+    ],
+    "dependencies": {},
+    "_validation_info": {
+      "hallucinated_calls_removed": [
+        "IfxEgtm_Pwm_update",
+        "IfxEgtm_Pwm_setDuty"
+      ],
+      "validated_against": "LIBRARY_ANALYSIS.json (template analysis)"
+    },
+    "header_selection": {
+      "applied": true,
+      "peripheral_type": "PWM",
+      "recommended_header": "IfxEgtm_Pwm",
+      "template_functions_count": 1461,
+      "required_includes": [
+        "IfxEgtm_Pwm.h"
+      ]
     },
     "migration_numerical_values": {
       "NUM_OF_CHANNELS": {
