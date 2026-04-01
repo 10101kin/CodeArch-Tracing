@@ -3,20 +3,7 @@
 
 #include "mock_egtm_atom_3_phase_inverter_pwm.h"
 
-/* Peer base config placeholder types (single-owner here) */
-typedef struct
-{
-    unsigned long wraTagId;
-    unsigned long wrbTagId;
-    unsigned long rdaTagId;
-    unsigned long rdbTagId;
-    unsigned char vmWrId;
-    unsigned char vmRdId;
-    unsigned char prsWrId;
-    unsigned char prsRdId;
-} IfxApApu_ApuConfig;
-typedef struct { uint32 dummy; } IfxApProt_ProtConfig;
-
+/* Enums required */
 typedef enum { IfxEgtm_AeiBridgeOpMode_sync = 0u, IfxEgtm_AeiBridgeOpMode_async = 1u } IfxEgtm_AeiBridgeOpMode;
 
 typedef enum { IfxEgtm_ClusterClockDiv_disable = 0u, IfxEgtm_ClusterClockDiv_enable = 1u, IfxEgtm_ClusterClockDiv_enableDiv2 = 2u } IfxEgtm_ClusterClockDiv;
@@ -27,27 +14,11 @@ typedef enum { IfxEgtm_MscAltInput_low = 0, IfxEgtm_MscAltInput_lowext = 1, IfxE
 
 typedef enum { IfxEgtm_SuspendMode_none = 0, IfxEgtm_SuspendMode_hard = 1, IfxEgtm_SuspendMode_soft = 2 } IfxEgtm_SuspendMode;
 
-/* Minimal MSC related config enums (placeholders) */
+/* MSC config helper enums (minimal complete) */
 typedef enum { IfxEgtm_Cfg_MscSet_0 = 0 } IfxEgtm_Cfg_MscSet;
 typedef enum { IfxEgtm_Cfg_MscSetSignal_0 = 0 } IfxEgtm_Cfg_MscSetSignal;
 typedef enum { IfxEgtm_Cfg_MscModule_0 = 0 } IfxEgtm_Cfg_MscModule;
 typedef enum { IfxEgtm_Cfg_MscSelect_0 = 0 } IfxEgtm_Cfg_MscSelect;
-
-typedef struct
-{
-    IfxApApu_ApuConfig apuConfig;       
-} IfxEgtm_ClApConfig;
-
-typedef struct
-{
-    IfxApProt_ProtConfig proteConfig;       
-    IfxApApu_ApuConfig   apuConfig;         
-} IfxEgtm_CtrlApConfig;
-
-typedef struct
-{
-    IfxApApu_ApuConfig apuConfig;       
-} IfxEgtm_WrapApConfig;
 
 typedef struct
 {
@@ -58,16 +29,34 @@ typedef struct
     IfxEgtm_MscAltInput      mscAltIn;           
 } IfxEgtm_MscOut;
 
+/* Minimal cluster/ap config stubs (not used by stubs but keep type availability) */
 typedef struct
 {
-    IfxApProt_ProtConfig protseConfig;
-    IfxEgtm_ClApConfig   clApConfig[3];
-    IfxEgtm_CtrlApConfig ctrlApConfig;
-    IfxEgtm_WrapApConfig wrapApConfig;
+    IfxApApu_ApuConfig apuConfig;       
+} IfxEgtm_ClApConfig;
+typedef struct
+{
+    IfxApProt_ProtConfig proteConfig;       
+    IfxApApu_ApuConfig   apuConfig;         
+} IfxEgtm_CtrlApConfig;
+typedef struct
+{
+    IfxApApu_ApuConfig apuConfig;       
+} IfxEgtm_WrapApConfig;
+#ifndef IFXEGTM_NUM_CCM_OBJECTS
+#define IFXEGTM_NUM_CCM_OBJECTS 1
+#endif
+
+typedef struct
+{
+    IfxApProt_ProtConfig protseConfig;                              
+    IfxEgtm_ClApConfig   clApConfig[IFXEGTM_NUM_CCM_OBJECTS];       
+    IfxEgtm_CtrlApConfig ctrlApConfig;                              
+    IfxEgtm_WrapApConfig wrapApConfig;                              
 } IfxEgtm_ApConfig;
 
-/* Functions (subset used by module) */
-void    IfxEgtm_enable(Ifx_EGTM *egtm);
+/* Functions to mock from IfxEgtm */
+void IfxEgtm_enable(Ifx_EGTM *egtm);
 boolean IfxEgtm_isEnabled(Ifx_EGTM *egtm);
 
 #endif /* IFXEGTM_H */
