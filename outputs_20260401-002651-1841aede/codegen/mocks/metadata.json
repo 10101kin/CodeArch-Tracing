@@ -1,8 +1,9 @@
 {
-  "type": "llm_response",
-  "phase": "mock",
   "attempt": 1,
   "phase_attempt": 1,
-  "response_length": 37612,
-  "timestamp": "2026-04-01T08:45:49.883496"
+  "phase": "mock_generation",
+  "success": true,
+  "errors": [],
+  "timestamp": "2026-04-01T08:45:58.297621",
+  "project_name": "Generate_TC4D7_code_for_KIT_A3G_TC4D7_LITE_that_mi_r_20260401_083940"
 }
