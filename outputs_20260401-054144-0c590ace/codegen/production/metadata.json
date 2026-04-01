@@ -1,8 +1,20 @@
 {
-  "type": "llm_response",
-  "phase": "production",
   "attempt": 5,
   "phase_attempt": 2,
-  "response_length": 15155,
-  "timestamp": "2026-04-01T15:08:15.299472"
+  "phase": "production",
+  "success": false,
+  "errors": [
+    "unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'",
+    "unknown type name 'Ifx_EGTM_CLS'; did you mean 'Ifx_EGTM'?",
+    "implicit declaration of function 'IfxPort_togglePin' [-Wimplicit-function-declaration]",
+    "'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P33'?",
+    "'IfxEgtm_ATOM0_0_TOUT0_P02_0_OUT' undeclared (first use in this function)",
+    "'IfxEgtm_ATOM0_0N_TOUT1_P02_1_OUT' undeclared (first use in this function)",
+    "assignment to 'IfxEgtm_Pwm_callBack' {aka 'void (*)(void)'} from incompatible pointer type 'void (*)(void *)' [-Wincompatible-pointer-types]",
+    "'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P33'?",
+    "unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'",
+    "unknown type name 'Ifx_EGTM_CLS'; did you mean 'Ifx_EGTM'?"
+  ],
+  "timestamp": "2026-04-01T15:08:25.098422",
+  "project_name": "Generate_consolidated_TC4D7_code_that_replaces_TC3_r_20260401_144730"
 }

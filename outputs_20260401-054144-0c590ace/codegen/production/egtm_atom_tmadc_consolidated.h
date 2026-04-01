@@ -1,8 +1,3 @@
-/*
- * egtm_atom_tmadc_consolidated.h
- *
- * Public interface for consolidated eGTM ATOM + TMADC configuration
- */
 #ifndef EGTM_ATOM_TMADC_CONSOLIDATED_H
 #define EGTM_ATOM_TMADC_CONSOLIDATED_H
 
