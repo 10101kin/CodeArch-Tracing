@@ -1,14 +1,12 @@
-/*====================================================================
- *  Module: EGTM_ATOM_ADC_TMADC_Multiple_Channels
- *  File:   egtm_atom_adc_tmadc_multiple_channels.h
+/*
+ * egtm_atom_adc_tmadc_multiple_channels.h
  *
- *  Description:
- *    Public API for EGTM ATOM PWM initialization and ADC trigger routing.
+ * Public API for EGTM ATOM PWM + TMADC trigger migration (TC4xx).
  *
- *  Note:
- *    - This header intentionally contains only public function prototypes.
- *    - Do not add includes, macros, or types here.
- *====================================================================*/
+ * Note:
+ *  - Do not include headers, typedefs, or macros here per project rules.
+ *  - Watchdog control must remain in CpuX_Main.c files.
+ */
 #ifndef EGTM_ATOM_ADC_TMADC_MULTIPLE_CHANNELS_H
 #define EGTM_ATOM_ADC_TMADC_MULTIPLE_CHANNELS_H
 
@@ -16,7 +14,7 @@
 extern "C" {
 #endif
 
-/* Public API */
+/* Initializes EGTM ATOM PWM with three complementary inverter channels and one 50% trigger channel */
 void initEgtmAtom(void);
 
 #ifdef __cplusplus
