@@ -183,9 +183,9 @@ typedef enum
     IfxEgtm_Cmu_Tim_Filter_Clk_7   /**< \brief FLT_CNT counts with CMU_CLK7 */
 } IfxEgtm_Cmu_Tim_Filter_Clk;
 
-void IfxEgtm_Cmu_setGclkFrequency(Ifx_EGTM *egtm, uint32 numerator, uint32 denominator);
-void IfxEgtm_Cmu_enableClocks(Ifx_EGTM *egtm, uint32 clkMask);
-float32 IfxEgtm_Cmu_getModuleFrequency(Ifx_EGTM *egtm);
-void IfxEgtm_Cmu_setClkFrequency(Ifx_EGTM *egtm, IfxEgtm_Cmu_Clk clkIndex, uint32 count);
+void IfxEgtm_Cmu_setClkFrequency(Ifx_EGTM * egtm, IfxEgtm_Cmu_Clk clkIndex, uint32 count);
+float32 IfxEgtm_Cmu_getModuleFrequency(Ifx_EGTM * egtm);
+void IfxEgtm_Cmu_setGclkFrequency(Ifx_EGTM * egtm, uint32 numerator, uint32 denominator);
+void IfxEgtm_Cmu_enableClocks(Ifx_EGTM * egtm, uint32 clkMask);
 
 #endif /* IFXEGTM_CMU_H */

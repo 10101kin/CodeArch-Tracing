@@ -101,7 +101,7 @@ typedef enum
     IfxEgtm_SuspendMode_soft = 2   /**< \brief Soft Suspend */
 } IfxEgtm_SuspendMode;
 
-void IfxEgtm_enable(Ifx_EGTM *egtm);
-boolean IfxEgtm_isEnabled(Ifx_EGTM *egtm);
+void IfxEgtm_enable(Ifx_EGTM * egtm);
+boolean IfxEgtm_isEnabled(Ifx_EGTM * egtm);
 
 #endif /* IFXEGTM_H */

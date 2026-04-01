@@ -442,7 +442,7 @@ typedef enum
     IfxPort_PadDriver_ttl3v3Speed3         = (3 << 3) | (2 << 0)   /**< \brief ttl3v3Speed3. */
 } IfxPort_PadDriver;
 
-void IfxPort_togglePin(Ifx_P *port, uint8 pinIndex);
-void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
+void IfxPort_setPinModeOutput(Ifx_P * port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
+void IfxPort_togglePin(Ifx_P * port, uint8 pinIndex);
 
 #endif /* IFXPORT_H */
