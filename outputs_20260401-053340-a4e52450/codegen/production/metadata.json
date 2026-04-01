@@ -1,0 +1,12 @@
+{
+  "attempt": 5,
+  "phase_attempt": 2,
+  "phase": "production",
+  "success": false,
+  "errors": [
+    "'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P33'?",
+    "'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P33'?"
+  ],
+  "timestamp": "2026-04-01T14:04:56.763644",
+  "project_name": "Migrate_the_TC387_TOM_EVADC_3-phase_inverter_proje_r_20260401_134353"
+}
