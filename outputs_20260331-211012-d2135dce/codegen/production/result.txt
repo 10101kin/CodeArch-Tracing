@@ -1,3 +1,41 @@
-Status: SUCCESS
+Status: FAILED
 
-LLM response for production phase (attempt 3), 10945 chars
+============================================================
+TDD CODE GENERATION - ATTEMPT STATUS
+============================================================
+Phase: production
+Attempt: 3
+Status: FAILED
+Timestamp: 2026-04-01 08:11:55
+Files generated: 2
+
+============================================================
+
+ERRORS:
+
+1. 'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P20'?
+
+2. 'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P20'?
+
+============================================================
+BUILD RESULT:
+{
+  "success": false,
+  "errors": [
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_oz0ldrev\\src\\egtm_atom_3_phase_inverter_pwm.c",
+      "line": 33,
+      "category": "error",
+      "message": "'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P20'?"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_oz0ldrev\\src\\egtm_atom_3_phase_inverter_pwm.c",
+      "line": 33,
+      "category": "error",
+      "message": "'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P20'?"
+    }
+  ],
+  "warnings": [],
+  "stderr": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_oz0ldrev\\src\\egtm_atom_3_phase_inverter_pwm.c: In function 'interruptEgtmAtom':\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_oz0ldrev\\src\\egtm_atom_3_phase_inverter_pwm.c:33:33: error: 'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P20'?\n   33 | #define LED                    &MODULE_P03, 9\n      |                                 ^~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_oz0ldrev\\src\\egtm_atom_3_phase_inverter_pwm.c:66:23: note: in expansion of macro 'LED'\n   66 |     IfxPort_togglePin(LED);\n      |                       ^~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_oz0ldrev\\src\\egtm_atom_3_phase_inverter_pwm.c:33:33: note: each undeclared identifier is reported only once for each function it appears in\n   33 | #define LED                    &MODULE_P03, 9\n      |                                 ^~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_oz0ldrev\\src\\egtm_atom_3_phase_inverter_pwm.c:66:23: note: in expansion of macro 'LED'\n   66 |     IfxPort_togglePin(LED);\n      |                       ^~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_oz0ldrev\\src\\egtm_atom_3_phase_inverter_pwm.c: In function 'initEgtmAtom3phInv':\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_oz0ldrev\\src\\egtm_atom_3_phase_inverter_pwm.c:33:33: error: 'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P20'?\n   33 | #define LED                    &MODULE_P03, 9\n      |                                 ^~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_oz0ldrev\\src\\egtm_atom_3_phase_inverter_pwm.c:203:30: note: in expansion of macro 'LED'\n  203 |     IfxPort_setPinModeOutput(LED, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);\n      |                              ^~~\n",
+  "stdout": ""
+}
