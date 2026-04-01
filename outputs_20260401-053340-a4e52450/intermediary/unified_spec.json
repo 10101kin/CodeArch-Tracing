@@ -1,12 +1,13 @@
 {
   "meta": {
     "schema_version": "1.0",
-    "last_updated_by": "sw_architecture",
-    "last_updated_at": "2026-04-01T13:38:23.778253",
+    "last_updated_by": "sw_detailed",
+    "last_updated_at": "2026-04-01T13:42:18.308868",
     "build_sequence": [
       "requirements",
       "hardware",
-      "sw_architecture"
+      "sw_architecture",
+      "sw_detailed"
     ],
     "corrections_log": []
   },
@@ -778,6 +779,160 @@
       }
     },
     "driver_knowledge_base": {
+      "applied": false
+    },
+    "migration_numerical_values": {
+      "NUM_OF_CHANNELS": {
+        "value": 3.0,
+        "unit": "",
+        "label": "Number of channels"
+      },
+      "NUM_OF_ADC_TRIG_CHANNELS": {
+        "value": 1.0,
+        "unit": "",
+        "label": "Number of channels"
+      },
+      "PHASE_U_DUTY": {
+        "value": 25.0,
+        "unit": "%",
+        "label": "Phase U initial duty cycle"
+      },
+      "PHASE_V_DUTY": {
+        "value": 50.0,
+        "unit": "%",
+        "label": "Phase V initial duty cycle"
+      },
+      "PHASE_W_DUTY": {
+        "value": 75.0,
+        "unit": "%",
+        "label": "Phase W initial duty cycle"
+      },
+      "PHASE_DUTY_STEP": {
+        "value": 0.01,
+        "unit": "%",
+        "label": "Duty cycle step increment"
+      },
+      "ADC_TRIG_DUTY": {
+        "value": 50.0,
+        "unit": "%",
+        "label": "Duty cycle"
+      },
+      "PWM_FREQUENCY": {
+        "value": 20000.0,
+        "unit": "Hz",
+        "label": "PWM switching frequency"
+      },
+      "INTERRUPT_PRIORITY_EVADC_CUR": {
+        "value": 100.0,
+        "unit": "",
+        "label": "Interrupt priority"
+      },
+      ".priority": {
+        "value": 0.0,
+        "unit": "",
+        "label": "Interrupt priority"
+      },
+      "PHASECURSENSE_REFILL_TRIG": {
+        "value": 1.0,
+        "unit": "",
+        "label": "Phasecursense refill trig"
+      },
+      ".rising": {
+        "value": 1.0,
+        "unit": "",
+        "label": ".rising"
+      },
+      ".falling": {
+        "value": 1.0,
+        "unit": "",
+        "label": ".falling"
+      },
+      ".phase": {
+        "value": 0.0,
+        "unit": "",
+        "label": ".phase"
+      }
+    }
+  },
+  "sw_detailed": {
+    "module_name": "EGTM_ATOM_ADC_TMADC_Multiple_Channels",
+    "public_functions": [
+      {
+        "signature": "void initEgtmAtom3phInv(void)",
+        "behavior_description": "Declare all configuration structures locally: one unified EGTM PWM config for the 3-phase complementary outputs and a second PWM config for the single ADC-trigger channel. Also declare per-channel arrays (output map, dead-time, interrupt config, channel config) but ensure the PWM handle and its channels array are stored in a persistent module-state struct so they remain valid after return. Initialize the unified PWM config with defaults. For the 3 inverter channels: set numChannels=3 (each channel is a complementary pair), set center alignment, enable syncStart and syncUpdate, set frequency to 20 kHz, select the ATOM submodule and the specified cluster, and choose ATOM clock source Clk_0. For each of the three logical channels 0..2, assign the mapped high-side and complementary low-side TOUT pins, set polarities, push-pull mode and pad driver, assign per-channel dead-time with rising and falling both 1 µs via the DTM config, and load initial duties U/V/W = 25/50/75 percent. Configure a PWM interrupt (period-event) using an InterruptConfig: mode pulse-notify, isrProvider CPU0, priority per project settings, vmId=IfxSrc_VmId_0, periodEvent = IfxEgtm_periodEventFunction, dutyEvent = NULL. Assign this interrupt config to channelConfig[0].interrupt and set channelConfig[1].interrupt and channelConfig[2].interrupt to NULL. Before touching hardware, complete all config-field assignments. Then, inside an enable-guard: check if EGTM is enabled; if not, enable the module, read the EGTM module frequency dynamically, set the GCLK divider to 1:1 so GCLK follows the module frequency, select Clk_0 from the global clock, and enable the necessary EGTM clocks (including Clk_0). With clocks ready, call the unified PWM init for the inverter; this applies the initial duties and dead-times to hardware and stores the driver handle. Next, configure the ADC-trigger channel using a separate unified PWM instance with one logical channel: set edge alignment at the same base frequency, 50% duty, and route its output pin to the desired TOUT used as a monitor. Initialize this single-channel PWM instance as well. After PWM initialization, configure the heartbeat GPIO as a push-pull output (no explicit set high/low). Route the EGTM ATOM trigger to TMADC using the trigger API with the requested ADC trigger signal/mux and falling edge. Finally, enable the ADC module and start the TMADC engine to run (one-shot acquisition is controlled by the ADC configuration elsewhere). Persist the PWM driver handles, channels array, dutyCycles[] and deadTimes[] in the module state for later updates.",
+        "driver_calls": [
+          "IfxEgtm_isEnabled",
+          "IfxEgtm_enable",
+          "IfxEgtm_Cmu_getModuleFrequency",
+          "IfxEgtm_Cmu_setGclkDivider",
+          "IfxEgtm_Cmu_enableClocks",
+          "IfxEgtm_Pwm_initConfig",
+          "IfxEgtm_Pwm_init",
+          "IfxEgtm_Trigger_trigToAdc",
+          "IfxAdc_enableModule",
+          "IfxAdc_Tmadc_runModule",
+          "IfxPort_setPinModeOutput"
+        ],
+        "from_reference": true,
+        "call_context": "init"
+      },
+      {
+        "signature": "void updateEgtmAtom3phInvDuty(float32 *requestDuty)",
+        "behavior_description": "Accept an array of three duty values in percent corresponding to the three complementary channels. Copy requestDuty[0..2] into the module state’s dutyCycles[0..2] without scaling or normalization. Apply the new duties synchronously by passing the state’s dutyCycles array directly to the unified PWM immediate update API so the three channels update together at the next safe point.",
+        "driver_calls": [
+          "IfxEgtm_Pwm_updateChannelsDutyImmediate"
+        ],
+        "from_reference": true,
+        "call_context": "loop"
+      },
+      {
+        "signature": "void interruptEgtmAtom(void)",
+        "behavior_description": "Hardware ISR for the PWM period event. Keep it minimal: toggle the configured heartbeat GPIO pin and return. No driver-level handler calls or heavy processing in the ISR.",
+        "driver_calls": [
+          "IfxPort_togglePin"
+        ],
+        "from_reference": false,
+        "call_context": "none"
+      },
+      {
+        "signature": "void IfxEgtm_periodEventFunction(void *data)",
+        "behavior_description": "Unified PWM driver period-event callback. Leave the body empty apart from casting data to void; no processing is performed here. The ISR and the callback are distinct entities.",
+        "driver_calls": [],
+        "from_reference": false,
+        "call_context": "none"
+      },
+      {
+        "signature": "void resultISR(void)",
+        "behavior_description": "ADC result ISR for TMADC. On interrupt, iterate over the configured result registers for the five ADC channels, check if a result is available, read/consume the result as per the project’s ADC data path, and clear the corresponding result flags to honor the wait-for-read behavior. Keep computational work minimal inside the ISR.",
+        "driver_calls": [
+          "IfxAdc_isTmadcResultAvailable",
+          "IfxAdc_clearTmadcResultFlag"
+        ],
+        "from_reference": false,
+        "call_context": "none"
+      }
+    ],
+    "private_functions": [],
+    "dependencies": {
+      "includes": [
+        "Ifx_Types.h",
+        "IfxEgtm_Pwm.h",
+        "IfxEgtm_Trigger.h",
+        "IfxAdc_Tmadc.h",
+        "IfxAdc.h",
+        "IfxPort.h",
+        "IfxPort_Pinmap.h"
+      ]
+    },
+    "cpu_main_requirements": {
+      "needs_cpu_sync": false,
+      "uses_timer_delay": true,
+      "delay_ms": 500,
+      "additional_includes": [
+        "Bsp.h"
+      ]
+    },
+    "header_selection": {
       "applied": false
     },
     "migration_numerical_values": {
