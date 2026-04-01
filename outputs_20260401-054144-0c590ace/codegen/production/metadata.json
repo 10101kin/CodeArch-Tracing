@@ -1,8 +1,15 @@
 {
-  "type": "llm_response",
-  "phase": "production",
   "attempt": 11,
   "phase_attempt": 5,
-  "response_length": 13425,
-  "timestamp": "2026-04-01T15:30:27.222334"
+  "phase": "production",
+  "success": false,
+  "errors": [
+    "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_0j4he0zb\\src\\egtm_atom_tmadc_consolidated.c:20:10: fatal error: Compilers.h: No such file or directory",
+    "comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Werror=sign-compare]",
+    "comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Werror=sign-compare]",
+    "'mock_IfxEgtm_Pwm_updateChannelsDeadTimeImmediate_lastDtRising' undeclared (first use in this function); did you mean 'mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtRising'?",
+    "'mock_IfxEgtm_Pwm_updateChannelsDeadTimeImmediate_lastDtFalling' undeclared (first use in this function); did you mean 'mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtFalling'?"
+  ],
+  "timestamp": "2026-04-01T15:30:36.066132",
+  "project_name": "Generate_consolidated_TC4D7_code_that_replaces_TC3_r_20260401_144730"
 }
