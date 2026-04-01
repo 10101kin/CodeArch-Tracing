@@ -1,20 +1,8 @@
 {
+  "type": "llm_response",
+  "phase": "production",
   "attempt": 3,
   "phase_attempt": 1,
-  "phase": "production",
-  "success": false,
-  "errors": [
-    "conflicting types for 'Ifx_P'; have 'struct <anonymous>'",
-    "conflicting types for 'Ifx_P'; have 'struct <anonymous>'",
-    "conflicting types for 'Ifx_P'; have 'struct <anonymous>'",
-    "conflicting types for 'Ifx_P'; have 'struct <anonymous>'",
-    "conflicting types for 'Ifx_P'; have 'struct <anonymous>'",
-    "conflicting types for 'Ifx_P'; have 'struct <anonymous>'",
-    "conflicting types for 'Ifx_P'; have 'struct <anonymous>'",
-    "conflicting types for 'Ifx_P'; have 'struct <anonymous>'",
-    "conflicting types for 'Ifx_P'; have 'struct <anonymous>'",
-    "conflicting types for 'Ifx_P'; have 'struct <anonymous>'"
-  ],
-  "timestamp": "2026-04-01T10:13:10.655464",
-  "project_name": "Generate_TC4D7_code_for_KIT_A3G_TC4D7_LITE_that_mi_r_20260401_100532"
+  "response_length": 11042,
+  "timestamp": "2026-04-01T10:33:16.503128"
 }
