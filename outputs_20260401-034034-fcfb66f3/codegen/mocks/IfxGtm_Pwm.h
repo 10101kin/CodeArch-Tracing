@@ -1,27 +1,30 @@
 #ifndef IFXGTM_PWM_H
 #define IFXGTM_PWM_H
-
 #include "mock_gtm_tom_3_phase_inverter_pwm.h"
 #include "IfxGtm.h"
 #include "IfxGtm_Cmu.h"
 #include "IfxPort.h"
 
-/* Additional forward typedefs used by PWM driver */
+/* Forward/basic typedefs required by verified structs */
+typedef struct { uint32 reserved; } Ifx_GTM_ATOM;
+typedef struct { uint32 reserved; } Ifx_GTM_TOM;
+typedef struct { uint32 reserved; } Ifx_GTM_CDTM;
+typedef struct { uint32 reserved; } IfxGtm_Trig_MscOut;
+
 typedef struct { uint32 dummy; } IfxGtm_Atom_ToutMap;
 typedef struct { uint32 dummy; } IfxGtm_Tom_ToutMap;
-typedef struct { uint32 dummy; } IfxGtm_Trig_MscOut;
 
-/* Callback typedef used by the driver */
-typedef void (*IfxGtm_Pwm_callBack)(void *);
+/* PWM callback type */
+typedef void (*IfxGtm_Pwm_callBack)(void *data);
 
-/* ToutMap union (as in iLLD mapping) */
+/* Tout map union (provided by PWM header) */
 typedef union
 {
     IfxGtm_Atom_ToutMap atom;       
     IfxGtm_Tom_ToutMap  tom;        
 } IfxGtm_Pwm_ToutMap;
 
-/* VERIFIED TYPE DEFINITIONS — emit exactly as-is and in order */
+/* VERIFIED TYPE DEFINITIONS — DO NOT MODIFY ORDER OR CONTENT */
 typedef enum
 {
     IfxGtm_Pwm_Alignment_edge   = 0, 
@@ -95,6 +98,14 @@ typedef enum
     IfxGtm_Pwm_SyncChannelIndex_15      
 } IfxGtm_Pwm_SyncChannelIndex;
 
+typedef enum
+{
+    IfxGtm_Dtm_ClockSource_systemClock,  
+    IfxGtm_Dtm_ClockSource_cmuClock0,    
+    IfxGtm_Dtm_ClockSource_cmuClock1,    
+    IfxGtm_Dtm_ClockSource_cmuClock2     
+} IfxGtm_Dtm_ClockSource;
+
 typedef struct
 {
     float32 rising;        
@@ -162,6 +173,14 @@ typedef struct
     IfxGtm_Pwm_InterruptConfig *interrupt;       
 } IfxGtm_Pwm_ChannelConfig;
 
+typedef enum
+{
+    IfxGtm_Cluster_0,     
+    IfxGtm_Cluster_1,     
+    IfxGtm_Cluster_2,     
+    IfxGtm_Cluster_3      
+} IfxGtm_Cluster;
+
 typedef struct
 {
     Ifx_GTM_ATOM *ATOM;       
@@ -228,7 +247,7 @@ typedef struct
     IfxPort_PadDriver   padDriver;       
 } IfxGtm_Pwm_Pin;
 
-/* PWM API (subset required by module) */
+/* Functions used by module */
 void IfxGtm_Pwm_initConfig(IfxGtm_Pwm_Config *config, Ifx_GTM *gtmSFR);
 void IfxGtm_Pwm_init(IfxGtm_Pwm *pwm, IfxGtm_Pwm_Channel *channels, IfxGtm_Pwm_Config *config);
 void IfxGtm_Pwm_updateChannelsDutyImmediate(IfxGtm_Pwm *pwm, float32 *requestDuty);

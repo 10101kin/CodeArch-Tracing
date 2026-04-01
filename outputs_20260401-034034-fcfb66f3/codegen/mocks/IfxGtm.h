@@ -1,9 +1,8 @@
 #ifndef IFXGTM_H
 #define IFXGTM_H
-
 #include "mock_gtm_tom_3_phase_inverter_pwm.h"
 
-/* GTM base enums */
+/* Enums */
 typedef enum
 {
     IfxGtm_IrqMode_level       = 0,
@@ -19,23 +18,7 @@ typedef enum
     IfxGtm_SuspendMode_soft = 2
 } IfxGtm_SuspendMode;
 
-/* Cluster enum (owned here to be shared) */
-typedef enum
-{
-    IfxGtm_Cluster_0,
-    IfxGtm_Cluster_1,
-    IfxGtm_Cluster_2,
-    IfxGtm_Cluster_3
-} IfxGtm_Cluster;
-
-/* Minimal SFR type stubs for GTM sub-blocks */
-typedef struct { uint32 reserved; } Ifx_GTM_ATOM;
-typedef struct { uint32 reserved; } Ifx_GTM_TOM;
-typedef struct { uint32 reserved; } Ifx_GTM_CDTM;
-typedef struct { uint32 reserved; } Ifx_GTM_TOM_TGC;
-typedef struct { uint32 reserved; } Ifx_GTM_CDTM_DTM;
-
-/* GTM base control APIs */
+/* Functions used by module */
 boolean IfxGtm_isEnabled(Ifx_GTM *gtm);
 void    IfxGtm_enable(Ifx_GTM *gtm);
 

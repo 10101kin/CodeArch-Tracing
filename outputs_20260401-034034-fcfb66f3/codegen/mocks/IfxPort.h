@@ -1,15 +1,8 @@
 #ifndef IFXPORT_H
 #define IFXPORT_H
-
 #include "mock_gtm_tom_3_phase_inverter_pwm.h"
 
-/* Types / Structs */
-typedef struct
-{
-    Ifx_P *port;
-    uint8  pinIndex;
-} IfxPort_Pin;
-
+/* Enums first */
 typedef enum
 {
     IfxPort_ControlledBy_port = 0,
@@ -19,9 +12,9 @@ typedef enum
 typedef enum
 {
     IfxPort_InputMode_undefined    = -1,
-    IfxPort_InputMode_noPullDevice = 0 << 3,
-    IfxPort_InputMode_pullDown     = 1U << 3,
-    IfxPort_InputMode_pullUp       = 2U << 3
+    IfxPort_InputMode_noPullDevice = (0 << 3),
+    IfxPort_InputMode_pullDown     = (1U << 3),
+    IfxPort_InputMode_pullUp       = (2U << 3)
 } IfxPort_InputMode;
 
 typedef enum
@@ -55,20 +48,20 @@ typedef enum
 
 typedef enum
 {
-    IfxPort_OutputIdx_general  = 0x10U << 3,
-    IfxPort_OutputIdx_alt1     = 0x11U << 3,
-    IfxPort_OutputIdx_alt2     = 0x12U << 3,
-    IfxPort_OutputIdx_alt3     = 0x13U << 3,
-    IfxPort_OutputIdx_alt4     = 0x14U << 3,
-    IfxPort_OutputIdx_alt5     = 0x15U << 3,
-    IfxPort_OutputIdx_alt6     = 0x16U << 3,
-    IfxPort_OutputIdx_alt7     = 0x17U << 3
+    IfxPort_OutputIdx_general  = (0x10U << 3),
+    IfxPort_OutputIdx_alt1     = (0x11U << 3),
+    IfxPort_OutputIdx_alt2     = (0x12U << 3),
+    IfxPort_OutputIdx_alt3     = (0x13U << 3),
+    IfxPort_OutputIdx_alt4     = (0x14U << 3),
+    IfxPort_OutputIdx_alt5     = (0x15U << 3),
+    IfxPort_OutputIdx_alt6     = (0x16U << 3),
+    IfxPort_OutputIdx_alt7     = (0x17U << 3)
 } IfxPort_OutputIdx;
 
 typedef enum
 {
-    IfxPort_OutputMode_pushPull      = 0x10U << 3,
-    IfxPort_OutputMode_openDrain     = 0x18U << 3,
+    IfxPort_OutputMode_pushPull      = (0x10U << 3),
+    IfxPort_OutputMode_openDrain     = (0x18U << 3),
     IfxPort_OutputMode_none          = 0
 } IfxPort_OutputMode;
 
@@ -132,6 +125,7 @@ typedef enum
     IfxPort_LvdsTerminationMode_internal = 1
 } IfxPort_LvdsTerminationMode;
 
+/* Structs */
 typedef struct
 {
     IfxPort_LvdsMode     lvdsMode;                   
@@ -141,13 +135,19 @@ typedef struct
 
 typedef struct
 {
+    Ifx_P *port;
+    uint8  pinIndex;
+} IfxPort_Pin;
+
+typedef struct
+{
     Ifx_P            *port;
     uint8             pinIndex;
     IfxPort_OutputIdx mode;
     IfxPort_PadDriver padDriver;
 } IfxPort_Pin_Config;
 
-/* Function declarations (subset required) */
+/* Functions (subset required by module) */
 void IfxPort_setPinModeOutput(Ifx_P *port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index);
 void IfxPort_togglePin(Ifx_P *port, uint8 pinIndex);
 
