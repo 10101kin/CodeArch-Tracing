@@ -1,8 +1,17 @@
 {
-  "type": "llm_response",
-  "phase": "production",
   "attempt": 9,
   "phase_attempt": 4,
-  "response_length": 12967,
-  "timestamp": "2026-04-01T17:19:59.578320"
+  "phase": "production",
+  "success": false,
+  "errors": [
+    "unknown type name 'float32'; did you mean '_Float32'?",
+    "'IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT' undeclared (first use in this function)",
+    "'IfxEgtm_TrigSource_atom0' undeclared (first use in this function); did you mean 'IfxEgtm_TrigSource_0'?",
+    "'IfxEgtm_TrigChannel_3' undeclared (first use in this function); did you mean 'IfxEgtm_TrigChannel_0'?",
+    "implicit declaration of function 'mock_IfxEgtm_Pwm_updateChannelsDeadTimeImmediate_getCallCount'; did you mean 'mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_getCallCount'? [-Wimplicit-function-declaration]",
+    "'mock_IfxEgtm_Pwm_updateChannelsDeadTimeImmediate_lastDtRising' undeclared (first use in this function); did you mean 'mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtRising'?",
+    "'mock_IfxEgtm_Pwm_updateChannelsDeadTimeImmediate_lastDtFalling' undeclared (first use in this function); did you mean 'mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtFalling'?"
+  ],
+  "timestamp": "2026-04-01T17:20:09.844189",
+  "project_name": "Migrate_the_TC387_GTM_TOM_EVADC_inverter_to_TC4D_r_20260401_164632"
 }
