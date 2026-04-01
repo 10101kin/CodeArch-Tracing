@@ -1,7 +1,6 @@
+#include "mock_egtm_atom_3_phase_inverter_pwm.h"
 #ifndef IFXEGTM_CMU_H
 #define IFXEGTM_CMU_H
-
-#include "mock_egtm_atom_3_phase_inverter_pwm.h"
 
 /* CMU clock enums */
 typedef enum {
@@ -31,12 +30,11 @@ typedef enum {
 
 typedef enum {
     IfxEgtm_Cmu_Tim_Filter_Clk_0 = 0,
-    IfxEgtm_Cmu_Tim_Filter_Clk_1,
-    IfxEgtm_Cmu_Tim_Filter_Clk_6,
-    IfxEgtm_Cmu_Tim_Filter_Clk_7
+    IfxEgtm_Cmu_Tim_Filter_Clk_1 = 1,
+    IfxEgtm_Cmu_Tim_Filter_Clk_6 = 6,
+    IfxEgtm_Cmu_Tim_Filter_Clk_7 = 7
 } IfxEgtm_Cmu_Tim_Filter_Clk;
 
-/* CMU enable masks */
 #ifndef IFXEGTM_CMU_CLKEN_FXCLK
 #define IFXEGTM_CMU_CLKEN_FXCLK (0x1u)
 #endif
@@ -44,7 +42,7 @@ typedef enum {
 #define IFXEGTM_CMU_CLKEN_CLK0  (0x2u)
 #endif
 
-/* Mandatory CMU functions (mocked) */
+/* Mandatory CMU API (TC4xx style) */
 void    IfxEgtm_Cmu_enable(Ifx_EGTM *module);
 boolean IfxEgtm_Cmu_isEnabled(Ifx_EGTM *module);
 float32 IfxEgtm_Cmu_getModuleFrequency(Ifx_EGTM *module);
