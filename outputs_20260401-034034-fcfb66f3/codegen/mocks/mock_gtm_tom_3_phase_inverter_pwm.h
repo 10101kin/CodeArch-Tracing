@@ -3,14 +3,17 @@
 #define MOCK_GTM_TOM_3_PHASE_INVERTER_PWM_H
 
 /* Base type aliases */
-typedef float float32;
-typedef unsigned long uint32;
-typedef signed long sint32;
-typedef unsigned char uint8;
-typedef unsigned short uint16;
-typedef signed short sint16;
 typedef unsigned char boolean;
-typedef unsigned char Ifx_Priority;
+typedef float         float32;
+typedef unsigned char uint8;
+typedef signed char   sint8;
+typedef unsigned short uint16;
+typedef signed short   sint16;
+typedef unsigned int   uint32;
+typedef signed int     sint32;
+typedef unsigned long long uint64;
+typedef signed long long   sint64;
+typedef uint8          Ifx_Priority;
 
 /* Macros */
 #ifndef TRUE
@@ -25,12 +28,16 @@ typedef unsigned char Ifx_Priority;
 #ifndef IFX_STATIC
 #define IFX_STATIC static
 #endif
+/* ISR macro (3-arg) */
 #ifndef IFX_INTERRUPT
 #define IFX_INTERRUPT(isr_name, vectab_num, priority) void isr_name(void)
 #endif
 
-/* Shared enums used across multiple drivers */
-typedef enum { Ifx_ActiveState_low = 0, Ifx_ActiveState_high = 1 } Ifx_ActiveState;
+/* Shared enums */
+typedef enum {
+    Ifx_ActiveState_low = 0,
+    Ifx_ActiveState_high = 1
+} Ifx_ActiveState;
 
 typedef enum {
     IfxSrc_Tos_cpu0 = 0,
@@ -39,9 +46,13 @@ typedef enum {
     IfxSrc_Tos_dma  = 3
 } IfxSrc_Tos;
 
-typedef enum { IfxSrc_VmId_0 = 0, IfxSrc_VmId_1 = 1, IfxSrc_VmId_2 = 2 } IfxSrc_VmId;
+typedef enum {
+    IfxSrc_VmId_0 = 0,
+    IfxSrc_VmId_1 = 1,
+    IfxSrc_VmId_2 = 2
+} IfxSrc_VmId;
 
-/* MODULE_* register-block stubs (typedef + extern) */
+/* MODULE_* register-block stubs */
 typedef struct { uint32 reserved; } Ifx_GTM;
 typedef struct { uint32 reserved; } Ifx_P;
 
@@ -70,84 +81,74 @@ extern Ifx_P   MODULE_P34;
 extern Ifx_P   MODULE_P40;
 extern Ifx_P   MODULE_P41;
 
-/* Spy API: counters, return-value controls, and captured values */
+/* Spy API and controls */
 #define MOCK_MAX_CHANNELS 16
 
-/* IfxGtm_Cmu */
+/* Call counters */
 extern int mock_IfxGtm_Cmu_getModuleFrequency_callCount;
-extern float32 mock_IfxGtm_Cmu_getModuleFrequency_returnValue;
-int mock_IfxGtm_Cmu_getModuleFrequency_getCallCount(void);
-
 extern int mock_IfxGtm_Cmu_setGclkFrequency_callCount;
-int mock_IfxGtm_Cmu_setGclkFrequency_getCallCount(void);
-
 extern int mock_IfxGtm_Cmu_enableClocks_callCount;
-int mock_IfxGtm_Cmu_enableClocks_getCallCount(void);
-
 extern int mock_IfxGtm_Cmu_setClkFrequency_callCount;
-int mock_IfxGtm_Cmu_setClkFrequency_getCallCount(void);
-
 extern int mock_IfxGtm_Cmu_enable_callCount;
-int mock_IfxGtm_Cmu_enable_getCallCount(void);
-
 extern int mock_IfxGtm_Cmu_isEnabled_callCount;
-extern boolean mock_IfxGtm_Cmu_isEnabled_returnValue;
-int mock_IfxGtm_Cmu_isEnabled_getCallCount(void);
 
-/* IfxPort */
 extern int mock_IfxPort_setPinModeOutput_callCount;
-int mock_IfxPort_setPinModeOutput_getCallCount(void);
-
 extern int mock_IfxPort_togglePin_callCount;
-extern uint32 mock_togglePin_callCount; /* legacy/global toggle counter */
-int mock_IfxPort_togglePin_getCallCount(void);
-
-/* IfxGtm */
-extern int mock_IfxGtm_isEnabled_callCount;
-extern boolean mock_IfxGtm_isEnabled_returnValue;
-int mock_IfxGtm_isEnabled_getCallCount(void);
-
-extern int mock_IfxGtm_enable_callCount;
-int mock_IfxGtm_enable_getCallCount(void);
-
-/* IfxGtm_Pwm */
-extern int mock_IfxGtm_Pwm_init_callCount;
-int mock_IfxGtm_Pwm_init_getCallCount(void);
-
-extern int mock_IfxGtm_Pwm_initConfig_callCount;
-int mock_IfxGtm_Pwm_initConfig_getCallCount(void);
+extern uint32 mock_togglePin_callCount; /* compatibility alias */
 
 extern int mock_IfxGtm_Pwm_updateChannelsDutyImmediate_callCount;
-int mock_IfxGtm_Pwm_updateChannelsDutyImmediate_getCallCount(void);
+extern int mock_IfxGtm_Pwm_init_callCount;
+extern int mock_IfxGtm_Pwm_initConfig_callCount;
 
-/* Captured init/initConfig values for primary PWM driver */
+extern int mock_IfxGtm_isEnabled_callCount;
+extern int mock_IfxGtm_enable_callCount;
+
+extern int mock_IfxGtm_Tom_Timer_init_callCount;
+extern int mock_IfxGtm_Tom_Timer_initConfig_callCount;
+extern int mock_IfxGtm_Tom_Timer_applyUpdate_callCount;
+extern int mock_IfxGtm_Tom_Timer_disableUpdate_callCount;
+
+/* Return value controls */
+extern float32 mock_IfxGtm_Cmu_getModuleFrequency_returnValue;
+extern boolean mock_IfxGtm_isEnabled_returnValue;
+extern boolean mock_IfxGtm_Tom_Timer_init_returnValue;
+extern boolean mock_IfxGtm_Cmu_isEnabled_returnValue;
+
+/* Value-capture spy fields */
 extern uint32  mock_IfxGtm_Pwm_init_lastNumChannels;
 extern float32 mock_IfxGtm_Pwm_init_lastFrequency;
 extern uint32  mock_IfxGtm_Pwm_initConfig_lastNumChannels;
 extern float32 mock_IfxGtm_Pwm_initConfig_lastFrequency;
-
-/* Captured duty array for update */
 extern float32 mock_IfxGtm_Pwm_updateChannelsDutyImmediate_lastDuties[MOCK_MAX_CHANNELS];
+/* Dead-time capture (not used by current stubs but reserved for tests) */
+extern float32 mock_dt_lastDtRising[MOCK_MAX_CHANNELS];
+extern float32 mock_dt_lastDtFalling[MOCK_MAX_CHANNELS];
 
-/* Optional dead-time capture arrays (kept for compatibility) */
-extern float32 mock_IfxGtm_Pwm_updateChannelsDeadTimeImmediate_lastDtRising[MOCK_MAX_CHANNELS];
-extern float32 mock_IfxGtm_Pwm_updateChannelsDeadTimeImmediate_lastDtFalling[MOCK_MAX_CHANNELS];
-
-/* IfxGtm_Tom_Timer */
-extern int mock_IfxGtm_Tom_Timer_init_callCount;
-extern boolean mock_IfxGtm_Tom_Timer_init_returnValue;
-int mock_IfxGtm_Tom_Timer_init_getCallCount(void);
-
-extern int mock_IfxGtm_Tom_Timer_initConfig_callCount;
-int mock_IfxGtm_Tom_Timer_initConfig_getCallCount(void);
-
-extern int mock_IfxGtm_Tom_Timer_applyUpdate_callCount;
-int mock_IfxGtm_Tom_Timer_applyUpdate_getCallCount(void);
-
-extern int mock_IfxGtm_Tom_Timer_disableUpdate_callCount;
-int mock_IfxGtm_Tom_Timer_disableUpdate_getCallCount(void);
-
-/* Mock control */
+/* Mock control API */
 void mock_gtm_tom_3_phase_inverter_pwm_reset(void);
+
+/* Getters for call counters */
+int mock_IfxGtm_Cmu_getModuleFrequency_getCallCount(void);
+int mock_IfxGtm_Cmu_setGclkFrequency_getCallCount(void);
+int mock_IfxGtm_Cmu_enableClocks_getCallCount(void);
+int mock_IfxGtm_Cmu_setClkFrequency_getCallCount(void);
+int mock_IfxGtm_Cmu_enable_getCallCount(void);
+int mock_IfxGtm_Cmu_isEnabled_getCallCount(void);
+
+int mock_IfxPort_setPinModeOutput_getCallCount(void);
+int mock_IfxPort_togglePin_getCallCount(void);
+int mock_togglePin_getCallCount(void);
+
+int mock_IfxGtm_Pwm_updateChannelsDutyImmediate_getCallCount(void);
+int mock_IfxGtm_Pwm_init_getCallCount(void);
+int mock_IfxGtm_Pwm_initConfig_getCallCount(void);
+
+int mock_IfxGtm_isEnabled_getCallCount(void);
+int mock_IfxGtm_enable_getCallCount(void);
+
+int mock_IfxGtm_Tom_Timer_init_getCallCount(void);
+int mock_IfxGtm_Tom_Timer_initConfig_getCallCount(void);
+int mock_IfxGtm_Tom_Timer_applyUpdate_getCallCount(void);
+int mock_IfxGtm_Tom_Timer_disableUpdate_getCallCount(void);
 
 #endif /* MOCK_GTM_TOM_3_PHASE_INVERTER_PWM_H */

@@ -1,30 +1,32 @@
 #ifndef IFXGTM_PWM_H
 #define IFXGTM_PWM_H
+
 #include "mock_gtm_tom_3_phase_inverter_pwm.h"
 #include "IfxGtm.h"
 #include "IfxGtm_Cmu.h"
 #include "IfxPort.h"
 
-/* Forward/basic typedefs required by verified structs */
+/* Auxiliary types needed by PWM API */
+
+typedef struct { uint32 dummy; } IfxGtm_Trig_MscOut;
+
 typedef struct { uint32 reserved; } Ifx_GTM_ATOM;
 typedef struct { uint32 reserved; } Ifx_GTM_TOM;
 typedef struct { uint32 reserved; } Ifx_GTM_CDTM;
-typedef struct { uint32 reserved; } IfxGtm_Trig_MscOut;
 
 typedef struct { uint32 dummy; } IfxGtm_Atom_ToutMap;
 typedef struct { uint32 dummy; } IfxGtm_Tom_ToutMap;
 
-/* PWM callback type */
-typedef void (*IfxGtm_Pwm_callBack)(void *data);
-
-/* Tout map union (provided by PWM header) */
 typedef union
 {
     IfxGtm_Atom_ToutMap atom;       
     IfxGtm_Tom_ToutMap  tom;        
 } IfxGtm_Pwm_ToutMap;
 
-/* VERIFIED TYPE DEFINITIONS — DO NOT MODIFY ORDER OR CONTENT */
+typedef void (*IfxGtm_Pwm_callBack)(void *data);
+
+/* VERIFIED TYPE DEFINITIONS — emit in dependency order */
+
 typedef enum
 {
     IfxGtm_Pwm_Alignment_edge   = 0, 
@@ -247,9 +249,9 @@ typedef struct
     IfxPort_PadDriver   padDriver;       
 } IfxGtm_Pwm_Pin;
 
-/* Functions used by module */
-void IfxGtm_Pwm_initConfig(IfxGtm_Pwm_Config *config, Ifx_GTM *gtmSFR);
-void IfxGtm_Pwm_init(IfxGtm_Pwm *pwm, IfxGtm_Pwm_Channel *channels, IfxGtm_Pwm_Config *config);
+/* Function declarations used by module */
 void IfxGtm_Pwm_updateChannelsDutyImmediate(IfxGtm_Pwm *pwm, float32 *requestDuty);
+void IfxGtm_Pwm_init(IfxGtm_Pwm *pwm, IfxGtm_Pwm_Channel *channels, IfxGtm_Pwm_Config *config);
+void IfxGtm_Pwm_initConfig(IfxGtm_Pwm_Config *config, Ifx_GTM *gtmSFR);
 
 #endif /* IFXGTM_PWM_H */
