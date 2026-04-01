@@ -1,13 +1,13 @@
 {
   "export_type": "unified_spec",
   "export_reason": "stage_completed",
-  "node_stage": "hardware",
+  "node_stage": "sw_architecture",
   "reviewer_name": null,
   "reviewer_applied": false,
   "modified_by": "system",
   "modifier_name": null,
-  "workflow_stage": "hardware_validation",
+  "workflow_stage": "sw_architecture_validation",
   "target_board": "KIT_A3G_TC4D7_LITE",
   "generation_mode": "MIGRATION",
-  "timestamp": "2026-04-01T02:21:25.342412"
+  "timestamp": "2026-04-01T02:24:38.903305"
 }
