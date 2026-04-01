@@ -26,60 +26,65 @@ Ifx_P P35_stub;
 Ifx_P P40_stub;
 
 /* ── Spy counter definitions ──────────────────────────── */
-unsigned int mock_IfxEgtm_Cmu_setClkFrequency_call_count = 0;
-unsigned int mock_IfxEgtm_Cmu_getModuleFrequency_call_count = 0;
-unsigned int mock_IfxEgtm_Cmu_setGclkFrequency_call_count = 0;
-unsigned int mock_IfxEgtm_Cmu_enableClocks_call_count = 0;
-unsigned int mock_IfxPort_setPinModeOutput_call_count = 0;
-unsigned int mock_IfxPort_togglePin_call_count = 0;
-unsigned int mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_call_count = 0;
-unsigned int mock_IfxEgtm_Pwm_initConfig_call_count = 0;
-unsigned int mock_IfxEgtm_Pwm_init_call_count = 0;
 unsigned int mock_IfxEgtm_enable_call_count = 0;
 unsigned int mock_IfxEgtm_isEnabled_call_count = 0;
+unsigned int mock_IfxEgtm_Cmu_setClkFrequency_call_count = 0;
+unsigned int mock_IfxEgtm_Cmu_setGclkFrequency_call_count = 0;
+unsigned int mock_IfxEgtm_Cmu_enableClocks_call_count = 0;
+unsigned int mock_IfxEgtm_Cmu_getModuleFrequency_call_count = 0;
+unsigned int mock_IfxEgtm_Pwm_init_call_count = 0;
+unsigned int mock_IfxEgtm_Pwm_initConfig_call_count = 0;
+unsigned int mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_call_count = 0;
+unsigned int mock_IfxPort_setPinModeOutput_call_count = 0;
+unsigned int mock_IfxPort_togglePin_call_count = 0;
 
 /* ── Spy capture definitions ──────────────────────────── */
+Ifx_EGTM * mock_IfxEgtm_enable_last_egtm = NULL_PTR;
+Ifx_EGTM * mock_IfxEgtm_isEnabled_last_egtm = NULL_PTR;
 Ifx_EGTM * mock_IfxEgtm_Cmu_setClkFrequency_last_egtm = NULL_PTR;
 IfxEgtm_Cmu_Clk mock_IfxEgtm_Cmu_setClkFrequency_last_clkIndex = {0};
 uint32 mock_IfxEgtm_Cmu_setClkFrequency_last_count = {0};
-Ifx_EGTM * mock_IfxEgtm_Cmu_getModuleFrequency_last_egtm = NULL_PTR;
 Ifx_EGTM * mock_IfxEgtm_Cmu_setGclkFrequency_last_egtm = NULL_PTR;
 uint32 mock_IfxEgtm_Cmu_setGclkFrequency_last_numerator = {0};
 uint32 mock_IfxEgtm_Cmu_setGclkFrequency_last_denominator = {0};
 Ifx_EGTM * mock_IfxEgtm_Cmu_enableClocks_last_egtm = NULL_PTR;
 uint32 mock_IfxEgtm_Cmu_enableClocks_last_clkMask = {0};
+Ifx_EGTM * mock_IfxEgtm_Cmu_getModuleFrequency_last_egtm = NULL_PTR;
+IfxEgtm_Pwm * mock_IfxEgtm_Pwm_init_last_pwm = NULL_PTR;
+IfxEgtm_Pwm_Channel * mock_IfxEgtm_Pwm_init_last_channels = NULL_PTR;
+IfxEgtm_Pwm_Config * mock_IfxEgtm_Pwm_init_last_config = NULL_PTR;
+IfxEgtm_Pwm_Config * mock_IfxEgtm_Pwm_initConfig_last_config = NULL_PTR;
+Ifx_EGTM * mock_IfxEgtm_Pwm_initConfig_last_egtmSFR = NULL_PTR;
+IfxEgtm_Pwm * mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_last_pwm = NULL_PTR;
+float32 * mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_last_requestDuty = NULL_PTR;
 Ifx_P * mock_IfxPort_setPinModeOutput_last_port = NULL_PTR;
 uint8 mock_IfxPort_setPinModeOutput_last_pinIndex = {0};
 IfxPort_OutputMode mock_IfxPort_setPinModeOutput_last_mode = {0};
 IfxPort_OutputIdx mock_IfxPort_setPinModeOutput_last_index = {0};
 Ifx_P * mock_IfxPort_togglePin_last_port = NULL_PTR;
 uint8 mock_IfxPort_togglePin_last_pinIndex = {0};
-IfxEgtm_Pwm * mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_last_pwm = NULL_PTR;
-float32 * mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_last_requestDuty = NULL_PTR;
-IfxEgtm_Pwm_Config * mock_IfxEgtm_Pwm_initConfig_last_config = NULL_PTR;
-Ifx_EGTM * mock_IfxEgtm_Pwm_initConfig_last_egtmSFR = NULL_PTR;
-IfxEgtm_Pwm * mock_IfxEgtm_Pwm_init_last_pwm = NULL_PTR;
-IfxEgtm_Pwm_Channel * mock_IfxEgtm_Pwm_init_last_channels = NULL_PTR;
-IfxEgtm_Pwm_Config * mock_IfxEgtm_Pwm_init_last_config = NULL_PTR;
-Ifx_EGTM * mock_IfxEgtm_enable_last_egtm = NULL_PTR;
-Ifx_EGTM * mock_IfxEgtm_isEnabled_last_egtm = NULL_PTR;
 
 /* ── Return-value override definitions ────────────────── */
-float32 mock_IfxEgtm_Cmu_getModuleFrequency_return_value = {0};
 boolean mock_IfxEgtm_isEnabled_return_value = {0};
+float32 mock_IfxEgtm_Cmu_getModuleFrequency_return_value = {0};
 
 /* ── Stub implementations ─────────────────────────────── */
+void IfxEgtm_enable(Ifx_EGTM * egtm) {
+    mock_IfxEgtm_enable_call_count++;
+    mock_IfxEgtm_enable_last_egtm = egtm;
+}
+
+boolean IfxEgtm_isEnabled(Ifx_EGTM * egtm) {
+    mock_IfxEgtm_isEnabled_call_count++;
+    mock_IfxEgtm_isEnabled_last_egtm = egtm;
+    return mock_IfxEgtm_isEnabled_return_value;
+}
+
 void IfxEgtm_Cmu_setClkFrequency(Ifx_EGTM * egtm, IfxEgtm_Cmu_Clk clkIndex, uint32 count) {
     mock_IfxEgtm_Cmu_setClkFrequency_call_count++;
     mock_IfxEgtm_Cmu_setClkFrequency_last_egtm = egtm;
     mock_IfxEgtm_Cmu_setClkFrequency_last_clkIndex = clkIndex;
     mock_IfxEgtm_Cmu_setClkFrequency_last_count = count;
-}
-
-float32 IfxEgtm_Cmu_getModuleFrequency(Ifx_EGTM * egtm) {
-    mock_IfxEgtm_Cmu_getModuleFrequency_call_count++;
-    mock_IfxEgtm_Cmu_getModuleFrequency_last_egtm = egtm;
-    return mock_IfxEgtm_Cmu_getModuleFrequency_return_value;
 }
 
 void IfxEgtm_Cmu_setGclkFrequency(Ifx_EGTM * egtm, uint32 numerator, uint32 denominator) {
@@ -93,6 +98,31 @@ void IfxEgtm_Cmu_enableClocks(Ifx_EGTM * egtm, uint32 clkMask) {
     mock_IfxEgtm_Cmu_enableClocks_call_count++;
     mock_IfxEgtm_Cmu_enableClocks_last_egtm = egtm;
     mock_IfxEgtm_Cmu_enableClocks_last_clkMask = clkMask;
+}
+
+float32 IfxEgtm_Cmu_getModuleFrequency(Ifx_EGTM * egtm) {
+    mock_IfxEgtm_Cmu_getModuleFrequency_call_count++;
+    mock_IfxEgtm_Cmu_getModuleFrequency_last_egtm = egtm;
+    return mock_IfxEgtm_Cmu_getModuleFrequency_return_value;
+}
+
+void IfxEgtm_Pwm_init(IfxEgtm_Pwm * pwm, IfxEgtm_Pwm_Channel * channels, IfxEgtm_Pwm_Config * config) {
+    mock_IfxEgtm_Pwm_init_call_count++;
+    mock_IfxEgtm_Pwm_init_last_pwm = pwm;
+    mock_IfxEgtm_Pwm_init_last_channels = channels;
+    mock_IfxEgtm_Pwm_init_last_config = config;
+}
+
+void IfxEgtm_Pwm_initConfig(IfxEgtm_Pwm_Config * config, Ifx_EGTM * egtmSFR) {
+    mock_IfxEgtm_Pwm_initConfig_call_count++;
+    mock_IfxEgtm_Pwm_initConfig_last_config = config;
+    mock_IfxEgtm_Pwm_initConfig_last_egtmSFR = egtmSFR;
+}
+
+void IfxEgtm_Pwm_updateChannelsDutyImmediate(IfxEgtm_Pwm * pwm, float32 * requestDuty) {
+    mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_call_count++;
+    mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_last_pwm = pwm;
+    mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_last_requestDuty = requestDuty;
 }
 
 void IfxPort_setPinModeOutput(Ifx_P * port, uint8 pinIndex, IfxPort_OutputMode mode, IfxPort_OutputIdx index) {
@@ -109,44 +139,16 @@ void IfxPort_togglePin(Ifx_P * port, uint8 pinIndex) {
     mock_IfxPort_togglePin_last_pinIndex = pinIndex;
 }
 
-void IfxEgtm_Pwm_updateChannelsDutyImmediate(IfxEgtm_Pwm * pwm, float32 * requestDuty) {
-    mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_call_count++;
-    mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_last_pwm = pwm;
-    mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_last_requestDuty = requestDuty;
-}
-
-void IfxEgtm_Pwm_initConfig(IfxEgtm_Pwm_Config * config, Ifx_EGTM * egtmSFR) {
-    mock_IfxEgtm_Pwm_initConfig_call_count++;
-    mock_IfxEgtm_Pwm_initConfig_last_config = config;
-    mock_IfxEgtm_Pwm_initConfig_last_egtmSFR = egtmSFR;
-}
-
-void IfxEgtm_Pwm_init(IfxEgtm_Pwm * pwm, IfxEgtm_Pwm_Channel * channels, IfxEgtm_Pwm_Config * config) {
-    mock_IfxEgtm_Pwm_init_call_count++;
-    mock_IfxEgtm_Pwm_init_last_pwm = pwm;
-    mock_IfxEgtm_Pwm_init_last_channels = channels;
-    mock_IfxEgtm_Pwm_init_last_config = config;
-}
-
-void IfxEgtm_enable(Ifx_EGTM * egtm) {
-    mock_IfxEgtm_enable_call_count++;
-    mock_IfxEgtm_enable_last_egtm = egtm;
-}
-
-boolean IfxEgtm_isEnabled(Ifx_EGTM * egtm) {
-    mock_IfxEgtm_isEnabled_call_count++;
-    mock_IfxEgtm_isEnabled_last_egtm = egtm;
-    return mock_IfxEgtm_isEnabled_return_value;
-}
-
 void mock_reset_all(void) {
+    mock_IfxEgtm_enable_call_count = 0;
+    memset(&mock_IfxEgtm_enable_last_egtm, 0, sizeof(mock_IfxEgtm_enable_last_egtm));
+    mock_IfxEgtm_isEnabled_call_count = 0;
+    memset(&mock_IfxEgtm_isEnabled_last_egtm, 0, sizeof(mock_IfxEgtm_isEnabled_last_egtm));
+    memset(&mock_IfxEgtm_isEnabled_return_value, 0, sizeof(mock_IfxEgtm_isEnabled_return_value));
     mock_IfxEgtm_Cmu_setClkFrequency_call_count = 0;
     memset(&mock_IfxEgtm_Cmu_setClkFrequency_last_egtm, 0, sizeof(mock_IfxEgtm_Cmu_setClkFrequency_last_egtm));
     memset(&mock_IfxEgtm_Cmu_setClkFrequency_last_clkIndex, 0, sizeof(mock_IfxEgtm_Cmu_setClkFrequency_last_clkIndex));
     memset(&mock_IfxEgtm_Cmu_setClkFrequency_last_count, 0, sizeof(mock_IfxEgtm_Cmu_setClkFrequency_last_count));
-    mock_IfxEgtm_Cmu_getModuleFrequency_call_count = 0;
-    memset(&mock_IfxEgtm_Cmu_getModuleFrequency_last_egtm, 0, sizeof(mock_IfxEgtm_Cmu_getModuleFrequency_last_egtm));
-    memset(&mock_IfxEgtm_Cmu_getModuleFrequency_return_value, 0, sizeof(mock_IfxEgtm_Cmu_getModuleFrequency_return_value));
     mock_IfxEgtm_Cmu_setGclkFrequency_call_count = 0;
     memset(&mock_IfxEgtm_Cmu_setGclkFrequency_last_egtm, 0, sizeof(mock_IfxEgtm_Cmu_setGclkFrequency_last_egtm));
     memset(&mock_IfxEgtm_Cmu_setGclkFrequency_last_numerator, 0, sizeof(mock_IfxEgtm_Cmu_setGclkFrequency_last_numerator));
@@ -154,6 +156,19 @@ void mock_reset_all(void) {
     mock_IfxEgtm_Cmu_enableClocks_call_count = 0;
     memset(&mock_IfxEgtm_Cmu_enableClocks_last_egtm, 0, sizeof(mock_IfxEgtm_Cmu_enableClocks_last_egtm));
     memset(&mock_IfxEgtm_Cmu_enableClocks_last_clkMask, 0, sizeof(mock_IfxEgtm_Cmu_enableClocks_last_clkMask));
+    mock_IfxEgtm_Cmu_getModuleFrequency_call_count = 0;
+    memset(&mock_IfxEgtm_Cmu_getModuleFrequency_last_egtm, 0, sizeof(mock_IfxEgtm_Cmu_getModuleFrequency_last_egtm));
+    memset(&mock_IfxEgtm_Cmu_getModuleFrequency_return_value, 0, sizeof(mock_IfxEgtm_Cmu_getModuleFrequency_return_value));
+    mock_IfxEgtm_Pwm_init_call_count = 0;
+    memset(&mock_IfxEgtm_Pwm_init_last_pwm, 0, sizeof(mock_IfxEgtm_Pwm_init_last_pwm));
+    memset(&mock_IfxEgtm_Pwm_init_last_channels, 0, sizeof(mock_IfxEgtm_Pwm_init_last_channels));
+    memset(&mock_IfxEgtm_Pwm_init_last_config, 0, sizeof(mock_IfxEgtm_Pwm_init_last_config));
+    mock_IfxEgtm_Pwm_initConfig_call_count = 0;
+    memset(&mock_IfxEgtm_Pwm_initConfig_last_config, 0, sizeof(mock_IfxEgtm_Pwm_initConfig_last_config));
+    memset(&mock_IfxEgtm_Pwm_initConfig_last_egtmSFR, 0, sizeof(mock_IfxEgtm_Pwm_initConfig_last_egtmSFR));
+    mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_call_count = 0;
+    memset(&mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_last_pwm, 0, sizeof(mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_last_pwm));
+    memset(&mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_last_requestDuty, 0, sizeof(mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_last_requestDuty));
     mock_IfxPort_setPinModeOutput_call_count = 0;
     memset(&mock_IfxPort_setPinModeOutput_last_port, 0, sizeof(mock_IfxPort_setPinModeOutput_last_port));
     memset(&mock_IfxPort_setPinModeOutput_last_pinIndex, 0, sizeof(mock_IfxPort_setPinModeOutput_last_pinIndex));
@@ -162,21 +177,6 @@ void mock_reset_all(void) {
     mock_IfxPort_togglePin_call_count = 0;
     memset(&mock_IfxPort_togglePin_last_port, 0, sizeof(mock_IfxPort_togglePin_last_port));
     memset(&mock_IfxPort_togglePin_last_pinIndex, 0, sizeof(mock_IfxPort_togglePin_last_pinIndex));
-    mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_call_count = 0;
-    memset(&mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_last_pwm, 0, sizeof(mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_last_pwm));
-    memset(&mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_last_requestDuty, 0, sizeof(mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_last_requestDuty));
-    mock_IfxEgtm_Pwm_initConfig_call_count = 0;
-    memset(&mock_IfxEgtm_Pwm_initConfig_last_config, 0, sizeof(mock_IfxEgtm_Pwm_initConfig_last_config));
-    memset(&mock_IfxEgtm_Pwm_initConfig_last_egtmSFR, 0, sizeof(mock_IfxEgtm_Pwm_initConfig_last_egtmSFR));
-    mock_IfxEgtm_Pwm_init_call_count = 0;
-    memset(&mock_IfxEgtm_Pwm_init_last_pwm, 0, sizeof(mock_IfxEgtm_Pwm_init_last_pwm));
-    memset(&mock_IfxEgtm_Pwm_init_last_channels, 0, sizeof(mock_IfxEgtm_Pwm_init_last_channels));
-    memset(&mock_IfxEgtm_Pwm_init_last_config, 0, sizeof(mock_IfxEgtm_Pwm_init_last_config));
-    mock_IfxEgtm_enable_call_count = 0;
-    memset(&mock_IfxEgtm_enable_last_egtm, 0, sizeof(mock_IfxEgtm_enable_last_egtm));
-    mock_IfxEgtm_isEnabled_call_count = 0;
-    memset(&mock_IfxEgtm_isEnabled_last_egtm, 0, sizeof(mock_IfxEgtm_isEnabled_last_egtm));
-    memset(&mock_IfxEgtm_isEnabled_return_value, 0, sizeof(mock_IfxEgtm_isEnabled_return_value));
 }
 
 /* ── Pin symbol allocations ──── */

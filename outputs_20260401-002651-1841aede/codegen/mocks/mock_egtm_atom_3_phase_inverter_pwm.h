@@ -109,47 +109,47 @@ extern Ifx_P P40_stub;
 #include "IfxPort.h"
 
 /* ── Spy counters ─────────────────────────────────────── */
-extern unsigned int mock_IfxEgtm_Cmu_setClkFrequency_call_count;
-extern unsigned int mock_IfxEgtm_Cmu_getModuleFrequency_call_count;
-extern unsigned int mock_IfxEgtm_Cmu_setGclkFrequency_call_count;
-extern unsigned int mock_IfxEgtm_Cmu_enableClocks_call_count;
-extern unsigned int mock_IfxPort_setPinModeOutput_call_count;
-extern unsigned int mock_IfxPort_togglePin_call_count;
-extern unsigned int mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_call_count;
-extern unsigned int mock_IfxEgtm_Pwm_initConfig_call_count;
-extern unsigned int mock_IfxEgtm_Pwm_init_call_count;
 extern unsigned int mock_IfxEgtm_enable_call_count;
 extern unsigned int mock_IfxEgtm_isEnabled_call_count;
+extern unsigned int mock_IfxEgtm_Cmu_setClkFrequency_call_count;
+extern unsigned int mock_IfxEgtm_Cmu_setGclkFrequency_call_count;
+extern unsigned int mock_IfxEgtm_Cmu_enableClocks_call_count;
+extern unsigned int mock_IfxEgtm_Cmu_getModuleFrequency_call_count;
+extern unsigned int mock_IfxEgtm_Pwm_init_call_count;
+extern unsigned int mock_IfxEgtm_Pwm_initConfig_call_count;
+extern unsigned int mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_call_count;
+extern unsigned int mock_IfxPort_setPinModeOutput_call_count;
+extern unsigned int mock_IfxPort_togglePin_call_count;
 
 /* ── Spy capture variables ────────────────────────────── */
+extern Ifx_EGTM * mock_IfxEgtm_enable_last_egtm;
+extern Ifx_EGTM * mock_IfxEgtm_isEnabled_last_egtm;
 extern Ifx_EGTM * mock_IfxEgtm_Cmu_setClkFrequency_last_egtm;
 extern IfxEgtm_Cmu_Clk mock_IfxEgtm_Cmu_setClkFrequency_last_clkIndex;
 extern uint32 mock_IfxEgtm_Cmu_setClkFrequency_last_count;
-extern Ifx_EGTM * mock_IfxEgtm_Cmu_getModuleFrequency_last_egtm;
 extern Ifx_EGTM * mock_IfxEgtm_Cmu_setGclkFrequency_last_egtm;
 extern uint32 mock_IfxEgtm_Cmu_setGclkFrequency_last_numerator;
 extern uint32 mock_IfxEgtm_Cmu_setGclkFrequency_last_denominator;
 extern Ifx_EGTM * mock_IfxEgtm_Cmu_enableClocks_last_egtm;
 extern uint32 mock_IfxEgtm_Cmu_enableClocks_last_clkMask;
+extern Ifx_EGTM * mock_IfxEgtm_Cmu_getModuleFrequency_last_egtm;
+extern IfxEgtm_Pwm * mock_IfxEgtm_Pwm_init_last_pwm;
+extern IfxEgtm_Pwm_Channel * mock_IfxEgtm_Pwm_init_last_channels;
+extern IfxEgtm_Pwm_Config * mock_IfxEgtm_Pwm_init_last_config;
+extern IfxEgtm_Pwm_Config * mock_IfxEgtm_Pwm_initConfig_last_config;
+extern Ifx_EGTM * mock_IfxEgtm_Pwm_initConfig_last_egtmSFR;
+extern IfxEgtm_Pwm * mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_last_pwm;
+extern float32 * mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_last_requestDuty;
 extern Ifx_P * mock_IfxPort_setPinModeOutput_last_port;
 extern uint8 mock_IfxPort_setPinModeOutput_last_pinIndex;
 extern IfxPort_OutputMode mock_IfxPort_setPinModeOutput_last_mode;
 extern IfxPort_OutputIdx mock_IfxPort_setPinModeOutput_last_index;
 extern Ifx_P * mock_IfxPort_togglePin_last_port;
 extern uint8 mock_IfxPort_togglePin_last_pinIndex;
-extern IfxEgtm_Pwm * mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_last_pwm;
-extern float32 * mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_last_requestDuty;
-extern IfxEgtm_Pwm_Config * mock_IfxEgtm_Pwm_initConfig_last_config;
-extern Ifx_EGTM * mock_IfxEgtm_Pwm_initConfig_last_egtmSFR;
-extern IfxEgtm_Pwm * mock_IfxEgtm_Pwm_init_last_pwm;
-extern IfxEgtm_Pwm_Channel * mock_IfxEgtm_Pwm_init_last_channels;
-extern IfxEgtm_Pwm_Config * mock_IfxEgtm_Pwm_init_last_config;
-extern Ifx_EGTM * mock_IfxEgtm_enable_last_egtm;
-extern Ifx_EGTM * mock_IfxEgtm_isEnabled_last_egtm;
 
 /* ── Return-value overrides ───────────────────────────── */
-extern float32 mock_IfxEgtm_Cmu_getModuleFrequency_return_value;
 extern boolean mock_IfxEgtm_isEnabled_return_value;
+extern float32 mock_IfxEgtm_Cmu_getModuleFrequency_return_value;
 
 void mock_reset_all(void);
 
