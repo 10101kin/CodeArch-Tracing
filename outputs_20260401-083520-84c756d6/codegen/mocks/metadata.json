@@ -1,8 +1,9 @@
 {
-  "type": "llm_response",
-  "phase": "mock",
   "attempt": 8,
   "phase_attempt": 4,
-  "response_length": 35981,
-  "timestamp": "2026-04-01T17:16:44.012774"
+  "phase": "mock_generation",
+  "success": true,
+  "errors": [],
+  "timestamp": "2026-04-01T17:16:54.746286",
+  "project_name": "Migrate_the_TC387_GTM_TOM_EVADC_inverter_to_TC4D_r_20260401_164632"
 }

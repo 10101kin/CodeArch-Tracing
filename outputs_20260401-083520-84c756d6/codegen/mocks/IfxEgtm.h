@@ -3,12 +3,12 @@
 
 #include "mock_egtm_atom_3_phase_inverter_pwm.h"
 
-/* Placeholder APU/PROT types used by some EGTm config structs */
+/* Local placeholder peer types used by AE/AP config structs */
 typedef struct { uint32 dummy; } IfxApApu_ApuConfig;
 typedef struct { uint32 dummy; } IfxApProt_ProtConfig;
 
 #ifndef IFXEGTM_NUM_CCM_OBJECTS
-# define IFXEGTM_NUM_CCM_OBJECTS (3u)
+# define IFXEGTM_NUM_CCM_OBJECTS 3
 #endif
 
 /* Enums required */
@@ -43,11 +43,32 @@ typedef enum {
     IfxEgtm_SuspendMode_soft = 2
 } IfxEgtm_SuspendMode;
 
-/* Additional types used by MscOut */
-typedef enum { IfxEgtm_Cfg_MscSet_0 = 0 } IfxEgtm_Cfg_MscSet;
+/* Minimal MSC config enums used by IfxEgtm_MscOut */
+typedef enum { IfxEgtm_Cfg_MscSet_a = 0 } IfxEgtm_Cfg_MscSet;
 typedef enum { IfxEgtm_Cfg_MscSetSignal_0 = 0 } IfxEgtm_Cfg_MscSetSignal;
 typedef enum { IfxEgtm_Cfg_MscModule_0 = 0 } IfxEgtm_Cfg_MscModule;
 typedef enum { IfxEgtm_Cfg_MscSelect_0 = 0 } IfxEgtm_Cfg_MscSelect;
+
+/* Structs required */
+typedef struct {
+    IfxApApu_ApuConfig apuConfig;
+} IfxEgtm_ClApConfig;
+
+typedef struct {
+    IfxApProt_ProtConfig proteConfig;
+    IfxApApu_ApuConfig   apuConfig;
+} IfxEgtm_CtrlApConfig;
+
+typedef struct {
+    IfxApApu_ApuConfig apuConfig;
+} IfxEgtm_WrapApConfig;
+
+typedef struct {
+    IfxApProt_ProtConfig protseConfig;
+    IfxEgtm_ClApConfig   clApConfig[IFXEGTM_NUM_CCM_OBJECTS];
+    IfxEgtm_CtrlApConfig ctrlApConfig;
+    IfxEgtm_WrapApConfig wrapApConfig;
+} IfxEgtm_ApConfig;
 
 typedef struct {
     IfxEgtm_Cfg_MscSet       mscSet;
@@ -57,25 +78,8 @@ typedef struct {
     IfxEgtm_MscAltInput      mscAltIn;
 } IfxEgtm_MscOut;
 
-/* APU/PROT wrapper config structs */
-typedef struct { IfxApApu_ApuConfig apuConfig; } IfxEgtm_ClApConfig;
-
-typedef struct {
-    IfxApProt_ProtConfig proteConfig;
-    IfxApApu_ApuConfig   apuConfig;
-} IfxEgtm_CtrlApConfig;
-
-typedef struct { IfxApApu_ApuConfig apuConfig; } IfxEgtm_WrapApConfig;
-
-typedef struct {
-    IfxApProt_ProtConfig protseConfig;
-    IfxEgtm_ClApConfig   clApConfig[IFXEGTM_NUM_CCM_OBJECTS];
-    IfxEgtm_CtrlApConfig ctrlApConfig;
-    IfxEgtm_WrapApConfig wrapApConfig;
-} IfxEgtm_ApConfig;
-
-/* Minimal API used */
-void    IfxEgtm_enable(Ifx_EGTM *egtm);
+/* Enable / status functions */
 boolean IfxEgtm_isEnabled(Ifx_EGTM *egtm);
+void    IfxEgtm_enable(Ifx_EGTM *egtm);
 
 #endif /* IFXEGTM_H */
