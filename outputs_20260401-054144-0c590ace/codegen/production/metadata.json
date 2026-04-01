@@ -1,8 +1,19 @@
 {
-  "type": "llm_response",
-  "phase": "production",
   "attempt": 7,
   "phase_attempt": 3,
-  "response_length": 13521,
-  "timestamp": "2026-04-01T15:16:25.163955"
+  "phase": "production",
+  "success": false,
+  "errors": [
+    "'IfxEgtm_ATOM0_0_TOUT0_P02_0_OUT' undeclared (first use in this function)",
+    "'IfxEgtm_ATOM0_0N_TOUT1_P02_1_OUT' undeclared (first use in this function)",
+    "assignment to 'IfxEgtm_Pwm_callBack' {aka 'void (*)(void)'} from incompatible pointer type 'void (*)(void *)' [-Wincompatible-pointer-types]",
+    "'IfxPort_OutputIdx_general' undeclared (first use in this function); did you mean 'IfxPort_OutputIdx_0'?",
+    "comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Werror=sign-compare]",
+    "implicit declaration of function 'mock_IfxCpu_Irq_installInterruptHandler_getCallCount' [-Wimplicit-function-declaration]",
+    "comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Werror=sign-compare]",
+    "'mock_IfxEgtm_Pwm_updateChannelsDeadTimeImmediate_lastDtRising' undeclared (first use in this function); did you mean 'mock_IfxEgtm_Pwm_updateChannelDeadTime_lastDtRising'?",
+    "'mock_IfxEgtm_Pwm_updateChannelsDeadTimeImmediate_lastDtFalling' undeclared (first use in this function); did you mean 'mock_IfxEgtm_Pwm_updateChannelDeadTime_lastDtFalling'?"
+  ],
+  "timestamp": "2026-04-01T15:16:34.864073",
+  "project_name": "Generate_consolidated_TC4D7_code_that_replaces_TC3_r_20260401_144730"
 }

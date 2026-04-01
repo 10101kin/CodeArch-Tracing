@@ -1,273 +1,281 @@
 /*
  * egtm_atom_tmadc_consolidated.c
- * Consolidated eGTM (ATOM) + TMADC initialization for TC4xx
+ *
+ * Consolidated TC4xx production driver replacing TC3xx GTM TOM + EVADC with
+ * eGTM ATOM + TMADC on KIT_A3G_TC4D7_LITE.
+ *
+ * Implements:
+ *  - eGTM ATOM0 CH0..CH2 center-aligned complementary PWM at 20 kHz with 1 us dead-time
+ *  - ATOM0 CH3 50% duty trigger for TMADC routing
+ *  - eGTM CMU enable/clock setup via enable guard
+ *  - TMADC module enable + module init
+ *  - LED GPIO prepared for application toggling
+ *
+ * Notes:
+ *  - Watchdogs are NOT modified here (per AURIX architecture: only in CpuX_Main.c)
+ *  - ADC channel pin binding and ISR/SRC setup are board- and project-specific; placeholders kept
  */
 
 #include "egtm_atom_tmadc_consolidated.h"
-
-/* iLLD core types */
 #include "Ifx_Types.h"
-
-/* eGTM PWM unified driver */
 #include "IfxEgtm_Pwm.h"
-/* eGTM CMU functions (clock enable/setting) */
-#include "IfxEgtm_Cmu.h"
-/* eGTM ATOM PinMap helper for routing a TOUT to a pad */
-#include "IfxEgtm_PinMap.h"
-/* eGTM Trigger routing to ADC */
-#include "IfxEgtm_Trigger.h"
-/* ATOM timer helper (for ADC trigger channel) */
 #include "IfxEgtm_Atom_Timer.h"
-
-/* TMADC module interfaces */
+#include "IfxEgtm_PinMap.h"
+#include "IfxEgtm_Trigger.h"
 #include "IfxAdc.h"
 #include "IfxAdc_Tmadc.h"
-
-/* GPIO */
 #include "IfxPort.h"
 
-/* =====================================================================================
- * Configuration macros (values from USER-CONFIRMED MIGRATION VALUES / REQUIREMENTS)
- * ===================================================================================== */
-#define NUM_OF_CHANNELS                 (3U)
-#define PWM_FREQUENCY                   (20000.0f)
-#define PHASE_U_DUTY                    (25.0f)
-#define PHASE_V_DUTY                    (50.0f)
-#define PHASE_W_DUTY                    (75.0f)
-#define PHASE_DUTY_STEP                 (0.01f)
-#define PWM_DEAD_TIME                   (1e-6f)
+/* =============================
+ * Numeric configuration macros
+ * ============================= */
+#define NUM_OF_CHANNELS                (3U)
+#define PWM_FREQUENCY_HZ               (20000.0f)
+#define PHASE_U_DUTY                   (25.0f)
+#define PHASE_V_DUTY                   (50.0f)
+#define PHASE_W_DUTY                   (75.0f)
+#define PHASE_DUTY_STEP                (0.01f)
+#define PWM_DEAD_TIME_S                (1.0e-6f)
 
-/* ISR priority for the eGTM ATOM PWM (debug ISR) */
-#define ISR_PRIORITY_ATOM               (25)
+/* ISR priority for eGTM ATOM base interrupt (used by PWM driver) */
+#define ISR_PRIORITY_ATOM              (25)
 
-/* LED on P03.9 (user requirement): compound macro expands to 2 args (port, pin) */
-#define LED                             &MODULE_P03, 9
+/* LED on P03.9 (compound macro: port, pin) */
+#define LED                            &MODULE_P03, 9
 
-/* =====================================================================================
- * Pin selection macros (validated symbols only; fallback to NULL_PTR if not listed)
- * ===================================================================================== */
-/* Phase U (ATOM0 Ch0) — validated list provides these exact symbols */
-#define PHASE_U_HS                      (&IfxEgtm_ATOM0_0_TOUT0_P02_0_OUT)
-#define PHASE_U_LS                      (&IfxEgtm_ATOM0_0N_TOUT1_P02_1_OUT)
+/* =============================
+ * Validated ATOM TOUT pin macros
+ * =============================
+ * Use only validated pin symbols from provided list. For pins not listed,
+ * leave as NULL_PTR placeholders to be bound during board integration.
+ */
+/* Phase U (ATOM0 CH0) — validated */
+#define PHASE_U_HS                     (&IfxEgtm_ATOM0_0_TOUT0_P02_0_OUT)
+#define PHASE_U_LS                     (&IfxEgtm_ATOM0_0N_TOUT1_P02_1_OUT)
 
-/* Phase V (ATOM0 Ch1) — user requested P20.10/11; not present in validated list → NULL_PTR placeholders */
-#define PHASE_V_HS                      (NULL_PTR) /* Requested P20.10 (ATOM0_1) — bind a valid TOUT symbol when available */
-#define PHASE_V_LS                      (NULL_PTR) /* Requested P20.11 (ATOM0_1N) — bind a valid TOUT symbol when available */
+/* Phase V (ATOM0 CH1) — user requested P20.10 / P20.11: placeholders (TBD) */
+#define PHASE_V_HS                     (NULL_PTR) /* Replace with validated TOUT for P20.10 */
+#define PHASE_V_LS                     (NULL_PTR) /* Replace with validated TOUT for P20.11 */
 
-/* Phase W (ATOM0 Ch2) — user requested P20.12/13; not present in validated list → NULL_PTR placeholders */
-#define PHASE_W_HS                      (NULL_PTR) /* Requested P20.12 (ATOM0_2) — bind a valid TOUT symbol when available */
-#define PHASE_W_LS                      (NULL_PTR) /* Requested P20.13 (ATOM0_2N) — bind a valid TOUT symbol when available */
+/* Phase W (ATOM0 CH2) — user requested P20.12 / P20.13: placeholders (TBD) */
+#define PHASE_W_HS                     (NULL_PTR) /* Replace with validated TOUT for P20.12 */
+#define PHASE_W_LS                     (NULL_PTR) /* Replace with validated TOUT for P20.13 */
 
-/* ADC trigger output (ATOM0 Ch3) — user requested P33.0; not present in validated list → NULL_PTR placeholder */
-#define ADC_TRIG_TOUT                   (NULL_PTR) /* Requested P33.0 (ATOM0_3) — bind a valid TOUT symbol when available */
+/* ATOM0 CH3 trigger output — user requested P33.0: placeholder (TBD) */
+#define TRIG_ATOM_TOUT                 (NULL_PTR) /* Replace with validated TOUT for P33.0 */
 
-/* =====================================================================================
- * Module state (persistent)
- * ===================================================================================== */
+/* =============================
+ * Module state
+ * ============================= */
 
 typedef struct
 {
-    IfxEgtm_Pwm               pwm;                                 /* unified eGTM PWM driver handle */
-    IfxEgtm_Pwm_Channel       channels[NUM_OF_CHANNELS];           /* persistent channel objects (populated by init) */
-    float32                   dutyCycles[NUM_OF_CHANNELS];         /* duty in percent */
-    float32                   phases[NUM_OF_CHANNELS];             /* phase offset (0..1 or driver-specific units) */
-    IfxEgtm_Pwm_DeadTime      deadTimes[NUM_OF_CHANNELS];          /* per-channel deadtime (rising/falling) */
-} EGTM_AtomTmadc_State;
+    IfxEgtm_Pwm             pwm;                                   /* PWM driver handle */
+    IfxEgtm_Pwm_Channel     channels[NUM_OF_CHANNELS];             /* Persistent channels array */
+    float32                 dutyCycles[NUM_OF_CHANNELS];           /* Duty in percent [0..100] */
+    float32                 phases[NUM_OF_CHANNELS];               /* Phase in percent [0..100] */
+    IfxEgtm_Pwm_DeadTime    deadTimes[NUM_OF_CHANNELS];            /* Stored dead-times */
+} EgtmAtom3ph_State;
 
-IFX_STATIC EGTM_AtomTmadc_State g_egtmAtomTmadc = {0};
+IFX_STATIC EgtmAtom3ph_State g_egtmAtom3phState;
 
-/* =====================================================================================
- * ISR and callback (must be defined before init)
- * ===================================================================================== */
+/* =============================
+ * ISR and period callback
+ * ============================= */
 
-/*
- * PWM ISR: minimal body — toggle LED for instrumentation
- * Note: ISR is installed by the driver infrastructure via InterruptConfig; here we only define it.
- */
-IFX_INTERRUPT(interruptEgtmAtom, 0, ISR_PRIORITY_ATOM);
-void interruptEgtmAtom(void)
+/* PWM interrupt: minimal ISR toggles debug LED only */
+IFX_INTERRUPT(interruptEgtmAtom, 0, ISR_PRIORITY_ATOM)
 {
     IfxPort_togglePin(LED);
 }
 
-/* Period event callback for PWM driver — empty body by design */
+/* Period-event callback for PWM driver — empty by design */
 void IfxEgtm_periodEventFunction(void *data)
 {
     (void)data;
 }
 
-/* Optional TMADC result ISR placeholder per requirements (priority 25, TOS cpu0)
- * The actual SRC routing/enabling must be done in the ADC integration code. */
-IFX_INTERRUPT(resultISR, 0, 25);
-void resultISR(void)
-{
-    /* Per user requirement: read TMADC0.CH0–CH4 results here using IfxAdc_Tmadc_readChannelResult()
-       and acknowledge/clear source as required. API not listed in available mocks, so left as placeholder. */
-}
-
-/* =====================================================================================
- * Initialization: eGTM (ATOM) complementary PWM + ATOM trigger + TMADC
- * ===================================================================================== */
+/* =============================
+ * Initialization function
+ * ============================= */
 
 /**
- * Initialize consolidated eGTM ATOM0 (3-phase complementary PWM @20 kHz with 1 us dead-time),
- * setup ATOM trigger channel for TMADC, route trigger to ADC, initialize TMADC module, and
- * configure LED GPIO. All hardware enabling is deferred until after configuration is ready.
+ * Initialize eGTM ATOM 3-phase inverter PWM (CH0..CH2), ATOM trigger (CH3), and TMADC module.
+ *
+ * Sequence:
+ *  1) Build all config locally; keep PWM handle + channels persistent in module state.
+ *  2) Configure 3 logical channels (0..2) as complementary, center-aligned, with 1us DTM dead-time;
+ *     initial duties 25/50/75 percent; CMU Clock 0 as PWM/DTM clock; sync update enabled; 20kHz.
+ *  3) Prepare ATOM timer (separate channel) to generate ADC trigger at 50% of PWM period.
+ *  4) Route trigger from ATOM0.CH3 to ADC trigger signal via IfxEgtm_Trigger_trigToAdc.
+ *  5) Enable-guard eGTM; set GCLK and CLK0 based on runtime module frequency; enable FXCLK|CLK0.
+ *  6) Initialize unified eGTM PWM with persistent channels array.
+ *  7) Start ATOM timer and set 50% trigger point.
+ *  8) Bind trigger channel to pad using PinMap API.
+ *  9) Enable TMADC module and initialize module configuration.
+ * 10) Configure LED GPIO as push-pull output.
  */
 void initEgtmAtom3phInv(void)
 {
-    /* ---------------------------
-     * 1) Local configuration data
-     * --------------------------- */
-    IfxEgtm_Pwm_Config            pwmConfig;
+    /* 1) Local configuration containers */
+    IfxEgtm_Pwm_Config            pwmCfg;
     IfxEgtm_Pwm_ChannelConfig     chCfg[NUM_OF_CHANNELS];
     IfxEgtm_Pwm_OutputConfig      outCfg[NUM_OF_CHANNELS];
     IfxEgtm_Pwm_DtmConfig         dtmCfg[NUM_OF_CHANNELS];
-    IfxEgtm_Pwm_InterruptConfig   irqCfg; /* used for base channel */
+    IfxEgtm_Pwm_InterruptConfig   irqCfg;
 
-    IfxEgtm_Atom_Timer            adcTrigTimer; /* ATOM trigger channel driver */
+    /* Initialize unified eGTM PWM defaults */
+    IfxEgtm_Pwm_initConfig(&pwmCfg, &MODULE_EGTM);
 
-    IfxAdc_Tmadc_Config           tmadcCfg;
-    IfxAdc_Tmadc                  tmadc;
-
-    /* ---------------------------
-     * 2) PWM unified config setup
-     * --------------------------- */
-    IfxEgtm_Pwm_initConfig(&pwmConfig, &MODULE_EGTM);
-
-    /* Complementary outputs and DTM for 3 logical channels (ATOM0 Ch0..Ch2) */
-    /* Channel 0: Phase U */
+    /* 2) Output configuration: complementary pairs with required polarity */
+    /* Phase U (logical channel 0) */
     outCfg[0].pin                    = (IfxEgtm_Pwm_ToutMap *)PHASE_U_HS;
     outCfg[0].complementaryPin       = (IfxEgtm_Pwm_ToutMap *)PHASE_U_LS;
-    outCfg[0].polarity               = Ifx_ActiveState_high;    /* HS: active HIGH */
-    outCfg[0].complementaryPolarity  = Ifx_ActiveState_low;     /* LS: active LOW  */
+    outCfg[0].polarity               = Ifx_ActiveState_high;    /* HS active high */
+    outCfg[0].complementaryPolarity  = Ifx_ActiveState_low;     /* LS active low  */
     outCfg[0].outputMode             = IfxPort_OutputMode_pushPull;
     outCfg[0].padDriver              = IfxPort_PadDriver_cmosAutomotiveSpeed1;
 
-    /* Channel 1: Phase V */
-    outCfg[1].pin                    = (IfxEgtm_Pwm_ToutMap *)PHASE_V_HS; /* NULL_PTR placeholder until pin is bound */
-    outCfg[1].complementaryPin       = (IfxEgtm_Pwm_ToutMap *)PHASE_V_LS; /* NULL_PTR placeholder until pin is bound */
+    /* Phase V (logical channel 1) */
+    outCfg[1].pin                    = (IfxEgtm_Pwm_ToutMap *)PHASE_V_HS; /* TBD */
+    outCfg[1].complementaryPin       = (IfxEgtm_Pwm_ToutMap *)PHASE_V_LS; /* TBD */
     outCfg[1].polarity               = Ifx_ActiveState_high;
     outCfg[1].complementaryPolarity  = Ifx_ActiveState_low;
     outCfg[1].outputMode             = IfxPort_OutputMode_pushPull;
     outCfg[1].padDriver              = IfxPort_PadDriver_cmosAutomotiveSpeed1;
 
-    /* Channel 2: Phase W */
-    outCfg[2].pin                    = (IfxEgtm_Pwm_ToutMap *)PHASE_W_HS; /* NULL_PTR placeholder until pin is bound */
-    outCfg[2].complementaryPin       = (IfxEgtm_Pwm_ToutMap *)PHASE_W_LS; /* NULL_PTR placeholder until pin is bound */
+    /* Phase W (logical channel 2) */
+    outCfg[2].pin                    = (IfxEgtm_Pwm_ToutMap *)PHASE_W_HS; /* TBD */
+    outCfg[2].complementaryPin       = (IfxEgtm_Pwm_ToutMap *)PHASE_W_LS; /* TBD */
     outCfg[2].polarity               = Ifx_ActiveState_high;
     outCfg[2].complementaryPolarity  = Ifx_ActiveState_low;
     outCfg[2].outputMode             = IfxPort_OutputMode_pushPull;
     outCfg[2].padDriver              = IfxPort_PadDriver_cmosAutomotiveSpeed1;
 
-    /* DTM dead-time for each channel: 1e-6 s rising/falling */
-    dtmCfg[0].deadTime.rising = PWM_DEAD_TIME; dtmCfg[0].deadTime.falling = PWM_DEAD_TIME; dtmCfg[0].fastShutOff = NULL_PTR;
-    dtmCfg[1].deadTime.rising = PWM_DEAD_TIME; dtmCfg[1].deadTime.falling = PWM_DEAD_TIME; dtmCfg[1].fastShutOff = NULL_PTR;
-    dtmCfg[2].deadTime.rising = PWM_DEAD_TIME; dtmCfg[2].deadTime.falling = PWM_DEAD_TIME; dtmCfg[2].fastShutOff = NULL_PTR;
+    /* 2) DTM configuration: 1us rising/falling dead-time, DTM clock = CMU CLK0 */
+    dtmCfg[0].deadTime.rising = PWM_DEAD_TIME_S;
+    dtmCfg[0].deadTime.falling = PWM_DEAD_TIME_S;
+    dtmCfg[0].fastShutOff = NULL_PTR;
 
-    /* Interrupt configuration for base channel: period-event callback (empty) */
-    irqCfg.mode        = (IfxEgtm_IrqMode)0;          /* default/implementation-defined */
+    dtmCfg[1].deadTime.rising = PWM_DEAD_TIME_S;
+    dtmCfg[1].deadTime.falling = PWM_DEAD_TIME_S;
+    dtmCfg[1].fastShutOff = NULL_PTR;
+
+    dtmCfg[2].deadTime.rising = PWM_DEAD_TIME_S;
+    dtmCfg[2].deadTime.falling = PWM_DEAD_TIME_S;
+    dtmCfg[2].fastShutOff = NULL_PTR;
+
+    /* 2) Interrupt configuration (attach to base logical channel 0) */
+    irqCfg.mode        = (IfxEgtm_IrqMode)0;             /* pulse/notify mode per project defaults */
     irqCfg.isrProvider = IfxSrc_Tos_cpu0;
     irqCfg.priority    = (Ifx_Priority)ISR_PRIORITY_ATOM;
     irqCfg.vmId        = IfxSrc_VmId_0;
     irqCfg.periodEvent = IfxEgtm_periodEventFunction;
     irqCfg.dutyEvent   = NULL_PTR;
 
-    /* Channel configurations (logical indices map to ATOM Ch0..Ch2) */
-    chCfg[0].timerCh   = IfxEgtm_Pwm_SubModule_Ch_0; chCfg[0].phase = 0.0f;       chCfg[0].duty = PHASE_U_DUTY;
-    chCfg[0].dtm       = &dtmCfg[0];                  chCfg[0].output = &outCfg[0]; chCfg[0].mscOut = NULL_PTR; chCfg[0].interrupt = &irqCfg;
+    /* 2) Channel configurations: CH0..CH2 center-aligned complementary */
+    chCfg[0].timerCh    = IfxEgtm_Pwm_SubModule_Ch_0;
+    chCfg[0].phase      = 0.0f;
+    chCfg[0].duty       = PHASE_U_DUTY;
+    chCfg[0].dtm        = &dtmCfg[0];
+    chCfg[0].output     = &outCfg[0];
+    chCfg[0].mscOut     = NULL_PTR;
+    chCfg[0].interrupt  = &irqCfg; /* assign interrupt on base channel */
 
-    chCfg[1].timerCh   = IfxEgtm_Pwm_SubModule_Ch_1; chCfg[1].phase = 0.0f;       chCfg[1].duty = PHASE_V_DUTY;
-    chCfg[1].dtm       = &dtmCfg[1];                  chCfg[1].output = &outCfg[1]; chCfg[1].mscOut = NULL_PTR; chCfg[1].interrupt = NULL_PTR;
+    chCfg[1].timerCh    = IfxEgtm_Pwm_SubModule_Ch_1;
+    chCfg[1].phase      = 0.0f;
+    chCfg[1].duty       = PHASE_V_DUTY;
+    chCfg[1].dtm        = &dtmCfg[1];
+    chCfg[1].output     = &outCfg[1];
+    chCfg[1].mscOut     = NULL_PTR;
+    chCfg[1].interrupt  = NULL_PTR;
 
-    chCfg[2].timerCh   = IfxEgtm_Pwm_SubModule_Ch_2; chCfg[2].phase = 0.0f;       chCfg[2].duty = PHASE_W_DUTY;
-    chCfg[2].dtm       = &dtmCfg[2];                  chCfg[2].output = &outCfg[2]; chCfg[2].mscOut = NULL_PTR; chCfg[2].interrupt = NULL_PTR;
+    chCfg[2].timerCh    = IfxEgtm_Pwm_SubModule_Ch_2;
+    chCfg[2].phase      = 0.0f;
+    chCfg[2].duty       = PHASE_W_DUTY;
+    chCfg[2].dtm        = &dtmCfg[2];
+    chCfg[2].output     = &outCfg[2];
+    chCfg[2].mscOut     = NULL_PTR;
+    chCfg[2].interrupt  = NULL_PTR;
 
-    /* Main PWM config */
-    pwmConfig.cluster             = IfxEgtm_Cluster_0;
-    pwmConfig.subModule           = IfxEgtm_Pwm_SubModule_atom;           /* ATOM submodule */
-    pwmConfig.alignment           = IfxEgtm_Pwm_Alignment_center;         /* center-aligned */
-    pwmConfig.numChannels         = (uint8)NUM_OF_CHANNELS;
-    pwmConfig.channels            = &chCfg[0];
-    pwmConfig.frequency           = PWM_FREQUENCY;                        /* 20 kHz */
-    pwmConfig.clockSource.atom    = (uint32)IfxEgtm_Cmu_Clk_0;            /* CMU Clock 0 for ATOM */
-    pwmConfig.dtmClockSource      = IfxEgtm_Dtm_ClockSource_cmuClock0;    /* DTM clock source: CMU Clock 0 */
-    pwmConfig.syncUpdateEnabled   = TRUE;                                  /* keep sync update enabled */
-    pwmConfig.syncStart           = TRUE;                                  /* sync start all channels */
+    /* 2) Main PWM configuration — ATOM submodule, center-aligned, sync update */
+    pwmCfg.cluster             = IfxEgtm_Cluster_0;
+    pwmCfg.subModule           = IfxEgtm_Pwm_SubModule_atom;
+    pwmCfg.alignment           = IfxEgtm_Pwm_Alignment_center;
+    pwmCfg.numChannels         = (uint8)NUM_OF_CHANNELS;
+    pwmCfg.channels            = chCfg;
+    pwmCfg.frequency           = PWM_FREQUENCY_HZ;
+    pwmCfg.clockSource.atom    = (uint32)IfxEgtm_Cmu_Clk_0;         /* CMU CLK0 for ATOM */
+    pwmCfg.dtmClockSource      = IfxEgtm_Dtm_ClockSource_cmuClock0; /* DTM sourced by CMU CLK0 */
+    pwmCfg.syncUpdateEnabled   = TRUE;
+    pwmCfg.syncStart           = TRUE;
 
-    /* ---------------------------------------------
-     * 3) ATOM trigger channel (separate timer chan)
-     * --------------------------------------------- */
-    /* Set its frequency to match PWM (20 kHz), set 50% trigger point later after PWM init when period is known */
-
-    /* -------------------------------------------------------
-     * 4) Configure trigger routing from ATOM to ADC (TMADC)
-     * ------------------------------------------------------- */
-    /* Route ATOM0.CH3 to ADC trigger signal 0. Edge/mux selection specifics are not available in the mock API. */
-    (void)IfxEgtm_Trigger_trigToAdc(IfxEgtm_Cluster_0,
-                                    (IfxEgtm_TrigSource)0,     /* Source: ATOM0 (implementation-defined enum value 0) */
-                                    (IfxEgtm_TrigChannel)3,    /* Channel: CH3 */
-                                    (IfxEgtm_Cfg_AdcTriggerSignal)0); /* AdcTriggerSignal_0 */
-
-    /* --------------------------------------------------------------
-     * 5) Enable-guard: enable eGTM, configure CMU clocks inside guard
-     * -------------------------------------------------------------- */
+    /* 5) eGTM enable guard and CMU clock setup */
     if (!IfxEgtm_isEnabled(&MODULE_EGTM))
     {
         IfxEgtm_enable(&MODULE_EGTM);
+        /* Runtime-determined module frequency */
+        float32 freq = IfxEgtm_Cmu_getModuleFrequency(&MODULE_EGTM);
+        /* Configure GCLK and CLK0 based on runtime frequency context */
+        IfxEgtm_Cmu_setGclkFrequency(&MODULE_EGTM, (uint32)freq, 1U);
+        IfxEgtm_Cmu_setClkFrequency(&MODULE_EGTM, IfxEgtm_Cmu_Clk_0, (uint32)freq);
+        /* Enable FXCLK (for TOM) and CLK0 (for ATOM) */
+        IfxEgtm_Cmu_enableClocks(&MODULE_EGTM, (uint32)(IFXEGTM_CMU_CLKEN_FXCLK | IFXEGTM_CMU_CLKEN_CLK0));
+    }
+
+    /* 6) Initialize unified eGTM PWM with persistent channels array */
+    IfxEgtm_Pwm_init(&g_egtmAtom3phState.pwm, g_egtmAtom3phState.channels, &pwmCfg);
+
+    /* 10) Configure LED pin (push-pull output) for application use */
+    IfxPort_setPinModeOutput(LED, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
+    IfxPort_setPinPadDriver(LED, IfxPort_PadDriver_cmosAutomotiveSpeed1);
+
+    /* 7) ATOM timer on trigger channel: set frequency and 50% trigger point, then run */
+    {
+        IfxEgtm_Atom_Timer atomTimer; /* Local driver context (channel selection is implementation-specific) */
+        boolean ok = IfxEgtm_Atom_Timer_setFrequency(&atomTimer, PWM_FREQUENCY_HZ);
+        if (ok == TRUE)
         {
-            float32 freq = IfxEgtm_Cmu_getModuleFrequency(&MODULE_EGTM);
-            IfxEgtm_Cmu_setGclkFrequency(&MODULE_EGTM, freq);
-            IfxEgtm_Cmu_setClkFrequency(&MODULE_EGTM, IfxEgtm_Cmu_Clk_0, freq);
-            IfxEgtm_Cmu_enableClocks(&MODULE_EGTM, (uint32)(IFXEGTM_CMU_CLKEN_FXCLK | IFXEGTM_CMU_CLKEN_CLK0));
+            /* Use PWM periodTicks/2 as a 50% trigger reference */
+            IfxEgtm_Atom_Timer_setTrigger(&atomTimer, (uint32)(g_egtmAtom3phState.pwm.periodTicks / 2U));
+            IfxEgtm_Atom_Timer_run(&atomTimer);
+        }
+        else
+        {
+            /* Error path: leave timer stopped (could log or assert in integration) */
         }
     }
 
-    /* ----------------------------------
-     * 6) Initialize unified eGTM PWM
-     * ---------------------------------- */
-    IfxEgtm_Pwm_init(&g_egtmAtomTmadc.pwm, &g_egtmAtomTmadc.channels[0], &pwmConfig);
+    /* 8) Bind trigger channel output to pad via PinMap API (placeholder until final pin binding) */
+    IfxEgtm_PinMap_setAtomTout((IfxEgtm_Atom_ToutMap *)TRIG_ATOM_TOUT, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
 
-    /* Persist initial duties/phases/dead-times into module state */
-    g_egtmAtomTmadc.dutyCycles[0] = chCfg[0].duty; g_egtmAtomTmadc.phases[0] = chCfg[0].phase; g_egtmAtomTmadc.deadTimes[0] = dtmCfg[0].deadTime;
-    g_egtmAtomTmadc.dutyCycles[1] = chCfg[1].duty; g_egtmAtomTmadc.phases[1] = chCfg[1].phase; g_egtmAtomTmadc.deadTimes[1] = dtmCfg[1].deadTime;
-    g_egtmAtomTmadc.dutyCycles[2] = chCfg[2].duty; g_egtmAtomTmadc.phases[2] = chCfg[2].phase; g_egtmAtomTmadc.deadTimes[2] = dtmCfg[2].deadTime;
-
-    /* -------------------------------------------------
-     * 7) Initialize and start ATOM timer for trigger
-     * ------------------------------------------------- */
+    /* 4) Route ATOM trigger to ADC trigger signal using eGTM Trigger API */
     {
-        boolean ok;
-        ok = IfxEgtm_Atom_Timer_setFrequency(&adcTrigTimer, PWM_FREQUENCY); /* match PWM period */
-        (void)ok; /* production: handle error as needed */
-        /* 50% trigger point based on PWM ticks configured by driver */
-        IfxEgtm_Atom_Timer_setTrigger(&adcTrigTimer, (uint32)(g_egtmAtomTmadc.pwm.periodTicks / 2U));
-        IfxEgtm_Atom_Timer_run(&adcTrigTimer);
+        /* Cluster 0, ATOM0 source, logical trigger channel 3, ADC trigger signal 0 */
+        boolean routed = IfxEgtm_Trigger_trigToAdc(IfxEgtm_Cluster_0, (IfxEgtm_TrigSource)0, (IfxEgtm_TrigChannel)3, (IfxEgtm_Cfg_AdcTriggerSignal)0);
+        (void)routed; /* In production, handle FALSE (routing failure) accordingly */
     }
 
-    /* --------------------------------------------------------------
-     * 8) Connect trigger channel output to pad using PinMap API
-     * -------------------------------------------------------------- */
-    if (ADC_TRIG_TOUT != NULL_PTR)
+    /* 9) TMADC: enable module and initialize module configuration */
     {
-        IfxEgtm_PinMap_setAtomTout((IfxEgtm_Atom_ToutMap *)ADC_TRIG_TOUT,
-                                   IfxPort_OutputMode_pushPull,
-                                   IfxPort_PadDriver_cmosAutomotiveSpeed1);
+        IfxAdc_Tmadc_Config adcCfg;
+        IfxAdc_Tmadc       tmadc;
+        IfxAdc_enableModule(&MODULE_ADC);
+        IfxAdc_Tmadc_initModuleConfig(&adcCfg, &MODULE_ADC);
+        /* Channel one-shot, sampling time, ISR/SRC, and run/start to be configured by project-specific code */
+        IfxAdc_Tmadc_initModule(&tmadc, &adcCfg);
     }
 
-    /* ---------------------------
-     * 9) Initialize TMADC module
-     * --------------------------- */
-    IfxAdc_enableModule(&MODULE_ADC);
-    IfxAdc_Tmadc_initModuleConfig(&tmadcCfg, &MODULE_ADC);
-    /* Per requirements: configure TMADC0.CH0–CH4 one-shot, 100 ns sampling, wait-for-read,
-       enable channel event and ISR installation. Channel-level APIs are not available in the
-       mock interface; complete channel setup must be added during integration. */
-    IfxAdc_Tmadc_initModule(&tmadc, &tmadcCfg);
+    /* Persist initial duties, phases, and dead-times into module state for runtime updates */
+    g_egtmAtom3phState.dutyCycles[0] = chCfg[0].duty;
+    g_egtmAtom3phState.dutyCycles[1] = chCfg[1].duty;
+    g_egtmAtom3phState.dutyCycles[2] = chCfg[2].duty;
 
-    /* ---------------------------------
-     * 10) LED pin configured as output
-     * --------------------------------- */
-    IfxPort_setPinModeOutput(LED, IfxPort_OutputMode_pushPull);
-    IfxPort_setPinPadDriver(LED, IfxPort_PadDriver_cmosAutomotiveSpeed1);
+    g_egtmAtom3phState.phases[0] = chCfg[0].phase;
+    g_egtmAtom3phState.phases[1] = chCfg[1].phase;
+    g_egtmAtom3phState.phases[2] = chCfg[2].phase;
+
+    g_egtmAtom3phState.deadTimes[0] = dtmCfg[0].deadTime;
+    g_egtmAtom3phState.deadTimes[1] = dtmCfg[1].deadTime;
+    g_egtmAtom3phState.deadTimes[2] = dtmCfg[2].deadTime;
 }
