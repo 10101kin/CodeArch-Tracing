@@ -1,25 +1,3 @@
-Status: FAILED
-
-============================================================
-TDD CODE GENERATION - ATTEMPT STATUS
-============================================================
-Phase: test_execution
-Attempt: 5
-Status: FAILED
-Timestamp: 2026-04-01 12:40:20
-Files generated: 2
-
-============================================================
-
-ERRORS:
-
-1. C:\Users\extsiyv\AppData\Local\Temp\tdd_build_9vm2q4gk\test\test_gtm_tom_3_phase_inverter_pwm.c:376:test_TC_G1_001_Init_WhenGtmAlreadyEnabled_MinimalClockSetup:PASS
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_9vm2q4gk\test\test_gtm_tom_3_phase_inverter_pwm.c:377:test_TC_G1_002_Init_WhenGtmDisabled_EnablesAndConfigClocks:PASS
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_9vm2q4gk\test\test_gtm_tom_3_phase_inverter_pwm.c:379:test_TC_G2_001_Init_SetsExpectedPwmFrequencyAndChannelCount:PASS
-C:\Use
-
-============================================================
-BUILD RESULT:
 {
   "test_result": {
     "success": false,
