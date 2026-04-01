@@ -1,3 +1,41 @@
-Status: SUCCESS
+Status: FAILED
 
-LLM response for production phase (attempt 5), 14623 chars
+============================================================
+TDD CODE GENERATION - ATTEMPT STATUS
+============================================================
+Phase: production
+Attempt: 5
+Status: FAILED
+Timestamp: 2026-04-01 14:04:56
+Files generated: 2
+
+============================================================
+
+ERRORS:
+
+1. 'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P33'?
+
+2. 'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P33'?
+
+============================================================
+BUILD RESULT:
+{
+  "success": false,
+  "errors": [
+    {
+      "file": "C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_eymzhi30\\src\\egtm_atom_adc_tmadc_multiple_channels.c",
+      "line": 38,
+      "category": "error",
+      "message": "'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P33'?"
+    },
+    {
+      "file": "C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_eymzhi30\\src\\egtm_atom_adc_tmadc_multiple_channels.c",
+      "line": 38,
+      "category": "error",
+      "message": "'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P33'?"
+    }
+  ],
+  "warnings": [],
+  "stderr": "C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_eymzhi30\\src\\egtm_atom_adc_tmadc_multiple_channels.c: In function 'interruptEgtmAtom':\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_eymzhi30\\src\\egtm_atom_adc_tmadc_multiple_channels.c:38:43: error: 'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P33'?\n   38 | #define LED                              &MODULE_P03, 9\n      |                                           ^~~~~~~~~~\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_eymzhi30\\src\\egtm_atom_adc_tmadc_multiple_channels.c:100:23: note: in expansion of macro 'LED'\n  100 |     IfxPort_togglePin(LED);\n      |                       ^~~\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_eymzhi30\\src\\egtm_atom_adc_tmadc_multiple_channels.c:38:43: note: each undeclared identifier is reported only once for each function it appears in\n   38 | #define LED                              &MODULE_P03, 9\n      |                                           ^~~~~~~~~~\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_eymzhi30\\src\\egtm_atom_adc_tmadc_multiple_channels.c:100:23: note: in expansion of macro 'LED'\n  100 |     IfxPort_togglePin(LED);\n      |                       ^~~\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_eymzhi30\\src\\egtm_atom_adc_tmadc_multiple_channels.c: In function 'initEgtmAtom3phInv':\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_eymzhi30\\src\\egtm_atom_adc_tmadc_multiple_channels.c:38:43: error: 'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P33'?\n   38 | #define LED                              &MODULE_P03, 9\n      |                                           ^~~~~~~~~~\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_eymzhi30\\src\\egtm_atom_adc_tmadc_multiple_channels.c:275:30: note: in expansion of macro 'LED'\n  275 |     IfxPort_setPinModeOutput(LED, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);\n      |                              ^~~\n",
+  "stdout": ""
+}

@@ -1,79 +1,20 @@
-In file included from C:\Users\extalth\AppData\Local\Temp\tdd_build_on1u2n7x\src\egtm_atom_adc_tmadc_multiple_channels.c:16:
-C:\Users\extalth\AppData\Local\Temp\tdd_build_on1u2n7x\include/egtm_atom_adc_tmadc_multiple_channels.h:10:31: error: unknown type name 'float32'; did you mean '_Float32'?
-   10 | void updateEgtmAtom3phInvDuty(float32 *requestDuty);
-      |                               ^~~~~~~
-      |                               _Float32
-In file included from C:\Users\extalth\AppData\Local\Temp\tdd_build_on1u2n7x\src\egtm_atom_adc_tmadc_multiple_channels.c:21:
-C:\Users\extalth\AppData\Local\Temp\tdd_build_on1u2n7x\include/IfxAdc_Tmadc.h:8:37: error: conflicting types for 'Ifx_ADC_TMADC'; have 'struct <anonymous>'
-    8 | typedef struct { uint32 reserved; } Ifx_ADC_TMADC;
-      |                                     ^~~~~~~~~~~~~
-In file included from C:\Users\extalth\AppData\Local\Temp\tdd_build_on1u2n7x\include/IfxAdc_Tmadc.h:5:
-C:\Users\extalth\AppData\Local\Temp\tdd_build_on1u2n7x\include/IfxAdc.h:14:30: note: previous declaration of 'Ifx_ADC_TMADC' with type 'Ifx_ADC_TMADC'
-   14 | typedef struct Ifx_ADC_TMADC Ifx_ADC_TMADC;
-      |                              ^~~~~~~~~~~~~
-C:\Users\extalth\AppData\Local\Temp\tdd_build_on1u2n7x\src\egtm_atom_adc_tmadc_multiple_channels.c: In function 'interruptEgtmAtom':
-C:\Users\extalth\AppData\Local\Temp\tdd_build_on1u2n7x\src\egtm_atom_adc_tmadc_multiple_channels.c:59:42: error: 'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P33'?
-   59 | #define LED                             &MODULE_P03, 9
-      |                                          ^~~~~~~~~~
-C:\Users\extalth\AppData\Local\Temp\tdd_build_on1u2n7x\src\egtm_atom_adc_tmadc_multiple_channels.c:92:23: note: in expansion of macro 'LED'
-   92 |     IfxPort_togglePin(LED);
+C:\Users\extalth\AppData\Local\Temp\tdd_build_eymzhi30\src\egtm_atom_adc_tmadc_multiple_channels.c: In function 'interruptEgtmAtom':
+C:\Users\extalth\AppData\Local\Temp\tdd_build_eymzhi30\src\egtm_atom_adc_tmadc_multiple_channels.c:38:43: error: 'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P33'?
+   38 | #define LED                              &MODULE_P03, 9
+      |                                           ^~~~~~~~~~
+C:\Users\extalth\AppData\Local\Temp\tdd_build_eymzhi30\src\egtm_atom_adc_tmadc_multiple_channels.c:100:23: note: in expansion of macro 'LED'
+  100 |     IfxPort_togglePin(LED);
       |                       ^~~
-C:\Users\extalth\AppData\Local\Temp\tdd_build_on1u2n7x\src\egtm_atom_adc_tmadc_multiple_channels.c:59:42: note: each undeclared identifier is reported only once for each function it appears in
-   59 | #define LED                             &MODULE_P03, 9
-      |                                          ^~~~~~~~~~
-C:\Users\extalth\AppData\Local\Temp\tdd_build_on1u2n7x\src\egtm_atom_adc_tmadc_multiple_channels.c:92:23: note: in expansion of macro 'LED'
-   92 |     IfxPort_togglePin(LED);
+C:\Users\extalth\AppData\Local\Temp\tdd_build_eymzhi30\src\egtm_atom_adc_tmadc_multiple_channels.c:38:43: note: each undeclared identifier is reported only once for each function it appears in
+   38 | #define LED                              &MODULE_P03, 9
+      |                                           ^~~~~~~~~~
+C:\Users\extalth\AppData\Local\Temp\tdd_build_eymzhi30\src\egtm_atom_adc_tmadc_multiple_channels.c:100:23: note: in expansion of macro 'LED'
+  100 |     IfxPort_togglePin(LED);
       |                       ^~~
-C:\Users\extalth\AppData\Local\Temp\tdd_build_on1u2n7x\src\egtm_atom_adc_tmadc_multiple_channels.c: In function 'initEgtmAtom3phInv':
-C:\Users\extalth\AppData\Local\Temp\tdd_build_on1u2n7x\src\egtm_atom_adc_tmadc_multiple_channels.c:59:42: error: 'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P33'?
-   59 | #define LED                             &MODULE_P03, 9
-      |                                          ^~~~~~~~~~
-C:\Users\extalth\AppData\Local\Temp\tdd_build_on1u2n7x\src\egtm_atom_adc_tmadc_multiple_channels.c:263:30: note: in expansion of macro 'LED'
-  263 |     IfxPort_setPinModeOutput(LED, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
+C:\Users\extalth\AppData\Local\Temp\tdd_build_eymzhi30\src\egtm_atom_adc_tmadc_multiple_channels.c: In function 'initEgtmAtom3phInv':
+C:\Users\extalth\AppData\Local\Temp\tdd_build_eymzhi30\src\egtm_atom_adc_tmadc_multiple_channels.c:38:43: error: 'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P33'?
+   38 | #define LED                              &MODULE_P03, 9
+      |                                           ^~~~~~~~~~
+C:\Users\extalth\AppData\Local\Temp\tdd_build_eymzhi30\src\egtm_atom_adc_tmadc_multiple_channels.c:275:30: note: in expansion of macro 'LED'
+  275 |     IfxPort_setPinModeOutput(LED, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
       |                              ^~~
-C:\Users\extalth\AppData\Local\Temp\tdd_build_on1u2n7x\src\egtm_atom_adc_tmadc_multiple_channels.c:269:37: error: 'IfxEgtm_TrigSource_atom0' undeclared (first use in this function); did you mean 'IfxEgtm_TrigSource_atom'?
-  269 |                                     IfxEgtm_TrigSource_atom0,
-      |                                     ^~~~~~~~~~~~~~~~~~~~~~~~
-      |                                     IfxEgtm_TrigSource_atom
-C:\Users\extalth\AppData\Local\Temp\tdd_build_on1u2n7x\src\egtm_atom_adc_tmadc_multiple_channels.c:270:37: error: 'IfxEgtm_TrigChannel_3' undeclared (first use in this function); did you mean 'IfxEgtm_TrigChannel_0'?
-  270 |                                     IfxEgtm_TrigChannel_3,
-      |                                     ^~~~~~~~~~~~~~~~~~~~~
-      |                                     IfxEgtm_TrigChannel_0
-C:\Users\extalth\AppData\Local\Temp\tdd_build_on1u2n7x\src\egtm_atom_adc_tmadc_multiple_channels.c: In function 'resultISR':
-C:\Users\extalth\AppData\Local\Temp\tdd_build_on1u2n7x\src\egtm_atom_adc_tmadc_multiple_channels.c:304:43: error: passing argument 1 of 'IfxAdc_isTmadcResultAvailable' from incompatible pointer type [-Wincompatible-pointer-types]
-  304 |         if (IfxAdc_isTmadcResultAvailable(tmadc, rr) == TRUE)
-      |                                           ^~~~~
-      |                                           |
-      |                                           Ifx_ADC_TMADC *
-C:\Users\extalth\AppData\Local\Temp\tdd_build_on1u2n7x\include/IfxAdc.h:19:54: note: expected 'Ifx_ADC_TMADC *' but argument is of type 'Ifx_ADC_TMADC *'
-   19 | boolean IfxAdc_isTmadcResultAvailable(Ifx_ADC_TMADC *tmadc, IfxAdc_TmadcResultReg resultRegNum);
-      |                                       ~~~~~~~~~~~~~~~^~~~~
-C:\Users\extalth\AppData\Local\Temp\tdd_build_on1u2n7x\src\egtm_atom_adc_tmadc_multiple_channels.c:307:41: error: passing argument 1 of 'IfxAdc_clearTmadcResultFlag' from incompatible pointer type [-Wincompatible-pointer-types]
-  307 |             IfxAdc_clearTmadcResultFlag(tmadc, rr);
-      |                                         ^~~~~
-      |                                         |
-      |                                         Ifx_ADC_TMADC *
-C:\Users\extalth\AppData\Local\Temp\tdd_build_on1u2n7x\include/IfxAdc.h:17:52: note: expected 'Ifx_ADC_TMADC *' but argument is of type 'Ifx_ADC_TMADC *'
-   17 | void    IfxAdc_clearTmadcResultFlag(Ifx_ADC_TMADC *tmadc, IfxAdc_TmadcResultReg resultRegNum);
-      |                                     ~~~~~~~~~~~~~~~^~~~~
-
-In file included from C:\Users\extalth\AppData\Local\Temp\tdd_build_on1u2n7x\mocks\mock_egtm_atom_adc_tmadc_multiple_channels.c:7:
-C:\Users\extalth\AppData\Local\Temp\tdd_build_on1u2n7x\include/IfxAdc_Tmadc.h:8:37: error: conflicting types for 'Ifx_ADC_TMADC'; have 'struct <anonymous>'
-    8 | typedef struct { uint32 reserved; } Ifx_ADC_TMADC;
-      |                                     ^~~~~~~~~~~~~
-In file included from C:\Users\extalth\AppData\Local\Temp\tdd_build_on1u2n7x\mocks\mock_egtm_atom_adc_tmadc_multiple_channels.c:6:
-C:\Users\extalth\AppData\Local\Temp\tdd_build_on1u2n7x\include/IfxAdc.h:14:30: note: previous declaration of 'Ifx_ADC_TMADC' with type 'Ifx_ADC_TMADC'
-   14 | typedef struct Ifx_ADC_TMADC Ifx_ADC_TMADC;
-      |                              ^~~~~~~~~~~~~
-C:\Users\extalth\AppData\Local\Temp\tdd_build_on1u2n7x\mocks\mock_egtm_atom_adc_tmadc_multiple_channels.c:137:6: error: conflicting types for 'IfxAdc_clearTmadcResultFlag'; have 'void(Ifx_ADC_TMADC *, IfxAdc_TmadcResultReg)'
-  137 | void IfxAdc_clearTmadcResultFlag(Ifx_ADC_TMADC *tmadc, IfxAdc_TmadcResultReg resultRegNum)
-      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\AppData\Local\Temp\tdd_build_on1u2n7x\include/IfxAdc.h:17:9: note: previous declaration of 'IfxAdc_clearTmadcResultFlag' with type 'void(Ifx_ADC_TMADC *, IfxAdc_TmadcResultReg)'
-   17 | void    IfxAdc_clearTmadcResultFlag(Ifx_ADC_TMADC *tmadc, IfxAdc_TmadcResultReg resultRegNum);
-      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\AppData\Local\Temp\tdd_build_on1u2n7x\mocks\mock_egtm_atom_adc_tmadc_multiple_channels.c:141:9: error: conflicting types for 'IfxAdc_isTmadcResultAvailable'; have 'boolean(Ifx_ADC_TMADC *, IfxAdc_TmadcResultReg)' {aka 'unsigned char(Ifx_ADC_TMADC *, IfxAdc_TmadcResultReg)'}
-  141 | boolean IfxAdc_isTmadcResultAvailable(Ifx_ADC_TMADC *tmadc, IfxAdc_TmadcResultReg resultRegNum)
-      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\AppData\Local\Temp\tdd_build_on1u2n7x\include/IfxAdc.h:19:9: note: previous declaration of 'IfxAdc_isTmadcResultAvailable' with type 'boolean(Ifx_ADC_TMADC *, IfxAdc_TmadcResultReg)' {aka 'unsigned char(Ifx_ADC_TMADC *, IfxAdc_TmadcResultReg)'}
-   19 | boolean IfxAdc_isTmadcResultAvailable(Ifx_ADC_TMADC *tmadc, IfxAdc_TmadcResultReg resultRegNum);
-      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
