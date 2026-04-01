@@ -1,12 +1,13 @@
 {
-  "attempt": 6,
-  "phase_attempt": 5,
-  "phase": "production",
-  "success": false,
-  "errors": [
-    "/tmp/tdd_build_fej0yx3z/src/egtm_atom_adc_tmadc_multiple_channels.c:23:10: fatal error: Ifx_Types.h: No such file or directory",
-    "/tmp/tdd_build_fej0yx3z/test/test_egtm_atom_adc_tmadc_multiple_channels.c:2:10: fatal error: mock_egtm_atom_adc_tmadc_multiple_channels.h: No such file or directory"
-  ],
-  "timestamp": "2026-04-01T04:34:52.521829",
-  "project_name": "Generate_consolidated_TC4D7_code_for_KIT_A3G_TC4D7_r_20260401_041918"
+  "export_type": "node_json",
+  "export_reason": "stage_failed",
+  "node_stage": "code_generation",
+  "reviewer_name": null,
+  "reviewer_applied": false,
+  "modified_by": "system",
+  "modifier_name": null,
+  "workflow_stage": "code_generation_failed",
+  "target_board": "KIT_A3G_TC4D7_LITE",
+  "generation_mode": "MIGRATION",
+  "timestamp": "2026-04-01T04:34:56.483532"
 }

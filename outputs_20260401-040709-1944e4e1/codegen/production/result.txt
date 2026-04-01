@@ -1,39 +1,11 @@
-Status: FAILED
+Status: SUCCESS
 
-============================================================
-TDD CODE GENERATION - ATTEMPT STATUS
-============================================================
-Phase: production
-Attempt: 6
-Status: FAILED
-Timestamp: 2026-04-01 04:34:52
-Files generated: 2
-
-============================================================
-
-ERRORS:
-
-1. /tmp/tdd_build_fej0yx3z/src/egtm_atom_adc_tmadc_multiple_channels.c:23:10: fatal error: Ifx_Types.h: No such file or directory
-
-2. /tmp/tdd_build_fej0yx3z/test/test_egtm_atom_adc_tmadc_multiple_channels.c:2:10: fatal error: mock_egtm_atom_adc_tmadc_multiple_channels.h: No such file or directory
-
-============================================================
-BUILD RESULT:
-{
-  "success": false,
-  "errors": [
-    {
-      "file": "",
-      "message": "/tmp/tdd_build_fej0yx3z/src/egtm_atom_adc_tmadc_multiple_channels.c:23:10: fatal error: Ifx_Types.h: No such file or directory",
-      "category": "error"
-    },
-    {
-      "file": "",
-      "message": "/tmp/tdd_build_fej0yx3z/test/test_egtm_atom_adc_tmadc_multiple_channels.c:2:10: fatal error: mock_egtm_atom_adc_tmadc_multiple_channels.h: No such file or directory",
-      "category": "error"
-    }
-  ],
-  "warnings": [],
-  "stderr": "/tmp/tdd_build_fej0yx3z/src/egtm_atom_adc_tmadc_multiple_channels.c:23:10: fatal error: Ifx_Types.h: No such file or directory\n   23 | #include \"Ifx_Types.h\"\n      |          ^~~~~~~~~~~~~\ncompilation terminated.\n\n/tmp/tdd_build_fej0yx3z/test/test_egtm_atom_adc_tmadc_multiple_channels.c:2:10: fatal error: mock_egtm_atom_adc_tmadc_multiple_channels.h: No such file or directory\n    2 | #include \"mock_egtm_atom_adc_tmadc_multiple_channels.h\"\n      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\ncompilation terminated.\n",
-  "stdout": ""
-}
+Node JSON export
+Stage: code_generation
+Reason: stage_failed
+Modified By: system
+Modifier: N/A
+Reviewer: N/A
+Attempt: 5
+Phase attempt: 1
+Timestamp: 2026-04-01T04:34:56.483541
