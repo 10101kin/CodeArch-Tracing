@@ -1,20 +1,8 @@
 {
-  "attempt": 9,
-  "phase_attempt": 4,
+  "type": "llm_response",
   "phase": "production",
-  "success": false,
-  "errors": [
-    "unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'",
-    "unknown type name 'IfxEgtm_MscOut'; did you mean 'IfxEgtm_MscAltInput'?",
-    "redeclaration of enumerator 'IfxEgtm_Cluster_0'",
-    "redeclaration of enumerator 'IfxEgtm_Cluster_1'",
-    "redeclaration of enumerator 'IfxEgtm_Cluster_2'",
-    "conflicting types for 'IfxEgtm_Cluster'; have 'enum <anonymous>'",
-    "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\include/IfxEgtm_Pwm.h:2: error: unterminated #ifndef",
-    "expected specifier-qualifier-list before 'typedef'",
-    "unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'",
-    "unknown type name 'IfxEgtm_MscOut'; did you mean 'IfxEgtm_MscAltInput'?"
-  ],
-  "timestamp": "2026-04-01T15:23:42.827227",
-  "project_name": "Generate_consolidated_TC4D7_code_that_replaces_TC3_r_20260401_144730"
+  "attempt": 11,
+  "phase_attempt": 5,
+  "response_length": 13425,
+  "timestamp": "2026-04-01T15:30:27.222334"
 }
