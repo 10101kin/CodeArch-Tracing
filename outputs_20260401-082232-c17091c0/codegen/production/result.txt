@@ -1,3 +1,81 @@
-Status: SUCCESS
+Status: FAILED
 
-LLM response for production phase (attempt 4), 11331 chars
+============================================================
+TDD CODE GENERATION - ATTEMPT STATUS
+============================================================
+Phase: production
+Attempt: 4
+Status: FAILED
+Timestamp: 2026-04-01 16:46:08
+Files generated: 2
+
+============================================================
+
+ERRORS:
+
+1. implicit declaration of function 'TEST_ASSERT_EQUAL_UINT32_MESSAGE' [-Wimplicit-function-declaration]
+
+2. implicit declaration of function 'TEST_ASSERT_EQUAL_INT_MESSAGE' [-Wimplicit-function-declaration]
+
+3. implicit declaration of function 'TEST_ASSERT_FLOAT_WITHIN_MESSAGE' [-Wimplicit-function-declaration]
+
+4. implicit declaration of function 'updateGtmTom3phInvDuty' [-Wimplicit-function-declaration]
+
+5. implicit declaration of function 'UNITY_BEGIN' [-Wimplicit-function-declaration]
+
+6. implicit declaration of function 'RUN_TEST' [-Wimplicit-function-declaration]
+
+7. implicit declaration of function 'UNITY_END'; did you mean 'UNITY_H'? [-Wimplicit-function-declaration]
+
+============================================================
+BUILD RESULT:
+{
+  "success": false,
+  "errors": [
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_z3jdcsgd\\test\\test_gtm_tom_3_phase_inverter_pwm_2.c",
+      "line": 34,
+      "category": "error",
+      "message": "implicit declaration of function 'TEST_ASSERT_EQUAL_UINT32_MESSAGE' [-Wimplicit-function-declaration]"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_z3jdcsgd\\test\\test_gtm_tom_3_phase_inverter_pwm_2.c",
+      "line": 70,
+      "category": "error",
+      "message": "implicit declaration of function 'TEST_ASSERT_EQUAL_INT_MESSAGE' [-Wimplicit-function-declaration]"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_z3jdcsgd\\test\\test_gtm_tom_3_phase_inverter_pwm_2.c",
+      "line": 71,
+      "category": "error",
+      "message": "implicit declaration of function 'TEST_ASSERT_FLOAT_WITHIN_MESSAGE' [-Wimplicit-function-declaration]"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_z3jdcsgd\\test\\test_gtm_tom_3_phase_inverter_pwm_2.c",
+      "line": 97,
+      "category": "error",
+      "message": "implicit declaration of function 'updateGtmTom3phInvDuty' [-Wimplicit-function-declaration]"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_z3jdcsgd\\test\\test_gtm_tom_3_phase_inverter_pwm_2.c",
+      "line": 173,
+      "category": "error",
+      "message": "implicit declaration of function 'UNITY_BEGIN' [-Wimplicit-function-declaration]"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_z3jdcsgd\\test\\test_gtm_tom_3_phase_inverter_pwm_2.c",
+      "line": 176,
+      "category": "error",
+      "message": "implicit declaration of function 'RUN_TEST' [-Wimplicit-function-declaration]"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_z3jdcsgd\\test\\test_gtm_tom_3_phase_inverter_pwm_2.c",
+      "line": 191,
+      "category": "error",
+      "message": "implicit declaration of function 'UNITY_END'; did you mean 'UNITY_H'? [-Wimplicit-function-declaration]"
+    }
+  ],
+  "warnings": [],
+  "stderr": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_z3jdcsgd\\test\\test_gtm_tom_3_phase_inverter_pwm_2.c: In function 'test_TC_G1_001_enable_guard_gtm_already_enabled':\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_z3jdcsgd\\test\\test_gtm_tom_3_phase_inverter_pwm_2.c:34:5: error: implicit declaration of function 'TEST_ASSERT_EQUAL_UINT32_MESSAGE' [-Wimplicit-function-declaration]\n   34 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxGtm_isEnabled_getCallCount(), \"GTM enable status must be checked once\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_z3jdcsgd\\test\\test_gtm_tom_3_phase_inverter_pwm_2.c: In function 'test_TC_G2_001_init_config_frequency_and_channels':\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_z3jdcsgd\\test\\test_gtm_tom_3_phase_inverter_pwm_2.c:70:5: error: implicit declaration of function 'TEST_ASSERT_EQUAL_INT_MESSAGE' [-Wimplicit-function-declaration]\n   70 |     TEST_ASSERT_EQUAL_INT_MESSAGE(UT_NUM_CHANNELS, mock_IfxGtm_Pwm_init_lastNumChannels, \"Number of logical PWM channels must be 3 for 3-phase\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_z3jdcsgd\\test\\test_gtm_tom_3_phase_inverter_pwm_2.c:71:5: error: implicit declaration of function 'TEST_ASSERT_FLOAT_WITHIN_MESSAGE' [-Wimplicit-function-declaration]\n   71 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, UT_PWM_FREQ_HZ, mock_IfxGtm_Pwm_init_lastFrequency, \"PWM switching frequency must be 20 kHz\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_z3jdcsgd\\test\\test_gtm_tom_3_phase_inverter_pwm_2.c: In function 'test_TC_G3_001_update_increments_duty_no_wrap':\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_z3jdcsgd\\test\\test_gtm_tom_3_phase_inverter_pwm_2.c:97:5: error: implicit declaration of function 'updateGtmTom3phInvDuty' [-Wimplicit-function-declaration]\n   97 |     updateGtmTom3phInvDuty();\n      |     ^~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_z3jdcsgd\\test\\test_gtm_tom_3_phase_inverter_pwm_2.c: In function 'main':\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_z3jdcsgd\\test\\test_gtm_tom_3_phase_inverter_pwm_2.c:173:5: error: implicit declaration of function 'UNITY_BEGIN' [-Wimplicit-function-declaration]\n  173 |     UNITY_BEGIN();\n      |     ^~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_z3jdcsgd\\test\\test_gtm_tom_3_phase_inverter_pwm_2.c:176:5: error: implicit declaration of function 'RUN_TEST' [-Wimplicit-function-declaration]\n  176 |     RUN_TEST(test_TC_G1_001_enable_guard_gtm_already_enabled);\n      |     ^~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_z3jdcsgd\\test\\test_gtm_tom_3_phase_inverter_pwm_2.c:191:12: error: implicit declaration of function 'UNITY_END'; did you mean 'UNITY_H'? [-Wimplicit-function-declaration]\n  191 |     return UNITY_END();\n      |            ^~~~~~~~~\n      |            UNITY_H\n",
+  "stdout": ""
+}
