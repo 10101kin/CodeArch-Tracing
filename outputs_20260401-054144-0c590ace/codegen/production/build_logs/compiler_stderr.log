@@ -1,0 +1,60 @@
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vth0gi98\src\egtm_atom_tmadc_consolidated.c:17:10: fatal error: IfxCpu.h: No such file or directory
+   17 | #include "IfxCpu.h"
+      |          ^~~~~~~~~~
+compilation terminated.
+
+In file included from C:\Users\extanke\AppData\Local\Temp\tdd_build_vth0gi98\mocks\mock_egtm_atom_tmadc_consolidated.c:8:
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vth0gi98\include/IfxEgtm_Pwm.h:94:5: error: redeclaration of enumerator 'IfxEgtm_Dtm_ClockSource_systemClock'
+   94 |     IfxEgtm_Dtm_ClockSource_systemClock,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from C:\Users\extanke\AppData\Local\Temp\tdd_build_vth0gi98\mocks\mock_egtm_atom_tmadc_consolidated.c:6:
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vth0gi98\include/IfxEgtm.h:77:5: note: previous definition of 'IfxEgtm_Dtm_ClockSource_systemClock' with type 'enum <anonymous>'
+   77 |     IfxEgtm_Dtm_ClockSource_systemClock = 0,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vth0gi98\include/IfxEgtm_Pwm.h:95:5: error: redeclaration of enumerator 'IfxEgtm_Dtm_ClockSource_cmuClock0'
+   95 |     IfxEgtm_Dtm_ClockSource_cmuClock0,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vth0gi98\include/IfxEgtm.h:78:5: note: previous definition of 'IfxEgtm_Dtm_ClockSource_cmuClock0' with type 'enum <anonymous>'
+   78 |     IfxEgtm_Dtm_ClockSource_cmuClock0 = 1,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vth0gi98\include/IfxEgtm_Pwm.h:96:5: error: redeclaration of enumerator 'IfxEgtm_Dtm_ClockSource_cmuClock1'
+   96 |     IfxEgtm_Dtm_ClockSource_cmuClock1,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vth0gi98\include/IfxEgtm.h:79:5: note: previous definition of 'IfxEgtm_Dtm_ClockSource_cmuClock1' with type 'enum <anonymous>'
+   79 |     IfxEgtm_Dtm_ClockSource_cmuClock1 = 2,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vth0gi98\include/IfxEgtm_Pwm.h:97:5: error: redeclaration of enumerator 'IfxEgtm_Dtm_ClockSource_cmuClock2'
+   97 |     IfxEgtm_Dtm_ClockSource_cmuClock2
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vth0gi98\include/IfxEgtm.h:80:5: note: previous definition of 'IfxEgtm_Dtm_ClockSource_cmuClock2' with type 'enum <anonymous>'
+   80 |     IfxEgtm_Dtm_ClockSource_cmuClock2 = 3
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vth0gi98\include/IfxEgtm_Pwm.h:98:3: error: conflicting types for 'IfxEgtm_Dtm_ClockSource'; have 'enum <anonymous>'
+   98 | } IfxEgtm_Dtm_ClockSource;
+      |   ^~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vth0gi98\include/IfxEgtm.h:81:3: note: previous declaration of 'IfxEgtm_Dtm_ClockSource' with type 'IfxEgtm_Dtm_ClockSource'
+   81 | } IfxEgtm_Dtm_ClockSource;
+      |   ^~~~~~~~~~~~~~~~~~~~~~~
+
+In file included from C:\Users\extanke\Downloads\merge\infineon_POC_MVP\unity/unity.h:22,
+                 from C:\Users\extanke\AppData\Local\Temp\tdd_build_vth0gi98\test\test_egtm_atom_tmadc_consolidated.c:1:
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vth0gi98\test\test_egtm_atom_tmadc_consolidated.c: In function 'test_TC_G1_001_init_enables_egtm_and_clocks_when_disabled':
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vth0gi98\test\test_egtm_atom_tmadc_consolidated.c:50:78: error: comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Werror=sign-compare]
+   50 |     TEST_ASSERT_TRUE_MESSAGE((mock_IfxEgtm_PinMap_setAtomTout_getCallCount() >= 1u), "PinMap: At least one AtomTout mapping must be applied");
+      |                                                                              ^~
+C:\Users\extanke\Downloads\merge\infineon_POC_MVP\unity/unity_internals.h:891:107: note: in definition of macro 'UNITY_TEST_ASSERT'
+  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)
+      |                                                                                                           ^~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vth0gi98\test\test_egtm_atom_tmadc_consolidated.c:50:5: note: in expansion of macro 'TEST_ASSERT_TRUE_MESSAGE'
+   50 |     TEST_ASSERT_TRUE_MESSAGE((mock_IfxEgtm_PinMap_setAtomTout_getCallCount() >= 1u), "PinMap: At least one AtomTout mapping must be applied");
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vth0gi98\test\test_egtm_atom_tmadc_consolidated.c:57:86: error: comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Werror=sign-compare]
+   57 |     TEST_ASSERT_TRUE_MESSAGE((mock_IfxCpu_Irq_installInterruptHandler_getCallCount() >= 1u), "Interrupt handler must be installed for TMADC result ISR");
+      |                                                                                      ^~
+C:\Users\extanke\Downloads\merge\infineon_POC_MVP\unity/unity_internals.h:891:107: note: in definition of macro 'UNITY_TEST_ASSERT'
+  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)
+      |                                                                                                           ^~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_vth0gi98\test\test_egtm_atom_tmadc_consolidated.c:57:5: note: in expansion of macro 'TEST_ASSERT_TRUE_MESSAGE'
+   57 |     TEST_ASSERT_TRUE_MESSAGE((mock_IfxCpu_Irq_installInterruptHandler_getCallCount() >= 1u), "Interrupt handler must be installed for TMADC result ISR");
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+cc1.exe: all warnings being treated as errors
