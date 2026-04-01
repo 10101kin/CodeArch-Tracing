@@ -1,81 +1,11 @@
-Status: FAILED
+Status: SUCCESS
 
-============================================================
-TDD CODE GENERATION - ATTEMPT STATUS
-============================================================
-Phase: production
-Attempt: 11
-Status: FAILED
-Timestamp: 2026-04-01 17:27:55
-Files generated: 2
-
-============================================================
-
-ERRORS:
-
-1. unknown type name 'float32'; did you mean '_Float32'?
-
-2. unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'
-
-3. 'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P33'?
-
-4. 'IfxEgtm_Pwm_Config' has no member named 'syncUpdateEnabled'
-
-5. 'IfxEgtm_Pwm_Config' has no member named 'syncStart'
-
-6. 'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P33'?
-
-7. unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'
-
-============================================================
-BUILD RESULT:
-{
-  "success": false,
-  "errors": [
-    {
-      "file": "C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_vq5jwose\\include/egtm_atom_3_phase_inverter_pwm.h",
-      "line": 14,
-      "category": "error",
-      "message": "unknown type name 'float32'; did you mean '_Float32'?"
-    },
-    {
-      "file": "C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_vq5jwose\\include/IfxEgtm_Pwm.h",
-      "line": 109,
-      "category": "error",
-      "message": "unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'"
-    },
-    {
-      "file": "C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_vq5jwose\\src\\egtm_atom_3_phase_inverter_pwm.c",
-      "line": 47,
-      "category": "error",
-      "message": "'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P33'?"
-    },
-    {
-      "file": "C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_vq5jwose\\src\\egtm_atom_3_phase_inverter_pwm.c",
-      "line": 208,
-      "category": "error",
-      "message": "'IfxEgtm_Pwm_Config' has no member named 'syncUpdateEnabled'"
-    },
-    {
-      "file": "C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_vq5jwose\\src\\egtm_atom_3_phase_inverter_pwm.c",
-      "line": 209,
-      "category": "error",
-      "message": "'IfxEgtm_Pwm_Config' has no member named 'syncStart'"
-    },
-    {
-      "file": "C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_vq5jwose\\src\\egtm_atom_3_phase_inverter_pwm.c",
-      "line": 47,
-      "category": "error",
-      "message": "'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P33'?"
-    },
-    {
-      "file": "C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_vq5jwose\\include/IfxEgtm_Pwm.h",
-      "line": 109,
-      "category": "error",
-      "message": "unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'"
-    }
-  ],
-  "warnings": [],
-  "stderr": "In file included from C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_vq5jwose\\src\\egtm_atom_3_phase_inverter_pwm.c:16:\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_vq5jwose\\include/egtm_atom_3_phase_inverter_pwm.h:14:31: error: unknown type name 'float32'; did you mean '_Float32'?\n   14 | void updateEgtmAtom3phInvDuty(float32 *requestDuty);\n      |                               ^~~~~~~\n      |                               _Float32\nIn file included from C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_vq5jwose\\src\\egtm_atom_3_phase_inverter_pwm.c:18:\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_vq5jwose\\include/IfxEgtm_Pwm.h:109:5: error: unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'\n  109 |     IfxEgtm_Pwm_FastShutoffConfig *fastShutOff;\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_vq5jwose\\src\\egtm_atom_3_phase_inverter_pwm.c: In function 'interruptEgtmAtom':\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_vq5jwose\\src\\egtm_atom_3_phase_inverter_pwm.c:47:42: error: 'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P33'?\n   47 | #define LED                            (&MODULE_P03), 9u\n      |                                          ^~~~~~~~~~\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_vq5jwose\\src\\egtm_atom_3_phase_inverter_pwm.c:82:23: note: in expansion of macro 'LED'\n   82 |     IfxPort_togglePin(LED);\n      |                       ^~~\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_vq5jwose\\src\\egtm_atom_3_phase_inverter_pwm.c:47:42: note: each undeclared identifier is reported only once for each function it appears in\n   47 | #define LED                            (&MODULE_P03), 9u\n      |                                          ^~~~~~~~~~\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_vq5jwose\\src\\egtm_atom_3_phase_inverter_pwm.c:82:23: note: in expansion of macro 'LED'\n   82 |     IfxPort_togglePin(LED);\n      |                       ^~~\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_vq5jwose\\src\\egtm_atom_3_phase_inverter_pwm.c: In function 'initEgtmAtom3phInv':\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_vq5jwose\\src\\egtm_atom_3_phase_inverter_pwm.c:208:11: error: 'IfxEgtm_Pwm_Config' has no member named 'syncUpdateEnabled'\n  208 |     config.syncUpdateEnabled  = TRUE;                                  /* Synchronous shadow updates at period end */\n      |           ^\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_vq5jwose\\src\\egtm_atom_3_phase_inverter_pwm.c:209:11: error: 'IfxEgtm_Pwm_Config' has no member named 'syncStart'\n  209 |     config.syncStart          = TRUE;                                  /* Start outputs after init */\n      |           ^\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_vq5jwose\\src\\egtm_atom_3_phase_inverter_pwm.c:47:42: error: 'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P33'?\n   47 | #define LED                            (&MODULE_P03), 9u\n      |                                          ^~~~~~~~~~\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_vq5jwose\\src\\egtm_atom_3_phase_inverter_pwm.c:243:30: note: in expansion of macro 'LED'\n  243 |     IfxPort_setPinModeOutput(LED, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);\n      |                              ^~~\n\nIn file included from C:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_vq5jwose\\mocks\\mock_egtm_atom_3_phase_inverter_pwm.c:5:\nC:\\Users\\extalth\\AppData\\Local\\Temp\\tdd_build_vq5jwose\\include/IfxEgtm_Pwm.h:109:5: error: unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'\n  109 |     IfxEgtm_Pwm_FastShutoffConfig *fastShutOff;\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n",
-  "stdout": ""
-}
+Node JSON export
+Stage: code_generation
+Reason: stage_failed
+Modified By: system
+Modifier: N/A
+Reviewer: N/A
+Attempt: 5
+Phase attempt: 1
+Timestamp: 2026-04-01T17:34:31.013293
