@@ -1,10 +1,11 @@
 {
   "meta": {
     "schema_version": "1.0",
-    "last_updated_by": "requirements",
-    "last_updated_at": "2026-04-01T16:35:20.918690",
+    "last_updated_by": "hardware",
+    "last_updated_at": "2026-04-01T16:39:01.170546",
     "build_sequence": [
-      "requirements"
+      "requirements",
+      "hardware"
     ],
     "corrections_log": []
   },
@@ -453,5 +454,219 @@
     },
     "header_documentation_available": true,
     "config_values_extracted": 54
+  },
+  "hardware": {
+    "microcontroller": {
+      "model": "TC4D7",
+      "verified": true
+    },
+    "peripheral_instance": {
+      "module": "EGTM.ATOM0",
+      "channels": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "pin_assignments": [
+      {
+        "signal": "U_HIGH",
+        "port_pin": "P20.8",
+        "function": "",
+        "pin_macro": "",
+        "is_complementary": true,
+        "verified": false,
+        "source": "hardware_verified"
+      },
+      {
+        "signal": "U_LOW",
+        "port_pin": "P20.9",
+        "function": "",
+        "pin_macro": "",
+        "is_complementary": true,
+        "verified": false,
+        "source": "hardware_verified"
+      },
+      {
+        "signal": "V_HIGH",
+        "port_pin": "P20.10",
+        "function": "",
+        "pin_macro": "",
+        "is_complementary": true,
+        "verified": false,
+        "source": "hardware_verified"
+      },
+      {
+        "signal": "V_LOW",
+        "port_pin": "P20.11",
+        "function": "",
+        "pin_macro": "",
+        "is_complementary": true,
+        "verified": false,
+        "source": "hardware_verified"
+      },
+      {
+        "signal": "W_HIGH",
+        "port_pin": "P20.12",
+        "function": "",
+        "pin_macro": "",
+        "is_complementary": true,
+        "verified": false,
+        "source": "hardware_verified"
+      },
+      {
+        "signal": "W_LOW",
+        "port_pin": "P20.13",
+        "function": "",
+        "pin_macro": "",
+        "is_complementary": true,
+        "verified": false,
+        "source": "hardware_verified"
+      },
+      {
+        "signal": "ADC_TRIG",
+        "port_pin": "P33.0",
+        "function": "",
+        "pin_macro": "",
+        "is_complementary": false,
+        "verified": false,
+        "source": "hardware_verified"
+      }
+    ],
+    "clock_configuration": {
+      "xtal_frequency_mhz": 25,
+      "system_frequency_mhz": 500
+    },
+    "validation": {
+      "all_verified": false,
+      "conflicts": [
+        "Could not verify IfxEgtm_PinMap.h entry for EGTM ATOM0 CH0 high on P20.8 for IFX_PIN_PACKAGE_BGA436_COM.",
+        "Could not verify IfxEgtm_PinMap.h entry for EGTM ATOM0 CH0 low on P20.9 for IFX_PIN_PACKAGE_BGA436_COM.",
+        "Could not verify IfxEgtm_PinMap.h entry for EGTM ATOM0 CH1 high on P20.10 for IFX_PIN_PACKAGE_BGA436_COM.",
+        "Could not verify IfxEgtm_PinMap.h entry for EGTM ATOM0 CH1 low on P20.11 for IFX_PIN_PACKAGE_BGA436_COM.",
+        "Could not verify IfxEgtm_PinMap.h entry for EGTM ATOM0 CH2 high on P20.12 for IFX_PIN_PACKAGE_BGA436_COM.",
+        "Could not verify IfxEgtm_PinMap.h entry for EGTM ATOM0 CH2 low on P20.13 for IFX_PIN_PACKAGE_BGA436_COM.",
+        "Could not verify IfxEgtm_PinMap.h entry for EGTM ATOM0 CH3 (ADC trigger) on P33.0 for IFX_PIN_PACKAGE_BGA436_COM.",
+        "Template documentation only provides example mappings for P02.x; P20.x and P33.0 mappings not available in provided context."
+      ],
+      "reference_pins_valid": true
+    },
+    "template_validation": {
+      "supported_peripherals": [
+        "PWM",
+        "GTM",
+        "EGTM",
+        "TIMER",
+        "STM",
+        "GPIO",
+        "ASCLIN",
+        "ADC",
+        "INTERRUPT",
+        "WATCHDOG",
+        "CPU"
+      ],
+      "suggested_drivers": {
+        "PWM": [
+          "IfxEgtm_Pwm",
+          "IfxGtm_Atom_Pwm",
+          "IfxEgtm_Tom_Pwm",
+          "IfxGtm_Tom_Pwm",
+          "IfxGtm_Pwm",
+          "IfxEgtm_Atom_Pwm"
+        ],
+        "GTM": [
+          "IfxGtm_PinMap",
+          "IfxGtm_Tbu",
+          "IfxGtm",
+          "IfxGtm_Psm",
+          "IfxGtm_Dtm",
+          "IfxGtm_Spe",
+          "IfxGtm_Pwm",
+          "IfxGtm_Trigger",
+          "IfxGtm_Input"
+        ],
+        "EGTM": [
+          "IfxEgtm_PinMap",
+          "IfxEgtm_cfg_TC4Dx",
+          "IfxEgtm_Input",
+          "IfxEgtm_Pwm",
+          "IfxEgtm",
+          "IfxEgtm_Atom",
+          "IfxEgtm_Cmu",
+          "IfxEgtm_Dtm",
+          "IfxEgtm_Spe",
+          "IfxEgtm_Tbu",
+          "IfxEgtm_Tim",
+          "IfxEgtm_Tom",
+          "IfxEgtm_Trigger",
+          "IfxEgtm_Tom_Pwm",
+          "IfxEgtm_Tom_Timer",
+          "IfxEgtm_Tim_In",
+          "IfxEgtm_Tim_Timer",
+          "IfxEgtm_Atom_Pwm",
+          "IfxEgtm_Atom_Timer"
+        ],
+        "TIMER": [
+          "IfxStm_Timer",
+          "IfxScrTimer01",
+          "IfxGtm_Tom_Timer",
+          "IfxGtm_Tim_Timer",
+          "IfxGtm_Atom_Timer",
+          "IfxEgtm_Tom_Timer",
+          "IfxEgtm_Tim_Timer",
+          "IfxEgtm_Atom_Timer",
+          "IfxPpu_Timer"
+        ],
+        "STM": [
+          "IfxStm_cfg_TC4Dx",
+          "IfxStm",
+          "IfxStm_Timer"
+        ],
+        "GPIO": [
+          "IfxPort",
+          "IfxPort_PinMap",
+          "IfxScrPort",
+          "IfxPort_Io",
+          "IfxPort_cfg_TC4Dx"
+        ],
+        "ASCLIN": [
+          "IfxAsclin_cfg_TC4Dx",
+          "IfxAsclin_Asc",
+          "IfxAsclin_Lin",
+          "IfxAsclin_Spi",
+          "IfxAsclin"
+        ],
+        "ADC": [
+          "IfxAdc_Tmadc"
+        ],
+        "INTERRUPT": [
+          "IfxCpu_Irq",
+          "IfxScrCpuIrq"
+        ],
+        "WATCHDOG": [
+          "IfxWtu_cfg_TC4Dx",
+          "IfxWtu.asm",
+          "IfxWtu"
+        ],
+        "CPU": [
+          "IfxCpu"
+        ],
+        "_driver_selection": {
+          "explicit_target": "IfxAdc_Tmadc",
+          "replaced_source": "IfxEgtm_Pwm",
+          "primary_drivers": [
+            "IfxAdc_Tmadc"
+          ],
+          "avoid_drivers": [
+            "IfxEgtm_Pwm"
+          ]
+        }
+      },
+      "warnings": [
+        "VADC requested but no matching drivers found in template",
+        "EVADC requested but no matching drivers found in template"
+      ]
+    }
   }
 }
