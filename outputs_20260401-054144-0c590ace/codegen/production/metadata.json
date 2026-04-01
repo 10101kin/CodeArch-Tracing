@@ -1,15 +1,13 @@
 {
-  "attempt": 11,
-  "phase_attempt": 5,
-  "phase": "production",
-  "success": false,
-  "errors": [
-    "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_0j4he0zb\\src\\egtm_atom_tmadc_consolidated.c:20:10: fatal error: Compilers.h: No such file or directory",
-    "comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Werror=sign-compare]",
-    "comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Werror=sign-compare]",
-    "'mock_IfxEgtm_Pwm_updateChannelsDeadTimeImmediate_lastDtRising' undeclared (first use in this function); did you mean 'mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtRising'?",
-    "'mock_IfxEgtm_Pwm_updateChannelsDeadTimeImmediate_lastDtFalling' undeclared (first use in this function); did you mean 'mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtFalling'?"
-  ],
-  "timestamp": "2026-04-01T15:30:36.066132",
-  "project_name": "Generate_consolidated_TC4D7_code_that_replaces_TC3_r_20260401_144730"
+  "export_type": "node_json",
+  "export_reason": "stage_failed",
+  "node_stage": "code_generation",
+  "reviewer_name": null,
+  "reviewer_applied": false,
+  "modified_by": "system",
+  "modifier_name": null,
+  "workflow_stage": "code_generation_failed",
+  "target_board": "KIT_A3G_TC4D7_LITE",
+  "generation_mode": "MIGRATION",
+  "timestamp": "2026-04-01T15:35:21.290293"
 }
