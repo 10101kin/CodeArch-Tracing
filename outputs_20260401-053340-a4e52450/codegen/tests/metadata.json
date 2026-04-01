@@ -1,8 +1,9 @@
 {
-  "type": "llm_response",
-  "phase": "test",
   "attempt": 2,
   "phase_attempt": 1,
-  "response_length": 21418,
-  "timestamp": "2026-04-01T13:51:23.849900"
+  "phase": "test_generation",
+  "success": true,
+  "errors": [],
+  "timestamp": "2026-04-01T13:51:35.397691",
+  "project_name": "Migrate_the_TC387_TOM_EVADC_3-phase_inverter_proje_r_20260401_134353"
 }
