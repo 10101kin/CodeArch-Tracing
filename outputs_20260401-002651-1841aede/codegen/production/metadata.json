@@ -1,8 +1,20 @@
 {
-  "type": "llm_response",
-  "phase": "production",
   "attempt": 3,
   "phase_attempt": 1,
-  "response_length": 11231,
-  "timestamp": "2026-04-01T08:51:36.046760"
+  "phase": "production",
+  "success": false,
+  "errors": [
+    "conflicting types for 'mock_IfxPort_togglePin_callCount'; have 'unsigned int'",
+    "conflicting types for 'mock_IfxPort_setPinModeOutput_callCount'; have 'unsigned int'",
+    "conflicting types for 'mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_callCount'; have 'unsigned int'",
+    "conflicting types for 'mock_IfxEgtm_Pwm_init_callCount'; have 'unsigned int'",
+    "conflicting types for 'mock_IfxEgtm_Pwm_initConfig_callCount'; have 'unsigned int'",
+    "conflicting types for 'mock_IfxEgtm_Cmu_enableClocks_callCount'; have 'unsigned int'",
+    "conflicting types for 'mock_IfxEgtm_Cmu_setClkFrequency_callCount'; have 'unsigned int'",
+    "conflicting types for 'mock_IfxEgtm_Cmu_getModuleFrequency_callCount'; have 'unsigned int'",
+    "conflicting types for 'mock_IfxEgtm_Cmu_setGclkFrequency_callCount'; have 'unsigned int'",
+    "conflicting types for 'mock_IfxEgtm_enable_callCount'; have 'unsigned int'"
+  ],
+  "timestamp": "2026-04-01T08:51:42.132207",
+  "project_name": "Generate_TC4D7_code_for_KIT_A3G_TC4D7_LITE_that_mi_r_20260401_083940"
 }
