@@ -1,20 +1,8 @@
 {
-  "attempt": 5,
-  "phase_attempt": 2,
+  "type": "llm_response",
   "phase": "production",
-  "success": false,
-  "errors": [
-    "unknown type name 'IfxEgtm_Cfg_MscSet'",
-    "unknown type name 'IfxEgtm_Cfg_MscSetSignal'",
-    "unknown type name 'IfxEgtm_Cfg_MscModule'",
-    "unknown type name 'IfxEgtm_Cfg_MscSelect'",
-    "unknown type name 'IfxEgtm_MscAltInput'",
-    "'IFXEGTM_NUM_CCM_OBJECTS' undeclared here (not in a function)",
-    "'IFXPORT_NUM_APU' undeclared here (not in a function)",
-    "'IFXPORT_NUM_PINS' undeclared here (not in a function)",
-    "unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'",
-    "'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P20'?"
-  ],
-  "timestamp": "2026-04-01T07:50:10.736932",
-  "project_name": "Generate_TC4D7_eGTM_ATOM_ATOM0_Cluster_0_code_u_r_20260401_073539"
+  "attempt": 3,
+  "phase_attempt": 1,
+  "response_length": 10945,
+  "timestamp": "2026-04-01T08:11:49.045283"
 }
