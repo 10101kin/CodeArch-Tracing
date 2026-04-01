@@ -1,3 +1,168 @@
-Status: SUCCESS
+Status: FAILED
 
-LLM response for production phase (attempt 9), 16168 chars
+============================================================
+TDD CODE GENERATION - ATTEMPT STATUS
+============================================================
+Phase: production
+Attempt: 9
+Status: FAILED
+Timestamp: 2026-04-01 15:23:42
+Files generated: 2
+
+============================================================
+
+ERRORS:
+
+1. unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'
+
+2. unknown type name 'IfxEgtm_MscOut'; did you mean 'IfxEgtm_MscAltInput'?
+
+3. redeclaration of enumerator 'IfxEgtm_Cluster_0'
+
+4. redeclaration of enumerator 'IfxEgtm_Cluster_1'
+
+5. redeclaration of enumerator 'IfxEgtm_Cluster_2'
+
+6. conflicting types for 'IfxEgtm_Cluster'; have 'enum <anonymous>'
+
+7. C:\Users\extanke\AppData\Local\Temp\tdd_build_zqyg9wc_\include/IfxEgtm_Pwm.h:2: error: unterminated #ifndef
+
+8. expected specifier-qualifier-list before 'typedef'
+
+9. unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'
+
+10. unknown type name 'IfxEgtm_MscOut'; did you mean 'IfxEgtm_MscAltInput'?
+
+============================================================
+BUILD RESULT:
+{
+  "success": false,
+  "errors": [
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\include/IfxEgtm_Pwm.h",
+      "line": 121,
+      "category": "error",
+      "message": "unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\include/IfxEgtm_Pwm.h",
+      "line": 176,
+      "category": "error",
+      "message": "unknown type name 'IfxEgtm_MscOut'; did you mean 'IfxEgtm_MscAltInput'?"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\include/IfxEgtm_Pwm.h",
+      "line": 182,
+      "category": "error",
+      "message": "redeclaration of enumerator 'IfxEgtm_Cluster_0'"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\include/IfxEgtm_Pwm.h",
+      "line": 183,
+      "category": "error",
+      "message": "redeclaration of enumerator 'IfxEgtm_Cluster_1'"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\include/IfxEgtm_Pwm.h",
+      "line": 184,
+      "category": "error",
+      "message": "redeclaration of enumerator 'IfxEgtm_Cluster_2'"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\include/IfxEgtm_Pwm.h",
+      "line": 185,
+      "category": "error",
+      "message": "conflicting types for 'IfxEgtm_Cluster'; have 'enum <anonymous>'"
+    },
+    {
+      "file": "",
+      "message": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\include/IfxEgtm_Pwm.h:2: error: unterminated #ifndef",
+      "category": "error"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\include/IfxEgtm_Atom_Timer.h",
+      "line": 10,
+      "category": "error",
+      "message": "expected specifier-qualifier-list before 'typedef'"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\include/IfxEgtm_Pwm.h",
+      "line": 121,
+      "category": "error",
+      "message": "unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\include/IfxEgtm_Pwm.h",
+      "line": 176,
+      "category": "error",
+      "message": "unknown type name 'IfxEgtm_MscOut'; did you mean 'IfxEgtm_MscAltInput'?"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\include/IfxEgtm_Pwm.h",
+      "line": 182,
+      "category": "error",
+      "message": "redeclaration of enumerator 'IfxEgtm_Cluster_0'"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\include/IfxEgtm_Pwm.h",
+      "line": 183,
+      "category": "error",
+      "message": "redeclaration of enumerator 'IfxEgtm_Cluster_1'"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\include/IfxEgtm_Pwm.h",
+      "line": 184,
+      "category": "error",
+      "message": "redeclaration of enumerator 'IfxEgtm_Cluster_2'"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\include/IfxEgtm_Pwm.h",
+      "line": 185,
+      "category": "error",
+      "message": "conflicting types for 'IfxEgtm_Cluster'; have 'enum <anonymous>'"
+    },
+    {
+      "file": "",
+      "message": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\include/IfxEgtm_Pwm.h:2: error: unterminated #ifndef",
+      "category": "error"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\include/IfxEgtm_Atom_Timer.h",
+      "line": 10,
+      "category": "error",
+      "message": "expected specifier-qualifier-list before 'typedef'"
+    },
+    {
+      "file": "",
+      "message": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\include/IfxEgtm_Pwm.h:2: error: unterminated #ifndef",
+      "category": "error"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\test\\test_egtm_atom_tmadc_consolidated.c",
+      "line": 50,
+      "category": "error",
+      "message": "implicit declaration of function 'mock_IfxEgtm_PinMap_setAtomTout_getCallCount'; did you mean 'mock_IfxEgtm_Pwm_initConfig_getCallCount'? [-Wimplicit-function-declaration]"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\test\\test_egtm_atom_tmadc_consolidated.c",
+      "line": 50,
+      "category": "error",
+      "message": "comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Werror=sign-compare]"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\test\\test_egtm_atom_tmadc_consolidated.c",
+      "line": 57,
+      "category": "error",
+      "message": "implicit declaration of function 'mock_IfxCpu_Irq_installInterruptHandler_getCallCount' [-Wimplicit-function-declaration]"
+    },
+    {
+      "file": "C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\test\\test_egtm_atom_tmadc_consolidated.c",
+      "line": 57,
+      "category": "error",
+      "message": "comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Werror=sign-compare]"
+    }
+  ],
+  "warnings": [],
+  "stderr": "In file included from C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\src\\egtm_atom_tmadc_consolidated.c:30:\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\include/IfxEgtm_Pwm.h:121:5: error: unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'\n  121 |     IfxEgtm_Pwm_FastShutoffConfig *fastShutOff;\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\include/IfxEgtm_Pwm.h:176:5: error: unknown type name 'IfxEgtm_MscOut'; did you mean 'IfxEgtm_MscAltInput'?\n  176 |     IfxEgtm_MscOut              *mscOut;\n      |     ^~~~~~~~~~~~~~\n      |     IfxEgtm_MscAltInput\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\include/IfxEgtm_Pwm.h:182:5: error: redeclaration of enumerator 'IfxEgtm_Cluster_0'\n  182 |     IfxEgtm_Cluster_0 = 0,\n      |     ^~~~~~~~~~~~~~~~~\nIn file included from C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\src\\egtm_atom_tmadc_consolidated.c:28:\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\include/IfxEgtm.h:45:5: note: previous definition of 'IfxEgtm_Cluster_0' with type 'enum <anonymous>'\n   45 |     IfxEgtm_Cluster_0 = 0,\n      |     ^~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\include/IfxEgtm_Pwm.h:183:5: error: redeclaration of enumerator 'IfxEgtm_Cluster_1'\n  183 |     IfxEgtm_Cluster_1 = 1,\n      |     ^~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\include/IfxEgtm.h:46:5: note: previous definition of 'IfxEgtm_Cluster_1' with type 'enum <anonymous>'\n   46 |     IfxEgtm_Cluster_1 = 1,\n      |     ^~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\include/IfxEgtm_Pwm.h:184:5: error: redeclaration of enumerator 'IfxEgtm_Cluster_2'\n  184 |     IfxEgtm_Cluster_2 = 2\n      |     ^~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\include/IfxEgtm.h:47:5: note: previous definition of 'IfxEgtm_Cluster_2' with type 'enum <anonymous>'\n   47 |     IfxEgtm_Cluster_2 = 2\n      |     ^~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\include/IfxEgtm_Pwm.h:185:3: error: conflicting types for 'IfxEgtm_Cluster'; have 'enum <anonymous>'\n  185 | } IfxEgtm_Cluster;\n      |   ^~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\include/IfxEgtm.h:48:3: note: previous declaration of 'IfxEgtm_Cluster' with type 'IfxEgtm_Cluster'\n   48 | } IfxEgtm_Cluster;\n      |   ^~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\include/IfxEgtm_Pwm.h:2: error: unterminated #ifndef\n    2 | #ifndef IFXEGTM_PWM_H\nIn file included from C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\src\\egtm_atom_tmadc_consolidated.c:31:\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\include/IfxEgtm_Atom_Timer.h:10:1: error: expected specifier-qualifier-list before 'typedef'\n   10 | typedef uint32 IfxEgtm_Atom_Ch;\n      | ^~~~~~~\n\nIn file included from C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\mocks\\mock_egtm_atom_tmadc_consolidated.c:9:\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\include/IfxEgtm_Pwm.h:121:5: error: unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'\n  121 |     IfxEgtm_Pwm_FastShutoffConfig *fastShutOff;\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\include/IfxEgtm_Pwm.h:176:5: error: unknown type name 'IfxEgtm_MscOut'; did you mean 'IfxEgtm_MscAltInput'?\n  176 |     IfxEgtm_MscOut              *mscOut;\n      |     ^~~~~~~~~~~~~~\n      |     IfxEgtm_MscAltInput\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\include/IfxEgtm_Pwm.h:182:5: error: redeclaration of enumerator 'IfxEgtm_Cluster_0'\n  182 |     IfxEgtm_Cluster_0 = 0,\n      |     ^~~~~~~~~~~~~~~~~\nIn file included from C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\mocks\\mock_egtm_atom_tmadc_consolidated.c:7:\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\include/IfxEgtm.h:45:5: note: previous definition of 'IfxEgtm_Cluster_0' with type 'enum <anonymous>'\n   45 |     IfxEgtm_Cluster_0 = 0,\n      |     ^~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\include/IfxEgtm_Pwm.h:183:5: error: redeclaration of enumerator 'IfxEgtm_Cluster_1'\n  183 |     IfxEgtm_Cluster_1 = 1,\n      |     ^~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\include/IfxEgtm.h:46:5: note: previous definition of 'IfxEgtm_Cluster_1' with type 'enum <anonymous>'\n   46 |     IfxEgtm_Cluster_1 = 1,\n      |     ^~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\include/IfxEgtm_Pwm.h:184:5: error: redeclaration of enumerator 'IfxEgtm_Cluster_2'\n  184 |     IfxEgtm_Cluster_2 = 2\n      |     ^~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\include/IfxEgtm.h:47:5: note: previous definition of 'IfxEgtm_Cluster_2' with type 'enum <anonymous>'\n   47 |     IfxEgtm_Cluster_2 = 2\n      |     ^~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\include/IfxEgtm_Pwm.h:185:3: error: conflicting types for 'IfxEgtm_Cluster'; have 'enum <anonymous>'\n  185 | } IfxEgtm_Cluster;\n      |   ^~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\include/IfxEgtm.h:48:3: note: previous declaration of 'IfxEgtm_Cluster' with type 'IfxEgtm_Cluster'\n   48 | } IfxEgtm_Cluster;\n      |   ^~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\include/IfxEgtm_Pwm.h:2: error: unterminated #ifndef\n    2 | #ifndef IFXEGTM_PWM_H\nIn file included from C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\mocks\\mock_egtm_atom_tmadc_consolidated.c:10:\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\include/IfxEgtm_Atom_Timer.h:10:1: error: expected specifier-qualifier-list before 'typedef'\n   10 | typedef uint32 IfxEgtm_Atom_Ch;\n      | ^~~~~~~\nIn file included from C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\include/IfxPort_Pinmap.h:3,\n                 from C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\mocks\\mock_egtm_atom_tmadc_consolidated.c:15:\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\include/IfxEgtm_Pwm.h:2: error: unterminated #ifndef\n    2 | #ifndef IFXEGTM_PWM_H\n\nIn file included from C:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity.h:22,\n                 from C:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\test\\test_egtm_atom_tmadc_consolidated.c:1:\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\test\\test_egtm_atom_tmadc_consolidated.c: In function 'test_TC_G1_001_init_enables_egtm_and_clocks_when_disabled':\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\test\\test_egtm_atom_tmadc_consolidated.c:50:31: error: implicit declaration of function 'mock_IfxEgtm_PinMap_setAtomTout_getCallCount'; did you mean 'mock_IfxEgtm_Pwm_initConfig_getCallCount'? [-Wimplicit-function-declaration]\n   50 |     TEST_ASSERT_TRUE_MESSAGE((mock_IfxEgtm_PinMap_setAtomTout_getCallCount() >= 1u), \"PinMap: At least one AtomTout mapping must be applied\");\n      |                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity_internals.h:891:107: note: in definition of macro 'UNITY_TEST_ASSERT'\n  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)\n      |                                                                                                           ^~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\test\\test_egtm_atom_tmadc_consolidated.c:50:5: note: in expansion of macro 'TEST_ASSERT_TRUE_MESSAGE'\n   50 |     TEST_ASSERT_TRUE_MESSAGE((mock_IfxEgtm_PinMap_setAtomTout_getCallCount() >= 1u), \"PinMap: At least one AtomTout mapping must be applied\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\test\\test_egtm_atom_tmadc_consolidated.c:50:78: error: comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Werror=sign-compare]\n   50 |     TEST_ASSERT_TRUE_MESSAGE((mock_IfxEgtm_PinMap_setAtomTout_getCallCount() >= 1u), \"PinMap: At least one AtomTout mapping must be applied\");\n      |                                                                              ^~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity_internals.h:891:107: note: in definition of macro 'UNITY_TEST_ASSERT'\n  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)\n      |                                                                                                           ^~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\test\\test_egtm_atom_tmadc_consolidated.c:50:5: note: in expansion of macro 'TEST_ASSERT_TRUE_MESSAGE'\n   50 |     TEST_ASSERT_TRUE_MESSAGE((mock_IfxEgtm_PinMap_setAtomTout_getCallCount() >= 1u), \"PinMap: At least one AtomTout mapping must be applied\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\test\\test_egtm_atom_tmadc_consolidated.c:57:31: error: implicit declaration of function 'mock_IfxCpu_Irq_installInterruptHandler_getCallCount' [-Wimplicit-function-declaration]\n   57 |     TEST_ASSERT_TRUE_MESSAGE((mock_IfxCpu_Irq_installInterruptHandler_getCallCount() >= 1u), \"Interrupt handler must be installed for TMADC result ISR\");\n      |                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity_internals.h:891:107: note: in definition of macro 'UNITY_TEST_ASSERT'\n  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)\n      |                                                                                                           ^~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\test\\test_egtm_atom_tmadc_consolidated.c:57:5: note: in expansion of macro 'TEST_ASSERT_TRUE_MESSAGE'\n   57 |     TEST_ASSERT_TRUE_MESSAGE((mock_IfxCpu_Irq_installInterruptHandler_getCallCount() >= 1u), \"Interrupt handler must be installed for TMADC result ISR\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\test\\test_egtm_atom_tmadc_consolidated.c:57:86: error: comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Werror=sign-compare]\n   57 |     TEST_ASSERT_TRUE_MESSAGE((mock_IfxCpu_Irq_installInterruptHandler_getCallCount() >= 1u), \"Interrupt handler must be installed for TMADC result ISR\");\n      |                                                                                      ^~\nC:\\Users\\extanke\\Downloads\\merge\\infineon_POC_MVP\\unity/unity_internals.h:891:107: note: in definition of macro 'UNITY_TEST_ASSERT'\n  891 | #define UNITY_TEST_ASSERT(condition, line, message)                                              do { if (condition) { /* nothing*/ } else { UNITY_TEST_FAIL((line), (message)); } } while (0)\n      |                                                                                                           ^~~~~~~~~\nC:\\Users\\extanke\\AppData\\Local\\Temp\\tdd_build_zqyg9wc_\\test\\test_egtm_atom_tmadc_consolidated.c:57:5: note: in expansion of macro 'TEST_ASSERT_TRUE_MESSAGE'\n   57 |     TEST_ASSERT_TRUE_MESSAGE((mock_IfxCpu_Irq_installInterruptHandler_getCallCount() >= 1u), \"Interrupt handler must be installed for TMADC result ISR\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~\ncc1.exe: all warnings being treated as errors\n",
+  "stdout": ""
+}
