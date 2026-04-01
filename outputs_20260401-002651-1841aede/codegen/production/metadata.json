@@ -1,8 +1,20 @@
 {
-  "type": "llm_response",
-  "phase": "production",
   "attempt": 3,
   "phase_attempt": 1,
-  "response_length": 11042,
-  "timestamp": "2026-04-01T10:33:16.503128"
+  "phase": "production",
+  "success": false,
+  "errors": [
+    "unknown type name 'IfxApApu_ApuConfig'",
+    "unknown type name 'IfxApProt_ProtConfig'",
+    "unknown type name 'IfxApApu_ApuConfig'",
+    "unknown type name 'IfxApApu_ApuConfig'",
+    "unknown type name 'IfxApProt_ProtConfig'",
+    "'IFXEGTM_NUM_CCM_OBJECTS' undeclared here (not in a function)",
+    "unknown type name 'IfxEgtm_Cfg_MscSet'",
+    "unknown type name 'IfxEgtm_Cfg_MscSetSignal'",
+    "unknown type name 'IfxEgtm_Cfg_MscModule'",
+    "unknown type name 'IfxEgtm_Cfg_MscSelect'"
+  ],
+  "timestamp": "2026-04-01T10:33:22.904793",
+  "project_name": "Generate_TC4D7_code_for_KIT_A3G_TC4D7_LITE_that_mi_r_20260401_102703"
 }
