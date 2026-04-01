@@ -1,0 +1,13 @@
+{
+  "export_type": "unified_spec",
+  "export_reason": "stage_completed",
+  "node_stage": "requirements",
+  "reviewer_name": null,
+  "reviewer_applied": false,
+  "modified_by": "system",
+  "modifier_name": null,
+  "workflow_stage": "requirements_validation",
+  "target_board": "KIT_A3G_TC4D7_LITE",
+  "generation_mode": "MIGRATION",
+  "timestamp": "2026-04-01T08:26:51.740912"
+}
