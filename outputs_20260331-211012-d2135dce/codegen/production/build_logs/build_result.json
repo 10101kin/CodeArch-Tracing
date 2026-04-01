@@ -2,19 +2,31 @@
   "success": false,
   "errors": [
     {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_oz0ldrev\\src\\egtm_atom_3_phase_inverter_pwm.c",
-      "line": 33,
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_86hnmdf2\\include/IfxEgtm_Pwm.h",
+      "line": 113,
+      "category": "error",
+      "message": "unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_86hnmdf2\\src\\egtm_atom_3_phase_inverter_pwm.c",
+      "line": 40,
       "category": "error",
       "message": "'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P20'?"
     },
     {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_oz0ldrev\\src\\egtm_atom_3_phase_inverter_pwm.c",
-      "line": 33,
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_86hnmdf2\\src\\egtm_atom_3_phase_inverter_pwm.c",
+      "line": 40,
       "category": "error",
       "message": "'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P20'?"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_86hnmdf2\\include/IfxEgtm_Pwm.h",
+      "line": 113,
+      "category": "error",
+      "message": "unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'"
     }
   ],
   "warnings": [],
-  "stderr": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_oz0ldrev\\src\\egtm_atom_3_phase_inverter_pwm.c: In function 'interruptEgtmAtom':\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_oz0ldrev\\src\\egtm_atom_3_phase_inverter_pwm.c:33:33: error: 'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P20'?\n   33 | #define LED                    &MODULE_P03, 9\n      |                                 ^~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_oz0ldrev\\src\\egtm_atom_3_phase_inverter_pwm.c:66:23: note: in expansion of macro 'LED'\n   66 |     IfxPort_togglePin(LED);\n      |                       ^~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_oz0ldrev\\src\\egtm_atom_3_phase_inverter_pwm.c:33:33: note: each undeclared identifier is reported only once for each function it appears in\n   33 | #define LED                    &MODULE_P03, 9\n      |                                 ^~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_oz0ldrev\\src\\egtm_atom_3_phase_inverter_pwm.c:66:23: note: in expansion of macro 'LED'\n   66 |     IfxPort_togglePin(LED);\n      |                       ^~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_oz0ldrev\\src\\egtm_atom_3_phase_inverter_pwm.c: In function 'initEgtmAtom3phInv':\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_oz0ldrev\\src\\egtm_atom_3_phase_inverter_pwm.c:33:33: error: 'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P20'?\n   33 | #define LED                    &MODULE_P03, 9\n      |                                 ^~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_oz0ldrev\\src\\egtm_atom_3_phase_inverter_pwm.c:203:30: note: in expansion of macro 'LED'\n  203 |     IfxPort_setPinModeOutput(LED, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);\n      |                              ^~~\n",
+  "stderr": "In file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_86hnmdf2\\src\\egtm_atom_3_phase_inverter_pwm.c:24:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_86hnmdf2\\include/IfxEgtm_Pwm.h:113:5: error: unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'\n  113 |     IfxEgtm_Pwm_FastShutoffConfig *fastShutOff;\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_86hnmdf2\\src\\egtm_atom_3_phase_inverter_pwm.c: In function 'interruptEgtmAtom':\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_86hnmdf2\\src\\egtm_atom_3_phase_inverter_pwm.c:40:36: error: 'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P20'?\n   40 | #define LED                       &MODULE_P03, 9\n      |                                    ^~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_86hnmdf2\\src\\egtm_atom_3_phase_inverter_pwm.c:73:23: note: in expansion of macro 'LED'\n   73 |     IfxPort_togglePin(LED);\n      |                       ^~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_86hnmdf2\\src\\egtm_atom_3_phase_inverter_pwm.c:40:36: note: each undeclared identifier is reported only once for each function it appears in\n   40 | #define LED                       &MODULE_P03, 9\n      |                                    ^~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_86hnmdf2\\src\\egtm_atom_3_phase_inverter_pwm.c:73:23: note: in expansion of macro 'LED'\n   73 |     IfxPort_togglePin(LED);\n      |                       ^~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_86hnmdf2\\src\\egtm_atom_3_phase_inverter_pwm.c: In function 'initEgtmAtom3phInv':\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_86hnmdf2\\src\\egtm_atom_3_phase_inverter_pwm.c:40:36: error: 'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P20'?\n   40 | #define LED                       &MODULE_P03, 9\n      |                                    ^~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_86hnmdf2\\src\\egtm_atom_3_phase_inverter_pwm.c:224:30: note: in expansion of macro 'LED'\n  224 |     IfxPort_setPinModeOutput(LED, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);\n      |                              ^~~\n\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_86hnmdf2\\mocks\\mock_egtm_atom_3_phase_inverter_pwm.c:2:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_86hnmdf2\\include/IfxEgtm_Pwm.h:113:5: error: unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'\n  113 |     IfxEgtm_Pwm_FastShutoffConfig *fastShutOff;\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n",
   "stdout": ""
 }
