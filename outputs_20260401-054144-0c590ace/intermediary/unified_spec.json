@@ -1,12 +1,13 @@
 {
   "meta": {
     "schema_version": "1.0",
-    "last_updated_by": "sw_architecture",
-    "last_updated_at": "2026-04-01T14:01:20.253976",
+    "last_updated_by": "sw_detailed",
+    "last_updated_at": "2026-04-01T14:46:27.150644",
     "build_sequence": [
       "requirements",
       "hardware",
-      "sw_architecture"
+      "sw_architecture",
+      "sw_detailed"
     ],
     "corrections_log": []
   },
@@ -778,6 +779,106 @@
     },
     "driver_knowledge_base": {
       "applied": false
+    },
+    "migration_numerical_values": {
+      "NUM_OF_CHANNELS": {
+        "value": 3.0,
+        "unit": "",
+        "label": "Number of channels"
+      },
+      "NUM_OF_ADC_TRIG_CHANNELS": {
+        "value": 1.0,
+        "unit": "",
+        "label": "Number of channels"
+      },
+      "PHASE_U_DUTY": {
+        "value": 25.0,
+        "unit": "%",
+        "label": "Phase U initial duty cycle"
+      },
+      "PHASE_V_DUTY": {
+        "value": 50.0,
+        "unit": "%",
+        "label": "Phase V initial duty cycle"
+      },
+      "PHASE_W_DUTY": {
+        "value": 75.0,
+        "unit": "%",
+        "label": "Phase W initial duty cycle"
+      },
+      "PHASE_DUTY_STEP": {
+        "value": 0.01,
+        "unit": "%",
+        "label": "Duty cycle step increment"
+      },
+      "ADC_TRIG_DUTY": {
+        "value": 50.0,
+        "unit": "%",
+        "label": "Duty cycle"
+      },
+      "PWM_FREQUENCY": {
+        "value": 20000.0,
+        "unit": "Hz",
+        "label": "PWM switching frequency"
+      },
+      "INTERRUPT_PRIORITY_EVADC_CUR": {
+        "value": 100.0,
+        "unit": "",
+        "label": "Interrupt priority"
+      },
+      "PHASECURSENSE_REFILL_TRIG": {
+        "value": 1.0,
+        "unit": "",
+        "label": "Phasecursense refill trig"
+      },
+      "PWM_DEAD_TIME": {
+        "value": 1e-06,
+        "unit": "s",
+        "label": "Dead-time between complementary outputs"
+      }
+    }
+  },
+  "sw_detailed": {
+    "module_name": "EGTM_ATOM_TMADC_Consolidated",
+    "public_functions": [
+      {
+        "signature": "void initEgtmAtom3phInv(void)",
+        "behavior_description": "Initialize a consolidated eGTM + TMADC setup. 1) Declare all config and state structures locally, but keep the PWM driver handle and its persistent channels array in module state. 2) Initialize the unified eGTM PWM configuration with defaults and prepare three logical channels (indices 0..2) as complementary, center-aligned outputs with hardware dead-time. Assign each logical channel an output pair (high + complementary), set polarity, and set initial duty cycles to 25/50/75 percent. Configure DTM rising and falling dead-time to 1e-6 s and select CMU Clock 0 as the PWM and DTM clock sources. Set the PWM frequency to 20 kHz and keep sync update enabled. 3) Initialize an ATOM timer configuration (same ATOM cluster) to generate a periodic trigger point for the ADC on a separate channel (logical trigger channel). Set its frequency to match the PWM period and set a 50% trigger point. 4) Configure the trigger routing from the selected ATOM trigger source to the ADC trigger signal using the eGTM Trigger API with the required edge selection. 5) Defer all hardware touching until after config is ready, then perform the enable guard: if the eGTM module is not enabled, enable it, read the module frequency dynamically, configure the eGTM CMU GCLK divider and CMU Clock 0 count consistently using that frequency context, and enable the required clocks. 6) Call the unified eGTM PWM init with the persistent channels array to apply the channel configuration and initial duties. 7) Initialize and start the ATOM timer for the trigger channel, set its 50% trigger point, and run it. 8) Configure the trigger channel’s output to a pad using the generic eGTM PinMap API. 9) Initialize TMADC: enable the ADC module, init module config, init five TMADC channels for one-shot sampling with the requested sampling time and wait-for-read behavior, enable channel event generation to a service request, install the result ISR with the requested priority/TOS, and start the TMADC module. 10) Configure the LED pin as push-pull output for later use by the application. Persist initial duty cycles and dead-time values into the module state for use by runtime updates.",
+        "driver_calls": [
+          "IfxEgtm_isEnabled",
+          "IfxEgtm_enable",
+          "IfxEgtm_Cmu_getModuleFrequency",
+          "IfxEgtm_Cmu_setGclkDivider",
+          "IfxEgtm_Cmu_setClkCount",
+          "IfxEgtm_Cmu_enableClocks",
+          "IfxEgtm_Pwm_initConfig",
+          "IfxEgtm_Pwm_init",
+          "IfxEgtm_Atom_Timer_setFrequency",
+          "IfxEgtm_Atom_Timer_setTrigger",
+          "IfxEgtm_Atom_Timer_run",
+          "IfxEgtm_PinMap_setAtomTout",
+          "IfxEgtm_Trigger_trigToAdc",
+          "IfxAdc_enableModule",
+          "IfxAdc_Tmadc_initModuleConfig",
+          "IfxAdc_Tmadc_initModule"
+        ]
+      }
+    ],
+    "dependencies": {},
+    "header_selection": {
+      "applied": true,
+      "peripheral_type": "PWM",
+      "recommended_header": "IfxEgtm_Atom",
+      "template_functions_count": 1453,
+      "required_includes": [
+        "IfxEgtm_Atom.h"
+      ],
+      "original_recommendation": "IfxEgtm_Atom_Timer",
+      "reconciled": true,
+      "reconciliation_reason": "LLM driver_calls use IfxEgtm_Atom_* API, not IfxEgtm_Atom_Timer (the reference API). Updated to match actual usage.",
+      "original_required_includes": [
+        "IfxEgtm_Atom_Timer.h"
+      ]
     },
     "migration_numerical_values": {
       "NUM_OF_CHANNELS": {
