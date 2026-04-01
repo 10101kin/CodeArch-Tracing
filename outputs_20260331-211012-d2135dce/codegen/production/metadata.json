@@ -1,12 +1,8 @@
 {
-  "attempt": 3,
-  "phase_attempt": 1,
+  "type": "llm_response",
   "phase": "production",
-  "success": false,
-  "errors": [
-    "'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P20'?",
-    "'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P20'?"
-  ],
-  "timestamp": "2026-04-01T08:11:55.172011",
-  "project_name": "Generate_TC4D7_eGTM_ATOM_ATOM0_Cluster_0_code_u_r_20260401_080036"
+  "attempt": 5,
+  "phase_attempt": 2,
+  "response_length": 12482,
+  "timestamp": "2026-04-01T08:18:11.710680"
 }
