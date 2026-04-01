@@ -1,12 +1,13 @@
 {
   "meta": {
     "schema_version": "1.0",
-    "last_updated_by": "sw_architecture",
-    "last_updated_at": "2026-04-01T11:50:36.712462",
+    "last_updated_by": "sw_detailed",
+    "last_updated_at": "2026-04-01T11:59:26.150644",
     "build_sequence": [
       "requirements",
       "hardware",
-      "sw_architecture"
+      "sw_architecture",
+      "sw_detailed"
     ],
     "corrections_log": []
   },
@@ -620,6 +621,133 @@
       }
     },
     "driver_knowledge_base": {
+      "applied": false
+    },
+    "migration_numerical_values": {
+      "DUTY_25_PERCENT": {
+        "value": 25.0,
+        "unit": "%",
+        "label": "Phase U initial duty cycle"
+      },
+      "DUTY_50_PERCENT": {
+        "value": 50.0,
+        "unit": "%",
+        "label": "Phase V initial duty cycle"
+      },
+      "DUTY_75_PERCENT": {
+        "value": 75.0,
+        "unit": "%",
+        "label": "Phase W initial duty cycle"
+      },
+      "DUTY_STEP": {
+        "value": 10.0,
+        "unit": "%",
+        "label": "Duty cycle step increment"
+      },
+      "DUTY_MIN": {
+        "value": 10.0,
+        "unit": "%",
+        "label": "Minimum duty cycle"
+      },
+      "DUTY_MAX": {
+        "value": 90.0,
+        "unit": "%",
+        "label": "Maximum duty cycle"
+      },
+      "PWM_FREQ_HZ": {
+        "value": 20000.0,
+        "unit": "Hz",
+        "label": "PWM switching frequency"
+      },
+      "WAIT_TIME": {
+        "value": 10.0,
+        "unit": "ms",
+        "label": "Wait / delay time"
+      },
+      "PWM_DEAD_TIME": {
+        "value": 5e-07,
+        "unit": "s",
+        "label": "Dead-time between complementary outputs"
+      },
+      "PWM_MIN_PULSE_TIME": {
+        "value": 1e-06,
+        "unit": "s",
+        "label": "Minimum pulse width"
+      }
+    }
+  },
+  "sw_detailed": {
+    "module_name": "GTM_TOM_3_Phase_Inverter_PWM",
+    "public_functions": [
+      {
+        "signature": "void initGtmTom3phInv(void)",
+        "behavior_description": "Initialize the GTM-based 3-phase complementary PWM using the unified IfxGtm_Pwm driver with synchronized start and update gating via a shared TOM timer. Implementation steps: 1) Declare all configuration structs as locals: IfxGtm_Pwm_Config config; IfxGtm_Pwm_ChannelConfig channelConfig[3]; IfxGtm_Pwm_Output output[3]; IfxGtm_Pwm_DeadTime dtmConfig[3]; IfxGtm_Pwm_InterruptConfig interruptConfig; IfxGtm_Tom_Timer_Config timerConfig. 2) Call IfxGtm_Pwm_initConfig(&config, &MODULE_GTM) to load defaults. 3) Configure output[i] for three logical channels, each with a main output and its complementary output, active-high polarities, push-pull mode, and appropriate pad driver. Assign output[i] into channelConfig[i].output and set channelConfig[i].complementaryPin via output[i].complementaryPin. 4) Set dtmConfig[i] with the required dead-time (1 µs) and assign to channelConfig[i].dtm; select the DTM clock source (CMU clock 0) in config.dtmClockSource. 5) Configure channelConfig[i] for three channels using logical indices IfxGtm_Pwm_SubModule_Ch_0, _Ch_1, and _Ch_2; set initial phase = 0.0f and initial duties = {25.0f, 50.0f, 75.0f}. 6) Prepare interruptConfig for a period event callback: set provider to CPU0, set an ISR priority value, and assign interruptConfig.periodEvent = IfxGtm_periodEventFunction; assign channelConfig[0].interrupt = &interruptConfig and set the remaining channelConfig[i>0].interrupt = NULL_PTR. 7) Populate main config fields: config.cluster to the intended TOM cluster, config.subModule = tom, config.alignment = center, config.syncStart = TRUE, config.syncUpdateEnabled = TRUE, config.numChannels = 3, config.channels = &channelConfig[0], and config.frequency = 20000.0f. 8) Inside a GTM enable guard: check IfxGtm_isEnabled; if disabled, call IfxGtm_enable, read the module frequency dynamically with IfxGtm_Cmu_getModuleFrequency (used to base timing), and enable GTM clocks needed for TOM/FXCLK with IfxGtm_Cmu_enableClocks. 9) Call IfxGtm_Pwm_init(&state->pwm, state->channels, &config) to initialize the driver; store the driver handle, the channels array, and the initial duty/phase/dead-time arrays into a persistent module state so they remain valid after init. 10) Initialize the shared TOM timer for update gating: call IfxGtm_Tom_Timer_initConfig(&timerConfig, &MODULE_GTM), set its base frequency/timebase consistent with the PWM period source, ensure it uses the desired CMU clock, select a TOM instance/channel not colliding with the PWM outputs, then call IfxGtm_Tom_Timer_init(&state->timer, &timerConfig). 11) After PWM init, configure the LED GPIO as push-pull output using IfxPort_setPinModeOutput so the ISR can toggle it. Do not perform any STM delays or periodic scheduling here; only peripheral configuration belongs in this function.",
+        "driver_calls": [
+          "IfxGtm_isEnabled",
+          "IfxGtm_enable",
+          "IfxGtm_Cmu_getModuleFrequency",
+          "IfxGtm_Cmu_enableClocks",
+          "IfxGtm_Pwm_initConfig",
+          "IfxGtm_Pwm_init",
+          "IfxGtm_Tom_Timer_initConfig",
+          "IfxGtm_Tom_Timer_init",
+          "IfxPort_setPinModeOutput",
+          "IfxGtm_Cmu_setGclkFrequency",
+          "IfxGtm_Cmu_setClkFrequency"
+        ],
+        "from_reference": true,
+        "call_context": "init"
+      },
+      {
+        "signature": "void updateGtmTom3phInvDuty(void)",
+        "behavior_description": "Update three phase duty cycles in percent with wrap and clamp, then apply them atomically using TOM timer update gating. Algorithm: - For each phase i in {0,1,2}, compute newDuty = duty[i] + 10.0f. If newDuty >= 100.0f, set duty[i] = 0.0f and then add 10.0f (wrap rule). After wrap handling, enforce range limits: if duty[i] < 10.0f set to 10.0f; if duty[i] > 90.0f set to 90.0f. Store updated duties back to the module state array. - Issue a synchronized update: call IfxGtm_Tom_Timer_disableUpdate(&state->timer); call IfxGtm_Pwm_updateChannelsDutyImmediate(&state->pwm, dutyArray) passing the three percent values directly without scaling; then call IfxGtm_Tom_Timer_applyUpdate(&state->timer) so all complementary outputs update coherently at the next timer boundary. No STM timing or delays here; looping/scheduling is handled in Cpu0_Main.",
+        "driver_calls": [
+          "IfxGtm_Tom_Timer_disableUpdate",
+          "IfxGtm_Pwm_updateChannelsDutyImmediate",
+          "IfxGtm_Tom_Timer_applyUpdate"
+        ],
+        "from_reference": true,
+        "call_context": "loop"
+      },
+      {
+        "signature": "void interruptGtmAtom(void)",
+        "behavior_description": "GTM ISR function that exclusively toggles the configured LED GPIO to indicate periodic activity. Do not call any driver-level interrupt handlers here and do not access application state; keep the ISR minimal.",
+        "driver_calls": [
+          "IfxPort_togglePin"
+        ],
+        "from_reference": false,
+        "call_context": "none"
+      },
+      {
+        "signature": "void IfxGtm_periodEventFunction(void *data)",
+        "behavior_description": "Empty period-event callback used by the IfxGtm_Pwm interrupt configuration struct. It must match the required signature taking a void *data argument. The ISR is a separate function and handles the LED toggle.",
+        "driver_calls": [],
+        "from_reference": false,
+        "call_context": "none"
+      }
+    ],
+    "private_functions": [],
+    "dependencies": {
+      "includes": [
+        "IfxGtm_Pwm.h",
+        "IfxGtm_Tom_Timer.h",
+        "IfxPort.h",
+        "IfxPort_Pinmap.h"
+      ],
+      "driver_calls": [
+        "IfxGtm_Cmu_setGclkFrequency",
+        "IfxGtm_Cmu_setClkFrequency"
+      ]
+    },
+    "cpu_main_requirements": {
+      "needs_cpu_sync": true,
+      "uses_timer_delay": true,
+      "delay_ms": 500,
+      "additional_includes": [
+        "Bsp.h"
+      ]
+    },
+    "header_selection": {
       "applied": false
     },
     "migration_numerical_values": {
