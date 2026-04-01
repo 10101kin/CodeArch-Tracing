@@ -2,6 +2,7 @@
 #define IFXPORT_H
 #include "mock_egtm_atom_tmadc_consolidated.h"
 
+/* Basic IfxPort types used by drivers */
 typedef enum {
     IfxPort_OutputMode_pushPull = 0,
     IfxPort_OutputMode_openDrain = 1
@@ -16,8 +17,8 @@ typedef enum {
 
 typedef enum {
     IfxPort_InputMode_noPullDevice = 0,
-    IfxPort_InputMode_pullDown = 1,
-    IfxPort_InputMode_pullUp = 2
+    IfxPort_InputMode_pullUp = 1,
+    IfxPort_InputMode_pullDown = 2
 } IfxPort_InputMode;
 
 typedef enum {
