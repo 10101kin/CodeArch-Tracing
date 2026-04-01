@@ -1,12 +1,13 @@
 {
   "meta": {
     "schema_version": "1.0",
-    "last_updated_by": "sw_architecture",
-    "last_updated_at": "2026-04-01T16:31:44.433620",
+    "last_updated_by": "sw_detailed",
+    "last_updated_at": "2026-04-01T16:36:03.469810",
     "build_sequence": [
       "requirements",
       "hardware",
-      "sw_architecture"
+      "sw_architecture",
+      "sw_detailed"
     ],
     "corrections_log": []
   },
@@ -606,6 +607,87 @@
     },
     "driver_knowledge_base": {
       "applied": false
+    },
+    "migration_numerical_values": {
+      "DUTY_25_PERCENT": {
+        "value": 25.0,
+        "unit": "%",
+        "label": "Phase U initial duty cycle"
+      },
+      "DUTY_50_PERCENT": {
+        "value": 50.0,
+        "unit": "%",
+        "label": "Phase V initial duty cycle"
+      },
+      "DUTY_75_PERCENT": {
+        "value": 75.0,
+        "unit": "%",
+        "label": "Phase W initial duty cycle"
+      },
+      "DUTY_STEP": {
+        "value": 10.0,
+        "unit": "%",
+        "label": "Duty cycle step increment"
+      },
+      "DUTY_MIN": {
+        "value": 10.0,
+        "unit": "%",
+        "label": "Minimum duty cycle"
+      },
+      "DUTY_MAX": {
+        "value": 90.0,
+        "unit": "%",
+        "label": "Maximum duty cycle"
+      },
+      "PWM_FREQ_HZ": {
+        "value": 20000.0,
+        "unit": "Hz",
+        "label": "PWM switching frequency"
+      },
+      "WAIT_TIME": {
+        "value": 10.0,
+        "unit": "ms",
+        "label": "Wait / delay time"
+      },
+      "PWM_DEAD_TIME": {
+        "value": 5e-07,
+        "unit": "s",
+        "label": "Dead-time between complementary outputs"
+      },
+      "PWM_MIN_PULSE_TIME": {
+        "value": 1e-06,
+        "unit": "s",
+        "label": "Minimum pulse width"
+      }
+    }
+  },
+  "sw_detailed": {
+    "module_name": "GTM_TOM_3_Phase_Inverter_PWM_2",
+    "public_functions": [
+      {
+        "signature": "void initGtmTom3phInv(void)",
+        "behavior_description": "Declare persistent module state (PWM handle, persistent channels array, dutyCycles[3], phases[3], deadTimes[3]). Create local config structs: IfxGtm_Pwm_Config config; IfxGtm_Pwm_ChannelConfig channelConfig[3]; IfxGtm_Pwm_OutputConfig output[3]; IfxGtm_Pwm_DeadTime dtmConfig[3]; IfxGtm_Pwm_InterruptConfig interruptConfig. Call IfxGtm_Pwm_initConfig(&config, &MODULE_GTM) to load defaults. Configure three complementary channels for the TOM submodule on the selected cluster: set config.subModule = IfxGtm_Pwm_SubModule_tom; config.cluster to the required cluster; config.numChannels = 3; config.alignment = IfxGtm_Pwm_Alignment_center; config.syncStart = TRUE; config.syncUpdateEnabled = TRUE; config.frequency = 20000.0f; config.dtmClockSource = IfxGtm_Dtm_ClockSource_cmuClock0. For each logical channel i = 0..2: assign output[i].pin and output[i].complementaryPin to the board’s routed PWM pins (high-side and low-side), set output[i].polarity = Ifx_ActiveState_high, output[i].complementaryPolarity = Ifx_ActiveState_high, output[i].outputMode = IfxPort_OutputMode_pushPull, output[i].padDriver = IfxPort_PadDriver_cmosAutomotiveSpeed1; set dtmConfig[i].rising = 5e-07f and dtmConfig[i].falling = 5e-07f; set channelConfig[i].timerCh = IfxGtm_Pwm_SubModule_Ch_0/1/2 for i=0/1/2 (ordinal indices), channelConfig[i].phase = 0.0f, channelConfig[i].duty = initial duties [25.0f, 50.0f, 75.0f], channelConfig[i].dtm = &dtmConfig[i], channelConfig[i].output = &output[i], channelConfig[i].mscOut = NULL_PTR. Prepare a single interruptConfig with base/period event: set interruptConfig.mode to period notification, interruptConfig.isrProvider = IfxSrc_Tos_cpu0, interruptConfig.priority = 20, interruptConfig.periodEvent = IfxGtm_periodEventFunction, interruptConfig.dutyEvent = NULL_PTR; assign channelConfig[0].interrupt = &interruptConfig and channelConfig[1].interrupt = channelConfig[2].interrupt = NULL_PTR. After fully preparing config, set config.channels = &channelConfig[0]. Before touching hardware, check enable guard: if IfxGtm_isEnabled(&MODULE_GTM) is FALSE, call IfxGtm_enable(&MODULE_GTM); optionally read module frequency via IfxGtm_Cmu_getModuleFrequency(&MODULE_GTM); then enable CMU functional clocks with IfxGtm_Cmu_enableClocks(&MODULE_GTM, IFXGTM_CMU_CLKEN_FXCLK). Call IfxGtm_Pwm_init(&state.handle, state.channels, &config) to initialize and start the synchronized complementary PWM with the configured center-aligned mode, frequency, and dead time. Persist initial dutyCycles[] and deadTimes[] into the module state for runtime updates. Finally, configure the diagnostic/toggle GPIO as an output: set the LED pin to push-pull output with IfxPort_setPinModeOutput; do not set its level here. The ISR will toggle it each PWM period.",
+        "driver_calls": [
+          "IfxGtm_isEnabled",
+          "IfxGtm_enable",
+          "IfxGtm_Cmu_getModuleFrequency",
+          "IfxGtm_Cmu_enableClocks",
+          "IfxGtm_Pwm_initConfig",
+          "IfxGtm_Pwm_init",
+          "IfxPort_setPinModeOutput",
+          "IfxGtm_Cmu_setGclkFrequency",
+          "IfxGtm_Cmu_setClkFrequency"
+        ]
+      }
+    ],
+    "header_selection": {
+      "applied": false
+    },
+    "dependencies": {
+      "driver_calls": [
+        "IfxGtm_Cmu_setGclkFrequency",
+        "IfxGtm_Cmu_setClkFrequency"
+      ]
     },
     "migration_numerical_values": {
       "DUTY_25_PERCENT": {
