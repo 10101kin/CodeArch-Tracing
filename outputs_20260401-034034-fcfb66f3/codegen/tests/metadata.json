@@ -1,11 +1,9 @@
 {
-  "attempt": 6,
+  "attempt": 7,
   "phase_attempt": 1,
   "phase": "test_execution",
-  "success": false,
-  "errors": [
-    "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_x_6zjm9k\\test\\test_gtm_tom_3_phase_inverter_pwm.c:376:test_TC_G1_001_Init_WhenGtmAlreadyEnabled_MinimalClockSetup:PASS\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_x_6zjm9k\\test\\test_gtm_tom_3_phase_inverter_pwm.c:377:test_TC_G1_002_Init_WhenGtmDisabled_EnablesAndConfigClocks:PASS\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_x_6zjm9k\\test\\test_gtm_tom_3_phase_inverter_pwm.c:379:test_TC_G2_001_Init_SetsExpectedPwmFrequencyAndChannelCount:PASS\nC:\\Use"
-  ],
-  "timestamp": "2026-04-01T12:43:11.928578",
+  "success": true,
+  "errors": [],
+  "timestamp": "2026-04-01T12:45:42.663116",
   "project_name": "Generate_C_code_for_KIT_A2G_TC387_5V_TFT_TC3xx_t_r_20260401_122630"
 }
