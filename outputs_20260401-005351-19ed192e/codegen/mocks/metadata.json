@@ -1,0 +1,11 @@
+{
+  "attempt": 1,
+  "phase_attempt": 1,
+  "phase": "mock_generation",
+  "success": false,
+  "errors": [
+    "Error code: 400 - {'error': {'message': \"We could not parse the JSON body of your request. (HINT: This likely means you aren't using your HTTP library correctly. The OpenAI API expects a JSON payload, but what was sent was not valid JSON. If you have trouble figuring out how to fix this, please contact us through our help center at help.openai.com.)\", 'type': 'invalid_request_error', 'param': None, 'code': None}}"
+  ],
+  "timestamp": "2026-04-01T01:07:09.332362",
+  "project_name": "Migrate_the_TC387_GTM_TOM_EVADC_3-phase_inverter_r_20260401_010424"
+}
