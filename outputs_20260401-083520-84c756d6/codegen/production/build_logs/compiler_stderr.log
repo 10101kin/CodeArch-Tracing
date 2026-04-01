@@ -1,66 +1,40 @@
-In file included from C:\Users\extalth\AppData\Local\Temp\tdd_build_3lhmz2u_\src\egtm_atom_3_phase_inverter_pwm.c:12:
-C:\Users\extalth\AppData\Local\Temp\tdd_build_3lhmz2u_\include/egtm_atom_3_phase_inverter_pwm.h:10:31: error: unknown type name 'float32'; did you mean '_Float32'?
-   10 | void updateEgtmAtom3phInvDuty(float32 *requestDuty);
+In file included from C:\Users\extalth\AppData\Local\Temp\tdd_build_vq5jwose\src\egtm_atom_3_phase_inverter_pwm.c:16:
+C:\Users\extalth\AppData\Local\Temp\tdd_build_vq5jwose\include/egtm_atom_3_phase_inverter_pwm.h:14:31: error: unknown type name 'float32'; did you mean '_Float32'?
+   14 | void updateEgtmAtom3phInvDuty(float32 *requestDuty);
       |                               ^~~~~~~
       |                               _Float32
-C:\Users\extalth\AppData\Local\Temp\tdd_build_3lhmz2u_\src\egtm_atom_3_phase_inverter_pwm.c: In function 'initEgtmAtom3phInv':
-C:\Users\extalth\AppData\Local\Temp\tdd_build_3lhmz2u_\src\egtm_atom_3_phase_inverter_pwm.c:42:24: error: 'IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT' undeclared (first use in this function)
-   42 | #define PHASE_U_LS   (&IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT)
-      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\AppData\Local\Temp\tdd_build_3lhmz2u_\src\egtm_atom_3_phase_inverter_pwm.c:99:62: note: in expansion of macro 'PHASE_U_LS'
-   99 |     output[0].complementaryPin      = (IfxEgtm_Pwm_ToutMap *)PHASE_U_LS;
-      |                                                              ^~~~~~~~~~
-C:\Users\extalth\AppData\Local\Temp\tdd_build_3lhmz2u_\src\egtm_atom_3_phase_inverter_pwm.c:42:24: note: each undeclared identifier is reported only once for each function it appears in
-   42 | #define PHASE_U_LS   (&IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT)
-      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\AppData\Local\Temp\tdd_build_3lhmz2u_\src\egtm_atom_3_phase_inverter_pwm.c:99:62: note: in expansion of macro 'PHASE_U_LS'
-   99 |     output[0].complementaryPin      = (IfxEgtm_Pwm_ToutMap *)PHASE_U_LS;
-      |                                                              ^~~~~~~~~~
-C:\Users\extalth\AppData\Local\Temp\tdd_build_3lhmz2u_\src\egtm_atom_3_phase_inverter_pwm.c:243:41: error: 'IfxEgtm_TrigSource_atom0' undeclared (first use in this function); did you mean 'IfxEgtm_TrigSource_0'?
-  243 |                                         IfxEgtm_TrigSource_atom0,
-      |                                         ^~~~~~~~~~~~~~~~~~~~~~~~
-      |                                         IfxEgtm_TrigSource_0
-C:\Users\extalth\AppData\Local\Temp\tdd_build_3lhmz2u_\src\egtm_atom_3_phase_inverter_pwm.c:244:41: error: 'IfxEgtm_TrigChannel_3' undeclared (first use in this function); did you mean 'IfxEgtm_TrigChannel_0'?
-  244 |                                         IfxEgtm_TrigChannel_3,
-      |                                         ^~~~~~~~~~~~~~~~~~~~~
-      |                                         IfxEgtm_TrigChannel_0
+In file included from C:\Users\extalth\AppData\Local\Temp\tdd_build_vq5jwose\src\egtm_atom_3_phase_inverter_pwm.c:18:
+C:\Users\extalth\AppData\Local\Temp\tdd_build_vq5jwose\include/IfxEgtm_Pwm.h:109:5: error: unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'
+  109 |     IfxEgtm_Pwm_FastShutoffConfig *fastShutOff;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extalth\AppData\Local\Temp\tdd_build_vq5jwose\src\egtm_atom_3_phase_inverter_pwm.c: In function 'interruptEgtmAtom':
+C:\Users\extalth\AppData\Local\Temp\tdd_build_vq5jwose\src\egtm_atom_3_phase_inverter_pwm.c:47:42: error: 'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P33'?
+   47 | #define LED                            (&MODULE_P03), 9u
+      |                                          ^~~~~~~~~~
+C:\Users\extalth\AppData\Local\Temp\tdd_build_vq5jwose\src\egtm_atom_3_phase_inverter_pwm.c:82:23: note: in expansion of macro 'LED'
+   82 |     IfxPort_togglePin(LED);
+      |                       ^~~
+C:\Users\extalth\AppData\Local\Temp\tdd_build_vq5jwose\src\egtm_atom_3_phase_inverter_pwm.c:47:42: note: each undeclared identifier is reported only once for each function it appears in
+   47 | #define LED                            (&MODULE_P03), 9u
+      |                                          ^~~~~~~~~~
+C:\Users\extalth\AppData\Local\Temp\tdd_build_vq5jwose\src\egtm_atom_3_phase_inverter_pwm.c:82:23: note: in expansion of macro 'LED'
+   82 |     IfxPort_togglePin(LED);
+      |                       ^~~
+C:\Users\extalth\AppData\Local\Temp\tdd_build_vq5jwose\src\egtm_atom_3_phase_inverter_pwm.c: In function 'initEgtmAtom3phInv':
+C:\Users\extalth\AppData\Local\Temp\tdd_build_vq5jwose\src\egtm_atom_3_phase_inverter_pwm.c:208:11: error: 'IfxEgtm_Pwm_Config' has no member named 'syncUpdateEnabled'
+  208 |     config.syncUpdateEnabled  = TRUE;                                  /* Synchronous shadow updates at period end */
+      |           ^
+C:\Users\extalth\AppData\Local\Temp\tdd_build_vq5jwose\src\egtm_atom_3_phase_inverter_pwm.c:209:11: error: 'IfxEgtm_Pwm_Config' has no member named 'syncStart'
+  209 |     config.syncStart          = TRUE;                                  /* Start outputs after init */
+      |           ^
+C:\Users\extalth\AppData\Local\Temp\tdd_build_vq5jwose\src\egtm_atom_3_phase_inverter_pwm.c:47:42: error: 'MODULE_P03' undeclared (first use in this function); did you mean 'MODULE_P33'?
+   47 | #define LED                            (&MODULE_P03), 9u
+      |                                          ^~~~~~~~~~
+C:\Users\extalth\AppData\Local\Temp\tdd_build_vq5jwose\src\egtm_atom_3_phase_inverter_pwm.c:243:30: note: in expansion of macro 'LED'
+  243 |     IfxPort_setPinModeOutput(LED, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
+      |                              ^~~
 
-In file included from C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\unity/unity.h:22,
-                 from C:\Users\extalth\AppData\Local\Temp\tdd_build_3lhmz2u_\test\test_egtm_atom_3_phase_inverter_pwm.c:1:
-C:\Users\extalth\AppData\Local\Temp\tdd_build_3lhmz2u_\test\test_egtm_atom_3_phase_inverter_pwm.c: In function 'test_TC_G2_002_init_configures_deadtime_values':
-C:\Users\extalth\AppData\Local\Temp\tdd_build_3lhmz2u_\test\test_egtm_atom_3_phase_inverter_pwm.c:95:41: error: implicit declaration of function 'mock_IfxEgtm_Pwm_updateChannelsDeadTimeImmediate_getCallCount'; did you mean 'mock_IfxEgtm_Pwm_updateChannelsDutyImmediate_getCallCount'? [-Wimplicit-function-declaration]
-   95 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxEgtm_Pwm_updateChannelsDeadTimeImmediate_getCallCount(), "Dead-time configuration must be applied exactly once");
-      |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\unity/unity_internals.h:904:184: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_UINT32'
-  904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)
-      |                                                                                                                                                                                        ^~~~~~
-C:\Users\extalth\AppData\Local\Temp\tdd_build_3lhmz2u_\test\test_egtm_atom_3_phase_inverter_pwm.c:95:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'
-   95 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_IfxEgtm_Pwm_updateChannelsDeadTimeImmediate_getCallCount(), "Dead-time configuration must be applied exactly once");
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\AppData\Local\Temp\tdd_build_3lhmz2u_\test\test_egtm_atom_3_phase_inverter_pwm.c:96:80: error: 'mock_IfxEgtm_Pwm_updateChannelsDeadTimeImmediate_lastDtRising' undeclared (first use in this function); did you mean 'mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtRising'?
-   96 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, UT_DEADTIME_RISING_US,  mock_IfxEgtm_Pwm_updateChannelsDeadTimeImmediate_lastDtRising[0],  "Rising DT for channel 0 must be 1.0 us");
-      |                                                                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\unity/unity_internals.h:1119:183: note: in definition of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'
- 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))
-      |                                                                                                                                                                                       ^~~~~~
-C:\Users\extalth\AppData\Local\Temp\tdd_build_3lhmz2u_\test\test_egtm_atom_3_phase_inverter_pwm.c:96:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN_MESSAGE'
-   96 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, UT_DEADTIME_RISING_US,  mock_IfxEgtm_Pwm_updateChannelsDeadTimeImmediate_lastDtRising[0],  "Rising DT for channel 0 must be 1.0 us");
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\AppData\Local\Temp\tdd_build_3lhmz2u_\test\test_egtm_atom_3_phase_inverter_pwm.c:96:80: note: each undeclared identifier is reported only once for each function it appears in
-   96 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, UT_DEADTIME_RISING_US,  mock_IfxEgtm_Pwm_updateChannelsDeadTimeImmediate_lastDtRising[0],  "Rising DT for channel 0 must be 1.0 us");
-      |                                                                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\unity/unity_internals.h:1119:183: note: in definition of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'
- 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))
-      |                                                                                                                                                                                       ^~~~~~
-C:\Users\extalth\AppData\Local\Temp\tdd_build_3lhmz2u_\test\test_egtm_atom_3_phase_inverter_pwm.c:96:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN_MESSAGE'
-   96 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, UT_DEADTIME_RISING_US,  mock_IfxEgtm_Pwm_updateChannelsDeadTimeImmediate_lastDtRising[0],  "Rising DT for channel 0 must be 1.0 us");
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\AppData\Local\Temp\tdd_build_3lhmz2u_\test\test_egtm_atom_3_phase_inverter_pwm.c:99:80: error: 'mock_IfxEgtm_Pwm_updateChannelsDeadTimeImmediate_lastDtFalling' undeclared (first use in this function); did you mean 'mock_IfxEgtm_Pwm_updateChannelDeadTimeImmediate_lastDtFalling'?
-   99 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, UT_DEADTIME_FALLING_US, mock_IfxEgtm_Pwm_updateChannelsDeadTimeImmediate_lastDtFalling[0], "Falling DT for channel 0 must be 1.0 us");
-      |                                                                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extalth\Downloads\Infineon\infineon_POC_MVP\unity/unity_internals.h:1119:183: note: in definition of macro 'UNITY_TEST_ASSERT_FLOAT_WITHIN'
- 1119 | #define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)                   UnityAssertFloatsWithin((UNITY_FLOAT)(delta), (UNITY_FLOAT)(expected), (UNITY_FLOAT)(actual), (message), (UNITY_LINE_TYPE)(line))
-      |                                                                                                                                                                                       ^~~~~~
-C:\Users\extalth\AppData\Local\Temp\tdd_build_3lhmz2u_\test\test_egtm_atom_3_phase_inverter_pwm.c:99:5: note: in expansion of macro 'TEST_ASSERT_FLOAT_WITHIN_MESSAGE'
-   99 |     TEST_ASSERT_FLOAT_WITHIN_MESSAGE(UT_FLOAT_EPSILON, UT_DEADTIME_FALLING_US, mock_IfxEgtm_Pwm_updateChannelsDeadTimeImmediate_lastDtFalling[0], "Falling DT for channel 0 must be 1.0 us");
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from C:\Users\extalth\AppData\Local\Temp\tdd_build_vq5jwose\mocks\mock_egtm_atom_3_phase_inverter_pwm.c:5:
+C:\Users\extalth\AppData\Local\Temp\tdd_build_vq5jwose\include/IfxEgtm_Pwm.h:109:5: error: unknown type name 'IfxEgtm_Pwm_FastShutoffConfig'
+  109 |     IfxEgtm_Pwm_FastShutoffConfig *fastShutOff;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
