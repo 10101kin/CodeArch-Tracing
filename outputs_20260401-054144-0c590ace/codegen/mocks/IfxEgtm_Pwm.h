@@ -1,4 +1,3 @@
-/* IfxEgtm_Pwm mock */
 #ifndef IFXEGTM_PWM_H
 #define IFXEGTM_PWM_H
 #include "mock_egtm_atom_tmadc_consolidated.h"
@@ -6,15 +5,11 @@
 #include "IfxEgtm_Cmu.h"
 #include "IfxPort.h"
 
-/* Forward maps used by ToutMap */
+/* Forward map types used by ToutMap union */
 typedef struct { uint32 dummy; } IfxEgtm_Atom_ToutMap;
 typedef struct { uint32 dummy; } IfxEgtm_Tom_ToutMap;
-typedef struct { uint32 dummy; } IfxEgtm_Hrpwm_Out;
 
-/* Callback type */
-typedef void (*IfxEgtm_Pwm_callBack)(void *);
-
-/* Verified type definitions (verbatim as required) */
+/* VERIFIED TYPE DEFINITIONS — copied verbatim (and in order) */
 
 typedef enum
 {
@@ -103,20 +98,13 @@ typedef struct
     float32 falling;       
 } IfxEgtm_Pwm_DeadTime;
 
-/* Not in verified block, but required by DtmConfig */
-typedef struct
-{
-    IfxEgtm_Dtm_ShutoffInput inputSignal;                 
-    boolean                  invertInputSignal;           
-    IfxEgtm_Dtm_SignalLevel  offState;                    
-    IfxEgtm_Dtm_SignalLevel  complementaryOffState;       
-} IfxEgtm_Pwm_FastShutoffConfig;
-
 typedef struct
 {
     IfxEgtm_Pwm_DeadTime           deadTime;          
     IfxEgtm_Pwm_FastShutoffConfig *fastShutOff;       
 } IfxEgtm_Pwm_DtmConfig;
+
+typedef void (*IfxEgtm_Pwm_callBack)(void);
 
 typedef struct
 {
@@ -132,7 +120,6 @@ typedef union
 {
     IfxEgtm_Atom_ToutMap atom;        
     IfxEgtm_Tom_ToutMap  tom;         
-    /* High-res not modeled */
 } IfxEgtm_Pwm_ToutMap;
 
 typedef struct
@@ -177,9 +164,16 @@ typedef struct
     float32                      duty;            
     IfxEgtm_Pwm_DtmConfig       *dtm;             
     IfxEgtm_Pwm_OutputConfig    *output;          
-    IfxEgtm_MscOut              *mscOut;          
+    void                        *mscOut;          /* MSC configuration pointer (void*) per MOCK CHANNELCONFIG COMPLETENESS */
     IfxEgtm_Pwm_InterruptConfig *interrupt;       
 } IfxEgtm_Pwm_ChannelConfig;
+
+typedef enum
+{
+    IfxEgtm_Cluster_0 = 0,  
+    IfxEgtm_Cluster_1 = 1,  
+    IfxEgtm_Cluster_2 = 2   
+} IfxEgtm_Cluster;
 
 typedef struct
 {
@@ -227,7 +221,8 @@ typedef struct
     float32                    frequency;              
     IfxEgtm_Pwm_ClockSource    clockSource;            
     IfxEgtm_Dtm_ClockSource    dtmClockSource;         
-    /* High-res fields omitted in mock */ 
+    boolean                    highResEnable;          
+    boolean                    dtmHighResEnable;       
     boolean                    syncUpdateEnabled;      
     boolean                    syncStart;              
 } IfxEgtm_Pwm_Config;
@@ -239,10 +234,8 @@ typedef struct
     IfxPort_PadDriver    padDriver;        
 } IfxEgtm_Pwm_Pin;
 
-/* Functions used */
+/* Function declarations needed by tests */
 void IfxEgtm_Pwm_init(IfxEgtm_Pwm *pwm, IfxEgtm_Pwm_Channel *channels, IfxEgtm_Pwm_Config *config);
 void IfxEgtm_Pwm_initConfig(IfxEgtm_Pwm_Config *config, Ifx_EGTM *egtmSFR);
-/* Extra convenience stub for tests */
-void IfxEgtm_Pwm_updateChannelsDutyImmediate(IfxEgtm_Pwm *pwm, const float32 *duties);
 
-#endif /* IFXEGTM_PWM_H */
+#endif
