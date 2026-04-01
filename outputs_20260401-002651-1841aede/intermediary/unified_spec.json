@@ -1,10 +1,11 @@
 {
   "meta": {
     "schema_version": "1.0",
-    "last_updated_by": "requirements",
-    "last_updated_at": "2026-04-01T08:26:51.737712",
+    "last_updated_by": "hardware",
+    "last_updated_at": "2026-04-01T08:29:52.444917",
     "build_sequence": [
-      "requirements"
+      "requirements",
+      "hardware"
     ],
     "corrections_log": []
   },
@@ -345,5 +346,169 @@
     },
     "header_documentation_available": true,
     "config_values_extracted": 54
+  },
+  "hardware": {
+    "microcontroller": {
+      "model": "TC4D7",
+      "verified": true
+    },
+    "peripheral_instance": {
+      "module": "EGTM.ATOM0.CL0",
+      "channels": [
+        32,
+        33,
+        34
+      ]
+    },
+    "pin_assignments": [
+      {
+        "signal": "U_HS (TOUT64)",
+        "port_pin": "P20.8",
+        "function": "TOUT",
+        "pin_macro": "IfxEgtm_ATOM0_0_TOUT64_P20_8_OUT",
+        "is_complementary": false,
+        "verified": false,
+        "source": "hardware_verified",
+        "_original_pin_macro": "IfxEgtm_ATOM0_32_TOUT64_P20_8_OUT"
+      },
+      {
+        "signal": "U_LS (TOUT65)",
+        "port_pin": "P20.9",
+        "function": "TOUT",
+        "pin_macro": "IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT",
+        "is_complementary": true,
+        "verified": false,
+        "source": "hardware_verified",
+        "_original_pin_macro": "IfxEgtm_ATOM0_32N_TOUT65_P20_9_OUT"
+      },
+      {
+        "signal": "V_HS (TOUT66)",
+        "port_pin": "P20.10",
+        "function": "TOUT",
+        "pin_macro": "IfxEgtm_ATOM0_1_TOUT66_P20_10_OUT",
+        "is_complementary": false,
+        "verified": false,
+        "source": "hardware_verified",
+        "_original_pin_macro": "IfxEgtm_ATOM0_33_TOUT66_P20_10_OUT"
+      },
+      {
+        "signal": "V_LS (TOUT67)",
+        "port_pin": "P20.11",
+        "function": "TOUT",
+        "pin_macro": "IfxEgtm_ATOM0_1N_TOUT67_P20_11_OUT",
+        "is_complementary": true,
+        "verified": false,
+        "source": "hardware_verified",
+        "_original_pin_macro": "IfxEgtm_ATOM0_33N_TOUT67_P20_11_OUT"
+      },
+      {
+        "signal": "W_HS (TOUT68)",
+        "port_pin": "P20.12",
+        "function": "TOUT",
+        "pin_macro": "IfxEgtm_ATOM0_2_TOUT68_P20_12_OUT",
+        "is_complementary": false,
+        "verified": false,
+        "source": "hardware_verified",
+        "_original_pin_macro": "IfxEgtm_ATOM0_34_TOUT68_P20_12_OUT"
+      },
+      {
+        "signal": "W_LS (TOUT69)",
+        "port_pin": "P20.13",
+        "function": "TOUT",
+        "pin_macro": "IfxEgtm_ATOM0_2N_TOUT69_P20_13_OUT",
+        "is_complementary": true,
+        "verified": false,
+        "source": "hardware_verified",
+        "_original_pin_macro": "IfxEgtm_ATOM0_34N_TOUT69_P20_13_OUT"
+      }
+    ],
+    "clock_configuration": {
+      "xtal_frequency_mhz": 25,
+      "system_frequency_mhz": 500
+    },
+    "validation": {
+      "all_verified": false,
+      "conflicts": [
+        "IfxEgtm_PinMap.h (TC4Dx) verification pending for TOUT64–TOUT69 on P20.8–P20.13.",
+        "Alternate function (ALT index) for P20.8–P20.13 not confirmed in template PinMap.",
+        "Mapping of EGTM ATOM0 Cluster 0 channels (32–34 / 32N–34N) to TOUT64–TOUT69 requires tool/header check."
+      ],
+      "reference_pins_valid": true
+    },
+    "template_validation": {
+      "supported_peripherals": [
+        "PWM",
+        "GTM",
+        "EGTM",
+        "GPIO",
+        "ASCLIN",
+        "INTERRUPT",
+        "CPU"
+      ],
+      "suggested_drivers": {
+        "PWM": [
+          "IfxEgtm_Pwm",
+          "IfxGtm_Atom_Pwm",
+          "IfxEgtm_Tom_Pwm",
+          "IfxGtm_Tom_Pwm",
+          "IfxGtm_Pwm",
+          "IfxEgtm_Atom_Pwm"
+        ],
+        "GTM": [
+          "IfxGtm_PinMap",
+          "IfxGtm_Tbu",
+          "IfxGtm",
+          "IfxGtm_Psm",
+          "IfxGtm_Dtm",
+          "IfxGtm_Spe",
+          "IfxGtm_Pwm",
+          "IfxGtm_Trigger",
+          "IfxGtm_Input"
+        ],
+        "EGTM": [
+          "IfxEgtm_PinMap",
+          "IfxEgtm_cfg_TC4Dx",
+          "IfxEgtm_Input",
+          "IfxEgtm_Pwm",
+          "IfxEgtm",
+          "IfxEgtm_Atom",
+          "IfxEgtm_Cmu",
+          "IfxEgtm_Dtm",
+          "IfxEgtm_Spe",
+          "IfxEgtm_Tbu",
+          "IfxEgtm_Tim",
+          "IfxEgtm_Tom",
+          "IfxEgtm_Trigger",
+          "IfxEgtm_Tom_Pwm",
+          "IfxEgtm_Tom_Timer",
+          "IfxEgtm_Tim_In",
+          "IfxEgtm_Tim_Timer",
+          "IfxEgtm_Atom_Pwm",
+          "IfxEgtm_Atom_Timer"
+        ],
+        "GPIO": [
+          "IfxPort",
+          "IfxPort_PinMap",
+          "IfxScrPort",
+          "IfxPort_Io",
+          "IfxPort_cfg_TC4Dx"
+        ],
+        "ASCLIN": [
+          "IfxAsclin_cfg_TC4Dx",
+          "IfxAsclin_Asc",
+          "IfxAsclin_Lin",
+          "IfxAsclin_Spi",
+          "IfxAsclin"
+        ],
+        "INTERRUPT": [
+          "IfxCpu_Irq",
+          "IfxScrCpuIrq"
+        ],
+        "CPU": [
+          "IfxCpu"
+        ]
+      },
+      "warnings": []
+    }
   }
 }
