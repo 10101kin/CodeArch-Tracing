@@ -1,0 +1,11 @@
+{
+  "attempt": 3,
+  "phase_attempt": 1,
+  "phase": "test_execution",
+  "success": false,
+  "errors": [
+    "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_l2ysrgq4\\test\\test_egtm_atom_3_phase_inverter_pwm.c:322:test_TC_G1_001_init_enables_and_configures_cmu_when_disabled:PASS\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_l2ysrgq4\\test\\test_egtm_atom_3_phase_inverter_pwm.c:323:test_TC_G1_002_init_skips_cmu_when_already_enabled:PASS\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_l2ysrgq4\\test\\test_egtm_atom_3_phase_inverter_pwm.c:326:test_TC_G2_001_init_sets_frequency_and_channels:PASS\nC:\\Users\\extsiyv\\Ap"
+  ],
+  "timestamp": "2026-04-01T11:23:43.719389",
+  "project_name": "Generate_TC4D7_code_for_KIT_A3G_TC4D7_LITE_that_mi_r_20260401_111529"
+}
