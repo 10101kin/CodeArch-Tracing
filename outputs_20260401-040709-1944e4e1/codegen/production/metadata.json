@@ -1,12 +1,8 @@
 {
-  "attempt": 4,
-  "phase_attempt": 3,
+  "type": "llm_response",
   "phase": "production",
-  "success": false,
-  "errors": [
-    "/tmp/tdd_build_dd5spn7k/src/egtm_atom_adc_tmadc_multiple_channels.c:32:10: fatal error: Ifx_Types.h: No such file or directory",
-    "/tmp/tdd_build_dd5spn7k/test/test_egtm_atom_adc_tmadc_multiple_channels.c:2:10: fatal error: mock_egtm_atom_adc_tmadc_multiple_channels.h: No such file or directory"
-  ],
-  "timestamp": "2026-04-01T04:29:29.381662",
-  "project_name": "Generate_consolidated_TC4D7_code_for_KIT_A3G_TC4D7_r_20260401_041918"
+  "attempt": 5,
+  "phase_attempt": 4,
+  "response_length": 13987,
+  "timestamp": "2026-04-01T04:31:56.743154"
 }
