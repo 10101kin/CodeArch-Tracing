@@ -3,7 +3,22 @@
 
 #include "mock_egtm_atom_3_phase_inverter_pwm.h"
 
-/* Enums */
+/* Support macros for dependent structs */
+#ifndef IFXEGTM_NUM_CCM_OBJECTS
+#define IFXEGTM_NUM_CCM_OBJECTS 3
+#endif
+
+/* Minimal dependent config types used by some structs */
+typedef struct { uint32 dummy; } IfxApApu_ApuConfig;
+typedef struct { uint32 dummy; } IfxApProt_ProtConfig;
+
+/* Placeholder MSC config enums for IfxEgtm_MscOut */
+typedef enum { IfxEgtm_Cfg_MscSet_0 = 0 } IfxEgtm_Cfg_MscSet;
+typedef enum { IfxEgtm_Cfg_MscSetSignal_0 = 0 } IfxEgtm_Cfg_MscSetSignal;
+typedef enum { IfxEgtm_Cfg_MscModule_0 = 0 } IfxEgtm_Cfg_MscModule;
+typedef enum { IfxEgtm_Cfg_MscSelect_0 = 0 } IfxEgtm_Cfg_MscSelect;
+
+/* Enums required */
 typedef enum {
     IfxEgtm_AeiBridgeOpMode_sync  = 0u,
     IfxEgtm_AeiBridgeOpMode_async = 1u
@@ -35,33 +50,7 @@ typedef enum {
     IfxEgtm_SuspendMode_soft = 2
 } IfxEgtm_SuspendMode;
 
-/* Placeholder MSC configuration enums referenced by IfxEgtm_MscOut */
-typedef enum { IfxEgtm_Cfg_MscSet_0 = 0 }       IfxEgtm_Cfg_MscSet;
-typedef enum { IfxEgtm_Cfg_MscSetSignal_0 = 0 } IfxEgtm_Cfg_MscSetSignal;
-typedef enum { IfxEgtm_Cfg_MscModule_0 = 0 }    IfxEgtm_Cfg_MscModule;
-typedef enum { IfxEgtm_Cfg_MscSelect_0 = 0 }    IfxEgtm_Cfg_MscSelect;
-
-/* Structs */
-typedef struct {
-    IfxApApu_ApuConfig apuConfig;
-} IfxEgtm_ClApConfig;
-
-typedef struct {
-    IfxApProt_ProtConfig proteConfig;
-    IfxApApu_ApuConfig   apuConfig;
-} IfxEgtm_CtrlApConfig;
-
-typedef struct {
-    IfxApApu_ApuConfig apuConfig;
-} IfxEgtm_WrapApConfig;
-
-typedef struct {
-    IfxApProt_ProtConfig protseConfig;
-    IfxEgtm_ClApConfig   clApConfig[IFXEGTM_NUM_CCM_OBJECTS];
-    IfxEgtm_CtrlApConfig ctrlApConfig;
-    IfxEgtm_WrapApConfig wrapApConfig;
-} IfxEgtm_ApConfig;
-
+/* IfxEgtm_MscOut struct as in template */
 typedef struct {
     IfxEgtm_Cfg_MscSet       mscSet;
     IfxEgtm_Cfg_MscSetSignal mscSetSignal;
@@ -70,8 +59,15 @@ typedef struct {
     IfxEgtm_MscAltInput      mscAltIn;
 } IfxEgtm_MscOut;
 
-/* Minimal API used by production */
+/* Enable/status functions */
 void    IfxEgtm_enable(Ifx_EGTM *egtm);
 boolean IfxEgtm_isEnabled(Ifx_EGTM *egtm);
+
+/* Cluster enum (verified) */
+typedef enum {
+    IfxEgtm_Cluster_0 = 0,
+    IfxEgtm_Cluster_1 = 1,
+    IfxEgtm_Cluster_2 = 2
+} IfxEgtm_Cluster;
 
 #endif /* IFXEGTM_H */
