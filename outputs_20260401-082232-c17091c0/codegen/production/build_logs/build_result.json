@@ -1,34 +1,3 @@
-Status: FAILED
-
-============================================================
-TDD CODE GENERATION - ATTEMPT STATUS
-============================================================
-Phase: production
-Attempt: 3
-Status: FAILED
-Timestamp: 2026-04-01 16:44:26
-Files generated: 2
-
-============================================================
-
-ERRORS:
-
-1. implicit declaration of function 'TEST_ASSERT_EQUAL_UINT32_MESSAGE' [-Wimplicit-function-declaration]
-
-2. implicit declaration of function 'TEST_ASSERT_EQUAL_INT_MESSAGE' [-Wimplicit-function-declaration]
-
-3. implicit declaration of function 'TEST_ASSERT_FLOAT_WITHIN_MESSAGE' [-Wimplicit-function-declaration]
-
-4. implicit declaration of function 'updateGtmTom3phInvDuty' [-Wimplicit-function-declaration]
-
-5. implicit declaration of function 'UNITY_BEGIN' [-Wimplicit-function-declaration]
-
-6. implicit declaration of function 'RUN_TEST' [-Wimplicit-function-declaration]
-
-7. implicit declaration of function 'UNITY_END'; did you mean 'UNITY_H'? [-Wimplicit-function-declaration]
-
-============================================================
-BUILD RESULT:
 {
   "success": false,
   "errors": [
