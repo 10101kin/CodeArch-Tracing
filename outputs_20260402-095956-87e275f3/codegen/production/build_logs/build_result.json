@@ -1,0 +1,104 @@
+{
+  "success": false,
+  "errors": [
+    {
+      "file": "/tmp/tdd_build_cw2auxoi/include/IfxEgtm_Pwm.h",
+      "line": 154,
+      "category": "error",
+      "message": "unknown type name \u2018IfxEgtm_Pwm_InterruptConfig\u2019; did you mean \u2018IfxEgtm_Pwm_OutputConfig\u2019?"
+    },
+    {
+      "file": "/tmp/tdd_build_cw2auxoi/src/egtm_atom_3_phase_inverter_pwm.c",
+      "line": 41,
+      "category": "error",
+      "message": "\u2018MODULE_P03\u2019 undeclared (first use in this function); did you mean \u2018MODULE_P33\u2019?"
+    },
+    {
+      "file": "/tmp/tdd_build_cw2auxoi/src/egtm_atom_3_phase_inverter_pwm.c",
+      "line": 41,
+      "category": "error",
+      "message": "\u2018MODULE_P03\u2019 undeclared (first use in this function); did you mean \u2018MODULE_P33\u2019?"
+    },
+    {
+      "file": "/tmp/tdd_build_cw2auxoi/src/egtm_atom_3_phase_inverter_pwm.c",
+      "line": 23,
+      "category": "error",
+      "message": "\u2018IfxEgtm_ATOM0_0_TOUT64_P20_8_OUT\u2019 undeclared (first use in this function)"
+    },
+    {
+      "file": "/tmp/tdd_build_cw2auxoi/src/egtm_atom_3_phase_inverter_pwm.c",
+      "line": 24,
+      "category": "error",
+      "message": "\u2018IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT\u2019 undeclared (first use in this function)"
+    },
+    {
+      "file": "/tmp/tdd_build_cw2auxoi/src/egtm_atom_3_phase_inverter_pwm.c",
+      "line": 25,
+      "category": "error",
+      "message": "\u2018IfxEgtm_ATOM0_1_TOUT66_P20_10_OUT\u2019 undeclared (first use in this function)"
+    },
+    {
+      "file": "/tmp/tdd_build_cw2auxoi/src/egtm_atom_3_phase_inverter_pwm.c",
+      "line": 26,
+      "category": "error",
+      "message": "\u2018IfxEgtm_ATOM0_1N_TOUT67_P20_11_OUT\u2019 undeclared (first use in this function)"
+    },
+    {
+      "file": "/tmp/tdd_build_cw2auxoi/src/egtm_atom_3_phase_inverter_pwm.c",
+      "line": 27,
+      "category": "error",
+      "message": "\u2018IfxEgtm_ATOM0_2_TOUT68_P20_12_OUT\u2019 undeclared (first use in this function)"
+    },
+    {
+      "file": "/tmp/tdd_build_cw2auxoi/src/egtm_atom_3_phase_inverter_pwm.c",
+      "line": 28,
+      "category": "error",
+      "message": "\u2018IfxEgtm_ATOM0_2N_TOUT69_P20_13_OUT\u2019 undeclared (first use in this function)"
+    },
+    {
+      "file": "/tmp/tdd_build_cw2auxoi/src/egtm_atom_3_phase_inverter_pwm.c",
+      "line": 166,
+      "category": "error",
+      "message": "assignment to \u2018int *\u2019 from incompatible pointer type \u2018IfxEgtm_Pwm_InterruptConfig *\u2019 [-Wincompatible-pointer-types]"
+    },
+    {
+      "file": "/tmp/tdd_build_cw2auxoi/src/egtm_atom_3_phase_inverter_pwm.c",
+      "line": 32,
+      "category": "error",
+      "message": "\u2018IfxEgtm_ATOM0_3_TOUT22_P33_0_OUT\u2019 undeclared (first use in this function)"
+    },
+    {
+      "file": "/tmp/tdd_build_cw2auxoi/src/egtm_atom_3_phase_inverter_pwm.c",
+      "line": 41,
+      "category": "error",
+      "message": "\u2018MODULE_P03\u2019 undeclared (first use in this function); did you mean \u2018MODULE_P33\u2019?"
+    },
+    {
+      "file": "/tmp/tdd_build_cw2auxoi/include/IfxEgtm_Pwm.h",
+      "line": 154,
+      "category": "error",
+      "message": "unknown type name \u2018IfxEgtm_Pwm_InterruptConfig\u2019; did you mean \u2018IfxEgtm_Pwm_OutputConfig\u2019?"
+    },
+    {
+      "file": "/tmp/tdd_build_cw2auxoi/test/test_egtm_atom_3_phase_inverter_pwm.c",
+      "line": 23,
+      "category": "error",
+      "message": "conflicting types for \u2018mock_IfxEgtm_Pwm_init_callCount\u2019; have \u2018uint32\u2019 {aka \u2018long unsigned int\u2019}"
+    },
+    {
+      "file": "/tmp/tdd_build_cw2auxoi/test/test_egtm_atom_3_phase_inverter_pwm.c",
+      "line": 24,
+      "category": "error",
+      "message": "conflicting types for \u2018mock_IfxEgtm_Trigger_trigToAdc_callCount\u2019; have \u2018uint32\u2019 {aka \u2018long unsigned int\u2019}"
+    },
+    {
+      "file": "/tmp/tdd_build_cw2auxoi/test/test_egtm_atom_3_phase_inverter_pwm.c",
+      "line": 27,
+      "category": "error",
+      "message": "conflicting types for \u2018mock_togglePin_callCount\u2019; have \u2018uint32\u2019 {aka \u2018long unsigned int\u2019}"
+    }
+  ],
+  "warnings": [],
+  "stderr": "In file included from /tmp/tdd_build_cw2auxoi/src/egtm_atom_3_phase_inverter_pwm.c:12:\n/tmp/tdd_build_cw2auxoi/include/IfxEgtm_Pwm.h:154:5: error: unknown type name \u2018IfxEgtm_Pwm_InterruptConfig\u2019; did you mean \u2018IfxEgtm_Pwm_OutputConfig\u2019?\n  154 |     IfxEgtm_Pwm_InterruptConfig *interrupt;\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~\n      |     IfxEgtm_Pwm_OutputConfig\n/tmp/tdd_build_cw2auxoi/src/egtm_atom_3_phase_inverter_pwm.c: In function \u2018interruptEgtmAtom\u2019:\n/tmp/tdd_build_cw2auxoi/src/egtm_atom_3_phase_inverter_pwm.c:41:40: error: \u2018MODULE_P03\u2019 undeclared (first use in this function); did you mean \u2018MODULE_P33\u2019?\n   41 | #define LED                          (&MODULE_P03), (9U)\n      |                                        ^~~~~~~~~~\n/tmp/tdd_build_cw2auxoi/src/egtm_atom_3_phase_inverter_pwm.c:66:23: note: in expansion of macro \u2018LED\u2019\n   66 |     IfxPort_togglePin(LED);\n      |                       ^~~\n/tmp/tdd_build_cw2auxoi/src/egtm_atom_3_phase_inverter_pwm.c:41:40: note: each undeclared identifier is reported only once for each function it appears in\n   41 | #define LED                          (&MODULE_P03), (9U)\n      |                                        ^~~~~~~~~~\n/tmp/tdd_build_cw2auxoi/src/egtm_atom_3_phase_inverter_pwm.c:66:23: note: in expansion of macro \u2018LED\u2019\n   66 |     IfxPort_togglePin(LED);\n      |                       ^~~\n/tmp/tdd_build_cw2auxoi/src/egtm_atom_3_phase_inverter_pwm.c: In function \u2018resultISR\u2019:\n/tmp/tdd_build_cw2auxoi/src/egtm_atom_3_phase_inverter_pwm.c:41:40: error: \u2018MODULE_P03\u2019 undeclared (first use in this function); did you mean \u2018MODULE_P33\u2019?\n   41 | #define LED                          (&MODULE_P03), (9U)\n      |                                        ^~~~~~~~~~\n/tmp/tdd_build_cw2auxoi/src/egtm_atom_3_phase_inverter_pwm.c:83:23: note: in expansion of macro \u2018LED\u2019\n   83 |     IfxPort_togglePin(LED);\n      |                       ^~~\n/tmp/tdd_build_cw2auxoi/src/egtm_atom_3_phase_inverter_pwm.c: In function \u2018initEgtmAtom3phInv\u2019:\n/tmp/tdd_build_cw2auxoi/src/egtm_atom_3_phase_inverter_pwm.c:23:40: error: \u2018IfxEgtm_ATOM0_0_TOUT64_P20_8_OUT\u2019 undeclared (first use in this function)\n   23 | #define PHASE_U_HS                   (&IfxEgtm_ATOM0_0_TOUT64_P20_8_OUT)\n      |                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n/tmp/tdd_build_cw2auxoi/src/egtm_atom_3_phase_inverter_pwm.c:125:64: note: in expansion of macro \u2018PHASE_U_HS\u2019\n  125 |     invOut[0].pin                     = (IfxEgtm_Pwm_ToutMap *)PHASE_U_HS;\n      |                                                                ^~~~~~~~~~\n/tmp/tdd_build_cw2auxoi/src/egtm_atom_3_phase_inverter_pwm.c:24:40: error: \u2018IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT\u2019 undeclared (first use in this function)\n   24 | #define PHASE_U_LS                   (&IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT)\n      |                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n/tmp/tdd_build_cw2auxoi/src/egtm_atom_3_phase_inverter_pwm.c:126:64: note: in expansion of macro \u2018PHASE_U_LS\u2019\n  126 |     invOut[0].complementaryPin        = (IfxEgtm_Pwm_ToutMap *)PHASE_U_LS;\n      |                                                                ^~~~~~~~~~\n/tmp/tdd_build_cw2auxoi/src/egtm_atom_3_phase_inverter_pwm.c:25:40: error: \u2018IfxEgtm_ATOM0_1_TOUT66_P20_10_OUT\u2019 undeclared (first use in this function)\n   25 | #define PHASE_V_HS                   (&IfxEgtm_ATOM0_1_TOUT66_P20_10_OUT)\n      |                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n/tmp/tdd_build_cw2auxoi/src/egtm_atom_3_phase_inverter_pwm.c:132:64: note: in expansion of macro \u2018PHASE_V_HS\u2019\n  132 |     invOut[1].pin                     = (IfxEgtm_Pwm_ToutMap *)PHASE_V_HS;\n      |                                                                ^~~~~~~~~~\n/tmp/tdd_build_cw2auxoi/src/egtm_atom_3_phase_inverter_pwm.c:26:40: error: \u2018IfxEgtm_ATOM0_1N_TOUT67_P20_11_OUT\u2019 undeclared (first use in this function)\n   26 | #define PHASE_V_LS                   (&IfxEgtm_ATOM0_1N_TOUT67_P20_11_OUT)\n      |                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n/tmp/tdd_build_cw2auxoi/src/egtm_atom_3_phase_inverter_pwm.c:133:64: note: in expansion of macro \u2018PHASE_V_LS\u2019\n  133 |     invOut[1].complementaryPin        = (IfxEgtm_Pwm_ToutMap *)PHASE_V_LS;\n      |                                                                ^~~~~~~~~~\n/tmp/tdd_build_cw2auxoi/src/egtm_atom_3_phase_inverter_pwm.c:27:40: error: \u2018IfxEgtm_ATOM0_2_TOUT68_P20_12_OUT\u2019 undeclared (first use in this function)\n   27 | #define PHASE_W_HS                   (&IfxEgtm_ATOM0_2_TOUT68_P20_12_OUT)\n      |                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n/tmp/tdd_build_cw2auxoi/src/egtm_atom_3_phase_inverter_pwm.c:139:64: note: in expansion of macro \u2018PHASE_W_HS\u2019\n  139 |     invOut[2].pin                     = (IfxEgtm_Pwm_ToutMap *)PHASE_W_HS;\n      |                                                                ^~~~~~~~~~\n/tmp/tdd_build_cw2auxoi/src/egtm_atom_3_phase_inverter_pwm.c:28:40: error: \u2018IfxEgtm_ATOM0_2N_TOUT69_P20_13_OUT\u2019 undeclared (first use in this function)\n   28 | #define PHASE_W_LS                   (&IfxEgtm_ATOM0_2N_TOUT69_P20_13_OUT)\n      |                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n/tmp/tdd_build_cw2auxoi/src/egtm_atom_3_phase_inverter_pwm.c:140:64: note: in expansion of macro \u2018PHASE_W_LS\u2019\n  140 |     invOut[2].complementaryPin        = (IfxEgtm_Pwm_ToutMap *)PHASE_W_LS;\n      |                                                                ^~~~~~~~~~\n/tmp/tdd_build_cw2auxoi/src/egtm_atom_3_phase_inverter_pwm.c:166:28: error: assignment to \u2018int *\u2019 from incompatible pointer type \u2018IfxEgtm_Pwm_InterruptConfig *\u2019 [-Wincompatible-pointer-types]\n  166 |     invChCfg[0].interrupt  = &irqCfg;           /* base channel gets interrupt */\n      |                            ^\n/tmp/tdd_build_cw2auxoi/src/egtm_atom_3_phase_inverter_pwm.c:32:40: error: \u2018IfxEgtm_ATOM0_3_TOUT22_P33_0_OUT\u2019 undeclared (first use in this function)\n   32 | #define ADC_TRIG_PIN                 (&IfxEgtm_ATOM0_3_TOUT22_P33_0_OUT)\n      |                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n/tmp/tdd_build_cw2auxoi/src/egtm_atom_3_phase_inverter_pwm.c:197:64: note: in expansion of macro \u2018ADC_TRIG_PIN\u2019\n  197 |     trigOut[0].pin                    = (IfxEgtm_Pwm_ToutMap *)ADC_TRIG_PIN;\n      |                                                                ^~~~~~~~~~~~\n/tmp/tdd_build_cw2auxoi/src/egtm_atom_3_phase_inverter_pwm.c:41:40: error: \u2018MODULE_P03\u2019 undeclared (first use in this function); did you mean \u2018MODULE_P33\u2019?\n   41 | #define LED                          (&MODULE_P03), (9U)\n      |                                        ^~~~~~~~~~\n/tmp/tdd_build_cw2auxoi/src/egtm_atom_3_phase_inverter_pwm.c:266:30: note: in expansion of macro \u2018LED\u2019\n  266 |     IfxPort_setPinModeOutput(LED, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);\n      |                              ^~~\n\nIn file included from /tmp/tdd_build_cw2auxoi/mocks/mock_egtm_atom_3_phase_inverter_pwm.c:5:\n/tmp/tdd_build_cw2auxoi/include/IfxEgtm_Pwm.h:154:5: error: unknown type name \u2018IfxEgtm_Pwm_InterruptConfig\u2019; did you mean \u2018IfxEgtm_Pwm_OutputConfig\u2019?\n  154 |     IfxEgtm_Pwm_InterruptConfig *interrupt;\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~\n      |     IfxEgtm_Pwm_OutputConfig\n\n/tmp/tdd_build_cw2auxoi/test/test_egtm_atom_3_phase_inverter_pwm.c:23:16: error: conflicting types for \u2018mock_IfxEgtm_Pwm_init_callCount\u2019; have \u2018uint32\u2019 {aka \u2018long unsigned int\u2019}\n   23 | extern uint32  mock_IfxEgtm_Pwm_init_callCount;\n      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nIn file included from /tmp/tdd_build_cw2auxoi/test/test_egtm_atom_3_phase_inverter_pwm.c:2:\n/tmp/tdd_build_cw2auxoi/include/mock_egtm_atom_3_phase_inverter_pwm.h:83:12: note: previous declaration of \u2018mock_IfxEgtm_Pwm_init_callCount\u2019 with type \u2018int\u2019\n   83 | extern int mock_IfxEgtm_Pwm_init_callCount;\n      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n/tmp/tdd_build_cw2auxoi/test/test_egtm_atom_3_phase_inverter_pwm.c:24:16: error: conflicting types for \u2018mock_IfxEgtm_Trigger_trigToAdc_callCount\u2019; have \u2018uint32\u2019 {aka \u2018long unsigned int\u2019}\n   24 | extern uint32  mock_IfxEgtm_Trigger_trigToAdc_callCount;\n      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n/tmp/tdd_build_cw2auxoi/include/mock_egtm_atom_3_phase_inverter_pwm.h:91:12: note: previous declaration of \u2018mock_IfxEgtm_Trigger_trigToAdc_callCount\u2019 with type \u2018int\u2019\n   91 | extern int mock_IfxEgtm_Trigger_trigToAdc_callCount;\n      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n/tmp/tdd_build_cw2auxoi/test/test_egtm_atom_3_phase_inverter_pwm.c:27:16: error: conflicting types for \u2018mock_togglePin_callCount\u2019; have \u2018uint32\u2019 {aka \u2018long unsigned int\u2019}\n   27 | extern uint32  mock_togglePin_callCount;\n      |                ^~~~~~~~~~~~~~~~~~~~~~~~\n/tmp/tdd_build_cw2auxoi/include/mock_egtm_atom_3_phase_inverter_pwm.h:109:12: note: previous declaration of \u2018mock_togglePin_callCount\u2019 with type \u2018int\u2019\n  109 | extern int mock_togglePin_callCount; /* same storage as mock_IfxPort_togglePin_callCount */\n      |            ^~~~~~~~~~~~~~~~~~~~~~~~\n",
+  "stdout": ""
+}
