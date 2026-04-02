@@ -1,9 +1,6 @@
 /*
  * egtmatompwm.h
- *
- * Public API for EGTM ATOM PWM 3-phase inverter driver (TC4xx).
- *
- * Note: Do not declare internal callback functions here.
+ * Public API for EGTM ATOM 3-phase inverter PWM (TC4xx)
  */
 #ifndef EGTMATOMPWM_H
 #define EGTMATOMPWM_H
@@ -12,9 +9,9 @@
 extern "C" {
 #endif
 
+/* Public API */
 void initEgtmAtom3phInv(void);
 void updateEgtmAtomDuty(void);
-void resultISR(void);
 
 #ifdef __cplusplus
 }
