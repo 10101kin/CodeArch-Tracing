@@ -1,0 +1,3 @@
+Status: SUCCESS
+
+LLM response for mock phase (attempt 1), 45723 chars
