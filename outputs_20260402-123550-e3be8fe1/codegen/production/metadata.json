@@ -1,8 +1,16 @@
 {
-  "type": "llm_response",
-  "phase": "production",
   "attempt": 7,
   "phase_attempt": 3,
-  "response_length": 13179,
-  "timestamp": "2026-04-02T13:16:15.936105"
+  "phase": "production",
+  "success": false,
+  "errors": [
+    "unknown type name \u2018float32\u2019; did you mean \u2018_Float32\u2019?",
+    "unknown type name \u2018IfxEgtm_Pwm_DeadTime\u2019; did you mean \u2018IfxEgtm_Pwm_State\u2019?",
+    "\u2018IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT\u2019 undeclared (first use in this function)",
+    "incompatible types when assigning to type \u2018int\u2019 from type \u2018struct IfxEgtm_Pwm_DeadTimeTag\u2019",
+    "incompatible types when assigning to type \u2018int\u2019 from type \u2018struct IfxEgtm_Pwm_DeadTimeTag\u2019",
+    "incompatible types when assigning to type \u2018int\u2019 from type \u2018struct IfxEgtm_Pwm_DeadTimeTag\u2019"
+  ],
+  "timestamp": "2026-04-02T13:16:20.168031",
+  "project_name": "Generate_TC4D7_code_that_migrates_a_3-phase_invert_r_20260402_125346"
 }
