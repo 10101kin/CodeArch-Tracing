@@ -1,9 +1,8 @@
 #ifndef IFXPORT_PINMAP_H
 #define IFXPORT_PINMAP_H
-#include "IfxPort.h"
 #include "IfxEgtm_Pwm.h"
 
-/* Required pin symbol externs */
+/* Required pin symbol stubs */
 extern IfxEgtm_Pwm_ToutMap IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT;
 extern IfxEgtm_Pwm_ToutMap IfxEgtm_ATOM0_0_TOUT64_P20_8_OUT;
 extern IfxEgtm_Pwm_ToutMap IfxEgtm_ATOM0_1N_TOUT67_P20_11_OUT;

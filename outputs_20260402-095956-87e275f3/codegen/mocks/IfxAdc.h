@@ -2,7 +2,8 @@
 #define IFXADC_H
 #include "mock_egtm_atom_3_phase_inverter_pwm.h"
 
-/* Minimal types required by used APIs */
+/* Minimal TMADC SFR subset used by functions */
+typedef struct { uint32 reserved; } Ifx_ADC_TMADC;
 
 typedef enum {
     IfxAdc_TmadcResultReg_0 = 0,
@@ -23,7 +24,7 @@ typedef enum {
     IfxAdc_TmadcResultReg_15
 } IfxAdc_TmadcResultReg;
 
-/* Function declarations used by production */
+/* Functions used by production */
 boolean IfxAdc_isTmadcResultAvailable(Ifx_ADC_TMADC *tmadc, IfxAdc_TmadcResultReg resultRegNum);
 void    IfxAdc_clearTmadcResultFlag(Ifx_ADC_TMADC *tmadc, IfxAdc_TmadcResultReg resultRegNum);
 
