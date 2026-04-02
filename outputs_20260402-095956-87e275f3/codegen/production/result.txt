@@ -1,3 +1,48 @@
-Status: SUCCESS
+Status: FAILED
 
-LLM response for production phase (attempt 5), 16268 chars
+============================================================
+TDD CODE GENERATION - ATTEMPT STATUS
+============================================================
+Phase: production
+Attempt: 5
+Status: FAILED
+Timestamp: 2026-04-02 10:30:31
+Files generated: 2
+
+============================================================
+
+ERRORS:
+
+1. /tmp/tdd_build_bwpezj5a/src/egtm_atom_3_phase_inverter_pwm.c:17:10: fatal error: IfxCpu.h: No such file or directory
+
+2. conflicting types for ‘mock_IfxEgtm_Pwm_init_callCount’; have ‘uint32’ {aka ‘unsigned int’}
+
+3. conflicting types for ‘mock_IfxEgtm_Trigger_trigToAdc_callCount’; have ‘uint32’ {aka ‘unsigned int’}
+
+============================================================
+BUILD RESULT:
+{
+  "success": false,
+  "errors": [
+    {
+      "file": "",
+      "message": "/tmp/tdd_build_bwpezj5a/src/egtm_atom_3_phase_inverter_pwm.c:17:10: fatal error: IfxCpu.h: No such file or directory",
+      "category": "error"
+    },
+    {
+      "file": "/tmp/tdd_build_bwpezj5a/test/test_egtm_atom_3_phase_inverter_pwm.c",
+      "line": 23,
+      "category": "error",
+      "message": "conflicting types for \u2018mock_IfxEgtm_Pwm_init_callCount\u2019; have \u2018uint32\u2019 {aka \u2018unsigned int\u2019}"
+    },
+    {
+      "file": "/tmp/tdd_build_bwpezj5a/test/test_egtm_atom_3_phase_inverter_pwm.c",
+      "line": 24,
+      "category": "error",
+      "message": "conflicting types for \u2018mock_IfxEgtm_Trigger_trigToAdc_callCount\u2019; have \u2018uint32\u2019 {aka \u2018unsigned int\u2019}"
+    }
+  ],
+  "warnings": [],
+  "stderr": "/tmp/tdd_build_bwpezj5a/src/egtm_atom_3_phase_inverter_pwm.c:17:10: fatal error: IfxCpu.h: No such file or directory\n   17 | #include \"IfxCpu.h\"\n      |          ^~~~~~~~~~\ncompilation terminated.\n\n/tmp/tdd_build_bwpezj5a/test/test_egtm_atom_3_phase_inverter_pwm.c:23:16: error: conflicting types for \u2018mock_IfxEgtm_Pwm_init_callCount\u2019; have \u2018uint32\u2019 {aka \u2018unsigned int\u2019}\n   23 | extern uint32  mock_IfxEgtm_Pwm_init_callCount;\n      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nIn file included from /tmp/tdd_build_bwpezj5a/test/test_egtm_atom_3_phase_inverter_pwm.c:2:\n/tmp/tdd_build_bwpezj5a/include/mock_egtm_atom_3_phase_inverter_pwm.h:76:12: note: previous declaration of \u2018mock_IfxEgtm_Pwm_init_callCount\u2019 with type \u2018int\u2019\n   76 | extern int mock_IfxEgtm_Pwm_init_callCount;\n      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n/tmp/tdd_build_bwpezj5a/test/test_egtm_atom_3_phase_inverter_pwm.c:24:16: error: conflicting types for \u2018mock_IfxEgtm_Trigger_trigToAdc_callCount\u2019; have \u2018uint32\u2019 {aka \u2018unsigned int\u2019}\n   24 | extern uint32  mock_IfxEgtm_Trigger_trigToAdc_callCount;\n      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n/tmp/tdd_build_bwpezj5a/include/mock_egtm_atom_3_phase_inverter_pwm.h:85:12: note: previous declaration of \u2018mock_IfxEgtm_Trigger_trigToAdc_callCount\u2019 with type \u2018int\u2019\n   85 | extern int mock_IfxEgtm_Trigger_trigToAdc_callCount;\n      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n",
+  "stdout": ""
+}

@@ -1,49 +1,18 @@
-In file included from /tmp/tdd_build_qdw46ump/include/IfxEgtm_Pwm.h:8,
-                 from /tmp/tdd_build_qdw46ump/src/egtm_atom_3_phase_inverter_pwm.c:13:
-/tmp/tdd_build_qdw46ump/include/IfxPort.h:113:37: error: conflicting types for ‘IfxApApu_ApuConfig’; have ‘struct <anonymous>’
-  113 | typedef struct { uint32 reserved; } IfxApApu_ApuConfig; /* minimal to satisfy above */
-      |                                     ^~~~~~~~~~~~~~~~~~
-In file included from /tmp/tdd_build_qdw46ump/include/IfxEgtm_Pwm.h:6:
-/tmp/tdd_build_qdw46ump/include/IfxEgtm.h:8:34: note: previous declaration of ‘IfxApApu_ApuConfig’ with type ‘IfxApApu_ApuConfig’
-    8 | typedef struct { uint32 dummy; } IfxApApu_ApuConfig;
-      |                                  ^~~~~~~~~~~~~~~~~~
-/tmp/tdd_build_qdw46ump/include/IfxPort.h:119:37: error: conflicting types for ‘IfxApProt_ProtConfig’; have ‘struct <anonymous>’
-  119 | typedef struct { uint32 reserved; } IfxApProt_ProtConfig; /* minimal */
-      |                                     ^~~~~~~~~~~~~~~~~~~~
-/tmp/tdd_build_qdw46ump/include/IfxEgtm.h:9:34: note: previous declaration of ‘IfxApProt_ProtConfig’ with type ‘IfxApProt_ProtConfig’
-    9 | typedef struct { uint32 dummy; } IfxApProt_ProtConfig;
-      |                                  ^~~~~~~~~~~~~~~~~~~~
-/tmp/tdd_build_qdw46ump/src/egtm_atom_3_phase_inverter_pwm.c:15:10: fatal error: IfxAdc_Tmadc.h: No such file or directory
-   15 | #include "IfxAdc_Tmadc.h"
-      |          ^~~~~~~~~~~~~~~~
+/tmp/tdd_build_bwpezj5a/src/egtm_atom_3_phase_inverter_pwm.c:17:10: fatal error: IfxCpu.h: No such file or directory
+   17 | #include "IfxCpu.h"
+      |          ^~~~~~~~~~
 compilation terminated.
 
-In file included from /tmp/tdd_build_qdw46ump/include/IfxEgtm_Pwm.h:8,
-                 from /tmp/tdd_build_qdw46ump/mocks/mock_egtm_atom_3_phase_inverter_pwm.c:8:
-/tmp/tdd_build_qdw46ump/include/IfxPort.h:113:37: error: conflicting types for ‘IfxApApu_ApuConfig’; have ‘struct <anonymous>’
-  113 | typedef struct { uint32 reserved; } IfxApApu_ApuConfig; /* minimal to satisfy above */
-      |                                     ^~~~~~~~~~~~~~~~~~
-In file included from /tmp/tdd_build_qdw46ump/mocks/mock_egtm_atom_3_phase_inverter_pwm.c:6:
-/tmp/tdd_build_qdw46ump/include/IfxEgtm.h:8:34: note: previous declaration of ‘IfxApApu_ApuConfig’ with type ‘IfxApApu_ApuConfig’
-    8 | typedef struct { uint32 dummy; } IfxApApu_ApuConfig;
-      |                                  ^~~~~~~~~~~~~~~~~~
-/tmp/tdd_build_qdw46ump/include/IfxPort.h:119:37: error: conflicting types for ‘IfxApProt_ProtConfig’; have ‘struct <anonymous>’
-  119 | typedef struct { uint32 reserved; } IfxApProt_ProtConfig; /* minimal */
-      |                                     ^~~~~~~~~~~~~~~~~~~~
-/tmp/tdd_build_qdw46ump/include/IfxEgtm.h:9:34: note: previous declaration of ‘IfxApProt_ProtConfig’ with type ‘IfxApProt_ProtConfig’
-    9 | typedef struct { uint32 dummy; } IfxApProt_ProtConfig;
-      |                                  ^~~~~~~~~~~~~~~~~~~~
-
-/tmp/tdd_build_qdw46ump/test/test_egtm_atom_3_phase_inverter_pwm.c:23:16: error: conflicting types for ‘mock_IfxEgtm_Pwm_init_callCount’; have ‘uint32’ {aka ‘unsigned int’}
+/tmp/tdd_build_bwpezj5a/test/test_egtm_atom_3_phase_inverter_pwm.c:23:16: error: conflicting types for ‘mock_IfxEgtm_Pwm_init_callCount’; have ‘uint32’ {aka ‘unsigned int’}
    23 | extern uint32  mock_IfxEgtm_Pwm_init_callCount;
       |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-In file included from /tmp/tdd_build_qdw46ump/test/test_egtm_atom_3_phase_inverter_pwm.c:2:
-/tmp/tdd_build_qdw46ump/include/mock_egtm_atom_3_phase_inverter_pwm.h:78:17: note: previous declaration of ‘mock_IfxEgtm_Pwm_init_callCount’ with type ‘int’
-   78 | extern int      mock_IfxEgtm_Pwm_init_callCount;
-      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-/tmp/tdd_build_qdw46ump/test/test_egtm_atom_3_phase_inverter_pwm.c:24:16: error: conflicting types for ‘mock_IfxEgtm_Trigger_trigToAdc_callCount’; have ‘uint32’ {aka ‘unsigned int’}
+In file included from /tmp/tdd_build_bwpezj5a/test/test_egtm_atom_3_phase_inverter_pwm.c:2:
+/tmp/tdd_build_bwpezj5a/include/mock_egtm_atom_3_phase_inverter_pwm.h:76:12: note: previous declaration of ‘mock_IfxEgtm_Pwm_init_callCount’ with type ‘int’
+   76 | extern int mock_IfxEgtm_Pwm_init_callCount;
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/tdd_build_bwpezj5a/test/test_egtm_atom_3_phase_inverter_pwm.c:24:16: error: conflicting types for ‘mock_IfxEgtm_Trigger_trigToAdc_callCount’; have ‘uint32’ {aka ‘unsigned int’}
    24 | extern uint32  mock_IfxEgtm_Trigger_trigToAdc_callCount;
       |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-/tmp/tdd_build_qdw46ump/include/mock_egtm_atom_3_phase_inverter_pwm.h:119:17: note: previous declaration of ‘mock_IfxEgtm_Trigger_trigToAdc_callCount’ with type ‘int’
-  119 | extern int      mock_IfxEgtm_Trigger_trigToAdc_callCount;
-      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/tdd_build_bwpezj5a/include/mock_egtm_atom_3_phase_inverter_pwm.h:85:12: note: previous declaration of ‘mock_IfxEgtm_Trigger_trigToAdc_callCount’ with type ‘int’
+   85 | extern int mock_IfxEgtm_Trigger_trigToAdc_callCount;
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

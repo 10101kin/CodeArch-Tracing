@@ -1,296 +1,315 @@
 /*
  * egtm_atom_3_phase_inverter_pwm.c
- * Production driver for EGTM ATOM 3-phase complementary PWM + ADC trigger (TC4xx)
  *
- * Notes:
- * - This module does NOT disable watchdogs (per architecture rule).
- * - Uses unified IfxEgtm_Pwm high-level driver with ATOM submodule.
- * - Interrupt installation (vector table) is outside this module.
+ * Production driver for EGTM ATOM 3-phase complementary PWM + ADC trigger (TC4xx).
+ *
+ * Implementation notes:
+ *  - Uses unified IfxEgtm_Pwm driver per iLLD patterns.
+ *  - EGTM clock enable guard follows authoritative enable pattern.
+ *  - No watchdog API calls here (must be in CpuX_Main.c only).
+ *  - ISR toggles a debug pin; unified driver uses callback routing internally.
  */
 
 #include "egtm_atom_3_phase_inverter_pwm.h"
+
+/* iLLD dependencies */
 #include "Ifx_Types.h"
+#include "IfxCpu.h"
 #include "IfxEgtm_Pwm.h"
+#include "IfxEgtm_Cmu.h"
 #include "IfxEgtm_Trigger.h"
-#include "IfxAdc_Tmadc.h"
-#include "IfxAdc.h"
 #include "IfxPort.h"
-#include "IfxEgtm_PinMap.h"
 
-/* ===================== Numeric configuration macros (from requirements) ===================== */
-#define EGTM_INV_NUM_CHANNELS         (3U)
-#define EGTM_ADC_NUM_CHANNELS         (1U)
+/* ==============================
+ * Numeric configuration macros
+ * ============================== */
+#define EGTM_NUM_PHASE_CHANNELS          (3U)
+#define EGTM_NUM_ADC_TRIG_CHANNELS       (1U)
 
-#define EGTM_PWM_FREQUENCY_HZ         (20000.0f)   /* PWM switching frequency */
+#define EGTM_PWM_SWITCHING_FREQ_HZ       (20000.0f)   /* 20 kHz */
+#define EGTM_PHASE_U_INIT_DUTY_PC        (25.0f)
+#define EGTM_PHASE_V_INIT_DUTY_PC        (50.0f)
+#define EGTM_PHASE_W_INIT_DUTY_PC        (75.0f)
+#define EGTM_PHASE_DUTY_STEP_PC          (0.01f)
+#define EGTM_ADC_TRIG_DUTY_PC            (50.0f)
 
-#define PHASE_U_DUTY_PCT              (25.0f)
-#define PHASE_V_DUTY_PCT              (50.0f)
-#define PHASE_W_DUTY_PCT              (75.0f)
-#define PHASE_DUTY_STEP_PCT           (0.01f)
+#define ISR_PRIORITY_ATOM                (100U)
+#define ISR_PRIORITY_TMADC_RESULT        (25U)
 
-/* Interrupt priority for EGTM ATOM PWM period event */
-#define ISR_PRIORITY_ATOM             (100U)
+/* ==============================
+ * Pin selection macros (KIT_A3G_TC4D7_LITE, TC4D7)
+ * User-requested pins (highest priority)
+ * ============================== */
+/* Complementary pairs: ATOM0 CH0..2 on P20.8..P20.13 */
+#define PHASE_U_HS   (&IfxEgtm_ATOM0_0_TOUT64_P20_8_OUT)
+#define PHASE_U_LS   (&IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT)
+#define PHASE_V_HS   (&IfxEgtm_ATOM0_1_TOUT66_P20_10_OUT)
+#define PHASE_V_LS   (&IfxEgtm_ATOM0_1N_TOUT67_P20_11_OUT)
+#define PHASE_W_HS   (&IfxEgtm_ATOM0_2_TOUT68_P20_12_OUT)
+#define PHASE_W_LS   (&IfxEgtm_ATOM0_2N_TOUT69_P20_13_OUT)
 
-/* Debug ISR toggle pin: P03.9 */
-#define LED                           (&MODULE_P03), 9
+/* ADC trigger output: ATOM0 CH3 on P33.0 */
+#define ADC_TRIG_PIN (&IfxEgtm_ATOM0_3_TOUT22_P33_0_OUT)
 
-/* ===================== User-requested EGTM ATOM pin assignments ===================== */
-/* 3-phase complementary PWM on EGTM Cluster 0 using ATOM0 CH0..2 */
-#define PHASE_U_HS                    (&IfxEgtm_ATOM0_0_TOUT64_P20_8_OUT)
-#define PHASE_U_LS                    (&IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT)
-#define PHASE_V_HS                    (&IfxEgtm_ATOM0_1_TOUT66_P20_10_OUT)
-#define PHASE_V_LS                    (&IfxEgtm_ATOM0_1N_TOUT67_P20_11_OUT)
-#define PHASE_W_HS                    (&IfxEgtm_ATOM0_2_TOUT68_P20_12_OUT)
-#define PHASE_W_LS                    (&IfxEgtm_ATOM0_2N_TOUT69_P20_13_OUT)
+/* Debug ISR toggle pin (P03.9) as compound macro for two-arg call */
+#define DEBUG_PIN    &MODULE_P03, 9
 
-/* ADC trigger output on ATOM0 CH3 edge-aligned 50% (P33.0) */
-#define ADC_TRIG_TOUT                 (&IfxEgtm_ATOM0_3_TOUT22_P33_0_OUT)
+/* ==============================
+ * Module state (persistent)
+ * ============================== */
 
-/* ===================== EGTM Trigger routing selection (cast literals to enum types) ===================== */
-/* Route ATOM0 CH3 to TMADC trigger fabric: AdcTriggerSignal_0, TriggerMuxSel_36, falling edge (edge/mux selection realized in SoC routing; API here selects signal/channel) */
-#define EGTM_TRIG_SOURCE_ATOM0        ((IfxEgtm_TrigSource)0)
-#define EGTM_TRIG_CHANNEL_3           ((IfxEgtm_TrigChannel)3)
-#define EGTM_ADC_TRIGGER_SIGNAL_0     ((IfxEgtm_Cfg_AdcTriggerSignal)0)
-
-/* ===================== Module persistent state ===================== */
 typedef struct
 {
-    IfxEgtm_Pwm                pwmInverter;                        /* unified PWM handle: 3-phase inverter */
-    IfxEgtm_Pwm_Channel        channelsInverter[EGTM_INV_NUM_CHANNELS];
-    float32                    dutyCycles[EGTM_INV_NUM_CHANNELS];
-    float32                    phases[EGTM_INV_NUM_CHANNELS];
-    IfxEgtm_Pwm_DeadTime       deadTimes[EGTM_INV_NUM_CHANNELS];
+    IfxEgtm_Pwm             pwm;                                   /* Inverter PWM handle */
+    IfxEgtm_Pwm_Channel     channels[EGTM_NUM_PHASE_CHANNELS];     /* Inverter channel state (persistent) */
+    float32                 dutyCycles[EGTM_NUM_PHASE_CHANNELS];   /* Current duties in percent */
+    float32                 phases[EGTM_NUM_PHASE_CHANNELS];       /* Phase offsets (unused = 0) */
+    IfxEgtm_Pwm_DeadTime    deadTimes[EGTM_NUM_PHASE_CHANNELS];    /* Dead-times per channel */
+} EgtmAtom3phInverter_State;
 
-    IfxEgtm_Pwm                pwmAdcTrig;                         /* unified PWM handle: single-channel ADC trigger */
-    IfxEgtm_Pwm_Channel        channelsAdcTrig[EGTM_ADC_NUM_CHANNELS];
-
-    Ifx_ADC_TMADC             *tmadc;                              /* optional reference for resultISR (set by app if needed) */
-} EgtmAtom3ph_State;
-
-IFX_STATIC EgtmAtom3ph_State g_egtmAtom3phState = {0};
-
-/* ===================== ISR and callback declarations (must appear before init) ===================== */
-IFX_INTERRUPT(interruptEgtmAtom, 0, ISR_PRIORITY_ATOM);
-void interruptEgtmAtom(void)
+typedef struct
 {
-    IfxPort_togglePin(LED);
-}
+    IfxEgtm_Pwm             pwm;                                   /* ADC trigger PWM handle */
+    IfxEgtm_Pwm_Channel     channels[EGTM_NUM_ADC_TRIG_CHANNELS];  /* ADC trigger channel state (persistent) */
+    float32                 dutyCycle;                              /* Duty of ADC trigger channel */
+} EgtmAtomAdcTrig_State;
 
+typedef struct
+{
+    EgtmAtom3phInverter_State  inverter;
+    EgtmAtomAdcTrig_State      adcTrig;
+} EgtmAtomModule_State;
+
+IFX_STATIC EgtmAtomModule_State g_egtmAtomState;
+
+/* ===========================================
+ * Forward ISR declarations (vector functions)
+ * =========================================== */
+IFX_INTERRUPT(interruptEgtmAtom, 0, ISR_PRIORITY_ATOM);
+IFX_INTERRUPT(resultISR,       0, ISR_PRIORITY_TMADC_RESULT);
+
+/* =====================================
+ * Period-event callback (no operation)
+ * ===================================== */
 void IfxEgtm_periodEventFunction(void *data)
 {
-    (void)data; /* Intentionally empty per design */
+    (void)data; /* No operation per design; ISR toggles debug pin */
+}
+
+/* ======================
+ * ISR implementations
+ * ====================== */
+void interruptEgtmAtom(void)
+{
+    /* Minimal ISR body per design: toggle debug I/O */
+    IfxPort_togglePin(DEBUG_PIN);
 }
 
 void resultISR(void)
 {
-    /* Minimal body: toggle debug pin; optionally clear TMADC result flags if available */
-    IfxPort_togglePin(LED);
+    /* Minimal ISR body: toggle debug I/O */
+    IfxPort_togglePin(DEBUG_PIN);
 
-    if (g_egtmAtom3phState.tmadc != NULL_PTR)
+    /* Optional result handling example (guarded on NULL pointer to avoid side-effects here): */
     {
-        uint8 ch;
-        for (ch = 0U; ch < 5U; ++ch)
+        Ifx_ADC_TMADC *tmadc = (Ifx_ADC_TMADC *)0; /* Provide a valid TMADC handle from ADC init when integrating */
+        if (tmadc != (Ifx_ADC_TMADC *)0)
         {
-            IfxAdc_TmadcResultReg rr = (IfxAdc_TmadcResultReg)ch;
-            if (IfxAdc_isTmadcResultAvailable(g_egtmAtom3phState.tmadc, rr) != (boolean)0)
+            /* Channels 0..4 one-shot example */
+            uint8 reg;
+            for (reg = 0U; reg < 5U; ++reg)
             {
-                IfxAdc_clearTmadcResultFlag(g_egtmAtom3phState.tmadc, rr);
+                if (IfxAdc_isTmadcResultAvailable(tmadc, (IfxAdc_TmadcResultReg)reg) == TRUE)
+                {
+                    IfxAdc_clearTmadcResultFlag(tmadc, (IfxAdc_TmadcResultReg)reg);
+                }
             }
         }
     }
 }
 
-/* ===================== Initialization ===================== */
+/* =========================
+ * Initialization function
+ * ========================= */
 void initEgtmAtom3phInv(void)
 {
     /* 1) Declare all configuration structures locally */
-    IfxEgtm_Pwm_Config           invCfg;
-    IfxEgtm_Pwm_ChannelConfig    invChCfg[EGTM_INV_NUM_CHANNELS];
-    IfxEgtm_Pwm_OutputConfig     invOut[EGTM_INV_NUM_CHANNELS];
-    IfxEgtm_Pwm_DtmConfig        invDtm[EGTM_INV_NUM_CHANNELS];
-    IfxEgtm_Pwm_InterruptConfig  irqCfg;
+    IfxEgtm_Pwm_Config            invConfig;
+    IfxEgtm_Pwm_ChannelConfig     invChCfg[EGTM_NUM_PHASE_CHANNELS];
+    IfxEgtm_Pwm_OutputConfig      invOutCfg[EGTM_NUM_PHASE_CHANNELS];
+    IfxEgtm_Pwm_DtmConfig         invDtmCfg[EGTM_NUM_PHASE_CHANNELS];
+    IfxEgtm_Pwm_InterruptConfig   irqCfg;
 
-    IfxEgtm_Pwm_Config           adcCfg;
-    IfxEgtm_Pwm_ChannelConfig    adcChCfg[EGTM_ADC_NUM_CHANNELS];
-    IfxEgtm_Pwm_OutputConfig     adcOut[EGTM_ADC_NUM_CHANNELS];
+    IfxEgtm_Pwm_Config            adcCfg;
+    IfxEgtm_Pwm_ChannelConfig     adcChCfg[EGTM_NUM_ADC_TRIG_CHANNELS];
+    IfxEgtm_Pwm_OutputConfig      adcOutCfg[EGTM_NUM_ADC_TRIG_CHANNELS];
 
     /* 2) Initialize both config structs with defaults */
-    IfxEgtm_Pwm_initConfig(&invCfg, &MODULE_EGTM);
+    IfxEgtm_Pwm_initConfig(&invConfig, &MODULE_EGTM);
     IfxEgtm_Pwm_initConfig(&adcCfg, &MODULE_EGTM);
 
-    /* 3) Configure 3-phase inverter (ATOM, center-aligned, sync update) */
-    /* Output configuration: complementary HS/LS per phase, active-high HS, active-low LS */
-    invOut[0].pin                     = (IfxEgtm_Pwm_ToutMap *)PHASE_U_HS;
-    invOut[0].complementaryPin        = (IfxEgtm_Pwm_ToutMap *)PHASE_U_LS;
-    invOut[0].polarity                = Ifx_ActiveState_high;
-    invOut[0].complementaryPolarity   = Ifx_ActiveState_low;
-    invOut[0].outputMode              = IfxPort_OutputMode_pushPull;
-    invOut[0].padDriver               = IfxPort_PadDriver_cmosAutomotiveSpeed1;
+    /* 3) Configure 3-phase inverter (ATOM0 CH0..2) */
+    /* Output configuration: complementary, HS active-high, LS active-low */
+    invOutCfg[0].pin                    = (IfxEgtm_Pwm_ToutMap *)PHASE_U_HS;
+    invOutCfg[0].complementaryPin       = (IfxEgtm_Pwm_ToutMap *)PHASE_U_LS;
+    invOutCfg[0].polarity               = Ifx_ActiveState_high;
+    invOutCfg[0].complementaryPolarity  = Ifx_ActiveState_low;
+    invOutCfg[0].outputMode             = IfxPort_OutputMode_pushPull;
+    invOutCfg[0].padDriver              = IfxPort_PadDriver_cmosAutomotiveSpeed1;
 
-    invOut[1].pin                     = (IfxEgtm_Pwm_ToutMap *)PHASE_V_HS;
-    invOut[1].complementaryPin        = (IfxEgtm_Pwm_ToutMap *)PHASE_V_LS;
-    invOut[1].polarity                = Ifx_ActiveState_high;
-    invOut[1].complementaryPolarity   = Ifx_ActiveState_low;
-    invOut[1].outputMode              = IfxPort_OutputMode_pushPull;
-    invOut[1].padDriver               = IfxPort_PadDriver_cmosAutomotiveSpeed1;
+    invOutCfg[1].pin                    = (IfxEgtm_Pwm_ToutMap *)PHASE_V_HS;
+    invOutCfg[1].complementaryPin       = (IfxEgtm_Pwm_ToutMap *)PHASE_V_LS;
+    invOutCfg[1].polarity               = Ifx_ActiveState_high;
+    invOutCfg[1].complementaryPolarity  = Ifx_ActiveState_low;
+    invOutCfg[1].outputMode             = IfxPort_OutputMode_pushPull;
+    invOutCfg[1].padDriver              = IfxPort_PadDriver_cmosAutomotiveSpeed1;
 
-    invOut[2].pin                     = (IfxEgtm_Pwm_ToutMap *)PHASE_W_HS;
-    invOut[2].complementaryPin        = (IfxEgtm_Pwm_ToutMap *)PHASE_W_LS;
-    invOut[2].polarity                = Ifx_ActiveState_high;
-    invOut[2].complementaryPolarity   = Ifx_ActiveState_low;
-    invOut[2].outputMode              = IfxPort_OutputMode_pushPull;
-    invOut[2].padDriver               = IfxPort_PadDriver_cmosAutomotiveSpeed1;
+    invOutCfg[2].pin                    = (IfxEgtm_Pwm_ToutMap *)PHASE_W_HS;
+    invOutCfg[2].complementaryPin       = (IfxEgtm_Pwm_ToutMap *)PHASE_W_LS;
+    invOutCfg[2].polarity               = Ifx_ActiveState_high;
+    invOutCfg[2].complementaryPolarity  = Ifx_ActiveState_low;
+    invOutCfg[2].outputMode             = IfxPort_OutputMode_pushPull;
+    invOutCfg[2].padDriver              = IfxPort_PadDriver_cmosAutomotiveSpeed1;
 
-    /* Dead-time: 1us for rising and falling (DTM) */
-    invDtm[0].deadTime.rising         = 1e-6f;
-    invDtm[0].deadTime.falling        = 1e-6f;
-    invDtm[0].fastShutOff             = NULL_PTR;
+    /* Dead-time configuration: 1 us both edges */
+    invDtmCfg[0].deadTime.rising = 1e-6f; invDtmCfg[0].deadTime.falling = 1e-6f; invDtmCfg[0].fastShutOff = (IfxEgtm_Pwm_FastShutoffConfig *)0;
+    invDtmCfg[1].deadTime.rising = 1e-6f; invDtmCfg[1].deadTime.falling = 1e-6f; invDtmCfg[1].fastShutOff = (IfxEgtm_Pwm_FastShutoffConfig *)0;
+    invDtmCfg[2].deadTime.rising = 1e-6f; invDtmCfg[2].deadTime.falling = 1e-6f; invDtmCfg[2].fastShutOff = (IfxEgtm_Pwm_FastShutoffConfig *)0;
 
-    invDtm[1].deadTime.rising         = 1e-6f;
-    invDtm[1].deadTime.falling        = 1e-6f;
-    invDtm[1].fastShutOff             = NULL_PTR;
+    /* Interrupt configuration: pulse notification on CPU0; period event only for base channel */
+    irqCfg.mode        = IfxEgtm_IrqMode_pulseNotify;
+    irqCfg.isrProvider = IfxSrc_Tos_cpu0;
+    irqCfg.priority    = (Ifx_Priority)ISR_PRIORITY_ATOM;
+    irqCfg.vmId        = IfxSrc_VmId_0;
+    irqCfg.periodEvent = (IfxEgtm_Pwm_callBack)IfxEgtm_periodEventFunction;
+    irqCfg.dutyEvent   = (IfxEgtm_Pwm_callBack)0;
 
-    invDtm[2].deadTime.rising         = 1e-6f;
-    invDtm[2].deadTime.falling        = 1e-6f;
-    invDtm[2].fastShutOff             = NULL_PTR;
+    /* Channel configurations: logical indices 0..2, no phase shift for center-aligned */
+    invChCfg[0].timerCh   = IfxEgtm_Pwm_SubModule_Ch_0;
+    invChCfg[0].phase     = 0.0f;
+    invChCfg[0].duty      = EGTM_PHASE_U_INIT_DUTY_PC;
+    invChCfg[0].dtm       = &invDtmCfg[0];
+    invChCfg[0].output    = &invOutCfg[0];
+    invChCfg[0].mscOut    = (IfxEgtm_MscOut *)0;
+    invChCfg[0].interrupt = &irqCfg; /* base logical channel only */
 
-    /* Interrupt configuration: pulse notification, CPU0, configured priority, VM0 */
-    irqCfg.mode                       = IfxEgtm_IrqMode_pulseNotify;
-    irqCfg.isrProvider                = IfxSrc_Tos_cpu0;
-    irqCfg.priority                   = (Ifx_Priority)ISR_PRIORITY_ATOM;
-    irqCfg.vmId                       = IfxSrc_VmId_0;
-    irqCfg.periodEvent                = IfxEgtm_periodEventFunction;
-    irqCfg.dutyEvent                  = NULL_PTR;
+    invChCfg[1].timerCh   = IfxEgtm_Pwm_SubModule_Ch_1;
+    invChCfg[1].phase     = 0.0f;
+    invChCfg[1].duty      = EGTM_PHASE_V_INIT_DUTY_PC;
+    invChCfg[1].dtm       = &invDtmCfg[1];
+    invChCfg[1].output    = &invOutCfg[1];
+    invChCfg[1].mscOut    = (IfxEgtm_MscOut *)0;
+    invChCfg[1].interrupt = (IfxEgtm_Pwm_InterruptConfig *)0;
 
-    /* Channel configuration: logical indices 0..2, no phase shift */
-    invChCfg[0].timerCh               = IfxEgtm_Pwm_SubModule_Ch_0;
-    invChCfg[0].phase                 = 0.0f;
-    invChCfg[0].duty                  = PHASE_U_DUTY_PCT;
-    invChCfg[0].dtm                   = &invDtm[0];
-    invChCfg[0].output                = &invOut[0];
-    invChCfg[0].mscOut                = NULL_PTR;
-    invChCfg[0].interrupt             = &irqCfg;     /* base channel gets interrupt */
+    invChCfg[2].timerCh   = IfxEgtm_Pwm_SubModule_Ch_2;
+    invChCfg[2].phase     = 0.0f;
+    invChCfg[2].duty      = EGTM_PHASE_W_INIT_DUTY_PC;
+    invChCfg[2].dtm       = &invDtmCfg[2];
+    invChCfg[2].output    = &invOutCfg[2];
+    invChCfg[2].mscOut    = (IfxEgtm_MscOut *)0;
+    invChCfg[2].interrupt = (IfxEgtm_Pwm_InterruptConfig *)0;
 
-    invChCfg[1].timerCh               = IfxEgtm_Pwm_SubModule_Ch_1;
-    invChCfg[1].phase                 = 0.0f;
-    invChCfg[1].duty                  = PHASE_V_DUTY_PCT;
-    invChCfg[1].dtm                   = &invDtm[1];
-    invChCfg[1].output                = &invOut[1];
-    invChCfg[1].mscOut                = NULL_PTR;
-    invChCfg[1].interrupt             = NULL_PTR;    /* no interrupt on this channel */
+    /* Main inverter config fields */
+    invConfig.cluster            = IfxEgtm_Cluster_0;
+    invConfig.subModule          = IfxEgtm_Pwm_SubModule_atom;
+    invConfig.alignment          = IfxEgtm_Pwm_Alignment_center;
+    invConfig.numChannels        = (uint8)EGTM_NUM_PHASE_CHANNELS;
+    invConfig.channels           = invChCfg;
+    invConfig.frequency          = EGTM_PWM_SWITCHING_FREQ_HZ;
+    invConfig.clockSource.atom   = (uint32)IfxEgtm_Cmu_Clk_0;           /* ATOM clock source */
+    invConfig.dtmClockSource     = IfxEgtm_Dtm_ClockSource_cmuClock0;   /* DTM clock source */
+#if IFXEGTM_PWM_IS_HIGH_RES_AVAILABLE
+    invConfig.highResEnable      = FALSE;
+    invConfig.dtmHighResEnable   = FALSE;
+#endif
+    invConfig.syncUpdateEnabled  = TRUE;
+    invConfig.syncStart          = TRUE;
 
-    invChCfg[2].timerCh               = IfxEgtm_Pwm_SubModule_Ch_2;
-    invChCfg[2].phase                 = 0.0f;
-    invChCfg[2].duty                  = PHASE_W_DUTY_PCT;
-    invChCfg[2].dtm                   = &invDtm[2];
-    invChCfg[2].output                = &invOut[2];
-    invChCfg[2].mscOut                = NULL_PTR;
-    invChCfg[2].interrupt             = NULL_PTR;    /* no interrupt on this channel */
+    /* 5) ADC trigger handle: single channel, edge-aligned, 50% duty, non-complementary */
+    adcOutCfg[0].pin                    = (IfxEgtm_Pwm_ToutMap *)ADC_TRIG_PIN;
+    adcOutCfg[0].complementaryPin       = (IfxEgtm_Pwm_ToutMap *)0;
+    adcOutCfg[0].polarity               = Ifx_ActiveState_high;
+    adcOutCfg[0].complementaryPolarity  = Ifx_ActiveState_low; /* ignored */
+    adcOutCfg[0].outputMode             = IfxPort_OutputMode_pushPull;
+    adcOutCfg[0].padDriver              = IfxPort_PadDriver_cmosAutomotiveSpeed1;
 
-    invCfg.cluster                    = IfxEgtm_Cluster_0;
-    invCfg.subModule                  = IfxEgtm_Pwm_SubModule_atom;
-    invCfg.alignment                  = IfxEgtm_Pwm_Alignment_center;
-    invCfg.syncUpdateEnabled          = TRUE;
-    invCfg.syncStart                  = TRUE;
-    invCfg.numChannels                = (uint8)EGTM_INV_NUM_CHANNELS;
-    invCfg.channels                   = invChCfg;
-    invCfg.frequency                  = EGTM_PWM_FREQUENCY_HZ;
-    invCfg.clockSource.atom           = (uint32)IfxEgtm_Cmu_Clk_0;  /* ATOM clock source */
-    invCfg.dtmClockSource             = IfxEgtm_Dtm_ClockSource_cmuClock0;
+    adcChCfg[0].timerCh   = IfxEgtm_Pwm_SubModule_Ch_3;  /* ATOM0 CH3 */
+    adcChCfg[0].phase     = 0.0f;
+    adcChCfg[0].duty      = EGTM_ADC_TRIG_DUTY_PC;
+    adcChCfg[0].dtm       = (IfxEgtm_Pwm_DtmConfig *)0;  /* non-complementary */
+    adcChCfg[0].output    = &adcOutCfg[0];
+    adcChCfg[0].mscOut    = (IfxEgtm_MscOut *)0;
+    adcChCfg[0].interrupt = (IfxEgtm_Pwm_InterruptConfig *)0; /* no ISR for ADC trigger channel */
 
-    /* 5) Configure ADC trigger: single channel, edge-aligned, 50% duty, non-complementary */
-    adcOut[0].pin                     = (IfxEgtm_Pwm_ToutMap *)ADC_TRIG_TOUT;
-    adcOut[0].complementaryPin        = NULL_PTR;
-    adcOut[0].polarity                = Ifx_ActiveState_high;
-    adcOut[0].complementaryPolarity   = Ifx_ActiveState_low;
-    adcOut[0].outputMode              = IfxPort_OutputMode_pushPull;
-    adcOut[0].padDriver               = IfxPort_PadDriver_cmosAutomotiveSpeed1;
+    adcCfg.cluster            = IfxEgtm_Cluster_0;
+    adcCfg.subModule          = IfxEgtm_Pwm_SubModule_atom;
+    adcCfg.alignment          = IfxEgtm_Pwm_Alignment_edge;
+    adcCfg.numChannels        = (uint8)EGTM_NUM_ADC_TRIG_CHANNELS;
+    adcCfg.channels           = adcChCfg;
+    adcCfg.frequency          = EGTM_PWM_SWITCHING_FREQ_HZ;      /* coherent with inverter */
+    adcCfg.clockSource.atom   = (uint32)IfxEgtm_Cmu_Clk_0;
+    adcCfg.dtmClockSource     = IfxEgtm_Dtm_ClockSource_cmuClock0;
+#if IFXEGTM_PWM_IS_HIGH_RES_AVAILABLE
+    adcCfg.highResEnable      = FALSE;
+    adcCfg.dtmHighResEnable   = FALSE;
+#endif
+    adcCfg.syncUpdateEnabled  = TRUE;
+    adcCfg.syncStart          = TRUE;
 
-    adcChCfg[0].timerCh               = IfxEgtm_Pwm_SubModule_Ch_0;  /* logical index */
-    adcChCfg[0].phase                 = 0.0f;
-    adcChCfg[0].duty                  = 50.0f;                      /* 50% */
-    adcChCfg[0].dtm                   = NULL_PTR;                   /* non-complementary */
-    adcChCfg[0].output                = &adcOut[0];
-    adcChCfg[0].mscOut                = NULL_PTR;
-    adcChCfg[0].interrupt             = NULL_PTR;                   /* no interrupt */
-
-    adcCfg.cluster                    = IfxEgtm_Cluster_0;
-    adcCfg.subModule                  = IfxEgtm_Pwm_SubModule_atom;
-    adcCfg.alignment                  = IfxEgtm_Pwm_Alignment_edge;
-    adcCfg.syncUpdateEnabled          = TRUE;
-    adcCfg.syncStart                  = TRUE;
-    adcCfg.numChannels                = (uint8)EGTM_ADC_NUM_CHANNELS;
-    adcCfg.channels                   = adcChCfg;
-    adcCfg.frequency                  = EGTM_PWM_FREQUENCY_HZ;      /* coherent timing */
-    adcCfg.clockSource.atom           = (uint32)IfxEgtm_Cmu_Clk_0;
-    adcCfg.dtmClockSource             = IfxEgtm_Dtm_ClockSource_cmuClock0;
-
-    /* 6) Enable EGTM + CMU clocks if not already enabled (MANDATORY enable guard pattern) */
-    if (!IfxEgtm_isEnabled(&MODULE_EGTM))
-    {
+    /* 6) EGTM enable guard + CMU clock configuration (MANDATORY) */
+    if (!IfxEgtm_isEnabled(&MODULE_EGTM)) {
         IfxEgtm_enable(&MODULE_EGTM);
-        {
-            float32 frequency = IfxEgtm_Cmu_getModuleFrequency(&MODULE_EGTM);
-            IfxEgtm_Cmu_setGclkFrequency(&MODULE_EGTM, frequency);
-            IfxEgtm_Cmu_setClkFrequency(&MODULE_EGTM, IfxEgtm_Cmu_Clk_0, frequency);
-            IfxEgtm_Cmu_enableClocks(&MODULE_EGTM, (uint32)(IFXEGTM_CMU_CLKEN_FXCLK | IFXEGTM_CMU_CLKEN_CLK0));
-        }
+        float32 freq = IfxEgtm_Cmu_getModuleFrequency(&MODULE_EGTM);
+        IfxEgtm_Cmu_setGclkFrequency(&MODULE_EGTM, freq);
+        IfxEgtm_Cmu_setClkFrequency(&MODULE_EGTM, IfxEgtm_Cmu_Clk_0, freq);
+        IfxEgtm_Cmu_enableClocks(&MODULE_EGTM, (uint32)(IFXEGTM_CMU_CLKEN_FXCLK | IFXEGTM_CMU_CLKEN_CLK0));
     }
 
     /* 7) Initialize unified PWM drivers: inverter first, then ADC trigger */
-    IfxEgtm_Pwm_init(&g_egtmAtom3phState.pwmInverter,
-                     g_egtmAtom3phState.channelsInverter,
-                     &invCfg);
+    IfxEgtm_Pwm_init(&g_egtmAtomState.inverter.pwm, g_egtmAtomState.inverter.channels, &invConfig);
+    IfxEgtm_Pwm_init(&g_egtmAtomState.adcTrig.pwm,   g_egtmAtomState.adcTrig.channels,   &adcCfg);
 
-    IfxEgtm_Pwm_init(&g_egtmAtom3phState.pwmAdcTrig,
-                     g_egtmAtom3phState.channelsAdcTrig,
-                     &adcCfg);
-
-    /* 8) Route ATOM0 CH3 trigger to ADC fabric */
+    /* 8) Route ADC trigger via EGTM Trigger API
+       Note: Signal requirements: AdcTriggerSignal_0, TriggerMuxSel_36, falling edge.
+       The available trigToAdc() signature maps source and channel; MUX/edge selection is handled by the trigger fabric configuration.
+    */
     {
-        boolean routed = IfxEgtm_Trigger_trigToAdc(IfxEgtm_Cluster_0,
-                                                   EGTM_TRIG_SOURCE_ATOM0,
-                                                   EGTM_TRIG_CHANNEL_3,
-                                                   EGTM_ADC_TRIGGER_SIGNAL_0);
-        (void)routed; /* optional: could be checked/logged by application */
+        /* ATOM0, channel 3 -> ADC trigger signal 0 */
+        (void)IfxEgtm_Trigger_trigToAdc(IfxEgtm_Cluster_0,
+                                        (IfxEgtm_TrigSource)0,          /* Source selection for ATOM0 (implementation-specific) */
+                                        (IfxEgtm_TrigChannel)3,         /* Channel 3 */
+                                        (IfxEgtm_Cfg_AdcTriggerSignal)0 /* AdcTriggerSignal_0 */);
     }
 
-    /* 9) Store persistent module state: duties, phases, dead-times */
-    g_egtmAtom3phState.dutyCycles[0]  = invChCfg[0].duty;
-    g_egtmAtom3phState.dutyCycles[1]  = invChCfg[1].duty;
-    g_egtmAtom3phState.dutyCycles[2]  = invChCfg[2].duty;
+    /* 9) Store persistent state values (duties, phases, dead-times) */
+    g_egtmAtomState.inverter.dutyCycles[0] = EGTM_PHASE_U_INIT_DUTY_PC;
+    g_egtmAtomState.inverter.dutyCycles[1] = EGTM_PHASE_V_INIT_DUTY_PC;
+    g_egtmAtomState.inverter.dutyCycles[2] = EGTM_PHASE_W_INIT_DUTY_PC;
 
-    g_egtmAtom3phState.phases[0]      = invChCfg[0].phase;
-    g_egtmAtom3phState.phases[1]      = invChCfg[1].phase;
-    g_egtmAtom3phState.phases[2]      = invChCfg[2].phase;
+    g_egtmAtomState.inverter.phases[0] = 0.0f;
+    g_egtmAtomState.inverter.phases[1] = 0.0f;
+    g_egtmAtomState.inverter.phases[2] = 0.0f;
 
-    g_egtmAtom3phState.deadTimes[0]   = invDtm[0].deadTime;
-    g_egtmAtom3phState.deadTimes[1]   = invDtm[1].deadTime;
-    g_egtmAtom3phState.deadTimes[2]   = invDtm[2].deadTime;
+    g_egtmAtomState.inverter.deadTimes[0] = invDtmCfg[0].deadTime;
+    g_egtmAtomState.inverter.deadTimes[1] = invDtmCfg[1].deadTime;
+    g_egtmAtomState.inverter.deadTimes[2] = invDtmCfg[2].deadTime;
 
-    /* 10) Configure debug I/O pin (ISR toggle) as push-pull output */
-    IfxPort_setPinModeOutput(LED, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
+    g_egtmAtomState.adcTrig.dutyCycle = EGTM_ADC_TRIG_DUTY_PC;
+
+    /* 10) Configure debug I/O pin for ISR toggling */
+    IfxPort_setPinModeOutput(DEBUG_PIN, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
 }
 
-/* ===================== Runtime duty update ===================== */
+/* ==============================
+ * Runtime duty update function
+ * ============================== */
 void updateEgtmAtom3phInvDuty(float32 *requestDuty)
 {
-    /* Clamp inputs to [0, 100], copy to persistent state, then apply immediately (single API call) */
-    float32 d0 = requestDuty[0];
-    float32 d1 = requestDuty[1];
-    float32 d2 = requestDuty[2];
+    /* Clamp and store */
+    float32 d0 = requestDuty[0]; if (d0 < 0.0f) d0 = 0.0f; if (d0 > 100.0f) d0 = 100.0f; g_egtmAtomState.inverter.dutyCycles[0] = d0;
+    float32 d1 = requestDuty[1]; if (d1 < 0.0f) d1 = 0.0f; if (d1 > 100.0f) d1 = 100.0f; g_egtmAtomState.inverter.dutyCycles[1] = d1;
+    float32 d2 = requestDuty[2]; if (d2 < 0.0f) d2 = 0.0f; if (d2 > 100.0f) d2 = 100.0f; g_egtmAtomState.inverter.dutyCycles[2] = d2;
 
-    if (d0 < 0.0f)  { d0 = 0.0f; }
-    if (d0 > 100.0f){ d0 = 100.0f; }
-    if (d1 < 0.0f)  { d1 = 0.0f; }
-    if (d1 > 100.0f){ d1 = 100.0f; }
-    if (d2 < 0.0f)  { d2 = 0.0f; }
-    if (d2 > 100.0f){ d2 = 100.0f; }
-
-    g_egtmAtom3phState.dutyCycles[0] = d0;
-    g_egtmAtom3phState.dutyCycles[1] = d1;
-    g_egtmAtom3phState.dutyCycles[2] = d2;
-
-    IfxEgtm_Pwm_updateChannelsDutyImmediate(&g_egtmAtom3phState.pwmInverter,
-                                            (float32 *)g_egtmAtom3phState.dutyCycles);
+    /* Immediate synchronous multi-channel update in percent */
+    IfxEgtm_Pwm_updateChannelsDutyImmediate(&g_egtmAtomState.inverter.pwm, (float32 *)g_egtmAtomState.inverter.dutyCycles);
 }
