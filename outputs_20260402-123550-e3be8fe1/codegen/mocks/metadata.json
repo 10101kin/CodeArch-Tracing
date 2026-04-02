@@ -1,8 +1,9 @@
 {
-  "type": "llm_response",
-  "phase": "mock",
   "attempt": 4,
   "phase_attempt": 2,
-  "response_length": 54003,
-  "timestamp": "2026-04-02T13:06:16.049711"
+  "phase": "mock_generation",
+  "success": true,
+  "errors": [],
+  "timestamp": "2026-04-02T13:06:19.690839",
+  "project_name": "Generate_TC4D7_code_that_migrates_a_3-phase_invert_r_20260402_125346"
 }
