@@ -2,103 +2,72 @@
   "success": false,
   "errors": [
     {
-      "file": "/tmp/tdd_build_3hpt4hvj/src/egtm_atom_3_phase_inverter_pwm.c",
-      "line": 35,
+      "file": "/tmp/tdd_build_nutw005d/include/IfxEgtm_Pwm.h",
+      "line": 165,
       "category": "error",
-      "message": "\u2018MODULE_P03\u2019 undeclared (first use in this function); did you mean \u2018MODULE_P33\u2019?"
+      "message": "redeclaration of enumerator \u2018IfxEgtm_Cluster_0\u2019"
     },
     {
-      "file": "/tmp/tdd_build_3hpt4hvj/src/egtm_atom_3_phase_inverter_pwm.c",
-      "line": 35,
+      "file": "/tmp/tdd_build_nutw005d/include/IfxEgtm_Pwm.h",
+      "line": 166,
       "category": "error",
-      "message": "\u2018MODULE_P03\u2019 undeclared (first use in this function); did you mean \u2018MODULE_P33\u2019?"
+      "message": "redeclaration of enumerator \u2018IfxEgtm_Cluster_1\u2019"
     },
     {
-      "file": "/tmp/tdd_build_3hpt4hvj/src/egtm_atom_3_phase_inverter_pwm.c",
-      "line": 40,
+      "file": "/tmp/tdd_build_nutw005d/include/IfxEgtm_Pwm.h",
+      "line": 167,
       "category": "error",
-      "message": "\u2018IfxEgtm_ATOM0_0_TOUT64_P20_8_OUT\u2019 undeclared (first use in this function)"
+      "message": "redeclaration of enumerator \u2018IfxEgtm_Cluster_2\u2019"
     },
     {
-      "file": "/tmp/tdd_build_3hpt4hvj/src/egtm_atom_3_phase_inverter_pwm.c",
-      "line": 41,
+      "file": "/tmp/tdd_build_nutw005d/include/IfxEgtm_Pwm.h",
+      "line": 168,
       "category": "error",
-      "message": "\u2018IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT\u2019 undeclared (first use in this function)"
+      "message": "conflicting types for \u2018IfxEgtm_Cluster\u2019; have \u2018enum <anonymous>\u2019"
     },
     {
-      "file": "/tmp/tdd_build_3hpt4hvj/src/egtm_atom_3_phase_inverter_pwm.c",
-      "line": 142,
-      "category": "error",
-      "message": "\u2018Ifx_ActiveState_high\u2019 undeclared (first use in this function); did you mean \u2018Ifx_ActiveState\u2019?"
+      "file": "",
+      "message": "/tmp/tdd_build_nutw005d/src/egtm_atom_3_phase_inverter_pwm.c:23:10: fatal error: IfxAdc_Tmadc.h: No such file or directory",
+      "category": "error"
     },
     {
-      "file": "/tmp/tdd_build_3hpt4hvj/src/egtm_atom_3_phase_inverter_pwm.c",
-      "line": 143,
+      "file": "/tmp/tdd_build_nutw005d/include/IfxEgtm_Pwm.h",
+      "line": 165,
       "category": "error",
-      "message": "\u2018Ifx_ActiveState_low\u2019 undeclared (first use in this function); did you mean \u2018Ifx_ActiveState\u2019?"
+      "message": "redeclaration of enumerator \u2018IfxEgtm_Cluster_0\u2019"
     },
     {
-      "file": "/tmp/tdd_build_3hpt4hvj/src/egtm_atom_3_phase_inverter_pwm.c",
-      "line": 42,
+      "file": "/tmp/tdd_build_nutw005d/include/IfxEgtm_Pwm.h",
+      "line": 166,
       "category": "error",
-      "message": "\u2018IfxEgtm_ATOM0_1_TOUT66_P20_10_OUT\u2019 undeclared (first use in this function)"
+      "message": "redeclaration of enumerator \u2018IfxEgtm_Cluster_1\u2019"
     },
     {
-      "file": "/tmp/tdd_build_3hpt4hvj/src/egtm_atom_3_phase_inverter_pwm.c",
-      "line": 43,
+      "file": "/tmp/tdd_build_nutw005d/include/IfxEgtm_Pwm.h",
+      "line": 167,
       "category": "error",
-      "message": "\u2018IfxEgtm_ATOM0_1N_TOUT67_P20_11_OUT\u2019 undeclared (first use in this function)"
+      "message": "redeclaration of enumerator \u2018IfxEgtm_Cluster_2\u2019"
     },
     {
-      "file": "/tmp/tdd_build_3hpt4hvj/src/egtm_atom_3_phase_inverter_pwm.c",
-      "line": 44,
+      "file": "/tmp/tdd_build_nutw005d/include/IfxEgtm_Pwm.h",
+      "line": 168,
       "category": "error",
-      "message": "\u2018IfxEgtm_ATOM0_2_TOUT68_P20_12_OUT\u2019 undeclared (first use in this function)"
+      "message": "conflicting types for \u2018IfxEgtm_Cluster\u2019; have \u2018enum <anonymous>\u2019"
     },
     {
-      "file": "/tmp/tdd_build_3hpt4hvj/src/egtm_atom_3_phase_inverter_pwm.c",
-      "line": 45,
-      "category": "error",
-      "message": "\u2018IfxEgtm_ATOM0_2N_TOUT69_P20_13_OUT\u2019 undeclared (first use in this function)"
-    },
-    {
-      "file": "/tmp/tdd_build_3hpt4hvj/src/egtm_atom_3_phase_inverter_pwm.c",
-      "line": 47,
-      "category": "error",
-      "message": "\u2018IfxEgtm_ATOM0_3_TOUT22_P33_0_OUT\u2019 undeclared (first use in this function)"
-    },
-    {
-      "file": "/tmp/tdd_build_3hpt4hvj/src/egtm_atom_3_phase_inverter_pwm.c",
-      "line": 256,
-      "category": "error",
-      "message": "\u2018IfxEgtm_TrigSource_atom0\u2019 undeclared (first use in this function); did you mean \u2018IfxEgtm_TrigSource_atom\u2019?"
-    },
-    {
-      "file": "/tmp/tdd_build_3hpt4hvj/src/egtm_atom_3_phase_inverter_pwm.c",
-      "line": 35,
-      "category": "error",
-      "message": "\u2018MODULE_P03\u2019 undeclared (first use in this function); did you mean \u2018MODULE_P33\u2019?"
-    },
-    {
-      "file": "/tmp/tdd_build_3hpt4hvj/test/test_egtm_atom_3_phase_inverter_pwm.c",
+      "file": "/tmp/tdd_build_nutw005d/test/test_egtm_atom_3_phase_inverter_pwm.c",
       "line": 23,
       "category": "error",
       "message": "conflicting types for \u2018mock_IfxEgtm_Pwm_init_callCount\u2019; have \u2018uint32\u2019 {aka \u2018unsigned int\u2019}"
     },
     {
-      "file": "/tmp/tdd_build_3hpt4hvj/test/test_egtm_atom_3_phase_inverter_pwm.c",
+      "file": "/tmp/tdd_build_nutw005d/test/test_egtm_atom_3_phase_inverter_pwm.c",
       "line": 24,
       "category": "error",
       "message": "conflicting types for \u2018mock_IfxEgtm_Trigger_trigToAdc_callCount\u2019; have \u2018uint32\u2019 {aka \u2018unsigned int\u2019}"
-    },
-    {
-      "file": "/tmp/tdd_build_3hpt4hvj/test/test_egtm_atom_3_phase_inverter_pwm.c",
-      "line": 27,
-      "category": "error",
-      "message": "conflicting types for \u2018mock_togglePin_callCount\u2019; have \u2018uint32\u2019 {aka \u2018unsigned int\u2019}"
     }
   ],
   "warnings": [],
-  "stderr": "/tmp/tdd_build_3hpt4hvj/src/egtm_atom_3_phase_inverter_pwm.c: In function \u2018interruptEgtmAtom\u2019:\n/tmp/tdd_build_3hpt4hvj/src/egtm_atom_3_phase_inverter_pwm.c:35:42: error: \u2018MODULE_P03\u2019 undeclared (first use in this function); did you mean \u2018MODULE_P33\u2019?\n   35 | #define EGTM_DEBUG_LED                  &MODULE_P03, 9\n      |                                          ^~~~~~~~~~\n/tmp/tdd_build_3hpt4hvj/src/egtm_atom_3_phase_inverter_pwm.c:86:23: note: in expansion of macro \u2018EGTM_DEBUG_LED\u2019\n   86 |     IfxPort_togglePin(EGTM_DEBUG_LED);\n      |                       ^~~~~~~~~~~~~~\n/tmp/tdd_build_3hpt4hvj/src/egtm_atom_3_phase_inverter_pwm.c:35:42: note: each undeclared identifier is reported only once for each function it appears in\n   35 | #define EGTM_DEBUG_LED                  &MODULE_P03, 9\n      |                                          ^~~~~~~~~~\n/tmp/tdd_build_3hpt4hvj/src/egtm_atom_3_phase_inverter_pwm.c:86:23: note: in expansion of macro \u2018EGTM_DEBUG_LED\u2019\n   86 |     IfxPort_togglePin(EGTM_DEBUG_LED);\n      |                       ^~~~~~~~~~~~~~\n/tmp/tdd_build_3hpt4hvj/src/egtm_atom_3_phase_inverter_pwm.c: In function \u2018resultISR\u2019:\n/tmp/tdd_build_3hpt4hvj/src/egtm_atom_3_phase_inverter_pwm.c:35:42: error: \u2018MODULE_P03\u2019 undeclared (first use in this function); did you mean \u2018MODULE_P33\u2019?\n   35 | #define EGTM_DEBUG_LED                  &MODULE_P03, 9\n      |                                          ^~~~~~~~~~\n/tmp/tdd_build_3hpt4hvj/src/egtm_atom_3_phase_inverter_pwm.c:98:23: note: in expansion of macro \u2018EGTM_DEBUG_LED\u2019\n   98 |     IfxPort_togglePin(EGTM_DEBUG_LED);\n      |                       ^~~~~~~~~~~~~~\n/tmp/tdd_build_3hpt4hvj/src/egtm_atom_3_phase_inverter_pwm.c: In function \u2018initEgtmAtom3phInv\u2019:\n/tmp/tdd_build_3hpt4hvj/src/egtm_atom_3_phase_inverter_pwm.c:40:43: error: \u2018IfxEgtm_ATOM0_0_TOUT64_P20_8_OUT\u2019 undeclared (first use in this function)\n   40 | #define PHASE_U_HS                      (&IfxEgtm_ATOM0_0_TOUT64_P20_8_OUT)\n      |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n/tmp/tdd_build_3hpt4hvj/src/egtm_atom_3_phase_inverter_pwm.c:140:66: note: in expansion of macro \u2018PHASE_U_HS\u2019\n  140 |     invOutCfg[0].pin                    = (IfxEgtm_Pwm_ToutMap *)PHASE_U_HS;\n      |                                                                  ^~~~~~~~~~\n/tmp/tdd_build_3hpt4hvj/src/egtm_atom_3_phase_inverter_pwm.c:41:43: error: \u2018IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT\u2019 undeclared (first use in this function)\n   41 | #define PHASE_U_LS                      (&IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT)\n      |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n/tmp/tdd_build_3hpt4hvj/src/egtm_atom_3_phase_inverter_pwm.c:141:66: note: in expansion of macro \u2018PHASE_U_LS\u2019\n  141 |     invOutCfg[0].complementaryPin       = (IfxEgtm_Pwm_ToutMap *)PHASE_U_LS;\n      |                                                                  ^~~~~~~~~~\n/tmp/tdd_build_3hpt4hvj/src/egtm_atom_3_phase_inverter_pwm.c:142:43: error: \u2018Ifx_ActiveState_high\u2019 undeclared (first use in this function); did you mean \u2018Ifx_ActiveState\u2019?\n  142 |     invOutCfg[0].polarity               = Ifx_ActiveState_high;\n      |                                           ^~~~~~~~~~~~~~~~~~~~\n      |                                           Ifx_ActiveState\n/tmp/tdd_build_3hpt4hvj/src/egtm_atom_3_phase_inverter_pwm.c:143:43: error: \u2018Ifx_ActiveState_low\u2019 undeclared (first use in this function); did you mean \u2018Ifx_ActiveState\u2019?\n  143 |     invOutCfg[0].complementaryPolarity  = Ifx_ActiveState_low;\n      |                                           ^~~~~~~~~~~~~~~~~~~\n      |                                           Ifx_ActiveState\n/tmp/tdd_build_3hpt4hvj/src/egtm_atom_3_phase_inverter_pwm.c:42:43: error: \u2018IfxEgtm_ATOM0_1_TOUT66_P20_10_OUT\u2019 undeclared (first use in this function)\n   42 | #define PHASE_V_HS                      (&IfxEgtm_ATOM0_1_TOUT66_P20_10_OUT)\n      |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n/tmp/tdd_build_3hpt4hvj/src/egtm_atom_3_phase_inverter_pwm.c:147:66: note: in expansion of macro \u2018PHASE_V_HS\u2019\n  147 |     invOutCfg[1].pin                    = (IfxEgtm_Pwm_ToutMap *)PHASE_V_HS;\n      |                                                                  ^~~~~~~~~~\n/tmp/tdd_build_3hpt4hvj/src/egtm_atom_3_phase_inverter_pwm.c:43:43: error: \u2018IfxEgtm_ATOM0_1N_TOUT67_P20_11_OUT\u2019 undeclared (first use in this function)\n   43 | #define PHASE_V_LS                      (&IfxEgtm_ATOM0_1N_TOUT67_P20_11_OUT)\n      |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n/tmp/tdd_build_3hpt4hvj/src/egtm_atom_3_phase_inverter_pwm.c:148:66: note: in expansion of macro \u2018PHASE_V_LS\u2019\n  148 |     invOutCfg[1].complementaryPin       = (IfxEgtm_Pwm_ToutMap *)PHASE_V_LS;\n      |                                                                  ^~~~~~~~~~\n/tmp/tdd_build_3hpt4hvj/src/egtm_atom_3_phase_inverter_pwm.c:44:43: error: \u2018IfxEgtm_ATOM0_2_TOUT68_P20_12_OUT\u2019 undeclared (first use in this function)\n   44 | #define PHASE_W_HS                      (&IfxEgtm_ATOM0_2_TOUT68_P20_12_OUT)\n      |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n/tmp/tdd_build_3hpt4hvj/src/egtm_atom_3_phase_inverter_pwm.c:154:66: note: in expansion of macro \u2018PHASE_W_HS\u2019\n  154 |     invOutCfg[2].pin                    = (IfxEgtm_Pwm_ToutMap *)PHASE_W_HS;\n      |                                                                  ^~~~~~~~~~\n/tmp/tdd_build_3hpt4hvj/src/egtm_atom_3_phase_inverter_pwm.c:45:43: error: \u2018IfxEgtm_ATOM0_2N_TOUT69_P20_13_OUT\u2019 undeclared (first use in this function)\n   45 | #define PHASE_W_LS                      (&IfxEgtm_ATOM0_2N_TOUT69_P20_13_OUT)\n      |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n/tmp/tdd_build_3hpt4hvj/src/egtm_atom_3_phase_inverter_pwm.c:155:66: note: in expansion of macro \u2018PHASE_W_LS\u2019\n  155 |     invOutCfg[2].complementaryPin       = (IfxEgtm_Pwm_ToutMap *)PHASE_W_LS;\n      |                                                                  ^~~~~~~~~~\n/tmp/tdd_build_3hpt4hvj/src/egtm_atom_3_phase_inverter_pwm.c:47:43: error: \u2018IfxEgtm_ATOM0_3_TOUT22_P33_0_OUT\u2019 undeclared (first use in this function)\n   47 | #define ADC_TRIG_PIN                    (&IfxEgtm_ATOM0_3_TOUT22_P33_0_OUT)\n      |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n/tmp/tdd_build_3hpt4hvj/src/egtm_atom_3_phase_inverter_pwm.c:212:65: note: in expansion of macro \u2018ADC_TRIG_PIN\u2019\n  212 |     adcOutCfg[0].pin                   = (IfxEgtm_Pwm_ToutMap *)ADC_TRIG_PIN;\n      |                                                                 ^~~~~~~~~~~~\n/tmp/tdd_build_3hpt4hvj/src/egtm_atom_3_phase_inverter_pwm.c:256:41: error: \u2018IfxEgtm_TrigSource_atom0\u2019 undeclared (first use in this function); did you mean \u2018IfxEgtm_TrigSource_atom\u2019?\n  256 |                                         IfxEgtm_TrigSource_atom0,\n      |                                         ^~~~~~~~~~~~~~~~~~~~~~~~\n      |                                         IfxEgtm_TrigSource_atom\n/tmp/tdd_build_3hpt4hvj/src/egtm_atom_3_phase_inverter_pwm.c:35:42: error: \u2018MODULE_P03\u2019 undeclared (first use in this function); did you mean \u2018MODULE_P33\u2019?\n   35 | #define EGTM_DEBUG_LED                  &MODULE_P03, 9\n      |                                          ^~~~~~~~~~\n/tmp/tdd_build_3hpt4hvj/src/egtm_atom_3_phase_inverter_pwm.c:277:30: note: in expansion of macro \u2018EGTM_DEBUG_LED\u2019\n  277 |     IfxPort_setPinModeOutput(EGTM_DEBUG_LED, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);\n      |                              ^~~~~~~~~~~~~~\n\n/tmp/tdd_build_3hpt4hvj/test/test_egtm_atom_3_phase_inverter_pwm.c:23:16: error: conflicting types for \u2018mock_IfxEgtm_Pwm_init_callCount\u2019; have \u2018uint32\u2019 {aka \u2018unsigned int\u2019}\n   23 | extern uint32  mock_IfxEgtm_Pwm_init_callCount;\n      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nIn file included from /tmp/tdd_build_3hpt4hvj/test/test_egtm_atom_3_phase_inverter_pwm.c:2:\n/tmp/tdd_build_3hpt4hvj/include/mock_egtm_atom_3_phase_inverter_pwm.h:52:12: note: previous declaration of \u2018mock_IfxEgtm_Pwm_init_callCount\u2019 with type \u2018int\u2019\n   52 | extern int mock_IfxEgtm_Pwm_init_callCount;\n      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n/tmp/tdd_build_3hpt4hvj/test/test_egtm_atom_3_phase_inverter_pwm.c:24:16: error: conflicting types for \u2018mock_IfxEgtm_Trigger_trigToAdc_callCount\u2019; have \u2018uint32\u2019 {aka \u2018unsigned int\u2019}\n   24 | extern uint32  mock_IfxEgtm_Trigger_trigToAdc_callCount;\n      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n/tmp/tdd_build_3hpt4hvj/include/mock_egtm_atom_3_phase_inverter_pwm.h:85:16: note: previous declaration of \u2018mock_IfxEgtm_Trigger_trigToAdc_callCount\u2019 with type \u2018int\u2019\n   85 | extern int     mock_IfxEgtm_Trigger_trigToAdc_callCount;\n      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n/tmp/tdd_build_3hpt4hvj/test/test_egtm_atom_3_phase_inverter_pwm.c:27:16: error: conflicting types for \u2018mock_togglePin_callCount\u2019; have \u2018uint32\u2019 {aka \u2018unsigned int\u2019}\n   27 | extern uint32  mock_togglePin_callCount;\n      |                ^~~~~~~~~~~~~~~~~~~~~~~~\n/tmp/tdd_build_3hpt4hvj/include/mock_egtm_atom_3_phase_inverter_pwm.h:97:12: note: previous declaration of \u2018mock_togglePin_callCount\u2019 with type \u2018int\u2019\n   97 | extern int mock_togglePin_callCount;\n      |            ^~~~~~~~~~~~~~~~~~~~~~~~\n",
+  "stderr": "In file included from /tmp/tdd_build_nutw005d/src/egtm_atom_3_phase_inverter_pwm.c:18:\n/tmp/tdd_build_nutw005d/include/IfxEgtm_Pwm.h:165:5: error: redeclaration of enumerator \u2018IfxEgtm_Cluster_0\u2019\n  165 |     IfxEgtm_Cluster_0 = 0,\n      |     ^~~~~~~~~~~~~~~~~\nIn file included from /tmp/tdd_build_nutw005d/include/IfxEgtm_Pwm.h:4:\n/tmp/tdd_build_nutw005d/include/IfxEgtm.h:16:16: note: previous definition of \u2018IfxEgtm_Cluster_0\u2019 with type \u2018enum <anonymous>\u2019\n   16 | typedef enum { IfxEgtm_Cluster_0 = 0, IfxEgtm_Cluster_1 = 1, IfxEgtm_Cluster_2 = 2 } IfxEgtm_Cluster;\n      |                ^~~~~~~~~~~~~~~~~\n/tmp/tdd_build_nutw005d/include/IfxEgtm_Pwm.h:166:5: error: redeclaration of enumerator \u2018IfxEgtm_Cluster_1\u2019\n  166 |     IfxEgtm_Cluster_1 = 1,\n      |     ^~~~~~~~~~~~~~~~~\n/tmp/tdd_build_nutw005d/include/IfxEgtm.h:16:39: note: previous definition of \u2018IfxEgtm_Cluster_1\u2019 with type \u2018enum <anonymous>\u2019\n   16 | typedef enum { IfxEgtm_Cluster_0 = 0, IfxEgtm_Cluster_1 = 1, IfxEgtm_Cluster_2 = 2 } IfxEgtm_Cluster;\n      |                                       ^~~~~~~~~~~~~~~~~\n/tmp/tdd_build_nutw005d/include/IfxEgtm_Pwm.h:167:5: error: redeclaration of enumerator \u2018IfxEgtm_Cluster_2\u2019\n  167 |     IfxEgtm_Cluster_2 = 2\n      |     ^~~~~~~~~~~~~~~~~\n/tmp/tdd_build_nutw005d/include/IfxEgtm.h:16:62: note: previous definition of \u2018IfxEgtm_Cluster_2\u2019 with type \u2018enum <anonymous>\u2019\n   16 | typedef enum { IfxEgtm_Cluster_0 = 0, IfxEgtm_Cluster_1 = 1, IfxEgtm_Cluster_2 = 2 } IfxEgtm_Cluster;\n      |                                                              ^~~~~~~~~~~~~~~~~\n/tmp/tdd_build_nutw005d/include/IfxEgtm_Pwm.h:168:3: error: conflicting types for \u2018IfxEgtm_Cluster\u2019; have \u2018enum <anonymous>\u2019\n  168 | } IfxEgtm_Cluster;\n      |   ^~~~~~~~~~~~~~~\n/tmp/tdd_build_nutw005d/include/IfxEgtm.h:16:86: note: previous declaration of \u2018IfxEgtm_Cluster\u2019 with type \u2018IfxEgtm_Cluster\u2019\n   16 | typedef enum { IfxEgtm_Cluster_0 = 0, IfxEgtm_Cluster_1 = 1, IfxEgtm_Cluster_2 = 2 } IfxEgtm_Cluster;\n      |                                                                                      ^~~~~~~~~~~~~~~\n/tmp/tdd_build_nutw005d/src/egtm_atom_3_phase_inverter_pwm.c:23:10: fatal error: IfxAdc_Tmadc.h: No such file or directory\n   23 | #include \"IfxAdc_Tmadc.h\"    /* For Ifx_ADC_TMADC / IfxAdc_TmadcResultReg types                 */\n      |          ^~~~~~~~~~~~~~~~\ncompilation terminated.\n\nIn file included from /tmp/tdd_build_nutw005d/mocks/mock_egtm_atom_3_phase_inverter_pwm.c:5:\n/tmp/tdd_build_nutw005d/include/IfxEgtm_Pwm.h:165:5: error: redeclaration of enumerator \u2018IfxEgtm_Cluster_0\u2019\n  165 |     IfxEgtm_Cluster_0 = 0,\n      |     ^~~~~~~~~~~~~~~~~\nIn file included from /tmp/tdd_build_nutw005d/mocks/mock_egtm_atom_3_phase_inverter_pwm.c:3:\n/tmp/tdd_build_nutw005d/include/IfxEgtm.h:16:16: note: previous definition of \u2018IfxEgtm_Cluster_0\u2019 with type \u2018enum <anonymous>\u2019\n   16 | typedef enum { IfxEgtm_Cluster_0 = 0, IfxEgtm_Cluster_1 = 1, IfxEgtm_Cluster_2 = 2 } IfxEgtm_Cluster;\n      |                ^~~~~~~~~~~~~~~~~\n/tmp/tdd_build_nutw005d/include/IfxEgtm_Pwm.h:166:5: error: redeclaration of enumerator \u2018IfxEgtm_Cluster_1\u2019\n  166 |     IfxEgtm_Cluster_1 = 1,\n      |     ^~~~~~~~~~~~~~~~~\n/tmp/tdd_build_nutw005d/include/IfxEgtm.h:16:39: note: previous definition of \u2018IfxEgtm_Cluster_1\u2019 with type \u2018enum <anonymous>\u2019\n   16 | typedef enum { IfxEgtm_Cluster_0 = 0, IfxEgtm_Cluster_1 = 1, IfxEgtm_Cluster_2 = 2 } IfxEgtm_Cluster;\n      |                                       ^~~~~~~~~~~~~~~~~\n/tmp/tdd_build_nutw005d/include/IfxEgtm_Pwm.h:167:5: error: redeclaration of enumerator \u2018IfxEgtm_Cluster_2\u2019\n  167 |     IfxEgtm_Cluster_2 = 2\n      |     ^~~~~~~~~~~~~~~~~\n/tmp/tdd_build_nutw005d/include/IfxEgtm.h:16:62: note: previous definition of \u2018IfxEgtm_Cluster_2\u2019 with type \u2018enum <anonymous>\u2019\n   16 | typedef enum { IfxEgtm_Cluster_0 = 0, IfxEgtm_Cluster_1 = 1, IfxEgtm_Cluster_2 = 2 } IfxEgtm_Cluster;\n      |                                                              ^~~~~~~~~~~~~~~~~\n/tmp/tdd_build_nutw005d/include/IfxEgtm_Pwm.h:168:3: error: conflicting types for \u2018IfxEgtm_Cluster\u2019; have \u2018enum <anonymous>\u2019\n  168 | } IfxEgtm_Cluster;\n      |   ^~~~~~~~~~~~~~~\n/tmp/tdd_build_nutw005d/include/IfxEgtm.h:16:86: note: previous declaration of \u2018IfxEgtm_Cluster\u2019 with type \u2018IfxEgtm_Cluster\u2019\n   16 | typedef enum { IfxEgtm_Cluster_0 = 0, IfxEgtm_Cluster_1 = 1, IfxEgtm_Cluster_2 = 2 } IfxEgtm_Cluster;\n      |                                                                                      ^~~~~~~~~~~~~~~\n\n/tmp/tdd_build_nutw005d/test/test_egtm_atom_3_phase_inverter_pwm.c:23:16: error: conflicting types for \u2018mock_IfxEgtm_Pwm_init_callCount\u2019; have \u2018uint32\u2019 {aka \u2018unsigned int\u2019}\n   23 | extern uint32  mock_IfxEgtm_Pwm_init_callCount;\n      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nIn file included from /tmp/tdd_build_nutw005d/test/test_egtm_atom_3_phase_inverter_pwm.c:2:\n/tmp/tdd_build_nutw005d/include/mock_egtm_atom_3_phase_inverter_pwm.h:74:17: note: previous declaration of \u2018mock_IfxEgtm_Pwm_init_callCount\u2019 with type \u2018int\u2019\n   74 | extern int      mock_IfxEgtm_Pwm_init_callCount;\n      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n/tmp/tdd_build_nutw005d/test/test_egtm_atom_3_phase_inverter_pwm.c:24:16: error: conflicting types for \u2018mock_IfxEgtm_Trigger_trigToAdc_callCount\u2019; have \u2018uint32\u2019 {aka \u2018unsigned int\u2019}\n   24 | extern uint32  mock_IfxEgtm_Trigger_trigToAdc_callCount;\n      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n/tmp/tdd_build_nutw005d/include/mock_egtm_atom_3_phase_inverter_pwm.h:114:17: note: previous declaration of \u2018mock_IfxEgtm_Trigger_trigToAdc_callCount\u2019 with type \u2018int\u2019\n  114 | extern int      mock_IfxEgtm_Trigger_trigToAdc_callCount;\n      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n",
   "stdout": ""
 }
