@@ -1,8 +1,9 @@
 {
-  "type": "llm_response",
-  "phase": "test",
   "attempt": 2,
   "phase_attempt": 1,
-  "response_length": 19081,
-  "timestamp": "2026-04-02T08:31:28.805798"
+  "phase": "test_generation",
+  "success": true,
+  "errors": [],
+  "timestamp": "2026-04-02T08:31:32.142073",
+  "project_name": "Migrate_TC387_GTM_TOM_EVADC_3-phase_inverter_PWM_r_20260402_082553"
 }

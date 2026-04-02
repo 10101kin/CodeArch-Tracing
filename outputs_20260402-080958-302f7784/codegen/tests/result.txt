@@ -1,3 +1,12 @@
 Status: SUCCESS
 
-LLM response for test phase (attempt 2), 19081 chars
+============================================================
+TDD CODE GENERATION - ATTEMPT STATUS
+============================================================
+Phase: test_generation
+Attempt: 2
+Status: SUCCESS
+Timestamp: 2026-04-02 08:31:32
+Files generated: 1
+
+============================================================
