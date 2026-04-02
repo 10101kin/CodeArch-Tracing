@@ -1,8 +1,13 @@
 {
-  "type": "llm_response",
-  "phase": "production",
   "attempt": 5,
   "phase_attempt": 2,
-  "response_length": 13767,
-  "timestamp": "2026-04-02T13:09:12.521341"
+  "phase": "production",
+  "success": false,
+  "errors": [
+    "unknown type name \u2018IfxAdc_TmadcCh_In\u2019; did you mean \u2018IfxAdc_TmadcChannel\u2019?",
+    "/tmp/tdd_build_jmkvt1gz/src/egtm_atom_adc_tmadc_multiple_channels.c:16:10: fatal error: IfxPort_PinMap.h: No such file or directory",
+    "unknown type name \u2018IfxAdc_TmadcCh_In\u2019; did you mean \u2018IfxAdc_TmadcChannel\u2019?"
+  ],
+  "timestamp": "2026-04-02T13:09:16.087262",
+  "project_name": "Generate_TC4D7_code_that_migrates_a_3-phase_invert_r_20260402_125346"
 }

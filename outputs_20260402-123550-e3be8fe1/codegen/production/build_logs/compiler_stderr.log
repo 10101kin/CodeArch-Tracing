@@ -1,4 +1,15 @@
-/tmp/tdd_build_cber95vq/src/egtm_atom_adc_tmadc_multiple_channels.c:19:10: fatal error: IfxCpu.h: No such file or directory
-   19 | #include "IfxCpu.h"
-      |          ^~~~~~~~~~
+In file included from /tmp/tdd_build_jmkvt1gz/src/egtm_atom_adc_tmadc_multiple_channels.c:14:
+/tmp/tdd_build_jmkvt1gz/include/IfxAdc_Tmadc.h:151:15: error: unknown type name ‘IfxAdc_TmadcCh_In’; did you mean ‘IfxAdc_TmadcChannel’?
+  151 |     IFX_CONST IfxAdc_TmadcCh_In *tmadcInPin; /* forward-decl type placeholder */
+      |               ^~~~~~~~~~~~~~~~~
+      |               IfxAdc_TmadcChannel
+/tmp/tdd_build_jmkvt1gz/src/egtm_atom_adc_tmadc_multiple_channels.c:16:10: fatal error: IfxPort_PinMap.h: No such file or directory
+   16 | #include "IfxPort_PinMap.h"
+      |          ^~~~~~~~~~~~~~~~~~
 compilation terminated.
+
+In file included from /tmp/tdd_build_jmkvt1gz/mocks/mock_egtm_atom_adc_tmadc_multiple_channels.c:8:
+/tmp/tdd_build_jmkvt1gz/include/IfxAdc_Tmadc.h:151:15: error: unknown type name ‘IfxAdc_TmadcCh_In’; did you mean ‘IfxAdc_TmadcChannel’?
+  151 |     IFX_CONST IfxAdc_TmadcCh_In *tmadcInPin; /* forward-decl type placeholder */
+      |               ^~~~~~~~~~~~~~~~~
+      |               IfxAdc_TmadcChannel
