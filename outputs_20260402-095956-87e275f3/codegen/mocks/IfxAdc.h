@@ -1,15 +1,10 @@
-/* Mock IfxAdc.h */
 #ifndef IFXADC_H
 #define IFXADC_H
-
 #include "mock_egtm_atom_3_phase_inverter_pwm.h"
 
-/* Minimal SFR type used by prototypes */
-typedef struct { uint32 reserved; } Ifx_ADC_TMADC;
+/* Minimal types required by used APIs */
 
-/* Enum used by prototypes (16 values) */
-typedef enum
-{
+typedef enum {
     IfxAdc_TmadcResultReg_0 = 0,
     IfxAdc_TmadcResultReg_1,
     IfxAdc_TmadcResultReg_2,
@@ -28,7 +23,7 @@ typedef enum
     IfxAdc_TmadcResultReg_15
 } IfxAdc_TmadcResultReg;
 
-/* Functions from DRIVERS TO MOCK */
+/* Function declarations used by production */
 boolean IfxAdc_isTmadcResultAvailable(Ifx_ADC_TMADC *tmadc, IfxAdc_TmadcResultReg resultRegNum);
 void    IfxAdc_clearTmadcResultFlag(Ifx_ADC_TMADC *tmadc, IfxAdc_TmadcResultReg resultRegNum);
 
