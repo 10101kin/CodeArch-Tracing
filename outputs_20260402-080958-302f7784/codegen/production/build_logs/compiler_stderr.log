@@ -1,0 +1,49 @@
+In file included from /tmp/tdd_build_8tiz0b9l/src/egtmatompwm.c:12:
+/tmp/tdd_build_8tiz0b9l/include/IfxEgtm_Pwm.h:167:5: error: unknown type name ‘IfxEgtm_Pwm_InterruptConfig’; did you mean ‘IfxEgtm_Pwm_OutputConfig’?
+  167 |     IfxEgtm_Pwm_InterruptConfig *interrupt;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxEgtm_Pwm_OutputConfig
+/tmp/tdd_build_8tiz0b9l/src/egtmatompwm.c: In function ‘interruptEgtmAtom’:
+/tmp/tdd_build_8tiz0b9l/src/egtmatompwm.c:29:42: error: ‘MODULE_P03’ undeclared (first use in this function); did you mean ‘MODULE_P33’?
+   29 | #define LED                            (&MODULE_P03), 9
+      |                                          ^~~~~~~~~~
+/tmp/tdd_build_8tiz0b9l/src/egtmatompwm.c:75:23: note: in expansion of macro ‘LED’
+   75 |     IfxPort_togglePin(LED);
+      |                       ^~~
+/tmp/tdd_build_8tiz0b9l/src/egtmatompwm.c:29:42: note: each undeclared identifier is reported only once for each function it appears in
+   29 | #define LED                            (&MODULE_P03), 9
+      |                                          ^~~~~~~~~~
+/tmp/tdd_build_8tiz0b9l/src/egtmatompwm.c:75:23: note: in expansion of macro ‘LED’
+   75 |     IfxPort_togglePin(LED);
+      |                       ^~~
+/tmp/tdd_build_8tiz0b9l/src/egtmatompwm.c: In function ‘resultISR’:
+/tmp/tdd_build_8tiz0b9l/src/egtmatompwm.c:29:42: error: ‘MODULE_P03’ undeclared (first use in this function); did you mean ‘MODULE_P33’?
+   29 | #define LED                            (&MODULE_P03), 9
+      |                                          ^~~~~~~~~~
+/tmp/tdd_build_8tiz0b9l/src/egtmatompwm.c:81:23: note: in expansion of macro ‘LED’
+   81 |     IfxPort_togglePin(LED);
+      |                       ^~~
+/tmp/tdd_build_8tiz0b9l/src/egtmatompwm.c: In function ‘initEgtmAtom3phInv’:
+/tmp/tdd_build_8tiz0b9l/src/egtmatompwm.c:112:40: error: ‘Ifx_ActiveState_high’ undeclared (first use in this function); did you mean ‘Ifx_ActiveState’?
+  112 |     output[0].polarity               = Ifx_ActiveState_high;
+      |                                        ^~~~~~~~~~~~~~~~~~~~
+      |                                        Ifx_ActiveState
+/tmp/tdd_build_8tiz0b9l/src/egtmatompwm.c:113:40: error: ‘Ifx_ActiveState_low’ undeclared (first use in this function); did you mean ‘Ifx_ActiveState’?
+  113 |     output[0].complementaryPolarity  = Ifx_ActiveState_low;
+      |                                        ^~~~~~~~~~~~~~~~~~~
+      |                                        Ifx_ActiveState
+/tmp/tdd_build_8tiz0b9l/src/egtmatompwm.c:159:33: error: assignment to ‘int *’ from incompatible pointer type ‘IfxEgtm_Pwm_InterruptConfig *’ [-Wincompatible-pointer-types]
+  159 |     channelConfig[0].interrupt  = &interruptConfig; /* base channel gets interrupt */
+      |                                 ^
+/tmp/tdd_build_8tiz0b9l/src/egtmatompwm.c:29:42: error: ‘MODULE_P03’ undeclared (first use in this function); did you mean ‘MODULE_P33’?
+   29 | #define LED                            (&MODULE_P03), 9
+      |                                          ^~~~~~~~~~
+/tmp/tdd_build_8tiz0b9l/src/egtmatompwm.c:276:30: note: in expansion of macro ‘LED’
+  276 |     IfxPort_setPinModeOutput(LED, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
+      |                              ^~~
+
+In file included from /tmp/tdd_build_8tiz0b9l/mocks/mock_egtmatompwm.c:4:
+/tmp/tdd_build_8tiz0b9l/include/IfxEgtm_Pwm.h:167:5: error: unknown type name ‘IfxEgtm_Pwm_InterruptConfig’; did you mean ‘IfxEgtm_Pwm_OutputConfig’?
+  167 |     IfxEgtm_Pwm_InterruptConfig *interrupt;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     IfxEgtm_Pwm_OutputConfig
