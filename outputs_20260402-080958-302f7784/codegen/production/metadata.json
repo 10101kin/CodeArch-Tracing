@@ -1,18 +1,8 @@
 {
-  "attempt": 3,
-  "phase_attempt": 1,
+  "type": "llm_response",
   "phase": "production",
-  "success": false,
-  "errors": [
-    "unknown type name \u2018IfxEgtm_Pwm_InterruptConfig\u2019; did you mean \u2018IfxEgtm_Pwm_OutputConfig\u2019?",
-    "\u2018MODULE_P03\u2019 undeclared (first use in this function); did you mean \u2018MODULE_P33\u2019?",
-    "\u2018MODULE_P03\u2019 undeclared (first use in this function); did you mean \u2018MODULE_P33\u2019?",
-    "\u2018Ifx_ActiveState_high\u2019 undeclared (first use in this function); did you mean \u2018Ifx_ActiveState\u2019?",
-    "\u2018Ifx_ActiveState_low\u2019 undeclared (first use in this function); did you mean \u2018Ifx_ActiveState\u2019?",
-    "assignment to \u2018int *\u2019 from incompatible pointer type \u2018IfxEgtm_Pwm_InterruptConfig *\u2019 [-Wincompatible-pointer-types]",
-    "\u2018MODULE_P03\u2019 undeclared (first use in this function); did you mean \u2018MODULE_P33\u2019?",
-    "unknown type name \u2018IfxEgtm_Pwm_InterruptConfig\u2019; did you mean \u2018IfxEgtm_Pwm_OutputConfig\u2019?"
-  ],
-  "timestamp": "2026-04-02T08:34:32.185469",
-  "project_name": "Migrate_TC387_GTM_TOM_EVADC_3-phase_inverter_PWM_r_20260402_082553"
+  "attempt": 5,
+  "phase_attempt": 2,
+  "response_length": 14525,
+  "timestamp": "2026-04-02T08:41:39.099121"
 }
