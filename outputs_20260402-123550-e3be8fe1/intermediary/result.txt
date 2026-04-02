@@ -1,11 +1,11 @@
 Status: SUCCESS
 
 Unified spec export
-Stage: sw_architecture
+Stage: sw_detailed
 Reason: stage_completed
 Modified By: system
 Modifier: N/A
 Reviewer: N/A
-Attempt: 3
+Attempt: 4
 Phase attempt: 1
-Timestamp: 2026-04-02T12:50:17.760298
+Timestamp: 2026-04-02T12:52:50.055886

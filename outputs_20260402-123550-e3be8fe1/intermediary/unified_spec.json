@@ -1,12 +1,13 @@
 {
   "meta": {
     "schema_version": "1.0",
-    "last_updated_by": "sw_architecture",
-    "last_updated_at": "2026-04-02T12:50:17.758965",
+    "last_updated_by": "sw_detailed",
+    "last_updated_at": "2026-04-02T12:52:50.054618",
     "build_sequence": [
       "requirements",
       "hardware",
-      "sw_architecture"
+      "sw_architecture",
+      "sw_detailed"
     ],
     "corrections_log": []
   },
@@ -704,6 +705,170 @@
     },
     "driver_knowledge_base": {
       "applied": false
+    },
+    "migration_numerical_values": {
+      "NUM_OF_CHANNELS": {
+        "value": 3.0,
+        "unit": "",
+        "label": "Number of channels"
+      },
+      "NUM_OF_ADC_TRIG_CHANNELS": {
+        "value": 1.0,
+        "unit": "",
+        "label": "Number of channels"
+      },
+      "PHASE_U_DUTY": {
+        "value": 25.0,
+        "unit": "%",
+        "label": "Phase U initial duty cycle"
+      },
+      "PHASE_V_DUTY": {
+        "value": 50.0,
+        "unit": "%",
+        "label": "Phase V initial duty cycle"
+      },
+      "PHASE_W_DUTY": {
+        "value": 75.0,
+        "unit": "%",
+        "label": "Phase W initial duty cycle"
+      },
+      "PHASE_DUTY_STEP": {
+        "value": 0.01,
+        "unit": "%",
+        "label": "Duty cycle step increment"
+      },
+      "ADC_TRIG_DUTY": {
+        "value": 50.0,
+        "unit": "%",
+        "label": "Duty cycle"
+      },
+      "PWM_FREQUENCY": {
+        "value": 20000.0,
+        "unit": "Hz",
+        "label": "PWM switching frequency"
+      },
+      "INTERRUPT_PRIORITY_EVADC_CUR": {
+        "value": 100.0,
+        "unit": "",
+        "label": "Interrupt priority"
+      },
+      ".priority": {
+        "value": 0.0,
+        "unit": "",
+        "label": "Interrupt priority"
+      },
+      "PHASECURSENSE_REFILL_TRIG": {
+        "value": 1.0,
+        "unit": "",
+        "label": "Phasecursense refill trig"
+      },
+      ".rising": {
+        "value": 1.0,
+        "unit": "",
+        "label": ".rising"
+      },
+      ".falling": {
+        "value": 1.0,
+        "unit": "",
+        "label": ".falling"
+      },
+      ".phase": {
+        "value": 0.0,
+        "unit": "",
+        "label": ".phase"
+      }
+    }
+  },
+  "sw_detailed": {
+    "module_name": "EGTM_ATOM_ADC_TMADC_Multiple_Channels",
+    "public_functions": [
+      {
+        "signature": "void initEgtmAtom3phInv(void)",
+        "behavior_description": "Initialize a 3‑phase center‑aligned complementary PWM on EGTM Cluster 0 ATOM0 with three logical channels and a synchronized ADC trigger, then bring TMADC online and configure a debug GPIO. Implementation steps and ordering: 1) Declare all configuration structs as locals: IfxEgtm_Pwm_Config config; IfxEgtm_Pwm_ChannelConfig channelConfig[3]; IfxEgtm_Pwm_OutputConfig output[3]; IfxEgtm_Pwm_DtmConfig dtmConfig[3]; IfxEgtm_Pwm_InterruptConfig interruptConfig. 2) Initialize the main PWM config with defaults using the module handle and then populate per-channel arrays directly (do not call a separate channel init function). Set: subModule=ATOM, cluster=Cluster_0, alignment=center, numChannels=3, channels=&channelConfig[0], syncStart=TRUE, frequency=20 kHz, atom clock source = the first CMU FXCLK enum for ATOM, dtmClockSource for dead-time. 3) Configure output[] for three logical channels with complementary pairing (each logical channel drives one top output and one complementary bottom output). Set each output’s polarity and complementaryPolarity appropriately, and assign push‑pull outputMode and an automotive pad driver. 4) Configure dtmConfig[] with a 1 µs rising and 1 µs falling dead‑time (seconds in the struct), and attach dtmConfig[i] to channelConfig[i]. 5) Configure interruptConfig for a base‑channel period event using the driver’s interrupt pattern: mode=pulseNotify, isrProvider=IfxSrc_Tos_cpu0, priority=25, vmId=IfxSrc_VmId_0, periodEvent=IfxEgtm_periodEventFunction, dutyEvent=NULL_PTR. Assign channelConfig[0].interrupt = &interruptConfig and channelConfig[1].interrupt = channelConfig[2].interrupt = NULL_PTR. 6) Fill channelConfig[i] for i=0..2 using logical timer channel indices SubModule_Ch_0, SubModule_Ch_1, SubModule_Ch_2 with initial duty in percent set to 25, 50, and 75 respectively, and phase=0 for center‑aligned mode. 7) Inside an enable guard: if the EGTM is not enabled, enable it, fetch the module frequency dynamically, set the EGTM GCLK divider to 1:1 to match the module frequency, set ECLK0 divider to 1:1, and enable the required EGTM clocks (GCLK and CLK0) in one mask operation. 8) Call the unified PWM init once (this applies the configured duties, alignment, outputs, and dead‑time, and internally wires the interrupt via the provided InterruptConfig). 9) Store the initial duty cycle values and dead‑time parameters from channelConfig[]/dtmConfig[] into the module’s persistent state arrays alongside the PWM handle and its persistent channels array. 10) Configure the EGTM→ADC trigger route using the provided trigger API so that the chosen ATOM channel drives the TMADC trigger signal (mode and edge per requirements). 11) Initialize and start TMADC: init the module config and module, build and init per‑channel configs for the required TMADC channels, enable the channel event for result notification, and run the TMADC module. 12) Configure the debug GPIO as output push‑pull; the ISR will only toggle this pin. Note: No STM or delay logic here; no manual SRC setup for the PWM — the PWM driver’s InterruptConfig handles it internally.",
+        "driver_calls": [
+          "IfxEgtm_Pwm_initConfig",
+          "IfxEgtm_isEnabled",
+          "IfxEgtm_enable",
+          "IfxEgtm_Cmu_getModuleFrequency",
+          "IfxEgtm_Cmu_setGclkDivider",
+          "IfxEgtm_Cmu_setEclkDivider",
+          "IfxEgtm_Cmu_enableClocks",
+          "IfxEgtm_Pwm_init",
+          "IfxEgtm_Trigger_trigToAdc",
+          "IfxAdc_Tmadc_initModuleConfig",
+          "IfxAdc_Tmadc_initModule",
+          "IfxAdc_Tmadc_initChannelConfig",
+          "IfxAdc_Tmadc_initChannel",
+          "IfxAdc_Tmadc_enableChannelEvent",
+          "IfxAdc_Tmadc_runModule",
+          "IfxPort_setPinModeOutput"
+        ],
+        "from_reference": true,
+        "call_context": "init"
+      },
+      {
+        "signature": "void updateEgtmAtom3phInvDuty(float32 *requestDuty)",
+        "behavior_description": "Synchronous immediate duty update for the three logical PWM channels. Copy requestDuty[0..2] in percent directly into the module state’s dutyCycles[0..2] (no scaling or normalization), then call the unified driver’s multi‑channel immediate update API once to apply all three duties atomically.",
+        "driver_calls": [
+          "IfxEgtm_Pwm_updateChannelsDutyImmediate"
+        ],
+        "from_reference": true,
+        "call_context": "loop"
+      },
+      {
+        "signature": "void updateEgtmAtomDuty(void)",
+        "behavior_description": "Incrementally adjust the three stored duty cycle values and apply them synchronously. For each logical channel i in 0..2: add the configured step (e.g., 0.01) to dutyCycles[i]; if dutyCycles[i] exceeds 100.0, wrap it to 0.0; if it is negative, clamp to 0.0. After updating all three elements, call the multi‑channel immediate PWM update API once, passing the dutyCycles array in percent to apply the changes atomically.",
+        "driver_calls": [
+          "IfxEgtm_Pwm_updateChannelsDutyImmediate"
+        ],
+        "from_reference": false,
+        "call_context": "loop"
+      },
+      {
+        "signature": "void resultISR(void)",
+        "behavior_description": "ADC result interrupt service routine. Keep processing minimal: toggle the configured debug GPIO and return. Do not read TMADC results here and do not call any PWM or STM functions; longer processing should be deferred to the main context if needed.",
+        "driver_calls": [
+          "IfxPort_togglePin"
+        ],
+        "from_reference": true,
+        "call_context": "none"
+      },
+      {
+        "signature": "void IfxEgtm_periodEventFunction(void *data)",
+        "behavior_description": "Empty EGTM period event callback required by the unified PWM driver’s InterruptConfig. This function must exist with the exact void * parameter type but should not perform any work; the hardware ISR toggling is handled separately in resultISR.",
+        "driver_calls": [],
+        "from_reference": false,
+        "call_context": "none"
+      }
+    ],
+    "private_functions": [],
+    "dependencies": {
+      "includes": [
+        "Ifx_Types.h",
+        "IfxCpu.h",
+        "IfxEgtm_Pwm.h",
+        "IfxEgtm_Trigger.h",
+        "IfxAdc_Tmadc.h",
+        "IfxPort.h",
+        "IfxPort_PinMap.h"
+      ]
+    },
+    "cpu_main_requirements": {
+      "needs_cpu_sync": false,
+      "uses_timer_delay": true,
+      "delay_ms": 500,
+      "additional_includes": [
+        "Bsp.h"
+      ]
+    },
+    "header_selection": {
+      "applied": true,
+      "peripheral_type": "PWM",
+      "recommended_header": "IfxEgtm_Pwm",
+      "template_functions_count": 1461,
+      "required_includes": [
+        "IfxEgtm_Pwm.h"
+      ]
     },
     "migration_numerical_values": {
       "NUM_OF_CHANNELS": {
