@@ -1,31 +1,9 @@
-In file included from /tmp/tdd_build_vkpk9lkf/src/egtm_atom_adc_tmadc_multiple_channels.c:15:
-/tmp/tdd_build_vkpk9lkf/include/egtm_atom_adc_tmadc_multiple_channels.h:15:31: error: unknown type name ‘float32’; did you mean ‘_Float32’?
+In file included from /tmp/tdd_build_7gl10lje/src/egtm_atom_adc_tmadc_multiple_channels.c:13:
+/tmp/tdd_build_7gl10lje/include/egtm_atom_adc_tmadc_multiple_channels.h:15:31: error: unknown type name ‘float32’; did you mean ‘_Float32’?
    15 | void updateEgtmAtom3phInvDuty(float32 *requestDuty);
       |                               ^~~~~~~
       |                               _Float32
-/tmp/tdd_build_vkpk9lkf/src/egtm_atom_adc_tmadc_multiple_channels.c:68:5: error: unknown type name ‘IfxEgtm_Pwm_DeadTime’; did you mean ‘IfxEgtm_Pwm_State’?
-   68 |     IfxEgtm_Pwm_DeadTime    deadTimes[EGTM_NUM_CHANNELS];           /* per-channel dead-times (s) */
-      |     ^~~~~~~~~~~~~~~~~~~~
-      |     IfxEgtm_Pwm_State
-/tmp/tdd_build_vkpk9lkf/src/egtm_atom_adc_tmadc_multiple_channels.c: In function ‘initEgtmAtom3phInv’:
-/tmp/tdd_build_vkpk9lkf/src/egtm_atom_adc_tmadc_multiple_channels.c:50:24: error: ‘IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT’ undeclared (first use in this function)
-   50 | #define PHASE_U_LS   (&IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT) /* Validated: complementary (N) output at P20.9 */
-      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-/tmp/tdd_build_vkpk9lkf/src/egtm_atom_adc_tmadc_multiple_channels.c:101:63: note: in expansion of macro ‘PHASE_U_LS’
-  101 |     output[0].complementaryPin       = (IfxEgtm_Pwm_ToutMap *)PHASE_U_LS;
-      |                                                               ^~~~~~~~~~
-/tmp/tdd_build_vkpk9lkf/src/egtm_atom_adc_tmadc_multiple_channels.c:50:24: note: each undeclared identifier is reported only once for each function it appears in
-   50 | #define PHASE_U_LS   (&IfxEgtm_ATOM0_0N_TOUT65_P20_9_OUT) /* Validated: complementary (N) output at P20.9 */
-      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-/tmp/tdd_build_vkpk9lkf/src/egtm_atom_adc_tmadc_multiple_channels.c:101:63: note: in expansion of macro ‘PHASE_U_LS’
-  101 |     output[0].complementaryPin       = (IfxEgtm_Pwm_ToutMap *)PHASE_U_LS;
-      |                                                               ^~~~~~~~~~
-/tmp/tdd_build_vkpk9lkf/src/egtm_atom_adc_tmadc_multiple_channels.c:200:35: error: incompatible types when assigning to type ‘int’ from type ‘struct IfxEgtm_Pwm_DeadTimeTag’
-  200 |     g_egtmAtom3ph.deadTimes[0]  = dtmConfig[0].deadTime;
-      |                                   ^~~~~~~~~
-/tmp/tdd_build_vkpk9lkf/src/egtm_atom_adc_tmadc_multiple_channels.c:201:35: error: incompatible types when assigning to type ‘int’ from type ‘struct IfxEgtm_Pwm_DeadTimeTag’
-  201 |     g_egtmAtom3ph.deadTimes[1]  = dtmConfig[1].deadTime;
-      |                                   ^~~~~~~~~
-/tmp/tdd_build_vkpk9lkf/src/egtm_atom_adc_tmadc_multiple_channels.c:202:35: error: incompatible types when assigning to type ‘int’ from type ‘struct IfxEgtm_Pwm_DeadTimeTag’
-  202 |     g_egtmAtom3ph.deadTimes[2]  = dtmConfig[2].deadTime;
-      |                                   ^~~~~~~~~
+/tmp/tdd_build_7gl10lje/src/egtm_atom_adc_tmadc_multiple_channels.c:16:10: fatal error: IfxCpu.h: No such file or directory
+   16 | #include "IfxCpu.h"
+      |          ^~~~~~~~~~
+compilation terminated.

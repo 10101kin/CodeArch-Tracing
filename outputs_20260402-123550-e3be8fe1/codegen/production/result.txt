@@ -1,3 +1,40 @@
-Status: SUCCESS
+Status: FAILED
 
-LLM response for production phase (attempt 8), 13680 chars
+============================================================
+TDD CODE GENERATION - ATTEMPT STATUS
+============================================================
+Phase: production
+Attempt: 8
+Status: FAILED
+Timestamp: 2026-04-02 13:19:45
+Files generated: 2
+
+============================================================
+
+ERRORS:
+
+1. unknown type name ‘float32’; did you mean ‘_Float32’?
+
+2. /tmp/tdd_build_7gl10lje/src/egtm_atom_adc_tmadc_multiple_channels.c:16:10: fatal error: IfxCpu.h: No such file or directory
+
+============================================================
+BUILD RESULT:
+{
+  "success": false,
+  "errors": [
+    {
+      "file": "/tmp/tdd_build_7gl10lje/include/egtm_atom_adc_tmadc_multiple_channels.h",
+      "line": 15,
+      "category": "error",
+      "message": "unknown type name \u2018float32\u2019; did you mean \u2018_Float32\u2019?"
+    },
+    {
+      "file": "",
+      "message": "/tmp/tdd_build_7gl10lje/src/egtm_atom_adc_tmadc_multiple_channels.c:16:10: fatal error: IfxCpu.h: No such file or directory",
+      "category": "error"
+    }
+  ],
+  "warnings": [],
+  "stderr": "In file included from /tmp/tdd_build_7gl10lje/src/egtm_atom_adc_tmadc_multiple_channels.c:13:\n/tmp/tdd_build_7gl10lje/include/egtm_atom_adc_tmadc_multiple_channels.h:15:31: error: unknown type name \u2018float32\u2019; did you mean \u2018_Float32\u2019?\n   15 | void updateEgtmAtom3phInvDuty(float32 *requestDuty);\n      |                               ^~~~~~~\n      |                               _Float32\n/tmp/tdd_build_7gl10lje/src/egtm_atom_adc_tmadc_multiple_channels.c:16:10: fatal error: IfxCpu.h: No such file or directory\n   16 | #include \"IfxCpu.h\"\n      |          ^~~~~~~~~~\ncompilation terminated.\n",
+  "stdout": ""
+}
