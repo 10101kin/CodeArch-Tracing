@@ -1,9 +1,8 @@
 {
-  "attempt": 1,
-  "phase_attempt": 1,
-  "phase": "mock_generation",
-  "success": true,
-  "errors": [],
-  "timestamp": "2026-04-02T10:19:02.743510",
-  "project_name": "Create_EGTM_ATOM_TMADC_migration_code_for_KIT_A3_r_20260402_101456"
+  "type": "llm_response",
+  "phase": "mock",
+  "attempt": 4,
+  "phase_attempt": 2,
+  "response_length": 28871,
+  "timestamp": "2026-04-02T10:27:15.276123"
 }
