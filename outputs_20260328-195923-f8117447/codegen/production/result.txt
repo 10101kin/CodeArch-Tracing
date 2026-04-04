@@ -1,0 +1,33 @@
+Status: FAILED
+
+============================================================
+TDD CODE GENERATION - ATTEMPT STATUS
+============================================================
+Phase: production
+Attempt: 7
+Status: FAILED
+Timestamp: 2026-03-29 04:30:52
+Files generated: 2
+
+============================================================
+
+ERRORS:
+
+1. assignment to 'IfxGtm_Pwm_callBack' {aka 'void (*)(void)'} from incompatible pointer type 'void (*)(void *)' [-Wincompatible-pointer-types]
+
+============================================================
+BUILD RESULT:
+{
+  "success": false,
+  "errors": [
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_wlj4k0wg\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 166,
+      "category": "error",
+      "message": "assignment to 'IfxGtm_Pwm_callBack' {aka 'void (*)(void)'} from incompatible pointer type 'void (*)(void *)' [-Wincompatible-pointer-types]"
+    }
+  ],
+  "warnings": [],
+  "stderr": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_wlj4k0wg\\src\\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTom3phInv':\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_wlj4k0wg\\src\\gtm_tom_3_phase_inverter_pwm.c:166:33: error: assignment to 'IfxGtm_Pwm_callBack' {aka 'void (*)(void)'} from incompatible pointer type 'void (*)(void *)' [-Wincompatible-pointer-types]\n  166 |     interruptConfig.periodEvent = IfxGtm_periodEventFunction;\n      |                                 ^\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_wlj4k0wg\\src\\gtm_tom_3_phase_inverter_pwm.c:95:6: note: 'IfxGtm_periodEventFunction' declared here\n   95 | void IfxGtm_periodEventFunction(void *data)\n      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_wlj4k0wg\\src\\gtm_tom_3_phase_inverter_pwm.c:23:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_wlj4k0wg\\include/IfxGtm_Pwm.h:19:16: note: 'IfxGtm_Pwm_callBack' declared here\n   19 | typedef void (*IfxGtm_Pwm_callBack)(void);\n      |                ^~~~~~~~~~~~~~~~~~~\n",
+  "stdout": ""
+}

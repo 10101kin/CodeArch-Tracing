@@ -1,0 +1,11 @@
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wlj4k0wg\src\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTom3phInv':
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wlj4k0wg\src\gtm_tom_3_phase_inverter_pwm.c:166:33: error: assignment to 'IfxGtm_Pwm_callBack' {aka 'void (*)(void)'} from incompatible pointer type 'void (*)(void *)' [-Wincompatible-pointer-types]
+  166 |     interruptConfig.periodEvent = IfxGtm_periodEventFunction;
+      |                                 ^
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wlj4k0wg\src\gtm_tom_3_phase_inverter_pwm.c:95:6: note: 'IfxGtm_periodEventFunction' declared here
+   95 | void IfxGtm_periodEventFunction(void *data)
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wlj4k0wg\src\gtm_tom_3_phase_inverter_pwm.c:23:
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_wlj4k0wg\include/IfxGtm_Pwm.h:19:16: note: 'IfxGtm_Pwm_callBack' declared here
+   19 | typedef void (*IfxGtm_Pwm_callBack)(void);
+      |                ^~~~~~~~~~~~~~~~~~~
