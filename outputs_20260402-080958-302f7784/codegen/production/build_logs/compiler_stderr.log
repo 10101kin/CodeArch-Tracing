@@ -1,0 +1,95 @@
+In file included from /tmp/tdd_build_8w0rzqfq/include/Ifx_Types.h:3,
+                 from /tmp/tdd_build_8w0rzqfq/src/egtmatompwm.c:13:
+/tmp/tdd_build_8w0rzqfq/include/mock_egtmatompwm.h:270:21: error: conflicting types for ‘MODULE_EGTM’; have ‘Ifx_EGTM_REG’
+  270 | extern Ifx_EGTM_REG MODULE_EGTM; /* already above */
+      |                     ^~~~~~~~~~~
+/tmp/tdd_build_8w0rzqfq/include/mock_egtmatompwm.h:124:17: note: previous declaration of ‘MODULE_EGTM’ with type ‘Ifx_EGTM’
+  124 | extern Ifx_EGTM MODULE_EGTM;
+      |                 ^~~~~~~~~~~
+/tmp/tdd_build_8w0rzqfq/src/egtmatompwm.c:17:10: fatal error: IfxPort_PinMap.h: No such file or directory
+   17 | #include "IfxPort_PinMap.h"
+      |          ^~~~~~~~~~~~~~~~~~
+compilation terminated.
+
+In file included from /tmp/tdd_build_8w0rzqfq/mocks/mock_egtmatompwm.c:1:
+/tmp/tdd_build_8w0rzqfq/include/mock_egtmatompwm.h:270:21: error: conflicting types for ‘MODULE_EGTM’; have ‘Ifx_EGTM_REG’
+  270 | extern Ifx_EGTM_REG MODULE_EGTM; /* already above */
+      |                     ^~~~~~~~~~~
+/tmp/tdd_build_8w0rzqfq/include/mock_egtmatompwm.h:124:17: note: previous declaration of ‘MODULE_EGTM’ with type ‘Ifx_EGTM’
+  124 | extern Ifx_EGTM MODULE_EGTM;
+      |                 ^~~~~~~~~~~
+/tmp/tdd_build_8w0rzqfq/mocks/mock_egtmatompwm.c:192:14: error: conflicting types for ‘MODULE_EGTM’; have ‘Ifx_EGTM_REG’
+  192 | Ifx_EGTM_REG MODULE_EGTM = {0};
+      |              ^~~~~~~~~~~
+/tmp/tdd_build_8w0rzqfq/mocks/mock_egtmatompwm.c:47:10: note: previous definition of ‘MODULE_EGTM’ with type ‘Ifx_EGTM’
+   47 | Ifx_EGTM MODULE_EGTM = {0};
+      |          ^~~~~~~~~~~
+
+In file included from /tmp/tdd_build_8w0rzqfq/test/test_egtmatompwm.c:2:
+/tmp/tdd_build_8w0rzqfq/include/mock_egtmatompwm.h:270:21: error: conflicting types for ‘MODULE_EGTM’; have ‘Ifx_EGTM_REG’
+  270 | extern Ifx_EGTM_REG MODULE_EGTM; /* already above */
+      |                     ^~~~~~~~~~~
+/tmp/tdd_build_8w0rzqfq/include/mock_egtmatompwm.h:124:17: note: previous declaration of ‘MODULE_EGTM’ with type ‘Ifx_EGTM’
+  124 | extern Ifx_EGTM MODULE_EGTM;
+      |                 ^~~~~~~~~~~
+In file included from /infineon_POC_MVP/unity/unity.h:22,
+                 from /tmp/tdd_build_8w0rzqfq/test/test_egtmatompwm.c:1:
+/tmp/tdd_build_8w0rzqfq/test/test_egtmatompwm.c: In function ‘test_TC_G8_001_resultISR_toggles_led_once’:
+/tmp/tdd_build_8w0rzqfq/test/test_egtmatompwm.c:270:42: error: ‘mock_togglePin_callCount’ undeclared (first use in this function); did you mean ‘mock_IfxPort_togglePin_callCount’?
+  270 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(1u, mock_togglePin_callCount, "resultISR must toggle LED exactly once");
+      |                                          ^~~~~~~~~~~~~~~~~~~~~~~~
+/infineon_POC_MVP/unity/unity_internals.h:904:184: note: in definition of macro ‘UNITY_TEST_ASSERT_EQUAL_UINT32’
+  904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)
+      |                                                                                                                                                                                        ^~~~~~
+/tmp/tdd_build_8w0rzqfq/test/test_egtmatompwm.c:270:5: note: in expansion of macro ‘TEST_ASSERT_EQUAL_UINT32_MESSAGE’
+  270 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(1u, mock_togglePin_callCount, "resultISR must toggle LED exactly once");
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/tdd_build_8w0rzqfq/test/test_egtmatompwm.c:270:42: note: each undeclared identifier is reported only once for each function it appears in
+  270 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(1u, mock_togglePin_callCount, "resultISR must toggle LED exactly once");
+      |                                          ^~~~~~~~~~~~~~~~~~~~~~~~
+/infineon_POC_MVP/unity/unity_internals.h:904:184: note: in definition of macro ‘UNITY_TEST_ASSERT_EQUAL_UINT32’
+  904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)
+      |                                                                                                                                                                                        ^~~~~~
+/tmp/tdd_build_8w0rzqfq/test/test_egtmatompwm.c:270:5: note: in expansion of macro ‘TEST_ASSERT_EQUAL_UINT32_MESSAGE’
+  270 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(1u, mock_togglePin_callCount, "resultISR must toggle LED exactly once");
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/tdd_build_8w0rzqfq/test/test_egtmatompwm.c: In function ‘test_TC_G8_002_resultISR_multiple_calls_accumulate_toggle_count’:
+/tmp/tdd_build_8w0rzqfq/test/test_egtmatompwm.c:280:42: error: ‘mock_togglePin_callCount’ undeclared (first use in this function); did you mean ‘mock_IfxPort_togglePin_callCount’?
+  280 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(2u, mock_togglePin_callCount, "resultISR toggles LED on every invocation (2 times)");
+      |                                          ^~~~~~~~~~~~~~~~~~~~~~~~
+/infineon_POC_MVP/unity/unity_internals.h:904:184: note: in definition of macro ‘UNITY_TEST_ASSERT_EQUAL_UINT32’
+  904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)
+      |                                                                                                                                                                                        ^~~~~~
+/tmp/tdd_build_8w0rzqfq/test/test_egtmatompwm.c:280:5: note: in expansion of macro ‘TEST_ASSERT_EQUAL_UINT32_MESSAGE’
+  280 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(2u, mock_togglePin_callCount, "resultISR toggles LED on every invocation (2 times)");
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/tdd_build_8w0rzqfq/test/test_egtmatompwm.c: In function ‘test_TC_G10_001_resultISR_toggle_accumulates_across_calls’:
+/tmp/tdd_build_8w0rzqfq/test/test_egtmatompwm.c:316:42: error: ‘mock_togglePin_callCount’ undeclared (first use in this function); did you mean ‘mock_IfxPort_togglePin_callCount’?
+  316 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(3u, mock_togglePin_callCount, "LED toggle must accumulate across ISR calls (3 toggles)");
+      |                                          ^~~~~~~~~~~~~~~~~~~~~~~~
+/infineon_POC_MVP/unity/unity_internals.h:904:184: note: in definition of macro ‘UNITY_TEST_ASSERT_EQUAL_UINT32’
+  904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)
+      |                                                                                                                                                                                        ^~~~~~
+/tmp/tdd_build_8w0rzqfq/test/test_egtmatompwm.c:316:5: note: in expansion of macro ‘TEST_ASSERT_EQUAL_UINT32_MESSAGE’
+  316 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(3u, mock_togglePin_callCount, "LED toggle must accumulate across ISR calls (3 toggles)");
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/tdd_build_8w0rzqfq/test/test_egtmatompwm.c: In function ‘test_TC_G11_001_period_callback_has_no_side_effects_on_toggle’:
+/tmp/tdd_build_8w0rzqfq/test/test_egtmatompwm.c:337:42: error: ‘mock_togglePin_callCount’ undeclared (first use in this function); did you mean ‘mock_IfxPort_togglePin_callCount’?
+  337 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(0u, mock_togglePin_callCount, "Period callback must not toggle LED");
+      |                                          ^~~~~~~~~~~~~~~~~~~~~~~~
+/infineon_POC_MVP/unity/unity_internals.h:904:184: note: in definition of macro ‘UNITY_TEST_ASSERT_EQUAL_UINT32’
+  904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)
+      |                                                                                                                                                                                        ^~~~~~
+/tmp/tdd_build_8w0rzqfq/test/test_egtmatompwm.c:337:5: note: in expansion of macro ‘TEST_ASSERT_EQUAL_UINT32_MESSAGE’
+  337 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(0u, mock_togglePin_callCount, "Period callback must not toggle LED");
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/tdd_build_8w0rzqfq/test/test_egtmatompwm.c: In function ‘test_TC_G12_001_period_callback_multiple_calls_still_no_side_effects’:
+/tmp/tdd_build_8w0rzqfq/test/test_egtmatompwm.c:361:42: error: ‘mock_togglePin_callCount’ undeclared (first use in this function); did you mean ‘mock_IfxPort_togglePin_callCount’?
+  361 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(0u, mock_togglePin_callCount, "Period callback must have no side effects even after multiple calls");
+      |                                          ^~~~~~~~~~~~~~~~~~~~~~~~
+/infineon_POC_MVP/unity/unity_internals.h:904:184: note: in definition of macro ‘UNITY_TEST_ASSERT_EQUAL_UINT32’
+  904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)
+      |                                                                                                                                                                                        ^~~~~~
+/tmp/tdd_build_8w0rzqfq/test/test_egtmatompwm.c:361:5: note: in expansion of macro ‘TEST_ASSERT_EQUAL_UINT32_MESSAGE’
+  361 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(0u, mock_togglePin_callCount, "Period callback must have no side effects even after multiple calls");
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

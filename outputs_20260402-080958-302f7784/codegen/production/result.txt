@@ -1,0 +1,104 @@
+Status: FAILED
+
+============================================================
+TDD CODE GENERATION - ATTEMPT STATUS
+============================================================
+Phase: production
+Attempt: 5
+Status: FAILED
+Timestamp: 2026-04-02 08:41:42
+Files generated: 2
+
+============================================================
+
+ERRORS:
+
+1. conflicting types for ‘MODULE_EGTM’; have ‘Ifx_EGTM_REG’
+
+2. /tmp/tdd_build_8w0rzqfq/src/egtmatompwm.c:17:10: fatal error: IfxPort_PinMap.h: No such file or directory
+
+3. conflicting types for ‘MODULE_EGTM’; have ‘Ifx_EGTM_REG’
+
+4. conflicting types for ‘MODULE_EGTM’; have ‘Ifx_EGTM_REG’
+
+5. conflicting types for ‘MODULE_EGTM’; have ‘Ifx_EGTM_REG’
+
+6. ‘mock_togglePin_callCount’ undeclared (first use in this function); did you mean ‘mock_IfxPort_togglePin_callCount’?
+
+7. ‘mock_togglePin_callCount’ undeclared (first use in this function); did you mean ‘mock_IfxPort_togglePin_callCount’?
+
+8. ‘mock_togglePin_callCount’ undeclared (first use in this function); did you mean ‘mock_IfxPort_togglePin_callCount’?
+
+9. ‘mock_togglePin_callCount’ undeclared (first use in this function); did you mean ‘mock_IfxPort_togglePin_callCount’?
+
+10. ‘mock_togglePin_callCount’ undeclared (first use in this function); did you mean ‘mock_IfxPort_togglePin_callCount’?
+
+============================================================
+BUILD RESULT:
+{
+  "success": false,
+  "errors": [
+    {
+      "file": "/tmp/tdd_build_8w0rzqfq/include/mock_egtmatompwm.h",
+      "line": 270,
+      "category": "error",
+      "message": "conflicting types for \u2018MODULE_EGTM\u2019; have \u2018Ifx_EGTM_REG\u2019"
+    },
+    {
+      "file": "",
+      "message": "/tmp/tdd_build_8w0rzqfq/src/egtmatompwm.c:17:10: fatal error: IfxPort_PinMap.h: No such file or directory",
+      "category": "error"
+    },
+    {
+      "file": "/tmp/tdd_build_8w0rzqfq/include/mock_egtmatompwm.h",
+      "line": 270,
+      "category": "error",
+      "message": "conflicting types for \u2018MODULE_EGTM\u2019; have \u2018Ifx_EGTM_REG\u2019"
+    },
+    {
+      "file": "/tmp/tdd_build_8w0rzqfq/mocks/mock_egtmatompwm.c",
+      "line": 192,
+      "category": "error",
+      "message": "conflicting types for \u2018MODULE_EGTM\u2019; have \u2018Ifx_EGTM_REG\u2019"
+    },
+    {
+      "file": "/tmp/tdd_build_8w0rzqfq/include/mock_egtmatompwm.h",
+      "line": 270,
+      "category": "error",
+      "message": "conflicting types for \u2018MODULE_EGTM\u2019; have \u2018Ifx_EGTM_REG\u2019"
+    },
+    {
+      "file": "/tmp/tdd_build_8w0rzqfq/test/test_egtmatompwm.c",
+      "line": 270,
+      "category": "error",
+      "message": "\u2018mock_togglePin_callCount\u2019 undeclared (first use in this function); did you mean \u2018mock_IfxPort_togglePin_callCount\u2019?"
+    },
+    {
+      "file": "/tmp/tdd_build_8w0rzqfq/test/test_egtmatompwm.c",
+      "line": 280,
+      "category": "error",
+      "message": "\u2018mock_togglePin_callCount\u2019 undeclared (first use in this function); did you mean \u2018mock_IfxPort_togglePin_callCount\u2019?"
+    },
+    {
+      "file": "/tmp/tdd_build_8w0rzqfq/test/test_egtmatompwm.c",
+      "line": 316,
+      "category": "error",
+      "message": "\u2018mock_togglePin_callCount\u2019 undeclared (first use in this function); did you mean \u2018mock_IfxPort_togglePin_callCount\u2019?"
+    },
+    {
+      "file": "/tmp/tdd_build_8w0rzqfq/test/test_egtmatompwm.c",
+      "line": 337,
+      "category": "error",
+      "message": "\u2018mock_togglePin_callCount\u2019 undeclared (first use in this function); did you mean \u2018mock_IfxPort_togglePin_callCount\u2019?"
+    },
+    {
+      "file": "/tmp/tdd_build_8w0rzqfq/test/test_egtmatompwm.c",
+      "line": 361,
+      "category": "error",
+      "message": "\u2018mock_togglePin_callCount\u2019 undeclared (first use in this function); did you mean \u2018mock_IfxPort_togglePin_callCount\u2019?"
+    }
+  ],
+  "warnings": [],
+  "stderr": "In file included from /tmp/tdd_build_8w0rzqfq/include/Ifx_Types.h:3,\n                 from /tmp/tdd_build_8w0rzqfq/src/egtmatompwm.c:13:\n/tmp/tdd_build_8w0rzqfq/include/mock_egtmatompwm.h:270:21: error: conflicting types for \u2018MODULE_EGTM\u2019; have \u2018Ifx_EGTM_REG\u2019\n  270 | extern Ifx_EGTM_REG MODULE_EGTM; /* already above */\n      |                     ^~~~~~~~~~~\n/tmp/tdd_build_8w0rzqfq/include/mock_egtmatompwm.h:124:17: note: previous declaration of \u2018MODULE_EGTM\u2019 with type \u2018Ifx_EGTM\u2019\n  124 | extern Ifx_EGTM MODULE_EGTM;\n      |                 ^~~~~~~~~~~\n/tmp/tdd_build_8w0rzqfq/src/egtmatompwm.c:17:10: fatal error: IfxPort_PinMap.h: No such file or directory\n   17 | #include \"IfxPort_PinMap.h\"\n      |          ^~~~~~~~~~~~~~~~~~\ncompilation terminated.\n\nIn file included from /tmp/tdd_build_8w0rzqfq/mocks/mock_egtmatompwm.c:1:\n/tmp/tdd_build_8w0rzqfq/include/mock_egtmatompwm.h:270:21: error: conflicting types for \u2018MODULE_EGTM\u2019; have \u2018Ifx_EGTM_REG\u2019\n  270 | extern Ifx_EGTM_REG MODULE_EGTM; /* already above */\n      |                     ^~~~~~~~~~~\n/tmp/tdd_build_8w0rzqfq/include/mock_egtmatompwm.h:124:17: note: previous declaration of \u2018MODULE_EGTM\u2019 with type \u2018Ifx_EGTM\u2019\n  124 | extern Ifx_EGTM MODULE_EGTM;\n      |                 ^~~~~~~~~~~\n/tmp/tdd_build_8w0rzqfq/mocks/mock_egtmatompwm.c:192:14: error: conflicting types for \u2018MODULE_EGTM\u2019; have \u2018Ifx_EGTM_REG\u2019\n  192 | Ifx_EGTM_REG MODULE_EGTM = {0};\n      |              ^~~~~~~~~~~\n/tmp/tdd_build_8w0rzqfq/mocks/mock_egtmatompwm.c:47:10: note: previous definition of \u2018MODULE_EGTM\u2019 with type \u2018Ifx_EGTM\u2019\n   47 | Ifx_EGTM MODULE_EGTM = {0};\n      |          ^~~~~~~~~~~\n\nIn file included from /tmp/tdd_build_8w0rzqfq/test/test_egtmatompwm.c:2:\n/tmp/tdd_build_8w0rzqfq/include/mock_egtmatompwm.h:270:21: error: conflicting types for \u2018MODULE_EGTM\u2019; have \u2018Ifx_EGTM_REG\u2019\n  270 | extern Ifx_EGTM_REG MODULE_EGTM; /* already above */\n      |                     ^~~~~~~~~~~\n/tmp/tdd_build_8w0rzqfq/include/mock_egtmatompwm.h:124:17: note: previous declaration of \u2018MODULE_EGTM\u2019 with type \u2018Ifx_EGTM\u2019\n  124 | extern Ifx_EGTM MODULE_EGTM;\n      |                 ^~~~~~~~~~~\nIn file included from /infineon_POC_MVP/unity/unity.h:22,\n                 from /tmp/tdd_build_8w0rzqfq/test/test_egtmatompwm.c:1:\n/tmp/tdd_build_8w0rzqfq/test/test_egtmatompwm.c: In function \u2018test_TC_G8_001_resultISR_toggles_led_once\u2019:\n/tmp/tdd_build_8w0rzqfq/test/test_egtmatompwm.c:270:42: error: \u2018mock_togglePin_callCount\u2019 undeclared (first use in this function); did you mean \u2018mock_IfxPort_togglePin_callCount\u2019?\n  270 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(1u, mock_togglePin_callCount, \"resultISR must toggle LED exactly once\");\n      |                                          ^~~~~~~~~~~~~~~~~~~~~~~~\n/infineon_POC_MVP/unity/unity_internals.h:904:184: note: in definition of macro \u2018UNITY_TEST_ASSERT_EQUAL_UINT32\u2019\n  904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)\n      |                                                                                                                                                                                        ^~~~~~\n/tmp/tdd_build_8w0rzqfq/test/test_egtmatompwm.c:270:5: note: in expansion of macro \u2018TEST_ASSERT_EQUAL_UINT32_MESSAGE\u2019\n  270 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(1u, mock_togglePin_callCount, \"resultISR must toggle LED exactly once\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n/tmp/tdd_build_8w0rzqfq/test/test_egtmatompwm.c:270:42: note: each undeclared identifier is reported only once for each function it appears in\n  270 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(1u, mock_togglePin_callCount, \"resultISR must toggle LED exactly once\");\n      |                                          ^~~~~~~~~~~~~~~~~~~~~~~~\n/infineon_POC_MVP/unity/unity_internals.h:904:184: note: in definition of macro \u2018UNITY_TEST_ASSERT_EQUAL_UINT32\u2019\n  904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)\n      |                                                                                                                                                                                        ^~~~~~\n/tmp/tdd_build_8w0rzqfq/test/test_egtmatompwm.c:270:5: note: in expansion of macro \u2018TEST_ASSERT_EQUAL_UINT32_MESSAGE\u2019\n  270 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(1u, mock_togglePin_callCount, \"resultISR must toggle LED exactly once\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n/tmp/tdd_build_8w0rzqfq/test/test_egtmatompwm.c: In function \u2018test_TC_G8_002_resultISR_multiple_calls_accumulate_toggle_count\u2019:\n/tmp/tdd_build_8w0rzqfq/test/test_egtmatompwm.c:280:42: error: \u2018mock_togglePin_callCount\u2019 undeclared (first use in this function); did you mean \u2018mock_IfxPort_togglePin_callCount\u2019?\n  280 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(2u, mock_togglePin_callCount, \"resultISR toggles LED on every invocation (2 times)\");\n      |                                          ^~~~~~~~~~~~~~~~~~~~~~~~\n/infineon_POC_MVP/unity/unity_internals.h:904:184: note: in definition of macro \u2018UNITY_TEST_ASSERT_EQUAL_UINT32\u2019\n  904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)\n      |                                                                                                                                                                                        ^~~~~~\n/tmp/tdd_build_8w0rzqfq/test/test_egtmatompwm.c:280:5: note: in expansion of macro \u2018TEST_ASSERT_EQUAL_UINT32_MESSAGE\u2019\n  280 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(2u, mock_togglePin_callCount, \"resultISR toggles LED on every invocation (2 times)\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n/tmp/tdd_build_8w0rzqfq/test/test_egtmatompwm.c: In function \u2018test_TC_G10_001_resultISR_toggle_accumulates_across_calls\u2019:\n/tmp/tdd_build_8w0rzqfq/test/test_egtmatompwm.c:316:42: error: \u2018mock_togglePin_callCount\u2019 undeclared (first use in this function); did you mean \u2018mock_IfxPort_togglePin_callCount\u2019?\n  316 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(3u, mock_togglePin_callCount, \"LED toggle must accumulate across ISR calls (3 toggles)\");\n      |                                          ^~~~~~~~~~~~~~~~~~~~~~~~\n/infineon_POC_MVP/unity/unity_internals.h:904:184: note: in definition of macro \u2018UNITY_TEST_ASSERT_EQUAL_UINT32\u2019\n  904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)\n      |                                                                                                                                                                                        ^~~~~~\n/tmp/tdd_build_8w0rzqfq/test/test_egtmatompwm.c:316:5: note: in expansion of macro \u2018TEST_ASSERT_EQUAL_UINT32_MESSAGE\u2019\n  316 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(3u, mock_togglePin_callCount, \"LED toggle must accumulate across ISR calls (3 toggles)\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n/tmp/tdd_build_8w0rzqfq/test/test_egtmatompwm.c: In function \u2018test_TC_G11_001_period_callback_has_no_side_effects_on_toggle\u2019:\n/tmp/tdd_build_8w0rzqfq/test/test_egtmatompwm.c:337:42: error: \u2018mock_togglePin_callCount\u2019 undeclared (first use in this function); did you mean \u2018mock_IfxPort_togglePin_callCount\u2019?\n  337 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(0u, mock_togglePin_callCount, \"Period callback must not toggle LED\");\n      |                                          ^~~~~~~~~~~~~~~~~~~~~~~~\n/infineon_POC_MVP/unity/unity_internals.h:904:184: note: in definition of macro \u2018UNITY_TEST_ASSERT_EQUAL_UINT32\u2019\n  904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)\n      |                                                                                                                                                                                        ^~~~~~\n/tmp/tdd_build_8w0rzqfq/test/test_egtmatompwm.c:337:5: note: in expansion of macro \u2018TEST_ASSERT_EQUAL_UINT32_MESSAGE\u2019\n  337 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(0u, mock_togglePin_callCount, \"Period callback must not toggle LED\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n/tmp/tdd_build_8w0rzqfq/test/test_egtmatompwm.c: In function \u2018test_TC_G12_001_period_callback_multiple_calls_still_no_side_effects\u2019:\n/tmp/tdd_build_8w0rzqfq/test/test_egtmatompwm.c:361:42: error: \u2018mock_togglePin_callCount\u2019 undeclared (first use in this function); did you mean \u2018mock_IfxPort_togglePin_callCount\u2019?\n  361 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(0u, mock_togglePin_callCount, \"Period callback must have no side effects even after multiple calls\");\n      |                                          ^~~~~~~~~~~~~~~~~~~~~~~~\n/infineon_POC_MVP/unity/unity_internals.h:904:184: note: in definition of macro \u2018UNITY_TEST_ASSERT_EQUAL_UINT32\u2019\n  904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)\n      |                                                                                                                                                                                        ^~~~~~\n/tmp/tdd_build_8w0rzqfq/test/test_egtmatompwm.c:361:5: note: in expansion of macro \u2018TEST_ASSERT_EQUAL_UINT32_MESSAGE\u2019\n  361 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(0u, mock_togglePin_callCount, \"Period callback must have no side effects even after multiple calls\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n",
+  "stdout": ""
+}

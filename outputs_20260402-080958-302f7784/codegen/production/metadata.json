@@ -1,0 +1,20 @@
+{
+  "attempt": 5,
+  "phase_attempt": 2,
+  "phase": "production",
+  "success": false,
+  "errors": [
+    "conflicting types for \u2018MODULE_EGTM\u2019; have \u2018Ifx_EGTM_REG\u2019",
+    "/tmp/tdd_build_8w0rzqfq/src/egtmatompwm.c:17:10: fatal error: IfxPort_PinMap.h: No such file or directory",
+    "conflicting types for \u2018MODULE_EGTM\u2019; have \u2018Ifx_EGTM_REG\u2019",
+    "conflicting types for \u2018MODULE_EGTM\u2019; have \u2018Ifx_EGTM_REG\u2019",
+    "conflicting types for \u2018MODULE_EGTM\u2019; have \u2018Ifx_EGTM_REG\u2019",
+    "\u2018mock_togglePin_callCount\u2019 undeclared (first use in this function); did you mean \u2018mock_IfxPort_togglePin_callCount\u2019?",
+    "\u2018mock_togglePin_callCount\u2019 undeclared (first use in this function); did you mean \u2018mock_IfxPort_togglePin_callCount\u2019?",
+    "\u2018mock_togglePin_callCount\u2019 undeclared (first use in this function); did you mean \u2018mock_IfxPort_togglePin_callCount\u2019?",
+    "\u2018mock_togglePin_callCount\u2019 undeclared (first use in this function); did you mean \u2018mock_IfxPort_togglePin_callCount\u2019?",
+    "\u2018mock_togglePin_callCount\u2019 undeclared (first use in this function); did you mean \u2018mock_IfxPort_togglePin_callCount\u2019?"
+  ],
+  "timestamp": "2026-04-02T08:41:42.669723",
+  "project_name": "Migrate_TC387_GTM_TOM_EVADC_3-phase_inverter_PWM_r_20260402_082553"
+}
