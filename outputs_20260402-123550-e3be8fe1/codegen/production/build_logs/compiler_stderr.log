@@ -1,0 +1,9 @@
+In file included from /tmp/tdd_build_7gl10lje/src/egtm_atom_adc_tmadc_multiple_channels.c:13:
+/tmp/tdd_build_7gl10lje/include/egtm_atom_adc_tmadc_multiple_channels.h:15:31: error: unknown type name ‘float32’; did you mean ‘_Float32’?
+   15 | void updateEgtmAtom3phInvDuty(float32 *requestDuty);
+      |                               ^~~~~~~
+      |                               _Float32
+/tmp/tdd_build_7gl10lje/src/egtm_atom_adc_tmadc_multiple_channels.c:16:10: fatal error: IfxCpu.h: No such file or directory
+   16 | #include "IfxCpu.h"
+      |          ^~~~~~~~~~
+compilation terminated.
