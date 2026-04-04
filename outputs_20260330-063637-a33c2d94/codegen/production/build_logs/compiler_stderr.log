@@ -1,0 +1,136 @@
+In file included from C:\Users\extanke\AppData\Local\Temp\tdd_build_dh_j33rh\src\gtm_tom_3_phase_inverter_pwm.c:20:
+C:\Users\extanke\AppData\Local\Temp\tdd_build_dh_j33rh\include/IfxGtm_Tom_Timer.h:18:30: error: conflicting types for 'Ifx_GTM_TOM'; have 'struct <anonymous>'
+   18 | typedef struct { uint32 r; } Ifx_GTM_TOM;            /* minimal */
+      |                              ^~~~~~~~~~~
+In file included from C:\Users\extanke\AppData\Local\Temp\tdd_build_dh_j33rh\include/Ifx_Types.h:3,
+                 from C:\Users\extanke\AppData\Local\Temp\tdd_build_dh_j33rh\src\gtm_tom_3_phase_inverter_pwm.c:15:
+C:\Users\extanke\AppData\Local\Temp\tdd_build_dh_j33rh\include/mock_gtm_tom_3_phase_inverter_pwm.h:45:37: note: previous declaration of 'Ifx_GTM_TOM' with type 'Ifx_GTM_TOM'
+   45 | typedef struct { uint32 reserved; } Ifx_GTM_TOM;
+      |                                     ^~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_dh_j33rh\src\gtm_tom_3_phase_inverter_pwm.c:71:28: error: field 'pwmhl' has incomplete type
+   71 |     IfxGtm_Tom_PwmHl       pwmhl;                             /* TOM PWMHL driver handle */
+      |                            ^~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_dh_j33rh\src\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTom3phInv':
+C:\Users\extanke\AppData\Local\Temp\tdd_build_dh_j33rh\src\gtm_tom_3_phase_inverter_pwm.c:53:45: error: 'IfxGtm_TOM1_0_TOUT0_P02_0_OUT' undeclared (first use in this function)
+   53 | #define PHASE_U_HS                         &IfxGtm_TOM1_0_TOUT0_P02_0_OUT
+      |                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_dh_j33rh\src\gtm_tom_3_phase_inverter_pwm.c:135:59: note: in expansion of macro 'PHASE_U_HS'
+  135 |     const IfxGtm_Tom_ToutMap *hs[TOM3PH_NUM_CHANNELS] = { PHASE_U_HS, PHASE_V_HS, PHASE_W_HS };
+      |                                                           ^~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_dh_j33rh\src\gtm_tom_3_phase_inverter_pwm.c:53:45: note: each undeclared identifier is reported only once for each function it appears in
+   53 | #define PHASE_U_HS                         &IfxGtm_TOM1_0_TOUT0_P02_0_OUT
+      |                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_dh_j33rh\src\gtm_tom_3_phase_inverter_pwm.c:135:59: note: in expansion of macro 'PHASE_U_HS'
+  135 |     const IfxGtm_Tom_ToutMap *hs[TOM3PH_NUM_CHANNELS] = { PHASE_U_HS, PHASE_V_HS, PHASE_W_HS };
+      |                                                           ^~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_dh_j33rh\src\gtm_tom_3_phase_inverter_pwm.c:55:45: error: 'IfxGtm_TOM1_1_TOUT1_P02_1_OUT' undeclared (first use in this function)
+   55 | #define PHASE_V_HS                         &IfxGtm_TOM1_1_TOUT1_P02_1_OUT
+      |                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_dh_j33rh\src\gtm_tom_3_phase_inverter_pwm.c:135:71: note: in expansion of macro 'PHASE_V_HS'
+  135 |     const IfxGtm_Tom_ToutMap *hs[TOM3PH_NUM_CHANNELS] = { PHASE_U_HS, PHASE_V_HS, PHASE_W_HS };
+      |                                                                       ^~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_dh_j33rh\src\gtm_tom_3_phase_inverter_pwm.c:57:45: error: 'IfxGtm_TOM1_10_TOUT2_P02_2_OUT' undeclared (first use in this function)
+   57 | #define PHASE_W_HS                         &IfxGtm_TOM1_10_TOUT2_P02_2_OUT
+      |                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_dh_j33rh\src\gtm_tom_3_phase_inverter_pwm.c:135:83: note: in expansion of macro 'PHASE_W_HS'
+  135 |     const IfxGtm_Tom_ToutMap *hs[TOM3PH_NUM_CHANNELS] = { PHASE_U_HS, PHASE_V_HS, PHASE_W_HS };
+      |                                                                                   ^~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_dh_j33rh\src\gtm_tom_3_phase_inverter_pwm.c:54:45: error: 'IfxGtm_TOM1_0N_TOUT7_P02_7_OUT' undeclared (first use in this function)
+   54 | #define PHASE_U_LS                         &IfxGtm_TOM1_0N_TOUT7_P02_7_OUT
+      |                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_dh_j33rh\src\gtm_tom_3_phase_inverter_pwm.c:136:59: note: in expansion of macro 'PHASE_U_LS'
+  136 |     const IfxGtm_Tom_ToutMap *ls[TOM3PH_NUM_CHANNELS] = { PHASE_U_LS, PHASE_V_LS, PHASE_W_LS };
+      |                                                           ^~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_dh_j33rh\src\gtm_tom_3_phase_inverter_pwm.c:56:45: error: 'IfxGtm_TOM1_12_TOUT4_P02_4_OUT' undeclared (first use in this function)
+   56 | #define PHASE_V_LS                         &IfxGtm_TOM1_12_TOUT4_P02_4_OUT
+      |                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_dh_j33rh\src\gtm_tom_3_phase_inverter_pwm.c:136:71: note: in expansion of macro 'PHASE_V_LS'
+  136 |     const IfxGtm_Tom_ToutMap *ls[TOM3PH_NUM_CHANNELS] = { PHASE_U_LS, PHASE_V_LS, PHASE_W_LS };
+      |                                                                       ^~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_dh_j33rh\src\gtm_tom_3_phase_inverter_pwm.c:58:45: error: 'IfxGtm_TOM1_13_TOUT5_P02_5_OUT' undeclared (first use in this function)
+   58 | #define PHASE_W_LS                         &IfxGtm_TOM1_13_TOUT5_P02_5_OUT
+      |                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_dh_j33rh\src\gtm_tom_3_phase_inverter_pwm.c:136:83: note: in expansion of macro 'PHASE_W_LS'
+  136 |     const IfxGtm_Tom_ToutMap *ls[TOM3PH_NUM_CHANNELS] = { PHASE_U_LS, PHASE_V_LS, PHASE_W_LS };
+      |                                                                                   ^~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_dh_j33rh\src\gtm_tom_3_phase_inverter_pwm.c:142:22: error: 'IfxGtm_Tom_Ch_ClkSrc_cmuFxclk0' undeclared (first use in this function); did you mean 'IfxGtm_Tom_Ch_ClkSrc_cmu0'?
+  142 |     timerCfg.clock = IfxGtm_Tom_Ch_ClkSrc_cmuFxclk0; /* select FXCLK0 */
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                      IfxGtm_Tom_Ch_ClkSrc_cmu0
+C:\Users\extanke\AppData\Local\Temp\tdd_build_dh_j33rh\src\gtm_tom_3_phase_inverter_pwm.c:170:18: error: 'IfxStdIf_PwmHl_Config' has no member named 'outputMode'
+  170 |     pwmhlCfg.base.outputMode           = TOM3PH_PIN_OUTPUT_MODE;
+      |                  ^
+C:\Users\extanke\AppData\Local\Temp\tdd_build_dh_j33rh\src\gtm_tom_3_phase_inverter_pwm.c:171:18: error: 'IfxStdIf_PwmHl_Config' has no member named 'padDriver'
+  171 |     pwmhlCfg.base.padDriver            = TOM3PH_PIN_PAD_DRIVER;
+      |                  ^
+C:\Users\extanke\AppData\Local\Temp\tdd_build_dh_j33rh\src\gtm_tom_3_phase_inverter_pwm.c:172:18: error: 'IfxStdIf_PwmHl_Config' has no member named 'ccxActiveState'
+  172 |     pwmhlCfg.base.ccxActiveState       = Ifx_ActiveState_high; /* high-side active HIGH  */
+      |                  ^
+C:\Users\extanke\AppData\Local\Temp\tdd_build_dh_j33rh\src\gtm_tom_3_phase_inverter_pwm.c:173:18: error: 'IfxStdIf_PwmHl_Config' has no member named 'coutxActiveState'
+  173 |     pwmhlCfg.base.coutxActiveState     = Ifx_ActiveState_low;  /* low-side  active LOW   */
+      |                  ^
+C:\Users\extanke\AppData\Local\Temp\tdd_build_dh_j33rh\src\gtm_tom_3_phase_inverter_pwm.c:175:21: error: assignment of read-only location '*pwmhlCfg.ccx'
+  175 |     pwmhlCfg.ccx[0] = hs[0]; pwmhlCfg.coutx[0] = ls[0];
+      |                     ^
+C:\Users\extanke\AppData\Local\Temp\tdd_build_dh_j33rh\src\gtm_tom_3_phase_inverter_pwm.c:175:48: error: assignment of read-only location '*pwmhlCfg.coutx'
+  175 |     pwmhlCfg.ccx[0] = hs[0]; pwmhlCfg.coutx[0] = ls[0];
+      |                                                ^
+C:\Users\extanke\AppData\Local\Temp\tdd_build_dh_j33rh\src\gtm_tom_3_phase_inverter_pwm.c:176:21: error: assignment of read-only location '*(pwmhlCfg.ccx + 16)'
+  176 |     pwmhlCfg.ccx[1] = hs[1]; pwmhlCfg.coutx[1] = ls[1];
+      |                     ^
+C:\Users\extanke\AppData\Local\Temp\tdd_build_dh_j33rh\src\gtm_tom_3_phase_inverter_pwm.c:176:48: error: assignment of read-only location '*(pwmhlCfg.coutx + 16)'
+  176 |     pwmhlCfg.ccx[1] = hs[1]; pwmhlCfg.coutx[1] = ls[1];
+      |                                                ^
+C:\Users\extanke\AppData\Local\Temp\tdd_build_dh_j33rh\src\gtm_tom_3_phase_inverter_pwm.c:177:21: error: assignment of read-only location '*(pwmhlCfg.ccx + 32)'
+  177 |     pwmhlCfg.ccx[2] = hs[2]; pwmhlCfg.coutx[2] = ls[2];
+      |                     ^
+C:\Users\extanke\AppData\Local\Temp\tdd_build_dh_j33rh\src\gtm_tom_3_phase_inverter_pwm.c:177:48: error: assignment of read-only location '*(pwmhlCfg.coutx + 32)'
+  177 |     pwmhlCfg.ccx[2] = hs[2]; pwmhlCfg.coutx[2] = ls[2];
+      |                                                ^
+
+In file included from C:\Users\extanke\AppData\Local\Temp\tdd_build_dh_j33rh\mocks\mock_gtm_tom_3_phase_inverter_pwm.c:4:
+C:\Users\extanke\AppData\Local\Temp\tdd_build_dh_j33rh\include/IfxGtm_Tom_Timer.h:18:30: error: conflicting types for 'Ifx_GTM_TOM'; have 'struct <anonymous>'
+   18 | typedef struct { uint32 r; } Ifx_GTM_TOM;            /* minimal */
+      |                              ^~~~~~~~~~~
+In file included from C:\Users\extanke\AppData\Local\Temp\tdd_build_dh_j33rh\mocks\mock_gtm_tom_3_phase_inverter_pwm.c:1:
+C:\Users\extanke\AppData\Local\Temp\tdd_build_dh_j33rh\include/mock_gtm_tom_3_phase_inverter_pwm.h:45:37: note: previous declaration of 'Ifx_GTM_TOM' with type 'Ifx_GTM_TOM'
+   45 | typedef struct { uint32 reserved; } Ifx_GTM_TOM;
+      |                                     ^~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_dh_j33rh\mocks\mock_gtm_tom_3_phase_inverter_pwm.c:58:13: error: conflicting types for 'MODULE_GTM_TOM'; have 'Ifx_GTM_TOM'
+   58 | Ifx_GTM_TOM MODULE_GTM_TOM = {0};
+      |             ^~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_dh_j33rh\include/mock_gtm_tom_3_phase_inverter_pwm.h:48:20: note: previous declaration of 'MODULE_GTM_TOM' with type 'Ifx_GTM_TOM'
+   48 | extern Ifx_GTM_TOM MODULE_GTM_TOM;
+      |                    ^~~~~~~~~~~~~~
+
+In file included from C:\Users\extanke\Downloads\merge\infineon_POC_MVP\unity/unity.h:22,
+                 from C:\Users\extanke\AppData\Local\Temp\tdd_build_dh_j33rh\test\test_gtm_tom_3_phase_inverter_pwm.c:1:
+C:\Users\extanke\AppData\Local\Temp\tdd_build_dh_j33rh\test\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G6_001_update_increments_duty_below_boundary':
+C:\Users\extanke\AppData\Local\Temp\tdd_build_dh_j33rh\test\test_gtm_tom_3_phase_inverter_pwm.c:201:42: error: implicit declaration of function 'mock_IfxGtm_Tom_Tom_Timer_disableUpdate_getCallCount'; did you mean 'mock_IfxGtm_Tom_Timer_disableUpdate_getCallCount'? [-Wimplicit-function-declaration]
+  201 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(2U, mock_IfxGtm_Tom_Tom_Timer_disableUpdate_getCallCount(), "DisableUpdate called once in init and once in update");
+      |                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\Downloads\merge\infineon_POC_MVP\unity/unity_internals.h:904:184: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_UINT32'
+  904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)
+      |                                                                                                                                                                                        ^~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_dh_j33rh\test\test_gtm_tom_3_phase_inverter_pwm.c:201:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'
+  201 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(2U, mock_IfxGtm_Tom_Tom_Timer_disableUpdate_getCallCount(), "DisableUpdate called once in init and once in update");
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_dh_j33rh\test\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G6_002_update_wrap_rule_applies_independently':
+C:\Users\extanke\AppData\Local\Temp\tdd_build_dh_j33rh\test\test_gtm_tom_3_phase_inverter_pwm.c:221:42: error: implicit declaration of function 'mock_IfxGtm_Tom_Tom_Timer_getPeriod_getCallCount'; did you mean 'mock_IfxGtm_Tom_Timer_getPeriod_getCallCount'? [-Wimplicit-function-declaration]
+  221 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(3U, mock_IfxGtm_Tom_Tom_Timer_getPeriod_getCallCount(), "Timer period read once per update (3 updates)");
+      |                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\Downloads\merge\infineon_POC_MVP\unity/unity_internals.h:904:184: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_UINT32'
+  904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)
+      |                                                                                                                                                                                        ^~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_dh_j33rh\test\test_gtm_tom_3_phase_inverter_pwm.c:221:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'
+  221 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(3U, mock_IfxGtm_Tom_Tom_Timer_getPeriod_getCallCount(), "Timer period read once per update (3 updates)");
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_dh_j33rh\test\test_gtm_tom_3_phase_inverter_pwm.c:224:42: error: implicit declaration of function 'mock_IfxGtm_Tom_Tom_Timer_applyUpdate_getCallCount'; did you mean 'mock_IfxGtm_Tom_Timer_applyUpdate_getCallCount'? [-Wimplicit-function-declaration]
+  224 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(4U, mock_IfxGtm_Tom_Tom_Timer_applyUpdate_getCallCount(), "ApplyUpdate called once in init + once per update (total 4)");
+      |                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extanke\Downloads\merge\infineon_POC_MVP\unity/unity_internals.h:904:184: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_UINT32'
+  904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)
+      |                                                                                                                                                                                        ^~~~~~
+C:\Users\extanke\AppData\Local\Temp\tdd_build_dh_j33rh\test\test_gtm_tom_3_phase_inverter_pwm.c:224:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'
+  224 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(4U, mock_IfxGtm_Tom_Tom_Timer_applyUpdate_getCallCount(), "ApplyUpdate called once in init + once per update (total 4)");
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -1,0 +1,56 @@
+{
+  "module_name": "GTM_TOM_3_Phase_Inverter_PWM",
+  "public_functions": [
+    {
+      "signature": "void initGtmTom3phInv(void)",
+      "behavior_description": "Initialize a 3-phase complementary PWM using the GTM TOM peripheral with center-aligned mode, synchronized updates, and programmed dead-time. Algorithm: 1) Declare local config structs for the TOM timer and PWMHL driver, plus local arrays holding three high-side and three low-side output pin descriptors (one complementary pair per phase). 2) Initialize the TOM timer configuration with defaults, set the desired PWM base frequency (20 kHz) and select the FXCLK0 clock source for the timer. 3) Initialize the PWMHL configuration with defaults, set channelCount=3, set output mode to push-pull and an automotive pad driver, set both high-side and low-side active states, and assign the high/low output pin arrays. 4) Configure pin routing for each assigned TOM output pin using the provided hardware pin macros, applying the selected output mode and pad driver. 5) Inside an enable guard, check if the GTM module is enabled; if not, enable the module, read the module frequency dynamically (for information/validation), and enable FXCLK clocks. All CMU/clock actions are performed inside this guard. 6) Initialize the TOM timer using the timer config. 7) Initialize the PWMHL driver with the PWMHL config and set the PWM mode to center-aligned. 8) Compute initial ON-times for the three phases from the configured timer period and the initial duties (U=25%, V=50%, W=75%) in percent. 9) Perform a coherent update: disable update on the timer, write the three ON-times via the PWMHL driver, and apply the update so all complementary pairs switch synchronously. 10) Store persistent driver handles, the channels array, and state arrays (duties in percent, dead-times if needed) in the module state for use by the update function. 11) Configure the diagnostic/toggle GPIO pin as push-pull output for the ISR debug action after PWM initialization. The function does not perform any scheduling or STM timing (that belongs to Cpu0_Main).",
+      "driver_calls": [
+        "IfxGtm_isEnabled",
+        "IfxGtm_enable",
+        "IfxGtm_Cmu_getModuleFrequency",
+        "IfxGtm_Cmu_enableClocks",
+        "IfxGtm_Tom_Timer_initConfig",
+        "IfxGtm_Tom_Timer_init",
+        "IfxGtm_Tom_PwmHl_initConfig",
+        "IfxGtm_Tom_PwmHl_init",
+        "IfxGtm_Tom_PwmHl_setMode",
+        "IfxGtm_Tom_PwmHl_setDeadtime",
+        "IfxGtm_Tom_Timer_disableUpdate",
+        "IfxGtm_Tom_PwmHl_setOnTime",
+        "IfxGtm_Tom_Timer_applyUpdate",
+        "IfxGtm_PinMap_setTomTout",
+        "IfxPort_setPinModeOutput"
+      ],
+      "from_reference": true,
+      "call_context": "init"
+    },
+    {
+      "signature": "void updateGtmTom3phInvDuty(void)",
+      "behavior_description": "Update the three phase duties using a fixed step and wrap rule, then apply them coherently. Algorithm: 1) For each of the three logical channels (U, V, W), compute newDuty = oldDuty + step (e.g., +5%), and if it exceeds 100% wrap to 0%. 2) Read or derive the current timer period and convert each duty to an ON-time. 3) Perform a coherent update: disable update on the timer, write the three ON-times via the PWMHL driver, and apply the update so all complementary pairs switch synchronously. 4) Optionally toggle a diagnostic GPIO to mark the update point. 5) Store the updated duties back into the module state.",
+      "driver_calls": [
+        "IfxGtm_Tom_Timer_getPeriod",
+        "IfxGtm_Tom_Timer_disableUpdate",
+        "IfxGtm_Tom_PwmHl_setOnTime",
+        "IfxGtm_Tom_Timer_applyUpdate",
+        "IfxPort_togglePin"
+      ],
+      "from_reference": true,
+      "call_context": "update"
+    }
+  ],
+  "header_selection": {
+    "applied": true,
+    "peripheral_type": "PWM",
+    "recommended_header": "IfxGtm_Tom",
+    "template_functions_count": 1029,
+    "required_includes": [
+      "IfxGtm_Tom.h"
+    ],
+    "original_recommendation": "IfxGtm_Tom_PwmHl",
+    "reconciled": true,
+    "reconciliation_reason": "LLM driver_calls use IfxGtm_Tom_* API, not IfxGtm_Tom_PwmHl (the reference API). Updated to match actual usage.",
+    "original_required_includes": [
+      "IfxGtm_Tom_PwmHl.h"
+    ]
+  }
+}
