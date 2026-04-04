@@ -1,0 +1,31 @@
+{
+  "success": false,
+  "errors": [
+    {
+      "file": "",
+      "message": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_ucxlckw4\\src\\gtm_tom_3_phase_inverter_pwm.c:13:10: fatal error: Gtm/Pwm/IfxGtm_Pwm.h: No such file or directory",
+      "category": "error"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_ucxlckw4\\include/IfxGtm_Pwm.h",
+      "line": 100,
+      "category": "error",
+      "message": "unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Pwm_State'?"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_ucxlckw4\\include/IfxGtm_Pwm.h",
+      "line": 101,
+      "category": "error",
+      "message": "unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Pwm_State'?"
+    },
+    {
+      "file": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_ucxlckw4\\include/IfxGtm_Pwm.h",
+      "line": 230,
+      "category": "error",
+      "message": "unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Pwm_Config'?"
+    }
+  ],
+  "warnings": [],
+  "stderr": "C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_ucxlckw4\\src\\gtm_tom_3_phase_inverter_pwm.c:13:10: fatal error: Gtm/Pwm/IfxGtm_Pwm.h: No such file or directory\n   13 | #include <Gtm/Pwm/IfxGtm_Pwm.h>\n      |          ^~~~~~~~~~~~~~~~~~~~~~\ncompilation terminated.\n\nIn file included from C:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_ucxlckw4\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c:5:\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_ucxlckw4\\include/IfxGtm_Pwm.h:100:5: error: unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Pwm_State'?\n  100 |     IfxGtm_Pwm_ToutMap *pin;\n      |     ^~~~~~~~~~~~~~~~~~\n      |     IfxGtm_Pwm_State\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_ucxlckw4\\include/IfxGtm_Pwm.h:101:5: error: unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Pwm_State'?\n  101 |     IfxGtm_Pwm_ToutMap *complementaryPin;\n      |     ^~~~~~~~~~~~~~~~~~\n      |     IfxGtm_Pwm_State\nC:\\Users\\extpedj\\AppData\\Local\\Temp\\tdd_build_ucxlckw4\\include/IfxGtm_Pwm.h:230:5: error: unknown type name 'IfxGtm_Pwm_ToutMap'; did you mean 'IfxGtm_Pwm_Config'?\n  230 |     IfxGtm_Pwm_ToutMap *outputPin;\n      |     ^~~~~~~~~~~~~~~~~~\n      |     IfxGtm_Pwm_Config\n",
+  "stdout": ""
+}
