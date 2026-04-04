@@ -1,0 +1,344 @@
+{
+  "meta": {
+    "schema_version": "1.0",
+    "last_updated_by": "hardware",
+    "last_updated_at": "2026-03-30T15:23:53.771949",
+    "build_sequence": [
+      "requirements",
+      "hardware"
+    ],
+    "corrections_log": []
+  },
+  "requirements": {
+    "generation_mode": "MIGRATION",
+    "migration_info": {
+      "has_reference": true,
+      "reference_family": "TC3xx",
+      "target_family": "TC3xx",
+      "migration_required": false,
+      "driver_mappings": {
+        "IfxGtm_Tom_PwmHl": "IfxGtm_Pwm"
+      },
+      "header_mappings": {
+        "IfxGtm_Tom_PwmHl.h": "IfxGtm_Pwm.h"
+      },
+      "api_changes": [
+        {
+          "from": "IfxGtm_Tom_PwmHl_initConfig",
+          "to": "IfxGtm_Pwm_initConfig",
+          "reason": "Upgrade to unified high-level GTM PWM driver per user request"
+        },
+        {
+          "from": "IfxGtm_Tom_PwmHl_init",
+          "to": "IfxGtm_Pwm_init",
+          "reason": "Upgrade to unified high-level GTM PWM driver per user request"
+        },
+        {
+          "from": "IfxGtm_Tom_PwmHl_setOnTime",
+          "to": "IfxGtm_Pwm_updateChannelsDutyImmediate",
+          "reason": "Unified API for synchronous duty updates"
+        },
+        {
+          "from": "IfxGtm_Tom_PwmHl_setMode (complementary + deadtime)",
+          "to": "Configure via IfxGtm_Pwm_initConfig (center-aligned, complementary pairs, deadtime)",
+          "reason": "Mode handled in high-level config structure"
+        },
+        {
+          "from": "WAIT_TIME (previous value)",
+          "to": "WAIT_TIME = 500 ms",
+          "reason": "Align main loop update rate with 500 ms duty stepping"
+        }
+      ],
+      "function_names_to_preserve": [
+        "initGtmTom3phInv",
+        "updateGtmTom3phInvDuty"
+      ],
+      "explicit_driver_upgrade": true,
+      "target_driver": "IfxGtm_Pwm"
+    },
+    "peripheral_requirement": {
+      "type": "PWM",
+      "driver_available": true,
+      "driver_name": "IfxGtm_Pwm",
+      "purpose": "3-phase inverter using GTM TOM1 CH1..6 on P00.2..P00.7 with center-aligned PWM, 0.5 us deadtime, synchronous updates, and cyclic duty stepping.",
+      "driver_locked": true,
+      "driver_selection_source": "user_explicit"
+    },
+    "signal_requirements": {
+      "pwm_unit": "GTM.TOM1",
+      "channel_pairing": "Three complementary pairs with deadtime",
+      "pins": [
+        {
+          "phase": "U",
+          "high": {
+            "tom": "TOM1 CH1",
+            "pin": "P00.2",
+            "alt_function": "TBD (verify for TC38x 516 package)"
+          },
+          "low": {
+            "tom": "TOM1 CH2",
+            "pin": "P00.3",
+            "alt_function": "TBD (verify for TC38x 516 package)"
+          }
+        },
+        {
+          "phase": "V",
+          "high": {
+            "tom": "TOM1 CH3",
+            "pin": "P00.4",
+            "alt_function": "TBD (verify for TC38x 516 package)"
+          },
+          "low": {
+            "tom": "TOM1 CH4",
+            "pin": "P00.5",
+            "alt_function": "TBD (verify for TC38x 516 package)"
+          }
+        },
+        {
+          "phase": "W",
+          "high": {
+            "tom": "TOM1 CH5",
+            "pin": "P00.6",
+            "alt_function": "TBD (verify for TC38x 516 package)"
+          },
+          "low": {
+            "tom": "TOM1 CH6",
+            "pin": "P00.7",
+            "alt_function": "TBD (verify for TC38x 516 package)"
+          }
+        }
+      ],
+      "polarity": {
+        "high_side": "active_high",
+        "low_side": "active_high",
+        "complementary": true
+      },
+      "synchronous_update": true,
+      "initial_duty_percent": {
+        "U_high": 25,
+        "V_high": 50,
+        "W_high": 75,
+        "low_sides": "complement of high with configured deadtime"
+      },
+      "pinmap_headers": {
+        "gtm_pinmap_header": "IfxGtm_PinMap.h (unchanged, TC3xx)",
+        "note": "Do not alter IfxPort/IfxPort_PinMap; they remain unchanged."
+      }
+    },
+    "timing_requirements": {
+      "pwm_frequency_hz": 20000,
+      "alignment": "center_aligned",
+      "deadtime_us": 0.5,
+      "duty_step_percent": 10,
+      "duty_wrap_range_percent": "0..100",
+      "update_period_ms": 500,
+      "duty_update_method": "buffered/synchronous via IfxGtm_Pwm_updateChannelsDutyImmediate"
+    },
+    "device_configuration": {
+      "target_device_macro": "DEVICE_TC38X",
+      "pin_package": "IFX_PIN_PACKAGE_516",
+      "device_family": "TC3xx",
+      "clock_requirements": {
+        "requires_xtal": true,
+        "expected_system_freq_mhz": 300,
+        "gtm_cmu_clk0_mhz": 100,
+        "notes": "Ensure GTM TBU/CMU clocking provides sufficient resolution for 0.5 us deadtime and 20 kHz period in center-aligned mode."
+      }
+    },
+    "code_structure": {
+      "file_pattern": "reference",
+      "expected_files": [
+        "GTM_TOM_3_Phase_Inverter_PWM.c",
+        "GTM_TOM_3_Phase_Inverter_PWM.h"
+      ],
+      "has_cpu_files": true
+    },
+    "reference_context": {
+      "includes_used": [
+        "Ifx_Types.h",
+        "IfxCpu.h",
+        "IfxScuWdt.h",
+        "Bsp.h",
+        "GTM_TOM_3_Phase_Inverter_PWM.h",
+        "Ifx_Cfg_Ssw.h",
+        "IfxGtm_Tom_PwmHl.h",
+        "IfxGtm_PinMap.h"
+      ],
+      "function_patterns": [
+        "initGtmTom3phInv",
+        "updateGtmTom3phInvDuty"
+      ],
+      "peripheral_usage": {
+        "GTM": "PWM generation",
+        "GTM_TOM": "TOM1 CH1..6 for 3-phase complementary outputs",
+        "Port": "Pin configuration and output enable",
+        "WATCHDOG": "Disable CPU watchdog during init on CPU0"
+      }
+    },
+    "template_compatibility": {
+      "validated": true,
+      "supported_peripherals": [
+        "PWM",
+        "GTM",
+        "ETHERNET",
+        "CPU"
+      ],
+      "suggested_drivers": {
+        "PWM": [
+          "IfxGtm_Pwm"
+        ],
+        "GTM": [
+          "IfxGtm_Pwm"
+        ],
+        "ETHERNET": [
+          "IfxGeth",
+          "IfxGeth_Eth"
+        ],
+        "CPU": [
+          "IfxCpu"
+        ],
+        "_driver_selection": {
+          "explicit_target": "IfxGtm_Pwm",
+          "replaced_source": "IfxGtm_Tom_PwmHl",
+          "primary_drivers": [
+            "IfxGtm_Pwm"
+          ],
+          "avoid_drivers": [
+            "IfxGtm_Tom_PwmHl"
+          ]
+        }
+      },
+      "warnings": []
+    },
+    "header_documentation_available": true,
+    "config_values_extracted": 16
+  },
+  "hardware": {
+    "microcontroller": {
+      "model": "TC387",
+      "verified": true
+    },
+    "peripheral_instance": {
+      "module": "GTM.TOM1",
+      "channels": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    "pin_assignments": [
+      {
+        "signal": "U_high (TOM1_CH1)",
+        "port_pin": "P00.2",
+        "function": "TBD",
+        "pin_macro": "TBD",
+        "is_complementary": false,
+        "verified": false,
+        "source": "hardware_verified"
+      },
+      {
+        "signal": "U_low (TOM1_CH2)",
+        "port_pin": "P00.3",
+        "function": "TBD",
+        "pin_macro": "TBD",
+        "is_complementary": true,
+        "verified": false,
+        "source": "hardware_verified"
+      },
+      {
+        "signal": "V_high (TOM1_CH3)",
+        "port_pin": "P00.4",
+        "function": "TBD",
+        "pin_macro": "TBD",
+        "is_complementary": false,
+        "verified": false,
+        "source": "hardware_verified"
+      },
+      {
+        "signal": "V_low (TOM1_CH4)",
+        "port_pin": "P00.5",
+        "function": "TBD",
+        "pin_macro": "TBD",
+        "is_complementary": true,
+        "verified": false,
+        "source": "hardware_verified"
+      },
+      {
+        "signal": "W_high (TOM1_CH5)",
+        "port_pin": "P00.6",
+        "function": "TBD",
+        "pin_macro": "TBD",
+        "is_complementary": false,
+        "verified": false,
+        "source": "hardware_verified"
+      },
+      {
+        "signal": "W_low (TOM1_CH6)",
+        "port_pin": "P00.7",
+        "function": "TBD",
+        "pin_macro": "TBD",
+        "is_complementary": true,
+        "verified": false,
+        "source": "hardware_verified"
+      }
+    ],
+    "clock_configuration": {
+      "xtal_frequency_mhz": 20,
+      "system_frequency_mhz": 300
+    },
+    "validation": {
+      "all_verified": false,
+      "conflicts": [
+        "P00.2 requested for TOM1_CH1 cannot be verified for IFX_PIN_PACKAGE_516; template documentation shows IfxGtm_TOM1_5_TOUT11_P00_2_OUT, indicating TOM1_CH5 is mapped to P00.2.",
+        "No template PinMap macro found to verify TOM1_CH2 on P00.3 for IFX_PIN_PACKAGE_516.",
+        "No template PinMap macro found to verify TOM1_CH3 on P00.4 for IFX_PIN_PACKAGE_516.",
+        "No template PinMap macro found to verify TOM1_CH4 on P00.5 for IFX_PIN_PACKAGE_516.",
+        "No template PinMap macro found to verify TOM1_CH5 on P00.6 for IFX_PIN_PACKAGE_516.",
+        "No template PinMap macro found to verify TOM1_CH6 on P00.7 for IFX_PIN_PACKAGE_516."
+      ],
+      "reference_pins_valid": true
+    },
+    "template_validation": {
+      "supported_peripherals": [
+        "PWM",
+        "GTM",
+        "ETHERNET",
+        "CPU"
+      ],
+      "suggested_drivers": {
+        "PWM": [
+          "IfxGtm_Pwm"
+        ],
+        "GTM": [
+          "IfxGtm_Pwm"
+        ],
+        "ETHERNET": [
+          "IfxGeth",
+          "IfxGeth_Eth"
+        ],
+        "CPU": [
+          "IfxCpu"
+        ],
+        "_driver_selection": {
+          "explicit_target": "IfxGtm_Pwm",
+          "replaced_source": "IfxGtm_Tom_PwmHl",
+          "primary_drivers": [
+            "IfxGtm_Pwm"
+          ],
+          "avoid_drivers": [
+            "IfxGtm_Tom_PwmHl"
+          ]
+        }
+      },
+      "warnings": []
+    },
+    "pin_analysis": {
+      "verified_count": 6,
+      "doc_reference_count": 1,
+      "merged_total": 7
+    }
+  }
+}
