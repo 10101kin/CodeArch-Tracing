@@ -1,3 +1,4 @@
+/* IfxGtm_Pwm driver types + functions */
 #ifndef IFXGTM_PWM_H
 #define IFXGTM_PWM_H
 
@@ -6,18 +7,22 @@
 #include "IfxGtm_Cmu.h"
 #include "IfxPort.h"
 
-/* Dependent minimal types used by verified structs */
-typedef struct { uint32 dummy; } Ifx_GTM_ATOM;
-typedef struct { uint32 dummy; } Ifx_GTM_TOM;
-typedef struct { uint32 dummy; } Ifx_GTM_CDTM;
-typedef struct { uint32 dummy; } IfxGtm_Trig_MscOut;
+/* Forward/supporting types used by PWM driver */
+typedef struct { uint32 id; } IfxGtm_Atom_ToutMap;
+typedef struct { uint32 id; } IfxGtm_Tom_ToutMap;
+typedef struct { uint32 reserved; } Ifx_GTM_ATOM;
+typedef struct { uint32 reserved; } Ifx_GTM_TOM;
+typedef struct { uint32 reserved; } Ifx_GTM_CDTM;
 
-typedef struct { uint32 dummy; } IfxGtm_Atom_ToutMap;
-typedef struct { uint32 dummy; } IfxGtm_Tom_ToutMap;
+typedef void (*IfxGtm_Pwm_callBack)(void *);
 
-typedef void (*IfxGtm_Pwm_callBack)(void *data);
+typedef union
+{
+    IfxGtm_Atom_ToutMap atom;       
+    IfxGtm_Tom_ToutMap  tom;        
+} IfxGtm_Pwm_ToutMap;
 
-/* VERIFIED TYPE DEFINITIONS — DO NOT MODIFY ORDER OR CONTENT */
+/* VERIFIED TYPE DEFINITIONS — EMIT EXACTLY AS-IS */
 typedef enum
 {
     IfxGtm_Pwm_Alignment_edge   = 0, 
@@ -110,12 +115,6 @@ typedef struct
     IfxGtm_Pwm_DeadTime deadTime;       
 } IfxGtm_Pwm_DtmConfig;
 
-typedef union
-{
-    IfxGtm_Atom_ToutMap atom;       
-    IfxGtm_Tom_ToutMap  tom;        
-} IfxGtm_Pwm_ToutMap;
-
 typedef struct
 {
     IfxGtm_IrqMode      mode;              
@@ -175,7 +174,17 @@ typedef struct
 typedef enum
 {
     IfxGtm_Cluster_0,     
-    IfxGtm_Cluster_1     
+    IfxGtm_Cluster_1,     
+    IfxGtm_Cluster_2,     
+    IfxGtm_Cluster_3,     
+    IfxGtm_Cluster_4,     
+    IfxGtm_Cluster_5,     
+    IfxGtm_Cluster_6,     
+    IfxGtm_Cluster_7,     
+    IfxGtm_Cluster_8,     
+    IfxGtm_Cluster_9,     
+    IfxGtm_Cluster_10,    
+    IfxGtm_Cluster_11     
 } IfxGtm_Cluster;
 
 typedef struct
@@ -244,9 +253,15 @@ typedef struct
     IfxPort_PadDriver   padDriver;       
 } IfxGtm_Pwm_Pin;
 
-/* Functions to mock */
-void IfxGtm_Pwm_initConfig(IfxGtm_Pwm_Config *config, Ifx_GTM *gtmSFR);
+/* Additional supporting type for ChannelConfig */
+typedef struct { uint32 reserved; } IfxGtm_Trig_MscOut;
+
+/* Functions from DRIVERS TO MOCK */
 void IfxGtm_Pwm_init(IfxGtm_Pwm *pwm, IfxGtm_Pwm_Channel *channels, IfxGtm_Pwm_Config *config);
+void IfxGtm_Pwm_initConfig(IfxGtm_Pwm_Config *config, Ifx_GTM *gtmSFR);
 void IfxGtm_Pwm_updateChannelsDutyImmediate(IfxGtm_Pwm *pwm, float32 *requestDuty);
+
+/* IRQ installer used in examples */
+void IfxCpu_Irq_installInterruptHandler(void (*isr)(void), int priority);
 
 #endif /* IFXGTM_PWM_H */

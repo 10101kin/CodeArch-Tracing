@@ -1,9 +1,9 @@
+/* IfxGtm base types + functions */
 #ifndef IFXGTM_H
 #define IFXGTM_H
 
 #include "mock_gtm_tom_3_phase_inverter_pwm.h"
 
-/* Enums */
 typedef enum
 {
     IfxGtm_IrqMode_level       = 0,
@@ -19,7 +19,7 @@ typedef enum
     IfxGtm_SuspendMode_soft = 2
 } IfxGtm_SuspendMode;
 
-/* Functions to mock */
+/* Functions used by the module */
 boolean IfxGtm_isEnabled(Ifx_GTM *gtm);
 void    IfxGtm_enable(Ifx_GTM *gtm);
 
