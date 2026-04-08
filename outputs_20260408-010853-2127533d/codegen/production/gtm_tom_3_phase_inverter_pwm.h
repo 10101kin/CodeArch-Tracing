@@ -9,13 +9,13 @@
 extern "C" {
 #endif
 
-/* Public API prototypes (unit test requires all of these symbols) */
+/* Public API (all functions listed by the test harness) */
 void initGtmTom3phInv(void);
 void updateGtmTom3phInvDuty(void);
 void interruptGtmAtom(void);
 void IfxGtm_periodEventFunction(void *data);
 
-/* Unit-test hooks (stubs) */
+/* Unit-test placeholders (no-ops) */
 void UT_DEADTIME_FALLING_S(void);
 void UT_DEADTIME_RISING_S(void);
 void UT_FLOAT_EPSILON(void);
