@@ -40,20 +40,34 @@ typedef enum
     IfxGtm_Cmu_Tim_Filter_Clk_7
 } IfxGtm_Cmu_Tim_Filter_Clk;
 
-/* CMU enable mask macros */
+/* CLKEN macros */
 #ifndef IFXGTM_CMU_CLKEN_FXCLK
-#define IFXGTM_CMU_CLKEN_FXCLK (1U << 0)
+#define IFXGTM_CMU_CLKEN_FXCLK (0x00000001u)
 #endif
 #ifndef IFXGTM_CMU_CLKEN_CLK0
-#define IFXGTM_CMU_CLKEN_CLK0  (1U << 1)
+#define IFXGTM_CMU_CLKEN_CLK0  (0x00000100u)
+#endif
+#ifndef IFXGTM_CMU_CLKEN_ALL
+#define IFXGTM_CMU_CLKEN_ALL   (0xFFFFFFFFu)
 #endif
 
-/* Function declarations (mandatory + drivers to mock) */
+/* Function declarations */
+void    IfxGtm_Cmu_enableClocks(Ifx_GTM *gtm, uint32 clkMask);
+float32 IfxGtm_Cmu_getClkFrequency(Ifx_GTM *gtm, IfxGtm_Cmu_Clk clkIndex, boolean assumeEnabled);
+float32 IfxGtm_Cmu_getEclkFrequency(Ifx_GTM *gtm, IfxGtm_Cmu_Eclk eclkIndex, boolean assumeEnabled);
+float32 IfxGtm_Cmu_getFxClkFrequency(Ifx_GTM *gtm, IfxGtm_Cmu_Fxclk fxclkIndex, boolean assumeEnabled);
+float32 IfxGtm_Cmu_getGclkFrequency(Ifx_GTM *gtm);
+float32 IfxGtm_Cmu_getModuleFrequency(Ifx_GTM *gtm);
+boolean IfxGtm_Cmu_isClkClockEnabled(Ifx_GTM *gtm, IfxGtm_Cmu_Clk clkIndex);
+boolean IfxGtm_Cmu_isEclkClockEnabled(Ifx_GTM *gtm, IfxGtm_Cmu_Eclk eclkIndex);
+boolean IfxGtm_Cmu_isFxClockEnabled(Ifx_GTM *gtm, IfxGtm_Cmu_Fxclk fxclkIndex);
+void    IfxGtm_Cmu_selectClkInput(Ifx_GTM *gtm, IfxGtm_Cmu_Clk clkIndex, uint32 input);
+void    IfxGtm_Cmu_setClkFrequency(Ifx_GTM *gtm, IfxGtm_Cmu_Clk clkIndex, float32 frequency);
+void    IfxGtm_Cmu_setEclkFrequency(Ifx_GTM *gtm, IfxGtm_Cmu_Eclk eclkIndex, float32 frequency);
+void    IfxGtm_Cmu_setGclkFrequency(Ifx_GTM *gtm, float32 frequency);
+
+/* Mandatory additional CMU control */
 void    IfxGtm_Cmu_enable(Ifx_GTM *module);
 boolean IfxGtm_Cmu_isEnabled(Ifx_GTM *module);
-float32 IfxGtm_Cmu_getModuleFrequency(Ifx_GTM *module);
-void    IfxGtm_Cmu_setGclkFrequency(Ifx_GTM *module, float32 frequency);
-void    IfxGtm_Cmu_setClkFrequency(Ifx_GTM *module, IfxGtm_Cmu_Clk clkIndex, float32 frequency);
-void    IfxGtm_Cmu_enableClocks(Ifx_GTM *module, uint32 clkMask);
 
 #endif /* IFXGTM_CMU_H */
