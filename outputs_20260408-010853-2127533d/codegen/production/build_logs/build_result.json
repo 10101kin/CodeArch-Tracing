@@ -1,7 +1,20 @@
 {
-  "success": true,
-  "errors": [],
+  "success": false,
+  "errors": [
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_5l2cdzvm\\include/IfxGtm_Pwm.h",
+      "line": 169,
+      "category": "error",
+      "message": "unknown type name 'IfxGtm_Trig_MscOut'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_5l2cdzvm\\include/IfxGtm_Pwm.h",
+      "line": 169,
+      "category": "error",
+      "message": "unknown type name 'IfxGtm_Trig_MscOut'"
+    }
+  ],
   "warnings": [],
-  "stderr": "",
+  "stderr": "In file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_5l2cdzvm\\src\\gtm_tom_3_phase_inverter_pwm.c:16:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_5l2cdzvm\\include/IfxGtm_Pwm.h:169:5: error: unknown type name 'IfxGtm_Trig_MscOut'\n  169 |     IfxGtm_Trig_MscOut         *mscOut;\n      |     ^~~~~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_5l2cdzvm\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c:6:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_5l2cdzvm\\include/IfxGtm_Pwm.h:169:5: error: unknown type name 'IfxGtm_Trig_MscOut'\n  169 |     IfxGtm_Trig_MscOut         *mscOut;\n      |     ^~~~~~~~~~~~~~~~~~\n",
   "stdout": ""
 }
