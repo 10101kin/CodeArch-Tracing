@@ -1,12 +1,13 @@
 {
   "meta": {
     "schema_version": "1.0",
-    "last_updated_by": "sw_architecture",
-    "last_updated_at": "2026-04-08T10:28:58.377097",
+    "last_updated_by": "sw_detailed",
+    "last_updated_at": "2026-04-08T10:31:02.257642",
     "build_sequence": [
       "requirements",
       "hardware",
-      "sw_architecture"
+      "sw_architecture",
+      "sw_detailed"
     ],
     "corrections_log": []
   },
@@ -594,6 +595,119 @@
       }
     },
     "driver_knowledge_base": {
+      "applied": false
+    },
+    "migration_numerical_values": {
+      "DUTY_25_PERCENT": {
+        "value": 25.0,
+        "unit": "%",
+        "label": "Phase U initial duty cycle"
+      },
+      "DUTY_50_PERCENT": {
+        "value": 50.0,
+        "unit": "%",
+        "label": "Phase V initial duty cycle"
+      },
+      "DUTY_75_PERCENT": {
+        "value": 75.0,
+        "unit": "%",
+        "label": "Phase W initial duty cycle"
+      },
+      "DUTY_STEP": {
+        "value": 10.0,
+        "unit": "%",
+        "label": "Duty cycle step increment"
+      },
+      "PWM_FREQ_HZ": {
+        "value": 20000.0,
+        "unit": "Hz",
+        "label": "PWM switching frequency"
+      },
+      "WAIT_TIME": {
+        "value": 10.0,
+        "unit": "ms",
+        "label": "Wait / delay time"
+      },
+      "PWM_DEAD_TIME": {
+        "value": 5e-07,
+        "unit": "s",
+        "label": "Dead-time between complementary outputs"
+      },
+      "PWM_MIN_PULSE_TIME": {
+        "value": 1e-06,
+        "unit": "s",
+        "label": "Minimum pulse width"
+      }
+    }
+  },
+  "sw_detailed": {
+    "module_name": "GTM_TOM_3_Phase_Inverter_PWM",
+    "public_functions": [
+      {
+        "signature": "void initGtmTom3phInv(void)",
+        "behavior_description": "Initialize a 3-channel, center-aligned PWM on the TOM submodule using the unified IfxGtm_Pwm driver with complementary outputs and dead time. Algorithm: 1) Declare all configuration structs locally: main IfxGtm_Pwm_Config, per-channel IfxGtm_Pwm_ChannelConfig[3], per-channel output descriptors[3] (each with a primary pin and complementary pin), per-channel dead-time/min-pulse config[3], and a single InterruptConfig instance. 2) Call IfxGtm_Pwm_initConfig to load driver defaults. 3) Fill output[i] for the three logical PWM channels with: active-high polarity for both primary and complementary outputs, push-pull mode, and pad driver set to automotive speed 1. Assign the exact TOUT pin macros for each phase’s high-side (primary) and low-side (complementary) pins from the verified hardware context. 4) For each channel i=0..2, set dtmConfig[i] to use 1 µs rising and 1 µs falling dead time and a 1 µs minimum pulse; select the DTM clock as CMU clock 0. 5) Prepare InterruptConfig: set provider to CPU0, priority to 20, select the appropriate interrupt mode for periodic notification, set periodEvent = IfxGtm_periodEventFunction, and dutyEvent = NULL. Assign channelConfig[0].interrupt = &InterruptConfig and channelConfig[1].interrupt = NULL and channelConfig[2].interrupt = NULL. 6) Populate each channelConfig[i] with logical indices (timerCh = SubModule_Ch_0..2 in order), phase = 0.0, initial duty = [25.0, 50.0, 75.0], link the corresponding output[i] and dtmConfig[i], and leave non-used optional endpoints NULL. 7) Complete main config: subModule = TOM, cluster = Cluster_1, alignment = center, frequency = 20 kHz, clock source = FXCLK0 for TOM channels, enable syncStart and syncUpdate, set numChannels = 3 and channels = &channelConfig[0]. 8) Enable-guard and CMU: if GTM is not enabled, enable it; read the GTM module frequency dynamically; then enable the FXCLKs using the CMU clock enable mask (all steps inside the guard). 9) Call IfxGtm_Pwm_init with the persistent driver handle and a persistent channels array stored in the module state. After init, store the initial dutyCycles[3] and per-channel deadTimes in the module’s persistent state (these arrays must persist after function return). 10) Configure the debug LED GPIO used by the ISR: set the target pin as a push-pull output after PWM init. The PWM outputs start in a safe state (both complementary outputs off) and begin in center-aligned mode with synchronized start and update behavior.",
+        "driver_calls": [
+          "IfxGtm_isEnabled",
+          "IfxGtm_enable",
+          "IfxGtm_Cmu_getModuleFrequency",
+          "IfxGtm_Cmu_enableClocks",
+          "IfxGtm_Pwm_initConfig",
+          "IfxGtm_Pwm_init",
+          "IfxPort_setPinModeOutput",
+          "IfxGtm_Cmu_setGclkFrequency",
+          "IfxGtm_Cmu_setClkFrequency"
+        ],
+        "from_reference": true,
+        "call_context": "init"
+      },
+      {
+        "signature": "void updateGtmTom3phInvDuty(void)",
+        "behavior_description": "Update the three phase duties in percent according to the wrap rule, then apply immediately to the running PWM. Algorithm per channel i = 0..2: compute next = duty[i] + 10.0; if next >= 100.0 then set duty[i] = 0.0, then add the 10.0% step (duty[i] += 10.0). Clamp results to the 0..100 range. After all three are updated and stored in the persistent state’s dutyCycles[3], pass that array directly to the driver’s immediate multi-channel duty update API to apply synchronously.",
+        "driver_calls": [
+          "IfxGtm_Pwm_updateChannelsDutyImmediate"
+        ],
+        "from_reference": true,
+        "call_context": "loop"
+      },
+      {
+        "signature": "void IfxGtm_periodEventFunction(void *data)",
+        "behavior_description": "Empty period-event callback required by the high-level PWM driver’s interrupt configuration. It must accept a void* parameter and do nothing; simply cast data to void to suppress unused warnings. The ISR is separate and only toggles the LED.",
+        "driver_calls": [],
+        "from_reference": true,
+        "call_context": "none"
+      },
+      {
+        "signature": "void interruptGtmAtom(void)",
+        "behavior_description": "Hardware ISR function (declared with IFX_INTERRUPT externally) that only toggles the configured LED pin. No driver calls other than toggling the pin and no heavy processing. This ISR is distinct from the IfxGtm_periodEventFunction callback and is not assigned to periodEvent.",
+        "driver_calls": [
+          "IfxPort_togglePin"
+        ],
+        "from_reference": false,
+        "call_context": "none"
+      }
+    ],
+    "private_functions": [],
+    "dependencies": {
+      "includes": [
+        "Ifx_Types.h",
+        "IfxGtm_Pwm.h",
+        "IfxPort.h",
+        "IfxPort_Pinmap.h"
+      ],
+      "driver_calls": [
+        "IfxGtm_Cmu_setGclkFrequency",
+        "IfxGtm_Cmu_setClkFrequency"
+      ]
+    },
+    "cpu_main_requirements": {
+      "needs_cpu_sync": true,
+      "uses_timer_delay": true,
+      "delay_ms": 500,
+      "additional_includes": [
+        "Bsp.h"
+      ]
+    },
+    "header_selection": {
       "applied": false
     },
     "migration_numerical_values": {
