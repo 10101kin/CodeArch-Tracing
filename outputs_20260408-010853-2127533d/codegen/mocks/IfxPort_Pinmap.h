@@ -3,6 +3,7 @@
 
 #include "IfxGtm_Pwm.h"
 
+/* Required pin symbol externs */
 extern IfxGtm_Pwm_ToutMap IfxGtm_TOM1_0N_TOUT7_P02_7_OUT;
 extern IfxGtm_Pwm_ToutMap IfxGtm_TOM1_0_TOUT0_P02_0_OUT;
 extern IfxGtm_Pwm_ToutMap IfxGtm_TOM1_12_TOUT4_P02_4_OUT;

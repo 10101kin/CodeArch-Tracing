@@ -1,3 +1,4 @@
+/* IfxGtm_Pwm types + functions */
 #ifndef IFXGTM_PWM_H
 #define IFXGTM_PWM_H
 
@@ -6,18 +7,18 @@
 #include "IfxGtm_Cmu.h"
 #include "IfxPort.h"
 
-/* Support types normally provided by GTM pin/trigger headers */
-typedef struct { uint32 dummy; } IfxGtm_Trig_MscOut;
+/* Support types used in verified definitions */
 typedef struct { uint32 dummy; } IfxGtm_Atom_ToutMap;
 typedef struct { uint32 dummy; } IfxGtm_Tom_ToutMap;
 typedef struct { uint32 reserved; } Ifx_GTM_ATOM;
 typedef struct { uint32 reserved; } Ifx_GTM_TOM;
 typedef struct { uint32 reserved; } Ifx_GTM_CDTM;
+typedef struct { uint32 reserved; } IfxGtm_Trig_MscOut;
 
-/* Callback type */
 typedef void (*IfxGtm_Pwm_callBack)(void *data);
 
-/* VERIFIED TYPE DEFINITIONS — emit exactly as-is in mocks */
+/* VERIFIED TYPE DEFINITIONS — emit exactly as-is */
+
 typedef enum
 {
     IfxGtm_Pwm_Alignment_edge   = 0, 
@@ -248,11 +249,12 @@ typedef struct
     IfxPort_PadDriver   padDriver;       
 } IfxGtm_Pwm_Pin;
 
-/* Function declarations (subset required) */
-void IfxCpu_Irq_installInterruptHandler(void (*isr)(void), int priority);
-
+/* Function declarations (drivers to mock + helper) */
 void IfxGtm_Pwm_initConfig(IfxGtm_Pwm_Config *config, Ifx_GTM *gtmSFR);
 void IfxGtm_Pwm_init(IfxGtm_Pwm *pwm, IfxGtm_Pwm_Channel *channels, IfxGtm_Pwm_Config *config);
 void IfxGtm_Pwm_updateChannelsDutyImmediate(IfxGtm_Pwm *pwm, float32 *requestDuty);
+
+/* IRQ installer helper (often used by examples) */
+void IfxCpu_Irq_installInterruptHandler(void (*handler)(void), int priority);
 
 #endif /* IFXGTM_PWM_H */
