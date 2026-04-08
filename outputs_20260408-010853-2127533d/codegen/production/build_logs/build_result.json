@@ -2,19 +2,49 @@
   "success": false,
   "errors": [
     {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_5l2cdzvm\\include/IfxGtm_Pwm.h",
-      "line": 169,
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_86hryug0\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 39,
       "category": "error",
-      "message": "unknown type name 'IfxGtm_Trig_MscOut'"
+      "message": "'IfxGtm_TOM1_0_TOUT0_P02_0_OUT' undeclared (first use in this function)"
     },
     {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_5l2cdzvm\\include/IfxGtm_Pwm.h",
-      "line": 169,
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_86hryug0\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 40,
       "category": "error",
-      "message": "unknown type name 'IfxGtm_Trig_MscOut'"
+      "message": "'IfxGtm_TOM1_0N_TOUT7_P02_7_OUT' undeclared (first use in this function)"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_86hryug0\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 41,
+      "category": "error",
+      "message": "'IfxGtm_TOM1_1_TOUT1_P02_1_OUT' undeclared (first use in this function)"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_86hryug0\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 42,
+      "category": "error",
+      "message": "'IfxGtm_TOM1_12_TOUT4_P02_4_OUT' undeclared (first use in this function)"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_86hryug0\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 43,
+      "category": "error",
+      "message": "'IfxGtm_TOM1_5_TOUT2_P02_2_OUT' undeclared (first use in this function)"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_86hryug0\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 44,
+      "category": "error",
+      "message": "'IfxGtm_TOM1_13_TOUT5_P02_5_OUT' undeclared (first use in this function)"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_86hryug0\\test\\test_gtm_tom_3_phase_inverter_pwm.c",
+      "line": 134,
+      "category": "error",
+      "message": "implicit declaration of function 'mock_togglePin_getCallCount'; did you mean 'mock_IfxPort_togglePin_getCallCount'? [-Wimplicit-function-declaration]"
     }
   ],
   "warnings": [],
-  "stderr": "In file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_5l2cdzvm\\src\\gtm_tom_3_phase_inverter_pwm.c:16:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_5l2cdzvm\\include/IfxGtm_Pwm.h:169:5: error: unknown type name 'IfxGtm_Trig_MscOut'\n  169 |     IfxGtm_Trig_MscOut         *mscOut;\n      |     ^~~~~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_5l2cdzvm\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c:6:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_5l2cdzvm\\include/IfxGtm_Pwm.h:169:5: error: unknown type name 'IfxGtm_Trig_MscOut'\n  169 |     IfxGtm_Trig_MscOut         *mscOut;\n      |     ^~~~~~~~~~~~~~~~~~\n",
+  "stderr": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_86hryug0\\src\\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTom3phInv':\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_86hryug0\\src\\gtm_tom_3_phase_inverter_pwm.c:39:43: error: 'IfxGtm_TOM1_0_TOUT0_P02_0_OUT' undeclared (first use in this function)\n   39 | #define PHASE_U_HS                      (&IfxGtm_TOM1_0_TOUT0_P02_0_OUT)\n      |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_86hryug0\\src\\gtm_tom_3_phase_inverter_pwm.c:102:63: note: in expansion of macro 'PHASE_U_HS'\n  102 |     output[0].pin                     = (IfxGtm_Pwm_ToutMap *)PHASE_U_HS;\n      |                                                               ^~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_86hryug0\\src\\gtm_tom_3_phase_inverter_pwm.c:39:43: note: each undeclared identifier is reported only once for each function it appears in\n   39 | #define PHASE_U_HS                      (&IfxGtm_TOM1_0_TOUT0_P02_0_OUT)\n      |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_86hryug0\\src\\gtm_tom_3_phase_inverter_pwm.c:102:63: note: in expansion of macro 'PHASE_U_HS'\n  102 |     output[0].pin                     = (IfxGtm_Pwm_ToutMap *)PHASE_U_HS;\n      |                                                               ^~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_86hryug0\\src\\gtm_tom_3_phase_inverter_pwm.c:40:43: error: 'IfxGtm_TOM1_0N_TOUT7_P02_7_OUT' undeclared (first use in this function)\n   40 | #define PHASE_U_LS                      (&IfxGtm_TOM1_0N_TOUT7_P02_7_OUT)\n      |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_86hryug0\\src\\gtm_tom_3_phase_inverter_pwm.c:103:63: note: in expansion of macro 'PHASE_U_LS'\n  103 |     output[0].complementaryPin        = (IfxGtm_Pwm_ToutMap *)PHASE_U_LS;\n      |                                                               ^~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_86hryug0\\src\\gtm_tom_3_phase_inverter_pwm.c:41:43: error: 'IfxGtm_TOM1_1_TOUT1_P02_1_OUT' undeclared (first use in this function)\n   41 | #define PHASE_V_HS                      (&IfxGtm_TOM1_1_TOUT1_P02_1_OUT)\n      |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_86hryug0\\src\\gtm_tom_3_phase_inverter_pwm.c:110:63: note: in expansion of macro 'PHASE_V_HS'\n  110 |     output[1].pin                     = (IfxGtm_Pwm_ToutMap *)PHASE_V_HS;\n      |                                                               ^~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_86hryug0\\src\\gtm_tom_3_phase_inverter_pwm.c:42:43: error: 'IfxGtm_TOM1_12_TOUT4_P02_4_OUT' undeclared (first use in this function)\n   42 | #define PHASE_V_LS                      (&IfxGtm_TOM1_12_TOUT4_P02_4_OUT)\n      |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_86hryug0\\src\\gtm_tom_3_phase_inverter_pwm.c:111:63: note: in expansion of macro 'PHASE_V_LS'\n  111 |     output[1].complementaryPin        = (IfxGtm_Pwm_ToutMap *)PHASE_V_LS;\n      |                                                               ^~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_86hryug0\\src\\gtm_tom_3_phase_inverter_pwm.c:43:43: error: 'IfxGtm_TOM1_5_TOUT2_P02_2_OUT' undeclared (first use in this function)\n   43 | #define PHASE_W_HS                      (&IfxGtm_TOM1_5_TOUT2_P02_2_OUT)\n      |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_86hryug0\\src\\gtm_tom_3_phase_inverter_pwm.c:118:63: note: in expansion of macro 'PHASE_W_HS'\n  118 |     output[2].pin                     = (IfxGtm_Pwm_ToutMap *)PHASE_W_HS;\n      |                                                               ^~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_86hryug0\\src\\gtm_tom_3_phase_inverter_pwm.c:44:43: error: 'IfxGtm_TOM1_13_TOUT5_P02_5_OUT' undeclared (first use in this function)\n   44 | #define PHASE_W_LS                      (&IfxGtm_TOM1_13_TOUT5_P02_5_OUT)\n      |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_86hryug0\\src\\gtm_tom_3_phase_inverter_pwm.c:119:63: note: in expansion of macro 'PHASE_W_LS'\n  119 |     output[2].complementaryPin        = (IfxGtm_Pwm_ToutMap *)PHASE_W_LS;\n      |                                                               ^~~~~~~~~~\n\nIn file included from C:\\Users\\extsiyv\\Desktop\\Infineon\\Workstream_3\\agentic_workflow_Infineon\\unity/unity.h:22,\n                 from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_86hryug0\\test\\test_gtm_tom_3_phase_inverter_pwm.c:1:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_86hryug0\\test\\test_gtm_tom_3_phase_inverter_pwm.c: In function 'test_TC_G4_001_isr_toggles_led_once':\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_86hryug0\\test\\test_gtm_tom_3_phase_inverter_pwm.c:134:41: error: implicit declaration of function 'mock_togglePin_getCallCount'; did you mean 'mock_IfxPort_togglePin_getCallCount'? [-Wimplicit-function-declaration]\n  134 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_togglePin_getCallCount(), \"ISR should toggle LED exactly once\");\n      |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\Desktop\\Infineon\\Workstream_3\\agentic_workflow_Infineon\\unity/unity_internals.h:904:184: note: in definition of macro 'UNITY_TEST_ASSERT_EQUAL_UINT32'\n  904 | #define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)                          UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)(expected), (UNITY_INT)(UNITY_UINT32)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_UINT32)\n      |                                                                                                                                                                                        ^~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_86hryug0\\test\\test_gtm_tom_3_phase_inverter_pwm.c:134:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_UINT32_MESSAGE'\n  134 |     TEST_ASSERT_EQUAL_UINT32_MESSAGE(1, mock_togglePin_getCallCount(), \"ISR should toggle LED exactly once\");\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n",
   "stdout": ""
 }
