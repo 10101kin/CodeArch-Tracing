@@ -1,3 +1,22 @@
 Status: SUCCESS
 
-LLM response for production phase (attempt 5), 11325 chars
+============================================================
+TDD CODE GENERATION - ATTEMPT STATUS
+============================================================
+Phase: production
+Attempt: 5
+Status: SUCCESS
+Timestamp: 2026-04-08 09:59:06
+Files generated: 2
+
+============================================================
+
+============================================================
+BUILD RESULT:
+{
+  "success": true,
+  "errors": [],
+  "warnings": [],
+  "stderr": "",
+  "stdout": ""
+}
