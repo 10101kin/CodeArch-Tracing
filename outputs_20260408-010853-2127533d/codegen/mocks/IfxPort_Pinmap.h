@@ -1,8 +1,6 @@
-/* Mock IfxPort_Pinmap.h to provide required pin symbols */
 #ifndef IFXPORT_PINMAP_H
 #define IFXPORT_PINMAP_H
 
-#include "IfxPort.h"
 #include "IfxGtm_Pwm.h"
 
 extern IfxGtm_Pwm_ToutMap IfxGtm_TOM1_0N_TOUT7_P02_7_OUT;

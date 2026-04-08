@@ -1,4 +1,3 @@
-/* Mock IfxGtm.h for TC3xx */
 #ifndef IFXGTM_H
 #define IFXGTM_H
 
@@ -18,7 +17,7 @@ typedef enum {
     IfxGtm_SuspendMode_soft = 2
 } IfxGtm_SuspendMode;
 
-/* Functions (subset used) */
+/* Functions (subset used by module) */
 boolean IfxGtm_isEnabled(Ifx_GTM *gtm);
 void    IfxGtm_enable(Ifx_GTM *gtm);
 
