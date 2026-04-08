@@ -1,4 +1,3 @@
-/* IfxGtm_Pwm types + functions */
 #ifndef IFXGTM_PWM_H
 #define IFXGTM_PWM_H
 
@@ -7,17 +6,24 @@
 #include "IfxGtm_Cmu.h"
 #include "IfxPort.h"
 
-/* Support types used in verified definitions */
-typedef struct { uint32 dummy; } IfxGtm_Atom_ToutMap;
-typedef struct { uint32 dummy; } IfxGtm_Tom_ToutMap;
+/* Support types used by verified structs */
 typedef struct { uint32 reserved; } Ifx_GTM_ATOM;
 typedef struct { uint32 reserved; } Ifx_GTM_TOM;
 typedef struct { uint32 reserved; } Ifx_GTM_CDTM;
 typedef struct { uint32 reserved; } IfxGtm_Trig_MscOut;
 
+typedef struct { uint32 reserved; } IfxGtm_Atom_ToutMap;
+typedef struct { uint32 reserved; } IfxGtm_Tom_ToutMap;
+
+typedef union
+{
+    IfxGtm_Atom_ToutMap atom;       
+    IfxGtm_Tom_ToutMap  tom;        
+} IfxGtm_Pwm_ToutMap;
+
 typedef void (*IfxGtm_Pwm_callBack)(void *data);
 
-/* VERIFIED TYPE DEFINITIONS — emit exactly as-is */
+/* ===== VERIFIED TYPE DEFINITIONS — DO NOT MODIFY (begin) ===== */
 
 typedef enum
 {
@@ -110,12 +116,6 @@ typedef struct
 {
     IfxGtm_Pwm_DeadTime deadTime;       
 } IfxGtm_Pwm_DtmConfig;
-
-typedef union
-{
-    IfxGtm_Atom_ToutMap atom;       
-    IfxGtm_Tom_ToutMap  tom;        
-} IfxGtm_Pwm_ToutMap;
 
 typedef struct
 {
@@ -249,12 +249,16 @@ typedef struct
     IfxPort_PadDriver   padDriver;       
 } IfxGtm_Pwm_Pin;
 
-/* Function declarations (drivers to mock + helper) */
+/* ===== VERIFIED TYPE DEFINITIONS — DO NOT MODIFY (end) ===== */
+
+/* Function declarations */
+void IfxCpu_Irq_installInterruptHandler(void (*handler)(void), int priority);
 void IfxGtm_Pwm_initConfig(IfxGtm_Pwm_Config *config, Ifx_GTM *gtmSFR);
 void IfxGtm_Pwm_init(IfxGtm_Pwm *pwm, IfxGtm_Pwm_Channel *channels, IfxGtm_Pwm_Config *config);
 void IfxGtm_Pwm_updateChannelsDutyImmediate(IfxGtm_Pwm *pwm, float32 *requestDuty);
 
-/* IRQ installer helper (often used by examples) */
-void IfxCpu_Irq_installInterruptHandler(void (*handler)(void), int priority);
+/* Optionally referenced CMU calls (duplicate prototypes acceptable) */
+void    IfxGtm_Cmu_enableClocks(Ifx_GTM *module, uint32 clkMask);
+void    IfxGtm_Cmu_setGclkFrequency(Ifx_GTM *module, float32 frequency);
 
 #endif /* IFXGTM_PWM_H */
