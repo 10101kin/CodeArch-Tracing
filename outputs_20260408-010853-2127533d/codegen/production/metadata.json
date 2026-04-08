@@ -1,9 +1,8 @@
 {
-  "attempt": 4,
-  "phase_attempt": 2,
+  "type": "llm_response",
   "phase": "production",
-  "success": true,
-  "errors": [],
-  "timestamp": "2026-04-08T09:56:58.772829",
-  "project_name": "Upgrade_the_TC387_3-phase_inverter_PWM_from_IfxGtm_r_20260408_094712"
+  "attempt": 5,
+  "phase_attempt": 3,
+  "response_length": 11325,
+  "timestamp": "2026-04-08T09:59:00.865740"
 }
