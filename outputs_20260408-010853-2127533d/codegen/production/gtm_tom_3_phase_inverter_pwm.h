@@ -5,17 +5,14 @@
 #ifndef GTM_TOM_3_PHASE_INVERTER_PWM_H
 #define GTM_TOM_3_PHASE_INVERTER_PWM_H
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-/* Public API (all functions listed by the test harness) */
+/* Public API */
 void initGtmTom3phInv(void);
 void updateGtmTom3phInvDuty(void);
-void interruptGtmAtom(void);
-void IfxGtm_periodEventFunction(void *data);
 
-/* Unit-test placeholders (no-ops) */
+/* ISR (exported symbol; typically not called directly by application code) */
+void interruptGtmAtom(void);
+
+/* Unit-test hooks (stubs) */
 void UT_DEADTIME_FALLING_S(void);
 void UT_DEADTIME_RISING_S(void);
 void UT_FLOAT_EPSILON(void);
@@ -30,13 +27,9 @@ void UT_WRAP_THRESHOLD_PERCENT(void);
 void accumulate(void);
 void behavior(void);
 void call(void);
-void for(void);
+/* Note: A function named 'for' cannot be declared in C (reserved keyword). */
 void logic(void);
 void percent(void);
 void update(void);
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif /* GTM_TOM_3_PHASE_INVERTER_PWM_H */
