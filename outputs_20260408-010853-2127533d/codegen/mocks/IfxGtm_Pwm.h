@@ -6,20 +6,19 @@
 #include "IfxGtm_Cmu.h"
 #include "IfxPort.h"
 
-/* Dependent SFR type stubs referenced by PWM types */
-typedef struct { uint32 reserved; } Ifx_GTM_ATOM;
-typedef struct { uint32 reserved; } Ifx_GTM_TOM;
-typedef struct { uint32 reserved; } Ifx_GTM_CDTM;
+/* Forward declarations for pointer members */
+typedef struct Ifx_GTM_ATOM Ifx_GTM_ATOM;
+typedef struct Ifx_GTM_TOM  Ifx_GTM_TOM;
+typedef struct Ifx_GTM_CDTM Ifx_GTM_CDTM;
+typedef struct IfxGtm_Trig_MscOut IfxGtm_Trig_MscOut;
 
-typedef struct { uint32 id; } IfxGtm_Atom_ToutMap;
-typedef struct { uint32 id; } IfxGtm_Tom_ToutMap;
+/* Pin map helper types for ToutMap union */
+typedef struct { uint32 dummy; } IfxGtm_Atom_ToutMap;
+typedef struct { uint32 dummy; } IfxGtm_Tom_ToutMap;
 
-typedef struct { uint32 reserved; } IfxGtm_Trig_MscOut; /* Fixes unknown type name errors */
+typedef void (*IfxGtm_Pwm_callBack)(void *);
 
-typedef void (*IfxGtm_Pwm_callBack)(void *data);
-
-/* VERIFIED TYPE DEFINITIONS — EMIT EXACTLY AS-IS IN MOCKS */
-
+/* VERIFIED TYPE DEFINITIONS — emit exactly as provided */
 typedef enum
 {
     IfxGtm_Pwm_Alignment_edge   = 0, 
@@ -256,7 +255,7 @@ typedef struct
     IfxPort_PadDriver   padDriver;       
 } IfxGtm_Pwm_Pin;
 
-/* Functions (subset needed) */
+/* Function declarations (subset used by module) */
 void IfxGtm_Pwm_init(IfxGtm_Pwm *pwm, IfxGtm_Pwm_Channel *channels, IfxGtm_Pwm_Config *config);
 void IfxGtm_Pwm_initConfig(IfxGtm_Pwm_Config *config, Ifx_GTM *gtmSFR);
 void IfxGtm_Pwm_updateChannelsDutyImmediate(IfxGtm_Pwm *pwm, float32 *requestDuty);
