@@ -1,43 +1,43 @@
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build__141rdyc\src\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTom3phInv':
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build__141rdyc\src\gtm_tom_3_phase_inverter_pwm.c:37:45: error: 'IfxGtm_TOM1_0_TOUT0_P02_0_OUT' undeclared (first use in this function)
-   37 | #define PHASE_U_HS                        (&IfxGtm_TOM1_0_TOUT0_P02_0_OUT)
-      |                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build__141rdyc\src\gtm_tom_3_phase_inverter_pwm.c:92:61: note: in expansion of macro 'PHASE_U_HS'
-   92 |     output[0].pin                    = (IfxGtm_Pwm_ToutMap*)PHASE_U_HS;
-      |                                                             ^~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build__141rdyc\src\gtm_tom_3_phase_inverter_pwm.c:37:45: note: each undeclared identifier is reported only once for each function it appears in
-   37 | #define PHASE_U_HS                        (&IfxGtm_TOM1_0_TOUT0_P02_0_OUT)
-      |                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build__141rdyc\src\gtm_tom_3_phase_inverter_pwm.c:92:61: note: in expansion of macro 'PHASE_U_HS'
-   92 |     output[0].pin                    = (IfxGtm_Pwm_ToutMap*)PHASE_U_HS;
-      |                                                             ^~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build__141rdyc\src\gtm_tom_3_phase_inverter_pwm.c:38:45: error: 'IfxGtm_TOM1_0N_TOUT7_P02_7_OUT' undeclared (first use in this function)
-   38 | #define PHASE_U_LS                        (&IfxGtm_TOM1_0N_TOUT7_P02_7_OUT)
-      |                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build__141rdyc\src\gtm_tom_3_phase_inverter_pwm.c:93:61: note: in expansion of macro 'PHASE_U_LS'
-   93 |     output[0].complementaryPin       = (IfxGtm_Pwm_ToutMap*)PHASE_U_LS;
-      |                                                             ^~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build__141rdyc\src\gtm_tom_3_phase_inverter_pwm.c:39:45: error: 'IfxGtm_TOM1_1_TOUT1_P02_1_OUT' undeclared (first use in this function)
-   39 | #define PHASE_V_HS                        (&IfxGtm_TOM1_1_TOUT1_P02_1_OUT)
-      |                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build__141rdyc\src\gtm_tom_3_phase_inverter_pwm.c:100:61: note: in expansion of macro 'PHASE_V_HS'
-  100 |     output[1].pin                    = (IfxGtm_Pwm_ToutMap*)PHASE_V_HS;
-      |                                                             ^~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build__141rdyc\src\gtm_tom_3_phase_inverter_pwm.c:40:45: error: 'IfxGtm_TOM1_12_TOUT4_P02_4_OUT' undeclared (first use in this function)
-   40 | #define PHASE_V_LS                        (&IfxGtm_TOM1_12_TOUT4_P02_4_OUT)
-      |                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build__141rdyc\src\gtm_tom_3_phase_inverter_pwm.c:101:61: note: in expansion of macro 'PHASE_V_LS'
-  101 |     output[1].complementaryPin       = (IfxGtm_Pwm_ToutMap*)PHASE_V_LS;
-      |                                                             ^~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build__141rdyc\src\gtm_tom_3_phase_inverter_pwm.c:41:45: error: 'IfxGtm_TOM1_5_TOUT2_P02_2_OUT' undeclared (first use in this function)
-   41 | #define PHASE_W_HS                        (&IfxGtm_TOM1_5_TOUT2_P02_2_OUT)
-      |                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build__141rdyc\src\gtm_tom_3_phase_inverter_pwm.c:108:61: note: in expansion of macro 'PHASE_W_HS'
-  108 |     output[2].pin                    = (IfxGtm_Pwm_ToutMap*)PHASE_W_HS;
-      |                                                             ^~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build__141rdyc\src\gtm_tom_3_phase_inverter_pwm.c:42:45: error: 'IfxGtm_TOM1_13_TOUT5_P02_5_OUT' undeclared (first use in this function)
-   42 | #define PHASE_W_LS                        (&IfxGtm_TOM1_13_TOUT5_P02_5_OUT)
-      |                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build__141rdyc\src\gtm_tom_3_phase_inverter_pwm.c:109:61: note: in expansion of macro 'PHASE_W_LS'
-  109 |     output[2].complementaryPin       = (IfxGtm_Pwm_ToutMap*)PHASE_W_LS;
-      |                                                             ^~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_lifl74p0\src\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTom3phInv':
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_lifl74p0\src\gtm_tom_3_phase_inverter_pwm.c:50:47: error: 'IfxGtm_TOM1_0_TOUT0_P02_0_OUT' undeclared (first use in this function)
+   50 | #define PHASE_U_HS                          (&IfxGtm_TOM1_0_TOUT0_P02_0_OUT)
+      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_lifl74p0\src\gtm_tom_3_phase_inverter_pwm.c:114:62: note: in expansion of macro 'PHASE_U_HS'
+  114 |     output[0].pin                    = (IfxGtm_Pwm_ToutMap *)PHASE_U_HS;
+      |                                                              ^~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_lifl74p0\src\gtm_tom_3_phase_inverter_pwm.c:50:47: note: each undeclared identifier is reported only once for each function it appears in
+   50 | #define PHASE_U_HS                          (&IfxGtm_TOM1_0_TOUT0_P02_0_OUT)
+      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_lifl74p0\src\gtm_tom_3_phase_inverter_pwm.c:114:62: note: in expansion of macro 'PHASE_U_HS'
+  114 |     output[0].pin                    = (IfxGtm_Pwm_ToutMap *)PHASE_U_HS;
+      |                                                              ^~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_lifl74p0\src\gtm_tom_3_phase_inverter_pwm.c:51:47: error: 'IfxGtm_TOM1_0N_TOUT7_P02_7_OUT' undeclared (first use in this function)
+   51 | #define PHASE_U_LS                          (&IfxGtm_TOM1_0N_TOUT7_P02_7_OUT)
+      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_lifl74p0\src\gtm_tom_3_phase_inverter_pwm.c:115:62: note: in expansion of macro 'PHASE_U_LS'
+  115 |     output[0].complementaryPin       = (IfxGtm_Pwm_ToutMap *)PHASE_U_LS;
+      |                                                              ^~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_lifl74p0\src\gtm_tom_3_phase_inverter_pwm.c:52:47: error: 'IfxGtm_TOM1_1_TOUT1_P02_1_OUT' undeclared (first use in this function)
+   52 | #define PHASE_V_HS                          (&IfxGtm_TOM1_1_TOUT1_P02_1_OUT)
+      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_lifl74p0\src\gtm_tom_3_phase_inverter_pwm.c:122:62: note: in expansion of macro 'PHASE_V_HS'
+  122 |     output[1].pin                    = (IfxGtm_Pwm_ToutMap *)PHASE_V_HS;
+      |                                                              ^~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_lifl74p0\src\gtm_tom_3_phase_inverter_pwm.c:53:47: error: 'IfxGtm_TOM1_12_TOUT4_P02_4_OUT' undeclared (first use in this function)
+   53 | #define PHASE_V_LS                          (&IfxGtm_TOM1_12_TOUT4_P02_4_OUT)
+      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_lifl74p0\src\gtm_tom_3_phase_inverter_pwm.c:123:62: note: in expansion of macro 'PHASE_V_LS'
+  123 |     output[1].complementaryPin       = (IfxGtm_Pwm_ToutMap *)PHASE_V_LS;
+      |                                                              ^~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_lifl74p0\src\gtm_tom_3_phase_inverter_pwm.c:54:47: error: 'IfxGtm_TOM1_5_TOUT2_P02_2_OUT' undeclared (first use in this function)
+   54 | #define PHASE_W_HS                          (&IfxGtm_TOM1_5_TOUT2_P02_2_OUT)
+      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_lifl74p0\src\gtm_tom_3_phase_inverter_pwm.c:130:62: note: in expansion of macro 'PHASE_W_HS'
+  130 |     output[2].pin                    = (IfxGtm_Pwm_ToutMap *)PHASE_W_HS;
+      |                                                              ^~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_lifl74p0\src\gtm_tom_3_phase_inverter_pwm.c:55:47: error: 'IfxGtm_TOM1_13_TOUT5_P02_5_OUT' undeclared (first use in this function)
+   55 | #define PHASE_W_LS                          (&IfxGtm_TOM1_13_TOUT5_P02_5_OUT)
+      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_lifl74p0\src\gtm_tom_3_phase_inverter_pwm.c:131:62: note: in expansion of macro 'PHASE_W_LS'
+  131 |     output[2].complementaryPin       = (IfxGtm_Pwm_ToutMap *)PHASE_W_LS;
+      |                                                              ^~~~~~~~~~
