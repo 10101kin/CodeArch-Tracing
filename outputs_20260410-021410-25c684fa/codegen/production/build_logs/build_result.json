@@ -2,85 +2,49 @@
   "success": false,
   "errors": [
     {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_9vkg5kv6\\include/mock_gtm_tom_3_phase_inverter_pwm.h",
-      "line": 8,
-      "category": "error",
-      "message": "unknown type name 'uint32'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_9vkg5kv6\\include/mock_gtm_tom_3_phase_inverter_pwm.h",
-      "line": 9,
-      "category": "error",
-      "message": "unknown type name 'uint32'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_9vkg5kv6\\include/mock_gtm_tom_3_phase_inverter_pwm.h",
-      "line": 10,
-      "category": "error",
-      "message": "unknown type name 'uint32'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_9vkg5kv6\\include/IfxGtm_Pwm.h",
-      "line": 15,
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_nczu5xnh\\include/IfxGtm_Pwm.h",
+      "line": 13,
       "category": "error",
       "message": "conflicting types for 'IfxGtm_Pwm_callBack'; have 'void (*)(void *)'"
     },
     {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_9vkg5kv6\\src\\gtm_tom_3_phase_inverter_pwm.c",
-      "line": 138,
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_nczu5xnh\\include/IfxGtm_Pwm.h",
+      "line": 145,
+      "category": "error",
+      "message": "unknown type name 'IfxGtm_Pwm_InterruptConfig'; did you mean 'IfxGtm_Pwm_OutputConfig'?"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_nczu5xnh\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 129,
       "category": "error",
       "message": "assignment to 'int' from 'void (*)(void *)' makes integer from pointer without a cast [-Wint-conversion]"
     },
     {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_9vkg5kv6\\src\\gtm_tom_3_phase_inverter_pwm.c",
-      "line": 139,
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_nczu5xnh\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 130,
       "category": "error",
       "message": "assignment to 'int' from 'void *' makes integer from pointer without a cast [-Wint-conversion]"
     },
     {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_9vkg5kv6\\include/mock_gtm_tom_3_phase_inverter_pwm.h",
-      "line": 8,
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_nczu5xnh\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 148,
       "category": "error",
-      "message": "unknown type name 'uint32'"
+      "message": "assignment to 'int *' from incompatible pointer type 'IfxGtm_Pwm_InterruptConfig *' [-Wincompatible-pointer-types]"
     },
     {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_9vkg5kv6\\include/mock_gtm_tom_3_phase_inverter_pwm.h",
-      "line": 9,
-      "category": "error",
-      "message": "unknown type name 'uint32'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_9vkg5kv6\\include/mock_gtm_tom_3_phase_inverter_pwm.h",
-      "line": 10,
-      "category": "error",
-      "message": "unknown type name 'uint32'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_9vkg5kv6\\include/IfxGtm_Pwm.h",
-      "line": 15,
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_nczu5xnh\\include/IfxGtm_Pwm.h",
+      "line": 13,
       "category": "error",
       "message": "conflicting types for 'IfxGtm_Pwm_callBack'; have 'void (*)(void *)'"
     },
     {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_9vkg5kv6\\include/mock_gtm_tom_3_phase_inverter_pwm.h",
-      "line": 8,
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_nczu5xnh\\include/IfxGtm_Pwm.h",
+      "line": 145,
       "category": "error",
-      "message": "unknown type name 'uint32'; did you mean 'uint32_t'?"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_9vkg5kv6\\include/mock_gtm_tom_3_phase_inverter_pwm.h",
-      "line": 9,
-      "category": "error",
-      "message": "unknown type name 'uint32'; did you mean 'uint32_t'?"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_9vkg5kv6\\include/mock_gtm_tom_3_phase_inverter_pwm.h",
-      "line": 10,
-      "category": "error",
-      "message": "unknown type name 'uint32'; did you mean 'uint32_t'?"
+      "message": "unknown type name 'IfxGtm_Pwm_InterruptConfig'; did you mean 'IfxGtm_Pwm_OutputConfig'?"
     }
   ],
   "warnings": [],
-  "stderr": "In file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_9vkg5kv6\\include/Ifx_Types.h:4,\n                 from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_9vkg5kv6\\src\\gtm_tom_3_phase_inverter_pwm.c:19:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_9vkg5kv6\\include/mock_gtm_tom_3_phase_inverter_pwm.h:8:18: error: unknown type name 'uint32'\n    8 | typedef struct { uint32 _reserved; } IfxGtm; /* auto-stub: type not in mock include chain */\n      |                  ^~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_9vkg5kv6\\include/mock_gtm_tom_3_phase_inverter_pwm.h:9:18: error: unknown type name 'uint32'\n    9 | typedef struct { uint32 _reserved; } IfxGtm_Cmu; /* auto-stub: type not in mock include chain */\n      |                  ^~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_9vkg5kv6\\include/mock_gtm_tom_3_phase_inverter_pwm.h:10:18: error: unknown type name 'uint32'\n   10 | typedef struct { uint32 _reserved; } IfxPort; /* auto-stub: type not in mock include chain */\n      |                  ^~~~~~\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_9vkg5kv6\\src\\gtm_tom_3_phase_inverter_pwm.c:20:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_9vkg5kv6\\include/IfxGtm_Pwm.h:15:16: error: conflicting types for 'IfxGtm_Pwm_callBack'; have 'void (*)(void *)'\n   15 | typedef void (*IfxGtm_Pwm_callBack)(void *);\n      |                ^~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_9vkg5kv6\\include/IfxGtm_Pwm.h:10:38: note: previous declaration of 'IfxGtm_Pwm_callBack' with type 'IfxGtm_Pwm_callBack'\n   10 | typedef struct { uint32 _reserved; } IfxGtm_Pwm_callBack; /* auto-stub: type not in mock include chain */\n      |                                      ^~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_9vkg5kv6\\src\\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTom3phInv':\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_9vkg5kv6\\src\\gtm_tom_3_phase_inverter_pwm.c:138:33: error: assignment to 'int' from 'void (*)(void *)' makes integer from pointer without a cast [-Wint-conversion]\n  138 |     interruptConfig.periodEvent = IfxGtm_periodEventFunction;\n      |                                 ^\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_9vkg5kv6\\src\\gtm_tom_3_phase_inverter_pwm.c:139:33: error: assignment to 'int' from 'void *' makes integer from pointer without a cast [-Wint-conversion]\n  139 |     interruptConfig.dutyEvent   = NULL_PTR;\n      |                                 ^\n\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_9vkg5kv6\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c:5:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_9vkg5kv6\\include/mock_gtm_tom_3_phase_inverter_pwm.h:8:18: error: unknown type name 'uint32'\n    8 | typedef struct { uint32 _reserved; } IfxGtm; /* auto-stub: type not in mock include chain */\n      |                  ^~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_9vkg5kv6\\include/mock_gtm_tom_3_phase_inverter_pwm.h:9:18: error: unknown type name 'uint32'\n    9 | typedef struct { uint32 _reserved; } IfxGtm_Cmu; /* auto-stub: type not in mock include chain */\n      |                  ^~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_9vkg5kv6\\include/mock_gtm_tom_3_phase_inverter_pwm.h:10:18: error: unknown type name 'uint32'\n   10 | typedef struct { uint32 _reserved; } IfxPort; /* auto-stub: type not in mock include chain */\n      |                  ^~~~~~\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_9vkg5kv6\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c:9:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_9vkg5kv6\\include/IfxGtm_Pwm.h:15:16: error: conflicting types for 'IfxGtm_Pwm_callBack'; have 'void (*)(void *)'\n   15 | typedef void (*IfxGtm_Pwm_callBack)(void *);\n      |                ^~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_9vkg5kv6\\include/IfxGtm_Pwm.h:10:38: note: previous declaration of 'IfxGtm_Pwm_callBack' with type 'IfxGtm_Pwm_callBack'\n   10 | typedef struct { uint32 _reserved; } IfxGtm_Pwm_callBack; /* auto-stub: type not in mock include chain */\n      |                                      ^~~~~~~~~~~~~~~~~~~\n\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_9vkg5kv6\\test\\test_gtm_tom_3_phase_inverter_pwm.c:2:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_9vkg5kv6\\include/mock_gtm_tom_3_phase_inverter_pwm.h:8:18: error: unknown type name 'uint32'; did you mean 'uint32_t'?\n    8 | typedef struct { uint32 _reserved; } IfxGtm; /* auto-stub: type not in mock include chain */\n      |                  ^~~~~~\n      |                  uint32_t\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_9vkg5kv6\\include/mock_gtm_tom_3_phase_inverter_pwm.h:9:18: error: unknown type name 'uint32'; did you mean 'uint32_t'?\n    9 | typedef struct { uint32 _reserved; } IfxGtm_Cmu; /* auto-stub: type not in mock include chain */\n      |                  ^~~~~~\n      |                  uint32_t\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_9vkg5kv6\\include/mock_gtm_tom_3_phase_inverter_pwm.h:10:18: error: unknown type name 'uint32'; did you mean 'uint32_t'?\n   10 | typedef struct { uint32 _reserved; } IfxPort; /* auto-stub: type not in mock include chain */\n      |                  ^~~~~~\n      |                  uint32_t\n",
+  "stderr": "In file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_nczu5xnh\\src\\gtm_tom_3_phase_inverter_pwm.c:15:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_nczu5xnh\\include/IfxGtm_Pwm.h:13:16: error: conflicting types for 'IfxGtm_Pwm_callBack'; have 'void (*)(void *)'\n   13 | typedef void (*IfxGtm_Pwm_callBack)(void *);\n      |                ^~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_nczu5xnh\\include/IfxGtm_Pwm.h:9:38: note: previous declaration of 'IfxGtm_Pwm_callBack' with type 'IfxGtm_Pwm_callBack'\n    9 | typedef struct { uint32 _reserved; } IfxGtm_Pwm_callBack; /* auto-stub: type not in mock include chain */\n      |                                      ^~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_nczu5xnh\\include/IfxGtm_Pwm.h:145:5: error: unknown type name 'IfxGtm_Pwm_InterruptConfig'; did you mean 'IfxGtm_Pwm_OutputConfig'?\n  145 |     IfxGtm_Pwm_InterruptConfig *interrupt;\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~\n      |     IfxGtm_Pwm_OutputConfig\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_nczu5xnh\\src\\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTom3phInv':\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_nczu5xnh\\src\\gtm_tom_3_phase_inverter_pwm.c:129:33: error: assignment to 'int' from 'void (*)(void *)' makes integer from pointer without a cast [-Wint-conversion]\n  129 |     interruptConfig.periodEvent = IfxGtm_periodEventFunction;            /* Period callback */\n      |                                 ^\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_nczu5xnh\\src\\gtm_tom_3_phase_inverter_pwm.c:130:33: error: assignment to 'int' from 'void *' makes integer from pointer without a cast [-Wint-conversion]\n  130 |     interruptConfig.dutyEvent   = NULL_PTR;                              /* Not used */\n      |                                 ^\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_nczu5xnh\\src\\gtm_tom_3_phase_inverter_pwm.c:148:32: error: assignment to 'int *' from incompatible pointer type 'IfxGtm_Pwm_InterruptConfig *' [-Wincompatible-pointer-types]\n  148 |     channelConfig[0].interrupt = &interruptConfig;                      /* Base channel IRQ */\n      |                                ^\n\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_nczu5xnh\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c:5:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_nczu5xnh\\include/IfxGtm_Pwm.h:13:16: error: conflicting types for 'IfxGtm_Pwm_callBack'; have 'void (*)(void *)'\n   13 | typedef void (*IfxGtm_Pwm_callBack)(void *);\n      |                ^~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_nczu5xnh\\include/IfxGtm_Pwm.h:9:38: note: previous declaration of 'IfxGtm_Pwm_callBack' with type 'IfxGtm_Pwm_callBack'\n    9 | typedef struct { uint32 _reserved; } IfxGtm_Pwm_callBack; /* auto-stub: type not in mock include chain */\n      |                                      ^~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_nczu5xnh\\include/IfxGtm_Pwm.h:145:5: error: unknown type name 'IfxGtm_Pwm_InterruptConfig'; did you mean 'IfxGtm_Pwm_OutputConfig'?\n  145 |     IfxGtm_Pwm_InterruptConfig *interrupt;\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~\n      |     IfxGtm_Pwm_OutputConfig\n",
   "stdout": ""
 }

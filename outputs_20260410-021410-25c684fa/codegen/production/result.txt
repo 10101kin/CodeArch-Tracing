@@ -1,3 +1,81 @@
-Status: SUCCESS
+Status: FAILED
 
-LLM response for production phase (attempt 5), 11257 chars
+============================================================
+TDD CODE GENERATION - ATTEMPT STATUS
+============================================================
+Phase: production
+Attempt: 5
+Status: FAILED
+Timestamp: 2026-04-10 11:42:44
+Files generated: 2
+
+============================================================
+
+ERRORS:
+
+1. conflicting types for 'IfxGtm_Pwm_callBack'; have 'void (*)(void *)'
+
+2. unknown type name 'IfxGtm_Pwm_InterruptConfig'; did you mean 'IfxGtm_Pwm_OutputConfig'?
+
+3. assignment to 'int' from 'void (*)(void *)' makes integer from pointer without a cast [-Wint-conversion]
+
+4. assignment to 'int' from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+
+5. assignment to 'int *' from incompatible pointer type 'IfxGtm_Pwm_InterruptConfig *' [-Wincompatible-pointer-types]
+
+6. conflicting types for 'IfxGtm_Pwm_callBack'; have 'void (*)(void *)'
+
+7. unknown type name 'IfxGtm_Pwm_InterruptConfig'; did you mean 'IfxGtm_Pwm_OutputConfig'?
+
+============================================================
+BUILD RESULT:
+{
+  "success": false,
+  "errors": [
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_nczu5xnh\\include/IfxGtm_Pwm.h",
+      "line": 13,
+      "category": "error",
+      "message": "conflicting types for 'IfxGtm_Pwm_callBack'; have 'void (*)(void *)'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_nczu5xnh\\include/IfxGtm_Pwm.h",
+      "line": 145,
+      "category": "error",
+      "message": "unknown type name 'IfxGtm_Pwm_InterruptConfig'; did you mean 'IfxGtm_Pwm_OutputConfig'?"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_nczu5xnh\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 129,
+      "category": "error",
+      "message": "assignment to 'int' from 'void (*)(void *)' makes integer from pointer without a cast [-Wint-conversion]"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_nczu5xnh\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 130,
+      "category": "error",
+      "message": "assignment to 'int' from 'void *' makes integer from pointer without a cast [-Wint-conversion]"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_nczu5xnh\\src\\gtm_tom_3_phase_inverter_pwm.c",
+      "line": 148,
+      "category": "error",
+      "message": "assignment to 'int *' from incompatible pointer type 'IfxGtm_Pwm_InterruptConfig *' [-Wincompatible-pointer-types]"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_nczu5xnh\\include/IfxGtm_Pwm.h",
+      "line": 13,
+      "category": "error",
+      "message": "conflicting types for 'IfxGtm_Pwm_callBack'; have 'void (*)(void *)'"
+    },
+    {
+      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_nczu5xnh\\include/IfxGtm_Pwm.h",
+      "line": 145,
+      "category": "error",
+      "message": "unknown type name 'IfxGtm_Pwm_InterruptConfig'; did you mean 'IfxGtm_Pwm_OutputConfig'?"
+    }
+  ],
+  "warnings": [],
+  "stderr": "In file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_nczu5xnh\\src\\gtm_tom_3_phase_inverter_pwm.c:15:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_nczu5xnh\\include/IfxGtm_Pwm.h:13:16: error: conflicting types for 'IfxGtm_Pwm_callBack'; have 'void (*)(void *)'\n   13 | typedef void (*IfxGtm_Pwm_callBack)(void *);\n      |                ^~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_nczu5xnh\\include/IfxGtm_Pwm.h:9:38: note: previous declaration of 'IfxGtm_Pwm_callBack' with type 'IfxGtm_Pwm_callBack'\n    9 | typedef struct { uint32 _reserved; } IfxGtm_Pwm_callBack; /* auto-stub: type not in mock include chain */\n      |                                      ^~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_nczu5xnh\\include/IfxGtm_Pwm.h:145:5: error: unknown type name 'IfxGtm_Pwm_InterruptConfig'; did you mean 'IfxGtm_Pwm_OutputConfig'?\n  145 |     IfxGtm_Pwm_InterruptConfig *interrupt;\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~\n      |     IfxGtm_Pwm_OutputConfig\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_nczu5xnh\\src\\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTom3phInv':\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_nczu5xnh\\src\\gtm_tom_3_phase_inverter_pwm.c:129:33: error: assignment to 'int' from 'void (*)(void *)' makes integer from pointer without a cast [-Wint-conversion]\n  129 |     interruptConfig.periodEvent = IfxGtm_periodEventFunction;            /* Period callback */\n      |                                 ^\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_nczu5xnh\\src\\gtm_tom_3_phase_inverter_pwm.c:130:33: error: assignment to 'int' from 'void *' makes integer from pointer without a cast [-Wint-conversion]\n  130 |     interruptConfig.dutyEvent   = NULL_PTR;                              /* Not used */\n      |                                 ^\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_nczu5xnh\\src\\gtm_tom_3_phase_inverter_pwm.c:148:32: error: assignment to 'int *' from incompatible pointer type 'IfxGtm_Pwm_InterruptConfig *' [-Wincompatible-pointer-types]\n  148 |     channelConfig[0].interrupt = &interruptConfig;                      /* Base channel IRQ */\n      |                                ^\n\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_nczu5xnh\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c:5:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_nczu5xnh\\include/IfxGtm_Pwm.h:13:16: error: conflicting types for 'IfxGtm_Pwm_callBack'; have 'void (*)(void *)'\n   13 | typedef void (*IfxGtm_Pwm_callBack)(void *);\n      |                ^~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_nczu5xnh\\include/IfxGtm_Pwm.h:9:38: note: previous declaration of 'IfxGtm_Pwm_callBack' with type 'IfxGtm_Pwm_callBack'\n    9 | typedef struct { uint32 _reserved; } IfxGtm_Pwm_callBack; /* auto-stub: type not in mock include chain */\n      |                                      ^~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_nczu5xnh\\include/IfxGtm_Pwm.h:145:5: error: unknown type name 'IfxGtm_Pwm_InterruptConfig'; did you mean 'IfxGtm_Pwm_OutputConfig'?\n  145 |     IfxGtm_Pwm_InterruptConfig *interrupt;\n      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~\n      |     IfxGtm_Pwm_OutputConfig\n",
+  "stdout": ""
+}
