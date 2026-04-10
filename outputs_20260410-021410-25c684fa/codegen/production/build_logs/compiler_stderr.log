@@ -1,19 +1,67 @@
-In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_47kvd49e\src\gtm_tom_3_phase_inverter_pwm.c:9:
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_47kvd49e\include/IfxGtm_Pwm.h:27:16: error: conflicting types for 'IfxGtm_Pwm_callBack'; have 'void (*)(void *)'
-   27 | typedef void (*IfxGtm_Pwm_callBack)(void *);
+In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_bdk8fmon\include/Ifx_Types.h:3,
+                 from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_bdk8fmon\src\gtm_tom_3_phase_inverter_pwm.c:11:
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_bdk8fmon\include/mock_gtm_tom_3_phase_inverter_pwm.h:4:18: error: unknown type name 'uint32'
+    4 | typedef struct { uint32 _reserved; } IfxCpu_Irq; /* auto-stub: type not in mock include chain */
+      |                  ^~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_bdk8fmon\include/mock_gtm_tom_3_phase_inverter_pwm.h:5:18: error: unknown type name 'uint32'
+    5 | typedef struct { uint32 _reserved; } IfxGtm; /* auto-stub: type not in mock include chain */
+      |                  ^~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_bdk8fmon\include/mock_gtm_tom_3_phase_inverter_pwm.h:6:18: error: unknown type name 'uint32'
+    6 | typedef struct { uint32 _reserved; } IfxGtm_Cmu; /* auto-stub: type not in mock include chain */
+      |                  ^~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_bdk8fmon\include/mock_gtm_tom_3_phase_inverter_pwm.h:7:18: error: unknown type name 'uint32'
+    7 | typedef struct { uint32 _reserved; } IfxPort; /* auto-stub: type not in mock include chain */
+      |                  ^~~~~~
+In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_bdk8fmon\src\gtm_tom_3_phase_inverter_pwm.c:12:
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_bdk8fmon\include/IfxGtm_Pwm.h:13:16: error: conflicting types for 'IfxGtm_Pwm_callBack'; have 'void (*)(void *)'
+   13 | typedef void (*IfxGtm_Pwm_callBack)(void *data);
       |                ^~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_47kvd49e\include/IfxGtm_Pwm.h:9:38: note: previous declaration of 'IfxGtm_Pwm_callBack' with type 'IfxGtm_Pwm_callBack'
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_bdk8fmon\include/IfxGtm_Pwm.h:9:38: note: previous declaration of 'IfxGtm_Pwm_callBack' with type 'IfxGtm_Pwm_callBack'
     9 | typedef struct { uint32 _reserved; } IfxGtm_Pwm_callBack; /* auto-stub: type not in mock include chain */
       |                                      ^~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_47kvd49e\src\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTom3phInv':
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_47kvd49e\src\gtm_tom_3_phase_inverter_pwm.c:120:33: error: assignment to 'int' from 'void (*)(void *)' makes integer from pointer without a cast [-Wint-conversion]
-  120 |     interruptConfig.periodEvent = IfxGtm_periodEventFunction;
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_bdk8fmon\src\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTom3phInv':
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_bdk8fmon\src\gtm_tom_3_phase_inverter_pwm.c:124:33: error: assignment to 'int' from 'void (*)(void *)' makes integer from pointer without a cast [-Wint-conversion]
+  124 |     interruptConfig.periodEvent = IfxGtm_periodEventFunction;
+      |                                 ^
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_bdk8fmon\src\gtm_tom_3_phase_inverter_pwm.c:125:33: error: assignment to 'int' from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+  125 |     interruptConfig.dutyEvent   = NULL_PTR;
       |                                 ^
 
-In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_47kvd49e\mocks\mock_gtm_tom_3_phase_inverter_pwm.c:5:
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_47kvd49e\include/IfxGtm_Pwm.h:27:16: error: conflicting types for 'IfxGtm_Pwm_callBack'; have 'void (*)(void *)'
-   27 | typedef void (*IfxGtm_Pwm_callBack)(void *);
+In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_bdk8fmon\mocks\mock_gtm_tom_3_phase_inverter_pwm.c:1:
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_bdk8fmon\include/mock_gtm_tom_3_phase_inverter_pwm.h:4:18: error: unknown type name 'uint32'
+    4 | typedef struct { uint32 _reserved; } IfxCpu_Irq; /* auto-stub: type not in mock include chain */
+      |                  ^~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_bdk8fmon\include/mock_gtm_tom_3_phase_inverter_pwm.h:5:18: error: unknown type name 'uint32'
+    5 | typedef struct { uint32 _reserved; } IfxGtm; /* auto-stub: type not in mock include chain */
+      |                  ^~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_bdk8fmon\include/mock_gtm_tom_3_phase_inverter_pwm.h:6:18: error: unknown type name 'uint32'
+    6 | typedef struct { uint32 _reserved; } IfxGtm_Cmu; /* auto-stub: type not in mock include chain */
+      |                  ^~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_bdk8fmon\include/mock_gtm_tom_3_phase_inverter_pwm.h:7:18: error: unknown type name 'uint32'
+    7 | typedef struct { uint32 _reserved; } IfxPort; /* auto-stub: type not in mock include chain */
+      |                  ^~~~~~
+In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_bdk8fmon\mocks\mock_gtm_tom_3_phase_inverter_pwm.c:5:
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_bdk8fmon\include/IfxGtm_Pwm.h:13:16: error: conflicting types for 'IfxGtm_Pwm_callBack'; have 'void (*)(void *)'
+   13 | typedef void (*IfxGtm_Pwm_callBack)(void *data);
       |                ^~~~~~~~~~~~~~~~~~~
-C:\Users\extsiyv\AppData\Local\Temp\tdd_build_47kvd49e\include/IfxGtm_Pwm.h:9:38: note: previous declaration of 'IfxGtm_Pwm_callBack' with type 'IfxGtm_Pwm_callBack'
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_bdk8fmon\include/IfxGtm_Pwm.h:9:38: note: previous declaration of 'IfxGtm_Pwm_callBack' with type 'IfxGtm_Pwm_callBack'
     9 | typedef struct { uint32 _reserved; } IfxGtm_Pwm_callBack; /* auto-stub: type not in mock include chain */
       |                                      ^~~~~~~~~~~~~~~~~~~
+
+In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_bdk8fmon\test\test_gtm_tom_3_phase_inverter_pwm.c:2:
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_bdk8fmon\include/mock_gtm_tom_3_phase_inverter_pwm.h:4:18: error: unknown type name 'uint32'; did you mean 'uint32_t'?
+    4 | typedef struct { uint32 _reserved; } IfxCpu_Irq; /* auto-stub: type not in mock include chain */
+      |                  ^~~~~~
+      |                  uint32_t
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_bdk8fmon\include/mock_gtm_tom_3_phase_inverter_pwm.h:5:18: error: unknown type name 'uint32'; did you mean 'uint32_t'?
+    5 | typedef struct { uint32 _reserved; } IfxGtm; /* auto-stub: type not in mock include chain */
+      |                  ^~~~~~
+      |                  uint32_t
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_bdk8fmon\include/mock_gtm_tom_3_phase_inverter_pwm.h:6:18: error: unknown type name 'uint32'; did you mean 'uint32_t'?
+    6 | typedef struct { uint32 _reserved; } IfxGtm_Cmu; /* auto-stub: type not in mock include chain */
+      |                  ^~~~~~
+      |                  uint32_t
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_bdk8fmon\include/mock_gtm_tom_3_phase_inverter_pwm.h:7:18: error: unknown type name 'uint32'; did you mean 'uint32_t'?
+    7 | typedef struct { uint32 _reserved; } IfxPort; /* auto-stub: type not in mock include chain */
+      |                  ^~~~~~
+      |                  uint32_t
