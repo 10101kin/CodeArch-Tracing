@@ -1,57 +1,11 @@
-Status: FAILED
+Status: SUCCESS
 
-============================================================
-TDD CODE GENERATION - ATTEMPT STATUS
-============================================================
-Phase: production
-Attempt: 11
-Status: FAILED
-Timestamp: 2026-04-10 12:02:27
-Files generated: 2
-
-============================================================
-
-ERRORS:
-
-1. conflicting types for 'IfxGtm_Pwm_callBack'; have 'void (*)(void *)'
-
-2. assignment to 'int' from 'void (*)(void *)' makes integer from pointer without a cast [-Wint-conversion]
-
-3. assignment to 'int' from 'void *' makes integer from pointer without a cast [-Wint-conversion]
-
-4. conflicting types for 'IfxGtm_Pwm_callBack'; have 'void (*)(void *)'
-
-============================================================
-BUILD RESULT:
-{
-  "success": false,
-  "errors": [
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_718ekqhu\\include/IfxGtm_Pwm.h",
-      "line": 16,
-      "category": "error",
-      "message": "conflicting types for 'IfxGtm_Pwm_callBack'; have 'void (*)(void *)'"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_718ekqhu\\src\\gtm_tom_3_phase_inverter_pwm.c",
-      "line": 139,
-      "category": "error",
-      "message": "assignment to 'int' from 'void (*)(void *)' makes integer from pointer without a cast [-Wint-conversion]"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_718ekqhu\\src\\gtm_tom_3_phase_inverter_pwm.c",
-      "line": 140,
-      "category": "error",
-      "message": "assignment to 'int' from 'void *' makes integer from pointer without a cast [-Wint-conversion]"
-    },
-    {
-      "file": "C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_718ekqhu\\include/IfxGtm_Pwm.h",
-      "line": 16,
-      "category": "error",
-      "message": "conflicting types for 'IfxGtm_Pwm_callBack'; have 'void (*)(void *)'"
-    }
-  ],
-  "warnings": [],
-  "stderr": "In file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_718ekqhu\\src\\gtm_tom_3_phase_inverter_pwm.c:16:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_718ekqhu\\include/IfxGtm_Pwm.h:16:16: error: conflicting types for 'IfxGtm_Pwm_callBack'; have 'void (*)(void *)'\n   16 | typedef void (*IfxGtm_Pwm_callBack)(void *);\n      |                ^~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_718ekqhu\\include/IfxGtm_Pwm.h:9:38: note: previous declaration of 'IfxGtm_Pwm_callBack' with type 'IfxGtm_Pwm_callBack'\n    9 | typedef struct { uint32 _reserved; } IfxGtm_Pwm_callBack; /* auto-stub: type not in mock include chain */\n      |                                      ^~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_718ekqhu\\src\\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTom3phInv':\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_718ekqhu\\src\\gtm_tom_3_phase_inverter_pwm.c:139:33: error: assignment to 'int' from 'void (*)(void *)' makes integer from pointer without a cast [-Wint-conversion]\n  139 |     interruptConfig.periodEvent = IfxGtm_periodEventFunction;\n      |                                 ^\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_718ekqhu\\src\\gtm_tom_3_phase_inverter_pwm.c:140:33: error: assignment to 'int' from 'void *' makes integer from pointer without a cast [-Wint-conversion]\n  140 |     interruptConfig.dutyEvent   = NULL_PTR;\n      |                                 ^\n\nIn file included from C:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_718ekqhu\\mocks\\mock_gtm_tom_3_phase_inverter_pwm.c:2:\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_718ekqhu\\include/IfxGtm_Pwm.h:16:16: error: conflicting types for 'IfxGtm_Pwm_callBack'; have 'void (*)(void *)'\n   16 | typedef void (*IfxGtm_Pwm_callBack)(void *);\n      |                ^~~~~~~~~~~~~~~~~~~\nC:\\Users\\extsiyv\\AppData\\Local\\Temp\\tdd_build_718ekqhu\\include/IfxGtm_Pwm.h:9:38: note: previous declaration of 'IfxGtm_Pwm_callBack' with type 'IfxGtm_Pwm_callBack'\n    9 | typedef struct { uint32 _reserved; } IfxGtm_Pwm_callBack; /* auto-stub: type not in mock include chain */\n      |                                      ^~~~~~~~~~~~~~~~~~~\n",
-  "stdout": ""
-}
+Node JSON export
+Stage: code_generation
+Reason: stage_failed
+Modified By: system
+Modifier: N/A
+Reviewer: N/A
+Attempt: 5
+Phase attempt: 1
+Timestamp: 2026-04-10T12:02:35.013252

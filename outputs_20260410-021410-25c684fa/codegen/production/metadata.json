@@ -1,14 +1,13 @@
 {
-  "attempt": 11,
-  "phase_attempt": 5,
-  "phase": "production",
-  "success": false,
-  "errors": [
-    "conflicting types for 'IfxGtm_Pwm_callBack'; have 'void (*)(void *)'",
-    "assignment to 'int' from 'void (*)(void *)' makes integer from pointer without a cast [-Wint-conversion]",
-    "assignment to 'int' from 'void *' makes integer from pointer without a cast [-Wint-conversion]",
-    "conflicting types for 'IfxGtm_Pwm_callBack'; have 'void (*)(void *)'"
-  ],
-  "timestamp": "2026-04-10T12:02:27.159002",
-  "project_name": "Upgrade_KIT_A2G_TC387_5V_TFT_TC387_3_phase_inver_r_20260410_112808"
+  "export_type": "node_json",
+  "export_reason": "stage_failed",
+  "node_stage": "code_generation",
+  "reviewer_name": null,
+  "reviewer_applied": false,
+  "modified_by": "system",
+  "modifier_name": null,
+  "workflow_stage": "code_generation_failed",
+  "target_board": "KIT_A2G_TC387_5V_TFT",
+  "generation_mode": "MIGRATION",
+  "timestamp": "2026-04-10T12:02:35.013238"
 }
