@@ -1,0 +1,22 @@
+In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_718ekqhu\src\gtm_tom_3_phase_inverter_pwm.c:16:
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_718ekqhu\include/IfxGtm_Pwm.h:16:16: error: conflicting types for 'IfxGtm_Pwm_callBack'; have 'void (*)(void *)'
+   16 | typedef void (*IfxGtm_Pwm_callBack)(void *);
+      |                ^~~~~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_718ekqhu\include/IfxGtm_Pwm.h:9:38: note: previous declaration of 'IfxGtm_Pwm_callBack' with type 'IfxGtm_Pwm_callBack'
+    9 | typedef struct { uint32 _reserved; } IfxGtm_Pwm_callBack; /* auto-stub: type not in mock include chain */
+      |                                      ^~~~~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_718ekqhu\src\gtm_tom_3_phase_inverter_pwm.c: In function 'initGtmTom3phInv':
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_718ekqhu\src\gtm_tom_3_phase_inverter_pwm.c:139:33: error: assignment to 'int' from 'void (*)(void *)' makes integer from pointer without a cast [-Wint-conversion]
+  139 |     interruptConfig.periodEvent = IfxGtm_periodEventFunction;
+      |                                 ^
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_718ekqhu\src\gtm_tom_3_phase_inverter_pwm.c:140:33: error: assignment to 'int' from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+  140 |     interruptConfig.dutyEvent   = NULL_PTR;
+      |                                 ^
+
+In file included from C:\Users\extsiyv\AppData\Local\Temp\tdd_build_718ekqhu\mocks\mock_gtm_tom_3_phase_inverter_pwm.c:2:
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_718ekqhu\include/IfxGtm_Pwm.h:16:16: error: conflicting types for 'IfxGtm_Pwm_callBack'; have 'void (*)(void *)'
+   16 | typedef void (*IfxGtm_Pwm_callBack)(void *);
+      |                ^~~~~~~~~~~~~~~~~~~
+C:\Users\extsiyv\AppData\Local\Temp\tdd_build_718ekqhu\include/IfxGtm_Pwm.h:9:38: note: previous declaration of 'IfxGtm_Pwm_callBack' with type 'IfxGtm_Pwm_callBack'
+    9 | typedef struct { uint32 _reserved; } IfxGtm_Pwm_callBack; /* auto-stub: type not in mock include chain */
+      |                                      ^~~~~~~~~~~~~~~~~~~

@@ -1,0 +1,11 @@
+Status: SUCCESS
+
+Unified spec export
+Stage: sw_detailed
+Reason: stage_completed
+Modified By: system
+Modifier: N/A
+Reviewer: N/A
+Attempt: 4
+Phase attempt: 1
+Timestamp: 2026-04-10T10:55:42.328876
