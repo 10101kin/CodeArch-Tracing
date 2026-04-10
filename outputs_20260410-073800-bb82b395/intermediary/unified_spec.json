@@ -1,12 +1,13 @@
 {
   "meta": {
     "schema_version": "1.0",
-    "last_updated_by": "sw_architecture",
-    "last_updated_at": "2026-04-10T15:53:00.819824",
+    "last_updated_by": "sw_detailed",
+    "last_updated_at": "2026-04-10T15:55:31.366498",
     "build_sequence": [
       "requirements",
       "hardware",
-      "sw_architecture"
+      "sw_architecture",
+      "sw_detailed"
     ],
     "corrections_log": []
   },
@@ -625,6 +626,119 @@
       }
     },
     "driver_knowledge_base": {
+      "applied": false
+    },
+    "migration_numerical_values": {
+      "DUTY_25_PERCENT": {
+        "value": 25.0,
+        "unit": "%",
+        "label": "Phase U initial duty cycle"
+      },
+      "DUTY_50_PERCENT": {
+        "value": 50.0,
+        "unit": "%",
+        "label": "Phase V initial duty cycle"
+      },
+      "DUTY_75_PERCENT": {
+        "value": 75.0,
+        "unit": "%",
+        "label": "Phase W initial duty cycle"
+      },
+      "DUTY_STEP": {
+        "value": 10.0,
+        "unit": "%",
+        "label": "Duty cycle step increment"
+      },
+      "PWM_FREQ_HZ": {
+        "value": 20000.0,
+        "unit": "Hz",
+        "label": "PWM switching frequency"
+      },
+      "WAIT_TIME": {
+        "value": 0.5,
+        "unit": "ms",
+        "label": "Wait / delay time"
+      },
+      "PWM_DEAD_TIME": {
+        "value": 1e-06,
+        "unit": "s",
+        "label": "Dead-time between complementary outputs"
+      },
+      "PWM_MIN_PULSE_TIME": {
+        "value": 1e-06,
+        "unit": "s",
+        "label": "Minimum pulse width"
+      }
+    }
+  },
+  "sw_detailed": {
+    "module_name": "GTM_TOM_3_Phase_Inverter_PWM_2",
+    "public_functions": [
+      {
+        "signature": "void initGtmTom3phInv(void)",
+        "behavior_description": "Initialize a 3‑phase complementary PWM using the unified GTM PWM driver with TOM submodule in center‑aligned mode at 20 kHz, synchronous start and synchronous updates, and 1 µs rising/falling dead time. Implementation steps: 1) Declare all configuration structs as local variables: main IfxGtm_Pwm_Config, per‑channel IfxGtm_Pwm_ChannelConfig[3], per‑output IfxGtm_Pwm_OutputConfig[3], per‑channel dead‑time IfxGtm_Pwm_DeadTime[3], and a single IfxGtm_Pwm_InterruptConfig for the base/logical channel. 2) Initialize the main PWM config to defaults with the GTM module SFR. 3) Fill output[] with the PWM pins from hardware macros (high‑side pin and its complementary low‑side pin for each phase) and set output polarity as active‑high for both pins, output mode push‑pull, and an automotive pad driver. 4) For each logical channel i=0..2, set channelConfig[i]: timerCh = SubModule_Ch_0, SubModule_Ch_1, SubModule_Ch_2 respectively (logical indices), duty = initial percent values [25, 50, 75], phase = 0.0f, dtm = &dtmConfig[i], output = &output[i], interrupt pointer only for channel 0 (channelConfig[0].interrupt=&interruptConfig) and NULL for the rest. 5) Configure dead‑time for each logical channel: deadTimes[i].rising = 1e‑6 s and deadTimes[i].falling = 1e‑6 s. 6) Configure the interruptConfig for the unified driver: isrProvider = CPU0, priority = 20, mode appropriate for period notification, periodEvent = IfxGtm_periodEventFunction, dutyEvent = NULL. 7) Complete main config: subModule = tom, cluster = TOM1 Cluster_1, alignment = center, syncStart = TRUE, syncUpdateEnabled = TRUE, frequency = 20000 Hz, dtmClockSource = cmuClock0, clock source for the TOM submodule = FXCLK0, numChannels = 3, channels = channelConfig. 8) GTM enable guard: check IfxGtm_isEnabled; if disabled, enable the GTM module, then read the GTM module frequency dynamically and configure the CMU clocks to this frequency (GCLK and CLK0) and enable the functional clocks. All CMU/clock setup remains inside the enable guard; if already enabled, skip re‑enable and clock reconfiguration. 9) Call the unified PWM init with a persistent module state: pass a persistent handle and a persistent channels[] array from the module state so the driver can retain pointers after init. 10) Store the initial per‑phase duty percent values [25, 50, 75] and the per‑channel dead‑times into the persistent state (dutyCycles[3], deadTimes[3]). 11) Configure the LED GPIO (P13.0) as push‑pull output using the Port driver after PWM init. Notes: The unified PWM driver routes the ATOM/TOM interrupt internally based on InterruptConfig; the periodEvent callback is assigned to IfxGtm_periodEventFunction (void *data) and remains empty. The actual LED toggle happens only in the IFX_INTERRUPT ISR function (interruptGtmAtom), which is separate from the callback.",
+        "driver_calls": [
+          "IfxGtm_isEnabled",
+          "IfxGtm_enable",
+          "IfxGtm_Cmu_getModuleFrequency",
+          "IfxGtm_Cmu_enableClocks",
+          "IfxGtm_Pwm_initConfig",
+          "IfxGtm_Pwm_init",
+          "IfxPort_setPinModeOutput",
+          "IfxGtm_Cmu_setGclkFrequency",
+          "IfxGtm_Cmu_setClkFrequency"
+        ],
+        "from_reference": true,
+        "call_context": "init"
+      },
+      {
+        "signature": "void updateGtmTom3phInvDuty(void)",
+        "behavior_description": "Implements a step‑and‑wrap duty update for the three logical PWM channels (U, V, W) and applies the new duty values immediately. Algorithm per call: for each dutyCycles[i], compute next = current + 10. If (current + 10) >= 100, set current = 0 and then add 10 (resulting in 10). Clamp to [0, 100] bounds is implicit in the rule. Store updated percent values back to the persistent state array dutyCycles[3]. Pass the dutyCycles array directly (percent values) to the PWM driver’s immediate multi‑channel update API so the change takes effect without buffering.",
+        "driver_calls": [
+          "IfxGtm_Pwm_updateChannelsDutyImmediate"
+        ],
+        "from_reference": true,
+        "call_context": "loop"
+      },
+      {
+        "signature": "void interruptGtmAtom(void)",
+        "behavior_description": "ISR declared with IFX_INTERRUPT(interruptGtmAtom, cpu0, 20). The ISR body performs only a LED debug action: toggle the configured LED GPIO using the Port driver. No driver interrupt handler calls are made here; no heavy processing. This ISR is routed by GTM interrupt infrastructure and is distinct from the periodEvent callback. It may be sourced by an internal ATOM/TOM interrupt configured via the unified PWM’s InterruptConfig or by a dedicated low‑frequency GTM source as per integration.",
+        "driver_calls": [
+          "IfxPort_togglePin"
+        ],
+        "from_reference": true,
+        "call_context": "none"
+      },
+      {
+        "signature": "void IfxGtm_periodEventFunction(void *data)",
+        "behavior_description": "Period event callback assigned in the PWM InterruptConfig. It must exist with the exact void*(data) signature and remain effectively empty. It does not toggle the LED and does not perform any processing. Suppress unused parameter warnings by casting (void)data.",
+        "driver_calls": [],
+        "from_reference": true,
+        "call_context": "none"
+      }
+    ],
+    "private_functions": [],
+    "dependencies": {
+      "includes": [
+        "Ifx_Types.h",
+        "IfxGtm_Pwm.h",
+        "IfxPort.h",
+        "IfxPort_Pinmap.h"
+      ],
+      "driver_calls": [
+        "IfxGtm_Cmu_setGclkFrequency",
+        "IfxGtm_Cmu_setClkFrequency"
+      ]
+    },
+    "cpu_main_requirements": {
+      "needs_cpu_sync": true,
+      "uses_timer_delay": true,
+      "delay_ms": 10,
+      "additional_includes": [
+        "Bsp.h"
+      ]
+    },
+    "header_selection": {
       "applied": false
     },
     "migration_numerical_values": {
