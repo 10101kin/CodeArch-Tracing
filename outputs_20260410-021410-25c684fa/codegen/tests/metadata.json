@@ -1,8 +1,9 @@
 {
-  "type": "llm_response",
-  "phase": "test",
   "attempt": 2,
   "phase_attempt": 1,
-  "response_length": 14008,
-  "timestamp": "2026-04-10T11:33:28.375148"
+  "phase": "test_generation",
+  "success": true,
+  "errors": [],
+  "timestamp": "2026-04-10T11:33:34.891236",
+  "project_name": "Upgrade_KIT_A2G_TC387_5V_TFT_TC387_3_phase_inver_r_20260410_112808"
 }
