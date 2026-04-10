@@ -5,7 +5,7 @@
 #ifndef GTM_TOM_3_PHASE_INVERTER_PWM_H
 #define GTM_TOM_3_PHASE_INVERTER_PWM_H
 
-/* Public API */
+/* Public APIs (must match exact signatures) */
 void initGtmTom3phInv(void);
 void updateGtmTom3phInvDuty(void);
 void interruptGtmAtom(void);
