@@ -1,8 +1,20 @@
 {
-  "type": "llm_response",
-  "phase": "production",
   "attempt": 3,
   "phase_attempt": 1,
-  "response_length": 11525,
-  "timestamp": "2026-04-10T11:35:18.181393"
+  "phase": "production",
+  "success": false,
+  "errors": [
+    "unknown type name 'uint32'",
+    "unknown type name 'uint32'",
+    "unknown type name 'uint32'",
+    "conflicting types for 'IfxGtm_Pwm_callBack'; have 'void (*)(void *)'",
+    "assignment to 'int' from 'void (*)(void *)' makes integer from pointer without a cast [-Wint-conversion]",
+    "assignment to 'int' from 'void *' makes integer from pointer without a cast [-Wint-conversion]",
+    "unknown type name 'uint32'",
+    "unknown type name 'uint32'",
+    "unknown type name 'uint32'",
+    "conflicting types for 'IfxGtm_Pwm_callBack'; have 'void (*)(void *)'"
+  ],
+  "timestamp": "2026-04-10T11:35:27.831259",
+  "project_name": "Upgrade_KIT_A2G_TC387_5V_TFT_TC387_3_phase_inver_r_20260410_112808"
 }
