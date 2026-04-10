@@ -1,10 +1,11 @@
 {
   "meta": {
     "schema_version": "1.0",
-    "last_updated_by": "requirements",
-    "last_updated_at": "2026-04-10T10:14:10.960735",
+    "last_updated_by": "hardware",
+    "last_updated_at": "2026-04-10T10:21:09.717748",
     "build_sequence": [
-      "requirements"
+      "requirements",
+      "hardware"
     ],
     "corrections_log": []
   },
@@ -346,5 +347,177 @@
     },
     "header_documentation_available": true,
     "config_values_extracted": 16
+  },
+  "hardware": {
+    "microcontroller": {
+      "model": "TC387",
+      "verified": true
+    },
+    "peripheral_instance": {
+      "module": "GTM.TOM1.TGC1",
+      "channels": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    "pin_assignments": [
+      {
+        "signal": "PhaseU_H (TOM1_CH8)",
+        "port_pin": "P02.0",
+        "function": "TOUT8",
+        "pin_macro": "IfxGtm_TOM1_0_TOUT0_P02_0_OUT",
+        "is_complementary": false,
+        "verified": true,
+        "source": "hardware_verified",
+        "_original_pin_macro": "IfxGtm_TOM1_8_TOUT8_P02_0_OUT"
+      },
+      {
+        "signal": "PhaseU_L (TOM1_CH9)",
+        "port_pin": "P02.7",
+        "function": "TOUT9",
+        "pin_macro": "IfxGtm_TOM1_0N_TOUT7_P02_7_OUT",
+        "is_complementary": true,
+        "verified": true,
+        "source": "hardware_verified",
+        "_original_pin_macro": "IfxGtm_TOM1_9_TOUT9_P02_7_OUT"
+      },
+      {
+        "signal": "PhaseV_H (TOM1_CH10)",
+        "port_pin": "P02.1",
+        "function": "TOUT10",
+        "pin_macro": "IfxGtm_TOM1_1_TOUT1_P02_1_OUT",
+        "is_complementary": false,
+        "verified": true,
+        "source": "hardware_verified",
+        "_original_pin_macro": "IfxGtm_TOM1_10_TOUT10_P02_1_OUT"
+      },
+      {
+        "signal": "PhaseV_L (TOM1_CH11)",
+        "port_pin": "P02.4",
+        "function": "TOUT11",
+        "pin_macro": "IfxGtm_TOM1_12_TOUT4_P02_4_OUT",
+        "is_complementary": true,
+        "verified": true,
+        "source": "hardware_verified",
+        "_original_pin_macro": "IfxGtm_TOM1_11_TOUT11_P02_4_OUT"
+      },
+      {
+        "signal": "PhaseW_H (TOM1_CH12)",
+        "port_pin": "P02.2",
+        "function": "TOUT12",
+        "pin_macro": "IfxGtm_TOM1_10_TOUT2_P02_2_OUT",
+        "is_complementary": false,
+        "verified": true,
+        "source": "hardware_verified",
+        "_original_pin_macro": "IfxGtm_TOM1_12_TOUT12_P02_2_OUT"
+      },
+      {
+        "signal": "PhaseW_L (TOM1_CH13)",
+        "port_pin": "P02.5",
+        "function": "TOUT13",
+        "pin_macro": "IfxGtm_TOM1_13_TOUT5_P02_5_OUT",
+        "is_complementary": true,
+        "verified": true,
+        "source": "hardware_verified",
+        "_original_pin_macro": "IfxGtm_TOM1_13_TOUT13_P02_5_OUT"
+      }
+    ],
+    "clock_configuration": {
+      "xtal_frequency_mhz": 20,
+      "system_frequency_mhz": 200
+    },
+    "validation": {
+      "all_verified": true,
+      "conflicts": [],
+      "reference_pins_valid": true
+    },
+    "template_validation": {
+      "supported_peripherals": [
+        "PWM",
+        "GTM",
+        "TIMER",
+        "STM",
+        "ASCLIN",
+        "INTERRUPT"
+      ],
+      "suggested_drivers": {
+        "PWM": [
+          "IfxGtm_Atom_Pwm",
+          "IfxGtm_Atom_PwmHl",
+          "IfxGtm_Tom_Pwm",
+          "IfxCcu6_PwmBc",
+          "IfxCcu6_TPwm",
+          "IfxCcu6_PwmHl",
+          "IfxGtm_Tom_PwmHl",
+          "IfxGtm_Atom_Dtm_PwmHl",
+          "IfxGtm_Tom_Dtm_PwmHl",
+          "IfxGtm_Pwm"
+        ],
+        "GTM": [
+          "IfxGtm_cfg_TC37x",
+          "IfxGtm_cfg_TC39xB",
+          "IfxGtm_Psm",
+          "IfxGtm_PinMap_TC38x_516",
+          "IfxGtm_cfg_TC38x",
+          "IfxGtm_Trig",
+          "IfxGtm_Tbu",
+          "IfxGtm_cfg_TC38EVOx",
+          "IfxGtm_Dpll",
+          "IfxGtm_cfg_TC37xED",
+          "IfxGtm_PinMap_TC38x_LFBGA292",
+          "IfxGtm",
+          "IfxGtm_cfg_TC36x",
+          "IfxGtm_cfg_TC33x",
+          "IfxGtm_Dtm",
+          "IfxGtm_Spe",
+          "IfxGtm_PinMap_TC38x_LFBGA516",
+          "IfxGtm_Pwm"
+        ],
+        "TIMER": [
+          "IfxStm_Timer",
+          "IfxGtm_Tom_Timer",
+          "IfxGtm_Tim_Timer",
+          "IfxGtm_Atom_Timer",
+          "IfxCcu6_Timer",
+          "IfxCcu6_TimerWithTrigger"
+        ],
+        "STM": [
+          "IfxStm_cfg_TC33x",
+          "IfxStm_cfg_TC33xED",
+          "IfxStm_cfg_TC35x",
+          "IfxStm_cfg_TC36x",
+          "IfxStm_cfg_TC37x",
+          "IfxStm_cfg_TC37xED",
+          "IfxStm_cfg_TC38EVOx",
+          "IfxStm_cfg_TC38x",
+          "IfxStm_cfg_TC39xB",
+          "IfxStm",
+          "IfxStm_Timer"
+        ],
+        "ASCLIN": [
+          "IfxAsclin_cfg_TC33x",
+          "IfxAsclin_cfg_TC33xED",
+          "IfxAsclin_cfg_TC35x",
+          "IfxAsclin_cfg_TC36x",
+          "IfxAsclin_cfg_TC37x",
+          "IfxAsclin_cfg_TC37xED",
+          "IfxAsclin_cfg_TC38EVOx",
+          "IfxAsclin_cfg_TC38x",
+          "IfxAsclin_cfg_TC39xB",
+          "IfxAsclin_Asc",
+          "IfxAsclin_Lin",
+          "IfxAsclin_Spi",
+          "IfxAsclin"
+        ],
+        "INTERRUPT": [
+          "IfxCpu_Irq"
+        ]
+      },
+      "warnings": []
+    }
   }
 }
