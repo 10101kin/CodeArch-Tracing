@@ -1,4 +1,3 @@
-/* IfxPort_Pinmap.h - minimal pin symbol externs for tests */
 #ifndef IFXPORT_PINMAP_H
 #define IFXPORT_PINMAP_H
 
